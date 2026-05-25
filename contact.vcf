@@ -1,0 +1,30 @@
+
+BEGIN:VCARD
+VERSION:4.0
+
+
+N:Lee;Jaeheung;;;
+FN:Jaeheung Lee
+
+
+TEL;TYPE=WORK,VOICE:010-0000-0000
+
+
+EMAIL;TYPE=INTERNET,PREF:your-email@example.com
+
+
+EMAIL;TYPE=INTERNET,WORK:
+
+
+PHOTO;TYPE=JPG;VALUE=URI:https://HeungJAELEE.github.io/
+
+
+ORG:Current Company LTD
+
+
+TITLE:
+
+
+URL:https://HeungJAELEE.github.io/
+
+END:VCARD
