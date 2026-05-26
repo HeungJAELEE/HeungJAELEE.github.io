@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 재흥의 엔지니어링 기록</title>
-    <link>https://HeungJAELEE.github.io/categories/</link>
-    <description>Recent content in Categories on 재흥의 엔지니어링 기록</description>
+    <title>Categories on Hugo Profile</title>
+    <link>https://hugo-profile.netlify.app/categories/</link>
+    <description>Recent content in Categories on Hugo Profile</description>
     <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://HeungJAELEE.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hugo-profile.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Engineering</title>
-      <link>https://HeungJAELEE.github.io/categories/engineering/</link>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/categories/engineering/</guid>
+      <link>https://hugo-profile.netlify.app/categories/engineering/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://hugo-profile.netlify.app/categories/engineering/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,114 +1,120 @@
+function encodeHTML(str) {
+  return str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+}
 
-(function($) {
-  summaryInclude=60;
-    var fuseOptions = {
-      shouldSort: true,
-      includeMatches: true,
-      threshold: 0.0,
-      tokenize:true,
-      location: 0,
-      distance: 100,
-      maxPatternLength: 32,
-      minMatchCharLength: 3,
-      keys: [
-        {name:"title",weight:0.8},
-        {name:"contents",weight:0.5},
-        {name:"tags",weight:0.3}
-      ]
-    };
+function isValidUrl(url) {
+  try {
+    const parsedUrl = new URL(url, window.location.origin);
+    return parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:";
+  } catch (e) {
+    return false;
+  }
+}
 
+let debounceTimeout;
+function searchOnChange(evt) {
+  clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(() => {
+    performSearch(evt);
+  }, 300); // Debounce delay of 300ms
+}
 
-    var searchQuery = param("s");
-    if(searchQuery){
-      $("#search-query").val(searchQuery);
-      executeSearch(searchQuery);
-    }else {
-      $('#search-results').append("<p>Please enter a word or phrase above</p>");
+async function performSearch(evt) {
+  let searchQuery = evt.target.value.trim().toLowerCase();
+
+  if (searchQuery !== "") {
+    const searchButtonEle = document.querySelectorAll("#search");
+
+    if (searchButtonEle.length < 2) {
+      console.error("Search button elements missing!");
+      return;
     }
 
+    let searchButtonPosition;
+    if (window.innerWidth > 768) {
+      searchButtonPosition = searchButtonEle[0].getBoundingClientRect();
+      document.getElementById("search-content").style.width = "500px";
+    } else {
+      searchButtonPosition = searchButtonEle[1].getBoundingClientRect();
+      document.getElementById("search-content").style.width = "300px";
+    }
 
+    document.getElementById("search-content").style.top =
+      searchButtonPosition.top + 50 + "px";
+    document.getElementById("search-content").style.left =
+      searchButtonPosition.left + "px";
 
-    function executeSearch(searchQuery){
-      $.ajax({
-        dataType: "json",
-        url: "/index.json", 
-        success: function( data ) {
-          var pages = data;
-          var fuse = new Fuse(pages, fuseOptions);
-          var result = fuse.search(searchQuery);
-          console.log({"matches":result});
-          if(result.length > 0){
-            populateResults(result);
-          }else{
-            $('#search-results').append("<p>No matches found</p>");
+    try {
+      // Use the search index URL provided by Hugo template, fallback to /index.json
+      let indexURL = window.searchIndexURL || '/index.json';
+      
+      let response = await fetch(indexURL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch search data");
+      }
+
+      let searchJson = await response.json();
+      console.log("Fetched Data:", searchJson); // Debugging log
+
+      let searchResults = searchJson.filter((item) => {
+        if (!item || typeof item !== "object") return false;
+        if (!item.title && !item.description && !item.content) return false;
+
+        return (
+          (item.title && item.title.toLowerCase().includes(searchQuery)) ||
+          (item.description && item.description.toLowerCase().includes(searchQuery)) ||
+          (item.content && item.content.toLowerCase().includes(searchQuery))
+        );
+      });
+
+      const searchResultsContainer = document.getElementById("search-results");
+      searchResultsContainer.innerHTML = ""; // Clear previous results
+
+      if (searchResults.length > 0) {
+        searchResults.forEach((item) => {
+          if (!item.permalink || !isValidUrl(item.permalink)) {
+            console.warn("Skipping invalid search result:", item);
+            return;
           }
-        }
-      });
-    }
 
-    function populateResults(result){
-      $.each(result,function(key,value){
-        var contents= value.item.contents;
-        var snippet = "";
-        var snippetHighlights=[];
-        var tags =[];
-        if( fuseOptions.tokenize ){
-          snippetHighlights.push(searchQuery);
-        }else{
-          $.each(value.matches,function(matchKey,mvalue){
-            if(mvalue.key == "tags"){
-              snippetHighlights.push(mvalue.value);
-            }else if(mvalue.key == "contents"){
-              start = mvalue.indices[0][0]-summaryInclude>0?mvalue.indices[0][0]-summaryInclude:0;
-              end = mvalue.indices[0][1]+summaryInclude<contents.length?mvalue.indices[0][1]+summaryInclude:contents.length;
-              snippet += contents.substring(start,end);
-              snippetHighlights.push(mvalue.value.substring(mvalue.indices[0][0],mvalue.indices[0][1]-mvalue.indices[0][0]+1));
-            }
-          });
-        }
+          const card = document.createElement("div");
+          card.className = "card";
 
-        if(snippet.length<1){
-          snippet += contents.substring(0,summaryInclude*2);
-        }
-        //pull template from hugo templarte definition
-        var templateDefinition = $('#search-result-template').html();
-        //replace values
-        var output = render(templateDefinition,{key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,categories:value.item.categories,snippet:snippet});
-        $('#search-results').append(output);
+          const link = document.createElement("a");
+          link.href = item.permalink; // Safe, since we validated it
 
-        $.each(snippetHighlights,function(snipkey,snipvalue){
-          $("#summary-"+key).mark(snipvalue);
+          const contentDiv = document.createElement("div");
+          contentDiv.className = "p-3";
+
+          const title = document.createElement("h5");
+          title.textContent = item.title || "Untitled"; // Use textContent to prevent XSS
+
+          const description = document.createElement("div");
+          description.textContent = item.description || "No description available"; // Safe
+
+          contentDiv.appendChild(title);
+          contentDiv.appendChild(description);
+          link.appendChild(contentDiv);
+          card.appendChild(link);
+          searchResultsContainer.appendChild(card);
         });
-
-      });
-    }
-
-    function param(name) {
-        return decodeURIComponent((location.search.split(name + '=')[1] || '').split('&')[0]).replace(/\+/g, ' ');
-    }
-
-    function render(templateString, data) {
-      var conditionalMatches,conditionalPattern,copy;
-      conditionalPattern = /\$\{\s*isset ([a-zA-Z]*) \s*\}(.*)\$\{\s*end\s*}/g;
-      //since loop below depends on re.lastInxdex, we use a copy to capture any manipulations whilst inside the loop
-      copy = templateString;
-      while ((conditionalMatches = conditionalPattern.exec(templateString)) !== null) {
-        if(data[conditionalMatches[1]]){
-          //valid key, remove conditionals, leave contents.
-          copy = copy.replace(conditionalMatches[0],conditionalMatches[2]);
-        }else{
-          //not valid, remove entire section
-          copy = copy.replace(conditionalMatches[0],'');
-        }
+      } else {
+        const noResultsMessage = document.createElement("p");
+        noResultsMessage.className = "text-center py-3";
+        noResultsMessage.textContent = `No results found for "${searchQuery}"`;
+        searchResultsContainer.appendChild(noResultsMessage);
       }
-      templateString = copy;
-      //now any conditionals removed we can do simple substitution
-      var key, find, re;
-      for (key in data) {
-        find = '\\$\\{\\s*' + key + '\\s*\\}';
-        re = new RegExp(find, 'g');
-        templateString = templateString.replace(re, data[key]);
-      }
-      return templateString;
+
+      document.getElementById("search-content").style.display = "block";
+    } catch (error) {
+      console.error("Error fetching search data:", error);
     }
-})(jQuery)
+  } else {
+    document.getElementById("search-content").style.display = "none";
+    document.getElementById("search-results").innerHTML = "";
+  }
+}

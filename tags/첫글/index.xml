@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>첫글 on 재흥의 엔지니어링 기록</title>
-    <link>https://HeungJAELEE.github.io/tags/%EC%B2%AB%EA%B8%80/</link>
-    <description>Recent content in 첫글 on 재흥의 엔지니어링 기록</description>
+    <title>첫글 on Hugo Profile</title>
+    <link>https://hugo-profile.netlify.app/tags/%EC%B2%AB%EA%B8%80/</link>
+    <description>Recent content in 첫글 on Hugo Profile</description>
     <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://HeungJAELEE.github.io/tags/%EC%B2%AB%EA%B8%80/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hugo-profile.netlify.app/tags/%EC%B2%AB%EA%B8%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>나의 첫 엔지니어링 일지</title>
-      <link>https://HeungJAELEE.github.io/blog/first/</link>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/blog/first/</guid>
+      <link>https://hugo-profile.netlify.app/blogs/first/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://hugo-profile.netlify.app/blogs/first/</guid>
       <description>&lt;h2 id=&#34;안녕하세요&#34;&gt;안녕하세요!&lt;/h2&gt;&#xA;&lt;p&gt;여기는 나의 첫 엔지니어링 기록 공간입니다.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,200 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 재흥의 엔지니어링 기록</title>
-    <link>https://HeungJAELEE.github.io/tags/</link>
-    <description>Recent content in Tags on 재흥의 엔지니어링 기록</description>
+    <title>Tags on Hugo Profile</title>
+    <link>https://hugo-profile.netlify.app/tags/</link>
+    <description>Recent content in Tags on Hugo Profile</description>
     <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0900</lastBuildDate>
-    <atom:link href="https://HeungJAELEE.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://hugo-profile.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>첫글</title>
-      <link>https://HeungJAELEE.github.io/tags/%EC%B2%AB%EA%B8%80/</link>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/%EC%B2%AB%EA%B8%80/</guid>
+      <link>https://hugo-profile.netlify.app/tags/%EC%B2%AB%EA%B8%80/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/%EC%B2%AB%EA%B8%80/</guid>
       <description></description>
     </item>
     <item>
-      <title>Docker</title>
-      <link>https://HeungJAELEE.github.io/tags/docker/</link>
-      <pubDate>Tue, 07 Jan 2020 17:09:26 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/docker/</guid>
+      <title>Example</title>
+      <link>https://hugo-profile.netlify.app/tags/example/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/example/</guid>
       <description></description>
     </item>
     <item>
-      <title>JavaScript</title>
-      <link>https://HeungJAELEE.github.io/tags/javascript/</link>
-      <pubDate>Tue, 07 Jan 2020 17:09:26 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/javascript/</guid>
+      <title>Markdown Syntax</title>
+      <link>https://hugo-profile.netlify.app/tags/markdown-syntax/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/markdown-syntax/</guid>
       <description></description>
     </item>
     <item>
-      <title>JSON</title>
-      <link>https://HeungJAELEE.github.io/tags/json/</link>
-      <pubDate>Tue, 07 Jan 2020 17:09:26 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/json/</guid>
+      <title>Mathjax</title>
+      <link>https://hugo-profile.netlify.app/tags/mathjax/</link>
+      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/mathjax/</guid>
       <description></description>
     </item>
     <item>
-      <title>Node.js</title>
-      <link>https://HeungJAELEE.github.io/tags/node.js/</link>
-      <pubDate>Tue, 07 Jan 2020 17:09:26 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/node.js/</guid>
+      <title>Sample</title>
+      <link>https://hugo-profile.netlify.app/tags/sample/</link>
+      <pubDate>Sat, 03 Apr 2021 23:29:21 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/sample/</guid>
       <description></description>
     </item>
     <item>
-      <title>REST APIs</title>
-      <link>https://HeungJAELEE.github.io/tags/rest-apis/</link>
-      <pubDate>Tue, 07 Jan 2020 17:09:26 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/rest-apis/</guid>
+      <title>Emoji Support</title>
+      <link>https://hugo-profile.netlify.app/tags/emoji-support/</link>
+      <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/emoji-support/</guid>
       <description></description>
     </item>
     <item>
-      <title>Atlassian Ecosystem</title>
-      <link>https://HeungJAELEE.github.io/tags/atlassian-ecosystem/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/atlassian-ecosystem/</guid>
+      <title>Placeholder Text</title>
+      <link>https://hugo-profile.netlify.app/tags/placeholder-text/</link>
+      <pubDate>Sat, 03 Apr 2021 22:41:10 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/placeholder-text/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bash/Shell</title>
-      <link>https://HeungJAELEE.github.io/tags/bash/shell/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/bash/shell/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>BOSH</title>
-      <link>https://HeungJAELEE.github.io/tags/bosh/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/bosh/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>DevOps</title>
-      <link>https://HeungJAELEE.github.io/tags/devops/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/devops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Java</title>
-      <link>https://HeungJAELEE.github.io/tags/java/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Monit</title>
-      <link>https://HeungJAELEE.github.io/tags/monit/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/monit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://HeungJAELEE.github.io/tags/python/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Xml/Xslt</title>
-      <link>https://HeungJAELEE.github.io/tags/xml/xslt/</link>
-      <pubDate>Sun, 11 Feb 2018 12:41:05 -0500</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/xml/xslt/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Agile</title>
-      <link>https://HeungJAELEE.github.io/tags/agile/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/agile/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>CI/CD Pipelines</title>
-      <link>https://HeungJAELEE.github.io/tags/ci/cd-pipelines/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/ci/cd-pipelines/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Continuous Delivery</title>
-      <link>https://HeungJAELEE.github.io/tags/continuous-delivery/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/continuous-delivery/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Continuous Integration</title>
-      <link>https://HeungJAELEE.github.io/tags/continuous-integration/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/continuous-integration/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Culture</title>
-      <link>https://HeungJAELEE.github.io/tags/culture/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0900</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/culture/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Atlassian Developer Ecosystem</title>
-      <link>https://HeungJAELEE.github.io/tags/atlassian-developer-ecosystem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/atlassian-developer-ecosystem/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bamboo</title>
-      <link>https://HeungJAELEE.github.io/tags/bamboo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/bamboo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bitbucket</title>
-      <link>https://HeungJAELEE.github.io/tags/bitbucket/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/bitbucket/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Confluence</title>
-      <link>https://HeungJAELEE.github.io/tags/confluence/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/confluence/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>JIRA</title>
-      <link>https://HeungJAELEE.github.io/tags/jira/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/jira/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>JQuery</title>
-      <link>https://HeungJAELEE.github.io/tags/jquery/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/jquery/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Maven</title>
-      <link>https://HeungJAELEE.github.io/tags/maven/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/maven/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Spring</title>
-      <link>https://HeungJAELEE.github.io/tags/spring/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://HeungJAELEE.github.io/tags/spring/</guid>
+      <title>Rich Content</title>
+      <link>https://hugo-profile.netlify.app/tags/rich-content/</link>
+      <pubDate>Sat, 03 Apr 2021 19:53:33 +0530</pubDate>
+      <guid>https://hugo-profile.netlify.app/tags/rich-content/</guid>
       <description></description>
     </item>
   </channel>
