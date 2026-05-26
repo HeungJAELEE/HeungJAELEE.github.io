@@ -3,51 +3,66 @@
     /* 1. A4 가로 (Landscape) 설정 및 여백 최적화 */
     @page {
         size: A4 landscape;
-        margin: 10mm; /* 브라우저 기본 여백을 최소화 */
+        margin: 15mm;
     }
 
-    /* 2. 전역 배경/글자색 보정 */
+    /* 2. 전역 배경/글자색 보정 (잉크 낭비 방지 및 가독성 확보) */
     html, body {
         background-color: #ffffff !important;
         color: #000000 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        height: 100%;
+        height: auto !important; /* height 100% 버그 방지 */
     }
 
-    /* 3. 인쇄 시 완전히 사라져야 할 불필요한 UI 요소 묶음 */
+    /* 3. 인쇄 시 불필요한 요소 제거 */
     #top-navbar, header, footer, #footer, nav, .navbar, .language-switcher, 
-    #skill-filter-buttons, #theme-toggle, .btn-print, .back-to-top, .support-button {
+    #skill-filter-buttons, #theme-toggle, .btn-print, .back-to-top, .support-button,
+    .dynamic-navbar {
         display: none !important;
     }
 
-    /* 4. 섹션별로 무조건 새 페이지부터 시작하게 강제 분할 (Page Break) */
+    /* 4. Flexbox 레이아웃 해제 (Flex 하위 요소는 page-break가 무시됨) */
+    .row, .d-flex, .col-sm-12, .col-md-6, .col-lg-4, .col-sm-6, .container-fluid, section {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+    }
+
+    /* 5. 섹션별 1페이지 강제 분할 (Page Break) */
+    /* .anchor 단위로 자르되, 첫 번째를 제외하고 모두 새 페이지에서 시작 */
     .anchor {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        margin-bottom: 0 !important;
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
+        margin-bottom: 20px !important;
+        padding: 0 !important;
+        display: block !important;
+        clear: both !important;
     }
     
-    /* 두 번째 섹션부터는 무조건 앞 페이지를 끊고 새 페이지 최상단에서 시작 */
     .anchor:not(:first-of-type) {
         page-break-before: always !important;
         break-before: page !important;
     }
 
-    /* 5. 컴포넌트(카드, 프로젝트 타일 등)가 페이지 중간에 두 동강 나지 않도록 방지 */
-    .card, .filtr-item, .col-sm-6, .col-lg-4, .project-card, .experience-card {
+    /* 6. 카드 내부 쪼개짐 방지 및 가독성 픽스 */
+    .card, .filtr-item, .project-card, .experience-card {
         page-break-inside: avoid !important;
-        break-inside: avoid !important;
+        break-inside: avoid-page !important;
         background-color: #ffffff !important;
-        border: 1px solid #e0e0e0 !important; /* 인쇄 시 희미하게 테두리 추가 */
+        border: 1px solid #c0c0c0 !important; /* 뚜렷한 테두리 */
         box-shadow: none !important;
-        color: #000000 !important;
-        margin-bottom: 15px !important; /* 카드 간 간격 조정 */
+        margin-bottom: 15px !important;
     }
 
-    /* 6. 링크 스타일 보정 */
+    /* 7. 글씨 대비 (Contrast) 강제 상향 - 회색 글씨 방지 */
+    p, span, h1, h2, h3, h4, h5, h6, .card-text, .card-title, .sub-title, .text-muted {
+        color: #000000 !important;
+        opacity: 1 !important;
+    }
+
+    /* 8. 링크 및 뱃지 스타일 보정 */
     a {
         text-decoration: none !important;
         color: #000000 !important;
@@ -55,15 +70,15 @@
     a[href]:after {
         content: none !important; /* 링크 옆에 URL이 강제 출력되는 현상 방지 */
     }
+    .badge {
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+        background-color: transparent !important;
+    }
 
-    /* 7. Skills 프로그레스 바 보정 */
+    /* 9. Skills 프로그레스 바 보정 */
     .progress-bar {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-    }
-    
-    /* 어두운 배경에 흰 글씨였던 것들을 까만 글씨로 반전 */
-    .card-text, .card-title, span {
-        color: #000000 !important;
     }
 }
