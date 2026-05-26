@@ -1,228 +1,1081 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
+<html lang="en">
+  <head>
+    <title>Posts</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Posts | 재흥의 엔지니어링 기록</title>
-<meta name="keywords" content="">
-<meta name="description" content="Posts - 재흥의 엔지니어링 기록">
-<meta name="author" content="">
-<link rel="canonical" href="https://HeungJAELEE.github.io/posts/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://HeungJAELEE.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://HeungJAELEE.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://HeungJAELEE.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://HeungJAELEE.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://HeungJAELEE.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://HeungJAELEE.github.io/posts/index.xml" title="rss">
-<link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/posts/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
 
-            .list {
-                background: var(--theme);
-            }
 
-            .toc {
-                background: var(--entry);
-            }
-        }
+<link rel="canonical" href="https://HeungJAELEE.github.io/posts/" />
 
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
 
-</script><meta property="og:url" content="https://HeungJAELEE.github.io/posts/">
-  <meta property="og:site_name" content="재흥의 엔지니어링 기록">
-  <meta property="og:title" content="Posts">
-  <meta property="og:locale" content="ko_kr">
-  <meta property="og:type" content="website">
+<link rel="stylesheet" href="/application.12d69a55a3afe94646716f1bcc2804b35a0b575ba94febbb0ec6e47bd0bef25f.css" integrity="sha256-EtaaVaOv6UZGcW8bzCgEs1oLV1upT&#43;u7Dsbke9C&#43;8l8=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png" />
+
+
+<link rel="alternate" type="application/rss+xml" href="https://HeungJAELEE.github.io/posts/rss.xml" title="재흥의 엔지니어링 기록">
+
+
+
+
+
+
+
+<meta property="og:title" content="Posts" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Portfolio and personal blog of John Doe." />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/john.png">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/posts/">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Posts">
 
+     
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://HeungJAELEE.github.io/posts/"
-    }
-  ]
+    
+
+    
+
+
+
+
+
+    <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">
+     let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
 }
-</script>
-</head>
-<body class="list" id="top">
-    <header class="header">
-    <nav class="header-nav">
-        <div class="logo">
-            <a href="https://HeungJAELEE.github.io/" accesskey="h" title="재흥의 엔지니어링 기록 (Alt + H)">재흥의 엔지니어링 기록</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu" class="menu">
-        </ul>
-    </nav>
-</header>
-<main class="main"> 
-<header class="page-header">
-  <h1>
-    Posts
-  </h1>
-</header>
+document.documentElement.setAttribute('data-theme', theme)
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">나의 첫 엔지니어링 일지
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>안녕하세요! 여기는 나의 첫 엔지니어링 기록 공간입니다.
-</p>
-  </div>
-  <footer class="entry-footer">
+    </script>
+    
+  </head>
 
-<span title='2026-05-26 00:00:00 +0900 KST'>2026년 5월 26일</span></footer>
-  <a class="entry-link" aria-label="post link to 나의 첫 엔지니어링 일지" href="https://HeungJAELEE.github.io/posts/first/"></a>
-</article>
-    </main>
+  <body class="type-posts kind-section" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
     
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://HeungJAELEE.github.io/">재흥의 엔지니어링 기록</a></span> · 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  
     
+  
+  
+
+
+
+  
+  
     
-    <span>
-        Powered by
-        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
-        <polyline points="17 11 12 6 7 11"></polyline>
-        <polyline points="17 18 12 13 7 18"></polyline>
-    </svg>
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_f0b88c9f9c6d9a1f.png" id="logo" alt="Logo">
+      재흥의 엔지니어링 기록</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Home</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Skills</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#experiences">Experiences</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#education">Education</a>
+                </li>
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">더</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#projects">Projects</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#publications">Publications</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#featured-posts">Featured Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#accomplishments">Accomplishments</a>
+                    
+                  
+                  
+                    
+                    
+                      <a class="dropdown-item" href="/#achievements">Achievements</a>
+                    
+                  
+              </div>
+            </li>
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">게시글</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">메모</a>
+          </li>
+        
+        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="https://toha-docs.hugo-themes.com/posts/">Docs</a>
+              </li>
+            
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
 </a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="theme-icon" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="theme-icon" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+  
+</div>
+</li>
 
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
         
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu_f0b88c9f9c6d9a1f.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu_a9180e8b9b024b5f.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+  
+</nav>
+
+
+
+      
+      
+  
+  
+
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="찾다" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">게시글</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    
+    <li><a class=" list-link" href="/posts/introduction/" title="Introduction">Introduction</a></li>
+    
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/category/"> Category</a>
+      
+      <ul class="">
         
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/category/sub-category/"> Sub-Category</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    
+    <li><a class=" list-link" href="/posts/category/sub-category/rich-content/" title="Rich Content">Rich Content</a></li>
+    
+  
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
 
-</script>
-<script>
-    var toplink = document.getElementById("top-link");
-    window.onscroll = function () {
-        const scrollThreshold = window.innerHeight;
-        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
-            toplink.classList.remove("hidden");
-        } else {
-            toplink.classList.add("hidden");
-        }
-    };
+      </ul>
+    </li>
+  
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
 
-</script>
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    
+    <li><a class=" list-link" href="/posts/markdown-sample/" title="Markdown Sample">Markdown Sample</a></li>
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    <li><a class=" list-link" href="/posts/shortcodes/" title="Shortcodes Sample">Shortcodes Sample</a></li>
+    
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+      
+      
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/first/" class="post-card-link">
+        <a href="/posts/first/" class="post-card-link">
+          
+          <img class="card-img-top" src='/images/default-hero_hu_dad6cb63201e64d.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/first/" class="post-card-link">
+        <h5 class="card-title">나의 첫 엔지니어링 일지</h5>
+        <p class="card-text post-summary">안녕하세요! 여기는 나의 첫 엔지니어링 기록 공간입니다.
+</p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/%EC%B2%AB%EA%B8%80/" class="btn btn-sm btn-outline-info rounded">첫글</a></li>
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        2026년 5월 26일 화요일
+         | 
+        1 minute
+      </span>
+      <a href="/posts/first/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/introduction/" class="post-card-link">
+        <a href="/posts/introduction/" class="post-card-link">
+          
+          <img class="card-img-top" src='/posts/introduction/hero.svg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/introduction/" class="post-card-link">
+        <h5 class="card-title">Introduction</h5>
+        <p class="card-text post-summary">Greeting! This is an introduction post. This post tests the followings:
+Hero image is in the same directory as the post. This post should be at top of the sidebar. Post author should be the same as specified in author.yaml file. </p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/basic/" class="btn btn-sm btn-outline-info rounded">Basic</a></li>
+    
+    
+    <li><a href="/tags/multi-lingual/" class="btn btn-sm btn-outline-info rounded">Multi-lingual</a></li>
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        2020년 6월 8일 월요일
+         | 
+        1 minute
+      </span>
+      <a href="/posts/introduction/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/markdown-sample/" class="post-card-link">
+        <a href="/posts/markdown-sample/" class="post-card-link">
+          
+          <img class="card-img-top" src='/posts/markdown-sample/hero.svg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/markdown-sample/" class="post-card-link">
+        <h5 class="card-title">Markdown Samples</h5>
+        <p class="card-text post-summary">This is a sample post intended to test the followings:
+A different post author. Table of contents. Markdown content rendering. Math rendering. Emoji rendering. Markdown Syntax Rendering Headings The following HTML &lt;h1&gt;—&lt;h6&gt; elements represent six levels of section headings. &lt;h1&gt; is the highest section level while &lt;h6&gt; is the lowest.
+H1 H2 H3 H4 H5 H6 Paragraph Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+</p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        2020년 6월 8일 월요일
+         | 
+        3 minutes
+      </span>
+      <a href="/posts/markdown-sample/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/category/sub-category/rich-content/" class="post-card-link">
+        <a href="/posts/category/sub-category/rich-content/" class="post-card-link">
+          
+          <img class="card-img-top" src='/posts/category/sub-category/rich-content/images/forest_hu_6740a20f0a3376e8.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/category/sub-category/rich-content/" class="post-card-link">
+        <h5 class="card-title">Rich Content</h5>
+        <p class="card-text post-summary">This sample post tests the followings:
+Category, sub-category nesting in the sidebar. Hero image and other images are in images folder inside this post directory. Different media rendering like image, X (formerly Twitter), YouTube video, Vimeo video etc. Image Sample X (formerly Twitter) Sample Owl bet you&#39;ll lose this staring contest 🦉 pic.twitter.com/eJh4f2zncC
+&mdash; San Diego Zoo Wildlife Alliance (@sandiegozoo) October 26, 2021 YouTube Video Sample Vimeo Video Sample </p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/markdown/" class="btn btn-sm btn-outline-info rounded">Markdown</a></li>
+    
+    
+    <li><a href="/tags/content-organization/" class="btn btn-sm btn-outline-info rounded">Content Organization</a></li>
+    
+    
+    <li><a href="/tags/multi-lingual/" class="btn btn-sm btn-outline-info rounded">Multi-lingual</a></li>
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        2020년 6월 8일 월요일
+         | 
+        1 minute
+      </span>
+      <a href="/posts/category/sub-category/rich-content/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/shortcodes/" class="post-card-link">
+        <a href="/posts/shortcodes/" class="post-card-link">
+          
+          <img class="card-img-top" src='/posts/shortcodes/boat_hu_77184fd5fc71280a.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/shortcodes/" class="post-card-link">
+        <h5 class="card-title">Shortcodes Samples</h5>
+        <p class="card-text post-summary">This is a sample post intended to test the followings:
+Default hero image. Different shortcodes. Alert The following alerts are available in this theme.
+This is sample alert with type=&quot;success&quot;.This is sample alert with type=&quot;danger&quot;.This is sample alert with type=&quot;warning&quot;.This is sample alert with type=&quot;info&quot;.This is sample alert with type=&quot;dark&quot;.This is sample alert with type=&quot;primary&quot;.This is sample alert with type=&quot;secondary&quot;.Image A sample image without any attribute. A sample image with height and width attributes. A center aligned image with height and width attributes. A image with float attribute. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas lectus sed leo ultricies ultricies. Praesent tellus risus, eleifend vel efficitur ac, venenatis sit amet sem. Ut ut egestas erat. Fusce ut leo turpis. Morbi consectetur sed lacus vitae vehicula. Cras gravida turpis id eleifend volutpat. Suspendisse nec ipsum eu erat finibus dictum. Morbi volutpat nulla purus, vel maximus ex molestie id. Nullam posuere est urna, at fringilla eros venenatis quis.
+</p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        2020년 6월 8일 월요일
+         | 
+        3 minutes
+      </span>
+      <a href="/posts/shortcodes/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/category/sub-category/_index.bn/" class="post-card-link">
+        <a href="/posts/category/sub-category/_index.bn/" class="post-card-link">
+          
+          <img class="card-img-top" src='/images/default-hero_hu_dad6cb63201e64d.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/category/sub-category/_index.bn/" class="post-card-link">
+        <h5 class="card-title">Sub-Category</h5>
+        <p class="card-text post-summary"></p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        1년 1월 1일 월요일
+         | 
+        0 minutes
+      </span>
+      <a href="/posts/category/sub-category/_index.bn/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/category/_index.bn/" class="post-card-link">
+        <a href="/posts/category/_index.bn/" class="post-card-link">
+          
+          <img class="card-img-top" src='/images/default-hero_hu_dad6cb63201e64d.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/category/_index.bn/" class="post-card-link">
+        <h5 class="card-title">Top Category Sample</h5>
+        <p class="card-text post-summary"></p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        1년 1월 1일 월요일
+         | 
+        0 minutes
+      </span>
+      <a href="/posts/category/_index.bn/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/_index.bn/" class="post-card-link">
+        <a href="/posts/_index.bn/" class="post-card-link">
+          
+          <img class="card-img-top" src='/images/default-hero_hu_dad6cb63201e64d.jpg'
+            alt="Hero Image" loading="lazy">
+        </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/_index.bn/" class="post-card-link">
+        <h5 class="card-title">পোস্ট সমূহ</h5>
+        <p class="card-text post-summary"></p>
+      </a>
+      
+      <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      
+      
+      <span class="float-start">
+        1년 1월 1일 월요일
+         | 
+        0 minutes
+      </span>
+      <a href="/posts/_index.bn/" class="float-end btn btn-outline-info btn-sm">Read</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+    </div>
+    <div class="paginator">
+      
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>바로가기</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#publications">Publications</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#featured-posts">Featured Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://HeungJAELEE.github.io/#achievements">Achievements</a>
+                </li>
+              
+            
+              
+                
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:johndoe@example.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>johndoe@example.com</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://github.com/johndoe target="_blank" rel="noopener">
+                  <span><i class="fab fa-github"></i></span> <span>johndoe</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.linkedin.com/in/johndoe target="_blank" rel="noopener">
+                  <span><i class="fab fa-linkedin"></i></span> <span>John Doe</span>
+                </a></li>
+              
+            
+              
+                <li><a href=tel:&#43;0123456789 target="_blank" rel="noopener">
+                  <span><i class="fas fa-phone-alt"></i></span> <span>&#43;0123456789</span>
+                </a></li>
+              
+            
+              
+                <li><a href=https://www.researchgate.net/profile/john-doe target="_blank" rel="noopener">
+                  <span><i class="fab fa-researchgate"></i></span> <span>John Doe</span>
+                </a></li>            
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    <hr />
+    <div class="container">
+      <p id="disclaimer"><strong>책임 고지:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses.
+You can modify or distribute the theme without requiring any permission from the theme author.
+However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-start">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu_be7279b2506ad3f1.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-end">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.d6f223f07ae6e8ec1e5dd9db2451570fde48489b7b0aa54b57f65fbdeb8712fc.js" integrity="sha256-1vIj8Hrm6OweXdnbJFFXD95ISJt7CqVLV/ZfveuHEvw=" defer></script>
+
+
+    
+     
+
+    
+    
+
 </body>
-
 </html>
