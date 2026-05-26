@@ -3,56 +3,57 @@
     /* 1. A4 가로 (Landscape) 설정 및 여백 최적화 */
     @page {
         size: A4 landscape;
-        margin: 15mm 15mm; /* 상하좌우 여백 */
+        margin: 10mm; /* 브라우저 기본 여백을 최소화 */
     }
 
-    /* 2. 전역 배경/글자색 보정 (잉크 낭비 방지 및 가독성 확보) */
+    /* 2. 전역 배경/글자색 보정 */
     html, body {
         background-color: #ffffff !important;
         color: #000000 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        height: 100%;
     }
 
-    /* 3. 인쇄 시 불필요한 요소 제거 (UI 버튼, 네비게이션, 푸터 등) */
-    nav, footer, .navbar, .language-switcher, #skill-filter-buttons, 
-    #theme-toggle, .btn-print, .back-to-top {
+    /* 3. 인쇄 시 완전히 사라져야 할 불필요한 UI 요소 묶음 */
+    #top-navbar, header, footer, #footer, nav, .navbar, .language-switcher, 
+    #skill-filter-buttons, #theme-toggle, .btn-print, .back-to-top, .support-button {
         display: none !important;
     }
 
-    /* 4. 섹션별 1페이지 강제 분할 (About, Skills, Experience 등) */
-    /* Toha 테마의 각 섹션은 보통 컨테이너나 id로 감싸져 있음 */
-    .anchor, section, .section {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        page-break-after: always;
-        break-after: page;
+    /* 4. 섹션별로 무조건 새 페이지부터 시작하게 강제 분할 (Page Break) */
+    .anchor {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
         margin-bottom: 0 !important;
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
     }
     
-    /* 마지막 섹션 뒤에는 페이지 넘김 방지 */
-    .anchor:last-of-type, section:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
+    /* 두 번째 섹션부터는 무조건 앞 페이지를 끊고 새 페이지 최상단에서 시작 */
+    .anchor:not(:first-of-type) {
+        page-break-before: always !important;
+        break-before: page !important;
     }
 
-    /* 5. 링크 스타일 보정 (밑줄 및 URL 출력 방지) */
+    /* 5. 컴포넌트(카드, 프로젝트 타일 등)가 페이지 중간에 두 동강 나지 않도록 방지 */
+    .card, .filtr-item, .col-sm-6, .col-lg-4, .project-card, .experience-card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e0e0e0 !important; /* 인쇄 시 희미하게 테두리 추가 */
+        box-shadow: none !important;
+        color: #000000 !important;
+        margin-bottom: 15px !important; /* 카드 간 간격 조정 */
+    }
+
+    /* 6. 링크 스타일 보정 */
     a {
         text-decoration: none !important;
         color: #000000 !important;
     }
     a[href]:after {
-        content: none !important;
-    }
-
-    /* 6. 카드 레이아웃 다크모드 무시 (그림자 및 테두리 정리) */
-    .card, .filtr-item {
-        background-color: #ffffff !important;
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-        color: #000000 !important;
+        content: none !important; /* 링크 옆에 URL이 강제 출력되는 현상 방지 */
     }
 
     /* 7. Skills 프로그레스 바 보정 */
@@ -60,6 +61,8 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
+    
+    /* 어두운 배경에 흰 글씨였던 것들을 까만 글씨로 반전 */
     .card-text, .card-title, span {
         color: #000000 !important;
     }
