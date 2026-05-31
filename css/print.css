@@ -41,6 +41,11 @@
         clear: both !important;
     }
     
+    .experiences-section {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+    }
+    
     .anchor:not(:first-of-type) {
         page-break-before: always !important;
         break-before: page !important;
