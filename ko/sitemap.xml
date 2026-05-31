@@ -73,6 +73,12 @@
     <priority>0.1</priority>
   </url>
   <url>
+    <loc>https://HeungJAELEE.github.io/posts/project1/</loc>
+    <lastmod>2026-05-31T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://HeungJAELEE.github.io/posts/first/</loc>
     <lastmod>2026-05-26T00:00:00&#43;09:00</lastmod>
     <changefreq>monthly</changefreq>
