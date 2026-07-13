@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/posts/resumopenai/">
+
+
+<link rel="stylesheet" href="/application.9ed5400320db53f66272dc4b84bcbc15221eb06d13ea5b708833ac87ee24fb97.css" integrity="sha256-ntVAAyDbU/ZictxLhLy8FSIesG0T6ltwiDOsh&#43;4k&#43;5c=">
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="이차전지 제조 공정, 자동화, 데이터 기반 품질 개선을 다루는 이재흥의 포트폴리오입니다." />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/posts/resumopenai/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC">
+  <meta name="twitter:description" content="프로젝트 한눈에 보기 resumOpenAI는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.
+이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.">
+
+<meta name="description" content="resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">기술 노트</a>
+          </li>
+        
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/search">
+        <input type="text" name="keyword" value="" placeholder="찾다" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/posts/" data-filter="all">게시글</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">이재흥</h5>
+          <p class="text-muted">
+            2026년 7월 5일 일요일
+             | 
+            8</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/llm/" class="btn btn-sm btn-outline-info rounded">LLM</a></li>
+    
+    
+    <li><a href="/tags/flask/" class="btn btn-sm btn-outline-info rounded">Flask</a></li>
+    
+    
+    <li><a href="/tags/react/" class="btn btn-sm btn-outline-info rounded">React</a></li>
+    
+    
+    <li><a href="/tags/openai-api/" class="btn btn-sm btn-outline-info rounded">OpenAI API</a></li>
+    
+    
+    <li><a href="/tags/privacy/" class="btn btn-sm btn-outline-info rounded">Privacy</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="프로젝트-한눈에-보기">프로젝트 한눈에 보기</h2>
+<p><code>resumOpenAI</code>는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 <strong>Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입</strong>이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.</p>
+<blockquote>
+<p>이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.</p>
+</blockquote>
+<hr>
+<h2 id="1-프로젝트-배경-이력서-생성보다-어려운-것은-사실-관리다">1. 프로젝트 배경: 이력서 생성보다 어려운 것은 사실 관리다</h2>
+<p>이력서 작성에는 서로 다른 성격의 작업이 동시에 들어간다.</p>
+<ul>
+<li>여러 문서에 흩어진 경력과 프로젝트를 한 형식으로 정리해야 한다.</li>
+<li>같은 경험도 지원 직무에 따라 강조할 문제, 행동, 결과가 달라진다.</li>
+<li>문장을 매끄럽게 만드는 과정에서 실제로 하지 않은 업무나 확인되지 않은 수치가 추가되면 안 된다.</li>
+<li>이름, 연락처, 회사 내부 정보처럼 민감한 데이터가 외부 API로 불필요하게 전달되지 않아야 한다.</li>
+</ul>
+<p>따라서 목표를 “AI가 이력서를 대신 작성한다”로 잡지 않았다. <strong>사용자의 경력 사실을 구조화하고, 직무별 초안을 만들고, 사용자가 근거를 확인한 뒤 승인하는 작성 보조 도구</strong>로 범위를 정했다. LLM은 최종 의사결정자가 아니라 표현과 재배치를 돕는 변환기로 두었다.</p>
+<h3 id="설계-목표">설계 목표</h3>
+<ol>
+<li>입력 정보와 생성 문장을 추적할 수 있을 것</li>
+<li>개인정보를 최소 수집·최소 전송할 것</li>
+<li>화면, 비즈니스 규칙, 모델 호출을 분리할 것</li>
+<li>모델 응답이 달라져도 동일한 스키마로 검사할 수 있을 것</li>
+<li>사용자의 검토와 수정 없이는 최종본으로 확정하지 않을 것</li>
+</ol>
+<h3 id="프로토타입에서-제외한-범위">프로토타입에서 제외한 범위</h3>
+<ul>
+<li>채용 합격 가능성 예측</li>
+<li>경력 사실의 자동 인증</li>
+<li>충분한 근거 없이 경험이나 성과 수치 보완</li>
+<li>fine-tuning을 했다는 전제의 품질 주장</li>
+<li>기업용 보안·감사 요건을 모두 충족한 운영 서비스</li>
+</ul>
+<hr>
+<h2 id="2-왜-reactflaskopenai-구조를-선택했는가">2. 왜 React–Flask–OpenAI 구조를 선택했는가</h2>
+<p>이력서 편집 화면은 섹션 추가, 순서 변경, 수정, 초기화처럼 상태 변화가 많다. 그래서 입력과 미리보기를 컴포넌트 단위로 관리하기 쉬운 React를 화면 계층에 두었다. 반면 API 키 보호, 입력 정규화, 프롬프트 조립, 응답 검증은 브라우저에 노출되면 안 되므로 Flask 서버가 중간 계층을 맡도록 했다.</p>
+<p>OpenAI API는 텍스트를 직접 렌더링하는 계층과 분리했다. 이 분리는 모델이나 프롬프트가 바뀌어도 화면 전체를 다시 만들지 않고, 서버의 생성 어댑터와 검증 규칙을 교체할 수 있게 한다.</p>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+graph LR
+    A["React 입력·편집 화면"] -->|"경력 사실 + 지원 직무"| B["Flask API"]
+    B --> C["동의 확인·개인정보 최소화"]
+    C --> D["입력 정규화·프롬프트 계약"]
+    D -->|"구조화 생성 요청"| E["OpenAI API"]
+    E --> F["JSON 파싱·스키마 검증"]
+    F --> G["원본 근거 대조·금칙어 검사"]
+    G --> H["React 검토·수정 화면"]
+    H -->|"사용자 승인"| I["최종 렌더링·내보내기"]
+</div>
+
+<h3 id="계층별-책임">계층별 책임</h3>
+<table>
+  <thead>
+      <tr>
+          <th>계층</th>
+          <th>담당 책임</th>
+          <th>분리한 이유</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>React</td>
+          <td>입력 폼, 섹션 편집, 미리보기, 승인 상태</td>
+          <td>복잡한 화면 상태를 서버 로직과 분리하기 위해</td>
+      </tr>
+      <tr>
+          <td>Flask</td>
+          <td>요청 검증, 개인정보 필터링, 프롬프트 구성, 오류 처리</td>
+          <td>비밀키와 업무 규칙을 클라이언트에 노출하지 않기 위해</td>
+      </tr>
+      <tr>
+          <td>OpenAI API 어댑터</td>
+          <td>모델 요청과 응답 수신</td>
+          <td>특정 모델 호출 방식을 애플리케이션 핵심 로직과 분리하기 위해</td>
+      </tr>
+      <tr>
+          <td>검증 계층</td>
+          <td>JSON 스키마, 근거 일치, 누락·금칙어 검사</td>
+          <td>자연어 생성 결과를 그대로 신뢰하지 않기 위해</td>
+      </tr>
+      <tr>
+          <td>사용자 승인</td>
+          <td>사실 확인, 표현 수정, 최종 확정</td>
+          <td>자동 검사가 판단하기 어려운 맥락을 사람이 책임지도록 하기 위해</td>
+      </tr>
+  </tbody>
+</table>
+<p>개발 단계에서 프론트엔드와 백엔드가 서로 다른 포트로 실행될 수 있으므로 Flask-CORS를 사용한다. 다만 운영 환경에서는 허용 출처를 전체 공개하지 않고 실제 서비스 도메인으로 제한해야 한다.</p>
+<hr>
+<h2 id="3-사용-기술과-선택-이유">3. 사용 기술과 선택 이유</h2>
+<h3 id="react">React</h3>
+<ul>
+<li>경력, 학력, 프로젝트를 반복 가능한 폼 컴포넌트로 구성하기 적합하다.</li>
+<li>원본, AI 초안, 사용자 수정본을 별도 상태로 보관하면 변경 내용을 비교하기 쉽다.</li>
+<li>섹션 단위 재생성처럼 부분 업데이트가 필요한 인터랙션을 구현하기 좋다.</li>
+</ul>
+<h3 id="flask와-python">Flask와 Python</h3>
+<ul>
+<li>작은 API 프로토타입을 빠르게 구성하면서도 전처리·검증 함수를 명확히 분리할 수 있다.</li>
+<li>Python의 사전·리스트 구조는 이력서 JSON 스키마를 다루기에 자연스럽다.</li>
+<li>모델 호출 전후의 로깅, 예외 처리, 테스트 코드를 단계적으로 확장하기 쉽다.</li>
+</ul>
+<h3 id="openai-api">OpenAI API</h3>
+<ul>
+<li>사용자 사실을 직무 관점으로 요약하거나 문장 톤을 통일하는 생성 작업을 실험할 수 있다.</li>
+<li>모델 자체보다 <strong>입력 계약과 출력 계약을 서버에서 통제하는 방식</strong>을 검증하는 데 사용한다.</li>
+<li>API 응답이 실패하거나 형식에 맞지 않을 때 재시도 또는 수동 편집으로 전환할 수 있게 설계한다.</li>
+</ul>
+<h3 id="json-기반-구조화-출력">JSON 기반 구조화 출력</h3>
+<p>자유 형식 Markdown을 바로 받으면 섹션 누락, 제목 변경, 임의 문장 추가를 기계적으로 확인하기 어렵다. 먼저 정해진 JSON 형태로 받은 뒤 화면이나 문서 템플릿에서 렌더링하면 검증과 표현을 분리할 수 있다.</p>
+<hr>
+<h2 id="4-데이터-구조-개인정보와-경력-근거를-분리한다">4. 데이터 구조: 개인정보와 경력 근거를 분리한다</h2>
+<p>모델에 전달할 데이터는 “문서 전체”가 아니라 목적에 필요한 최소 필드로 정리한다. 이름, 전화번호, 이메일, 상세 주소는 문서 렌더링 단계까지 로컬 상태에 남기고, 문장 생성에 필요하지 않다면 외부 API 요청에서 제외한다. 회사명이나 고객명이 민감한 경우에는 별칭으로 치환한다.</p>
+<p>아래는 설계 의도를 보여 주는 축약 예시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;profile_id&#34;</span>: <span style="color:#e6db74">&#34;candidate-001&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;target_role&#34;</span>: <span style="color:#e6db74">&#34;manufacturing_dx_engineer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;experiences&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;experience_id&#34;</span>: <span style="color:#e6db74">&#34;exp-01&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;company_alias&#34;</span>: <span style="color:#e6db74">&#34;제조기업 A&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;period&#34;</span>: <span style="color:#e6db74">&#34;YYYY-MM~YYYY-MM&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;responsibilities&#34;</span>: [<span style="color:#e6db74">&#34;설비 셋업&#34;</span>, <span style="color:#e6db74">&#34;공정 조건 관리&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;evidence&#34;</span>: [<span style="color:#e6db74">&#34;작업 표준 정리&#34;</span>, <span style="color:#e6db74">&#34;이상 원인 분석 기록&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;generation_rules&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;invent_facts&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;invent_metrics&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;mark_missing_as&#34;</span>: <span style="color:#e6db74">&#34;확인 필요&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>핵심은 문장보다 먼저 <code>experience_id</code>와 <code>evidence</code>를 보존하는 것이다. 생성된 각 항목이 어떤 입력 경험에서 나왔는지 연결하면, 사용자가 결과를 검토할 때 원본 근거로 돌아갈 수 있다.</p>
+<h3 id="개인정보-처리-원칙">개인정보 처리 원칙</h3>
+<ol>
+<li><strong>수집 최소화</strong>: 생성에 필요하지 않은 개인정보는 받지 않는다.</li>
+<li><strong>전송 최소화</strong>: 연락처 등 렌더링용 정보는 모델 요청에서 제외한다.</li>
+<li><strong>비식별화</strong>: 회사·고객·프로젝트의 민감한 명칭은 별칭으로 치환한다.</li>
+<li><strong>목적 고지와 동의</strong>: 외부 모델 API로 전달되는 범위를 요청 전에 알린다.</li>
+<li><strong>보존 기간 분리</strong>: 편집 중 임시 데이터와 사용자가 저장한 결과의 보존 정책을 구분한다.</li>
+<li><strong>로그 위생</strong>: 원문 프롬프트와 개인정보를 일반 애플리케이션 로그에 그대로 남기지 않는다.</li>
+</ol>
+<hr>
+<h2 id="5-구현-흐름">5. 구현 흐름</h2>
+<h3 id="51-입력과-정규화">5.1 입력과 정규화</h3>
+<p>React 폼에서 받은 값은 Flask에서 다시 검사한다. 날짜 형식, 필수 필드, 문자열 길이, 허용된 섹션 이름을 확인하고, 빈 수치나 불명확한 결과는 임의로 채우지 않고 <code>확인 필요</code> 상태로 둔다. 클라이언트 검증은 사용자 편의를 위한 것이고 서버 검증은 신뢰 경계를 지키기 위한 것이므로 둘 다 필요하다.</p>
+<h3 id="52-직무별-컨텍스트-구성">5.2 직무별 컨텍스트 구성</h3>
+<p>지원 직무 설명에서 핵심 역량을 추려 입력 경험과 함께 전달하되, 모델에게 “직무에 맞지 않는 경력을 삭제하라”고 지시하지 않는다. 대신 관련도가 높은 경험을 앞에 배치하고, 관련도가 낮은 경험은 짧게 요약하도록 한다. 이 방식은 원본 사실을 보존하면서 문서의 초점을 바꾼다.</p>
+<h3 id="53-프롬프트-계약">5.3 프롬프트 계약</h3>
+<p>프롬프트에는 역할 설명보다 출력 규칙을 먼저 명시한다.</p>
+<ul>
+<li>제공된 사실만 사용한다.</li>
+<li>입력에 없는 도구, 자격, 성과 수치를 만들지 않는다.</li>
+<li>모든 생성 항목에 원본 <code>experience_id</code>를 포함한다.</li>
+<li>근거가 부족하면 추측 대신 <code>확인 필요</code>로 반환한다.</li>
+<li>응답은 합의된 JSON 스키마를 따른다.</li>
+</ul>
+<h3 id="54-구조화-응답-파싱">5.4 구조화 응답 파싱</h3>
+<p>서버는 모델 응답을 JSON으로 파싱하고 필수 필드, 자료형, 허용된 섹션을 확인한다. 형식 오류가 있으면 제한된 횟수만 재요청하고, 계속 실패하면 자유 형식 결과를 억지로 사용하지 않고 사용자 편집 화면으로 전환한다.</p>
+<h3 id="55-근거-대조와-사용자-승인">5.5 근거 대조와 사용자 승인</h3>
+<p>검증을 통과한 문장도 곧바로 최종본이 되지 않는다. 결과 화면에서 원본 사실과 생성 문장을 나란히 보여 주고, 사용자가 수정·승인한 항목만 렌더링 대상으로 바꾼다. 초기화 기능은 AI 초안만 제거하고 사용자의 원본 경력 데이터는 별도로 유지하는 편이 안전하다.</p>
+<hr>
+<h2 id="6-fine-tuning보다-구조화와-평가를-먼저-선택한-이유">6. fine-tuning보다 구조화와 평가를 먼저 선택한 이유</h2>
+<p>fine-tuning은 특정 출력 형식이나 표현 패턴을 반복 학습시키는 선택지가 될 수 있지만, 개인별 이력서 몇 건처럼 작고 민감한 데이터만으로 바로 시작하면 다음 문제가 생긴다.</p>
+<ul>
+<li>학습 데이터에 개인정보가 포함될 위험이 있다.</li>
+<li>잘못된 문장이나 편향된 표현을 학습 데이터가 반복시킬 수 있다.</li>
+<li>기본 프롬프트와 비교할 평가 세트가 없으면 개선 여부를 판단하기 어렵다.</li>
+<li>직무와 사용자마다 사실이 달라 학습보다 런타임 컨텍스트가 더 중요할 수 있다.</li>
+</ul>
+<p>그래서 프로토타입의 우선순위를 <code>입력 정규화 → 프롬프트 기준선 → 구조화 출력 → 자동 검사 → 사용자 평가</code>로 정했다. 향후 충분한 비식별·동의 데이터와 고정 평가 세트가 준비되고, 기본 방식에서 반복되는 오류가 확인될 때만 fine-tuning을 비교 실험 대상으로 검토한다.</p>
+<hr>
+<h2 id="7-기술적-난제와-대응-방식">7. 기술적 난제와 대응 방식</h2>
+<h3 id="사실처럼-보이는-문장-생성">사실처럼 보이는 문장 생성</h3>
+<p>LLM은 자연스러운 문장을 만들면서 입력에 없는 책임 범위나 성과를 덧붙일 수 있다. 이를 줄이기 위해 원본 경험 ID를 출력에 포함하고, 숫자·회사명·기술명처럼 위험도가 높은 토큰은 입력 근거에 존재하는지 별도로 검사한다. 자동 검사가 통과해도 최종 판단은 사용자에게 남긴다.</p>
+<h3 id="섹션별-문체와-길이-불일치">섹션별 문체와 길이 불일치</h3>
+<p>전체 이력서를 한 번에 생성하면 어떤 섹션은 길고 다른 섹션은 비는 문제가 생길 수 있다. 섹션별 입력·출력 스키마와 최대 항목 수를 두고, 수정이 필요한 섹션만 다시 요청하는 구조가 비용과 일관성 면에서 유리하다.</p>
+<h3 id="개인정보와-디버깅의-충돌">개인정보와 디버깅의 충돌</h3>
+<p>오류를 분석하려면 요청 정보를 보고 싶지만, 원문을 로그에 남기면 개인정보 노출 범위가 커진다. 요청 ID, 처리 단계, 오류 코드, 토큰 사용량 같은 운영 정보만 기록하고 원문은 기본적으로 마스킹하는 정책이 필요하다.</p>
+<h3 id="외부-api-장애와-형식-변화">외부 API 장애와 형식 변화</h3>
+<p>네트워크 지연, 사용량 제한, 응답 형식 오류는 정상적인 실패 시나리오로 본다. 타임아웃, 지수 백오프, 최대 재시도 횟수, 사용자에게 보여 줄 오류 상태를 구분하고, 생성 실패가 원본 입력 손실로 이어지지 않게 한다.</p>
+<hr>
+<h2 id="8-검증-관점과-품질-게이트">8. 검증 관점과 품질 게이트</h2>
+<p>프로토타입의 품질은 “문장이 그럴듯한가” 하나로 판단할 수 없다. 다음 항목을 별도의 검사 단계로 둔다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>검증 항목</th>
+          <th>확인 방법</th>
+          <th>실패 시 처리</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>스키마 유효성</td>
+          <td>필수 키, 자료형, 허용 섹션 검사</td>
+          <td>제한 재요청 또는 수동 편집 전환</td>
+      </tr>
+      <tr>
+          <td>사실 일치성</td>
+          <td>수치·기술·기간을 원본 근거와 대조</td>
+          <td>해당 문장 차단 및 확인 표시</td>
+      </tr>
+      <tr>
+          <td>완전성</td>
+          <td>필수 경력, 기간, 핵심 역량 누락 확인</td>
+          <td>누락 목록을 사용자에게 제시</td>
+      </tr>
+      <tr>
+          <td>개인정보 노출</td>
+          <td>연락처, 상세 주소, 실명 패턴 검사</td>
+          <td>API 전송 전 마스킹 또는 요청 중단</td>
+      </tr>
+      <tr>
+          <td>직무 관련성</td>
+          <td>직무 핵심어와 경험 근거의 연결 확인</td>
+          <td>순서·요약 수준만 재조정</td>
+      </tr>
+      <tr>
+          <td>사용자 수용성</td>
+          <td>채택, 수정, 폐기 상태 기록</td>
+          <td>반복 오류를 다음 평가 항목으로 등록</td>
+      </tr>
+  </tbody>
+</table>
+<p>현재 글에서는 수치화된 우수성을 주장하지 않는다. 추후 평가를 진행한다면 동일한 입력 세트로 기본 프롬프트와 개선 프롬프트를 비교하고, 사실 오류율·스키마 통과율·사용자 수정량을 함께 봐야 한다.</p>
+<hr>
+<h2 id="9-제조-엔지니어-경험과의-연결">9. 제조 엔지니어 경험과의 연결</h2>
+<p>이 프로젝트의 접근 방식은 제조 공정 관리와 닮아 있다. 원재료가 불명확하면 최종 제품의 품질을 보증할 수 없듯이, 경력 원본이 구조화되지 않으면 생성 문장의 품질도 보증할 수 없다.</p>
+<ul>
+<li><strong>표준 작업</strong>: 입력 스키마와 프롬프트 규칙을 표준서처럼 정의한다.</li>
+<li><strong>공정 분리</strong>: 입력, 변환, 검사, 승인 단계를 분리해 이상 지점을 찾는다.</li>
+<li><strong>추적성</strong>: 생성 문장을 원본 <code>experience_id</code>와 연결한다.</li>
+<li><strong>품질 게이트</strong>: 형식 검사와 사실 검사를 통과한 결과만 다음 단계로 보낸다.</li>
+<li><strong>휴먼 인 더 루프</strong>: 자동화가 애매한 판단은 작업자 승인 단계에 남긴다.</li>
+<li><strong>지속 개선</strong>: 사용자가 많이 수정한 유형을 오류 데이터로 모아 규칙을 개선한다.</li>
+</ul>
+<p>즉, resumOpenAI는 단순한 챗봇 UI가 아니라 <strong>경력 데이터가 입력되어 검증 가능한 문서로 출하되는 작은 품질 공정</strong>으로 설계한 프로젝트다. 현장에서 설비 조건과 결과를 연결하고 이상 원인을 추적하던 경험을 LLM 애플리케이션의 데이터 흐름과 검증 체계에 적용했다.</p>
+<hr>
+<h2 id="10-현재-한계와-향후-개선">10. 현재 한계와 향후 개선</h2>
+<h3 id="현재-한계">현재 한계</h3>
+<ul>
+<li>공개된 학습 데이터와 평가 로그가 없어 fine-tuning 완료나 효과를 검증할 수 없다.</li>
+<li>프로토타입 수준이므로 인증·권한, 암호화, 비밀키 관리, 보존 기간 자동화가 운영 서비스 수준인지 검증되지 않았다.</li>
+<li>모델 응답의 사실성은 자동 검사만으로 완전히 보증할 수 없다.</li>
+<li>다양한 이력서 템플릿과 브라우저에서 내보내기 결과가 동일한지 별도 검증이 필요하다.</li>
+<li>채용 직무별 표현 품질을 비교할 고정 평가 세트가 아직 필요하다.</li>
+</ul>
+<h3 id="개선-로드맵">개선 로드맵</h3>
+<ol>
+<li>JSON Schema 기반 요청·응답 검증과 단위 테스트를 고정한다.</li>
+<li>비식별 샘플로 사실 오류, 누락, 형식 오류가 포함된 회귀 테스트 세트를 만든다.</li>
+<li>인증, 암호화, 비밀키 저장소, 데이터 삭제 기능과 감사 로그를 추가한다.</li>
+<li>각 문장에 원본 근거를 보여 주는 검토 UI와 변경 이력을 구현한다.</li>
+<li>프롬프트 버전, 모델 버전, 평가 결과를 함께 기록한다.</li>
+<li>충분한 동의 데이터와 평가 기준이 마련된 뒤에만 fine-tuning을 기준선과 비교한다.</li>
+</ol>
+<p>이 프로젝트에서 얻은 가장 큰 교훈은 LLM 애플리케이션의 품질이 모델 이름 하나로 결정되지 않는다는 점이다. <strong>입력 데이터의 품질, 개인정보 경계, 출력 계약, 검증 절차, 사용자의 최종 승인</strong>이 함께 있어야 실제 업무에 사용할 수 있는 결과가 된다.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+          
+          
+          
+          <div class="col-md-6 btn-improve-page">
+             
+                <a href="https://github.com/HeungJAELEE/blog-source/edit/main/content/posts%5cresumopenai.ko.md"
+                  title="이 페이지를 개선" target="_blank" rel="noopener">
+                  
+                  <i class="fas fa-code-branch"></i>
+                  이 페이지를 개선
+                </a>
+          </div>
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">목차</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#프로젝트-한눈에-보기">프로젝트 한눈에 보기</a></li>
+    <li><a href="#1-프로젝트-배경-이력서-생성보다-어려운-것은-사실-관리다">1. 프로젝트 배경: 이력서 생성보다 어려운 것은 사실 관리다</a>
+      <ul>
+        <li><a href="#설계-목표">설계 목표</a></li>
+        <li><a href="#프로토타입에서-제외한-범위">프로토타입에서 제외한 범위</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-왜-reactflaskopenai-구조를-선택했는가">2. 왜 React–Flask–OpenAI 구조를 선택했는가</a>
+      <ul>
+        <li><a href="#계층별-책임">계층별 책임</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-사용-기술과-선택-이유">3. 사용 기술과 선택 이유</a>
+      <ul>
+        <li><a href="#react">React</a></li>
+        <li><a href="#flask와-python">Flask와 Python</a></li>
+        <li><a href="#openai-api">OpenAI API</a></li>
+        <li><a href="#json-기반-구조화-출력">JSON 기반 구조화 출력</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-데이터-구조-개인정보와-경력-근거를-분리한다">4. 데이터 구조: 개인정보와 경력 근거를 분리한다</a>
+      <ul>
+        <li><a href="#개인정보-처리-원칙">개인정보 처리 원칙</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-구현-흐름">5. 구현 흐름</a>
+      <ul>
+        <li><a href="#51-입력과-정규화">5.1 입력과 정규화</a></li>
+        <li><a href="#52-직무별-컨텍스트-구성">5.2 직무별 컨텍스트 구성</a></li>
+        <li><a href="#53-프롬프트-계약">5.3 프롬프트 계약</a></li>
+        <li><a href="#54-구조화-응답-파싱">5.4 구조화 응답 파싱</a></li>
+        <li><a href="#55-근거-대조와-사용자-승인">5.5 근거 대조와 사용자 승인</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-fine-tuning보다-구조화와-평가를-먼저-선택한-이유">6. fine-tuning보다 구조화와 평가를 먼저 선택한 이유</a></li>
+    <li><a href="#7-기술적-난제와-대응-방식">7. 기술적 난제와 대응 방식</a>
+      <ul>
+        <li><a href="#사실처럼-보이는-문장-생성">사실처럼 보이는 문장 생성</a></li>
+        <li><a href="#섹션별-문체와-길이-불일치">섹션별 문체와 길이 불일치</a></li>
+        <li><a href="#개인정보와-디버깅의-충돌">개인정보와 디버깅의 충돌</a></li>
+        <li><a href="#외부-api-장애와-형식-변화">외부 API 장애와 형식 변화</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-검증-관점과-품질-게이트">8. 검증 관점과 품질 게이트</a></li>
+    <li><a href="#9-제조-엔지니어-경험과의-연결">9. 제조 엔지니어 경험과의 연결</a></li>
+    <li><a href="#10-현재-한계와-향후-개선">10. 현재 한계와 향후 개선</a>
+      <ul>
+        <li><a href="#현재-한계">현재 한계</a></li>
+        <li><a href="#개선-로드맵">개선 로드맵</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>배터리 제조공정, 자동화, 데이터 기반 품질개선</p>
+      <p>현장 경험과 기술 검증 기록을 한곳에 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 노트</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      <a href="tel:010-6650-6540">010-6650-6540</a>
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

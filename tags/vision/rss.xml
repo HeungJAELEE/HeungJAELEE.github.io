@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vision on 재흥의 엔지니어링 기록</title>
+    <title>Vision on 이재흥 | 배터리 제조·DX 포트폴리오</title>
     <link>https://HeungJAELEE.github.io/tags/vision/</link>
-    <description>Recent content in Vision on 재흥의 엔지니어링 기록</description>
+    <description>Recent content in Vision on 이재흥 | 배터리 제조·DX 포트폴리오</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/vision/rss.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/vision/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title>
+      <link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid>
+      <description>&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;
+&lt;p&gt;프로젝트 기록상 사용한 데이터는 &lt;strong&gt;AI-Hub 공개 용접 이미지 약 60,000장&lt;/strong&gt;과 &lt;strong&gt;현장 실측 이미지 198장&lt;/strong&gt;입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>협동로봇 디지털 트윈과 온디바이스 비전 AI 설계</title>
+      <link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid>
+      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;INDY7 협동로봇 3대로 구성된 소형 자동차 조립 라인을 가상 환경에 표현하고, Raspberry Pi 5와 Hailo-10H에서 실행하는 YOLOv11 비전 모델의 판정 결과를 PLC·SCADA·MES 데이터 흐름과 연결해 본 &lt;strong&gt;디지털 트윈·온디바이스 AI PoC&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;p&gt;이 프로젝트의 핵심은 3D 화면을 화려하게 만드는 것이 아닙니다. 물리 설비의 제어, AI 검사, 가상 모델, 생산 이력을 서로 분리하면서도 하나의 공정 이벤트로 추적할 수 있게 만드는 것이 목표였습니다.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;구분&lt;/th&gt;
+          &lt;th&gt;내용&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;프로젝트 성격&lt;/td&gt;
+          &lt;td&gt;협동로봇 조립 공정의 디지털 트윈·비전 검사 PoC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;물리 대상&lt;/td&gt;
+          &lt;td&gt;INDY7 협동로봇 3대 조립 라인&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;에지 AI&lt;/td&gt;
+          &lt;td&gt;Raspberry Pi 5 + Hailo-10H, YOLOv11 기반 검사 모델 3종&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;제어·운영&lt;/td&gt;
+          &lt;td&gt;MELSEC PLC, SCADA, MES 연동 흐름&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;가상화&lt;/td&gt;
+          &lt;td&gt;NVIDIA Omniverse 기반 공정 상태 시각화·사전 검증 설계&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기록된 모델 결과&lt;/td&gt;
+          &lt;td&gt;F1 Score 100%, 95%, 100%&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;F1 Score는 프로젝트 데이터에 기록된 평가 결과이며, 데이터셋 규모·분할 방식·현장 장기 운영 결과가 모두 공개된 것은 아닙니다. 따라서 이 글에서는 해당 수치를 특정 평가셋에서의 결과로만 설명하고, 양산 현장의 영구적인 정확도로 과장하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>나의 첫 엔지니어링 일지</title>
       <link>https://HeungJAELEE.github.io/posts/first/</link>
       <pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate>

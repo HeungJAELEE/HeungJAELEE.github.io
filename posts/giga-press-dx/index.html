@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/posts/giga-press-dx/">
+
+
+<link rel="stylesheet" href="/application.9ed5400320db53f66272dc4b84bcbc15221eb06d13ea5b708833ac87ee24fb97.css" integrity="sha256-ntVAAyDbU/ZictxLhLy8FSIesG0T6ltwiDOsh&#43;4k&#43;5c=">
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Arduino·Raspberry Pi, PLC, SCADA, Factory I/O를 계층화해 설비 연동과 사전 검증을 설계한 제조 DX 포트폴리오" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/posts/giga-press-dx/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지">
+  <meta name="twitter:description" content="Arduino·Raspberry Pi, PLC, SCADA, Factory I/O를 계층화해 설비 연동과 사전 검증을 설계한 제조 DX 포트폴리오">
+
+<meta name="description" content="Arduino·Raspberry Pi, PLC, SCADA, Factory I/O를 계층화해 설비 연동과 사전 검증을 설계한 제조 DX 포트폴리오" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">기술 노트</a>
+          </li>
+        
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/search">
+        <input type="text" name="keyword" value="" placeholder="찾다" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/posts/" data-filter="all">게시글</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">이재흥</h5>
+          <p class="text-muted">
+            2026년 7월 9일 목요일
+             | 
+            7</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/dx/" class="btn btn-sm btn-outline-info rounded">DX</a></li>
+    
+    
+    <li><a href="/tags/iot/" class="btn btn-sm btn-outline-info rounded">IoT</a></li>
+    
+    
+    <li><a href="/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/tags/scada/" class="btn btn-sm btn-outline-info rounded">SCADA</a></li>
+    
+    
+    <li><a href="/tags/factory-i/o/" class="btn btn-sm btn-outline-info rounded">Factory I/O</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <h2 id="프로젝트를-한-문장으로-설명하면">프로젝트를 한 문장으로 설명하면</h2>
+<p>현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, <strong>에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증</strong>의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.</p>
+<p>이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 <strong>설계 또는 PoC(개념 검증)</strong> 범위로 구분했습니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>내용</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>프로젝트 성격</td>
+          <td>스마트팩토리 제어·모니터링·가상 검증 PoC</td>
+      </tr>
+      <tr>
+          <td>대상 범위</td>
+          <td>에지 디바이스 → PLC → SCADA → Factory I/O</td>
+      </tr>
+      <tr>
+          <td>핵심 기술</td>
+          <td>Arduino, Raspberry Pi, MELSEC·LS 계열 PLC 개념, Ladder Logic, Modbus/TCP·OPC UA 연동 검토</td>
+      </tr>
+      <tr>
+          <td>프로젝트 기록상 결과</td>
+          <td>셋업 시간 50~75% 단축, Ladder 모듈화에 따른 설비 증설 공수 50% 절감</td>
+      </tr>
+      <tr>
+          <td>실무 관점</td>
+          <td>FAT/SAT, 인터록, 표준화, 변경 영향 분석, 장애 시 안전 상태 유지</td>
+      </tr>
+  </tbody>
+</table>
+<p>위 수치는 현재 포트폴리오의 프로젝트 요약에 기록된 검증 범위 기준입니다. 모든 공장과 설비에서 동일하게 재현되는 보편적 수치로 확대 해석하지 않았습니다.</p>
+<h2 id="왜-이-프로젝트를-구성했는가">왜 이 프로젝트를 구성했는가</h2>
+<p>제조 라인의 DX는 센서 값을 화면에 표시하는 것만으로 완성되지 않습니다. 현장에서는 다음 문제가 동시에 발생합니다.</p>
+<ol>
+<li>센서와 설비마다 데이터 형식, 갱신 주기, 통신 방식이 다릅니다.</li>
+<li>제어 로직과 화면 로직이 강하게 결합되면 작은 설비 변경도 전체 프로그램 수정으로 이어집니다.</li>
+<li>실제 장비에서 처음 시퀀스를 시험하면 충돌, 오동작, 장시간 정지의 위험이 커집니다.</li>
+<li>통신이 끊겼을 때 마지막 명령을 계속 유지할지, 정지할지에 대한 기준이 없으면 안전한 운영이 어렵습니다.</li>
+</ol>
+<p>따라서 이 프로젝트에서는 <strong>제어의 책임은 PLC에 두고</strong>, 에지 장치는 수집과 정규화, SCADA는 상태 가시화, Factory I/O는 사전 검증을 담당하도록 역할을 분리했습니다. 계층을 분리하면 한 영역을 바꾸더라도 다른 영역의 수정 범위를 줄일 수 있고, 문제가 발생한 위치도 더 빠르게 추적할 수 있습니다.</p>
+<h2 id="전체-아키텍처">전체 아키텍처</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["센서·스위치·액추에이터"] --> B["Arduino / Raspberry Pi\n수집·필터·형식 정규화"]
+    B --> C["PLC\n인터록·시퀀스·안전 상태"]
+    C --> D["SCADA\n상태·알람·이력 가시화"]
+    C <--> E["Factory I/O\n가상 시운전·시나리오 검증"]
+    D --> F["상위 시스템 연동 후보\nMES·리포트"]
+</div>
+
+<h3 id="1-현장에지-계층">1. 현장·에지 계층</h3>
+<p>Arduino는 디지털·아날로그 입출력의 빠른 프로토타이핑에 적합하고, Raspberry Pi는 Python 기반 전처리나 여러 통신 인터페이스를 묶는 게이트웨이 역할에 유리합니다. 다만 이 장치가 프레스의 안전 제어를 직접 담당하도록 설계하지 않았습니다. 비상 정지, 도어 인터록처럼 사람과 설비의 안전에 직결되는 기능은 인증된 안전 회로와 PLC 영역에서 다뤄야 하기 때문입니다.</p>
+<p>에지 계층의 책임은 다음으로 제한했습니다.</p>
+<ul>
+<li>센서 원시값 읽기와 단위 변환</li>
+<li>짧은 펄스나 채터링을 완화하기 위한 기초 필터링</li>
+<li>장치별 필드 이름을 공통 태그 이름으로 변환</li>
+<li>값, 품질 상태, 수집 시각을 하나의 데이터 단위로 전달</li>
+</ul>
+<h3 id="2-plc-제어-계층">2. PLC 제어 계층</h3>
+<p>PLC는 공정 순서와 인터록의 최종 책임자입니다. 프레스 동작을 예로 들면 <code>준비 확인 → 소재 존재 확인 → 안전 조건 확인 → 동작 허가 → 완료 확인 → 복귀</code>처럼 단계를 나누고, 각 단계의 진입 조건과 타임아웃을 명시합니다.</p>
+<p>이 프로젝트에서 Ladder 모듈화를 선택한 이유는 설비 증설 시 주소와 로직을 복사해 붙이는 방식을 줄이기 위해서입니다. 모터, 실린더, 센서 묶음을 공통 인터페이스로 정의하면 장치가 추가되어도 같은 상태 모델과 알람 규칙을 재사용할 수 있습니다.</p>
+<p>아래 코드는 실제 PLC 소스가 아니라 제어 의도를 보여 주는 짧은 의사 코드입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>IF safety_ok AND material_ready AND NOT alarm THEN
+</span></span><span style="display:flex;"><span>    run_permit := TRUE
+</span></span><span style="display:flex;"><span>ELSE
+</span></span><span style="display:flex;"><span>    run_permit := FALSE
+</span></span><span style="display:flex;"><span>    IF command_timeout THEN alarm := TRUE
+</span></span><span style="display:flex;"><span>END_IF
+</span></span></code></pre></div><p>핵심은 <code>run</code> 명령 하나가 아니라 <strong>허가 조건, 완료 확인, 타임아웃, 이상 시 복귀 상태</strong>를 한 모듈 안에서 함께 관리하는 것입니다.</p>
+<h3 id="3-scada-가시화-계층">3. SCADA 가시화 계층</h3>
+<p>SCADA는 PLC를 대신해 공정을 제어하는 두 번째 두뇌가 아니라, 작업자가 현재 상태를 정확히 판단하도록 돕는 운영 화면으로 보았습니다. 화면에는 다음 정보가 함께 있어야 합니다.</p>
+<ul>
+<li>설비별 운전·정지·대기·고장 상태</li>
+<li>현재 공정 단계와 단계별 체류 시간</li>
+<li>알람 발생 시각, 해제 시각, 확인 여부</li>
+<li>센서 값의 품질 상태와 마지막 갱신 시각</li>
+<li>수동 명령을 보낸 사용자와 명령 결과</li>
+</ul>
+<p>단순히 초록색과 빨간색 램프를 배치하는 것보다, <strong>왜 정지했는지와 다음 확인 항목이 무엇인지</strong>를 보여 주는 것이 다운타임 단축에 더 직접적으로 기여합니다.</p>
+<h3 id="4-factory-io-가상-검증-계층">4. Factory I/O 가상 검증 계층</h3>
+<p>Factory I/O는 실제 설비를 멈추지 않고 PLC 시퀀스를 시험하기 위한 가상 시운전 도구로 선택했습니다. 센서가 정상 순서로 들어오는 경우뿐 아니라 센서 미검출, 중복 입력, 액추에이터 지연처럼 현장에서 자주 만나는 비정상 조건을 반복 주입할 수 있습니다.</p>
+<p>가상 모델은 실제 장비의 물리 특성을 완전히 대체하지 않습니다. 대신 FAT 이전에 논리 오류와 인터록 누락을 먼저 발견하는 <strong>테스트 하네스</strong>로 활용하는 것이 이 구성의 목적입니다.</p>
+<h2 id="데이터는-어떻게-구성했는가">데이터는 어떻게 구성했는가</h2>
+<p>장치 주소를 상위 화면에 그대로 노출하면 PLC 주소가 바뀔 때 SCADA와 리포트까지 연쇄 수정해야 합니다. 이를 막기 위해 다음과 같은 논리 태그 모델을 설계했습니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>필드</th>
+          <th>역할</th>
+          <th>예시</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>equipment_id</code></td>
+          <td>설비 식별자</td>
+          <td>프레스 또는 이송 장치 ID</td>
+      </tr>
+      <tr>
+          <td><code>signal_name</code></td>
+          <td>사람이 이해할 수 있는 태그명</td>
+          <td>소재 감지, 운전 허가</td>
+      </tr>
+      <tr>
+          <td><code>value</code></td>
+          <td>현재 값</td>
+          <td>ON/OFF 또는 계측값</td>
+      </tr>
+      <tr>
+          <td><code>quality</code></td>
+          <td>값의 신뢰 상태</td>
+          <td>정상, 지연, 통신 끊김</td>
+      </tr>
+      <tr>
+          <td><code>timestamp</code></td>
+          <td>수집 또는 갱신 시각</td>
+          <td>이벤트 순서 판정에 사용</td>
+      </tr>
+      <tr>
+          <td><code>mode</code></td>
+          <td>설비 운전 모드</td>
+          <td>자동, 수동, 정비</td>
+      </tr>
+  </tbody>
+</table>
+<p>Modbus/TCP는 PLC·에지 장치 간 단순 레지스터 교환을 빠르게 검증하기 좋고, OPC UA는 태그의 의미와 품질 정보를 포함한 상위 연동에 유리합니다. 이 프로젝트에서는 두 기술을 무조건 동시에 적용했다고 단정하기보다, <strong>장치 제약과 상위 시스템 요구에 따라 선택할 통신 후보</strong>로 다뤘습니다.</p>
+<h2 id="구현을-어떤-순서로-진행했는가">구현을 어떤 순서로 진행했는가</h2>
+<h3 id="단계-1-공정-시퀀스와-실패-조건-정의">단계 1. 공정 시퀀스와 실패 조건 정의</h3>
+<p>정상 동작 순서보다 먼저 정지 조건, 재시작 조건, 수동 복구 절차를 표로 만들었습니다. 이는 이력서에 기술된 P-FMEA, QCP, 설비 검수 경험과 같은 관점입니다. 제어 프로그램을 작성한 뒤 안전 조건을 덧붙이는 것이 아니라, 위험 시나리오를 입력 조건으로 사용했습니다.</p>
+<h3 id="단계-2-io-목록과-태그-사전-작성">단계 2. I/O 목록과 태그 사전 작성</h3>
+<p>센서와 액추에이터마다 주소, 논리명, 단위, 정상 범위, 고장 시 기본값을 정의했습니다. PLC 내부 주소와 외부 공개 태그를 분리해 향후 장비 교체 시 상위 시스템의 변경을 최소화했습니다.</p>
+<h3 id="단계-3-공통-plc-모듈-설계">단계 3. 공통 PLC 모듈 설계</h3>
+<p>장치별로 <code>Command</code>, <code>Status</code>, <code>Alarm</code>, <code>Interlock</code>, <code>Timeout</code>을 동일한 구조로 묶었습니다. 신규 장치를 추가할 때 제어 흐름을 새로 만들기보다 파라미터와 I/O 매핑을 추가하는 방향입니다.</p>
+<h3 id="단계-4-에지-수집과-통신-예외-처리">단계 4. 에지 수집과 통신 예외 처리</h3>
+<p>연결 끊김, 잘못된 값, 갱신 지연을 정상 데이터와 구분했습니다. 통신이 복구되었다고 설비가 즉시 재기동되지 않도록 PLC에서 재가동 승인 조건을 다시 확인하도록 구성했습니다.</p>
+<h3 id="단계-5-factory-io-시나리오-검증">단계 5. Factory I/O 시나리오 검증</h3>
+<p>정상 사이클, 센서 채터링, 완료 신호 누락, 응답 지연, 운전 중 모드 변경을 반복 시험하는 PoC 시나리오를 설계했습니다. 각 시험은 입력 조건, 기대 상태, 알람, 복구 절차가 남도록 구성했습니다.</p>
+<h3 id="단계-6-scada-화면과-알람-연결">단계 6. SCADA 화면과 알람 연결</h3>
+<p>설비 상태와 알람을 같은 태그 사전에 연결하고, 작업자가 원인을 좁힐 수 있도록 단계·인터록·통신 품질을 함께 표시했습니다.</p>
+<h2 id="가장-어려웠던-기술적-판단">가장 어려웠던 기술적 판단</h2>
+<h3 id="신호-필터링과-이상-은폐의-경계">신호 필터링과 이상 은폐의 경계</h3>
+<p>필터를 강하게 적용하면 노이즈는 줄지만 실제 짧은 이상 신호까지 사라질 수 있습니다. 그래서 모든 값을 평균 처리하기보다 신호 성격에 따라 디바운스, 범위 검사, 연속 확인 횟수를 분리하는 방식으로 설계했습니다. 필터 전 원시값을 진단용으로 남기는 것도 중요합니다.</p>
+<h3 id="서로-다른-갱신-주기">서로 다른 갱신 주기</h3>
+<p>에지 장치, PLC 스캔, SCADA 폴링, 가상 모델 렌더링은 같은 주기로 움직이지 않습니다. 화면의 부드러움을 위해 PLC 제어 주기를 늦추는 식의 결합을 피하고, 각 계층은 고유 주기를 유지하면서 타임스탬프와 품질 상태로 최신성을 판단하도록 했습니다.</p>
+<h3 id="통신-장애-시-안전-상태">통신 장애 시 안전 상태</h3>
+<p>패킷 하나가 누락되었다는 이유로 즉시 전체 정지를 걸면 가용성이 떨어지고, 반대로 마지막 명령을 무기한 유지하면 위험합니다. 신호별 허용 지연과 타임아웃을 정하고, 중요 신호는 PLC에서 안전 상태로 전환하도록 책임을 명확히 했습니다.</p>
+<h3 id="모듈화와-현장-예외의-균형">모듈화와 현장 예외의 균형</h3>
+<p>모든 설비를 하나의 거대한 공통 모듈로 만들면 예외 처리 때문에 오히려 복잡해집니다. 공통 상태 모델은 유지하되, 설비 고유 동작은 확장 블록으로 분리하는 방식을 택했습니다.</p>
+<h2 id="검증-항목과-결과-해석">검증 항목과 결과 해석</h2>
+<table>
+  <thead>
+      <tr>
+          <th>검증 시나리오</th>
+          <th>확인 내용</th>
+          <th>합격 기준의 예</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>정상 자동 운전</td>
+          <td>단계 전이와 완료 신호</td>
+          <td>정의된 순서 외 전이 없음</td>
+      </tr>
+      <tr>
+          <td>센서 채터링</td>
+          <td>중복 명령·오동작 여부</td>
+          <td>필터 후 단일 이벤트로 처리</td>
+      </tr>
+      <tr>
+          <td>통신 지연·끊김</td>
+          <td>품질 상태와 안전 전환</td>
+          <td>타임아웃 알람 및 재기동 방지</td>
+      </tr>
+      <tr>
+          <td>액추에이터 미완료</td>
+          <td>단계 정지와 원인 표시</td>
+          <td>다음 단계 진입 차단</td>
+      </tr>
+      <tr>
+          <td>수동/자동 전환</td>
+          <td>모드 충돌 방지</td>
+          <td>운전 중 무조건 전환되지 않음</td>
+      </tr>
+      <tr>
+          <td>설비 모듈 추가</td>
+          <td>기존 로직 영향 범위</td>
+          <td>공통 인터페이스로 변경 범위 제한</td>
+      </tr>
+  </tbody>
+</table>
+<p>프로젝트 요약에는 Factory I/O 사전 검증과 SCADA 동기화를 통해 셋업 시간을 <strong>50~75% 단축</strong>하고, Ladder 모듈화로 설비 증설 공수를 <strong>50% 절감</strong>한 것으로 기록되어 있습니다. 여기서 중요한 결과는 숫자 자체뿐 아니라, 가상 시운전과 모듈화가 각각 어떤 손실을 줄였는지 구분했다는 점입니다.</p>
+<ul>
+<li>가상 시운전: 실제 장비에서 발견할 논리 오류를 앞 단계로 이동</li>
+<li>태그 표준화: 주소 변경에 따른 연쇄 수정 감소</li>
+<li>PLC 모듈화: 반복 로직 작성과 검증 공수 감소</li>
+<li>알람 구조화: 정지 원인 탐색 시간 감소</li>
+</ul>
+<h2 id="이력서-경력과-어떻게-연결되는가">이력서 경력과 어떻게 연결되는가</h2>
+<p>이 프로젝트는 단순 IoT 데모보다 실제 제조 라인에서 쌓은 경험을 소프트웨어 구조로 옮긴 작업에 가깝습니다.</p>
+<ul>
+<li>2170·4695 원통형 셀 라인의 셋업과 안정화 경험을 바탕으로, 가상 검증의 목표를 화면 구현이 아니라 <strong>시운전 리스크 감소</strong>에 두었습니다.</li>
+<li>조립 설비 FAT/SAT와 양산 라인 검수 경험은 I/O 목록, 인터록, 펀치리스트, 합격 기준을 먼저 정의하는 방식에 반영했습니다.</li>
+<li>P-FMEA, QCP, MSA 기준 수립 경험은 정상 시나리오뿐 아니라 고장 모드와 측정 신뢰도를 검증 항목에 포함하는 근거가 됐습니다.</li>
+<li>Mitsubishi·LS산전 PLC 학습 및 현장 자동화 경험은 제어권을 PLC에 유지하고, 에지와 SCADA를 보조 계층으로 배치한 이유와 연결됩니다.</li>
+</ul>
+<p>즉, 이 포트폴리오는 “무엇을 연결할 수 있는가”보다 “연결한 시스템을 제조 현장에서 어떻게 안전하게 검증하고 변경할 것인가”를 보여 줍니다.</p>
+<h2 id="한계와-다음-개선-방향">한계와 다음 개선 방향</h2>
+<p>현재 단계에서 실제 기가프레스의 안전 PLC, 제조사 전용 프로토콜, 유압·서보의 정밀 동특성까지 검증했다고 말할 수는 없습니다. 다음 단계에서는 아래 항목이 필요합니다.</p>
+<ol>
+<li>실제 장비 I/O와 안전 요구사항을 반영한 Hardware-in-the-Loop 검증</li>
+<li>태그 명세의 버전 관리와 OPC UA 정보 모델 정식화</li>
+<li>알람 홍수 방지를 위한 우선순위·억제 규칙</li>
+<li>시나리오별 자동 회귀 테스트와 결과 리포트 생성</li>
+<li>MES 연동 시 작업지시·LOT·품질 데이터의 추적성 설계</li>
+<li>네트워크 분리, 계정 권한, 감사 로그를 포함한 OT 보안 검토</li>
+</ol>
+<p>이 개선까지 이어지면 PoC를 넘어 실제 설비 프로젝트에서 재사용할 수 있는 <strong>가상 시운전 표준 패키지</strong>로 발전시킬 수 있습니다.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+          
+          
+          
+          <div class="col-md-6 btn-improve-page">
+             
+                <a href="https://github.com/HeungJAELEE/blog-source/edit/main/content/posts%5cgiga-press-dx.ko.md"
+                  title="이 페이지를 개선" target="_blank" rel="noopener">
+                  
+                  <i class="fas fa-code-branch"></i>
+                  이 페이지를 개선
+                </a>
+          </div>
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">목차</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#프로젝트를-한-문장으로-설명하면">프로젝트를 한 문장으로 설명하면</a></li>
+    <li><a href="#왜-이-프로젝트를-구성했는가">왜 이 프로젝트를 구성했는가</a></li>
+    <li><a href="#전체-아키텍처">전체 아키텍처</a>
+      <ul>
+        <li><a href="#1-현장에지-계층">1. 현장·에지 계층</a></li>
+        <li><a href="#2-plc-제어-계층">2. PLC 제어 계층</a></li>
+        <li><a href="#3-scada-가시화-계층">3. SCADA 가시화 계층</a></li>
+        <li><a href="#4-factory-io-가상-검증-계층">4. Factory I/O 가상 검증 계층</a></li>
+      </ul>
+    </li>
+    <li><a href="#데이터는-어떻게-구성했는가">데이터는 어떻게 구성했는가</a></li>
+    <li><a href="#구현을-어떤-순서로-진행했는가">구현을 어떤 순서로 진행했는가</a>
+      <ul>
+        <li><a href="#단계-1-공정-시퀀스와-실패-조건-정의">단계 1. 공정 시퀀스와 실패 조건 정의</a></li>
+        <li><a href="#단계-2-io-목록과-태그-사전-작성">단계 2. I/O 목록과 태그 사전 작성</a></li>
+        <li><a href="#단계-3-공통-plc-모듈-설계">단계 3. 공통 PLC 모듈 설계</a></li>
+        <li><a href="#단계-4-에지-수집과-통신-예외-처리">단계 4. 에지 수집과 통신 예외 처리</a></li>
+        <li><a href="#단계-5-factory-io-시나리오-검증">단계 5. Factory I/O 시나리오 검증</a></li>
+        <li><a href="#단계-6-scada-화면과-알람-연결">단계 6. SCADA 화면과 알람 연결</a></li>
+      </ul>
+    </li>
+    <li><a href="#가장-어려웠던-기술적-판단">가장 어려웠던 기술적 판단</a>
+      <ul>
+        <li><a href="#신호-필터링과-이상-은폐의-경계">신호 필터링과 이상 은폐의 경계</a></li>
+        <li><a href="#서로-다른-갱신-주기">서로 다른 갱신 주기</a></li>
+        <li><a href="#통신-장애-시-안전-상태">통신 장애 시 안전 상태</a></li>
+        <li><a href="#모듈화와-현장-예외의-균형">모듈화와 현장 예외의 균형</a></li>
+      </ul>
+    </li>
+    <li><a href="#검증-항목과-결과-해석">검증 항목과 결과 해석</a></li>
+    <li><a href="#이력서-경력과-어떻게-연결되는가">이력서 경력과 어떻게 연결되는가</a></li>
+    <li><a href="#한계와-다음-개선-방향">한계와 다음 개선 방향</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>배터리 제조공정, 자동화, 데이터 기반 품질개선</p>
+      <p>현장 경험과 기술 검증 기록을 한곳에 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 노트</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      <a href="tel:010-6650-6540">010-6650-6540</a>
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>
