@@ -1,26 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MLOps on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/mlops/</link>
-    <description>Recent content in MLOps on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/mlops/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title>
-      <link>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</link>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</guid>
-      <description>&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a Glance&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MLOps on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title><link>https://HeungJAELEE.github.io/en/tags/mlops/</link><description>Recent content in MLOps on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/mlops/rss.xml" rel="self" type="application/rss+xml"/><item><title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title><link>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</guid><description>&lt;h2 id="project-at-a-glance"&gt;Project at a Glance&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener"&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The public repository currently exposes only limited implementation detail. This case study is therefore a design document based on the repository&amp;rsquo;s stated scope of preprocessing, training, evaluation, and reproducibility management. It does not claim a particular dataset size, model accuracy, completed training run, or production deployment. The directory structure and validation items below are target design criteria, not a list of finished features.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;The public repository currently exposes only limited implementation detail. This case study is therefore a design document based on the repository&amp;rsquo;s stated scope of preprocessing, training, evaluation, and reproducibility management. It does not claim a particular dataset size, model accuracy, completed training run, or production deployment. The directory structure and validation items below are target design criteria, not a list of finished features.&lt;/p&gt;</description></item></channel></rss>

@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Flask on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/flask/</link>
-    <description>Recent content in Flask on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/flask/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title>
-      <link>https://HeungJAELEE.github.io/posts/resumopenai/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/resumopenai/</guid>
-      <description>&lt;h2 id=&#34;프로젝트-한눈에-보기&#34;&gt;프로젝트 한눈에 보기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flask on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/tags/flask/</link><description>Recent content in Flask on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/flask/rss.xml" rel="self" type="application/rss+xml"/><item><title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title><link>https://HeungJAELEE.github.io/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/resumopenai/</guid><description>&lt;h2 id="프로젝트-한눈에-보기"&gt;프로젝트 한눈에 보기&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt;는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 &lt;strong&gt;Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입&lt;/strong&gt;이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.&lt;/p&gt;</description></item></channel></rss>

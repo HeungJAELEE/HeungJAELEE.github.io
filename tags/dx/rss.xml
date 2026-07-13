@@ -1,64 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DX on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/dx/</link>
-    <description>Recent content in DX on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/dx/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title>
-      <link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DX on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/tags/dx/</link><description>Recent content in DX on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/dx/rss.xml" rel="self" type="application/rss+xml"/><item><title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title><link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid><description>&lt;section class="project-resources" aria-labelledby="project-resources-title"&gt;
+&lt;h2 id="project-resources-title"&gt;프로젝트 자료&lt;/h2&gt;
+&lt;p class="project-resources__lead"&gt;구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.&lt;/p&gt;
+&lt;ul class="project-resources__links"&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;GitHub 프로젝트 목록&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;github.com/HeungJAELEE&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;기가프레스 관련 보고서&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="project-resources__note"&gt;기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, &lt;strong&gt;에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증&lt;/strong&gt;의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.&lt;/p&gt;
-&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;구분&lt;/th&gt;
-          &lt;th&gt;내용&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 성격&lt;/td&gt;
-          &lt;td&gt;스마트팩토리 제어·모니터링·가상 검증 PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;대상 범위&lt;/td&gt;
-          &lt;td&gt;에지 디바이스 → PLC → SCADA → Factory I/O&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;핵심 기술&lt;/td&gt;
-          &lt;td&gt;Arduino, Raspberry Pi, MELSEC·LS 계열 PLC 개념, Ladder Logic, Modbus/TCP·OPC UA 연동 검토&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 기록상 결과&lt;/td&gt;
-          &lt;td&gt;셋업 시간 50~75% 단축, Ladder 모듈화에 따른 설비 증설 공수 50% 절감&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;실무 관점&lt;/td&gt;
-          &lt;td&gt;FAT/SAT, 인터록, 표준화, 변경 영향 분석, 장애 시 안전 상태 유지&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;위 수치는 현재 포트폴리오의 프로젝트 요약에 기록된 검증 범위 기준입니다. 모든 공장과 설비에서 동일하게 재현되는 보편적 수치로 확대 해석하지 않았습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title>
-      <link>https://HeungJAELEE.github.io/posts/project1/</link>
-      <pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/project1/</guid>
-      <description>&lt;h2 id=&#34;기가프레스-설비-셋업&#34;&gt;기가프레스 설비 셋업&lt;/h2&gt;
+&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;</description></item><item><title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title><link>https://HeungJAELEE.github.io/posts/project1/</link><pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/project1/</guid><description>&lt;h2 id="기가프레스-설비-셋업"&gt;기가프레스 설비 셋업&lt;/h2&gt;
 &lt;p&gt;오늘 기가프레스 설비의 데이터를 에지 디바이스로 연동하는 작업을 수행했습니다.
-노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description></item></channel></rss>

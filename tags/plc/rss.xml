@@ -1,99 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PLC on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/plc/</link>
-    <description>Recent content in PLC on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/plc/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title>
-      <link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PLC on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/tags/plc/</link><description>Recent content in PLC on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/plc/rss.xml" rel="self" type="application/rss+xml"/><item><title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title><link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid><description>&lt;section class="project-resources" aria-labelledby="project-resources-title"&gt;
+&lt;h2 id="project-resources-title"&gt;프로젝트 자료&lt;/h2&gt;
+&lt;p class="project-resources__lead"&gt;구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.&lt;/p&gt;
+&lt;ul class="project-resources__links"&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;GitHub 프로젝트 목록&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;github.com/HeungJAELEE&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;기가프레스 관련 보고서&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="project-resources__note"&gt;기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, &lt;strong&gt;에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증&lt;/strong&gt;의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.&lt;/p&gt;
-&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;구분&lt;/th&gt;
-          &lt;th&gt;내용&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 성격&lt;/td&gt;
-          &lt;td&gt;스마트팩토리 제어·모니터링·가상 검증 PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;대상 범위&lt;/td&gt;
-          &lt;td&gt;에지 디바이스 → PLC → SCADA → Factory I/O&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;핵심 기술&lt;/td&gt;
-          &lt;td&gt;Arduino, Raspberry Pi, MELSEC·LS 계열 PLC 개념, Ladder Logic, Modbus/TCP·OPC UA 연동 검토&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 기록상 결과&lt;/td&gt;
-          &lt;td&gt;셋업 시간 50~75% 단축, Ladder 모듈화에 따른 설비 증설 공수 50% 절감&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;실무 관점&lt;/td&gt;
-          &lt;td&gt;FAT/SAT, 인터록, 표준화, 변경 영향 분석, 장애 시 안전 상태 유지&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;위 수치는 현재 포트폴리오의 프로젝트 요약에 기록된 검증 범위 기준입니다. 모든 공장과 설비에서 동일하게 재현되는 보편적 수치로 확대 해석하지 않았습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>협동로봇 디지털 트윈과 온디바이스 비전 AI 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;</description></item><item><title>협동로봇 디지털 트윈과 온디바이스 비전 AI 설계</title><link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid><description>&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;INDY7 협동로봇 3대로 구성된 소형 자동차 조립 라인을 가상 환경에 표현하고, Raspberry Pi 5와 Hailo-10H에서 실행하는 YOLOv11 비전 모델의 판정 결과를 PLC·SCADA·MES 데이터 흐름과 연결해 본 &lt;strong&gt;디지털 트윈·온디바이스 AI PoC&lt;/strong&gt;입니다.&lt;/p&gt;
 &lt;p&gt;이 프로젝트의 핵심은 3D 화면을 화려하게 만드는 것이 아닙니다. 물리 설비의 제어, AI 검사, 가상 모델, 생산 이력을 서로 분리하면서도 하나의 공정 이벤트로 추적할 수 있게 만드는 것이 목표였습니다.&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;구분&lt;/th&gt;
-          &lt;th&gt;내용&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 성격&lt;/td&gt;
-          &lt;td&gt;협동로봇 조립 공정의 디지털 트윈·비전 검사 PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;물리 대상&lt;/td&gt;
-          &lt;td&gt;INDY7 협동로봇 3대 조립 라인&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;에지 AI&lt;/td&gt;
-          &lt;td&gt;Raspberry Pi 5 + Hailo-10H, YOLOv11 기반 검사 모델 3종&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;제어·운영&lt;/td&gt;
-          &lt;td&gt;MELSEC PLC, SCADA, MES 연동 흐름&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;가상화&lt;/td&gt;
-          &lt;td&gt;NVIDIA Omniverse 기반 공정 상태 시각화·사전 검증 설계&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;기록된 모델 결과&lt;/td&gt;
-          &lt;td&gt;F1 Score 100%, 95%, 100%&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트 성격&lt;/td&gt;
+&lt;td&gt;협동로봇 조립 공정의 디지털 트윈·비전 검사 PoC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;물리 대상&lt;/td&gt;
+&lt;td&gt;INDY7 협동로봇 3대 조립 라인&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;에지 AI&lt;/td&gt;
+&lt;td&gt;Raspberry Pi 5 + Hailo-10H, YOLOv11 기반 검사 모델 3종&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;제어·운영&lt;/td&gt;
+&lt;td&gt;MELSEC PLC, SCADA, MES 연동 흐름&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;가상화&lt;/td&gt;
+&lt;td&gt;NVIDIA Omniverse 기반 공정 상태 시각화·사전 검증 설계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;기록된 모델 결과&lt;/td&gt;
+&lt;td&gt;F1 Score 100%, 95%, 100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;F1 Score는 프로젝트 데이터에 기록된 평가 결과이며, 데이터셋 규모·분할 방식·현장 장기 운영 결과가 모두 공개된 것은 아닙니다. 따라서 이 글에서는 해당 수치를 특정 평가셋에서의 결과로만 설명하고, 양산 현장의 영구적인 정확도로 과장하지 않습니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;F1 Score는 프로젝트 데이터에 기록된 평가 결과이며, 데이터셋 규모·분할 방식·현장 장기 운영 결과가 모두 공개된 것은 아닙니다. 따라서 이 글에서는 해당 수치를 특정 평가셋에서의 결과로만 설명하고, 양산 현장의 영구적인 정확도로 과장하지 않습니다.&lt;/p&gt;</description></item></channel></rss>

@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Docker on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/docker/</link>
-    <description>Recent content in Docker on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/docker/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/tags/docker/</link><description>Recent content in Docker on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/docker/rss.xml" rel="self" type="application/rss+xml"/><item><title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title><link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid><description>&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;Neuromeka Indy7 협동로봇의 기존 Conty 티치펜던트 JSON을 PC에서 &lt;strong&gt;읽고, 계층형으로 편집하고, 가상 검증하고, 다시 호환 JSON으로 저장&lt;/strong&gt;하기 위해 만든 Python HMI 및 백엔드 서비스 프로젝트입니다.&lt;/p&gt;
 &lt;p&gt;이 프로젝트를 단순히 “JSON을 파싱해 3D 로봇을 움직였다”라고 설명하면 중요한 설계가 빠집니다. 실제 핵심은 다음 네 가지입니다.&lt;/p&gt;
 &lt;ol&gt;
@@ -22,11 +8,6 @@
 &lt;li&gt;HMI, MySQL 이력, 읽기 전용 디지털 트윈이 같은 실시간 상태를 구독하는 구조&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;소스 저장소:&lt;/strong&gt; &lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HeungJAELEE/Busan_Robot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;소스 저장소:&lt;/strong&gt; &lt;a href="https://github.com/HeungJAELEE/Busan_Robot" target="_blank" rel="noopener"&gt;HeungJAELEE/Busan_Robot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;프로젝트 카드에는 NVIDIA Omniverse 연동 프로젝트로 요약되어 있습니다. 다만 현재 공개 저장소에서 구체적으로 확인되는 실행 구조는 &lt;strong&gt;CustomTkinter HMI와 WebSocket 기반 3D 웹 모니터&lt;/strong&gt;입니다. 따라서 이 글에서는 공개 코드로 확인되는 부분을 핵심 구현으로 설명하고, Omniverse는 동일한 &lt;code&gt;robot/realtime&lt;/code&gt; 상태를 구독할 수 있는 &lt;strong&gt;확장 어댑터 또는 PoC 방향&lt;/strong&gt;으로 구분합니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;프로젝트 카드에는 NVIDIA Omniverse 연동 프로젝트로 요약되어 있습니다. 다만 현재 공개 저장소에서 구체적으로 확인되는 실행 구조는 &lt;strong&gt;CustomTkinter HMI와 WebSocket 기반 3D 웹 모니터&lt;/strong&gt;입니다. 따라서 이 글에서는 공개 코드로 확인되는 부분을 핵심 구현으로 설명하고, Omniverse는 동일한 &lt;code&gt;robot/realtime&lt;/code&gt; 상태를 구독할 수 있는 &lt;strong&gt;확장 어댑터 또는 PoC 방향&lt;/strong&gt;으로 구분합니다.&lt;/p&gt;</description></item></channel></rss>

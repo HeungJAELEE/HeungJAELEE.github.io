@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Arduino on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/arduino/</link>
-    <description>Recent content in Arduino on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Sun, 31 May 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/arduino/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title>
-      <link>https://HeungJAELEE.github.io/posts/project1/</link>
-      <pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/project1/</guid>
-      <description>&lt;h2 id=&#34;기가프레스-설비-셋업&#34;&gt;기가프레스 설비 셋업&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arduino on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/tags/arduino/</link><description>Recent content in Arduino on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Sun, 31 May 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/arduino/rss.xml" rel="self" type="application/rss+xml"/><item><title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title><link>https://HeungJAELEE.github.io/posts/project1/</link><pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/project1/</guid><description>&lt;h2 id="기가프레스-설비-셋업"&gt;기가프레스 설비 셋업&lt;/h2&gt;
 &lt;p&gt;오늘 기가프레스 설비의 데이터를 에지 디바이스로 연동하는 작업을 수행했습니다.
-노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description></item></channel></rss>

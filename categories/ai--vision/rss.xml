@@ -1,36 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>AI &amp; Vision on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/categories/ai--vision/</link>
-    <description>Recent content in AI &amp; Vision on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/categories/ai--vision/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</link>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</guid>
-      <description>&lt;h2 id=&#34;프로젝트-한눈에-보기&#34;&gt;프로젝트 한눈에 보기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI &amp; Vision on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/categories/ai--vision/</link><description>Recent content in AI &amp; Vision on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/categories/ai--vision/rss.xml" rel="self" type="application/rss+xml"/><item><title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title><link>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</guid><description>&lt;h2 id="프로젝트-한눈에-보기"&gt;프로젝트 한눈에 보기&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;딥러닝 모델링 교과서&lt;/strong&gt;는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener"&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title>
-      <link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid>
-      <description>&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;
-&lt;p&gt;프로젝트 기록상 사용한 데이터는 &lt;strong&gt;AI-Hub 공개 용접 이미지 약 60,000장&lt;/strong&gt;과 &lt;strong&gt;현장 실측 이미지 198장&lt;/strong&gt;입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.&lt;/p&gt;</description></item><item><title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title><link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid><description>&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;
+&lt;p&gt;프로젝트 기록상 사용한 데이터는 &lt;strong&gt;AI-Hub 공개 용접 이미지 약 60,000장&lt;/strong&gt;과 &lt;strong&gt;현장 실측 이미지 198장&lt;/strong&gt;입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.&lt;/p&gt;</description></item></channel></rss>

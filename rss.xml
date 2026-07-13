@@ -1,95 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>�ѱ��� Ȩ on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/</link>
-    <description>Recent content in �ѱ��� Ȩ on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</link>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</guid>
-      <description>&lt;h2 id=&#34;프로젝트-한눈에-보기&#34;&gt;프로젝트 한눈에 보기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>�ѱ��� Ȩ on 이재흥 | 배터리 제조·DX 포트폴리오</title><link>https://HeungJAELEE.github.io/</link><description>Recent content in �ѱ��� Ȩ on 이재흥 | 배터리 제조·DX 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko</language><lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/rss.xml" rel="self" type="application/rss+xml"/><item><title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title><link>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</guid><description>&lt;h2 id="프로젝트-한눈에-보기"&gt;프로젝트 한눈에 보기&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;딥러닝 모델링 교과서&lt;/strong&gt;는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub&lt;/strong&gt;: &lt;a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener"&gt;Deep_Learning_Text_book&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title>
-      <link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid>
-      <description>&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;
-&lt;p&gt;프로젝트 기록상 사용한 데이터는 &lt;strong&gt;AI-Hub 공개 용접 이미지 약 60,000장&lt;/strong&gt;과 &lt;strong&gt;현장 실측 이미지 198장&lt;/strong&gt;입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>HeungTology: 제조 지식을 연결하는 Neo4j 온톨로지와 Graph-RAG 설계 PoC</title>
-      <link>https://HeungJAELEE.github.io/posts/ontology-construction/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/ontology-construction/</guid>
-      <description>&lt;p&gt;제조 현장의 지식은 작업표준서, 설비 매뉴얼, 품질 문서, 불량 분석 보고서와 엔지니어의 경험 속에 흩어져 있습니다. 검색창에 키워드를 입력하면 관련 문서를 찾을 수는 있지만, “어떤 공정 조건이 어떤 불량과 연결되고, 과거에는 어떤 조치로 해결했는가?”처럼 관계를 따라가야 하는 질문에는 답하기 어렵습니다.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;HeungTology&lt;/code&gt;는 이 문제를 해결하기 위해 제조 도메인 지식을 노드와 관계로 구조화하고, Neo4j 기반 지식 그래프를 Graph-RAG 검색 흐름과 연결하는 방법을 설계한 &lt;strong&gt;아키텍처·PoC 프로젝트&lt;/strong&gt;입니다. 이 프로젝트는 엔터프라이즈 시스템을 양산 배포하거나 전체 사내 지식을 변환 완료한 사례가 아닙니다. 그래프 데이터 모델, 적재 원칙, 탐색 흐름과 LLM 연결 가능성을 검토한 설계 실증에 범위를 둡니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title>
-      <link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.&lt;/p&gt;</description></item><item><title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title><link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid><description>&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;
+&lt;p&gt;프로젝트 기록상 사용한 데이터는 &lt;strong&gt;AI-Hub 공개 용접 이미지 약 60,000장&lt;/strong&gt;과 &lt;strong&gt;현장 실측 이미지 198장&lt;/strong&gt;입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.&lt;/p&gt;</description></item><item><title>HeungTology: 제조 지식을 연결하는 Neo4j 온톨로지와 Graph-RAG 설계 PoC</title><link>https://HeungJAELEE.github.io/posts/ontology-construction/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/ontology-construction/</guid><description>&lt;p&gt;제조 현장의 지식은 작업표준서, 설비 매뉴얼, 품질 문서, 불량 분석 보고서와 엔지니어의 경험 속에 흩어져 있습니다. 검색창에 키워드를 입력하면 관련 문서를 찾을 수는 있지만, “어떤 공정 조건이 어떤 불량과 연결되고, 과거에는 어떤 조치로 해결했는가?”처럼 관계를 따라가야 하는 질문에는 답하기 어렵습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;HeungTology&lt;/code&gt;는 이 문제를 해결하기 위해 제조 도메인 지식을 노드와 관계로 구조화하고, Neo4j 기반 지식 그래프를 Graph-RAG 검색 흐름과 연결하는 방법을 설계한 &lt;strong&gt;아키텍처·PoC 프로젝트&lt;/strong&gt;입니다. 이 프로젝트는 엔터프라이즈 시스템을 양산 배포하거나 전체 사내 지식을 변환 완료한 사례가 아닙니다. 그래프 데이터 모델, 적재 원칙, 탐색 흐름과 LLM 연결 가능성을 검토한 설계 실증에 범위를 둡니다.&lt;/p&gt;</description></item><item><title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title><link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid><description>&lt;section class="project-resources" aria-labelledby="project-resources-title"&gt;
+&lt;h2 id="project-resources-title"&gt;프로젝트 자료&lt;/h2&gt;
+&lt;p class="project-resources__lead"&gt;구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.&lt;/p&gt;
+&lt;ul class="project-resources__links"&gt;
+&lt;li&gt;
+&lt;a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;GitHub 프로젝트 목록&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;github.com/HeungJAELEE&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit" target="_blank" rel="noopener"&gt;
+&lt;span class="project-resources__label"&gt;기가프레스 관련 보고서&lt;/span&gt;
+&lt;span class="project-resources__url"&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="project-resources__note"&gt;기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, &lt;strong&gt;에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증&lt;/strong&gt;의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.&lt;/p&gt;
-&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;구분&lt;/th&gt;
-          &lt;th&gt;내용&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 성격&lt;/td&gt;
-          &lt;td&gt;스마트팩토리 제어·모니터링·가상 검증 PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;대상 범위&lt;/td&gt;
-          &lt;td&gt;에지 디바이스 → PLC → SCADA → Factory I/O&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;핵심 기술&lt;/td&gt;
-          &lt;td&gt;Arduino, Raspberry Pi, MELSEC·LS 계열 PLC 개념, Ladder Logic, Modbus/TCP·OPC UA 연동 검토&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 기록상 결과&lt;/td&gt;
-          &lt;td&gt;셋업 시간 50~75% 단축, Ladder 모듈화에 따른 설비 증설 공수 50% 절감&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;실무 관점&lt;/td&gt;
-          &lt;td&gt;FAT/SAT, 인터록, 표준화, 변경 영향 분석, 장애 시 안전 상태 유지&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;위 수치는 현재 포트폴리오의 프로젝트 요약에 기록된 검증 범위 기준입니다. 모든 공장과 설비에서 동일하게 재현되는 보편적 수치로 확대 해석하지 않았습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;이 글에서 말하는 기가프레스는 대형 프레스 공장을 이해하기 위한 공정 맥락입니다. 실제 양산 기가프레스 전체를 구축했다는 의미가 아니며, 하드웨어 사양과 안전 회로가 확정되지 않은 부분은 &lt;strong&gt;설계 또는 PoC(개념 검증)&lt;/strong&gt; 범위로 구분했습니다.&lt;/p&gt;</description></item><item><title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title><link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid><description>&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;Neuromeka Indy7 협동로봇의 기존 Conty 티치펜던트 JSON을 PC에서 &lt;strong&gt;읽고, 계층형으로 편집하고, 가상 검증하고, 다시 호환 JSON으로 저장&lt;/strong&gt;하기 위해 만든 Python HMI 및 백엔드 서비스 프로젝트입니다.&lt;/p&gt;
 &lt;p&gt;이 프로젝트를 단순히 “JSON을 파싱해 3D 로봇을 움직였다”라고 설명하면 중요한 설계가 빠집니다. 실제 핵심은 다음 네 가지입니다.&lt;/p&gt;
 &lt;ol&gt;
@@ -99,123 +37,49 @@
 &lt;li&gt;HMI, MySQL 이력, 읽기 전용 디지털 트윈이 같은 실시간 상태를 구독하는 구조&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;소스 저장소:&lt;/strong&gt; &lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HeungJAELEE/Busan_Robot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;소스 저장소:&lt;/strong&gt; &lt;a href="https://github.com/HeungJAELEE/Busan_Robot" target="_blank" rel="noopener"&gt;HeungJAELEE/Busan_Robot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;프로젝트 카드에는 NVIDIA Omniverse 연동 프로젝트로 요약되어 있습니다. 다만 현재 공개 저장소에서 구체적으로 확인되는 실행 구조는 &lt;strong&gt;CustomTkinter HMI와 WebSocket 기반 3D 웹 모니터&lt;/strong&gt;입니다. 따라서 이 글에서는 공개 코드로 확인되는 부분을 핵심 구현으로 설명하고, Omniverse는 동일한 &lt;code&gt;robot/realtime&lt;/code&gt; 상태를 구독할 수 있는 &lt;strong&gt;확장 어댑터 또는 PoC 방향&lt;/strong&gt;으로 구분합니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>협동로봇 디지털 트윈과 온디바이스 비전 AI 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid>
-      <description>&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;프로젝트 카드에는 NVIDIA Omniverse 연동 프로젝트로 요약되어 있습니다. 다만 현재 공개 저장소에서 구체적으로 확인되는 실행 구조는 &lt;strong&gt;CustomTkinter HMI와 WebSocket 기반 3D 웹 모니터&lt;/strong&gt;입니다. 따라서 이 글에서는 공개 코드로 확인되는 부분을 핵심 구현으로 설명하고, Omniverse는 동일한 &lt;code&gt;robot/realtime&lt;/code&gt; 상태를 구독할 수 있는 &lt;strong&gt;확장 어댑터 또는 PoC 방향&lt;/strong&gt;으로 구분합니다.&lt;/p&gt;</description></item><item><title>협동로봇 디지털 트윈과 온디바이스 비전 AI 설계</title><link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid><description>&lt;h2 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
 &lt;p&gt;INDY7 협동로봇 3대로 구성된 소형 자동차 조립 라인을 가상 환경에 표현하고, Raspberry Pi 5와 Hailo-10H에서 실행하는 YOLOv11 비전 모델의 판정 결과를 PLC·SCADA·MES 데이터 흐름과 연결해 본 &lt;strong&gt;디지털 트윈·온디바이스 AI PoC&lt;/strong&gt;입니다.&lt;/p&gt;
 &lt;p&gt;이 프로젝트의 핵심은 3D 화면을 화려하게 만드는 것이 아닙니다. 물리 설비의 제어, AI 검사, 가상 모델, 생산 이력을 서로 분리하면서도 하나의 공정 이벤트로 추적할 수 있게 만드는 것이 목표였습니다.&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;구분&lt;/th&gt;
-          &lt;th&gt;내용&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;프로젝트 성격&lt;/td&gt;
-          &lt;td&gt;협동로봇 조립 공정의 디지털 트윈·비전 검사 PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;물리 대상&lt;/td&gt;
-          &lt;td&gt;INDY7 협동로봇 3대 조립 라인&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;에지 AI&lt;/td&gt;
-          &lt;td&gt;Raspberry Pi 5 + Hailo-10H, YOLOv11 기반 검사 모델 3종&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;제어·운영&lt;/td&gt;
-          &lt;td&gt;MELSEC PLC, SCADA, MES 연동 흐름&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;가상화&lt;/td&gt;
-          &lt;td&gt;NVIDIA Omniverse 기반 공정 상태 시각화·사전 검증 설계&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;기록된 모델 결과&lt;/td&gt;
-          &lt;td&gt;F1 Score 100%, 95%, 100%&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트 성격&lt;/td&gt;
+&lt;td&gt;협동로봇 조립 공정의 디지털 트윈·비전 검사 PoC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;물리 대상&lt;/td&gt;
+&lt;td&gt;INDY7 협동로봇 3대 조립 라인&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;에지 AI&lt;/td&gt;
+&lt;td&gt;Raspberry Pi 5 + Hailo-10H, YOLOv11 기반 검사 모델 3종&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;제어·운영&lt;/td&gt;
+&lt;td&gt;MELSEC PLC, SCADA, MES 연동 흐름&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;가상화&lt;/td&gt;
+&lt;td&gt;NVIDIA Omniverse 기반 공정 상태 시각화·사전 검증 설계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;기록된 모델 결과&lt;/td&gt;
+&lt;td&gt;F1 Score 100%, 95%, 100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;F1 Score는 프로젝트 데이터에 기록된 평가 결과이며, 데이터셋 규모·분할 방식·현장 장기 운영 결과가 모두 공개된 것은 아닙니다. 따라서 이 글에서는 해당 수치를 특정 평가셋에서의 결과로만 설명하고, 양산 현장의 영구적인 정확도로 과장하지 않습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title>
-      <link>https://HeungJAELEE.github.io/posts/resumopenai/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/resumopenai/</guid>
-      <description>&lt;h2 id=&#34;프로젝트-한눈에-보기&#34;&gt;프로젝트 한눈에 보기&lt;/h2&gt;
+&lt;p&gt;F1 Score는 프로젝트 데이터에 기록된 평가 결과이며, 데이터셋 규모·분할 방식·현장 장기 운영 결과가 모두 공개된 것은 아닙니다. 따라서 이 글에서는 해당 수치를 특정 평가셋에서의 결과로만 설명하고, 양산 현장의 영구적인 정확도로 과장하지 않습니다.&lt;/p&gt;</description></item><item><title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title><link>https://HeungJAELEE.github.io/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/resumopenai/</guid><description>&lt;h2 id="프로젝트-한눈에-보기"&gt;프로젝트 한눈에 보기&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt;는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 &lt;strong&gt;Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입&lt;/strong&gt;이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title>
-      <link>https://HeungJAELEE.github.io/posts/project1/</link>
-      <pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/project1/</guid>
-      <description>&lt;h2 id=&#34;기가프레스-설비-셋업&#34;&gt;기가프레스 설비 셋업&lt;/h2&gt;
+&lt;p&gt;이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.&lt;/p&gt;</description></item><item><title>기가프레스 공장 DX 전환 관련 엔지니어링 일지</title><link>https://HeungJAELEE.github.io/posts/project1/</link><pubDate>Sun, 31 May 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/project1/</guid><description>&lt;h2 id="기가프레스-설비-셋업"&gt;기가프레스 설비 셋업&lt;/h2&gt;
 &lt;p&gt;오늘 기가프레스 설비의 데이터를 에지 디바이스로 연동하는 작업을 수행했습니다.
-노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>나의 첫 엔지니어링 일지</title>
-      <link>https://HeungJAELEE.github.io/posts/first/</link>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/first/</guid>
-      <description>&lt;h2 id=&#34;안녕하세요&#34;&gt;안녕하세요!&lt;/h2&gt;
-&lt;p&gt;여기는 나의 첫 엔지니어링 기록 공간입니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <item>
-      <title>পোস্ট সমূহ</title>
-      <link>https://HeungJAELEE.github.io/posts/_index.bn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/_index.bn/</guid>
-      <description></description>
-    </item>
-    
-    
-  </channel>
-</rss>
+노이즈 필터링이 가장 중요한 관건입니다. 앞으로 이 카테고리에 관련 일지를 모아둘 예정입니다.&lt;/p&gt;</description></item><item><title>나의 첫 엔지니어링 일지</title><link>https://HeungJAELEE.github.io/posts/first/</link><pubDate>Tue, 26 May 2026 00:00:00 +0900</pubDate><guid>https://HeungJAELEE.github.io/posts/first/</guid><description>&lt;h2 id="안녕하세요"&gt;안녕하세요!&lt;/h2&gt;
+&lt;p&gt;여기는 나의 첫 엔지니어링 기록 공간입니다.&lt;/p&gt;</description></item><item><title>পোস্ট সমূহ</title><link>https://HeungJAELEE.github.io/posts/_index.bn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://HeungJAELEE.github.io/posts/_index.bn/</guid><description/></item></channel></rss>
