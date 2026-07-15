@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/posts/robot-digital-twin/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="INDY7 협동로봇 조립 라인, QR 추적, Raspberry Pi 5·Hailo-10H·YOLOv11 검사를 PLC·SCADA·MES 흐름에 연결한 교육 팀 PoC" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/posts/robot-digital-twin/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI">
+  <meta name="twitter:description" content="INDY7 협동로봇 조립 라인, QR 추적, Raspberry Pi 5·Hailo-10H·YOLOv11 검사를 PLC·SCADA·MES 흐름에 연결한 교육 팀 PoC">
+
+<meta name="description" content="INDY7 협동로봇 조립 라인, QR 추적, Raspberry Pi 5·Hailo-10H·YOLOv11 검사를 PLC·SCADA·MES 흐름에 연결한 교육 팀 PoC" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">기술 노트</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/robot-digital-twin">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/robot-digital-twin">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/search">
+        <input type="text" name="keyword" value="" placeholder="찾다" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/posts/" data-filter="all">게시글</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">이재흥</h5>
+          <p class="text-muted">
+            2026년 7월 9일 목요일
+             | 
+            4</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/digital-twin/" class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li>
+    
+    
+    <li><a href="/tags/robot/" class="btn btn-sm btn-outline-info rounded">Robot</a></li>
+    
+    
+    <li><a href="/tags/edge-ai/" class="btn btn-sm btn-outline-info rounded">Edge AI</a></li>
+    
+    
+    <li><a href="/tags/vision/" class="btn btn-sm btn-outline-info rounded">Vision</a></li>
+    
+    
+    <li><a href="/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/tags/mes/" class="btn btn-sm btn-outline-info rounded">MES</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">프로젝트 자료</h2>
+  <p class="project-resources__lead">팀 발표자료와 연관 로봇 HMI 공개 저장소를 구분해 제공합니다.</p>
+  <ul class="project-resources__links">
+    <li><a href="https://github.com/HeungJAELEE/Busan_Robot" target="_blank" rel="noopener"><span class="project-resources__label">연관 GitHub 저장소</span><span class="project-resources__url">github.com/HeungJAELEE/Busan_Robot</span></a></li>
+    <li><a href="/docs/Robot_Digital_Twin.pdf" target="_blank" rel="noopener"><span class="project-resources__label">자동차 공장 Digital Twin 팀 보고서</span><span class="project-resources__url">/docs/Robot_Digital_Twin.pdf</span></a></li>
+  </ul>
+  <p class="project-resources__note">정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.</p>
+</section>
+<h2 id="프로젝트를-한-문장으로-설명하면">프로젝트를 한 문장으로 설명하면</h2>
+<p>INDY7 협동로봇 3대를 사용하는 소형 자동차 조립 흐름에 <strong>QR 제품 추적, YOLOv11 조립·품질 검사, PLC/SCADA, MySQL/MES, 디지털 트윈</strong>을 연결하고, Raspberry Pi 5와 Hailo-10H의 온디바이스 추론 차이를 비교한 교육 팀 프로젝트입니다.</p>
+<p>이 글은 팀 발표자료에서 확인되는 결과와 이후 공개 저장소의 확장 구현을 구분합니다. 팀 PDF는 10명 전체 명단과 공정 시연을 제공하지만 개인별 R&amp;R 표는 포함하지 않습니다. 별도 포트폴리오 자료에는 제 범위가 Robot·Digital Twin으로 기록되어 있어, 여기서는 팀 결과를 개인 단독 성과로 표현하지 않습니다.</p>
+<h2 id="왜-이-구조가-필요했는가">왜 이 구조가 필요했는가</h2>
+<p>자동차 조립 데모에서도 제품 식별, 로봇 상태, 검사 이미지, PLC 시퀀스와 작업 결과가 서로 다른 형식으로 발생합니다. 화면만 연결하면 시연은 가능하지만, “어떤 제품이 어떤 공정을 거쳐 어떤 검사 결과를 받았는가?”를 다시 설명하기 어렵습니다.</p>
+<p>프로젝트의 목표는 네 흐름을 하나의 작업 단위로 묶는 것이었습니다.</p>
+<ol>
+<li>QR로 제품 serial을 확인하고 MySQL에 기록</li>
+<li>Indy7 협동로봇이 투입·차체 결합·유리창 결합·적재 공정을 수행</li>
+<li>YOLOv11이 색상/조립 상태와 정상·크랙을 검사</li>
+<li>PLC·SCADA·MES와 디지털 트윈이 같은 공정 상태를 공유</li>
+</ol>
+<h2 id="전체-아키텍처">전체 아키텍처</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["QR 제품 식별"] --> B["MySQL / MES\nserial·공정 이력"]
+    B --> C["PLC 공정 시퀀스"]
+    C --> D["INDY7 협동로봇 3대\n투입·결합·적재"]
+    D --> E["카메라"]
+    E --> F["Raspberry Pi 5\nYOLOv11"]
+    F --> G["Hailo-10H 가속\n판정·FPS 비교"]
+    G --> C
+    C --> H["SCADA·Digital Twin\n상태 시각화"]
+    G --> B
+</div>
+
+<h3 id="qr와-mes">QR와 MES</h3>
+<p>QR은 단순 화면 전환용 표식이 아니라 제품 serial과 검사 결과를 연결하는 key로 사용합니다. MES 관점에서는 최소한 다음 field가 필요합니다.</p>
+<ul>
+<li><code>product_serial</code></li>
+<li><code>process_step</code></li>
+<li><code>equipment_id</code> 또는 robot ID</li>
+<li><code>inspection_model</code>과 version</li>
+<li><code>prediction</code>, score, threshold</li>
+<li><code>event_time</code>과 result</li>
+</ul>
+<h3 id="plc와-로봇">PLC와 로봇</h3>
+<p>AI 판정이 바로 물리 로봇을 제어하기보다 PLC가 검사 완료·통신 상태·인터록을 함께 확인한 뒤 다음 단계로 전이해야 합니다. 팀 자료에는 Vision 검사 Ladder와 통신 Ladder가 별도로 기록되어 있습니다. 이는 검사 결과와 공정 제어 책임을 분리하는 제조 자동화의 기본 경계입니다.</p>
+<h3 id="edge-ai">Edge AI</h3>
+<p>Raspberry Pi 5는 카메라와 application flow를 담당하고, Hailo-10H는 YOLOv11 추론 가속기로 비교했습니다. 팀 발표자료는 같은 데모 조건에서 다음 값을 제시합니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>조건</th>
+          <th style="text-align: right">발표자료 결과</th>
+          <th>해석</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3-class r/g/b 검사</td>
+          <td style="text-align: right">F1 1.00</td>
+          <td>발표 평가셋 범위의 결과</td>
+      </tr>
+      <tr>
+          <td>6-class normal/crack 검사</td>
+          <td style="text-align: right">F1 0.877</td>
+          <td>색상별 정상/크랙 분류 결과</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 5</td>
+          <td style="text-align: right">5 FPS</td>
+          <td>Hailo 적용 전 비교값</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 5 + Hailo-10H</td>
+          <td style="text-align: right">18 FPS</td>
+          <td>발표 데모의 가속 비교값</td>
+      </tr>
+  </tbody>
+</table>
+<p>이 수치는 데이터셋 크기, split, 반복 평가와 장시간 thermal 조건이 모두 공개된 benchmark가 아닙니다. 따라서 현장 양산 성능이나 모든 검사 모델의 일반 정확도로 확대하지 않습니다.</p>
+<h2 id="공정-시퀀스를-어떻게-구성했는가">공정 시퀀스를 어떻게 구성했는가</h2>
+<p>팀 보고서는 제품 serial 확인에서 양품 적재·불량 통과까지의 공정 흐름을 단계별로 보여 줍니다.</p>
+<ol>
+<li>QR로 제품 serial 확인 및 DB 저장</li>
+<li>부품 투입과 차체 결합</li>
+<li>결합 후 색상/상태 Vision 검사</li>
+<li>유리창 결합</li>
+<li>normal/crack Vision 검사</li>
+<li>결과에 따른 양품 적재 또는 불량 분기</li>
+<li>PLC·통신 상태와 MES 이력 확인</li>
+</ol>
+<p>이 시퀀스의 핵심은 로봇 motion보다 <strong>제품 ID–공정 단계–검사 결과–이력</strong>을 끊지 않는 것입니다.</p>
+<h2 id="기술적-판단">기술적 판단</h2>
+<h3 id="accuracy보다-오류-유형을-봐야-하는-이유">Accuracy보다 오류 유형을 봐야 하는 이유</h3>
+<p>F1 1.00과 0.877은 서로 다른 class 구성과 평가 조건의 결과입니다. 값만 비교해 “한 모델이 더 우수하다”고 결론 내리기보다 confusion matrix, class별 표본 수, 미검출 비용과 운영 threshold가 필요합니다.</p>
+<h3 id="edge-가속을-fps-하나로-판단하지-않는-이유">Edge 가속을 FPS 하나로 판단하지 않는 이유</h3>
+<p>5→18 FPS는 데모에서 Hailo 가속 가능성을 보여 줍니다. 현장 적용에는 model conversion 정확도, camera latency, pre/post-processing, 온도, memory, 재시작 복구와 장시간 안정성을 함께 검증해야 합니다.</p>
+<h3 id="digital-twin을-제어-시스템과-구분한-이유">Digital Twin을 제어 시스템과 구분한 이유</h3>
+<p>디지털 트윈은 PLC·로봇·검사 상태를 같은 시간축에서 이해하게 돕습니다. 그러나 3D 장면이 움직인다는 이유로 safety가 검증되는 것은 아닙니다. 물리 제어권은 PLC·robot controller·safety circuit에 남기고 twin은 검증·관측 계층으로 제한해야 합니다.</p>
+<h2 id="공개-evidence와-한계">공개 Evidence와 한계</h2>
+<p>확인 가능한 Evidence는 다음과 같습니다.</p>
+<ul>
+<li>29-page 팀 발표 PDF의 목표·공정 시퀀스·Ladder·MES·edge benchmark</li>
+<li>QR serial과 MySQL 기록 흐름</li>
+<li>F1 1.00·0.877, Pi5 5 FPS·Pi5+Hailo 18 FPS 표기</li>
+<li>연관 <code>Busan_Robot</code> 저장소의 PC-HMI·MQTT·DB·Digital Twin 확장 구현</li>
+</ul>
+<p>확인되지 않은 항목은 완료 성과로 쓰지 않습니다.</p>
+<ul>
+<li>실제 양산 line 적용과 장시간 OEE 개선</li>
+<li>팀 보고서의 직접 비교표로 재현되지 않는 별도 모델 성능 수치</li>
+<li>팀 보고서의 직접 비교표와 충돌하는 별도 속도 수치</li>
+<li>Omniverse 운영 배포와 정량 지연</li>
+<li>개인 단독 개발·단독 성과</li>
+</ul>
+<h2 id="경력과의-연결">경력과의 연결</h2>
+<ul>
+<li>로봇 Overhaul·Teaching·정도 세팅 경험은 가상 축과 실제 좌표를 별도로 검증하는 관점으로 연결됩니다.</li>
+<li>배터리 조립 Pilot Line FAT/SAT 경험은 Offline → 시뮬레이션 → 단일 동작 → 공정 확대 순서에 반영됩니다.</li>
+<li>MES 초기 관리 항목 설계 경험은 제품 serial, 설비, 검사 결과, timestamp를 함께 저장하는 데이터 계약으로 연결됩니다.</li>
+<li>Vision·PLC 교육은 AI 판정과 물리 제어권을 분리하는 구조로 이어집니다.</li>
+</ul>
+<h2 id="다음-개선">다음 개선</h2>
+<ol>
+<li>제품/Lot 단위 train·validation split과 class별 confusion matrix 공개</li>
+<li>Hailo 변환 전후 정확도·latency·temperature 장시간 benchmark</li>
+<li>PLC request ID와 Vision result의 handshake 및 timeout 자동 시험</li>
+<li>robot·PLC·Vision·MES event를 하나의 correlation ID로 연결</li>
+<li>녹화된 상태를 재생하는 hardware-free regression test</li>
+<li>개인 R&amp;R과 팀 결과를 분리한 project changelog</li>
+</ol>
+<p>이 프로젝트는 “AI가 로봇을 움직였다”는 데서 끝나지 않습니다. <strong>제품 추적, 물리 시퀀스, 검사 모델, edge 추론, MES 이력을 같은 공정 단위로 연결하고 Evidence 범위를 구분한 팀 제조 AI 사례</strong>입니다.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">목차</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#프로젝트를-한-문장으로-설명하면">프로젝트를 한 문장으로 설명하면</a></li>
+    <li><a href="#왜-이-구조가-필요했는가">왜 이 구조가 필요했는가</a></li>
+    <li><a href="#전체-아키텍처">전체 아키텍처</a>
+      <ul>
+        <li><a href="#qr와-mes">QR와 MES</a></li>
+        <li><a href="#plc와-로봇">PLC와 로봇</a></li>
+        <li><a href="#edge-ai">Edge AI</a></li>
+      </ul>
+    </li>
+    <li><a href="#공정-시퀀스를-어떻게-구성했는가">공정 시퀀스를 어떻게 구성했는가</a></li>
+    <li><a href="#기술적-판단">기술적 판단</a>
+      <ul>
+        <li><a href="#accuracy보다-오류-유형을-봐야-하는-이유">Accuracy보다 오류 유형을 봐야 하는 이유</a></li>
+        <li><a href="#edge-가속을-fps-하나로-판단하지-않는-이유">Edge 가속을 FPS 하나로 판단하지 않는 이유</a></li>
+        <li><a href="#digital-twin을-제어-시스템과-구분한-이유">Digital Twin을 제어 시스템과 구분한 이유</a></li>
+      </ul>
+    </li>
+    <li><a href="#공개-evidence와-한계">공개 Evidence와 한계</a></li>
+    <li><a href="#경력과의-연결">경력과의 연결</a></li>
+    <li><a href="#다음-개선">다음 개선</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>배터리 제조공정, 자동화, 데이터 기반 품질개선</p>
+      <p>현장 경험과 기술 검증 기록을 한곳에 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 노트</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

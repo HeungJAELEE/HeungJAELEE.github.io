@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/posts/welding-vision-ai/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="이차전지 제조 공정, 자동화, 데이터 기반 품질 개선을 다루는 이재흥의 포트폴리오입니다." />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/posts/welding-vision-ai/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정">
+  <meta name="twitter:description" content="프로젝트 자료 평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.
+GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 canva.com/design/DAHGaCTGRFs 이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.
+포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다. Role 팀 프로젝트에서 F1·Recall·FPR 등 평가지표 설계와 검증을 담당했습니다. Action AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet&#43;DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다. Result 선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다. Evidence AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다. 이력서 Bullet 공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다. DenseNet 단독·2-model 조합·ResNet&#43;DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다. 해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다. 면접 STAR Situation: 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다. Task: 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다. Action: 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다. Result: 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다. 제조 현장에서 비전 AI의 가치는 모델 이름보다 어떤 불량을 놓치지 않아야 하는지, 그리고 오검을 어느 수준까지 감수할 것인지를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.">
+
+<meta name="description" content="AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">기술 노트</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/welding-vision-ai">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/welding-vision-ai">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/search">
+        <input type="text" name="keyword" value="" placeholder="찾다" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/posts/" data-filter="all">게시글</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">이재흥</h5>
+          <p class="text-muted">
+            2026년 7월 9일 목요일
+             | 
+            9</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/ai/" class="btn btn-sm btn-outline-info rounded">AI</a></li>
+    
+    
+    <li><a href="/tags/vision/" class="btn btn-sm btn-outline-info rounded">Vision</a></li>
+    
+    
+    <li><a href="/tags/manufacturing/" class="btn btn-sm btn-outline-info rounded">Manufacturing</a></li>
+    
+    
+    <li><a href="/tags/deep-learning/" class="btn btn-sm btn-outline-info rounded">Deep Learning</a></li>
+    
+    
+    <li><a href="/tags/quality/" class="btn btn-sm btn-outline-info rounded">Quality</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">프로젝트 자료</h2>
+  <p class="project-resources__lead">평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.</p>
+  <ul class="project-resources__links">
+    <li>
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">
+        <span class="project-resources__label">GitHub 프로젝트 목록</span>
+        <span class="project-resources__url">github.com/HeungJAELEE</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.canva.com/design/DAHGaCTGRFs/0GKq7g9dsbb_ANIeRv8dnQ/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0" target="_blank" rel="noopener">
+        <span class="project-resources__label">AI 용접 Vision 보고서</span>
+        <span class="project-resources__url">canva.com/design/DAHGaCTGRFs</span>
+      </a>
+    </li>
+  </ul>
+  <p class="project-resources__note">이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.</p>
+</section>
+<h2 id="포트폴리오-요약-problemroleactionresultevidence">포트폴리오 요약: Problem–Role–Action–Result–Evidence</h2>
+<table>
+  <thead>
+      <tr>
+          <th>항목</th>
+          <th>확인된 내용</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Problem</td>
+          <td>미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다.</td>
+      </tr>
+      <tr>
+          <td>Role</td>
+          <td>팀 프로젝트에서 <strong>F1·Recall·FPR 등 평가지표 설계와 검증</strong>을 담당했습니다.</td>
+      </tr>
+      <tr>
+          <td>Action</td>
+          <td>AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet+DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다.</td>
+      </tr>
+      <tr>
+          <td>Result</td>
+          <td>선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다.</td>
+      </tr>
+      <tr>
+          <td>Evidence</td>
+          <td>AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="이력서-bullet">이력서 Bullet</h3>
+<ul>
+<li>공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다.</li>
+<li>DenseNet 단독·2-model 조합·ResNet+DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다.</li>
+<li>해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다.</li>
+</ul>
+<h3 id="면접-star">면접 STAR</h3>
+<ul>
+<li><strong>Situation:</strong> 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다.</li>
+<li><strong>Task:</strong> 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다.</li>
+<li><strong>Action:</strong> 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다.</li>
+<li><strong>Result:</strong> 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다.</li>
+</ul>
+<p>제조 현장에서 비전 AI의 가치는 모델 이름보다 <strong>어떤 불량을 놓치지 않아야 하는지</strong>, 그리고 <strong>오검을 어느 수준까지 감수할 것인지</strong>를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.</p>
+<p>프로젝트 기록상 사용한 데이터는 <strong>AI-Hub 공개 용접 이미지 약 60,000장</strong>과 <strong>현장 실측 이미지 198장</strong>입니다. 선택한 평가 조건에서 **F1 Score 93.10%, Recall 100%, Precision 87.07%**를 확인했습니다. 다만 이 수치는 해당 데이터와 당시의 판정 조건에서 얻은 결과이며, 실제 양산 라인의 모든 조명·설비·제품 조건에 대한 성능을 의미하지는 않습니다.</p>
+<ul>
+<li>프로젝트 성격: 제조 품질 문제를 다룬 AI 비전 모델링 및 검증</li>
+<li>핵심 과제: 불량 미검출(False Negative)을 우선적으로 억제하는 판정 기준 설계</li>
+<li>데이터: 공개 데이터 약 60,000장, 현장 실측 이미지 198장</li>
+<li>기록된 결과: F1 93.10%, Recall 100%, Precision 87.07%</li>
+<li>적용 범위: 제한된 데이터셋 기반 검증이며, 양산 설비에 배포 완료한 시스템은 아님</li>
+</ul>
+<h2 id="1-왜-이-프로젝트를-구성했는가">1. 왜 이 프로젝트를 구성했는가</h2>
+<p>용접 품질은 전류, 출력, 가압, 위치 정렬, 소재 상태와 같은 여러 공정 조건의 영향을 동시에 받습니다. 불량이 발생한 뒤 조건을 수정하는 것만으로는 이미 만들어진 제품의 품질을 되돌릴 수 없기 때문에, 검사 단계에서 이상을 빠르게 식별하고 원인 분석으로 연결하는 체계가 필요합니다.</p>
+<p>저는 배터리 셀 조립 현장에서 초음파·레이저 용접 조건을 최적화하고, 해체 및 단면 분석으로 불량 원인을 확인해 온 경험이 있습니다. 2170·4695 원통형 셀과 각형 셀의 파일럿·양산 공정을 다루면서 느낀 핵심은, AI 역시 현장 품질 기준과 분리해서 설계할 수 없다는 점이었습니다. 그래서 이 프로젝트를 단순 이미지 분류 실습이 아니라 다음 질문에 답하는 구조로 구성했습니다.</p>
+<ol>
+<li>공개 데이터로 시각적 결함 패턴을 충분히 학습할 수 있는가?</li>
+<li>공개 데이터에서 학습한 특징이 소수의 현장 이미지에서도 유효한가?</li>
+<li>정확도 하나가 아니라 미검출과 오검의 비용을 구분해 판정 기준을 정할 수 있는가?</li>
+<li>모델 결과를 현장 엔지니어가 이해하고 재검사할 수 있는 품질 지표로 표현할 수 있는가?</li>
+</ol>
+<p>이 질문을 기준으로 데이터, 모델, 임계값, 오류 분석을 하나의 파이프라인으로 묶었습니다.</p>
+<h2 id="2-전체-아키텍처">2. 전체 아키텍처</h2>
+<p>프로젝트의 핵심은 대규모 공개 데이터로 학습 기반을 확보하고, 현장 실측 이미지로 도메인 차이를 확인한 뒤, 품질 리스크에 맞게 판정 임계값을 조정하는 것입니다.</p>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["AI-Hub 공개 이미지<br/>약 60,000장"] --> B["라벨·품질 점검"]
+    B --> C["전처리 및 학습 데이터 구성"]
+    C --> D["딥러닝 비전 모델 학습"]
+    D --> E["확률값 예측"]
+    F["현장 실측 이미지<br/>198장"] --> G["현장 조건 검증"]
+    E --> G
+    G --> H["임계값 탐색"]
+    H --> I["Confusion Matrix 분석"]
+    I --> J["F1 93.10%<br/>Recall 100%"]
+    I --> K["오류 이미지 재검토"]
+</div>
+
+<p>이 구조를 채택한 이유는 공개 데이터만으로 높은 점수를 만드는 것과 현장 이미지에서 재현되는 성능을 확인하는 일이 서로 다르기 때문입니다. 공개 데이터는 학습량을 확보하는 데 유리하지만, 촬영 장비와 조명, 표면 반사, 용접부 크기, 배경 등이 실제 현장과 다를 수 있습니다. 현장 이미지 198장은 이 차이를 확인하는 별도 관점의 데이터로 사용했습니다.</p>
+<h2 id="3-사용한-기술과-선택-이유">3. 사용한 기술과 선택 이유</h2>
+<h3 id="python-기반-데이터-처리와-실험-관리">Python 기반 데이터 처리와 실험 관리</h3>
+<p>이미지 경로, 라벨, 전처리 조건, 예측 확률과 정답을 일관된 형식으로 관리하기 위해 Python 기반의 비전 학습 흐름을 사용했습니다. Python은 이미지 전처리부터 모델 학습, 임계값별 지표 계산까지 같은 언어 안에서 연결할 수 있어 반복 실험에 적합합니다.</p>
+<p>여기서 중요한 역량은 특정 라이브러리를 호출하는 것보다 다음 실험 조건을 재현 가능하게 관리하는 것입니다.</p>
+<ul>
+<li>어떤 이미지와 라벨을 학습·검증에 사용했는지 추적</li>
+<li>동일 이미지가 학습과 평가에 중복되지 않도록 분리</li>
+<li>입력 크기와 정규화 조건을 일관되게 유지</li>
+<li>모델별 예측값을 동일 지표로 비교</li>
+<li>임계값 변경 전후의 Precision, Recall, F1을 함께 기록</li>
+</ul>
+<h3 id="딥러닝-비전-모델">딥러닝 비전 모델</h3>
+<p>용접 표면의 결함은 규칙 기반 영상 처리만으로 일반화하기 어렵습니다. 반사광이나 표면 요철이 결함과 유사하게 보일 수 있고, 결함 형태도 일정하지 않기 때문입니다. 따라서 사람이 일일이 경계 규칙을 작성하기보다 이미지 특징을 학습하는 딥러닝 비전 접근을 선택했습니다.</p>
+<p>프로젝트 보고서에는 DenseNet121 단독, DenseNet+Mask R-CNN 조합, ResNet+DeiT 이종 앙상블의 세 단계가 기록되어 있습니다. 최종 선택은 모델 이름 자체보다 <strong>동일한 평가 데이터와 판정 기준으로 후보를 비교하고, 현장 품질 목적에 맞게 임계값을 조정한 과정</strong>에 의미가 있습니다.</p>
+<h3 id="confusion-matrix와-임계값-최적화">Confusion Matrix와 임계값 최적화</h3>
+<p>모델은 보통 0과 1을 바로 출력하는 것이 아니라 불량일 가능성을 확률값으로 냅니다. 예를 들어 임계값이 0.5라면 0.5 이상을 불량으로 분류합니다. 임계값을 낮추면 불량을 더 많이 잡을 수 있지만 정상 제품까지 불량으로 판정할 수 있고, 높이면 오검은 줄어도 실제 불량을 놓칠 수 있습니다.</p>
+<p>용접 품질에서는 불량을 정상으로 통과시키는 비용이 크기 때문에 Recall을 우선했습니다.</p>
+<p>[
+\text{Precision} = \frac{TP}{TP + FP}
+]</p>
+<p>[
+\text{Recall} = \frac{TP}{TP + FN}
+]</p>
+<p>[
+\text{F1 Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+]</p>
+<ul>
+<li><code>TP</code>: 실제 불량을 불량으로 판정</li>
+<li><code>FP</code>: 정상을 불량으로 판정한 오검</li>
+<li><code>FN</code>: 실제 불량을 정상으로 판정한 미검출</li>
+<li><code>TN</code>: 실제 정상을 정상으로 판정</li>
+</ul>
+<p>Recall 100%는 평가 대상에 포함된 불량을 모두 검출했다는 뜻입니다. 동시에 Precision 87.07%는 불량으로 판단한 일부 이미지가 실제로는 정상일 수 있음을 보여줍니다. F1 93.10%는 이 두 지표의 균형을 요약합니다. 즉, 이 프로젝트의 의사결정은 “모든 지표를 완벽하게 만든다”가 아니라 <strong>미검출을 우선 억제하고 남은 오검은 재검사 프로세스로 관리한다</strong>는 품질 전략에 가깝습니다.</p>
+<h2 id="4-데이터와-구현-흐름">4. 데이터와 구현 흐름</h2>
+<h3 id="41-데이터-정의">4.1 데이터 정의</h3>
+<p>첫 단계는 모델보다 불량의 정의를 맞추는 일입니다. 공개 이미지의 라벨과 현장 판정 기준이 다르면 모델 점수를 비교해도 의미가 없습니다. 따라서 용접부 이미지, 정상·불량 라벨, 이미지 출처를 구분하고, 공개 데이터와 현장 데이터의 역할을 분리했습니다.</p>
+<p>공개 데이터 약 60,000장은 다양한 결함 패턴을 학습할 수 있는 기반으로, 현장 실측 198장은 실제 촬영 조건에서 모델 반응을 확인하는 자료로 보았습니다. 198장은 양산 환경 전체를 대표하기에는 작은 규모이므로, 최종 검증 결과를 현장 전체로 일반화하지 않는 것이 중요합니다.</p>
+<h3 id="42-전처리와-입력-표준화">4.2 전처리와 입력 표준화</h3>
+<p>비전 모델은 이미지 크기와 색상 범위가 일정해야 안정적으로 학습됩니다. 전처리 단계에서는 입력 형식을 통일하고, 육안으로 라벨과 이미지 품질을 확인하는 데이터 점검이 필요합니다. 단, 실제 프로젝트 기록에 구체적인 증강 기법이나 필터가 남아 있지 않아 이 글에서는 특정 전처리를 수행했다고 추가로 주장하지 않습니다.</p>
+<p>현장 적용을 확대할 때는 밝기 변화, 반사, 초점 흐림, 용접부 위치 편차를 재현하는 증강을 검토할 수 있습니다. 이 작업은 기존 결과가 아니라 다음 단계의 개선안입니다.</p>
+<h3 id="43-학습과-예측값-저장">4.3 학습과 예측값 저장</h3>
+<p>학습 단계에서는 각 이미지의 정답과 모델이 출력한 불량 확률을 저장합니다. 이렇게 확률값을 남겨야 모델을 다시 학습하지 않고도 여러 임계값을 비교할 수 있습니다. 단일 정확도만 기록하면 어떤 종류의 오류가 줄었는지 알 수 없기 때문에, 이미지 단위 예측 결과와 Confusion Matrix를 함께 확인하는 흐름으로 구성했습니다.</p>
+<h3 id="44-임계값-탐색">4.4 임계값 탐색</h3>
+<p>임계값을 일정 간격으로 바꾸면서 Precision, Recall, F1의 변화를 비교했습니다. 불량 미검출을 최소화해야 한다는 제조 품질의 우선순위를 반영해 Recall 100%가 유지되는 구간을 먼저 확인하고, 그 안에서 F1과 Precision이 상대적으로 좋은 조건을 선택했습니다.</p>
+<p>이 접근은 모델을 무조건 복잡하게 만드는 대신, 이미 학습된 모델의 판정 기준을 업무 리스크에 맞게 조정한다는 장점이 있습니다. 또한 현장에서는 임계값과 재검사 기준을 함께 관리할 수 있어 모델 판단을 품질 프로세스에 연결하기 쉽습니다.</p>
+<h3 id="45-오류-이미지-검토">4.5 오류 이미지 검토</h3>
+<p>수치만으로는 오검의 원인을 알 수 없습니다. 따라서 FP와 FN에 해당하는 이미지를 분리해 표면 반사, 촬영 상태, 정상 형상의 편차와 같은 가능성을 사람이 다시 확인하는 단계가 필요합니다. 이 결과는 추가 데이터 수집과 라벨 기준 보완으로 돌아가야 합니다.</p>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart TD
+    A["예측 결과"] --> B{"정답과 비교"}
+    B -->|TP / TN| C["정상 판정 사례 축적"]
+    B -->|FP| D["오검 이미지 재검토"]
+    B -->|FN| E["미검출 원인 우선 분석"]
+    D --> F["라벨·촬영 조건·임계값 점검"]
+    E --> F
+    F --> G["데이터 보강 또는 재학습"]
+    G --> A
+</div>
+
+<h2 id="5-가장-어려웠던-문제와-의사결정">5. 가장 어려웠던 문제와 의사결정</h2>
+<h3 id="공개-데이터와-현장-이미지의-차이">공개 데이터와 현장 이미지의 차이</h3>
+<p>가장 큰 위험은 공개 데이터에서 보인 성능이 현장에서도 그대로 재현될 것이라고 가정하는 것입니다. 그래서 60,000장과 198장을 단순히 합쳐 “총 60,198장 학습”으로 표현하지 않고, 공개 데이터는 학습 기반, 현장 데이터는 현장 조건 확인이라는 서로 다른 역할로 구분했습니다.</p>
+<h3 id="accuracy보다-recall을-우선한-이유">Accuracy보다 Recall을 우선한 이유</h3>
+<p>정상 이미지 비율이 높으면 불량을 거의 잡지 못해도 Accuracy가 높게 나올 수 있습니다. 용접 결함 검사에서 중요한 것은 불량 통과를 줄이는 것이므로 Recall을 우선 지표로 선택했습니다. 대신 Recall만 높이면 오검이 늘 수 있어 F1과 Precision을 보조 지표로 함께 확인했습니다.</p>
+<h3 id="자동-판정보다-검사-보조로-범위를-정한-이유">“자동 판정”보다 “검사 보조”로 범위를 정한 이유</h3>
+<p>현장 데이터 198장만으로 설비, 소재, 조명, 제품 형상 변화까지 모두 검증했다고 볼 수 없습니다. 따라서 현재 결과는 무인 전수검사를 완성했다는 의미가 아니라, <strong>불량 후보를 선별하고 검사원이 우선 확인할 대상을 제시하는 품질 보조 모델의 가능성을 확인한 것</strong>으로 해석하는 것이 합리적입니다.</p>
+<h2 id="6-검증-결과와-해석-범위">6. 검증 결과와 해석 범위</h2>
+<table>
+  <thead>
+      <tr>
+          <th>항목</th>
+          <th style="text-align: right">결과</th>
+          <th>해석</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>공개 이미지</td>
+          <td style="text-align: right">약 60,000장</td>
+          <td>결함 특징 학습을 위한 공개 데이터 기반</td>
+      </tr>
+      <tr>
+          <td>현장 실측 이미지</td>
+          <td style="text-align: right">198장</td>
+          <td>제한된 현장 조건에서 모델 반응을 확인한 데이터</td>
+      </tr>
+      <tr>
+          <td>Recall</td>
+          <td style="text-align: right">100%</td>
+          <td>해당 평가셋의 불량에 한해 미검출이 없었음</td>
+      </tr>
+      <tr>
+          <td>Precision</td>
+          <td style="text-align: right">87.07%</td>
+          <td>불량 판정 중 일부 오검이 존재함</td>
+      </tr>
+      <tr>
+          <td>F1 Score</td>
+          <td style="text-align: right">93.10%</td>
+          <td>선택한 임계값에서 Precision과 Recall의 균형</td>
+      </tr>
+  </tbody>
+</table>
+<p>이 결과를 해석할 때 세 가지 제한을 함께 봐야 합니다.</p>
+<ol>
+<li>Recall 100%는 해당 평가 데이터 안에서의 결과이며 미래의 모든 불량을 보장하지 않습니다.</li>
+<li>데이터 분할 방식, 불량 유형별 표본 수, 반복 실험 분산이 공개되지 않아 통계적 일반화 범위를 확대해서 말할 수 없습니다.</li>
+<li>실제 양산 적용에는 카메라·조명 고정, 검사 속도, 추론 지연시간, 설비 통신, 모델 버전 관리까지 별도의 검증이 필요합니다.</li>
+</ol>
+<h2 id="7-이력서-경력과의-연결">7. 이력서 경력과의 연결</h2>
+<p>이 프로젝트는 제 제조 경력과 AI 학습 경험이 만나는 지점에 있습니다.</p>
+<ul>
+<li>배터리 셀 조립에서 초음파·레이저 용접 조건을 최적화하고 해체 분석으로 불량 원인을 확인한 경험</li>
+<li>2170·4695 원통형 셀 파일럿·양산 라인에서 수율과 설비 안정화를 담당한 경험</li>
+<li>P-FMEA, QCP, MSA 등 품질 기준을 수립·개정하며 지표를 현장 의사결정으로 연결한 경험</li>
+<li>YOLO 기반 Classification과 OpenVINO를 활용한 양극재 비자성 이물 검사 자동화 경험</li>
+<li>Python과 데이터 분석을 제조 DX·AX 과제로 확장한 경험</li>
+</ul>
+<p>다만 이력서의 YOLO·OpenVINO 경험과 본 용접 프로젝트의 모델 아키텍처는 동일하다고 단정하지 않습니다. 두 경험의 공통점은 제조 불량을 이미지 데이터로 정의하고, 미검출과 오검을 품질 관점에서 관리했다는 데 있습니다.</p>
+<h2 id="8-향후-개선-로드맵">8. 향후 개선 로드맵</h2>
+<h3 id="1단계-데이터-검증-강화">1단계: 데이터 검증 강화</h3>
+<ul>
+<li>불량 유형과 설비·소재·조명 조건별 표본 수를 명시</li>
+<li>제품 또는 Lot 단위로 학습·검증 데이터를 분리해 데이터 누수 방지</li>
+<li>여러 번의 반복 평가와 신뢰구간을 통해 점수 변동성 확인</li>
+<li>검사원 간 라벨 불일치를 확인하고 판정 기준서와 연결</li>
+</ul>
+<h3 id="2단계-현장-적응성-강화">2단계: 현장 적응성 강화</h3>
+<ul>
+<li>카메라 위치, 조도, 초점과 노출 조건을 표준화</li>
+<li>새로운 현장 이미지에서 성능 저하를 감지하는 데이터 드리프트 모니터링</li>
+<li>오검·미검출 이미지를 재학습 큐로 보내는 Active Learning 구조 도입</li>
+</ul>
+<h3 id="3단계-양산-시스템-연계">3단계: 양산 시스템 연계</h3>
+<ul>
+<li>OpenVINO 등 엣지 추론 기술의 적용 가능성 검토</li>
+<li>PLC·MES와 검사 결과, Lot, 설비 조건을 연결</li>
+<li>모델 버전, 임계값, 승인 이력을 추적하는 MLOps 체계 구축</li>
+<li>AI 판정과 작업자 재검사 결과를 함께 저장해 지속적으로 품질 기준 보정</li>
+</ul>
+<h2 id="9-프로젝트를-통해-보여준-역량">9. 프로젝트를 통해 보여준 역량</h2>
+<p>이 프로젝트의 핵심 성과는 단순히 F1 93.10%라는 숫자가 아닙니다. 공개 데이터와 현장 데이터를 목적에 맞게 구분하고, Accuracy 대신 제조 리스크와 직접 연결되는 Recall을 우선하며, 임계값 조정 결과를 Confusion Matrix로 설명한 데 의미가 있습니다.</p>
+<p>제조 AI는 모델 개발로 끝나지 않습니다. 공정 조건, 품질 기준, 검사 비용, 설비 연계까지 함께 설계해야 실제 현장에서 사용할 수 있습니다. 이 프로젝트는 제가 보유한 용접·배터리 공정 경험을 비전 모델링과 연결하고, 기술 결과를 현장 의사결정 언어로 바꾸는 과정을 보여주는 포트폴리오입니다.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">목차</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#포트폴리오-요약-problemroleactionresultevidence">포트폴리오 요약: Problem–Role–Action–Result–Evidence</a>
+      <ul>
+        <li><a href="#이력서-bullet">이력서 Bullet</a></li>
+        <li><a href="#면접-star">면접 STAR</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-왜-이-프로젝트를-구성했는가">1. 왜 이 프로젝트를 구성했는가</a></li>
+    <li><a href="#2-전체-아키텍처">2. 전체 아키텍처</a></li>
+    <li><a href="#3-사용한-기술과-선택-이유">3. 사용한 기술과 선택 이유</a>
+      <ul>
+        <li><a href="#python-기반-데이터-처리와-실험-관리">Python 기반 데이터 처리와 실험 관리</a></li>
+        <li><a href="#딥러닝-비전-모델">딥러닝 비전 모델</a></li>
+        <li><a href="#confusion-matrix와-임계값-최적화">Confusion Matrix와 임계값 최적화</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-데이터와-구현-흐름">4. 데이터와 구현 흐름</a>
+      <ul>
+        <li><a href="#41-데이터-정의">4.1 데이터 정의</a></li>
+        <li><a href="#42-전처리와-입력-표준화">4.2 전처리와 입력 표준화</a></li>
+        <li><a href="#43-학습과-예측값-저장">4.3 학습과 예측값 저장</a></li>
+        <li><a href="#44-임계값-탐색">4.4 임계값 탐색</a></li>
+        <li><a href="#45-오류-이미지-검토">4.5 오류 이미지 검토</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-가장-어려웠던-문제와-의사결정">5. 가장 어려웠던 문제와 의사결정</a>
+      <ul>
+        <li><a href="#공개-데이터와-현장-이미지의-차이">공개 데이터와 현장 이미지의 차이</a></li>
+        <li><a href="#accuracy보다-recall을-우선한-이유">Accuracy보다 Recall을 우선한 이유</a></li>
+        <li><a href="#자동-판정보다-검사-보조로-범위를-정한-이유">“자동 판정”보다 “검사 보조”로 범위를 정한 이유</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-검증-결과와-해석-범위">6. 검증 결과와 해석 범위</a></li>
+    <li><a href="#7-이력서-경력과의-연결">7. 이력서 경력과의 연결</a></li>
+    <li><a href="#8-향후-개선-로드맵">8. 향후 개선 로드맵</a>
+      <ul>
+        <li><a href="#1단계-데이터-검증-강화">1단계: 데이터 검증 강화</a></li>
+        <li><a href="#2단계-현장-적응성-강화">2단계: 현장 적응성 강화</a></li>
+        <li><a href="#3단계-양산-시스템-연계">3단계: 양산 시스템 연계</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-프로젝트를-통해-보여준-역량">9. 프로젝트를 통해 보여준 역량</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>배터리 제조공정, 자동화, 데이터 기반 품질개선</p>
+      <p>현장 경험과 기술 검증 기록을 한곳에 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 노트</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

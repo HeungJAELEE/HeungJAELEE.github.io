@@ -73,6 +73,55 @@
     <priority>0.1</priority>
   </url>
   <url>
+    <loc>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/welding-vision-ai/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/welding-vision-ai/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/ontology-construction/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/ontology-construction/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/giga-press-dx/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/giga-press-dx/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/robot-digital-twin/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/robot-digital-twin/" />
+  </url>
+  <url>
+    <loc>https://HeungJAELEE.github.io/posts/resumopenai/</loc>
+    <lastmod>2026-07-15T00:00:00&#43;09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://HeungJAELEE.github.io/en/posts/resumopenai/" />
+  </url>
+  <url>
     <loc>https://HeungJAELEE.github.io/posts/project1/</loc>
     <lastmod>2026-05-31T00:00:00&#43;09:00</lastmod>
     <changefreq>monthly</changefreq>

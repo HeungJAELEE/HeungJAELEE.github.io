@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MES on 이재흥 | 배터리 제조·DX 포트폴리오</title>
+    <link>https://HeungJAELEE.github.io/tags/mes/</link>
+    <description>Recent content in MES on 이재흥 | 배터리 제조·DX 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/mes/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</title>
+      <link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;팀 발표자료와 연관 로봇 HMI 공개 저장소를 구분해 제공합니다.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;연관 GitHub 저장소&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;자동차 공장 Digital Twin 팀 보고서&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;INDY7 협동로봇 3대를 사용하는 소형 자동차 조립 흐름에 &lt;strong&gt;QR 제품 추적, YOLOv11 조립·품질 검사, PLC/SCADA, MySQL/MES, 디지털 트윈&lt;/strong&gt;을 연결하고, Raspberry Pi 5와 Hailo-10H의 온디바이스 추론 차이를 비교한 교육 팀 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

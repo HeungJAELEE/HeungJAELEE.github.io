@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="A public robot HMI project preserving Conty JSON references while separating IndyDCP ownership, MQTT command/state, MySQL history, PLC monitoring, and a read-only digital twin" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture">
+  <meta name="twitter:description" content="A public robot HMI project preserving Conty JSON references while separating IndyDCP ownership, MQTT command/state, MySQL history, PLC monitoring, and a read-only digital twin">
+
+<meta name="description" content="A public robot HMI project preserving Conty JSON references while separating IndyDCP ownership, MQTT command/state, MySQL history, PLC monitoring, and a read-only digital twin" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/en/posts">Engineering Notes</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/robot-json-omniverse">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/robot-json-omniverse">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/en/search">
+        <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/en/posts/" data-filter="all">Posts</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">Jaeheung Lee</h5>
+          <p class="text-muted">
+            Thursday, July 9, 2026
+             | 
+            5minutes</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/robot/" class="btn btn-sm btn-outline-info rounded">Robot</a></li>
+    
+    
+    <li><a href="/en/tags/json/" class="btn btn-sm btn-outline-info rounded">JSON</a></li>
+    
+    
+    <li><a href="/en/tags/indydcp/" class="btn btn-sm btn-outline-info rounded">IndyDCP</a></li>
+    
+    
+    <li><a href="/en/tags/mqtt/" class="btn btn-sm btn-outline-info rounded">MQTT</a></li>
+    
+    
+    <li><a href="/en/tags/digital-twin/" class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li>
+    
+    
+    <li><a href="/en/tags/docker/" class="btn btn-sm btn-outline-info rounded">Docker</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">Project resources</h2>
+  <p class="project-resources__lead">The public implementation and the related education-team report are intentionally separated.</p>
+  <ul class="project-resources__links">
+    <li><a href="https://github.com/HeungJAELEE/Busan_Robot" target="_blank" rel="noopener"><span class="project-resources__label">GitHub repository</span><span class="project-resources__url">github.com/HeungJAELEE/Busan_Robot</span></a></li>
+    <li><a href="/docs/Robot_Digital_Twin.pdf" target="_blank" rel="noopener"><span class="project-resources__label">Related automotive Digital Twin team report</span><span class="project-resources__url">/docs/Robot_Digital_Twin.pdf</span></a></li>
+  </ul>
+  <p class="project-resources__note">GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.</p>
+</section>
+<h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Verified scope</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Problem</td>
+          <td>Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing.</td>
+      </tr>
+      <tr>
+          <td>Role</td>
+          <td>Designed and implemented the public <code>Busan_Robot</code> repository&rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation.</td>
+      </tr>
+      <tr>
+          <td>Action</td>
+          <td>Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes.</td>
+      </tr>
+      <tr>
+          <td>Result</td>
+          <td>Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed.</td>
+      </tr>
+      <tr>
+          <td>Evidence</td>
+          <td>Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="resume-bullets">Resume bullets</h3>
+<ul>
+<li>Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references.</li>
+<li>Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics.</li>
+<li>Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation.</li>
+<li>Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection.</li>
+</ul>
+<h3 id="interview-star">Interview STAR</h3>
+<ul>
+<li><strong>Situation:</strong> Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability.</li>
+<li><strong>Task:</strong> Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state.</li>
+<li><strong>Action:</strong> Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events.</li>
+<li><strong>Result:</strong> Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim.</li>
+</ul>
+<h2 id="1-what-the-system-does">1. What the system does</h2>
+<p>The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.</p>
+<p>Four design decisions define the project:</p>
+<ol>
+<li>preserve the original tree and reference graph during round-trip conversion;</li>
+<li>allow only Robot Controller to own IndyDCP sockets in gateway mode;</li>
+<li>separate one-shot commands from repeated state streams;</li>
+<li>let HMI, DB, and a read-only twin consume the same published state.</li>
+</ol>
+<h2 id="2-architecture">2. Architecture</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    UI["Python / CustomTkinter HMI\nJSON edit · virtual play · command request"] -->|"robot/command"| MQ["Mosquitto MQTT"]
+    MQ --> RC["Robot Controller\nsingle IndyDCP owner"]
+    RC --> RA["Indy7 A"]
+    RC --> RB["Indy7 B"]
+    RC --> RC3["Indy7 C"]
+    RC -->|"result · realtime · error"| MQ
+    MQ --> UI
+    MQ --> DBW["DB Worker"] --> DB[("MySQL")]
+    MQ --> DT["Digital Twin service"] --> WEB["Read-only WebSocket viewer"]
+    PLC["PLC master"] --> PB["PLC Bridge\nmonitor / event"] --> MQ
+    MQ -.-> OV["Future read-only Omniverse adapter"]
+</div>
+
+<p>The UI handles operator interaction. Robot polling, database writes, PLC monitoring, and WebSocket delivery are long-running operations and therefore stay outside the GUI event loop.</p>
+<h2 id="3-conty-json-compatibility">3. Conty JSON compatibility</h2>
+<p>The public compatibility model centers on four blocks:</p>
+<ul>
+<li><code>info</code>: tool, TCP, coordinate, and base settings;</li>
+<li><code>wpList</code>: taught Waypoints with stable IDs;</li>
+<li><code>program</code>: a parent/child execution tree;</li>
+<li><code>moveList</code>: speed, acceleration, blending, and Waypoint references.</li>
+</ul>
+<p>Valid JSON syntax is not enough. The loader and serializer must preserve these invariants:</p>
+<ul>
+<li>every referenced Waypoint exists;</li>
+<li>program <code>id/pId</code> hierarchy is not broken or cyclic;</li>
+<li>unknown extension fields are retained;</li>
+<li>meter/mm conversions occur at one boundary;</li>
+<li>the saved file reloads into the same operation order;</li>
+<li>an applied TCP can be read back before motion continues.</li>
+</ul>
+<p>Unknown nodes are preserved but not executed blindly. Compatibility and execution authority are separate decisions.</p>
+<h2 id="4-single-socket-ownership">4. Single socket ownership</h2>
+<p>If the UI, DB, and twin each poll the robot, they can observe different moments or compete for a connection. Gateway mode gives Robot Controller one physical socket per robot. It publishes state once and lets consumers subscribe.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Flow</th>
+          <th>Topic</th>
+          <th>Responsibility</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>HMI → controller</td>
+          <td><code>robot/command</code></td>
+          <td>one-shot operator request</td>
+      </tr>
+      <tr>
+          <td>controller → HMI</td>
+          <td><code>robot/result</code></td>
+          <td>command outcome</td>
+      </tr>
+      <tr>
+          <td>controller → consumers</td>
+          <td><code>robot/realtime</code></td>
+          <td>repeated state stream</td>
+      </tr>
+      <tr>
+          <td>controller → consumers</td>
+          <td><code>robot/connection</code></td>
+          <td>connection state</td>
+      </tr>
+      <tr>
+          <td>controller → consumers</td>
+          <td><code>robot/error</code></td>
+          <td>control/communication fault</td>
+      </tr>
+      <tr>
+          <td>PLC Bridge → consumers</td>
+          <td><code>plc/event</code> family</td>
+          <td>monitored PLC events</td>
+      </tr>
+  </tbody>
+</table>
+<p>The WebSocket twin reads state and does not publish Home, Zero, or Stop commands. A future Omniverse adapter should follow the same read-only boundary until separately validated.</p>
+<h2 id="5-execution-modes">5. Execution modes</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Mode</th>
+          <th>Use</th>
+          <th>Connection behavior</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Offline UI</td>
+          <td>JSON and interface checks without equipment</td>
+          <td>no automatic connection</td>
+      </tr>
+      <tr>
+          <td>Direct</td>
+          <td>lab test without Docker</td>
+          <td>HMI uses a direct adapter</td>
+      </tr>
+      <tr>
+          <td>MQTT Gateway</td>
+          <td>recommended integrated structure</td>
+          <td>Robot Controller executes requests</td>
+      </tr>
+      <tr>
+          <td>Auto</td>
+          <td>convenience fallback</td>
+          <td>selects gateway/direct by environment</td>
+      </tr>
+  </tbody>
+</table>
+<p>Starting the program is intentionally different from connecting to a physical robot. The operator initiates the connection explicitly.</p>
+<h2 id="6-validation-boundary">6. Validation boundary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Check</th>
+          <th>Expected evidence</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Load existing JSON</td>
+          <td>tree, Waypoints, and settings display</td>
+      </tr>
+      <tr>
+          <td>Save and reload</td>
+          <td>references and operation order remain</td>
+      </tr>
+      <tr>
+          <td>Unknown node</td>
+          <td>original data remains; execution is blocked or confirmed</td>
+      </tr>
+      <tr>
+          <td>Offline mode</td>
+          <td>UI and editing run without devices</td>
+      </tr>
+      <tr>
+          <td>Gateway mode</td>
+          <td>controller owns commands; state is published once</td>
+      </tr>
+      <tr>
+          <td>DB failure</td>
+          <td>core robot/UI path remains isolated; local evidence is retained</td>
+      </tr>
+      <tr>
+          <td>Web viewer</td>
+          <td>realtime state updates without write authority</td>
+      </tr>
+  </tbody>
+</table>
+<p>The public repository supports these architectural claims through code and operating documents. It does not provide a basis for invented packet-loss, long-duration availability, or collision-reduction percentages.</p>
+<h2 id="7-manufacturing-relevance-and-next-steps">7. Manufacturing relevance and next steps</h2>
+<p>Robot overhaul and teaching experience informed the caution around TCP, coordinate units, and read-back. Battery pilot-line FAT/SAT informed staged execution from offline and virtual checks to a single low-speed command. MES and PLC experience informed the separation of command, state, process event, and history.</p>
+<p>Next steps include a JSON Schema plus reference validator, command IDs and idempotency, MQTT authentication/TLS/ACL, replayable robot-state integration tests, and a formally calibrated read-only Omniverse mapping.</p>
+<p>The core skill is not JSON parsing by itself. It is <strong>preserving legacy equipment compatibility while giving physical control, event transport, history, and visualization explicit and testable ownership</strong>.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">Table of Contents</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</a>
+      <ul>
+        <li><a href="#resume-bullets">Resume bullets</a></li>
+        <li><a href="#interview-star">Interview STAR</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-what-the-system-does">1. What the system does</a></li>
+    <li><a href="#2-architecture">2. Architecture</a></li>
+    <li><a href="#3-conty-json-compatibility">3. Conty JSON compatibility</a></li>
+    <li><a href="#4-single-socket-ownership">4. Single socket ownership</a></li>
+    <li><a href="#5-execution-modes">5. Execution modes</a></li>
+    <li><a href="#6-validation-boundary">6. Validation boundary</a></li>
+    <li><a href="#7-manufacturing-relevance-and-next-steps">7. Manufacturing relevance and next steps</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Battery manufacturing, automation, and data-driven quality improvement</p>
+      <p>Field experience and technical validation notes, organized in one place.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Engineering Notes</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on 이재흥 | 배터리 제조·DX 포트폴리오</title>
+    <link>https://HeungJAELEE.github.io/tags/json/</link>
+    <description>Recent content in JSON on 이재흥 | 배터리 제조·DX 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/json/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title>
+      <link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;공개 구현 저장소와 이 프로젝트가 확장된 교육 팀 보고서를 구분해 제공합니다.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+        &lt;span class=&#34;project-resources__label&#34;&gt;GitHub 저장소&lt;/span&gt;
+        &lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+        &lt;span class=&#34;project-resources__label&#34;&gt;관련 자동차 공장 Digital Twin 팀 보고서&lt;/span&gt;
+        &lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;GitHub는 PC-HMI·Robot Controller·MQTT·DB·Digital Twin 구현 근거입니다. PDF는 QR·Vision·협동로봇을 연결한 상위 팀 프로젝트 자료이며, 저장소의 개별 코드 성과를 증명하는 문서로 혼용하지 않습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;포트폴리오-요약-problemroleactionresultevidence&#34;&gt;포트폴리오 요약: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;확인된 내용&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Conty JSON을 일부 field만 편집하면 Waypoint·program·move 참조가 깨질 수 있고, HMI·DB·Digital Twin이 로봇 소켓에 각각 연결하면 명령과 상태의 책임이 분산됩니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;공개 &lt;code&gt;Busan_Robot&lt;/code&gt; 저장소에서 JSON 호환 계층과 PC-HMI·backend 서비스 경계를 설계·구현하고 운영 문서를 정리했습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;원본 보존형 round-trip, IndyDCP 소켓 단일 소유권, MQTT command/state topic 분리, MySQL DB Worker, PLC Bridge, WebSocket read-only twin, Offline/Direct/Gateway 실행 모드를 구성했습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;저장소에서 HMI·backend monorepo, Docker Compose, 배포·통신·초보 실행 문서와 단계적 검증 경로를 공개했습니다. 지연·가동률·충돌 감소처럼 공개 측정이 없는 수치는 제시하지 않습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;공개 GitHub source와 README·JSON design·PLC/MES·communication·deployment 문서, 관련 교육 팀 PDF.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;이력서-bullet&#34;&gt;이력서 Bullet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Conty/APK JSON의 Waypoint·program·move 참조를 보존하는 load–edit–save–reload 검증 흐름을 설계했습니다.&lt;/li&gt;
+&lt;li&gt;IndyDCP 물리 소켓을 Robot Controller 한 곳이 소유하도록 하고, MQTT에서 명령·결과·실시간 상태·오류 Topic을 분리했습니다.&lt;/li&gt;
+&lt;li&gt;CustomTkinter HMI, MySQL DB Worker, PLC Bridge, WebSocket Digital Twin을 서비스 경계로 나누고 Docker Compose 운영 경로를 문서화했습니다.&lt;/li&gt;
+&lt;li&gt;Offline UI → Direct → MQTT Gateway의 단계적 실행 모드로 실제 로봇이 없는 환경에서도 JSON과 화면을 먼저 검증할 수 있게 했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;면접-star&#34;&gt;면접 STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; 로봇 프로그램 JSON의 참조 손상과 여러 프로그램의 동시 소켓 접근은 파일 호환성과 물리 제어 안전을 동시에 위협했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; 기존 티치펜던트 형식을 보존하면서 PC에서 편집·검증하고, HMI·DB·Twin이 같은 상태를 안전하게 공유하는 구조를 만들어야 했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; JSON round-trip invariant를 정의하고 Robot Controller를 단일 소켓 소유자로 두었으며, 나머지 서비스는 MQTT event만 소비하도록 분리했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; 공개 저장소에 재현 가능한 HMI/backend 구조와 운영 문서를 남겼습니다. Omniverse는 확인된 웹 twin과 분리해 후속 read-only adapter로 제한했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;Neuromeka Indy7 협동로봇의 기존 Conty 티치펜던트 JSON을 PC에서 &lt;strong&gt;읽고, 계층형으로 편집하고, 가상 검증하고, 다시 호환 JSON으로 저장&lt;/strong&gt;하기 위해 만든 Python HMI 및 백엔드 서비스 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

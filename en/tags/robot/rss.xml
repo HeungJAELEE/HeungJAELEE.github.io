@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robot on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
+    <link>https://HeungJAELEE.github.io/en/tags/robot/</link>
+    <description>Recent content in Robot on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/robot/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Collaborative-Robot Automotive Digital Twin and Edge Vision AI</title>
+      <link>https://HeungJAELEE.github.io/en/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/robot-digital-twin/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The team presentation and related public robot-HMI implementation.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Related GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Automotive Digital Twin team report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
+&lt;p&gt;This education team project connected a three-Indy7 miniature automotive assembly flow with &lt;strong&gt;QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</title>
+      <link>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The public implementation and the related education-team report are intentionally separated.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Related automotive Digital Twin team report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Verified scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;Designed and implemented the public &lt;code&gt;Busan_Robot&lt;/code&gt; repository&amp;rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references.&lt;/li&gt;
+&lt;li&gt;Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics.&lt;/li&gt;
+&lt;li&gt;Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation.&lt;/li&gt;
+&lt;li&gt;Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-what-the-system-does&#34;&gt;1. What the system does&lt;/h2&gt;
+&lt;p&gt;The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

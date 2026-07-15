@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Factory I/O on 이재흥 | 배터리 제조·DX 포트폴리오</title>
+    <link>https://HeungJAELEE.github.io/tags/factory-i/o/</link>
+    <description>Recent content in Factory I/O on 이재흥 | 배터리 제조·DX 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/factory-i/o/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title>
+      <link>https://HeungJAELEE.github.io/posts/giga-press-dx/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/giga-press-dx/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+        &lt;span class=&#34;project-resources__label&#34;&gt;GitHub 프로젝트 목록&lt;/span&gt;
+        &lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&#34;https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
+        &lt;span class=&#34;project-resources__label&#34;&gt;기가프레스 관련 보고서&lt;/span&gt;
+        &lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;포트폴리오-요약-problemroleactionresultevidence&#34;&gt;포트폴리오 요약: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;확인된 내용&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;실제 설비를 투입해야만 시퀀스와 파라미터를 확인할 수 있어 트라이아웃이 길어지고, PLC·SCADA·가상 모델 사이 데이터 정합성을 사전에 확인하기 어려웠습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;10인 팀 프로젝트에서 Digital Twin 파트의 &lt;strong&gt;AI 모델 선정·학습, 통신 셋업, 자료 조사&lt;/strong&gt;를 맡았습니다. Ladder와 SCADA 구현은 담당 팀원의 결과이며 제 개인 역할로 확대하지 않습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;Factory I/O–PLC–SCADA–OPC UA 계층의 데이터 흐름을 정리하고, 실시간 센서·PLC 데이터를 사용하는 DQN 후보와 통신 구성을 검토했습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;공정 Flow, Ladder/Factory I/O, SCADA, 웹·AI 확장 구조를 하나의 팀 시연·보고서로 통합했습니다. 보고서의 “셋업 50~75% 단축”과 “증설 공수 50% 절감”은 &lt;strong&gt;기대효과/목표값&lt;/strong&gt;이며 실제 공장 실측 성과로 주장하지 않습니다.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;팀 발표 PDF·Canva 보고서의 역할표, 아키텍처, 결과 및 기대효과 페이지. 전용 공개 소스 저장소는 미분리 상태입니다.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;이력서-bullet&#34;&gt;이력서 Bullet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;10인 제조 DX 팀 프로젝트에서 AI 모델 선정·학습과 OPC UA 통신 셋업 범위를 담당하고, Factory I/O–PLC–SCADA 데이터 흐름을 가상 시운전 시나리오로 구조화했습니다.&lt;/li&gt;
+&lt;li&gt;실제 설비 성과와 설계 기대효과를 분리해, 보고서의 50~75% 셋업 단축·50% 증설 공수 절감을 검증 전 목표값으로 관리했습니다.&lt;/li&gt;
+&lt;li&gt;배터리 라인 FAT/SAT 경험을 바탕으로 정상 시퀀스뿐 아니라 센서 누락·통신 지연·재기동 조건을 검증 항목에 포함했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;면접-star&#34;&gt;면접 STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; 고가 설비는 실제 투입 전 제어 로직과 데이터 정합성을 충분히 시험하기 어렵고, 현장 트라이아웃이 길어질 위험이 있었습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; 제 역할은 팀의 가상 공정 구조에서 AI 적용 후보와 통신 경계를 정리해 제어·모니터링 계층이 같은 데이터를 보도록 만드는 것이었습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; 센서/PLC 데이터를 OPC UA 흐름으로 연결하고 DQN 적용 위치를 검토했으며, 현장 제어권은 PLC에 남기고 AI는 검증·최적화 후보로 한정했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; 팀이 Factory I/O, Ladder, SCADA, 웹·AI 확장을 하나의 시나리오로 시연할 수 있었습니다. 정량값은 기대효과로 남기고 실측 성과와 구분했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
+&lt;p&gt;현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, &lt;strong&gt;에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증&lt;/strong&gt;의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

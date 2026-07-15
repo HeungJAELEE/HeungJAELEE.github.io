@@ -1,10 +1,320 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>English Home on Jaeheung&#39;s Engineering Log</title>
+    <title>English Home on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
     <link>https://HeungJAELEE.github.io/en/</link>
-    <description>Recent content in English Home on Jaeheung&#39;s Engineering Log</description>
+    <description>Recent content in English Home on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://HeungJAELEE.github.io/en/rss.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title>
+      <link>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The public learning repository and its evidence status.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Deep_Learning_Text_book&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;No separate public report is registered. This article remains a learning and experiment-design document and does not add unsupported implementation or model-performance claims.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a Glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title>
+      <link>https://HeungJAELEE.github.io/en/posts/welding-vision-ai/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/welding-vision-ai/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;Public material for the dataset, model-selection, and evaluation record.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://www.canva.com/design/DAHGaCTGRFs/0GKq7g9dsbb_ANIeRv8dnQ/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;AI Welding Vision report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHGaCTGRFs&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Verified scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;I was responsible for &lt;strong&gt;evaluation-metric design and validation&lt;/strong&gt;, including F1, recall, false-positive behavior, and threshold interpretation.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;On the recorded evaluation set and selected threshold, the report lists &lt;strong&gt;F1 93.10%, Recall 100%, and Precision 87.07%&lt;/strong&gt;. These values do not establish production-wide generalization.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;The public report&amp;rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.&lt;/li&gt;
+&lt;li&gt;Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.&lt;/li&gt;
+&lt;li&gt;Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-why-this-project-was-structured-this-way&#34;&gt;1. Why this project was structured this way&lt;/h2&gt;
+&lt;p&gt;Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Collaborative-Robot Automotive Digital Twin and Edge Vision AI</title>
+      <link>https://HeungJAELEE.github.io/en/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/robot-digital-twin/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The team presentation and related public robot-HMI implementation.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Related GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Automotive Digital Twin team report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
+&lt;p&gt;This education team project connected a three-Indy7 miniature automotive assembly flow with &lt;strong&gt;QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Giga Press Factory DX: From Field Signals to Virtual Commissioning</title>
+      <link>https://HeungJAELEE.github.io/en/posts/giga-press-dx/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/giga-press-dx/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;Public material for the design rationale and team scenario.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Giga Press DX report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this project. The GitHub URL is a project index, not evidence that another repository contains this implementation.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Verified scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;In a ten-person team, I worked in the Digital Twin group on &lt;strong&gt;AI-model selection/training, communications setup, and technical research&lt;/strong&gt;. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are &lt;strong&gt;expected benefits/targets&lt;/strong&gt;, not measured factory outcomes.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;The team report&amp;rsquo;s R&amp;amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario.&lt;/li&gt;
+&lt;li&gt;Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority.&lt;/li&gt;
+&lt;li&gt;Kept the report&amp;rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-what-the-project-is&#34;&gt;1. What the project is&lt;/h2&gt;
+&lt;p&gt;The project models a Giga Press factory context through four responsibilities:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System</title>
+      <link>https://HeungJAELEE.github.io/en/posts/ontology-construction/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/ontology-construction/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The public repository and v9.0 validation evidence.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/HeungTology&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/HeungTology&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/HeungTology/blob/main/ontology/releases/9.0.0/validation-report.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;v9.0 validation report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;ontology/releases/9.0.0/validation-report.json&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;Metrics come from the public release and validation report. The DGX Spark stack is the target runtime architecture; this article does not claim a continuously available production service.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Verified scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Industrial Markdown and ad-hoc frontmatter accumulated duplicate keys, unresolved relationships, weak provenance, and non-portable paths that reduced retrieval trust.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;As the designer and implementer of this public project, I created the v9 data contract, deterministic migration/validation CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, and evidence-citation boundary.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;I defined YAML 1.2-compatible authoring and JSON Schema validation, bound normalized body SHA-256 and provenance, then separated heading-aware chunks, vector/full-text search, RRF, graph expansion, reranking, and grounded generation.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;The public v9 release validates &lt;strong&gt;4,602 nodes, 1,904 provenanced assertions, and 4,448 internal relations&lt;/strong&gt;. Its report records &lt;strong&gt;ok=true, errors=0, warnings=2&lt;/strong&gt;, while preserving 137 unresolved/external relationships and 134 local-path findings as explicit limitations.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;Public source, README, schemas, release manifest, migration/validation reports, tests, and deployment documentation.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrated 4,602 Korean-English industrial knowledge documents into a strict YAML v9 contract with JSON Schema, normalized body hashes, provenance, and relationship validation.&lt;/li&gt;
+&lt;li&gt;Generated JSON-LD/OWL/SHACL release artifacts containing 1,904 provenanced assertions and 4,448 internal relationships while preserving 137 unresolved relationships as warnings instead of guessing links.&lt;/li&gt;
+&lt;li&gt;Implemented a Neo4j hybrid retrieval design combining vector and full-text search, reciprocal-rank fusion, graph expansion, reranking, and source-heading citations.&lt;/li&gt;
+&lt;li&gt;Reached a public release validation result of errors=0 and warnings=2, with non-portable local paths redacted during GraphRAG ingestion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; A growing knowledge vault contained duplicate identity patterns, broken references, untraceable claims, and an invalid hand-maintained graph map.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Keep Markdown human-editable while creating one machine-verifiable semantic contract for release and retrieval.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics, deterministic migration, release manifests, and hybrid Neo4j retrieval.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Produced a public v9 release for 4,602 nodes and 1,904 assertions. The report exposes unresolved relationships and path warnings rather than hiding data-quality debt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-the-data-problem&#34;&gt;1. The data problem&lt;/h2&gt;
+&lt;p&gt;Industrial knowledge is not trustworthy merely because it is stored in Markdown. Retrieval quality degrades when:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</title>
+      <link>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The public implementation and the related education-team report are intentionally separated.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Related automotive Digital Twin team report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Verified scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Problem&lt;/td&gt;
+          &lt;td&gt;Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Role&lt;/td&gt;
+          &lt;td&gt;Designed and implemented the public &lt;code&gt;Busan_Robot&lt;/code&gt; repository&amp;rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Action&lt;/td&gt;
+          &lt;td&gt;Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Result&lt;/td&gt;
+          &lt;td&gt;Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Evidence&lt;/td&gt;
+          &lt;td&gt;Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF.&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references.&lt;/li&gt;
+&lt;li&gt;Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics.&lt;/li&gt;
+&lt;li&gt;Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation.&lt;/li&gt;
+&lt;li&gt;Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;1-what-the-system-does&#34;&gt;1. What the system does&lt;/h2&gt;
+&lt;p&gt;The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>resumOpenAI: An Evidence-aware Resume Generation PoC</title>
+      <link>https://HeungJAELEE.github.io/en/posts/resumopenai/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/resumopenai/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;Public portfolio index and evidence status.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt; explores a narrower problem than “ask an LLM to write a resume.” It separates &lt;strong&gt;verified career facts, private fields, target-role selection, draft generation, and output validation&lt;/strong&gt; so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.&lt;/p&gt;</description>
+    </item>
+    
+    
   </channel>
 </rss>

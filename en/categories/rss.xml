@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Jaeheung&#39;s Engineering Log</title>
+    <title>Categories on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
     <link>https://HeungJAELEE.github.io/en/categories/</link>
-    <description>Recent content in Categories on Jaeheung&#39;s Engineering Log</description>
+    <description>Recent content in Categories on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://HeungJAELEE.github.io/en/categories/rss.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/categories/rss.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

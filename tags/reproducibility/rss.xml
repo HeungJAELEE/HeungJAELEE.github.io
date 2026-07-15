@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reproducibility on 이재흥 | 배터리 제조·DX 포트폴리오</title>
+    <link>https://HeungJAELEE.github.io/tags/reproducibility/</link>
+    <description>Recent content in Reproducibility on 이재흥 | 배터리 제조·DX 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/reproducibility/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title>
+      <link>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/posts/deep-learning-modeling/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;공개 학습 저장소와 Evidence 상태입니다.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub 저장소&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Deep_Learning_Text_book&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;별도 공개 보고서는 등록되지 않았습니다. 현재 글은 저장소의 공개 범위에 맞춘 학습·실험 설계 문서이며 구현 완료나 모델 성능을 추가로 주장하지 않습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;프로젝트-한눈에-보기&#34;&gt;프로젝트 한눈에 보기&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;딥러닝 모델링 교과서&lt;/strong&gt;는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

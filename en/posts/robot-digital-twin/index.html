@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaborative-Robot Automotive Digital Twin and Edge Vision AI</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/robot-digital-twin/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="Collaborative-Robot Automotive Digital Twin and Edge Vision AI" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="An education team PoC connecting Indy7 cobots, QR traceability, Raspberry Pi 5/Hailo-10H YOLOv11 inspection, PLC/SCADA, and MES" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/en/posts/robot-digital-twin/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Collaborative-Robot Automotive Digital Twin and Edge Vision AI">
+  <meta name="twitter:description" content="An education team PoC connecting Indy7 cobots, QR traceability, Raspberry Pi 5/Hailo-10H YOLOv11 inspection, PLC/SCADA, and MES">
+
+<meta name="description" content="An education team PoC connecting Indy7 cobots, QR traceability, Raspberry Pi 5/Hailo-10H YOLOv11 inspection, PLC/SCADA, and MES" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/en/posts">Engineering Notes</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/robot-digital-twin">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/robot-digital-twin">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/en/search">
+        <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/en/posts/" data-filter="all">Posts</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">Jaeheung Lee</h5>
+          <p class="text-muted">
+            Thursday, July 9, 2026
+             | 
+            3minutes</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>Collaborative-Robot Automotive Digital Twin and Edge Vision AI</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/digital-twin/" class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li>
+    
+    
+    <li><a href="/en/tags/robot/" class="btn btn-sm btn-outline-info rounded">Robot</a></li>
+    
+    
+    <li><a href="/en/tags/edge-ai/" class="btn btn-sm btn-outline-info rounded">Edge AI</a></li>
+    
+    
+    <li><a href="/en/tags/vision/" class="btn btn-sm btn-outline-info rounded">Vision</a></li>
+    
+    
+    <li><a href="/en/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/en/tags/mes/" class="btn btn-sm btn-outline-info rounded">MES</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">Project resources</h2>
+  <p class="project-resources__lead">The team presentation and related public robot-HMI implementation.</p>
+  <ul class="project-resources__links">
+    <li><a href="https://github.com/HeungJAELEE/Busan_Robot" target="_blank" rel="noopener"><span class="project-resources__label">Related GitHub repository</span><span class="project-resources__url">github.com/HeungJAELEE/Busan_Robot</span></a></li>
+    <li><a href="/docs/Robot_Digital_Twin.pdf" target="_blank" rel="noopener"><span class="project-resources__label">Automotive Digital Twin team report</span><span class="project-resources__url">/docs/Robot_Digital_Twin.pdf</span></a></li>
+  </ul>
+  <p class="project-resources__note">Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.</p>
+</section>
+<h2 id="project-at-a-glance">Project at a glance</h2>
+<p>This education team project connected a three-Indy7 miniature automotive assembly flow with <strong>QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference</strong>.</p>
+<p>The team PDF lists ten members and the process demonstration but does not include member-level R&amp;R. Separate portfolio material records my scope as Robot/Digital Twin. Team results are therefore not presented as individual-only achievements.</p>
+<h2 id="architecture">Architecture</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["QR product ID"] --> B["MySQL / MES history"]
+    B --> C["PLC process sequence"]
+    C --> D["Three Indy7 cobots"]
+    D --> E["Camera"]
+    E --> F["Pi5 + YOLOv11"]
+    F --> G["Hailo-10H acceleration"]
+    G --> C
+    C --> H["SCADA / digital-twin view"]
+    G --> B
+</div>
+
+<p>The process shown in the report runs from QR serial registration through part input, body/window assembly, vision checks, and good/reject routing. The important data relationship is product ID → process step → robot/equipment → inspection result → event time.</p>
+<h2 id="evidence-backed-results">Evidence-backed results</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Condition</th>
+          <th style="text-align: right">Team report value</th>
+          <th>Interpretation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3-class r/g/b check</td>
+          <td style="text-align: right">F1 1.00</td>
+          <td>result for the presentation evaluation set</td>
+      </tr>
+      <tr>
+          <td>6-class normal/crack check</td>
+          <td style="text-align: right">F1 0.877</td>
+          <td>normal/crack result by color class</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 5</td>
+          <td style="text-align: right">5 FPS</td>
+          <td>comparison before Hailo acceleration</td>
+      </tr>
+      <tr>
+          <td>Raspberry Pi 5 + Hailo-10H</td>
+          <td style="text-align: right">18 FPS</td>
+          <td>edge-acceleration comparison in the deck</td>
+      </tr>
+  </tbody>
+</table>
+<p>Dataset size, split, repeated-run variance, and long-duration thermal behavior are not fully disclosed. These numbers do not prove universal production accuracy or sustained line-speed performance.</p>
+<h2 id="technical-decisions">Technical decisions</h2>
+<h3 id="keep-ai-decisions-behind-plc-checks">Keep AI decisions behind PLC checks</h3>
+<p>The vision result should include request ID, completion state, prediction, confidence, model version, and error state. A PLC confirms that the result belongs to the current product and remains within timeout before transitioning the physical sequence.</p>
+<h3 id="treat-edge-fps-as-one-validation-dimension">Treat edge FPS as one validation dimension</h3>
+<p>The 5→18 FPS comparison shows acceleration potential. Production readiness also requires conversion-fidelity checks, camera latency, preprocessing/postprocessing time, temperature, restart recovery, and missed-frame handling.</p>
+<h3 id="keep-the-digital-twin-observational">Keep the digital twin observational</h3>
+<p>A synchronized 3D view can help explain robot and process state, but it does not replace safety circuits, coordinate calibration, or physical validation. Control authority remains in the PLC, robot controller, and safety system.</p>
+<h2 id="what-is-and-is-not-claimed">What is and is not claimed</h2>
+<p>Public evidence supports the team process flow, QR/MySQL relationship, vision Ladder and communications Ladder, MES direction, two F1 values, and one edge-FPS comparison. It does not support:</p>
+<ul>
+<li>continuous production deployment or OEE improvement;</li>
+<li>separate model-performance values not reproduced in the team report&rsquo;s direct comparison table;</li>
+<li>a separate speed claim that conflicts with the team report&rsquo;s comparison table;</li>
+<li>a completed Omniverse production deployment;</li>
+<li>individual-only ownership of every team result.</li>
+</ul>
+<h2 id="career-relevance-and-next-steps">Career relevance and next steps</h2>
+<p>Robot teaching/overhaul experience informs coordinate and physical-state validation. Battery-line FAT/SAT informs staged checks before automatic operation. MES setup experience informs the product/equipment/model/event data contract.</p>
+<p>Next steps are product/Lot-based dataset splits, class confusion matrices, long-duration Hailo benchmarking, PLC/Vision handshake regression tests, correlation IDs across robot/PLC/Vision/MES, and a replayable hardware-free test environment.</p>
+<p>This case is valuable because it connects <strong>traceability, robot sequence, model evaluation, edge inference, and MES evidence in one manufacturing flow while keeping team roles and evidence limits visible</strong>.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">Table of Contents</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#project-at-a-glance">Project at a glance</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#evidence-backed-results">Evidence-backed results</a></li>
+    <li><a href="#technical-decisions">Technical decisions</a>
+      <ul>
+        <li><a href="#keep-ai-decisions-behind-plc-checks">Keep AI decisions behind PLC checks</a></li>
+        <li><a href="#treat-edge-fps-as-one-validation-dimension">Treat edge FPS as one validation dimension</a></li>
+        <li><a href="#keep-the-digital-twin-observational">Keep the digital twin observational</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-is-and-is-not-claimed">What is and is not claimed</a></li>
+    <li><a href="#career-relevance-and-next-steps">Career relevance and next steps</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Battery manufacturing, automation, and data-driven quality improvement</p>
+      <p>Field experience and technical validation notes, organized in one place.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Engineering Notes</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

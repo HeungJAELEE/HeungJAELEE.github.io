@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>resumOpenAI: An Evidence-aware Resume Generation PoC</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/resumopenai/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="resumOpenAI: An Evidence-aware Resume Generation PoC" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="A Flask/React LLM PoC that separates career facts, target-role selection, public wording, validation, and personal-data handling" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/en/posts/resumopenai/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="resumOpenAI: An Evidence-aware Resume Generation PoC">
+  <meta name="twitter:description" content="A Flask/React LLM PoC that separates career facts, target-role selection, public wording, validation, and personal-data handling">
+
+<meta name="description" content="A Flask/React LLM PoC that separates career facts, target-role selection, public wording, validation, and personal-data handling" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/en/posts">Engineering Notes</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/resumopenai">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/resumopenai">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/en/search">
+        <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/en/posts/" data-filter="all">Posts</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">Jaeheung Lee</h5>
+          <p class="text-muted">
+            Sunday, July 5, 2026
+             | 
+            3minutes</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>resumOpenAI: An Evidence-aware Resume Generation PoC</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/llm/" class="btn btn-sm btn-outline-info rounded">LLM</a></li>
+    
+    
+    <li><a href="/en/tags/flask/" class="btn btn-sm btn-outline-info rounded">Flask</a></li>
+    
+    
+    <li><a href="/en/tags/react/" class="btn btn-sm btn-outline-info rounded">React</a></li>
+    
+    
+    <li><a href="/en/tags/openai-api/" class="btn btn-sm btn-outline-info rounded">OpenAI API</a></li>
+    
+    
+    <li><a href="/en/tags/privacy/" class="btn btn-sm btn-outline-info rounded">Privacy</a></li>
+    
+    
+    <li><a href="/en/tags/evaluation/" class="btn btn-sm btn-outline-info rounded">Evaluation</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">Project resources</h2>
+  <p class="project-resources__lead">Public portfolio index and evidence status.</p>
+  <ul class="project-resources__links">
+    <li><a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener"><span class="project-resources__label">GitHub project index</span><span class="project-resources__url">github.com/HeungJAELEE</span></a></li>
+  </ul>
+  <p class="project-resources__note">A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.</p>
+</section>
+<h2 id="project-at-a-glance">Project at a glance</h2>
+<p><code>resumOpenAI</code> explores a narrower problem than “ask an LLM to write a resume.” It separates <strong>verified career facts, private fields, target-role selection, draft generation, and output validation</strong> so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Design</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Frontend</td>
+          <td>React form and draft review</td>
+      </tr>
+      <tr>
+          <td>API</td>
+          <td>Flask request validation and generation orchestration</td>
+      </tr>
+      <tr>
+          <td>Data</td>
+          <td>structured career facts with evidence/status fields</td>
+      </tr>
+      <tr>
+          <td>LLM</td>
+          <td>controlled prompt and optional adaptation path</td>
+      </tr>
+      <tr>
+          <td>Safety</td>
+          <td>personal-data minimization and public/private separation</td>
+      </tr>
+      <tr>
+          <td>QA</td>
+          <td>claim/date/number checks before export</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="why-structure-comes-before-fine-tuning">Why structure comes before fine-tuning</h2>
+<p>Fine-tuning can make style more consistent, but it cannot repair missing or contradictory facts. The first quality gate is a structured source model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;experience_id&#34;</span>: <span style="color:#e6db74">&#34;exp-example&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;employer&#34;</span>: <span style="color:#e6db74">&#34;verified employer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;period&#34;</span>: {<span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;YYYY-MM&#34;</span>, <span style="color:#f92672">&#34;end&#34;</span>: <span style="color:#e6db74">&#34;YYYY-MM&#34;</span>},
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;verified role&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;claims&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;statement&#34;</span>: <span style="color:#e6db74">&#34;bounded achievement&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;evidence&#34;</span>: <span style="color:#e6db74">&#34;source reference&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;verified&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;public&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Sensitive fields such as address, date of birth, phone number, credentials, or raw company documents should not be sent merely because they exist in a resume file. The public rendering model contains only approved technical facts.</p>
+<h2 id="architecture">Architecture</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["Private source documents"] --> B["Local extraction / normalization"]
+    B --> C["Verified career-fact store"]
+    C --> D["Public-field filter"]
+    D --> E["Target-role evidence selection"]
+    E --> F["Flask generation request"]
+    F --> G["LLM draft"]
+    G --> H["Claim/date/number validation"]
+    H --> I["Human review"]
+    I --> J["Exported draft"]
+</div>
+
+<p>The React layer captures job target and review choices. Flask owns schema validation, field filtering, prompt assembly, and result checks. The LLM receives only the minimum evidence required for the chosen output.</p>
+<h2 id="validation-design">Validation design</h2>
+<p>The PoC treats generation as a draft process with deterministic gates.</p>
+<ul>
+<li>Every employer, period, role, and number must exist in the source fact store.</li>
+<li>A claim marked <code>unverified</code> cannot be promoted as achieved.</li>
+<li>Conflicting date ranges produce a review item instead of an automatic choice.</li>
+<li>Private fields are removed before the external-model boundary.</li>
+<li>Unsupported superlatives and invented tools are flagged.</li>
+<li>Korean and English outputs must point to the same fact IDs.</li>
+</ul>
+<h2 id="role-specific-selection">Role-specific selection</h2>
+<p>One fact store can support several views without rewriting history.</p>
+<ul>
+<li><strong>Manufacturing engineering:</strong> line setup, FAT/SAT, process conditions, yield, quality systems.</li>
+<li><strong>Manufacturing AI &amp; data:</strong> Vision AI, PLC/SCADA/MES, digital twin, data contract, deployment boundary.</li>
+<li><strong>Data analysis:</strong> dataset definition, metric choice, validation, data quality, provenance, decision impact.</li>
+</ul>
+<p>The application changes ordering and explanation, not the underlying facts.</p>
+<h2 id="current-limits">Current limits</h2>
+<ul>
+<li>The current portfolio does not provide a public repository or evaluation dataset for this PoC.</li>
+<li>A generated resume still requires human review.</li>
+<li>Style consistency is not evidence accuracy.</li>
+<li>Fine-tuning must not include unredacted personal or confidential documents.</li>
+<li>Quality needs a fixed evaluation set containing contradictions, missing evidence, and sensitive fields.</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<ol>
+<li>Publish a sanitized schema and sample dataset.</li>
+<li>Add claim-level provenance and output-to-source links.</li>
+<li>Build deterministic tests for dates, numbers, language parity, and privacy filtering.</li>
+<li>Compare prompt-only, retrieval-assisted, and fine-tuned variants on the same evaluation set.</li>
+<li>Record user acceptance/edit distance rather than relying only on LLM-style metrics.</li>
+</ol>
+<p>This case demonstrates an important AI application principle: <strong>structured facts, privacy boundaries, and deterministic validation come before fluent generation</strong>.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">Table of Contents</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#project-at-a-glance">Project at a glance</a></li>
+    <li><a href="#why-structure-comes-before-fine-tuning">Why structure comes before fine-tuning</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#validation-design">Validation design</a></li>
+    <li><a href="#role-specific-selection">Role-specific selection</a></li>
+    <li><a href="#current-limits">Current limits</a></li>
+    <li><a href="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Battery manufacturing, automation, and data-driven quality improvement</p>
+      <p>Field experience and technical validation notes, organized in one place.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Engineering Notes</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/ontology-construction/">
+
+
+<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="A public industrial knowledge system connecting 4,602 canonical nodes through a strict YAML contract, JSON-LD/OWL/SHACL releases, and Neo4j hybrid retrieval" />
+    <meta property="og:image" content="https://HeungJAELEE.github.io/images/author/heungjae.jpeg">
+  <meta property="og:url" content="https://HeungJAELEE.github.io/en/posts/ontology-construction/">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System">
+  <meta name="twitter:description" content="A public industrial knowledge system connecting 4,602 canonical nodes through a strict YAML contract, JSON-LD/OWL/SHACL releases, and Neo4j hybrid retrieval">
+
+<meta name="description" content="A public industrial knowledge system connecting 4,602 canonical nodes through a strict YAML contract, JSON-LD/OWL/SHACL releases, and Neo4j hybrid retrieval" />
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/en/posts">Engineering Notes</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ontology-construction">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ontology-construction">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+  });
+</script>
+
+
+      
+<section class="sidebar-section" id="sidebar-section">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <form class="mx-auto" method="get" action="/en/search">
+        <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+      </form>
+      <div class="sidebar-tree">
+        <ul class="tree" id="tree">
+          <li id="list-heading"><a href="/en/posts/" data-filter="all">Posts</a></li>
+          <div class="subtree">
+            
+
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <main id="main-content" tabindex="-1">
+        
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      
+      <div class="hero-area col-sm-12" id="hero-area"
+        style='background-image: url(/images/default-hero_hu_1e630a6e35d8e16.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/heungjae_hu_398a6f6aa04c5a98.jpeg' alt="Author Image">
+          <h5 class="author-name">Jaeheung Lee</h5>
+          <p class="text-muted">
+            Thursday, July 9, 2026
+             | 
+            5minutes</p>
+        </div>
+        
+
+        <div class="title">
+          <h1>HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System</h1>
+        </div>
+
+        
+
+        
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/knowledge-graph/" class="btn btn-sm btn-outline-info rounded">Knowledge Graph</a></li>
+    
+    
+    <li><a href="/en/tags/neo4j/" class="btn btn-sm btn-outline-info rounded">Neo4j</a></li>
+    
+    
+    <li><a href="/en/tags/ontology/" class="btn btn-sm btn-outline-info rounded">Ontology</a></li>
+    
+    
+    <li><a href="/en/tags/graphrag/" class="btn btn-sm btn-outline-info rounded">GraphRAG</a></li>
+    
+    
+    <li><a href="/en/tags/data-quality/" class="btn btn-sm btn-outline-info rounded">Data Quality</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <section class="project-resources" aria-labelledby="project-resources-title">
+  <h2 id="project-resources-title">Project resources</h2>
+  <p class="project-resources__lead">The public repository and v9.0 validation evidence.</p>
+  <ul class="project-resources__links">
+    <li><a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener"><span class="project-resources__label">GitHub repository</span><span class="project-resources__url">github.com/HeungJAELEE/HeungTology</span></a></li>
+    <li><a href="https://github.com/HeungJAELEE/HeungTology/blob/main/ontology/releases/9.0.0/validation-report.json" target="_blank" rel="noopener"><span class="project-resources__label">v9.0 validation report</span><span class="project-resources__url">ontology/releases/9.0.0/validation-report.json</span></a></li>
+  </ul>
+  <p class="project-resources__note">Metrics come from the public release and validation report. The DGX Spark stack is the target runtime architecture; this article does not claim a continuously available production service.</p>
+</section>
+<h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Verified scope</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Problem</td>
+          <td>Industrial Markdown and ad-hoc frontmatter accumulated duplicate keys, unresolved relationships, weak provenance, and non-portable paths that reduced retrieval trust.</td>
+      </tr>
+      <tr>
+          <td>Role</td>
+          <td>As the designer and implementer of this public project, I created the v9 data contract, deterministic migration/validation CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, and evidence-citation boundary.</td>
+      </tr>
+      <tr>
+          <td>Action</td>
+          <td>I defined YAML 1.2-compatible authoring and JSON Schema validation, bound normalized body SHA-256 and provenance, then separated heading-aware chunks, vector/full-text search, RRF, graph expansion, reranking, and grounded generation.</td>
+      </tr>
+      <tr>
+          <td>Result</td>
+          <td>The public v9 release validates <strong>4,602 nodes, 1,904 provenanced assertions, and 4,448 internal relations</strong>. Its report records <strong>ok=true, errors=0, warnings=2</strong>, while preserving 137 unresolved/external relationships and 134 local-path findings as explicit limitations.</td>
+      </tr>
+      <tr>
+          <td>Evidence</td>
+          <td>Public source, README, schemas, release manifest, migration/validation reports, tests, and deployment documentation.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="resume-bullets">Resume bullets</h3>
+<ul>
+<li>Migrated 4,602 Korean-English industrial knowledge documents into a strict YAML v9 contract with JSON Schema, normalized body hashes, provenance, and relationship validation.</li>
+<li>Generated JSON-LD/OWL/SHACL release artifacts containing 1,904 provenanced assertions and 4,448 internal relationships while preserving 137 unresolved relationships as warnings instead of guessing links.</li>
+<li>Implemented a Neo4j hybrid retrieval design combining vector and full-text search, reciprocal-rank fusion, graph expansion, reranking, and source-heading citations.</li>
+<li>Reached a public release validation result of errors=0 and warnings=2, with non-portable local paths redacted during GraphRAG ingestion.</li>
+</ul>
+<h3 id="interview-star">Interview STAR</h3>
+<ul>
+<li><strong>Situation:</strong> A growing knowledge vault contained duplicate identity patterns, broken references, untraceable claims, and an invalid hand-maintained graph map.</li>
+<li><strong>Task:</strong> Keep Markdown human-editable while creating one machine-verifiable semantic contract for release and retrieval.</li>
+<li><strong>Action:</strong> Separate YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics, deterministic migration, release manifests, and hybrid Neo4j retrieval.</li>
+<li><strong>Result:</strong> Produced a public v9 release for 4,602 nodes and 1,904 assertions. The report exposes unresolved relationships and path warnings rather than hiding data-quality debt.</li>
+</ul>
+<h2 id="1-the-data-problem">1. The data problem</h2>
+<p>Industrial knowledge is not trustworthy merely because it is stored in Markdown. Retrieval quality degrades when:</p>
+<ul>
+<li>one concept has several unstable identifiers;</li>
+<li>parsers interpret duplicate YAML keys differently;</li>
+<li>relationships point to missing or ambiguous targets;</li>
+<li>claims have no source, locator, or integrity binding;</li>
+<li>local absolute paths or secrets enter an index;</li>
+<li>vector similarity is used for every exact term and relationship question.</li>
+</ul>
+<p>HeungTology addresses the complete path from <strong>document → data contract → semantic release → retrieval → cited answer</strong>.</p>
+<h2 id="2-architecture">2. Architecture</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["Markdown + YAML v9"] --> B["JSON Schema + body hash"]
+    B --> C["JSON-LD 1.1 release"]
+    C --> D["OWL 2 RL + SHACL"]
+    B --> E["Heading-aware chunks"]
+    E --> F["Qwen3 Embedding\n2560D"]
+    F --> G["Neo4j vector + full-text"]
+    G --> H["RRF + allow-listed graph expansion"]
+    H --> I["Qwen3 Reranker"]
+    I --> J["Grounded answer with [S#]"]
+</div>
+
+<p>Four contracts remain separate by design:</p>
+<ul>
+<li>YAML is the constrained human-authoring format.</li>
+<li>JSON Schema 2020-12 validates document and release structure.</li>
+<li>JSON-LD 1.1 is the canonical exchange representation.</li>
+<li>OWL 2 RL, SKOS, PROV-O, DCAT 3, and SHACL carry and validate semantics.</li>
+</ul>
+<h2 id="3-canonical-node-contract">3. Canonical node contract</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Group</th>
+          <th>Key fields</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Identity</td>
+          <td>UUID, legacy IDs, slug, title</td>
+          <td>stable entity resolution</td>
+      </tr>
+      <tr>
+          <td>Classification</td>
+          <td>node type, domain, tier, tags</td>
+          <td>filtering and analysis</td>
+      </tr>
+      <tr>
+          <td>Lifecycle</td>
+          <td>status, version</td>
+          <td>review and release state</td>
+      </tr>
+      <tr>
+          <td>Provenance</td>
+          <td>authors, source refs, body hash, reviewer</td>
+          <td>traceability</td>
+      </tr>
+      <tr>
+          <td>Relations</td>
+          <td>broader, related, instance-of</td>
+          <td>graph paths</td>
+      </tr>
+      <tr>
+          <td>Assertions</td>
+          <td>subject, predicate, object, evidence</td>
+          <td>claim-level support</td>
+      </tr>
+      <tr>
+          <td>Retrieval</td>
+          <td>aliases, expected queries, trust, embedding profile</td>
+          <td>search behavior</td>
+      </tr>
+      <tr>
+          <td>Validation</td>
+          <td>schema version, status</td>
+          <td>machine gate</td>
+      </tr>
+  </tbody>
+</table>
+<p>Duplicate YAML keys, anchors, aliases, merge keys, custom tags, non-string keys, and non-JSON values are rejected. The normalized UTF-8 body is hashed and compared with provenance metadata.</p>
+<h2 id="4-migration-and-validation">4. Migration and validation</h2>
+<p>The v9 migration is deterministic: parse the legacy source, generate stable identity, normalize classification, resolve references where a unique target exists, calculate body hashes, validate every transformed node, and only then allow <code>--write</code>. It produces an ID map and machine-readable migration report.</p>
+<p>The public report records:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th style="text-align: right">Result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Scanned / migrated nodes</td>
+          <td style="text-align: right">4,602 / 4,602</td>
+      </tr>
+      <tr>
+          <td>Parse errors</td>
+          <td style="text-align: right">0</td>
+      </tr>
+      <tr>
+          <td>Duplicate IDs</td>
+          <td style="text-align: right">0</td>
+      </tr>
+      <tr>
+          <td>Provenanced assertions</td>
+          <td style="text-align: right">1,904</td>
+      </tr>
+      <tr>
+          <td>Internal relations</td>
+          <td style="text-align: right">4,448</td>
+      </tr>
+      <tr>
+          <td>External/unresolved relations</td>
+          <td style="text-align: right">137</td>
+      </tr>
+      <tr>
+          <td>Validation errors</td>
+          <td style="text-align: right">0</td>
+      </tr>
+      <tr>
+          <td>Validation warnings</td>
+          <td style="text-align: right">2</td>
+      </tr>
+  </tbody>
+</table>
+<p>The two warnings are operational boundaries: unresolved external relationships remain explicit instead of being attached to a guessed internal node, and 134 local body paths are redacted during GraphRAG ingestion.</p>
+<h2 id="5-hybrid-retrieval-design">5. Hybrid retrieval design</h2>
+<p>Vector search helps with semantic similarity; full-text search helps with equipment codes, standards, and exact industrial terms; graph expansion supports relationship questions. Their incompatible raw scores are not directly added.</p>
+<ol>
+<li>Retrieve vector top-k candidates.</li>
+<li>Retrieve title, alias, heading, and body full-text candidates.</li>
+<li>Fuse ranks with reciprocal-rank fusion.</li>
+<li>Expand allow-listed one-hop graph relationships.</li>
+<li>Rerank the candidate context.</li>
+<li>Pass source paths and headings to generation.</li>
+<li>Require <code>[S#]</code> citations and state when evidence is insufficient.</li>
+</ol>
+<h2 id="6-data-analysis-value">6. Data-analysis value</h2>
+<p>This case demonstrates analytical work before visualization:</p>
+<ul>
+<li>define stable units, dimensions, and lifecycle states;</li>
+<li>distinguish “a document exists” from “a supported assertion exists”;</li>
+<li>quantify unresolved and ambiguous relationships;</li>
+<li>separate blocking validation errors from improvement warnings;</li>
+<li>compare vector, lexical, and graph retrieval roles;</li>
+<li>preserve uncertainty and provenance in downstream answers.</li>
+</ul>
+<h2 id="7-manufacturing-relevance">7. Manufacturing relevance</h2>
+<p>Battery and automation work repeatedly links process conditions, equipment signals, quality documents, defects, causes, and actions. The graph model transfers that field reasoning into a data contract. QCP/P-FMEA/MSA experience informs claim/validation separation; MES field design informs canonical identity and provenance; FAT/SAT experience informs deterministic release gates.</p>
+<h2 id="8-limitations-and-next-steps">8. Limitations and next steps</h2>
+<ol>
+<li>Not all 4,602 nodes have the same depth of human review.</li>
+<li>Claims outside the 1,904 structured assertions are not automatically evidence-complete.</li>
+<li>Unresolved and ambiguous legacy references remain a quality backlog.</li>
+<li>A target DGX Spark runtime is not the same as proven continuous production operation.</li>
+<li>Retrieval quality still needs a fixed benchmark and relevance judgments.</li>
+<li>Neo4j sync and LLM answers remain read/search functions, separate from physical control authority.</li>
+</ol>
+<p>The central skill shown here is not simply using Neo4j. It is <strong>turning human-authored industrial knowledge into a versioned, validated, evidence-aware release while keeping unresolved quality issues visible</strong>.</p>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+          
+          <div class="col-md-6 share-buttons">
+            
+          </div>
+
+          
+          
+        </div>
+
+
+
+        
+        <hr />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        <hr />
+
+        
+        
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+      </main>
+      
+<section class="toc-section" id="toc-section">
+  
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">Table of Contents</h5>
+    <hr>
+    <div class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</a>
+      <ul>
+        <li><a href="#resume-bullets">Resume bullets</a></li>
+        <li><a href="#interview-star">Interview STAR</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-the-data-problem">1. The data problem</a></li>
+    <li><a href="#2-architecture">2. Architecture</a></li>
+    <li><a href="#3-canonical-node-contract">3. Canonical node contract</a></li>
+    <li><a href="#4-migration-and-validation">4. Migration and validation</a></li>
+    <li><a href="#5-hybrid-retrieval-design">5. Hybrid retrieval design</a></li>
+    <li><a href="#6-data-analysis-value">6. Data-analysis value</a></li>
+    <li><a href="#7-manufacturing-relevance">7. Manufacturing relevance</a></li>
+    <li><a href="#8-limitations-and-next-steps">8. Limitations and next steps</a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+  
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Battery manufacturing, automation, and data-driven quality improvement</p>
+      <p>Field experience and technical validation notes, organized in one place.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Engineering Notes</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.8c6d627204d070263dcbb10b2913724fe10c2266544cf4e479f49b2e63d411a6.js" integrity="sha256-jG1icgTQcCY9y7ELKRNyT&#43;EMImZUTPTkefSbLmPUEaY=" defer></script>
+
+    
+    
+
+</body>
+</html>

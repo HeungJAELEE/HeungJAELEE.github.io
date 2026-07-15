@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reproducibility on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
+    <link>https://HeungJAELEE.github.io/en/tags/reproducibility/</link>
+    <description>Recent content in Reproducibility on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/reproducibility/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title>
+      <link>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</guid>
+      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
+  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
+  &lt;p class=&#34;project-resources__lead&#34;&gt;The public learning repository and its evidence status.&lt;/p&gt;
+  &lt;ul class=&#34;project-resources__links&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Deep_Learning_Text_book&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p class=&#34;project-resources__note&#34;&gt;No separate public report is registered. This article remains a learning and experiment-design document and does not add unsupported implementation or model-performance claims.&lt;/p&gt;
+&lt;/section&gt;
+&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a Glance&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>
