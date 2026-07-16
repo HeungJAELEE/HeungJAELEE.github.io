@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -321,7 +321,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</h5>
         <p class="card-text post-summary"> 프로젝트 자료 공개 학습 저장소와 Evidence 상태입니다.
 GitHub 저장소github.com/HeungJAELEE/Deep_Learning_Text_book 별도 공개 보고서는 등록되지 않았습니다. 현재 글은 저장소의 공개 범위에 맞춘 학습·실험 설계 문서이며 구현 완료나 모델 성능을 추가로 주장하지 않습니다.
-프로젝트 한눈에 보기 딥러닝 모델링 교과서는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.
+Public PDD · Learning Backlog
+프로젝트 정의와 실행 계획 학습 저장소의 현재 공개 범위를 과장하지 않고, 제조 데이터에 적용 가능한 재현성 기준과 구현 Backlog를 PDD·Task로 나눴습니다.
+설계 기준 공개 · 구현 검증 진행 전 프로젝트 유형 개인 학습·실험 설계 개인 역할 모델링 기준, 실험 구조와 검증 계획 주요 사용자 AI 학습자·제조 Data Analyst Evidence 수준 공개 저장소 제한적 · 설계 문서 중심 Problem 노트북이 한 번 실행된 사실만으로는 데이터 누수, 전처리 일관성, 재현성, 기준선 대비 개선과 제조 현장의 오류 비용을 설명할 수 없습니다.
 </p>
       </a>
       
@@ -351,7 +353,7 @@ GitHub 저장소github.com/HeungJAELEE/Deep_Learning_Text_book 별도 공개 보
       <span class="float-start">
         2026년 7월 13일 월요일
          | 
-        9 
+        11 
       </span>
       <a href="/posts/deep-learning-modeling/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -376,7 +378,9 @@ GitHub 저장소github.com/HeungJAELEE/Deep_Learning_Text_book 별도 공개 보
         <h5 class="card-title">AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</h5>
         <p class="card-text post-summary"> 프로젝트 자료 평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.
 GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 canva.com/design/DAHGaCTGRFs 이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다. Role 팀 프로젝트에서 F1·Recall·FPR 등 평가지표 설계와 검증을 담당했습니다. Action AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet+DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다. Result 선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다. Evidence AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다. 이력서 Bullet 공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다. DenseNet 단독·2-model 조합·ResNet+DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다. 해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다. 면접 STAR Situation: 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다. Task: 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다. Action: 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다. Result: 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다. 제조 현장에서 비전 AI의 가치는 모델 이름보다 어떤 불량을 놓치지 않아야 하는지, 그리고 오검을 어느 수준까지 감수할 것인지를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 정확도 경쟁이 아니라 미검출 위험을 줄이는 품질검사 의사결정 문제로 정의하고, 데이터·모델·임계값 Task를 같은 평가 기준으로 연결했습니다.
+평가 완료 · 생산 일반화 전 프로젝트 유형 제조 Vision AI 팀 PoC 개인 역할 평가지표 설계, F1·Recall·오검출 검증 주요 사용자 품질·공정·검사 자동화 담당자 Evidence 수준 공개 보고서 기반 Problem 미세 용접 결함과 정상 표면 특징이 겹치고 클래스 불균형이 있어 accuracy만으로는 불량 통과 위험을 설명할 수 없습니다.
 </p>
       </a>
       
@@ -409,7 +413,7 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 can
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        9 
+        11 
       </span>
       <a href="/posts/welding-vision-ai/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -434,7 +438,9 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 can
         <h5 class="card-title">HeungTology 9.0: 산업 지식을 검증 가능한 GraphRAG로 만드는 방법</h5>
         <p class="card-text post-summary"> 프로젝트 자료 현재 공개 저장소와 v9.0 검증 결과를 직접 확인할 수 있습니다.
 GitHub 저장소 github.com/HeungJAELEE/HeungTology v9.0 Validation Report ontology/releases/9.0.0/validation-report.json 저장소의 공개 release와 validation report를 수치 근거로 사용합니다. DGX Spark 운영 구성은 배포 대상 아키텍처이며, 공개 사이트에서 상시 서비스 중이라고 주장하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 산업 지식이 Markdown 문서와 임의 frontmatter에 흩어져 중복 키·깨진 참조·출처 없는 주장·Windows 종속 경로가 검색 품질을 떨어뜨렸습니다. Role 개인 공개 프로젝트의 설계·구현자로서 v9 데이터 계약, 마이그레이션·검증 CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, 근거 인용 규칙을 구성했습니다. Action YAML 1.2 호환 authoring 형식과 JSON Schema를 정의하고, 본문 SHA-256·provenance·relation을 검증했습니다. heading-aware chunk, vector/full-text 검색, RRF, reranking, 출처 인용을 단계별로 분리했습니다. Result 공개 v9 release에서 4,602 nodes, 1,904 provenanced assertions, 4,448 internal relations을 검증했습니다. validation report는 ok=true, errors=0, warnings=2를 기록하고 137개 외부/미해결 관계와 134개 로컬 경로를 숨기지 않습니다. Evidence 공개 GitHub source, README, release manifest, migration report, validation report, schema·test·deployment 문서. 이력서 Bullet 4,602개 한국어·영어 산업 지식 문서를 YAML v9 계약으로 마이그레이션하고 JSON Schema·본문 hash·provenance·relation 검증 파이프라인을 구현했습니다. 1,904개 근거 assertion과 4,448개 내부 관계를 JSON-LD·OWL 2 RL·SHACL release로 생성하고, 137개 미해결 외부 관계를 경고로 보존했습니다. Neo4j vector/full-text 검색, Reciprocal Rank Fusion, reranker, source-heading 인용을 결합한 evidence-first GraphRAG 흐름을 설계했습니다. validation report에서 errors=0, warnings=2를 기록했으며, 비이식 로컬 경로는 ingestion 단계에서 redaction하도록 데이터 품질 경계를 구현했습니다. 면접 STAR Situation: 문서 수가 늘면서 같은 개념의 중복, 깨진 링크, 출처 없는 주장과 잘못된 JSON map 때문에 벡터 검색 결과를 신뢰하기 어려웠습니다. Task: 사람이 편집할 수 있는 Markdown은 유지하면서 기계가 검증·교환·검색할 수 있는 하나의 semantic contract를 만들어야 했습니다. Action: YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics를 분리하고, deterministic migration·hash·release report·Neo4j hybrid retrieval을 구현했습니다. Result: 4,602 nodes와 1,904 assertions을 검증 가능한 v9 release로 만들었습니다. 오류 0건뿐 아니라 남은 경고와 외부 관계도 보고서에 남겨 데이터 품질을 과장하지 않았습니다. 1. 해결하려던 데이터 문제 제조·배터리·반도체·AI 지식은 문서 제목만 잘 정리한다고 검색 가능한 데이터가 되지 않습니다. 다음 문제가 누적되면 LLM이 답을 생성하더라도 어떤 사실을 믿어야 하는지 설명할 수 없습니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 문서 수집이 아니라 데이터 계약, 결정적 마이그레이션, 의미 검증, 검색 근거까지 하나의 릴리스 체계로 설계한 과정을 공개합니다.
+v9.0 공개 릴리스 완료 프로젝트 유형 개인 오픈소스 데이터·GraphRAG 프로젝트 개인 역할 PDD, 데이터 계약, 구현, 검증, 릴리스 전 과정 주요 사용자 제조 지식 관리자·Data Analyst·AI 엔지니어 Evidence 수준 Strong · 소스와 검증 보고서 공개 Problem Markdown과 임의 frontmatter에 흩어진 산업 지식은 중복 키, 깨진 참조, 출처 없는 주장과 로컬 경로 때문에 검색 결과를 신뢰하기 어렵습니다.
 </p>
       </a>
       
@@ -470,7 +476,7 @@ GitHub 저장소 github.com/HeungJAELEE/HeungTology v9.0 Validation Report ontol
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        6 
+        8 
       </span>
       <a href="/posts/ontology-construction/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -495,7 +501,9 @@ GitHub 저장소 github.com/HeungJAELEE/HeungTology v9.0 Validation Report ontol
         <h5 class="card-title">기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</h5>
         <p class="card-text post-summary"> 프로젝트 자료 구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.
 GitHub 프로젝트 목록 github.com/HeungJAELEE 기가프레스 관련 보고서 canva.com/design/DAHINy4ipdM 기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 실제 설비를 투입해야만 시퀀스와 파라미터를 확인할 수 있어 트라이아웃이 길어지고, PLC·SCADA·가상 모델 사이 데이터 정합성을 사전에 확인하기 어려웠습니다. Role 10인 팀 프로젝트에서 Digital Twin 파트의 AI 모델 선정·학습, 통신 셋업, 자료 조사를 맡았습니다. Ladder와 SCADA 구현은 담당 팀원의 결과이며 제 개인 역할로 확대하지 않습니다. Action Factory I/O–PLC–SCADA–OPC UA 계층의 데이터 흐름을 정리하고, 실시간 센서·PLC 데이터를 사용하는 DQN 후보와 통신 구성을 검토했습니다. Result 공정 Flow, Ladder/Factory I/O, SCADA, 웹·AI 확장 구조를 하나의 팀 시연·보고서로 통합했습니다. 보고서의 “셋업 50~75% 단축”과 “증설 공수 50% 절감”은 기대효과/목표값이며 실제 공장 실측 성과로 주장하지 않습니다. Evidence 팀 발표 PDF·Canva 보고서의 역할표, 아키텍처, 결과 및 기대효과 페이지. 전용 공개 소스 저장소는 미분리 상태입니다. 이력서 Bullet 10인 제조 DX 팀 프로젝트에서 AI 모델 선정·학습과 OPC UA 통신 셋업 범위를 담당하고, Factory I/O–PLC–SCADA 데이터 흐름을 가상 시운전 시나리오로 구조화했습니다. 실제 설비 성과와 설계 기대효과를 분리해, 보고서의 50~75% 셋업 단축·50% 증설 공수 절감을 검증 전 목표값으로 관리했습니다. 배터리 라인 FAT/SAT 경험을 바탕으로 정상 시퀀스뿐 아니라 센서 누락·통신 지연·재기동 조건을 검증 항목에 포함했습니다. 면접 STAR Situation: 고가 설비는 실제 투입 전 제어 로직과 데이터 정합성을 충분히 시험하기 어렵고, 현장 트라이아웃이 길어질 위험이 있었습니다. Task: 제 역할은 팀의 가상 공정 구조에서 AI 적용 후보와 통신 경계를 정리해 제어·모니터링 계층이 같은 데이터를 보도록 만드는 것이었습니다. Action: 센서/PLC 데이터를 OPC UA 흐름으로 연결하고 DQN 적용 위치를 검토했으며, 현장 제어권은 PLC에 남기고 AI는 검증·최적화 후보로 한정했습니다. Result: 팀이 Factory I/O, Ladder, SCADA, 웹·AI 확장을 하나의 시나리오로 시연할 수 있었습니다. 정량값은 기대효과로 남기고 실측 성과와 구분했습니다. 프로젝트를 한 문장으로 설명하면 현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, 에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 가상 시운전이 왜 필요한지, 어디까지 구현·검토했는지, 어떤 Task와 완료 기준으로 팀 결과를 만들었는지를 공개용으로 정리했습니다.
+팀 검증 완료 · 현장 HIL 전 프로젝트 유형 10인 교육 팀 PoC 개인 역할 AI 모델 후보·학습, OPC UA 통신 셋업, 기술 조사 주요 사용자 설비·제어·생산기술 엔지니어 Evidence 수준 팀 보고서 기반 Problem 실물 설비 투입 전에는 PLC 시퀀스, SCADA 태그, 센서 이상과 통신 지연을 함께 검증하기 어려워 오류가 현장 트라이아웃 단계에서 늦게 발견됩니다.
 </p>
       </a>
       
@@ -528,7 +536,7 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE 기가프레스 관련 보고�
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        9 
+        11 
       </span>
       <a href="/posts/giga-press-dx/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -553,7 +561,9 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE 기가프레스 관련 보고�
         <h5 class="card-title">로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</h5>
         <p class="card-text post-summary"> 프로젝트 자료 공개 구현 저장소와 이 프로젝트가 확장된 교육 팀 보고서를 구분해 제공합니다.
 GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digital Twin 팀 보고서 /docs/Robot_Digital_Twin.pdf GitHub는 PC-HMI·Robot Controller·MQTT·DB·Digital Twin 구현 근거입니다. PDF는 QR·Vision·협동로봇을 연결한 상위 팀 프로젝트 자료이며, 저장소의 개별 코드 성과를 증명하는 문서로 혼용하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem Conty JSON을 일부 field만 편집하면 Waypoint·program·move 참조가 깨질 수 있고, HMI·DB·Digital Twin이 로봇 소켓에 각각 연결하면 명령과 상태의 책임이 분산됩니다. Role 공개 Busan_Robot 저장소에서 JSON 호환 계층과 PC-HMI·backend 서비스 경계를 설계·구현하고 운영 문서를 정리했습니다. Action 원본 보존형 round-trip, IndyDCP 소켓 단일 소유권, MQTT command/state topic 분리, MySQL DB Worker, PLC Bridge, WebSocket read-only twin, Offline/Direct/Gateway 실행 모드를 구성했습니다. Result 저장소에서 HMI·backend monorepo, Docker Compose, 배포·통신·초보 실행 문서와 단계적 검증 경로를 공개했습니다. 지연·가동률·충돌 감소처럼 공개 측정이 없는 수치는 제시하지 않습니다. Evidence 공개 GitHub source와 README·JSON design·PLC/MES·communication·deployment 문서, 관련 교육 팀 PDF. 이력서 Bullet Conty/APK JSON의 Waypoint·program·move 참조를 보존하는 load–edit–save–reload 검증 흐름을 설계했습니다. IndyDCP 물리 소켓을 Robot Controller 한 곳이 소유하도록 하고, MQTT에서 명령·결과·실시간 상태·오류 Topic을 분리했습니다. CustomTkinter HMI, MySQL DB Worker, PLC Bridge, WebSocket Digital Twin을 서비스 경계로 나누고 Docker Compose 운영 경로를 문서화했습니다. Offline UI → Direct → MQTT Gateway의 단계적 실행 모드로 실제 로봇이 없는 환경에서도 JSON과 화면을 먼저 검증할 수 있게 했습니다. 면접 STAR Situation: 로봇 프로그램 JSON의 참조 손상과 여러 프로그램의 동시 소켓 접근은 파일 호환성과 물리 제어 안전을 동시에 위협했습니다. Task: 기존 티치펜던트 형식을 보존하면서 PC에서 편집·검증하고, HMI·DB·Twin이 같은 상태를 안전하게 공유하는 구조를 만들어야 했습니다. Action: JSON round-trip invariant를 정의하고 Robot Controller를 단일 소켓 소유자로 두었으며, 나머지 서비스는 MQTT event만 소비하도록 분리했습니다. Result: 공개 저장소에 재현 가능한 HMI/backend 구조와 운영 문서를 남겼습니다. Omniverse는 확인된 웹 twin과 분리해 후속 read-only adapter로 제한했습니다. 프로젝트를 한 문장으로 설명하면 Neuromeka Indy7 협동로봇의 기존 Conty 티치펜던트 JSON을 PC에서 읽고, 계층형으로 편집하고, 가상 검증하고, 다시 호환 JSON으로 저장하기 위해 만든 Python HMI 및 백엔드 서비스 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 로봇 프로그램 호환성과 물리 제어 책임을 핵심 요구사항으로 두고 JSON 편집, 소켓 소유권, 이벤트·DB·디지털 트윈 Task를 분리했습니다.
+공개 구현 완료 · 실로봇 검증 확장 중 프로젝트 유형 개인 공개 Robot HMI 프로젝트 개인 역할 JSON 호환 계층, PC-HMI·backend 경계, 운영 문서 주요 사용자 로봇·자동화·HMI 개발자 Evidence 수준 Strong · GitHub source 공개 Problem Conty JSON 일부만 수정하면 Waypoint·program·move 참조가 손상될 수 있고, 여러 클라이언트가 IndyDCP 소켓을 직접 소유하면 명령 책임과 상태 시간이 분산됩니다.
 </p>
       </a>
       
@@ -589,7 +599,7 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        13 
+        15 
       </span>
       <a href="/posts/robot-json-omniverse/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -614,7 +624,9 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
         <h5 class="card-title">협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</h5>
         <p class="card-text post-summary"> 프로젝트 자료 팀 발표자료와 연관 로봇 HMI 공개 저장소를 구분해 제공합니다.
 연관 GitHub 저장소github.com/HeungJAELEE/Busan_Robot 자동차 공장 Digital Twin 팀 보고서/docs/Robot_Digital_Twin.pdf 정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.
-프로젝트를 한 문장으로 설명하면 INDY7 협동로봇 3대를 사용하는 소형 자동차 조립 흐름에 QR 제품 추적, YOLOv11 조립·품질 검사, PLC/SCADA, MySQL/MES, 디지털 트윈을 연결하고, Raspberry Pi 5와 Hailo-10H의 온디바이스 추론 차이를 비교한 교육 팀 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.
+교육 팀 PoC 완료 · 현장 적용 전 프로젝트 유형 10인 교육 팀 PoC 개인 역할 Robot·Digital Twin 범위 주요 사용자 생산기술·로봇·Vision·MES 담당자 Evidence 수준 팀 PDF &#43; 연관 공개 저장소 Problem 제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.
 </p>
       </a>
       
@@ -650,7 +662,7 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        4 
+        6 
       </span>
       <a href="/posts/robot-digital-twin/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -675,7 +687,9 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
         <h5 class="card-title">resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</h5>
         <p class="card-text post-summary"> 프로젝트 자료 공개 포트폴리오 목록과 Evidence 상태입니다.
 GitHub 프로젝트 목록github.com/HeungJAELEE 전용 공개 소스 저장소와 별도 공개 보고서는 아직 등록되지 않았습니다. 다른 저장소를 이 PoC의 구현 근거로 오표기하지 않고 설계·검증 범위만 설명합니다.
-프로젝트 한눈에 보기 resumOpenAI는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.
+Public PDD · Prototype Backlog
+프로젝트 정의와 실행 계획 LLM 문장 생성보다 사실 추적·개인정보 최소화·구조화 검증을 먼저 해결하도록 PoC 요구사항과 공개 가능한 Task 상태를 정리했습니다.
+PoC 설계 공개 · 전용 source 미공개 프로젝트 유형 개인 LLM application PoC 개인 역할 React·Flask·LLM 경계와 검증 설계 주요 사용자 구직자·경력 문서 작성자 Evidence 수준 설계 문서 중심 · 전용 저장소 미등록 Problem LLM이 표현을 개선하는 과정에서 날짜·역할·수치가 바뀌거나 개인정보가 외부 API로 불필요하게 전송되면 이력서의 신뢰성이 훼손됩니다.
 </p>
       </a>
       
@@ -708,7 +722,7 @@ GitHub 프로젝트 목록github.com/HeungJAELEE 전용 공개 소스 저장소�
       <span class="float-start">
         2026년 7월 5일 일요일
          | 
-        8 
+        10 
       </span>
       <a href="/posts/resumopenai/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>

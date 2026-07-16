@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -154,13 +154,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
@@ -321,7 +321,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</h5>
         <p class="card-text post-summary"> Project resources The public learning repository and its evidence status.
 GitHub repositorygithub.com/HeungJAELEE/Deep_Learning_Text_book No separate public report is registered. This article remains a learning and experiment-design document and does not add unsupported implementation or model-performance claims.
-Project at a Glance Deep Learning Modeling Textbook is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.
+Public PDD · Learning Backlog
+Project definition and execution plan The plan avoids overstating the current repository and turns reproducibility, manufacturing metrics, and implementation gaps into a visible learning backlog.
+Design baseline public · implementation validation pending Project type Personal learning and experiment design My scope Modeling standards, experiment structure, validation plan Primary audience AI learners and manufacturing data analysts Evidence level Limited public repository · design-led Problem A notebook that runs once does not prove leakage control, preprocessing consistency, reproducibility, baseline improvement, or the cost of manufacturing errors.
 </p>
       </a>
       
@@ -351,7 +353,7 @@ Project at a Glance Deep Learning Modeling Textbook is a personal learning and p
       <span class="float-start">
         Monday, July 13, 2026
          | 
-        11 minutes
+        14 minutes
       </span>
       <a href="/en/posts/deep-learning-modeling/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -376,7 +378,8 @@ Project at a Glance Deep Learning Modeling Textbook is a personal learning and p
         <h5 class="card-title">AI Welding Vision: Designing Metrics Around Missed-Defect Risk</h5>
         <p class="card-text post-summary"> Project resources Public material for the dataset, model-selection, and evaluation record.
 GitHub project indexgithub.com/HeungJAELEE AI Welding Vision reportcanva.com/design/DAHGaCTGRFs A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld. Role I was responsible for evaluation-metric design and validation, including F1, recall, false-positive behavior, and threshold interpretation. Action The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control. Result On the recorded evaluation set and selected threshold, the report lists F1 93.10%, Recall 100%, and Precision 87.07%. These values do not establish production-wide generalization. Evidence The public report&rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository. Resume bullets Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set. Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost. Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives. Interview STAR Situation: Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance. Task: Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk. Action: Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall. Result: The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment. 1. Why this project was structured this way Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:
+Public PDD · Delivery Record
+Project definition and execution plan The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.
 </p>
       </a>
       
@@ -409,7 +412,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        7 minutes
       </span>
       <a href="/en/posts/welding-vision-ai/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -434,7 +437,8 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
         <h5 class="card-title">Collaborative-Robot Automotive Digital Twin and Edge Vision AI</h5>
         <p class="card-text post-summary"> Project resources The team presentation and related public robot-HMI implementation.
 Related GitHub repositorygithub.com/HeungJAELEE/Busan_Robot Automotive Digital Twin team report/docs/Robot_Digital_Twin.pdf Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.
-Project at a glance This education team project connected a three-Indy7 miniature automotive assembly flow with QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference.
+Public PDD · Delivery Record
+Project definition and execution plan The team project is presented as a product-traceability flow from QR and MES through robots, vision, PLC, and the digital twin, with explicit phase and ownership boundaries.
 </p>
       </a>
       
@@ -470,7 +474,7 @@ Project at a glance This education team project connected a three-Indy7 miniatur
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        3 minutes
+        6 minutes
       </span>
       <a href="/en/posts/robot-digital-twin/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -495,7 +499,8 @@ Project at a glance This education team project connected a three-Indy7 miniatur
         <h5 class="card-title">Giga Press Factory DX: From Field Signals to Virtual Commissioning</h5>
         <p class="card-text post-summary"> Project resources Public material for the design rationale and team scenario.
 GitHub project indexgithub.com/HeungJAELEE Giga Press DX reportcanva.com/design/DAHINy4ipdM A dedicated public source repository has not been separated for this project. The GitHub URL is a project index, not evidence that another repository contains this implementation.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance. Role In a ten-person team, I worked in the Digital Twin group on AI-model selection/training, communications setup, and technical research. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work. Action I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization. Result The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are expected benefits/targets, not measured factory outcomes. Evidence The team report&rsquo;s R&amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository. Resume bullets Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario. Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority. Kept the report&rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings. Interview STAR Situation: High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial. Task: My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority. Action: I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary. Result: The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available. 1. What the project is The project models a Giga Press factory context through four responsibilities:
+Public PDD · Delivery Record
+Project definition and execution plan This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.
 </p>
       </a>
       
@@ -528,7 +533,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        8 minutes
       </span>
       <a href="/en/posts/giga-press-dx/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -553,7 +558,8 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
         <h5 class="card-title">HeungTology 9.0: Building an Evidence-aware Industrial GraphRAG System</h5>
         <p class="card-text post-summary"> Project resources The public repository and v9.0 validation evidence.
 GitHub repositorygithub.com/HeungJAELEE/HeungTology v9.0 validation reportontology/releases/9.0.0/validation-report.json Metrics come from the public release and validation report. The DGX Spark stack is the target runtime architecture; this article does not claim a continuously available production service.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Industrial Markdown and ad-hoc frontmatter accumulated duplicate keys, unresolved relationships, weak provenance, and non-portable paths that reduced retrieval trust. Role As the designer and implementer of this public project, I created the v9 data contract, deterministic migration/validation CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, and evidence-citation boundary. Action I defined YAML 1.2-compatible authoring and JSON Schema validation, bound normalized body SHA-256 and provenance, then separated heading-aware chunks, vector/full-text search, RRF, graph expansion, reranking, and grounded generation. Result The public v9 release validates 4,602 nodes, 1,904 provenanced assertions, and 4,448 internal relations. Its report records ok=true, errors=0, warnings=2, while preserving 137 unresolved/external relationships and 134 local-path findings as explicit limitations. Evidence Public source, README, schemas, release manifest, migration/validation reports, tests, and deployment documentation. Resume bullets Migrated 4,602 Korean-English industrial knowledge documents into a strict YAML v9 contract with JSON Schema, normalized body hashes, provenance, and relationship validation. Generated JSON-LD/OWL/SHACL release artifacts containing 1,904 provenanced assertions and 4,448 internal relationships while preserving 137 unresolved relationships as warnings instead of guessing links. Implemented a Neo4j hybrid retrieval design combining vector and full-text search, reciprocal-rank fusion, graph expansion, reranking, and source-heading citations. Reached a public release validation result of errors=0 and warnings=2, with non-portable local paths redacted during GraphRAG ingestion. Interview STAR Situation: A growing knowledge vault contained duplicate identity patterns, broken references, untraceable claims, and an invalid hand-maintained graph map. Task: Keep Markdown human-editable while creating one machine-verifiable semantic contract for release and retrieval. Action: Separate YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics, deterministic migration, release manifests, and hybrid Neo4j retrieval. Result: Produced a public v9 release for 4,602 nodes and 1,904 assertions. The report exposes unresolved relationships and path warnings rather than hiding data-quality debt. 1. The data problem Industrial knowledge is not trustworthy merely because it is stored in Markdown. Retrieval quality degrades when:
+Public PDD · Delivery Record
+Project definition and execution plan The delivery plan treats schema, deterministic migration, semantic validation, retrieval, and citation as one release system rather than a document collection exercise.
 </p>
       </a>
       
@@ -586,7 +592,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        8 minutes
       </span>
       <a href="/en/posts/ontology-construction/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -611,7 +617,8 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
         <h5 class="card-title">Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</h5>
         <p class="card-text post-summary"> Project resources The public implementation and the related education-team report are intentionally separated.
 GitHub repositorygithub.com/HeungJAELEE/Busan_Robot Related automotive Digital Twin team report/docs/Robot_Digital_Twin.pdf GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing. Role Designed and implemented the public Busan_Robot repository&rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation. Action Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes. Result Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed. Evidence Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF. Resume bullets Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references. Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics. Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation. Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection. Interview STAR Situation: Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability. Task: Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state. Action: Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events. Result: Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim. 1. What the system does The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.
+Public PDD · Delivery Record
+Project definition and execution plan Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.
 </p>
       </a>
       
@@ -647,7 +654,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        7 minutes
       </span>
       <a href="/en/posts/robot-json-omniverse/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>
@@ -672,7 +679,9 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
         <h5 class="card-title">resumOpenAI: An Evidence-aware Resume Generation PoC</h5>
         <p class="card-text post-summary"> Project resources Public portfolio index and evidence status.
 GitHub project indexgithub.com/HeungJAELEE A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.
-Project at a glance resumOpenAI explores a narrower problem than “ask an LLM to write a resume.” It separates verified career facts, private fields, target-role selection, draft generation, and output validation so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.
+Public PDD · Prototype Backlog
+Project definition and execution plan The PoC prioritizes fact traceability, personal-data minimization, and structured validation before polished LLM wording.
+PoC design public · dedicated source not public Project type Personal LLM application PoC My scope React, Flask, LLM boundaries and validation design Primary audience Job seekers and career-document authors Evidence level Design-led · no dedicated repository registered Problem If polished LLM wording changes dates, roles, or metrics, or sends unnecessary personal data to an external API, the resume becomes less trustworthy.
 </p>
       </a>
       
@@ -708,7 +717,7 @@ Project at a glance resumOpenAI explores a narrower problem than “ask an LLM t
       <span class="float-start">
         Sunday, July 5, 2026
          | 
-        3 minutes
+        5 minutes
       </span>
       <a href="/en/posts/resumopenai/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>

@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/resumopenai/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -48,7 +48,9 @@
   <meta name="twitter:title" content="resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC">
   <meta name="twitter:description" content="프로젝트 자료 공개 포트폴리오 목록과 Evidence 상태입니다.
 GitHub 프로젝트 목록github.com/HeungJAELEE 전용 공개 소스 저장소와 별도 공개 보고서는 아직 등록되지 않았습니다. 다른 저장소를 이 PoC의 구현 근거로 오표기하지 않고 설계·검증 범위만 설명합니다.
-프로젝트 한눈에 보기 resumOpenAI는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.">
+Public PDD · Prototype Backlog
+프로젝트 정의와 실행 계획 LLM 문장 생성보다 사실 추적·개인정보 최소화·구조화 검증을 먼저 해결하도록 PoC 요구사항과 공개 가능한 Task 상태를 정리했습니다.
+PoC 설계 공개 · 전용 source 미공개 프로젝트 유형 개인 LLM application PoC 개인 역할 React·Flask·LLM 경계와 검증 설계 주요 사용자 구직자·경력 문서 작성자 Evidence 수준 설계 문서 중심 · 전용 저장소 미등록 Problem LLM이 표현을 개선하는 과정에서 날짜·역할·수치가 바뀌거나 개인정보가 외부 API로 불필요하게 전송되면 이력서의 신뢰성이 훼손됩니다.">
 
 <meta name="description" content="resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC" />
 
@@ -314,7 +316,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             2026년 7월 5일 일요일
              | 
-            8</p>
+            10</p>
         </div>
         
 
@@ -356,6 +358,205 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">전용 공개 소스 저장소와 별도 공개 보고서는 아직 등록되지 않았습니다. 다른 저장소를 이 PoC의 구현 근거로 오표기하지 않고 설계·검증 범위만 설명합니다.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-resumopenai">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Prototype Backlog</p>
+      <h2 id="project-blueprint-resumopenai">프로젝트 정의와 실행 계획</h2>
+      <p class="project-blueprint__summary">LLM 문장 생성보다 사실 추적·개인정보 최소화·구조화 검증을 먼저 해결하도록 PoC 요구사항과 공개 가능한 Task 상태를 정리했습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--planned">PoC 설계 공개 · 전용 source 미공개</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 LLM application PoC</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>React·Flask·LLM 경계와 검증 설계</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>구직자·경력 문서 작성자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>설계 문서 중심 · 전용 저장소 미등록</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>LLM이 표현을 개선하는 과정에서 날짜·역할·수치가 바뀌거나 개인정보가 외부 API로 불필요하게 전송되면 이력서의 신뢰성이 훼손됩니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>검증된 경력 사실, 비공개 필드, 목표 직무, 생성 초안과 사용자 승인을 분리하고 모든 문장을 source fact로 역추적하는 PoC를 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>구조화 출력이 schema를 통과하고 숫자·날짜·주장을 원본과 대조하며, 개인정보가 최소 전송되고 사용자 승인 전에는 최종본이 되지 않으면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-resumopenai">
+      <h3 id="project-scope-resumopenai">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>React 입력·검토 UI와 Flask validation/orchestration</li><li>구조화 career fact, evidence ID, target-role selection</li><li>OpenAI API prompt contract, JSON schema, claim validation</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>채용 합격 가능성 예측과 자동 의사결정</li><li>근거 없는 경력·수치·자격의 자동 보완</li><li>fine-tuning 완료나 성능 개선이 검증됐다는 주장</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-resumopenai">
+      <h3 id="project-requirements-resumopenai">요구사항</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>기능 요구</h4>
+          <ul>
+              <li><span>FR-01</span>각 생성 문장이 source experience/evidence ID를 참조한다.</li>
+              <li><span>FR-02</span>모델 응답을 JSON schema로 검사하고 날짜·수치·금칙어를 대조한다.</li>
+              <li><span>FR-03</span>사용자가 채택·수정·거절한 항목만 최종 문서에 반영한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 요구</h4>
+          <ul>
+              <li><span>QR-01</span>연락처·주소·민감 회사명은 전송 전에 제거·비식별화한다.</li>
+              <li><span>QR-02</span>모델·prompt·schema version과 검증 결과를 기록한다.</li>
+              <li><span>QR-03</span>API 실패나 형식 오류가 원본 경력 데이터 손실로 이어지지 않는다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-resumopenai">
+    <h3 id="project-decisions-resumopenai">핵심 설계 결정</h3>
+    <ol>
+        <li>
+          <strong>fine-tuning보다 구조화·평가 우선</strong>
+          <p>사실 모델과 검증셋이 없는 상태에서 fine-tuning은 오류를 더 일관되게 만들 수 있기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>React–Flask–LLM adapter 분리</strong>
+          <p>UI 상태, 개인정보·업무 규칙과 외부 모델 의존성을 독립적으로 교체·검증하기 위해서입니다.</p>
+        </li>
+        <li>
+          <strong>사람의 최종 승인 유지</strong>
+          <p>경력 맥락과 공개 여부는 자동 규칙만으로 완전히 판단할 수 없기 때문입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-resumopenai">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-resumopenai">관련 Task와 작업 내역</h3>
+      <p>전용 공개 저장소가 없으므로 설계 완료와 구현 검증 필요 상태를 구분했습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>사실·개인정보·승인 경계 정의</h4>
+          <p>원본 사실, 비공개 필드, 생성 초안과 최종 승인 상태를 별도 entity로 정의했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>Public PDD와 privacy boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>career fact schema 설계</h4>
+          <p>experience ID, 기간, 역할, claim, evidence와 공개 상태를 구조화했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>JSON data contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">공개 검증 필요</span>
+          </div>
+          <h4>React 검토 흐름과 Flask API 구현</h4>
+          <p>입력, 직무 선택, 초안 비교, 사용자 승인과 API validation을 전용 source에서 확인해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>PoC application source</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">계획</span>
+          </div>
+          <h4>claim·date·number 검증</h4>
+          <p>schema 오류, 근거 없는 숫자, 날짜 충돌과 개인정보 유출 fixture를 자동 시험해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>evaluation set와 test report</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">다음 단계</span>
+          </div>
+          <h4>보안·운영 준비</h4>
+          <p>인증, 암호화 저장, 삭제·보존 정책, audit log와 prompt injection 대응이 필요합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>security review와 운영 runbook</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-resumopenai">
+    <h3 id="project-acceptance-resumopenai">완료 기준</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>사실·비공개 필드·생성 초안·사용자 승인 경계가 설명된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>근거 없는 사실과 fine-tuning 성과를 주장하지 않는다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>전용 공개 source에서 schema·claim validation test를 재현할 수 있다.</p>
+          <strong>미검증</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>보안·삭제·감사 정책을 포함한 운영 검토를 통과한다.</p>
+          <strong>미검증</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>검증 근거:</strong> 현재는 포트폴리오 설계 문서와 GitHub 프로젝트 인덱스만 공개되어 있으며, 전용 source가 등록되기 전까지 구현 완료로 확대하지 않습니다.</p>
+  </section>
+</section>
+
 <h2 id="프로젝트-한눈에-보기">프로젝트 한눈에 보기</h2>
 <p><code>resumOpenAI</code>는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 <strong>Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입</strong>이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.</p>
 <blockquote>

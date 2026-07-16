@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/robot-json-omniverse/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             2026년 7월 9일 목요일
              | 
-            13</p>
+            15</p>
         </div>
         
 
@@ -368,6 +368,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">GitHub는 PC-HMI·Robot Controller·MQTT·DB·Digital Twin 구현 근거입니다. PDF는 QR·Vision·협동로봇을 연결한 상위 팀 프로젝트 자료이며, 저장소의 개별 코드 성과를 증명하는 문서로 혼용하지 않습니다.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-robot-json-omniverse">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-robot-json-omniverse">프로젝트 정의와 실행 계획</h2>
+      <p class="project-blueprint__summary">로봇 프로그램 호환성과 물리 제어 책임을 핵심 요구사항으로 두고 JSON 편집, 소켓 소유권, 이벤트·DB·디지털 트윈 Task를 분리했습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">공개 구현 완료 · 실로봇 검증 확장 중</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 공개 Robot HMI 프로젝트</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>JSON 호환 계층, PC-HMI·backend 경계, 운영 문서</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>로봇·자동화·HMI 개발자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>Strong · GitHub source 공개</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Conty JSON 일부만 수정하면 Waypoint·program·move 참조가 손상될 수 있고, 여러 클라이언트가 IndyDCP 소켓을 직접 소유하면 명령 책임과 상태 시간이 분산됩니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>원본 보존형 JSON round-trip과 단일 Robot Controller를 중심으로 HMI, DB, PLC, twin이 명시적 이벤트를 공유하는 구조를 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>load–edit–save–reload에서 참조가 보존되고, 물리 소켓이 하나이며, offline/direct/gateway 모드와 배포 문서가 재현 가능하면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-json-omniverse">
+      <h3 id="project-scope-robot-json-omniverse">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>Conty/APK JSON round-trip과 참조 무결성</li><li>IndyDCP 단일 소유권, MQTT command/state 분리</li><li>CustomTkinter HMI, MySQL worker, PLC bridge, read-only web twin</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>Omniverse가 검증된 생산 운영 화면이라는 주장</li><li>공개 측정이 없는 latency·uptime·충돌 감소 수치</li><li>디지털 트윈에서 물리 로봇 명령을 직접 실행하는 구조</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-json-omniverse">
+      <h3 id="project-requirements-robot-json-omniverse">요구사항</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>기능 요구</h4>
+          <ul>
+              <li><span>FR-01</span>알 수 없는 JSON field와 참조를 보존하고 저장 후 재로딩 검증을 수행한다.</li>
+              <li><span>FR-02</span>Robot Controller만 물리 IndyDCP 소켓을 소유한다.</li>
+              <li><span>FR-03</span>command, result, realtime, connection, error event를 분리한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 요구</h4>
+          <ul>
+              <li><span>QR-01</span>Offline UI에서 로봇 없이 JSON과 화면 흐름을 검증할 수 있다.</li>
+              <li><span>QR-02</span>DB와 twin은 명령 경로가 아니라 상태 소비자로 동작한다.</li>
+              <li><span>QR-03</span>Docker·통신·초보 실행 문서로 재현 경로를 제공한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-json-omniverse">
+    <h3 id="project-decisions-robot-json-omniverse">핵심 설계 결정</h3>
+    <ol>
+        <li>
+          <strong>원본 보존형 round-trip</strong>
+          <p>편집기가 모르는 vendor field를 삭제하지 않아야 teach pendant 호환성을 유지할 수 있기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>IndyDCP 소켓 단일 소유권</strong>
+          <p>동시 명령과 상태 race를 막고 물리 제어 책임을 한 서비스에서 감사하기 위해서입니다.</p>
+        </li>
+        <li>
+          <strong>디지털 트윈은 read-only</strong>
+          <p>시각화 계층의 오류가 물리 로봇 명령으로 이어지지 않도록 안전 경계를 분리했습니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-json-omniverse">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-json-omniverse">관련 Task와 작업 내역</h3>
+      <p>저장소의 구현·문서와 향후 Omniverse/실로봇 작업을 분리했습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>호환성·제어권 요구사항 정의</h4>
+          <p>JSON 불변조건, socket owner, 이벤트 계약과 read-only twin 경계를 정했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>JSON·통신·배포 설계 문서</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>JSON round-trip 계층 구현</h4>
+          <p>Waypoint, program tree, move 참조와 미지 field를 보존하는 load–edit–save–reload 흐름을 구성했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>호환 parser·serializer·검증</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>Robot Controller와 MQTT 분리</h4>
+          <p>물리 소켓을 중앙화하고 명령·결과·실시간 상태·연결·오류 topic을 분리했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>controller와 event contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>HMI·DB·PLC·web twin 통합</h4>
+          <p>각 component를 독립 서비스로 두고 같은 robot state를 소비하도록 구성했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>monorepo와 Docker Compose</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>단계별 실행 경로 검증</h4>
+          <p>Offline UI, Direct, MQTT Gateway 모드를 문서화해 장치 없이 시작하고 점진적으로 연결할 수 있게 했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>setup·communications·deployment 문서</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">다음 단계</span>
+          </div>
+          <h4>실로봇 회귀·Omniverse adapter</h4>
+          <p>로봇 firmware별 JSON fixture, 장시간 reconnect, read-only USD adapter 검증이 남아 있습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>hardware regression과 twin adapter</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-json-omniverse">
+    <h3 id="project-acceptance-robot-json-omniverse">완료 기준</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>공개 source에서 JSON·controller·MQTT·DB·twin 경계가 확인된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Offline/Direct/Gateway 실행 절차가 문서화된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>측정되지 않은 운영 성과를 수치로 주장하지 않는다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>다양한 실제 Indy7 firmware와 장시간 운영에서 회귀 검증한다.</p>
+          <strong>진행 필요</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>검증 근거:</strong> Busan_Robot 저장소의 source, README, JSON design, PLC/MES, communication, setup, deployment 문서와 관련 팀 PDF를 구분해 사용했습니다.</p>
+  </section>
+</section>
+
 <h2 id="포트폴리오-요약-problemroleactionresultevidence">포트폴리오 요약: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

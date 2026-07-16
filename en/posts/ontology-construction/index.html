@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/ontology-construction/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -154,13 +154,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Thursday, July 9, 2026
              | 
-            5minutes</p>
+            8minutes</p>
         </div>
         
 
@@ -355,6 +355,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">Metrics come from the public release and validation report. The DGX Spark stack is the target runtime architecture; this article does not claim a continuously available production service.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-ontology-construction">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-ontology-construction">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">The delivery plan treats schema, deterministic migration, semantic validation, retrieval, and citation as one release system rather than a document collection exercise.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--done">v9.0 public release complete</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Personal open-source data and GraphRAG project</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>PDD, data contract, implementation, validation, and release</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Industrial knowledge owners, data analysts, and AI engineers</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Strong · source and validation report public</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Industrial Markdown and ad-hoc frontmatter accumulated duplicate keys, broken references, weak provenance, and local paths that reduced retrieval trust.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Keep YAML human-editable while validating schema, hash, provenance, and relations, then make GraphRAG cite the same release source.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>Migration and release are deterministic, validation has zero errors, and retrieval traces every answer to a source node and heading.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-ontology-construction">
+      <h3 id="project-scope-ontology-construction">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>YAML v9 canonical node and JSON Schema contract</li><li>Deterministic migration, manifest, JSON-LD, OWL, and SHACL release</li><li>Neo4j vector/full-text/RRF/graph expansion/reranking and citation</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Guessing links for 137 unresolved or external relationships</li><li>Claiming DGX Spark is a continuously available public service</li><li>Promoting unvalidated documents to authoritative sources</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-ontology-construction">
+      <h3 id="project-requirements-ontology-construction">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>Every node has stable ID, type, aliases, relations, provenance, and body hash.</li>
+              <li><span>FR-02</span>Migration and release produce the same output from the same input.</li>
+              <li><span>FR-03</span>Retrieval returns source node, heading, and provenance.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Schema, hash, and reference errors stop release; warnings remain visible.</li>
+              <li><span>QR-02</span>Local Windows paths and sensitive information are blocked before ingestion.</li>
+              <li><span>QR-03</span>Counts and warnings are reproducible from a validation report.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-ontology-construction">
+    <h3 id="project-decisions-ontology-construction">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Separate authoring from semantic release</strong>
+          <p>Humans maintain YAML while machines generate JSON-LD, OWL, and SHACL, reducing manual drift.</p>
+        </li>
+        <li>
+          <strong>Use a release gate that preserves warnings</strong>
+          <p>Unresolved external links must remain visible data debt instead of guessed truth.</p>
+        </li>
+        <li>
+          <strong>Use hybrid retrieval with a citation boundary</strong>
+          <p>Vector similarity alone cannot satisfy exact terms, graph relations, and source traceability.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-ontology-construction">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-ontology-construction">Related tasks and work record</h3>
+      <p>Each task maps to public v9.0 source, reports, tests, or documentation.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define canonical node contract</h4>
+          <p>Specified stable ID, YAML 1.2, provenance, relations, hashes, and release gates.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>v9 schema and authoring contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Implement deterministic migration CLI</h4>
+          <p>Normalized legacy documents and reported duplicates, paths, and broken relations.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Migration CLI and report</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Generate semantic release</h4>
+          <p>Generated JSON-LD, OWL 2 RL, SHACL, and manifest from canonical source.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>ontology/releases/9.0.0</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Build Neo4j hybrid retrieval</h4>
+          <p>Separated heading chunks, vector/full-text search, RRF, graph expansion, reranking, and citation.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>GraphRAG ingestion and retrieval pipeline</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Validate and freeze release metrics</h4>
+          <p>Verified 4,602 nodes, 1,904 assertions, 4,448 internal relations, errors=0, and warnings=2.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>validation-report.json</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Planned</span>
+          </div>
+          <h4>Curate external links and add regression benchmark</h4>
+          <p>Human review and ongoing retrieval and latency measurement remain.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Curation queue and benchmark</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-ontology-construction">
+    <h3 id="project-acceptance-ontology-construction">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>The v9 contract and release artifacts are public.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>The validation report reproduces zero errors and published counts.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Source, heading, and provenance traceability is documented.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>All 137 unresolved/external relationships receive human review.</p>
+          <strong>Remaining</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> Directly maps to the HeungTology repository, v9 manifest, migration and validation reports, schemas, tests, and deployment documentation.</p>
+  </section>
+</section>
+
 <h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

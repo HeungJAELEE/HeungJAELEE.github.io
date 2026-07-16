@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/tags/graphrag/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -489,7 +489,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">HeungTology 9.0: 산업 지식을 검증 가능한 GraphRAG로 만드는 방법</h5>
         <p class="card-text post-summary"> 프로젝트 자료 현재 공개 저장소와 v9.0 검증 결과를 직접 확인할 수 있습니다.
 GitHub 저장소 github.com/HeungJAELEE/HeungTology v9.0 Validation Report ontology/releases/9.0.0/validation-report.json 저장소의 공개 release와 validation report를 수치 근거로 사용합니다. DGX Spark 운영 구성은 배포 대상 아키텍처이며, 공개 사이트에서 상시 서비스 중이라고 주장하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 산업 지식이 Markdown 문서와 임의 frontmatter에 흩어져 중복 키·깨진 참조·출처 없는 주장·Windows 종속 경로가 검색 품질을 떨어뜨렸습니다. Role 개인 공개 프로젝트의 설계·구현자로서 v9 데이터 계약, 마이그레이션·검증 CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, 근거 인용 규칙을 구성했습니다. Action YAML 1.2 호환 authoring 형식과 JSON Schema를 정의하고, 본문 SHA-256·provenance·relation을 검증했습니다. heading-aware chunk, vector/full-text 검색, RRF, reranking, 출처 인용을 단계별로 분리했습니다. Result 공개 v9 release에서 4,602 nodes, 1,904 provenanced assertions, 4,448 internal relations을 검증했습니다. validation report는 ok=true, errors=0, warnings=2를 기록하고 137개 외부/미해결 관계와 134개 로컬 경로를 숨기지 않습니다. Evidence 공개 GitHub source, README, release manifest, migration report, validation report, schema·test·deployment 문서. 이력서 Bullet 4,602개 한국어·영어 산업 지식 문서를 YAML v9 계약으로 마이그레이션하고 JSON Schema·본문 hash·provenance·relation 검증 파이프라인을 구현했습니다. 1,904개 근거 assertion과 4,448개 내부 관계를 JSON-LD·OWL 2 RL·SHACL release로 생성하고, 137개 미해결 외부 관계를 경고로 보존했습니다. Neo4j vector/full-text 검색, Reciprocal Rank Fusion, reranker, source-heading 인용을 결합한 evidence-first GraphRAG 흐름을 설계했습니다. validation report에서 errors=0, warnings=2를 기록했으며, 비이식 로컬 경로는 ingestion 단계에서 redaction하도록 데이터 품질 경계를 구현했습니다. 면접 STAR Situation: 문서 수가 늘면서 같은 개념의 중복, 깨진 링크, 출처 없는 주장과 잘못된 JSON map 때문에 벡터 검색 결과를 신뢰하기 어려웠습니다. Task: 사람이 편집할 수 있는 Markdown은 유지하면서 기계가 검증·교환·검색할 수 있는 하나의 semantic contract를 만들어야 했습니다. Action: YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics를 분리하고, deterministic migration·hash·release report·Neo4j hybrid retrieval을 구현했습니다. Result: 4,602 nodes와 1,904 assertions을 검증 가능한 v9 release로 만들었습니다. 오류 0건뿐 아니라 남은 경고와 외부 관계도 보고서에 남겨 데이터 품질을 과장하지 않았습니다. 1. 해결하려던 데이터 문제 제조·배터리·반도체·AI 지식은 문서 제목만 잘 정리한다고 검색 가능한 데이터가 되지 않습니다. 다음 문제가 누적되면 LLM이 답을 생성하더라도 어떤 사실을 믿어야 하는지 설명할 수 없습니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 문서 수집이 아니라 데이터 계약, 결정적 마이그레이션, 의미 검증, 검색 근거까지 하나의 릴리스 체계로 설계한 과정을 공개합니다.
+v9.0 공개 릴리스 완료 프로젝트 유형 개인 오픈소스 데이터·GraphRAG 프로젝트 개인 역할 PDD, 데이터 계약, 구현, 검증, 릴리스 전 과정 주요 사용자 제조 지식 관리자·Data Analyst·AI 엔지니어 Evidence 수준 Strong · 소스와 검증 보고서 공개 Problem Markdown과 임의 frontmatter에 흩어진 산업 지식은 중복 키, 깨진 참조, 출처 없는 주장과 로컬 경로 때문에 검색 결과를 신뢰하기 어렵습니다.
 </p>
       </a>
       
@@ -525,7 +527,7 @@ GitHub 저장소 github.com/HeungJAELEE/HeungTology v9.0 Validation Report ontol
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        6 
+        8 
       </span>
       <a href="/posts/ontology-construction/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>

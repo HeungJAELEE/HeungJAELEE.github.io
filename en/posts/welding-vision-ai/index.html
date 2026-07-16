@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/welding-vision-ai/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Thursday, July 9, 2026
              | 
-            5minutes</p>
+            7minutes</p>
         </div>
         
 
@@ -355,6 +355,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-welding-vision-ai">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-welding-vision-ai">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Evaluation complete · production generalization pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Manufacturing Vision AI team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Metric design and F1, recall, false-positive validation</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Quality, process, and inspection-automation teams</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Public-report backed</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Micro-defect features overlap normal surfaces and the data is imbalanced, so accuracy alone does not represent the cost of passing a defective weld.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Separate public and field data, compare model stages on the same metrics, and design a recall-first threshold with a reinspection policy.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>F1, recall, and precision are reported together with threshold rationale, false-positive handling, and explicit production limits.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-welding-vision-ai">
+      <h3 id="project-scope-welding-vision-ai">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Purpose separation for about 60,000 AI-Hub images and 198 field images</li><li>DenseNet baseline, two-model combination, and ResNet&#43;DeiT comparison</li><li>Second test and threshold tuning around missed-defect risk</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Claiming a dedicated public source repository</li><li>Generalization to every weld process and camera condition</li><li>Shipment decisions with no human reinspection path</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-welding-vision-ai">
+      <h3 id="project-requirements-welding-vision-ai">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>Separate data source and training, validation, and field-review purpose.</li>
+              <li><span>FR-02</span>Compare model stages with the same F1, recall, precision, and split policy.</li>
+              <li><span>FR-03</span>Record false negatives and false positives across thresholds and retain reinspection.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Prioritize missed-defect cost over the cost of reinspecting a normal part.</li>
+              <li><span>QR-02</span>Separate evaluation-set results from production claims and check leakage.</li>
+              <li><span>QR-03</span>Treat lighting, material, and camera drift as separate validation work.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-welding-vision-ai">
+    <h3 id="project-decisions-welding-vision-ai">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Use recall as the primary operating metric</strong>
+          <p>Passing a defective weld carries more quality risk than reinspecting a normal part.</p>
+        </li>
+        <li>
+          <strong>Keep 198 field images as a distinct validation view</strong>
+          <p>Small field data should not be mixed into a large public set to imply broad generalization.</p>
+        </li>
+        <li>
+          <strong>Compare threshold policy with model choice</strong>
+          <p>The same model produces different miss and reinspection costs at different thresholds.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-welding-vision-ai">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-welding-vision-ai">Related tasks and work record</h3>
+      <p>Model development, evaluation, and production readiness are shown as separate task states.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define quality risk and evaluation objective</h4>
+          <p>Set asymmetric costs and the recall-first rule.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Evaluation policy and success criteria</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Separate data sources and purposes</h4>
+          <p>Kept public and field data distinct instead of presenting one undifferentiated training population.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Data composition and limitation note</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Compare baseline and ensembles</h4>
+          <p>Reviewed DenseNet, the two-model stage, and ResNet&#43;DeiT under a common metric view.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Model-evolution comparison</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Run second test and threshold validation</h4>
+          <p>Reviewed mixed cases and retained recall while checking precision and F1.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>F1 93.10%, Recall 100%, Precision 87.07%</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">DOC-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Document operating interpretation and limits</h4>
+          <p>Used manual reinspection for false positives and did not expand the evaluation result into a plant-wide claim.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Report and public claim boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Run line pilot and drift monitoring</h4>
+          <p>Line-specific conditions and false-negative tracking remain required.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Line confusion matrices and operating threshold</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-welding-vision-ai">
+    <h3 id="project-acceptance-welding-vision-ai">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Data source and evaluation purpose are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>F1, recall, precision, and threshold rationale appear together.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Reinspection policy and production limits are explicit.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Long-term drift and missed-defect rate are measured across line conditions.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> The report&#39;s data, model-evolution, second-test, threshold, and final-metric slides support this record.</p>
+  </section>
+</section>
+
 <h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

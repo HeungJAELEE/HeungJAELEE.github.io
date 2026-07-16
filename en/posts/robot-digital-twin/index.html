@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/robot-digital-twin/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Thursday, July 9, 2026
              | 
-            3minutes</p>
+            6minutes</p>
         </div>
         
 
@@ -358,6 +358,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-robot-digital-twin">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-robot-digital-twin">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">The team project is presented as a product-traceability flow from QR and MES through robots, vision, PLC, and the digital twin, with explicit phase and ownership boundaries.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Education team PoC complete · plant pilot pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Ten-person education team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Robot and Digital Twin</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Manufacturing, robot, vision, and MES teams</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Team PDF plus related public repository</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>If product ID, robot motion, inspection images, PLC sequence, and MES results remain separate, product-level process history cannot be reconstructed.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Use QR serial as a shared key across three Indy7 robots, YOLOv11 inspection, PLC/SCADA, MySQL/MES, and digital-twin state.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>The team demo reconstructs product→step→equipment→inspection→time and reports edge-performance evidence without expanding it into a plant claim.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-digital-twin">
+      <h3 id="project-scope-robot-digital-twin">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>QR serial registration and MySQL/MES process history</li><li>Three-Indy7 input, body/window assembly, and loading sequence</li><li>YOLOv11 inspection and Pi5 versus Hailo-10H inference comparison</li><li>PLC, SCADA, and Digital Twin state connection</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Presenting team results as my individual-only implementation</li><li>Treating the related repository and complete team PDF as one artifact</li><li>Generalizing an education cell to automotive plant performance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-digital-twin">
+      <h3 id="project-requirements-robot-digital-twin">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>QR serial is the common key for process and inspection history.</li>
+              <li><span>FR-02</span>The PLC coordinates robot steps and good/reject routing.</li>
+              <li><span>FR-03</span>SCADA, MES, and twin display the same step and state.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Separate team artifacts, individual role, and related repository.</li>
+              <li><span>QR-02</span>Use only F1 and FPS values visible in the report.</li>
+              <li><span>QR-03</span>Distinguish education demo constraints from plant safety and performance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-digital-twin">
+    <h3 id="project-decisions-robot-digital-twin">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Use QR serial as the end-to-end key</strong>
+          <p>It allows product-level reconstruction of process, inspection, and robot events.</p>
+        </li>
+        <li>
+          <strong>Compare an edge accelerator</strong>
+          <p>The Pi5 versus Hailo-10H comparison informs practical placement.</p>
+        </li>
+        <li>
+          <strong>Separate team output and extension repository</strong>
+          <p>The PDF and PC-HMI repository support different claims.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-digital-twin">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-digital-twin">Related tasks and work record</h3>
+      <p>Team work is marked ‘Team complete’; individual scope and evidence remain explicit.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Define traceability flow and role boundary</h4>
+          <p>Set the QR-centered flow, Robot/Digital Twin scope, and team versus individual evidence.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Process flow and role boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Build QR and MES history flow</h4>
+          <p>Connected serial, process step, inspection result, and event time in MySQL/MES.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>History schema and demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Integrate Indy7 assembly-cell sequence</h4>
+          <p>Linked input, body assembly, window assembly, loading, and good/reject routing.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Three-robot assembly demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Validate vision and edge inference</h4>
+          <p>Recorded YOLOv11 results and the report&#39;s Pi5 5 FPS versus Hailo-10H 18 FPS comparison.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>F1 and FPS evidence</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-04</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Visualize SCADA and Digital Twin state</h4>
+          <p>Presented the same process step and robot/inspection state across operator views.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Team demo and PDF</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Validate plant cycles, safety, and recovery</h4>
+          <p>Cycle time, network delay, robot safety, model drift, and MES recovery remain.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Plant-pilot results</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-digital-twin">
+    <h3 id="project-acceptance-robot-digital-twin">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>The product-to-process-to-inspection trace is explained.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Only report-backed F1 and FPS values are used.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Team result, individual role, and related repository are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Safety, cycle, drift, and recovery pass long-running plant validation.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> Robot_Digital_Twin.pdf and the related Busan_Robot repository are cited as different evidence sources.</p>
+  </section>
+</section>
+
 <h2 id="project-at-a-glance">Project at a glance</h2>
 <p>This education team project connected a three-Indy7 miniature automotive assembly flow with <strong>QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference</strong>.</p>
 <p>The team PDF lists ten members and the process demonstration but does not include member-level R&amp;R. Separate portfolio material records my scope as Robot/Digital Twin. Team results are therefore not presented as individual-only achievements.</p>

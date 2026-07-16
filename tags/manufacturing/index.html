@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/tags/manufacturing/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -489,7 +489,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</h5>
         <p class="card-text post-summary"> 프로젝트 자료 평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.
 GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 canva.com/design/DAHGaCTGRFs 이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다. Role 팀 프로젝트에서 F1·Recall·FPR 등 평가지표 설계와 검증을 담당했습니다. Action AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet+DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다. Result 선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다. Evidence AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다. 이력서 Bullet 공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다. DenseNet 단독·2-model 조합·ResNet+DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다. 해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다. 면접 STAR Situation: 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다. Task: 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다. Action: 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다. Result: 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다. 제조 현장에서 비전 AI의 가치는 모델 이름보다 어떤 불량을 놓치지 않아야 하는지, 그리고 오검을 어느 수준까지 감수할 것인지를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 정확도 경쟁이 아니라 미검출 위험을 줄이는 품질검사 의사결정 문제로 정의하고, 데이터·모델·임계값 Task를 같은 평가 기준으로 연결했습니다.
+평가 완료 · 생산 일반화 전 프로젝트 유형 제조 Vision AI 팀 PoC 개인 역할 평가지표 설계, F1·Recall·오검출 검증 주요 사용자 품질·공정·검사 자동화 담당자 Evidence 수준 공개 보고서 기반 Problem 미세 용접 결함과 정상 표면 특징이 겹치고 클래스 불균형이 있어 accuracy만으로는 불량 통과 위험을 설명할 수 없습니다.
 </p>
       </a>
       
@@ -522,7 +524,7 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 can
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        9 
+        11 
       </span>
       <a href="/posts/welding-vision-ai/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>

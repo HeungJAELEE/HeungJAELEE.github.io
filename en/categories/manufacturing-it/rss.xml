@@ -21,8 +21,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
-&lt;p&gt;This education team project connected a three-Indy7 miniature automotive assembly flow with &lt;strong&gt;QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference&lt;/strong&gt;.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-digital-twin&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-robot-digital-twin&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The team project is presented as a product-traceability flow from QR and MES through robots, vision, PLC, and the digital twin, with explicit phase and ownership boundaries.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -40,52 +44,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this project. The GitHub URL is a project index, not evidence that another repository contains this implementation.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Verified scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Role&lt;/td&gt;
-          &lt;td&gt;In a ten-person team, I worked in the Digital Twin group on &lt;strong&gt;AI-model selection/training, communications setup, and technical research&lt;/strong&gt;. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Action&lt;/td&gt;
-          &lt;td&gt;I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Result&lt;/td&gt;
-          &lt;td&gt;The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are &lt;strong&gt;expected benefits/targets&lt;/strong&gt;, not measured factory outcomes.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Evidence&lt;/td&gt;
-          &lt;td&gt;The team report&amp;rsquo;s R&amp;amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository.&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario.&lt;/li&gt;
-&lt;li&gt;Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority.&lt;/li&gt;
-&lt;li&gt;Kept the report&amp;rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;1-what-the-project-is&#34;&gt;1. What the project is&lt;/h2&gt;
-&lt;p&gt;The project models a Giga Press factory context through four responsibilities:&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-giga-press-dx&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-giga-press-dx&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -103,53 +67,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Verified scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Role&lt;/td&gt;
-          &lt;td&gt;Designed and implemented the public &lt;code&gt;Busan_Robot&lt;/code&gt; repository&amp;rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Action&lt;/td&gt;
-          &lt;td&gt;Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Result&lt;/td&gt;
-          &lt;td&gt;Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Evidence&lt;/td&gt;
-          &lt;td&gt;Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF.&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references.&lt;/li&gt;
-&lt;li&gt;Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics.&lt;/li&gt;
-&lt;li&gt;Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation.&lt;/li&gt;
-&lt;li&gt;Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;1-what-the-system-does&#34;&gt;1. What the system does&lt;/h2&gt;
-&lt;p&gt;The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-json-omniverse&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-robot-json-omniverse&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.&lt;/p&gt;</description>
     </item>
     
     

@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/giga-press-dx/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Thursday, July 9, 2026
              | 
-            5minutes</p>
+            8minutes</p>
         </div>
         
 
@@ -355,6 +355,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">A dedicated public source repository has not been separated for this project. The GitHub URL is a project index, not evidence that another repository contains this implementation.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-giga-press-dx">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-giga-press-dx">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Team validation complete · HIL pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Ten-person education team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>AI candidate/training, OPC UA setup, technical research</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Equipment, controls, and manufacturing engineers</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Team-report backed</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>PLC sequences, SCADA tags, sensor faults, and network delay are difficult to validate together before physical equipment, so defects are discovered late during plant trial.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Define the Factory I/O–PLC–SCADA–OPC UA responsibilities and data contract first, then review normal, failure, and restart scenarios in a virtual environment.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>The team demo and report must trace data flow, ownership, and tests while clearly separating expected benefits from measured plant outcomes.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-giga-press-dx">
+      <h3 id="project-scope-giga-press-dx">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Signal flow and ownership across Factory I/O, PLC, SCADA, and OPC UA</li><li>Normal run, missing sensor, communication delay, and restart scenarios</li><li>Review of a DQN candidate using real-time sensor and PLC data</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Production deployment on a real Giga Press safety PLC</li><li>Presenting Ladder or SCADA work by teammates as my individual work</li><li>Treating the 50–75% and 50% targets as measured factory results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-giga-press-dx">
+      <h3 id="project-requirements-giga-press-dx">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>Shared tags include equipment, signal, value, quality, and timestamp.</li>
+              <li><span>FR-02</span>The PLC owns interlocks and final run permission; AI provides advisory output only.</li>
+              <li><span>FR-03</span>SCADA traces status, alarms, delay, and manual-command results through the same tags.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Communication loss moves the process to a safe state instead of holding the last command.</li>
+              <li><span>QR-02</span>Failure and recovery scenarios are repeated in addition to the normal path.</li>
+              <li><span>QR-03</span>Targets, team results, individual contribution, and unverified work remain separate.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-giga-press-dx">
+    <h3 id="project-decisions-giga-press-dx">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Keep control authority in the PLC</strong>
+          <p>Non-deterministic AI output or network delay must not bypass safety interlocks.</p>
+        </li>
+        <li>
+          <strong>Use OPC UA as the upper-layer boundary</strong>
+          <p>Semantic tags and quality metadata reduce coupling between control, SCADA, and analytics.</p>
+        </li>
+        <li>
+          <strong>Inject failures in Factory I/O first</strong>
+          <p>Missing sensors, delay, and mode conflicts are safer and cheaper to repeat virtually.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-giga-press-dx">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-giga-press-dx">Related tasks and work record</h3>
+      <p>A task is marked complete only where public evidence supports that status.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define problem, role, and claim boundaries</h4>
+          <p>Separated plant-trial risk, team and individual R&amp;R, and measured results from expected benefits.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Public PDD and evidence boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Design I/O and failure scenarios</h4>
+          <p>Mapped signals, interlocks, alarms, timeouts, and normal, missing, delayed, and restart cases.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Signal model and validation matrix</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Integrate PLC, SCADA, and Factory I/O flow</h4>
+          <p>Defined layer ownership and OPC UA placement, then integrated team outputs into one process story.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Architecture, process flow, team demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Review AI candidate and communications</h4>
+          <p>Reviewed DQN placement, real-time inputs, reward concerns, and the PLC safety boundary.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>AI proposal and OPC UA setup</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Review results and expected benefits</h4>
+          <p>Confirmed that the report figures are targets, not measured plant savings, and preserved that limit publicly.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Team report and public evidence note</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Validate with equipment HIL and FAT</h4>
+          <p>Actual I/O, safety PLC, equipment cycles, and network conditions require controlled before/after measurement.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>HIL results and plant measurements</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-giga-press-dx">
+    <h3 id="project-acceptance-giga-press-dx">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Layered data flow and control authority are documented.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Normal, failure, and recovery cases are defined.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Individual scope, team work, and target figures are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>HIL and FAT are measured under real Giga Press constraints.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> The team report&#39;s R&amp;R, architecture, result, and expected-benefit slides are linked to the validation story in this article.</p>
+  </section>
+</section>
+
 <h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Thursday, July 9, 2026
              | 
-            5minutes</p>
+            7minutes</p>
         </div>
         
 
@@ -358,6 +358,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-robot-json-omniverse">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-robot-json-omniverse">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Public implementation complete · hardware validation expanding</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Personal public robot-HMI project</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>JSON compatibility, PC-HMI/backend boundaries, operating docs</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Robot, automation, and HMI developers</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Strong · public GitHub source</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Partial Conty JSON edits can damage references, while multiple direct IndyDCP clients scatter command ownership and state timing.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Preserve source JSON round trips and use one Robot Controller so HMI, DB, PLC, and twin consumers share explicit events.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>References survive load–edit–save–reload, one service owns the physical socket, and offline/direct/gateway modes are reproducible.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-json-omniverse">
+      <h3 id="project-scope-robot-json-omniverse">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Conty/APK JSON round-trip and reference integrity</li><li>Single IndyDCP ownership and separate MQTT command/state events</li><li>CustomTkinter HMI, MySQL worker, PLC bridge, and read-only web twin</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Claiming Omniverse is a validated production display</li><li>Unsupported latency, uptime, or collision-reduction metrics</li><li>Direct physical robot commands from the digital-twin layer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-json-omniverse">
+      <h3 id="project-requirements-robot-json-omniverse">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>Preserve unknown JSON fields and references, then reload after save.</li>
+              <li><span>FR-02</span>Only Robot Controller owns a physical IndyDCP socket.</li>
+              <li><span>FR-03</span>Separate command, result, realtime, connection, and error events.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Offline UI validates JSON and screen flow without a robot.</li>
+              <li><span>QR-02</span>DB and twin are state consumers, not command paths.</li>
+              <li><span>QR-03</span>Docker, communications, and beginner setup docs provide a reproducible path.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-json-omniverse">
+    <h3 id="project-decisions-robot-json-omniverse">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Preserve source on round trip</strong>
+          <p>Unknown vendor fields must survive to retain teach-pendant compatibility.</p>
+        </li>
+        <li>
+          <strong>Use one IndyDCP socket owner</strong>
+          <p>This prevents concurrent-command races and centralizes physical-control accountability.</p>
+        </li>
+        <li>
+          <strong>Keep the twin read-only</strong>
+          <p>A visualization failure must not become a physical robot command.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-json-omniverse">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-json-omniverse">Related tasks and work record</h3>
+      <p>Repository-backed work and future Omniverse/hardware validation are intentionally separate.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define compatibility and control-authority requirements</h4>
+          <p>Specified JSON invariants, socket owner, event contract, and read-only twin boundary.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>JSON, communications, and deployment design</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Implement JSON round-trip layer</h4>
+          <p>Preserved Waypoint, program-tree, move references, and unknown fields across reload.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Parser, serializer, and validation</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Separate Robot Controller and MQTT</h4>
+          <p>Centralized the physical socket and split command, result, realtime, connection, and error topics.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Controller and event contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Integrate HMI, DB, PLC, and web twin</h4>
+          <p>Made each component an independent consumer of the same robot state.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Monorepo and Docker Compose</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Validate staged execution paths</h4>
+          <p>Documented Offline UI, Direct, and MQTT Gateway modes for progressive connection.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Setup, communications, and deployment docs</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Add hardware regression and Omniverse adapter</h4>
+          <p>Firmware fixtures, long reconnect tests, and a read-only USD adapter remain.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Hardware regression and twin adapter</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-json-omniverse">
+    <h3 id="project-acceptance-robot-json-omniverse">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Public source exposes JSON, controller, MQTT, DB, and twin boundaries.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Offline, Direct, and Gateway procedures are documented.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>No unsupported operating metric is claimed.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Multiple real Indy7 firmware versions and long runs pass regression.</p>
+          <strong>Pending</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> Uses Busan_Robot source and design, PLC/MES, communications, setup, and deployment docs, while keeping the related team PDF separate.</p>
+  </section>
+</section>
+
 <h2 id="portfolio-summary-problemroleactionresultevidence">Portfolio summary: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

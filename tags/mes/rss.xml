@@ -21,8 +21,39 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;프로젝트를-한-문장으로-설명하면&#34;&gt;프로젝트를 한 문장으로 설명하면&lt;/h2&gt;
-&lt;p&gt;INDY7 협동로봇 3대를 사용하는 소형 자동차 조립 흐름에 &lt;strong&gt;QR 제품 추적, YOLOv11 조립·품질 검사, PLC/SCADA, MySQL/MES, 디지털 트윈&lt;/strong&gt;을 연결하고, Raspberry Pi 5와 Hailo-10H의 온디바이스 추론 차이를 비교한 교육 팀 프로젝트입니다.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-digital-twin&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-robot-digital-twin&#34;&gt;프로젝트 정의와 실행 계획&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-blueprint__status project-blueprint__status--partial&#34;&gt;교육 팀 PoC 완료 · 현장 적용 전&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
+      &lt;div&gt;
+        &lt;dt&gt;프로젝트 유형&lt;/dt&gt;
+        &lt;dd&gt;10인 교육 팀 PoC&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;개인 역할&lt;/dt&gt;
+        &lt;dd&gt;Robot·Digital Twin 범위&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;주요 사용자&lt;/dt&gt;
+        &lt;dd&gt;생산기술·로봇·Vision·MES 담당자&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Evidence 수준&lt;/dt&gt;
+        &lt;dd&gt;팀 PDF &amp;#43; 연관 공개 저장소&lt;/dd&gt;
+      &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Problem&lt;/h3&gt;
+        &lt;p&gt;제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.&lt;/p&gt;</description>
     </item>
     
     

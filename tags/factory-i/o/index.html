@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/tags/factory-i/o/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -489,7 +489,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</h5>
         <p class="card-text post-summary"> 프로젝트 자료 구현 배경과 검증 시나리오를 확인할 수 있는 공개 자료입니다.
 GitHub 프로젝트 목록 github.com/HeungJAELEE 기가프레스 관련 보고서 canva.com/design/DAHINy4ipdM 기가프레스 전용 공개 소스 저장소는 아직 분리되어 있지 않아 GitHub 프로젝트 목록을 연결했습니다. 다른 프로젝트의 저장소를 이 프로젝트의 소스로 오표기하지 않았습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 실제 설비를 투입해야만 시퀀스와 파라미터를 확인할 수 있어 트라이아웃이 길어지고, PLC·SCADA·가상 모델 사이 데이터 정합성을 사전에 확인하기 어려웠습니다. Role 10인 팀 프로젝트에서 Digital Twin 파트의 AI 모델 선정·학습, 통신 셋업, 자료 조사를 맡았습니다. Ladder와 SCADA 구현은 담당 팀원의 결과이며 제 개인 역할로 확대하지 않습니다. Action Factory I/O–PLC–SCADA–OPC UA 계층의 데이터 흐름을 정리하고, 실시간 센서·PLC 데이터를 사용하는 DQN 후보와 통신 구성을 검토했습니다. Result 공정 Flow, Ladder/Factory I/O, SCADA, 웹·AI 확장 구조를 하나의 팀 시연·보고서로 통합했습니다. 보고서의 “셋업 50~75% 단축”과 “증설 공수 50% 절감”은 기대효과/목표값이며 실제 공장 실측 성과로 주장하지 않습니다. Evidence 팀 발표 PDF·Canva 보고서의 역할표, 아키텍처, 결과 및 기대효과 페이지. 전용 공개 소스 저장소는 미분리 상태입니다. 이력서 Bullet 10인 제조 DX 팀 프로젝트에서 AI 모델 선정·학습과 OPC UA 통신 셋업 범위를 담당하고, Factory I/O–PLC–SCADA 데이터 흐름을 가상 시운전 시나리오로 구조화했습니다. 실제 설비 성과와 설계 기대효과를 분리해, 보고서의 50~75% 셋업 단축·50% 증설 공수 절감을 검증 전 목표값으로 관리했습니다. 배터리 라인 FAT/SAT 경험을 바탕으로 정상 시퀀스뿐 아니라 센서 누락·통신 지연·재기동 조건을 검증 항목에 포함했습니다. 면접 STAR Situation: 고가 설비는 실제 투입 전 제어 로직과 데이터 정합성을 충분히 시험하기 어렵고, 현장 트라이아웃이 길어질 위험이 있었습니다. Task: 제 역할은 팀의 가상 공정 구조에서 AI 적용 후보와 통신 경계를 정리해 제어·모니터링 계층이 같은 데이터를 보도록 만드는 것이었습니다. Action: 센서/PLC 데이터를 OPC UA 흐름으로 연결하고 DQN 적용 위치를 검토했으며, 현장 제어권은 PLC에 남기고 AI는 검증·최적화 후보로 한정했습니다. Result: 팀이 Factory I/O, Ladder, SCADA, 웹·AI 확장을 하나의 시나리오로 시연할 수 있었습니다. 정량값은 기대효과로 남기고 실측 성과와 구분했습니다. 프로젝트를 한 문장으로 설명하면 현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, 에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 가상 시운전이 왜 필요한지, 어디까지 구현·검토했는지, 어떤 Task와 완료 기준으로 팀 결과를 만들었는지를 공개용으로 정리했습니다.
+팀 검증 완료 · 현장 HIL 전 프로젝트 유형 10인 교육 팀 PoC 개인 역할 AI 모델 후보·학습, OPC UA 통신 셋업, 기술 조사 주요 사용자 설비·제어·생산기술 엔지니어 Evidence 수준 팀 보고서 기반 Problem 실물 설비 투입 전에는 PLC 시퀀스, SCADA 태그, 센서 이상과 통신 지연을 함께 검증하기 어려워 오류가 현장 트라이아웃 단계에서 늦게 발견됩니다.
 </p>
       </a>
       
@@ -522,7 +524,7 @@ GitHub 프로젝트 목록 github.com/HeungJAELEE 기가프레스 관련 보고�
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        9 
+        11 
       </span>
       <a href="/posts/giga-press-dx/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>

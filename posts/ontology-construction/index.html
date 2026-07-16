@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/ontology-construction/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             2026년 7월 9일 목요일
              | 
-            6</p>
+            8</p>
         </div>
         
 
@@ -368,6 +368,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">저장소의 공개 release와 validation report를 수치 근거로 사용합니다. DGX Spark 운영 구성은 배포 대상 아키텍처이며, 공개 사이트에서 상시 서비스 중이라고 주장하지 않습니다.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-ontology-construction">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-ontology-construction">프로젝트 정의와 실행 계획</h2>
+      <p class="project-blueprint__summary">문서 수집이 아니라 데이터 계약, 결정적 마이그레이션, 의미 검증, 검색 근거까지 하나의 릴리스 체계로 설계한 과정을 공개합니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--done">v9.0 공개 릴리스 완료</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 오픈소스 데이터·GraphRAG 프로젝트</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>PDD, 데이터 계약, 구현, 검증, 릴리스 전 과정</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>제조 지식 관리자·Data Analyst·AI 엔지니어</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>Strong · 소스와 검증 보고서 공개</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Markdown과 임의 frontmatter에 흩어진 산업 지식은 중복 키, 깨진 참조, 출처 없는 주장과 로컬 경로 때문에 검색 결과를 신뢰하기 어렵습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>사람이 편집 가능한 YAML 원본을 유지하면서 schema·hash·provenance·relation을 검증하고, 같은 release에서 GraphRAG가 근거를 인용하도록 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>결정적 migration/release가 재실행 가능하고 validation errors=0이며 검색 응답이 source node와 heading을 추적할 수 있으면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-ontology-construction">
+      <h3 id="project-scope-ontology-construction">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>YAML v9 canonical node와 JSON Schema 계약</li><li>결정적 migration, manifest, JSON-LD·OWL·SHACL release</li><li>Neo4j vector/full-text/RRF/graph expansion/reranking와 근거 인용</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>경고 137개 관계를 임의로 추정해 연결하는 작업</li><li>DGX Spark가 상시 공개 서비스 중이라는 주장</li><li>검증되지 않은 문서를 자동으로 authoritative source로 승격</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-ontology-construction">
+      <h3 id="project-requirements-ontology-construction">요구사항</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>기능 요구</h4>
+          <ul>
+              <li><span>FR-01</span>모든 node가 안정 ID, type, aliases, relations, provenance, body hash를 가진다.</li>
+              <li><span>FR-02</span>migration과 release가 같은 입력에서 같은 결과를 만든다.</li>
+              <li><span>FR-03</span>검색 결과가 source node, heading, provenance를 포함한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 요구</h4>
+          <ul>
+              <li><span>QR-01</span>schema·hash·참조 오류는 release를 중단하고 경고는 명시적으로 보존한다.</li>
+              <li><span>QR-02</span>Windows 로컬 경로와 민감 정보는 ingestion 전에 차단한다.</li>
+              <li><span>QR-03</span>노드 수·assertion·relation·warning을 validation report로 재현한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-ontology-construction">
+    <h3 id="project-decisions-ontology-construction">핵심 설계 결정</h3>
+    <ol>
+        <li>
+          <strong>authoring과 semantic release 분리</strong>
+          <p>YAML은 사람이 유지하고 JSON-LD·OWL·SHACL은 기계가 생성하게 해 수동 동기화 오류를 줄였습니다.</p>
+        </li>
+        <li>
+          <strong>경고를 숨기지 않는 release gate</strong>
+          <p>미해결 외부 관계를 임의 연결하지 않고 데이터 부채로 보존해야 검색 근거를 신뢰할 수 있기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>hybrid retrieval과 인용 경계</strong>
+          <p>벡터 유사도만으로는 정확한 용어·관계·출처를 함께 만족시키기 어려워 단계별 검색과 reranking을 사용했습니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-ontology-construction">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-ontology-construction">관련 Task와 작업 내역</h3>
+      <p>v9.0 릴리스의 실제 소스·보고서·테스트에 대응하는 Task입니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>Canonical node 계약 정의</h4>
+          <p>stable ID, YAML 1.2, provenance, relation, hash와 release gate를 요구사항으로 정했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>v9 schema·authoring 계약</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>결정적 migration CLI 구현</h4>
+          <p>legacy 문서를 정규화하고 중복·로컬 경로·깨진 관계를 report에 남기는 변환 흐름을 구현했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>migration CLI와 report</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>semantic release 생성</h4>
+          <p>canonical source에서 JSON-LD, OWL 2 RL, SHACL과 manifest를 재현 가능하게 생성했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>ontology/releases/9.0.0</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>Neo4j hybrid retrieval 구성</h4>
+          <p>heading chunk, vector/full-text search, RRF, graph expansion, reranking과 citation을 분리했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>GraphRAG ingestion·retrieval pipeline</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>릴리스 검증과 수치 고정</h4>
+          <p>4,602 nodes, 1,904 assertions, 4,448 internal relations와 errors=0, warnings=2를 공개 report로 확인했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>validation-report.json</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">진행 예정</span>
+          </div>
+          <h4>외부 관계 큐레이션·회귀 평가</h4>
+          <p>미해결 관계를 사람이 검토하고 retrieval benchmark와 운영 latency를 지속 측정해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>curation queue와 benchmark</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-ontology-construction">
+    <h3 id="project-acceptance-ontology-construction">완료 기준</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>v9 데이터 계약과 release artifact가 공개 저장소에서 확인된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>validation report가 errors=0과 공개 수치를 재현한다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>검색 결과의 source·heading·provenance 추적 경계가 문서화된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>137개 미해결/외부 관계가 모두 사람이 검토한 관계로 전환된다.</p>
+          <strong>잔여 작업</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>검증 근거:</strong> HeungTology 공개 저장소, v9 release manifest, migration/validation report, schema·test·deployment 문서에 직접 연결됩니다.</p>
+  </section>
+</section>
+
 <h2 id="포트폴리오-요약-problemroleactionresultevidence">포트폴리오 요약: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

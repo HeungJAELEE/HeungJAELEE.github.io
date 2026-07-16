@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/tags/json/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -494,7 +494,8 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</h5>
         <p class="card-text post-summary"> Project resources The public implementation and the related education-team report are intentionally separated.
 GitHub repositorygithub.com/HeungJAELEE/Busan_Robot Related automotive Digital Twin team report/docs/Robot_Digital_Twin.pdf GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Partial edits to Conty JSON could break Waypoint/program/move references, while multiple HMI, DB, and twin clients connecting directly to the robot would scatter command ownership and state timing. Role Designed and implemented the public Busan_Robot repository&rsquo;s JSON compatibility layer, PC-HMI boundary, backend services, and operating documentation. Action Built round-trip preservation, single IndyDCP socket ownership, separate MQTT command/state topics, a MySQL worker, PLC bridge, WebSocket read-only twin, and Offline/Direct/Gateway execution modes. Result Published a frontend/backend monorepo with Docker Compose, deployment and communications documents, and a staged validation path. No unsupported latency, uptime, or collision-reduction metric is claimed. Evidence Public source and README, JSON design, PLC/MES integration, communications, setup, and deployment documents; related team PDF. Resume bullets Designed a load–edit–save–reload validation flow that preserves Conty/APK JSON Waypoint, program-tree, and move references. Centralized IndyDCP physical sockets in one Robot Controller and separated MQTT command, result, realtime, connection, and error topics. Split a CustomTkinter HMI, MySQL DB worker, PLC bridge, and WebSocket digital twin into independent service boundaries with Docker Compose documentation. Added Offline UI, Direct, and MQTT Gateway modes so JSON and UI behavior can be checked before physical robot connection. Interview STAR Situation: Reference damage in a robot program file and concurrent socket access can compromise both compatibility and physical-control accountability. Task: Preserve the teach-pendant format while allowing PC editing and let HMI, DB, and twin consumers share one trustworthy robot state. Action: Define JSON round-trip invariants, make Robot Controller the single IndyDCP owner, and route other components through explicit MQTT events. Result: Published a reproducible HMI/backend structure and operator documents. Omniverse remains a future read-only adapter rather than an unverified production claim. 1. What the system does The system reads Neuromeka Indy7 Conty/APK JSON, displays and edits its hierarchy, supports a virtual play path, writes compatible JSON, and separates physical robot commands from data consumers.
+Public PDD · Delivery Record
+Project definition and execution plan Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.
 </p>
       </a>
       
@@ -530,7 +531,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        7 minutes
       </span>
       <a href="/en/posts/robot-json-omniverse/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>

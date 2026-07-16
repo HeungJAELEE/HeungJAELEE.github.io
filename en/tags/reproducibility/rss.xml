@@ -20,8 +20,39 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;No separate public report is registered. This article remains a learning and experiment-design document and does not add unsupported implementation or model-performance claims.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a Glance&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-deep-learning-modeling&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Learning Backlog&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-deep-learning-modeling&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The plan avoids overstating the current repository and turns reproducibility, manufacturing metrics, and implementation gaps into a visible learning backlog.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-blueprint__status project-blueprint__status--planned&#34;&gt;Design baseline public · implementation validation pending&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Project type&lt;/dt&gt;
+        &lt;dd&gt;Personal learning and experiment design&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;My scope&lt;/dt&gt;
+        &lt;dd&gt;Modeling standards, experiment structure, validation plan&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Primary audience&lt;/dt&gt;
+        &lt;dd&gt;AI learners and manufacturing data analysts&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Evidence level&lt;/dt&gt;
+        &lt;dd&gt;Limited public repository · design-led&lt;/dd&gt;
+      &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Problem&lt;/h3&gt;
+        &lt;p&gt;A notebook that runs once does not prove leakage control, preprocessing consistency, reproducibility, baseline improvement, or the cost of manufacturing errors.&lt;/p&gt;</description>
     </item>
     
     

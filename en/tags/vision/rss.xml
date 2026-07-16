@@ -21,52 +21,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Verified scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Role&lt;/td&gt;
-          &lt;td&gt;I was responsible for &lt;strong&gt;evaluation-metric design and validation&lt;/strong&gt;, including F1, recall, false-positive behavior, and threshold interpretation.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Action&lt;/td&gt;
-          &lt;td&gt;The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Result&lt;/td&gt;
-          &lt;td&gt;On the recorded evaluation set and selected threshold, the report lists &lt;strong&gt;F1 93.10%, Recall 100%, and Precision 87.07%&lt;/strong&gt;. These values do not establish production-wide generalization.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Evidence&lt;/td&gt;
-          &lt;td&gt;The public report&amp;rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.&lt;/li&gt;
-&lt;li&gt;Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.&lt;/li&gt;
-&lt;li&gt;Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;1-why-this-project-was-structured-this-way&#34;&gt;1. Why this project was structured this way&lt;/h2&gt;
-&lt;p&gt;Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-welding-vision-ai&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-welding-vision-ai&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -84,8 +44,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;Only values directly visible in the team PDF are treated as measured: F1 1.00 and 0.877, plus a Pi5 5 FPS to Pi5+Hailo-10H 18 FPS comparison. The repository is a related PC-HMI extension, not a one-to-one copy of the complete team deliverable.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
-&lt;p&gt;This education team project connected a three-Indy7 miniature automotive assembly flow with &lt;strong&gt;QR product identity, YOLOv11 inspection, PLC/SCADA, MySQL/MES, a digital-twin view, and Raspberry Pi 5/Hailo-10H edge inference&lt;/strong&gt;.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-digital-twin&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-robot-digital-twin&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The team project is presented as a product-traceability flow from QR and MES through robots, vision, PLC, and the digital twin, with explicit phase and ownership boundaries.&lt;/p&gt;</description>
     </item>
     
     

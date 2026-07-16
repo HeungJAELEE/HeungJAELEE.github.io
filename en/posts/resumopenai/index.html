@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/posts/resumopenai/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -312,7 +312,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             Sunday, July 5, 2026
              | 
-            3minutes</p>
+            5minutes</p>
         </div>
         
 
@@ -357,6 +357,205 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-resumopenai">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Prototype Backlog</p>
+      <h2 id="project-blueprint-resumopenai">Project definition and execution plan</h2>
+      <p class="project-blueprint__summary">The PoC prioritizes fact traceability, personal-data minimization, and structured validation before polished LLM wording.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--planned">PoC design public · dedicated source not public</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Personal LLM application PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>React, Flask, LLM boundaries and validation design</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Job seekers and career-document authors</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Design-led · no dedicated repository registered</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>If polished LLM wording changes dates, roles, or metrics, or sends unnecessary personal data to an external API, the resume becomes less trustworthy.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Separate verified facts, private fields, target role, generated draft, and user approval while tracing every sentence back to source evidence.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>Structured output passes schema, claim, date, and number checks; personal data is minimized; and no draft becomes final without user approval.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-resumopenai">
+      <h3 id="project-scope-resumopenai">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>React input/review UI and Flask validation/orchestration</li><li>Structured career facts, evidence IDs, and target-role selection</li><li>OpenAI API prompt contract, JSON schema, and claim validation</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Predicting hiring success or making hiring decisions</li><li>Inventing missing experience, metrics, or credentials</li><li>Claiming verified fine-tuning or performance gains</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-resumopenai">
+      <h3 id="project-requirements-resumopenai">Requirements</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>Functional</h4>
+          <ul>
+              <li><span>FR-01</span>Every generated statement references a source experience or evidence ID.</li>
+              <li><span>FR-02</span>Validate model output against JSON schema, dates, numbers, and blocked claims.</li>
+              <li><span>FR-03</span>Only user-accepted or edited items enter the final document.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operations</h4>
+          <ul>
+              <li><span>QR-01</span>Remove or pseudonymize contact, address, and sensitive company data before transmission.</li>
+              <li><span>QR-02</span>Record model, prompt, schema version, and validation result.</li>
+              <li><span>QR-03</span>API or format failure cannot destroy source career data.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-resumopenai">
+    <h3 id="project-decisions-resumopenai">Key design decisions</h3>
+    <ol>
+        <li>
+          <strong>Prioritize structure and evaluation before fine-tuning</strong>
+          <p>Without a fact model and evaluation set, fine-tuning may only make errors more consistent.</p>
+        </li>
+        <li>
+          <strong>Separate React, Flask, and LLM adapter</strong>
+          <p>UI state, privacy/business rules, and model dependency need independent replacement and testing.</p>
+        </li>
+        <li>
+          <strong>Keep final human approval</strong>
+          <p>Career context and public wording cannot be decided completely by automated rules.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-resumopenai">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-resumopenai">Related tasks and work record</h3>
+      <p>With no dedicated public repository, design-complete and implementation-verification states remain distinct.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">Design complete</span>
+          </div>
+          <h4>Define fact, privacy, and approval boundaries</h4>
+          <p>Separated source fact, private field, generated draft, and final approval states.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Public PDD and privacy boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">Design complete</span>
+          </div>
+          <h4>Design career-fact schema</h4>
+          <p>Structured experience ID, period, role, claim, evidence, and publication status.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>JSON data contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Needs public verification</span>
+          </div>
+          <h4>Implement React review and Flask API</h4>
+          <p>Input, role selection, draft comparison, approval, and API validation need dedicated public source.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>PoC application source</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Planned</span>
+          </div>
+          <h4>Test claims, dates, numbers, and privacy</h4>
+          <p>Automate fixtures for schema errors, invented metrics, date conflicts, and personal-data leakage.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Evaluation set and test report</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Complete security and operations review</h4>
+          <p>Authentication, encrypted storage, deletion/retention, audit logs, and prompt-injection defenses remain.</p>
+          <dl>
+            <dt>Deliverable</dt>
+            <dd>Security review and runbook</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-resumopenai">
+    <h3 id="project-acceptance-resumopenai">Acceptance criteria</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Fact, private field, generated draft, and user approval are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>No unsupported facts or fine-tuning performance are claimed.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Dedicated public source reproduces schema and claim-validation tests.</p>
+          <strong>Unverified</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Security, deletion, and audit controls pass an operations review.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Evidence:</strong> Only the portfolio design and GitHub project index are public today; implementation remains unclaimed until a dedicated source is registered.</p>
+  </section>
+</section>
+
 <h2 id="project-at-a-glance">Project at a glance</h2>
 <p><code>resumOpenAI</code> explores a narrower problem than “ask an LLM to write a resume.” It separates <strong>verified career facts, private fields, target-role selection, draft generation, and output validation</strong> so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.</p>
 <table>

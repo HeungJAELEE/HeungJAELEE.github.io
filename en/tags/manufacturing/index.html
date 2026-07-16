@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/en/tags/manufacturing/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -494,7 +494,8 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">AI Welding Vision: Designing Metrics Around Missed-Defect Risk</h5>
         <p class="card-text post-summary"> Project resources Public material for the dataset, model-selection, and evaluation record.
 GitHub project indexgithub.com/HeungJAELEE AI Welding Vision reportcanva.com/design/DAHGaCTGRFs A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.
-Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified scope Problem Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld. Role I was responsible for evaluation-metric design and validation, including F1, recall, false-positive behavior, and threshold interpretation. Action The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control. Result On the recorded evaluation set and selected threshold, the report lists F1 93.10%, Recall 100%, and Precision 87.07%. These values do not establish production-wide generalization. Evidence The public report&rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository. Resume bullets Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set. Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost. Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives. Interview STAR Situation: Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance. Task: Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk. Action: Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall. Result: The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment. 1. Why this project was structured this way Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:
+Public PDD · Delivery Record
+Project definition and execution plan The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.
 </p>
       </a>
       
@@ -527,7 +528,7 @@ Portfolio summary: Problem–Role–Action–Result–Evidence Item Verified sco
       <span class="float-start">
         Thursday, July 9, 2026
          | 
-        5 minutes
+        7 minutes
       </span>
       <a href="/en/posts/welding-vision-ai/" class="float-end btn btn-outline-info btn-sm">Read</a>
     </div>

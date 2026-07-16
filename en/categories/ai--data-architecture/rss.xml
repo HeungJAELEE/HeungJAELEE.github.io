@@ -21,53 +21,12 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;Metrics come from the public release and validation report. The DGX Spark stack is the target runtime architecture; this article does not claim a continuously available production service.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;portfolio-summary-problemroleactionresultevidence&#34;&gt;Portfolio summary: Problem–Role–Action–Result–Evidence&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Verified scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Industrial Markdown and ad-hoc frontmatter accumulated duplicate keys, unresolved relationships, weak provenance, and non-portable paths that reduced retrieval trust.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Role&lt;/td&gt;
-          &lt;td&gt;As the designer and implementer of this public project, I created the v9 data contract, deterministic migration/validation CLI, JSON-LD/OWL/SHACL release, Neo4j hybrid retrieval, and evidence-citation boundary.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Action&lt;/td&gt;
-          &lt;td&gt;I defined YAML 1.2-compatible authoring and JSON Schema validation, bound normalized body SHA-256 and provenance, then separated heading-aware chunks, vector/full-text search, RRF, graph expansion, reranking, and grounded generation.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Result&lt;/td&gt;
-          &lt;td&gt;The public v9 release validates &lt;strong&gt;4,602 nodes, 1,904 provenanced assertions, and 4,448 internal relations&lt;/strong&gt;. Its report records &lt;strong&gt;ok=true, errors=0, warnings=2&lt;/strong&gt;, while preserving 137 unresolved/external relationships and 134 local-path findings as explicit limitations.&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Evidence&lt;/td&gt;
-          &lt;td&gt;Public source, README, schemas, release manifest, migration/validation reports, tests, and deployment documentation.&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;resume-bullets&#34;&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Migrated 4,602 Korean-English industrial knowledge documents into a strict YAML v9 contract with JSON Schema, normalized body hashes, provenance, and relationship validation.&lt;/li&gt;
-&lt;li&gt;Generated JSON-LD/OWL/SHACL release artifacts containing 1,904 provenanced assertions and 4,448 internal relationships while preserving 137 unresolved relationships as warnings instead of guessing links.&lt;/li&gt;
-&lt;li&gt;Implemented a Neo4j hybrid retrieval design combining vector and full-text search, reciprocal-rank fusion, graph expansion, reranking, and source-heading citations.&lt;/li&gt;
-&lt;li&gt;Reached a public release validation result of errors=0 and warnings=2, with non-portable local paths redacted during GraphRAG ingestion.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;interview-star&#34;&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; A growing knowledge vault contained duplicate identity patterns, broken references, untraceable claims, and an invalid hand-maintained graph map.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Keep Markdown human-editable while creating one machine-verifiable semantic contract for release and retrieval.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate YAML authoring, JSON Schema validation, JSON-LD exchange, OWL/SHACL semantics, deterministic migration, release manifests, and hybrid Neo4j retrieval.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Produced a public v9 release for 4,602 nodes and 1,904 assertions. The report exposes unresolved relationships and path warnings rather than hiding data-quality debt.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;1-the-data-problem&#34;&gt;1. The data problem&lt;/h2&gt;
-&lt;p&gt;Industrial knowledge is not trustworthy merely because it is stored in Markdown. Retrieval quality degrades when:&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-ontology-construction&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-ontology-construction&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The delivery plan treats schema, deterministic migration, semantic validation, retrieval, and citation as one release system rather than a document collection exercise.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -84,8 +43,39 @@
   &lt;/ul&gt;
   &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.&lt;/p&gt;
 &lt;/section&gt;
-&lt;h2 id=&#34;project-at-a-glance&#34;&gt;Project at a glance&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt; explores a narrower problem than “ask an LLM to write a resume.” It separates &lt;strong&gt;verified career facts, private fields, target-role selection, draft generation, and output validation&lt;/strong&gt; so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.&lt;/p&gt;</description>
+&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-resumopenai&#34;&gt;
+  &lt;header class=&#34;project-blueprint__header&#34;&gt;
+    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
+      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Prototype Backlog&lt;/p&gt;
+      &lt;h2 id=&#34;project-blueprint-resumopenai&#34;&gt;Project definition and execution plan&lt;/h2&gt;
+      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The PoC prioritizes fact traceability, personal-data minimization, and structured validation before polished LLM wording.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-blueprint__status project-blueprint__status--planned&#34;&gt;PoC design public · dedicated source not public&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Project type&lt;/dt&gt;
+        &lt;dd&gt;Personal LLM application PoC&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;My scope&lt;/dt&gt;
+        &lt;dd&gt;React, Flask, LLM boundaries and validation design&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Primary audience&lt;/dt&gt;
+        &lt;dd&gt;Job seekers and career-document authors&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;dt&gt;Evidence level&lt;/dt&gt;
+        &lt;dd&gt;Design-led · no dedicated repository registered&lt;/dd&gt;
+      &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Problem&lt;/h3&gt;
+        &lt;p&gt;If polished LLM wording changes dates, roles, or metrics, or sends unnecessary personal data to an external API, the resume becomes less trustworthy.&lt;/p&gt;</description>
     </item>
     
     

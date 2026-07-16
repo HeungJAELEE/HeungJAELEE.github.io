@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/tags/robot/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -489,7 +489,9 @@ document.documentElement.setAttribute('data-theme', theme)
         <h5 class="card-title">로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</h5>
         <p class="card-text post-summary"> 프로젝트 자료 공개 구현 저장소와 이 프로젝트가 확장된 교육 팀 보고서를 구분해 제공합니다.
 GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digital Twin 팀 보고서 /docs/Robot_Digital_Twin.pdf GitHub는 PC-HMI·Robot Controller·MQTT·DB·Digital Twin 구현 근거입니다. PDF는 QR·Vision·협동로봇을 연결한 상위 팀 프로젝트 자료이며, 저장소의 개별 코드 성과를 증명하는 문서로 혼용하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem Conty JSON을 일부 field만 편집하면 Waypoint·program·move 참조가 깨질 수 있고, HMI·DB·Digital Twin이 로봇 소켓에 각각 연결하면 명령과 상태의 책임이 분산됩니다. Role 공개 Busan_Robot 저장소에서 JSON 호환 계층과 PC-HMI·backend 서비스 경계를 설계·구현하고 운영 문서를 정리했습니다. Action 원본 보존형 round-trip, IndyDCP 소켓 단일 소유권, MQTT command/state topic 분리, MySQL DB Worker, PLC Bridge, WebSocket read-only twin, Offline/Direct/Gateway 실행 모드를 구성했습니다. Result 저장소에서 HMI·backend monorepo, Docker Compose, 배포·통신·초보 실행 문서와 단계적 검증 경로를 공개했습니다. 지연·가동률·충돌 감소처럼 공개 측정이 없는 수치는 제시하지 않습니다. Evidence 공개 GitHub source와 README·JSON design·PLC/MES·communication·deployment 문서, 관련 교육 팀 PDF. 이력서 Bullet Conty/APK JSON의 Waypoint·program·move 참조를 보존하는 load–edit–save–reload 검증 흐름을 설계했습니다. IndyDCP 물리 소켓을 Robot Controller 한 곳이 소유하도록 하고, MQTT에서 명령·결과·실시간 상태·오류 Topic을 분리했습니다. CustomTkinter HMI, MySQL DB Worker, PLC Bridge, WebSocket Digital Twin을 서비스 경계로 나누고 Docker Compose 운영 경로를 문서화했습니다. Offline UI → Direct → MQTT Gateway의 단계적 실행 모드로 실제 로봇이 없는 환경에서도 JSON과 화면을 먼저 검증할 수 있게 했습니다. 면접 STAR Situation: 로봇 프로그램 JSON의 참조 손상과 여러 프로그램의 동시 소켓 접근은 파일 호환성과 물리 제어 안전을 동시에 위협했습니다. Task: 기존 티치펜던트 형식을 보존하면서 PC에서 편집·검증하고, HMI·DB·Twin이 같은 상태를 안전하게 공유하는 구조를 만들어야 했습니다. Action: JSON round-trip invariant를 정의하고 Robot Controller를 단일 소켓 소유자로 두었으며, 나머지 서비스는 MQTT event만 소비하도록 분리했습니다. Result: 공개 저장소에 재현 가능한 HMI/backend 구조와 운영 문서를 남겼습니다. Omniverse는 확인된 웹 twin과 분리해 후속 read-only adapter로 제한했습니다. 프로젝트를 한 문장으로 설명하면 Neuromeka Indy7 협동로봇의 기존 Conty 티치펜던트 JSON을 PC에서 읽고, 계층형으로 편집하고, 가상 검증하고, 다시 호환 JSON으로 저장하기 위해 만든 Python HMI 및 백엔드 서비스 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 로봇 프로그램 호환성과 물리 제어 책임을 핵심 요구사항으로 두고 JSON 편집, 소켓 소유권, 이벤트·DB·디지털 트윈 Task를 분리했습니다.
+공개 구현 완료 · 실로봇 검증 확장 중 프로젝트 유형 개인 공개 Robot HMI 프로젝트 개인 역할 JSON 호환 계층, PC-HMI·backend 경계, 운영 문서 주요 사용자 로봇·자동화·HMI 개발자 Evidence 수준 Strong · GitHub source 공개 Problem Conty JSON 일부만 수정하면 Waypoint·program·move 참조가 손상될 수 있고, 여러 클라이언트가 IndyDCP 소켓을 직접 소유하면 명령 책임과 상태 시간이 분산됩니다.
 </p>
       </a>
       
@@ -525,7 +527,7 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        13 
+        15 
       </span>
       <a href="/posts/robot-json-omniverse/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>
@@ -550,7 +552,9 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
         <h5 class="card-title">협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</h5>
         <p class="card-text post-summary"> 프로젝트 자료 팀 발표자료와 연관 로봇 HMI 공개 저장소를 구분해 제공합니다.
 연관 GitHub 저장소github.com/HeungJAELEE/Busan_Robot 자동차 공장 Digital Twin 팀 보고서/docs/Robot_Digital_Twin.pdf 정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.
-프로젝트를 한 문장으로 설명하면 INDY7 협동로봇 3대를 사용하는 소형 자동차 조립 흐름에 QR 제품 추적, YOLOv11 조립·품질 검사, PLC/SCADA, MySQL/MES, 디지털 트윈을 연결하고, Raspberry Pi 5와 Hailo-10H의 온디바이스 추론 차이를 비교한 교육 팀 프로젝트입니다.
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.
+교육 팀 PoC 완료 · 현장 적용 전 프로젝트 유형 10인 교육 팀 PoC 개인 역할 Robot·Digital Twin 범위 주요 사용자 생산기술·로봇·Vision·MES 담당자 Evidence 수준 팀 PDF &#43; 연관 공개 저장소 Problem 제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.
 </p>
       </a>
       
@@ -586,7 +590,7 @@ GitHub 저장소 github.com/HeungJAELEE/Busan_Robot 관련 자동차 공장 Digi
       <span class="float-start">
         2026년 7월 9일 목요일
          | 
-        4 
+        6 
       </span>
       <a href="/posts/robot-digital-twin/" class="float-end btn btn-outline-info btn-sm"></a>
     </div>

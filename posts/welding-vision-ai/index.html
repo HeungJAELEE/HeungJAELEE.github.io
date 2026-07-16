@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/welding-vision-ai/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -48,7 +48,9 @@
   <meta name="twitter:title" content="AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정">
   <meta name="twitter:description" content="프로젝트 자료 평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.
 GitHub 프로젝트 목록 github.com/HeungJAELEE AI 용접 Vision 보고서 canva.com/design/DAHGaCTGRFs 이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.
-포트폴리오 요약: Problem–Role–Action–Result–Evidence 항목 확인된 내용 Problem 미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다. Role 팀 프로젝트에서 F1·Recall·FPR 등 평가지표 설계와 검증을 담당했습니다. Action AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet&#43;DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다. Result 선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다. Evidence AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다. 이력서 Bullet 공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다. DenseNet 단독·2-model 조합·ResNet&#43;DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다. 해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다. 면접 STAR Situation: 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다. Task: 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다. Action: 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다. Result: 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다. 제조 현장에서 비전 AI의 가치는 모델 이름보다 어떤 불량을 놓치지 않아야 하는지, 그리고 오검을 어느 수준까지 감수할 것인지를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.">
+Public PDD · Delivery Record
+프로젝트 정의와 실행 계획 정확도 경쟁이 아니라 미검출 위험을 줄이는 품질검사 의사결정 문제로 정의하고, 데이터·모델·임계값 Task를 같은 평가 기준으로 연결했습니다.
+평가 완료 · 생산 일반화 전 프로젝트 유형 제조 Vision AI 팀 PoC 개인 역할 평가지표 설계, F1·Recall·오검출 검증 주요 사용자 품질·공정·검사 자동화 담당자 Evidence 수준 공개 보고서 기반 Problem 미세 용접 결함과 정상 표면 특징이 겹치고 클래스 불균형이 있어 accuracy만으로는 불량 통과 위험을 설명할 수 없습니다.">
 
 <meta name="description" content="AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정" />
 
@@ -314,7 +316,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             2026년 7월 9일 목요일
              | 
-            9</p>
+            11</p>
         </div>
         
 
@@ -367,6 +369,217 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-welding-vision-ai">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Delivery Record</p>
+      <h2 id="project-blueprint-welding-vision-ai">프로젝트 정의와 실행 계획</h2>
+      <p class="project-blueprint__summary">정확도 경쟁이 아니라 미검출 위험을 줄이는 품질검사 의사결정 문제로 정의하고, 데이터·모델·임계값 Task를 같은 평가 기준으로 연결했습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">평가 완료 · 생산 일반화 전</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>제조 Vision AI 팀 PoC</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>평가지표 설계, F1·Recall·오검출 검증</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>품질·공정·검사 자동화 담당자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>공개 보고서 기반</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>미세 용접 결함과 정상 표면 특징이 겹치고 클래스 불균형이 있어 accuracy만으로는 불량 통과 위험을 설명할 수 없습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>공개 데이터와 현장 데이터를 분리하고 동일 지표로 모델 단계를 비교한 뒤, Recall 우선 임계값과 재검사 정책을 설계하는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>평가셋에서 F1·Recall·Precision을 함께 제시하고, 운영 임계값의 이유·오검출 처리·생산 적용 한계를 설명할 수 있으면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-welding-vision-ai">
+      <h3 id="project-scope-welding-vision-ai">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>AI-Hub 약 60,000장과 현장 198장의 목적별 분리</li><li>DenseNet 기준선, 2모델 조합, ResNet&#43;DeiT 앙상블 비교</li><li>두 번째 테스트와 임계값 조정을 통한 미검출 우선 평가</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>전용 공개 소스 저장소가 있다는 주장</li><li>모든 용접 공정·카메라 조건에 대한 생산 일반화</li><li>사람의 재검사 없이 자동 판정만으로 출하하는 운영</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-welding-vision-ai">
+      <h3 id="project-requirements-welding-vision-ai">요구사항</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>기능 요구</h4>
+          <ul>
+              <li><span>FR-01</span>데이터 출처와 학습·검증·현장 확인 목적을 분리한다.</li>
+              <li><span>FR-02</span>모든 모델 단계를 F1, Recall, Precision과 동일한 분할 기준으로 비교한다.</li>
+              <li><span>FR-03</span>임계값별 false negative와 false positive를 기록하고 재검사 흐름을 둔다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 요구</h4>
+          <ul>
+              <li><span>QR-01</span>결함 미검출 비용을 정상품 재검사 비용보다 우선한다.</li>
+              <li><span>QR-02</span>평가셋 수치와 생산 성능을 구분하고 데이터 누수를 점검한다.</li>
+              <li><span>QR-03</span>조명·재질·카메라 변화에 따른 drift를 별도 검증 대상으로 둔다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-welding-vision-ai">
+    <h3 id="project-decisions-welding-vision-ai">핵심 설계 결정</h3>
+    <ol>
+        <li>
+          <strong>Recall을 1차 운영 지표로 선택</strong>
+          <p>용접 불량을 정상으로 통과시키는 위험이 정상품을 재검사하는 비용보다 크기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>현장 198장을 별도 검증 관점으로 유지</strong>
+          <p>대규모 공개 데이터와 적은 현장 데이터를 섞어 과도한 일반화 주장을 하지 않기 위해서입니다.</p>
+        </li>
+        <li>
+          <strong>모델보다 임계값·검사 정책까지 함께 비교</strong>
+          <p>같은 모델도 운영 임계값에 따라 미검출과 오검출 비용이 달라지기 때문입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-welding-vision-ai">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-welding-vision-ai">관련 Task와 작업 내역</h3>
+      <p>모델 개발과 평가, 운영 준비를 분리해 현재 완료 수준을 보여 줍니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>품질 위험과 평가 목표 정의</h4>
+          <p>불량 통과와 정상품 재검사의 비대칭 비용을 정의하고 Recall 우선 원칙을 세웠습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>평가 정책과 성공 기준</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>데이터 출처·용도 분리</h4>
+          <p>공개 데이터와 현장 데이터를 동일 모집단으로 표현하지 않고 학습·현장 확인 목적을 구분했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>데이터 구성과 제한 설명</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>기준선과 앙상블 비교</h4>
+          <p>DenseNet에서 두 모델 조합, ResNet&#43;DeiT로 발전한 실험 단계를 같은 지표 관점으로 검토했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>모델 진화 비교표</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>두 번째 테스트와 임계값 검증</h4>
+          <p>혼동 사례를 재검토하고 Recall을 유지하면서 Precision과 F1의 균형을 확인했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>F1 93.10%·Recall 100%·Precision 87.07%</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">DOC-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>운영 해석과 한계 문서화</h4>
+          <p>오검출은 수동 재검사로 제어하고 평가셋 결과를 생산 전반의 성능으로 확대하지 않았습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>보고서·포트폴리오 해석 경계</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">NXT-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">다음 단계</span>
+          </div>
+          <h4>라인 파일럿과 drift 감시</h4>
+          <p>공정·조명·카메라별 데이터와 false negative 추적을 포함한 현장 파일럿이 필요합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>라인별 confusion matrix와 운영 임계값</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-welding-vision-ai">
+    <h3 id="project-acceptance-welding-vision-ai">완료 기준</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>데이터 출처와 평가 목적이 분리되어 설명된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>F1·Recall·Precision과 임계값 선택 이유가 함께 제시된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>재검사 정책과 생산 일반화 한계가 명시된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>다양한 라인 조건에서 장기 drift와 미검출률이 측정된다.</p>
+          <strong>미검증</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>검증 근거:</strong> AI Welding Vision 보고서의 데이터 구성, 모델 비교, 2차 테스트, 임계값과 최종 지표 페이지를 사용했습니다.</p>
+  </section>
+</section>
+
 <h2 id="포트폴리오-요약-problemroleactionresultevidence">포트폴리오 요약: Problem–Role–Action–Result–Evidence</h2>
 <table>
   <thead>

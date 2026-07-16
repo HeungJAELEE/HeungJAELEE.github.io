@@ -18,7 +18,7 @@
   <link rel="canonical" href="https://HeungJAELEE.github.io/posts/deep-learning-modeling/">
 
 
-<link rel="stylesheet" href="/application.3f6274c05e5eda4d4f0799034e437dc02164ab1d55a0d58b004598907e410509.css" integrity="sha256-P2J0wF5e2k1PB5kDTkN9wCFkqx1VoNWLAEWYkH5BBQk=">
+<link rel="stylesheet" href="/application.c5df6f1e204f581717ed68a7f14dbb204bb181241991d9628ccd03505aec9a0e.css" integrity="sha256-xd9vHiBPWBcX7Win8U27IEuxgSQZkdlijM0DUFrsmg4=">
 
 
 
@@ -48,7 +48,9 @@
   <meta name="twitter:title" content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계">
   <meta name="twitter:description" content="프로젝트 자료 공개 학습 저장소와 Evidence 상태입니다.
 GitHub 저장소github.com/HeungJAELEE/Deep_Learning_Text_book 별도 공개 보고서는 등록되지 않았습니다. 현재 글은 저장소의 공개 범위에 맞춘 학습·실험 설계 문서이며 구현 완료나 모델 성능을 추가로 주장하지 않습니다.
-프로젝트 한눈에 보기 딥러닝 모델링 교과서는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.">
+Public PDD · Learning Backlog
+프로젝트 정의와 실행 계획 학습 저장소의 현재 공개 범위를 과장하지 않고, 제조 데이터에 적용 가능한 재현성 기준과 구현 Backlog를 PDD·Task로 나눴습니다.
+설계 기준 공개 · 구현 검증 진행 전 프로젝트 유형 개인 학습·실험 설계 개인 역할 모델링 기준, 실험 구조와 검증 계획 주요 사용자 AI 학습자·제조 Data Analyst Evidence 수준 공개 저장소 제한적 · 설계 문서 중심 Problem 노트북이 한 번 실행된 사실만으로는 데이터 누수, 전처리 일관성, 재현성, 기준선 대비 개선과 제조 현장의 오류 비용을 설명할 수 없습니다.">
 
 <meta name="description" content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계" />
 
@@ -314,7 +316,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="text-muted">
             2026년 7월 13일 월요일
              | 
-            9</p>
+            11</p>
         </div>
         
 
@@ -353,6 +355,205 @@ document.documentElement.setAttribute('data-theme', theme)
   </ul>
   <p class="project-resources__note">별도 공개 보고서는 등록되지 않았습니다. 현재 글은 저장소의 공개 범위에 맞춘 학습·실험 설계 문서이며 구현 완료나 모델 성능을 추가로 주장하지 않습니다.</p>
 </section>
+<section class="project-blueprint" aria-labelledby="project-blueprint-deep-learning-modeling">
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Public PDD · Learning Backlog</p>
+      <h2 id="project-blueprint-deep-learning-modeling">프로젝트 정의와 실행 계획</h2>
+      <p class="project-blueprint__summary">학습 저장소의 현재 공개 범위를 과장하지 않고, 제조 데이터에 적용 가능한 재현성 기준과 구현 Backlog를 PDD·Task로 나눴습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--planned">설계 기준 공개 · 구현 검증 진행 전</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 학습·실험 설계</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>모델링 기준, 실험 구조와 검증 계획</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>AI 학습자·제조 Data Analyst</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>공개 저장소 제한적 · 설계 문서 중심</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>노트북이 한 번 실행된 사실만으로는 데이터 누수, 전처리 일관성, 재현성, 기준선 대비 개선과 제조 현장의 오류 비용을 설명할 수 없습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>전처리–학습–평가–재현성 관리를 분리하고, 새로운 제조 데이터에도 같은 기준으로 실험을 반복할 수 있는 학습 저장소 구조를 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>고정 데이터 분할, 설정·seed·artifact 기록, 기준선 비교와 error analysis가 자동 검증되고 다른 환경에서 재실행되면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-deep-learning-modeling">
+      <h3 id="project-scope-deep-learning-modeling">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>데이터 schema·split·전처리·augmentation 기준</li><li>baseline, train/evaluate pipeline, metric·artifact logging</li><li>제조 불균형 데이터의 Recall·Precision·F1·error analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>공개 근거 없는 특정 모델 정확도와 학습 완료 주장</li><li>운영 배포와 MLOps 플랫폼이 이미 완성됐다는 표현</li><li>하나의 노트북 결과를 재현 가능한 실험으로 간주</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-deep-learning-modeling">
+      <h3 id="project-requirements-deep-learning-modeling">요구사항</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>기능 요구</h4>
+          <ul>
+              <li><span>FR-01</span>train/validation/test split을 고정하고 데이터 누수를 검사한다.</li>
+              <li><span>FR-02</span>config, seed, code/data version과 model artifact를 함께 기록한다.</li>
+              <li><span>FR-03</span>accuracy 외 Recall·Precision·F1과 confusion matrix를 생성한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 요구</h4>
+          <ul>
+              <li><span>QR-01</span>같은 설정을 다른 환경에서 재실행할 수 있다.</li>
+              <li><span>QR-02</span>baseline 대비 개선과 실패 사례를 같이 기록한다.</li>
+              <li><span>QR-03</span>제조 현장의 미검출·오검출 비용을 metric 선택에 반영한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-deep-learning-modeling">
+    <h3 id="project-decisions-deep-learning-modeling">핵심 설계 결정</h3>
+    <ol>
+        <li>
+          <strong>노트북보다 pipeline을 기준으로 설계</strong>
+          <p>단계별 입력·출력과 오류 위치를 분리해야 반복 실험과 검증이 가능하기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>config와 artifact를 code와 함께 추적</strong>
+          <p>모델 파일만으로는 어떤 데이터·전처리·seed에서 나온 결과인지 설명할 수 없기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>성능 주장은 구현 Evidence 이후로 보류</strong>
+          <p>현재 공개 저장소만으로 학습 완료나 특정 수치를 검증할 수 없기 때문입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-deep-learning-modeling">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-deep-learning-modeling">관련 Task와 작업 내역</h3>
+      <p>완료된 설계와 아직 공개 검증이 필요한 구현 Task를 의도적으로 구분했습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">PDD-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>재현성·평가 요구사항 정의</h4>
+          <p>데이터 분할, config, seed, artifact, 기준선과 제조 오류 비용을 성공 기준으로 정했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>Public PDD와 실험 기준</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>저장소·config 구조 정리</h4>
+          <p>data, src, configs, tests, artifacts 책임을 분리하는 기준을 문서화했습니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>권장 repository layout</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-02</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span>
+          </div>
+          <h4>전처리·split pipeline 구현</h4>
+          <p>schema validation, 중복 검사, fixed split과 train-only augmentation을 코드로 고정해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>data pipeline과 단위 테스트</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">TSK-03</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span>
+          </div>
+          <h4>baseline·학습·평가 자동화</h4>
+          <p>공통 config로 baseline과 후보 모델을 실행하고 metric·checkpoint를 기록해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>train/evaluate CLI와 artifacts</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-id">VAL-01</span>
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">계획</span>
+          </div>
+          <h4>재현성·오류 분석 검증</h4>
+          <p>동일 run 재실행, confusion matrix, failure slice와 기준선 대비 결과를 공개해야 합니다.</p>
+          <dl>
+            <dt>산출물</dt>
+            <dd>실험 report와 reproducibility check</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-deep-learning-modeling">
+    <h3 id="project-acceptance-deep-learning-modeling">완료 기준</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>전처리–학습–평가–재현성 단계와 책임이 문서화된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>데이터 누수·기준선·제조 오류 비용이 완료 기준에 포함된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>공개 source에서 pipeline test와 artifact를 재실행할 수 있다.</p>
+          <strong>미검증</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>검증된 모델 결과와 한계가 release report로 제공된다.</p>
+          <strong>미검증</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>검증 근거:</strong> 현재 저장소와 본문의 설계 문서만 사용하며 학습 완료·성능·운영 배포를 추가로 주장하지 않습니다.</p>
+  </section>
+</section>
+
 <h2 id="프로젝트-한눈에-보기">프로젝트 한눈에 보기</h2>
 <p><strong>딥러닝 모델링 교과서</strong>는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.</p>
 <blockquote>
