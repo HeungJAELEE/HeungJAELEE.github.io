@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Evidence on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/evidence/</link><description>Recent content in Evidence on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/evidence/rss.xml" rel="self" type="application/rss+xml"/><item><title>Evidence- and Rights-Governed Maintenance Learning: Why PUBLIC and HOLD Both Matter</title><link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid><description>&lt;h2 id="problem-a-fluent-explanation-is-not-necessarily-a-supported-answer"&gt;Problem: a fluent explanation is not necessarily a supported answer&lt;/h2&gt;
+&lt;p&gt;Qualification material fragments questions, answers, theory, NCS units, and practical visuals across sources. AI can fill gaps fluently while still relying on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;conflicting answer candidates;&lt;/li&gt;
+&lt;li&gt;images without publication rights;&lt;/li&gt;
+&lt;li&gt;theory that is textually similar but semantically wrong;&lt;/li&gt;
+&lt;li&gt;answers already present in a pre-submit client payload;&lt;/li&gt;
+&lt;li&gt;one UI forced across written and practical answer formats.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The project goal is therefore not rapid question growth. It is a platform that &lt;strong&gt;publishes only evidence-qualified learning and preserves uncertainty as HOLD&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Fail-Closed AI Authority &amp; Evidence Plane: Visibility Is Not Execution Authority</title><link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid><description>&lt;h2 id="problem-test-success-is-not-execution-authority"&gt;Problem: test success is not execution authority&lt;/h2&gt;
+&lt;p&gt;These statements describe different facts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a model read data;&lt;/li&gt;
+&lt;li&gt;a model recommended an action;&lt;/li&gt;
+&lt;li&gt;local code passed tests;&lt;/li&gt;
+&lt;li&gt;an authorized person approved a bounded action;&lt;/li&gt;
+&lt;li&gt;the same artifact ran in the operating environment;&lt;/li&gt;
+&lt;li&gt;an external effect occurred and was read back.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Without that separation, “test PASS” can become “ready to deploy,” recommendation can become order approval, and local state can be mistaken for external effect.&lt;/p&gt;</description></item></channel></rss>

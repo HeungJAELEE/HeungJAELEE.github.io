@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Static Site on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/static-site/</link><description>Recent content in Static Site on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/static-site/rss.xml" rel="self" type="application/rss+xml"/><item><title>공식 근거 기반 실업급여 Q&amp;A: 165개 질문을 판정이 아닌 확인 경로로 바꾸기</title><link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="문제-비슷한-질문도-행정-결과는-다를-수-있다"&gt;문제: 비슷한 질문도 행정 결과는 다를 수 있다&lt;/h2&gt;
+&lt;p&gt;“자진 퇴사인데 받을 수 있나요?”처럼 짧은 질문은 퇴사 사유, 피보험 기간, 이직확인서, 구직활동, 개인 통지와 관할 기관 판단에 따라 결과가 달라질 수 있습니다. 사이트가 개인 자격을 단정하면 최신 법령이나 실제 처분과 충돌할 위험이 있습니다.&lt;/p&gt;
+&lt;p&gt;따라서 이 서비스는 답을 대신 결정하는 챗봇이 아니라 다음을 빠르게 찾는 &lt;strong&gt;정적 확인 도구&lt;/strong&gt;로 설계했습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;내 질문이 어떤 유형에 가까운가&lt;/li&gt;
+&lt;li&gt;어떤 사실과 문서를 먼저 확인해야 하는가&lt;/li&gt;
+&lt;li&gt;고용24·고용노동부·법령의 어느 근거를 읽어야 하는가&lt;/li&gt;
+&lt;li&gt;개인 통지나 관할 고용센터에 무엇을 다시 확인해야 하는가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="왜-165개-질문을-8개-카테고리로-묶었는가"&gt;왜 165개 질문을 8개 카테고리로 묶었는가&lt;/h2&gt;
+&lt;p&gt;원문 대화를 그대로 공개하면 개인정보와 중복이 늘어납니다. 반대로 하나의 거대한 FAQ는 사용자가 자기 상황을 찾기 어렵습니다.&lt;/p&gt;</description></item></channel></rss>

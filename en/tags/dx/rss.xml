@@ -1,34 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DX on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/dx/</link>
-    <description>Recent content in DX on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/dx/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Giga Press Factory DX: From Field Signals to Virtual Commissioning</title>
-      <link>https://HeungJAELEE.github.io/en/posts/giga-press-dx/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/giga-press-dx/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;Public material for the design rationale and team scenario.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;https://www.canva.com/design/DAHINy4ipdM/5OcDGb35SnU3DBbCYGqyAw/edit&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Giga Press DX report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHINy4ipdM&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this project. The GitHub URL is a project index, not evidence that another repository contains this implementation.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-giga-press-dx&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-giga-press-dx&#34;&gt;Project definition and execution plan&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DX on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/dx/</link><description>Recent content in DX on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/dx/rss.xml" rel="self" type="application/rss+xml"/><item><title>Giga Press Factory DX: From Field Signals to Virtual Commissioning</title><link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid><description>&lt;h2 id="problem-process-and-communication-risk-must-be-tested-before-equipment-deployment"&gt;Problem: process and communication risk must be tested before equipment deployment&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Verified scope&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem&lt;/td&gt;
+&lt;td&gt;Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Role&lt;/td&gt;
+&lt;td&gt;In a ten-person team, I worked in the Digital Twin group on &lt;strong&gt;AI-model selection/training, communications setup, and technical research&lt;/strong&gt;. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Action&lt;/td&gt;
+&lt;td&gt;I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Result&lt;/td&gt;
+&lt;td&gt;The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are &lt;strong&gt;expected benefits/targets&lt;/strong&gt;, not measured factory outcomes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence&lt;/td&gt;
+&lt;td&gt;The team report&amp;rsquo;s R&amp;amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="resume-bullets"&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario.&lt;/li&gt;
+&lt;li&gt;Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority.&lt;/li&gt;
+&lt;li&gt;Kept the report&amp;rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="interview-star"&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="why-the-project-uses-virtual-commissioning"&gt;Why the project uses virtual commissioning&lt;/h2&gt;
+&lt;p&gt;The project models a Giga Press factory context through four responsibilities:&lt;/p&gt;</description></item></channel></rss>

@@ -1,34 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>IndyDCP on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/indydcp/</link>
-    <description>Recent content in IndyDCP on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/indydcp/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Indy7 Robot JSON, PC-HMI, and Read-only Digital Twin Architecture</title>
-      <link>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/robot-json-omniverse/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;The public implementation and the related education-team report are intentionally separated.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;Related automotive Digital Twin team report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;GitHub is the evidence for the PC-HMI, robot-controller, MQTT, DB, and web-twin implementation. The PDF is a broader team project and is not used as proof of every repository-level result.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-json-omniverse&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-robot-json-omniverse&#34;&gt;Project definition and execution plan&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IndyDCP on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/indydcp/</link><description>Recent content in IndyDCP on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/indydcp/rss.xml" rel="self" type="application/rss+xml"/><item><title>Indy7 JSON, PC-HMI, and Digital-Twin Design</title><link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
+&lt;p&gt;A robot program is more than a list of joint positions. Tool and TCP settings, waypoints, motion commands, branches, speed, and I/O fields reference one another. If a PC editor reads only familiar fields and rewrites the file, the result may look correct on screen while failing on the teach pendant.&lt;/p&gt;
+&lt;p&gt;Communication has a similar ownership problem. If the HMI, historian, and digital twin each open a robot socket, it becomes difficult to identify the command owner and the latest state.&lt;/p&gt;</description></item></channel></rss>

@@ -1,60 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Privacy on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/privacy/</link>
-    <description>Recent content in Privacy on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/privacy/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>resumOpenAI: An Evidence-aware Resume Generation PoC</title>
-      <link>https://HeungJAELEE.github.io/en/posts/resumopenai/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/resumopenai/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;Public portfolio index and evidence status.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository and separate public report have not been registered for this PoC. The article describes the design and verification boundary without labeling another repository as its source.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-resumopenai&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Prototype Backlog&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-resumopenai&#34;&gt;Project definition and execution plan&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The PoC prioritizes fact traceability, personal-data minimization, and structured validation before polished LLM wording.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-blueprint__status project-blueprint__status--planned&#34;&gt;PoC design public · dedicated source not public&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Project type&lt;/dt&gt;
-        &lt;dd&gt;Personal LLM application PoC&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;My scope&lt;/dt&gt;
-        &lt;dd&gt;React, Flask, LLM boundaries and validation design&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Primary audience&lt;/dt&gt;
-        &lt;dd&gt;Job seekers and career-document authors&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Evidence level&lt;/dt&gt;
-        &lt;dd&gt;Design-led · no dedicated repository registered&lt;/dd&gt;
-      &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
-      &lt;article&gt;
-        &lt;h3&gt;Problem&lt;/h3&gt;
-        &lt;p&gt;If polished LLM wording changes dates, roles, or metrics, or sends unnecessary personal data to an external API, the resume becomes less trustworthy.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Privacy on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/privacy/</link><description>Recent content in Privacy on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/privacy/rss.xml" rel="self" type="application/rss+xml"/><item><title>Official-source Unemployment Benefit Q&amp;A: Turning 165 Questions into Verification Paths</title><link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="problem-similar-questions-can-produce-different-administrative-outcomes"&gt;Problem: similar questions can produce different administrative outcomes&lt;/h2&gt;
+&lt;p&gt;A short question such as “Can I qualify after resigning?” may depend on separation reason, insured periods, documents, job-search activity, an individual notice, and agency review. A website that decides the case can conflict with current law or the actual disposition.&lt;/p&gt;
+&lt;p&gt;The service is therefore a &lt;strong&gt;static verification aid&lt;/strong&gt;, not an eligibility chatbot. It helps a user find:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the closest question type;&lt;/li&gt;
+&lt;li&gt;facts and documents to check;&lt;/li&gt;
+&lt;li&gt;the relevant Work24, ministry, or statute source;&lt;/li&gt;
+&lt;li&gt;what to confirm through an individual notice or competent employment center.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="why-165-questions-become-eight-categories"&gt;Why 165 questions become eight categories&lt;/h2&gt;
+&lt;p&gt;Publishing raw conversations would expose personal context and create duplicates. One giant FAQ would make discovery difficult.&lt;/p&gt;</description></item><item><title>resumOpenAI: An Evidence-aware Resume Generation PoC</title><link>https://heungjaelee.github.io/en/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/resumopenai/</guid><description>&lt;h2 id="problem-controlling-career-facts-matters-more-than-fluent-generation"&gt;Problem: controlling career facts matters more than fluent generation&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt; explores a narrower problem than “ask an LLM to write a resume.” It separates &lt;strong&gt;verified career facts, private fields, target-role selection, draft generation, and output validation&lt;/strong&gt; so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Area&lt;/th&gt;
+&lt;th&gt;Design&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Frontend&lt;/td&gt;
+&lt;td&gt;React form and draft review&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;API&lt;/td&gt;
+&lt;td&gt;Flask request validation and generation orchestration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data&lt;/td&gt;
+&lt;td&gt;structured career facts with evidence/status fields&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LLM&lt;/td&gt;
+&lt;td&gt;controlled prompt and optional adaptation path&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Safety&lt;/td&gt;
+&lt;td&gt;personal-data minimization and public/private separation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QA&lt;/td&gt;
+&lt;td&gt;claim/date/number checks before export&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="why-structure-comes-before-fine-tuning"&gt;Why structure comes before fine-tuning&lt;/h2&gt;
+&lt;p&gt;Fine-tuning can make style more consistent, but it cannot repair missing or contradictory facts. The first quality gate is a structured source model.&lt;/p&gt;</description></item></channel></rss>

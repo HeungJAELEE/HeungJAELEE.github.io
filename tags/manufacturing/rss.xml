@@ -1,71 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Manufacturing on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/manufacturing/</link>
-    <description>Recent content in Manufacturing on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/manufacturing/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title>
-      <link>https://HeungJAELEE.github.io/posts/welding-vision-ai/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/welding-vision-ai/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;평가 결과와 모델 선택 과정을 확인할 수 있는 공개 자료입니다.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;
-      &lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-        &lt;span class=&#34;project-resources__label&#34;&gt;GitHub 프로젝트 목록&lt;/span&gt;
-        &lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&#34;https://www.canva.com/design/DAHGaCTGRFs/0GKq7g9dsbb_ANIeRv8dnQ/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-        &lt;span class=&#34;project-resources__label&#34;&gt;AI 용접 Vision 보고서&lt;/span&gt;
-        &lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHGaCTGRFs&lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;이 프로젝트의 전용 공개 소스 저장소는 아직 분리되어 있지 않습니다. GitHub 프로필은 다른 공개 프로젝트를 확인하기 위한 목록이며, 용접 모델 소스로 오표기하지 않습니다.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-welding-vision-ai&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-welding-vision-ai&#34;&gt;프로젝트 정의와 실행 계획&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;정확도 경쟁이 아니라 미검출 위험을 줄이는 품질검사 의사결정 문제로 정의하고, 데이터·모델·임계값 Task를 같은 평가 기준으로 연결했습니다.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-blueprint__status project-blueprint__status--partial&#34;&gt;평가 완료 · 생산 일반화 전&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
-      &lt;div&gt;
-        &lt;dt&gt;프로젝트 유형&lt;/dt&gt;
-        &lt;dd&gt;제조 Vision AI 팀 PoC&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;개인 역할&lt;/dt&gt;
-        &lt;dd&gt;평가지표 설계, F1·Recall·오검출 검증&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;주요 사용자&lt;/dt&gt;
-        &lt;dd&gt;품질·공정·검사 자동화 담당자&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Evidence 수준&lt;/dt&gt;
-        &lt;dd&gt;공개 보고서 기반&lt;/dd&gt;
-      &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
-      &lt;article&gt;
-        &lt;h3&gt;Problem&lt;/h3&gt;
-        &lt;p&gt;미세 용접 결함과 정상 표면 특징이 겹치고 클래스 불균형이 있어 accuracy만으로는 불량 통과 위험을 설명할 수 없습니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Manufacturing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/manufacturing/</link><description>Recent content in Manufacturing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/manufacturing/rss.xml" rel="self" type="application/rss+xml"/><item><title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title><link>https://heungjaelee.github.io/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid><description>&lt;h2 id="문제-높은-정확도만으로는-용접-결함-검출-기준을-설명할-수-없다"&gt;문제: 높은 정확도만으로는 용접 결함 검출 기준을 설명할 수 없다&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;항목&lt;/th&gt;
+&lt;th&gt;확인된 내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem&lt;/td&gt;
+&lt;td&gt;미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Role&lt;/td&gt;
+&lt;td&gt;팀 프로젝트에서 &lt;strong&gt;F1·Recall·FPR 등 평가지표 설계와 검증&lt;/strong&gt;을 담당했습니다.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Action&lt;/td&gt;
+&lt;td&gt;AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet+DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Result&lt;/td&gt;
+&lt;td&gt;선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence&lt;/td&gt;
+&lt;td&gt;AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="이력서-bullet"&gt;이력서 Bullet&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다.&lt;/li&gt;
+&lt;li&gt;DenseNet 단독·2-model 조합·ResNet+DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다.&lt;/li&gt;
+&lt;li&gt;해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="면접-star"&gt;면접 STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;</description></item></channel></rss>

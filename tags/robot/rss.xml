@@ -1,121 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Robot on 이재흥 | 배터리 제조·DX 포트폴리오</title>
-    <link>https://HeungJAELEE.github.io/tags/robot/</link>
-    <description>Recent content in Robot on 이재흥 | 배터리 제조·DX 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/tags/robot/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>로봇 JSON 해석과 디지털 트윈 연동: Indy7 PC-HMI 설계</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-json-omniverse/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;공개 구현 저장소와 이 프로젝트가 확장된 교육 팀 보고서를 구분해 제공합니다.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;
-      &lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-        &lt;span class=&#34;project-resources__label&#34;&gt;GitHub 저장소&lt;/span&gt;
-        &lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;
-        &lt;span class=&#34;project-resources__label&#34;&gt;관련 자동차 공장 Digital Twin 팀 보고서&lt;/span&gt;
-        &lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;GitHub는 PC-HMI·Robot Controller·MQTT·DB·Digital Twin 구현 근거입니다. PDF는 QR·Vision·협동로봇을 연결한 상위 팀 프로젝트 자료이며, 저장소의 개별 코드 성과를 증명하는 문서로 혼용하지 않습니다.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-json-omniverse&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-robot-json-omniverse&#34;&gt;프로젝트 정의와 실행 계획&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;로봇 프로그램 호환성과 물리 제어 책임을 핵심 요구사항으로 두고 JSON 편집, 소켓 소유권, 이벤트·DB·디지털 트윈 Task를 분리했습니다.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-blueprint__status project-blueprint__status--partial&#34;&gt;공개 구현 완료 · 실로봇 검증 확장 중&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
-      &lt;div&gt;
-        &lt;dt&gt;프로젝트 유형&lt;/dt&gt;
-        &lt;dd&gt;개인 공개 Robot HMI 프로젝트&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;개인 역할&lt;/dt&gt;
-        &lt;dd&gt;JSON 호환 계층, PC-HMI·backend 경계, 운영 문서&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;주요 사용자&lt;/dt&gt;
-        &lt;dd&gt;로봇·자동화·HMI 개발자&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Evidence 수준&lt;/dt&gt;
-        &lt;dd&gt;Strong · GitHub source 공개&lt;/dd&gt;
-      &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
-      &lt;article&gt;
-        &lt;h3&gt;Problem&lt;/h3&gt;
-        &lt;p&gt;Conty JSON 일부만 수정하면 Waypoint·program·move 참조가 손상될 수 있고, 여러 클라이언트가 IndyDCP 소켓을 직접 소유하면 명령 책임과 상태 시간이 분산됩니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>협동로봇 자동차 공장 디지털 트윈과 온디바이스 비전 AI</title>
-      <link>https://HeungJAELEE.github.io/posts/robot-digital-twin/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/posts/robot-digital-twin/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;프로젝트 자료&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;팀 발표자료와 연관 로봇 HMI 공개 저장소를 구분해 제공합니다.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Busan_Robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;연관 GitHub 저장소&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Busan_Robot&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;https://HeungJAELEE.github.io/docs/Robot_Digital_Twin.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;자동차 공장 Digital Twin 팀 보고서&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;/docs/Robot_Digital_Twin.pdf&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;정량값은 팀 PDF에서 직접 읽을 수 있는 F1 1.00·0.877과 Pi5 5 FPS → Pi5+Hailo-10H 18 FPS 비교만 사용합니다. GitHub는 PC-HMI 확장 구현이며 팀 보고서 전체와 동일한 산출물로 간주하지 않습니다.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-robot-digital-twin&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-robot-digital-twin&#34;&gt;프로젝트 정의와 실행 계획&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-blueprint__status project-blueprint__status--partial&#34;&gt;교육 팀 PoC 완료 · 현장 적용 전&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
-      &lt;div&gt;
-        &lt;dt&gt;프로젝트 유형&lt;/dt&gt;
-        &lt;dd&gt;10인 교육 팀 PoC&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;개인 역할&lt;/dt&gt;
-        &lt;dd&gt;Robot·Digital Twin 범위&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;주요 사용자&lt;/dt&gt;
-        &lt;dd&gt;생산기술·로봇·Vision·MES 담당자&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Evidence 수준&lt;/dt&gt;
-        &lt;dd&gt;팀 PDF &amp;#43; 연관 공개 저장소&lt;/dd&gt;
-      &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
-      &lt;article&gt;
-        &lt;h3&gt;Problem&lt;/h3&gt;
-        &lt;p&gt;제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Robot on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/robot/</link><description>Recent content in Robot on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/robot/rss.xml" rel="self" type="application/rss+xml"/><item><title>Indy7 JSON·PC-HMI·디지털 트윈 설계</title><link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
+&lt;p&gt;로봇 작업 프로그램은 좌표 몇 개로 끝나지 않습니다. Tool·TCP, Waypoint, 이동 명령, 반복과 분기, 속도와 입출력 정보가 서로 참조합니다. PC 프로그램이 이해하는 항목만 읽고 다시 저장하면, 화면에서는 정상처럼 보여도 티치펜던트에서 참조가 깨질 수 있습니다.&lt;/p&gt;
+&lt;p&gt;통신에도 비슷한 문제가 있습니다. HMI, 데이터 저장기와 디지털 트윈이 로봇 소켓에 각각 접속하면 어느 프로그램이 명령을 보냈는지, 어떤 상태가 최신인지 판단하기 어렵습니다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;목표&lt;/td&gt;
+&lt;td&gt;원본 JSON의 참조를 보존하고 로봇 연결 책임을 한 서비스로 모으기&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;맡은 범위&lt;/td&gt;
+&lt;td&gt;JSON 호환 계층, PC-HMI, 통신·이력·Twin 서비스 경계 설계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;사용 기술&lt;/td&gt;
+&lt;td&gt;Python, CustomTkinter, IndyDCP, MQTT, MySQL, WebSocket, Docker&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;현재 상태&lt;/td&gt;
+&lt;td&gt;설계·프로토타입, 공개 링크 보류&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;아직 필요한 검증&lt;/td&gt;
+&lt;td&gt;실로봇 firmware별 회귀시험, 장시간 재접속, Omniverse 연동 E2E&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="왜-이렇게-구성했는가"&gt;왜 이렇게 구성했는가&lt;/h2&gt;
+&lt;div class="mermaid" align="center" style="background-color: none; border-radius: 5px;"&gt;
+flowchart LR
+A["Conty JSON"] --&gt; B["Load·검사·편집·재저장"]
+B --&gt; C["원본 참조와 미지 필드 보존"]
+D["PC-HMI"] --&gt; E["Robot Controller\nIndyDCP 단일 소유"]
+E --&gt; F["MQTT command / result / state"]
+F --&gt; G["DB Worker\n작업·오류 이력"]
+F --&gt; H["PLC Bridge"]
+F --&gt; I["읽기 전용 Digital Twin"]
+&lt;/div&gt;
+&lt;h3 id="json-호환-계층"&gt;JSON 호환 계층&lt;/h3&gt;
+&lt;p&gt;원본에 모르는 필드가 있어도 삭제하지 않고 보존하는 방식을 택했습니다. 기본 확인 순서는 &lt;code&gt;원본 로드 → 일부 편집 → 저장 → 다시 로드 → 참조 비교&lt;/code&gt;입니다. Waypoint와 program tree, move 명령 사이의 참조가 남아 있는지를 별도로 검사하도록 설계했습니다.&lt;/p&gt;</description></item><item><title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title><link>https://heungjaelee.github.io/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-digital-twin/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
+&lt;p&gt;로봇 동작, Vision 판정, PLC 시퀀스와 MES 기록을 따로 시연하면 개별 기능은 보여 줄 수 있어도 제품 한 개가 어떤 공정과 검사를 거쳤는지 다시 찾기 어렵습니다.&lt;/p&gt;
+&lt;p&gt;이 교육 팀 프로젝트는 QR serial을 공통 key로 사용해 Indy7 협동로봇 조립 흐름, Edge Vision 판정, PLC·SCADA, MySQL/MES와 디지털 트윈 상태를 한 작업 흐름으로 연결한 PoC입니다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;공개 범위&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트 형태&lt;/td&gt;
+&lt;td&gt;교육 과정의 팀 PoC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;내 역할&lt;/td&gt;
+&lt;td&gt;Robot·Digital Twin 영역&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀 구현&lt;/td&gt;
+&lt;td&gt;QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;사용 기술&lt;/td&gt;
+&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;현재 상태&lt;/td&gt;
+&lt;td&gt;교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.&lt;/p&gt;</description></item></channel></rss>

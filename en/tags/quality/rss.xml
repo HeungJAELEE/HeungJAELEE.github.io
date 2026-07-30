@@ -1,34 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Quality on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/quality/</link>
-    <description>Recent content in Quality on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/quality/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title>
-      <link>https://HeungJAELEE.github.io/en/posts/welding-vision-ai/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/welding-vision-ai/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;Public material for the dataset, model-selection, and evaluation record.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub project index&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;https://www.canva.com/design/DAHGaCTGRFs/0GKq7g9dsbb_ANIeRv8dnQ/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;AI Welding Vision report&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;canva.com/design/DAHGaCTGRFs&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;A dedicated public source repository has not been separated for this model. The GitHub profile is an index of other public work and is not labeled as the welding-model source.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-welding-vision-ai&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Delivery Record&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-welding-vision-ai&#34;&gt;Project definition and execution plan&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Quality on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/quality/</link><description>Recent content in Quality on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/quality/rss.xml" rel="self" type="application/rss+xml"/><item><title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title><link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid><description>&lt;h2 id="problem-accuracy-alone-cannot-define-a-welding-defect-operating-threshold"&gt;Problem: accuracy alone cannot define a welding-defect operating threshold&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Verified scope&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem&lt;/td&gt;
+&lt;td&gt;Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Role&lt;/td&gt;
+&lt;td&gt;I was responsible for &lt;strong&gt;evaluation-metric design and validation&lt;/strong&gt;, including F1, recall, false-positive behavior, and threshold interpretation.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Action&lt;/td&gt;
+&lt;td&gt;The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Result&lt;/td&gt;
+&lt;td&gt;On the recorded evaluation set and selected threshold, the report lists &lt;strong&gt;F1 93.10%, Recall 100%, and Precision 87.07%&lt;/strong&gt;. These values do not establish production-wide generalization.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Evidence&lt;/td&gt;
+&lt;td&gt;The public report&amp;rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="resume-bullets"&gt;Resume bullets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.&lt;/li&gt;
+&lt;li&gt;Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.&lt;/li&gt;
+&lt;li&gt;Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="interview-star"&gt;Interview STAR&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="why-this-project-was-structured-this-way"&gt;Why this project was structured this way&lt;/h2&gt;
+&lt;p&gt;Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:&lt;/p&gt;</description></item></channel></rss>

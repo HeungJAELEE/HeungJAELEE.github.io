@@ -1,60 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Reproducibility on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</title>
-    <link>https://HeungJAELEE.github.io/en/tags/reproducibility/</link>
-    <description>Recent content in Reproducibility on Jaeheung Lee | Battery Manufacturing &amp; DX Portfolio</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://HeungJAELEE.github.io/en/tags/reproducibility/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title>
-      <link>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</link>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://HeungJAELEE.github.io/en/posts/deep-learning-modeling/</guid>
-      <description>&lt;section class=&#34;project-resources&#34; aria-labelledby=&#34;project-resources-title&#34;&gt;
-  &lt;h2 id=&#34;project-resources-title&#34;&gt;Project resources&lt;/h2&gt;
-  &lt;p class=&#34;project-resources__lead&#34;&gt;The public learning repository and its evidence status.&lt;/p&gt;
-  &lt;ul class=&#34;project-resources__links&#34;&gt;
-    &lt;li&gt;&lt;a href=&#34;https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;span class=&#34;project-resources__label&#34;&gt;GitHub repository&lt;/span&gt;&lt;span class=&#34;project-resources__url&#34;&gt;github.com/HeungJAELEE/Deep_Learning_Text_book&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p class=&#34;project-resources__note&#34;&gt;No separate public report is registered. This article remains a learning and experiment-design document and does not add unsupported implementation or model-performance claims.&lt;/p&gt;
-&lt;/section&gt;
-&lt;section class=&#34;project-blueprint&#34; aria-labelledby=&#34;project-blueprint-deep-learning-modeling&#34;&gt;
-  &lt;header class=&#34;project-blueprint__header&#34;&gt;
-    &lt;div class=&#34;project-blueprint__heading&#34;&gt;
-      &lt;p class=&#34;project-blueprint__eyebrow&#34;&gt;Public PDD · Learning Backlog&lt;/p&gt;
-      &lt;h2 id=&#34;project-blueprint-deep-learning-modeling&#34;&gt;Project definition and execution plan&lt;/h2&gt;
-      &lt;p class=&#34;project-blueprint__summary&#34;&gt;The plan avoids overstating the current repository and turns reproducibility, manufacturing metrics, and implementation gaps into a visible learning backlog.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-blueprint__status project-blueprint__status--planned&#34;&gt;Design baseline public · implementation validation pending&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-blueprint__meta&#34;&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Project type&lt;/dt&gt;
-        &lt;dd&gt;Personal learning and experiment design&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;My scope&lt;/dt&gt;
-        &lt;dd&gt;Modeling standards, experiment structure, validation plan&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Primary audience&lt;/dt&gt;
-        &lt;dd&gt;AI learners and manufacturing data analysts&lt;/dd&gt;
-      &lt;/div&gt;
-      &lt;div&gt;
-        &lt;dt&gt;Evidence level&lt;/dt&gt;
-        &lt;dd&gt;Limited public repository · design-led&lt;/dd&gt;
-      &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-blueprint__definition&#34;&gt;
-      &lt;article&gt;
-        &lt;h3&gt;Problem&lt;/h3&gt;
-        &lt;p&gt;A notebook that runs once does not prove leakage control, preprocessing consistency, reproducibility, baseline improvement, or the cost of manufacturing errors.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reproducibility on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/reproducibility/</link><description>Recent content in Reproducibility on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/reproducibility/rss.xml" rel="self" type="application/rss+xml"/><item><title>Fail-Closed AI Authority &amp; Evidence Plane: Visibility Is Not Execution Authority</title><link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid><description>&lt;h2 id="problem-test-success-is-not-execution-authority"&gt;Problem: test success is not execution authority&lt;/h2&gt;
+&lt;p&gt;These statements describe different facts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a model read data;&lt;/li&gt;
+&lt;li&gt;a model recommended an action;&lt;/li&gt;
+&lt;li&gt;local code passed tests;&lt;/li&gt;
+&lt;li&gt;an authorized person approved a bounded action;&lt;/li&gt;
+&lt;li&gt;the same artifact ran in the operating environment;&lt;/li&gt;
+&lt;li&gt;an external effect occurred and was read back.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Without that separation, “test PASS” can become “ready to deploy,” recommendation can become order approval, and local state can be mistaken for external effect.&lt;/p&gt;</description></item><item><title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title><link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid><description>&lt;h2 id="problem-executable-training-code-is-not-yet-a-reproducible-experiment"&gt;Problem: executable training code is not yet a reproducible experiment&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The public repository currently exposes only limited implementation detail. This case study is therefore a design document based on the repository&amp;rsquo;s stated scope of preprocessing, training, evaluation, and reproducibility management. It does not claim a particular dataset size, model accuracy, completed training run, or production deployment. The directory structure and validation items below are target design criteria, not a list of finished features.&lt;/p&gt;</description></item></channel></rss>
