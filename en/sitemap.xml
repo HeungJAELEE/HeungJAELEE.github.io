@@ -97,11 +97,4 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://heungjaelee.github.io/en/posts/robot-json-omniverse/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/robot-json-omniverse/" />
   </url>
-  <url>
-    <loc>https://heungjaelee.github.io/en/posts/resumopenai/</loc>
-    <lastmod>2026-07-31T00:00:00&#43;09:00</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://heungjaelee.github.io/posts/resumopenai/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://heungjaelee.github.io/en/posts/resumopenai/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/resumopenai/" />
-  </url>
 </urlset>

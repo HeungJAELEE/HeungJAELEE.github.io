@@ -12,7 +12,7 @@
       <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
       
       <guid>https://heungjaelee.github.io/posts/ontology-construction/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-ontology-construction&#34; data-project-id=&#34;ontology-construction&#34;&gt;
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ontology-construction&#34; data-project-id=&#34;ontology-construction&#34;&gt;
   &lt;header class=&#34;project-case-summary__header&#34;&gt;
     &lt;div&gt;
       &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
@@ -56,61 +56,6 @@
     &lt;section aria-labelledby=&#34;project-case-team-ontology-construction&#34;&gt;
       &lt;h3 id=&#34;project-case-team-ontology-construction&#34;&gt;팀 경계&lt;/h3&gt;
       &lt;p&gt;개인 공개 프로젝트이며, 회사 내부 지식이나 고객 문서를 학습 데이터로 사용했다고 주장하지 않습니다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title>
-      <link>https://heungjaelee.github.io/posts/resumopenai/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/posts/resumopenai/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-resumopenai&#34; data-project-id=&#34;resumopenai&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-resumopenai&#34;&gt;지원 직무에 맞춰 문장을 바꾸더라도 경력 사실까지 바뀌면 안 됩니다. 사실 원장과 출력 문구를 나누고 사람이 마지막에 확인하는 흐름을 만들었습니다.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;PoC · 공개 저장소 없음&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;기간·기준&lt;/dt&gt;
-      &lt;dd&gt;개인 PoC · 공개 정리 2026.07&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
-      &lt;dd&gt;경력 근거·직무 문구 분리&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-resumopenai&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-resumopenai&#34;&gt;해결하려던 문제&lt;/h3&gt;
-      &lt;p&gt;이력서 문구를 매번 다시 쓰면 기간·수치·역할이 달라지거나, 필요 이상의 개인정보가 모델 입력과 출력에 섞일 수 있습니다.&lt;/p&gt;
-    &lt;/section&gt;
-
-    &lt;section aria-labelledby=&#34;project-case-role-resumopenai&#34;&gt;
-      &lt;h3 id=&#34;project-case-role-resumopenai&#34;&gt;내가 맡은 범위&lt;/h3&gt;
-      &lt;ul&gt;&lt;li&gt;경력 사실과 직무별 표현을 분리하고, 개인정보 최소화와 사람의 최종 확인을 포함한 Flask·React 기반 처리 흐름을 설계했습니다.&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/section&gt;
-
-    &lt;section aria-labelledby=&#34;project-case-result-resumopenai&#34;&gt;
-      &lt;h3 id=&#34;project-case-result-resumopenai&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
-      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
-              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
-              &lt;strong&gt;경력 사실→직무 요구→문장 후보→사람 확인으로 이어지는 PoC 흐름&lt;/strong&gt;
-            &lt;/li&gt;&lt;li&gt;
-              &lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
-              &lt;strong&gt;개인 PoC·공개 저장소와 운영 서비스 없음&lt;/strong&gt;
-            &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/section&gt;
-
-    &lt;section aria-labelledby=&#34;project-case-team-resumopenai&#34;&gt;
-      &lt;h3 id=&#34;project-case-team-resumopenai&#34;&gt;팀 경계&lt;/h3&gt;
-      &lt;p&gt;개인 PoC이며 AI는 문장 후보를 만들 뿐, 사실 확인과 제출 결정은 사람이 맡습니다.&lt;/p&gt;</description>
     </item>
     
     
