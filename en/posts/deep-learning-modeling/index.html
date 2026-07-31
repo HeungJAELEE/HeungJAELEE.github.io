@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -55,10 +55,10 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data">
   <meta name="twitter:description" content="30-second summary
-For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names. Learning workflow public · Before manufacturing validation Period / basis Personal learning project · Current public-repository scope Project form Reproducible modeling study repository Problem to solve When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.">
+For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.Learning workflow public · Before manufacturing validationPeriod / basisPersonal learning project · Current public-repository scopeProject formReproducible modeling study repositoryProblem to solveWhen preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.">
 
-  <meta name="description" content=" 30-second summary
-For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names. Learning workflow public · Before manufacturing validation Period / basis Personal learning project · Current public-repository scope Project form Reproducible modeling study repository Problem to solve When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.
+  <meta name="description" content="30-second summary
+For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.Learning workflow public · Before manufacturing validationPeriod / basisPersonal learning project · Current public-repository scopeProject formReproducible modeling study repositoryProblem to solveWhen preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.
 ">
 
 
@@ -165,13 +165,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
@@ -372,7 +372,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-13">Jul 13, 2026</time>
              · 
-            7 minutes
+            8 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -459,8 +459,28 @@ document.documentElement.setAttribute('data-theme', theme)
 <p>A single notebook is useful for fast exploration, but hidden state and cell order can make a result fragile. Separating preprocessing, training, evaluation, and run records makes it possible to trace which change affected the outcome.</p>
 <p>MLOps in this case does not mean that a deployment platform has already been built. It means connecting the data identifier, split rule, configuration, code, runtime environment, and evaluation output as one experiment record.</p>
 <h2 id="my-actual-role">My actual role</h2>
-<p>As a personal learning and practical-validation project, I documented a modeling standard that connects problem definition, data splitting, preprocessing, training, evaluation, and reproducibility. The focus is to establish a simple baseline, compare candidates on the same split and evaluation functions, and read metrics together with error cases.</p>
-<p>Because the current public material is limited, this case is a design document rather than a list of completed features. It does not claim a specific dataset size, model accuracy, completed training run, or production deployment.</p>
+<p>As a personal learning project, I organized preprocessing, model architecture, evaluation, and system design into topic-based documents, then connected them to a PyTorch training template and a manufacturing-defect example. The repository aims for a path from data splitting and preprocessing through training, evaluation, and reproducibility, but the current public code implements only part of that path as a learning scaffold.</p>
+<p>It therefore does not claim a specific dataset size, model accuracy, reproduced training result, or production deployment. Model, industry-case, and performance statements in the study documents are kept separate from repository achievements unless a corresponding run is publicly evidenced.</p>
+<h2 id="how-to-read-the-repository-in-three-minutes">How to read the repository in three minutes</h2>
+<p>When checked on July 31, 2026, the public <code>master</code> branch contained 346 Markdown files and three Python files, with no Jupyter notebooks, result images, or versioned dependency manifest. No separate public web app was visible. The visitor-facing outputs are Markdown tables, Mermaid diagrams, pseudocode, and the three Python sources rather than application screens.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener noreferrer"><img src="/images/projects/deep-learning-modeling/github-repository-live-2026-07-31.png" alt="Public Deep Learning Text Book GitHub master branch showing topic-based study folders" loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>Actual public surface: a repository arranged as a learning path</strong><p>The preprocessing, model, evaluation, system-architecture, integrated-project, and case-study folders form the reading order. This visible structure is the project&#39;s current public output.</p><p class="project-screen__meta"><span>Public GitHub repository, master branch</span><span aria-hidden="true">·</span><span>31 Jul 2026</span></p></figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>README.md                              Overall learning roadmap
+</span></span><span style="display:flex;"><span>01_Data_Preprocessing/                 Preprocessing and MLOps topic notes
+</span></span><span style="display:flex;"><span>02_Deep_Learning_Models/               Overview and deep dives for 16 models
+</span></span><span style="display:flex;"><span>03_Model_Evaluation/                   Classification, vision, and system evaluation
+</span></span><span style="display:flex;"><span>04_System_Architecture/                Five-step learning flow and PyTorch examples
+</span></span><span style="display:flex;"><span>  03_Starter_Template.py               Single-file MNIST train/test example
+</span></span><span style="display:flex;"><span>  Case_Study/Manufacturing-Defect/
+</span></span><span style="display:flex;"><span>    data_generator.py                  Synthetic sensors and noise images
+</span></span><span style="display:flex;"><span>    integrated_prototype.py            Preprocessing, one-epoch training, MLflow logging
+</span></span><span style="display:flex;"><span>07_Case_Studies/                       Explanatory industry cases
+</span></span><span style="display:flex;"><span>Job_guide/                             Role-based application guides
+</span></span></code></pre></div><p>Start with the <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/README.md" target="_blank" rel="noopener">README roadmap</a>, then read the <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/04_System_Architecture/00_A_to_Z_Pipeline.md" target="_blank" rel="noopener">five-step training flow</a> and <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/03_Model_Evaluation/00_Deep_Learning_Evaluation_Standard.md" target="_blank" rel="noopener">evaluation index</a>. The <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/04_System_Architecture/03_Starter_Template.py" target="_blank" rel="noopener">MNIST template</a> and <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master/04_System_Architecture/Case_Study/Manufacturing-Defect" target="_blank" rel="noopener">manufacturing example</a> then show the boundary between explanation and source code.</p>
+<p>The public source implements an MNIST load–MLP train–accuracy output example and a synthetic sensor/image generator followed by imputation, scaling, one epoch of multimodal classification training, and an MLflow logging call. The manufacturing example does not implement a train/validation/test split, independent evaluation, a confusion matrix, or saved run evidence. Its evaluation and reproducibility documents are directions for further implementation, not proof of a completed experiment pipeline or field performance.</p>
 <h2 id="data-flow">Data flow</h2>
 <p><code>Preserve and split source data → preprocessing → configuration-based training → fixed evaluation and error analysis → reproducibility record linking data, code, environment, and results</code></p>
 <p>Preprocessing parameters are fitted only on training data and then applied to validation and test data. Final evaluation uses a fixed test set that was not used for model selection, and retains per-class metrics and representative errors rather than only an average score.</p>
@@ -475,8 +495,8 @@ document.documentElement.setAttribute('data-theme', theme)
 </ol>
 <p>This sequence is a target standard for developing the repository; it is not a claim that every step is implemented and publicly verified.</p>
 <h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
-<p>The public repository currently supports only the stated direction of preprocessing, training, evaluation, and reproducibility management. It does not expose enough reproducible commands, dependency versions, dataset detail, or validated model results to support a quantitative achievement claim.</p>
-<p>The present portfolio output is therefore an experiment-design standard, not a completed model. It also does not claim field validation on manufacturing data.</p>
+<p>The public repository exposes topic-based learning documents, a PyTorch MNIST template, a synthetic manufacturing-data generator, and a manufacturing-defect training example. Its example README provides install and run commands, but there is no version-pinned dependency manifest or saved run log proving that another environment reproduces the same result.</p>
+<p>The present portfolio output is therefore a navigable study repository and code scaffold, not a completed model or public application. It does not claim application to real manufacturing data, model performance, or field quality improvement.</p>
 <h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
 <p>Manufacturing use requires separate validation: independent equipment-, Lot-, and time-based evaluation; condition-based slices for lighting or sensor variation; inference latency; out-of-distribution and failure behavior; and drift monitoring. Data rights, model version, decision threshold, approval, and rollback also need operating controls.</p>
 <p>Under those conditions, a company could review where a model is trustworthy instead of relying on one score. Recording unsuccessful experiments in the same format can reduce repeated work and sharpen the next hypothesis. Any quality improvement or engineering-effort reduction still requires separate field evidence.</p>
@@ -733,6 +753,7 @@ document.documentElement.setAttribute('data-theme', theme)
     <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
     <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
     <li><a href="#my-actual-role">My actual role</a></li>
+    <li><a href="#how-to-read-the-repository-in-three-minutes">How to read the repository in three minutes</a></li>
     <li><a href="#data-flow">Data flow</a></li>
     <li><a href="#implementation-sequence">Implementation sequence</a></li>
     <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>

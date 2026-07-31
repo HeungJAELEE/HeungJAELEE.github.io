@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -162,13 +162,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-31">Jul 31, 2026</time>
              · 
-            7 minutes
+            9 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -457,12 +457,78 @@ document.documentElement.setAttribute('data-theme', theme)
 <h2 id="representative-user-scene">Representative user scene</h2>
 <p>A learner selects a CBT question, chooses an answer, and submits it. Before submission, the learner receives no answer, explanation, or option-level feedback. After submission, the learner sees the answer and explanation together with the linked source and theory evidence. A wrong option becomes a path back through that evidence for mistake-based learning.</p>
 <p>Written-response and practical material follow the same evidence rules without being forced into one answer format. A question or visual without sufficient publication support stays out of the learning path with its deferral reason preserved.</p>
+<h2 id="what-a-first-time-visitor-sees">What a first-time visitor sees</h2>
+<p>The top navigation mirrors the learning sequence. A learner starts with <code>Theory</code>, moves to the <code>Written mock exam</code>, practices constructed answers in the written-response areas, and uses <code>Practical information</code> to review pneumatic, hydraulic, welding, preparation, and test-center differences. Search is the entry point for returning to a specific concept or question.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://seolbi-learning-platform.pages.dev/written/mock" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ai-seolbi-learning-platform/written-mock-live-2026-07-31.png" alt="The Maintenance Engineer Exam Masterbook written mock start screen, with full mock and random-practice choices side by side." loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>Written mock start screen</strong><p>The screen offers an 80-question four-subject mock, random practice, and custom configuration. Answers and explanations are not sent before submission.</p><p class="project-screen__meta"><span>Cloudflare Pages live surface</span><span aria-hidden="true">·</span><span>Captured 2026-07-31</span></p></figcaption>
+</figure>
+
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://seolbi-learning-platform.pages.dev/practical/info" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ai-seolbi-learning-platform/practical-info-live-2026-07-31.png" alt="The practical information screen showing the exam structure, written and practical scoring, and pass criteria." loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>Practical information screen</strong><p>The page explains the exam and pass criteria first, then separates pneumatic, hydraulic, welding, preparation, and test-center guidance into tabs.</p><p class="project-screen__meta"><span>Cloudflare Pages live surface</span><span aria-hidden="true">·</span><span>Captured 2026-07-31</span></p></figcaption>
+</figure>
+
+<table>
+  <thead>
+      <tr>
+          <th>Surface</th>
+          <th>What a newcomer does</th>
+          <th>Rule behind the surface</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Theory and search</td>
+          <td>Find a concept and its connected evidence</td>
+          <td>Only approved lessons and sources are visible</td>
+      </tr>
+      <tr>
+          <td>Written mock</td>
+          <td>Choose a full, random, or custom session</td>
+          <td>No duplicate question in a session; no answer before submission</td>
+      </tr>
+      <tr>
+          <td>Written-response study and mock</td>
+          <td>Practice keywords and answer order</td>
+          <td>Constructed-answer structure stays separate from multiple choice</td>
+      </tr>
+      <tr>
+          <td>Practical information</td>
+          <td>Review pneumatic, hydraulic, welding, preparation, and center differences</td>
+          <td>Official public tasks and rights-cleared material take priority</td>
+      </tr>
+      <tr>
+          <td>Review</td>
+          <td>Revisit the wrong choice and linked theory</td>
+          <td>Answers, explanations, and option feedback appear only after submission</td>
+      </tr>
+  </tbody>
+</table>
 <h2 id="what-the-tool-doesand-does-not-do">What the tool does—and does not do</h2>
 <p>The tool connects question selection, submission, evidence review, and mistake learning. Each question carries a stable ID, assessment type, answer state, theory link, source, rights state, publication decision, and deferral reason. Publication eligibility means the answer, source, and rights have all been checked; it does not merely mean that content exists.</p>
 <p>The tool does not replace official exam material or guarantee a passing outcome. It does not publish an explanation merely because AI finds it plausible. Answer conflicts remain <code>held_answer_conflict</code>; missing visual evidence or unclear rights remain <code>held_asset_missing</code>.</p>
 <h2 id="data-ai-and-human-roles">Data, AI, and human roles</h2>
 <p>The data keeps evidence and review state beside the question. Question, theory, NCS evidence, answer state, rights, and publication status share a stable identity so later evidence can be added without erasing the history of uncertainty.</p>
 <p>AI assisted with classification, duplicate and semantic-mismatch candidates, explanation and option-feedback drafts, and regression-check ideas. A human reviewed original sources, actual answers, conflicts, image and drawing rights, publication decisions, and final deployment approval. AI plausibility is not publication evidence.</p>
+<h2 id="screen-data-and-repository-structure">Screen, data, and repository structure</h2>
+<p>The learner surface is only the last layer. Source material does not flow straight into a page. It is structured, assigned a publication state, and transformed into a learner-safe response. The submission API can verify an answer, but the pre-submit response excludes the answer, explanation, and option feedback.</p>
+<ol>
+<li>Import and generation steps turn source material and review notes into stable IDs and structured records.</li>
+<li>Content repositories read each question together with theory, source, rights, and review state.</li>
+<li>A publication filter separates published, in-review, and held material.</li>
+<li>App Router pages and APIs receive only the public DTO needed for theory, practice, submission, and review.</li>
+<li>Unit, integration, and browser tests check the data contract, answer leakage, and representative learner flows.</li>
+</ol>
+<p>There is no separate public Git repository. The following is a disclosure-safe responsibility map; it does not expose private source files or credentials.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>src/app/           pages, learner routes, and submission APIs
+</span></span><span style="display:flex;"><span>src/components/    question cards, tabs, progress, and review UI
+</span></span><span style="display:flex;"><span>src/lib/content/   question/theory repositories and publication decisions
+</span></span><span style="display:flex;"><span>src/lib/security/  pre-submit answer-leak protection
+</span></span><span style="display:flex;"><span>scripts/           source import, generation, verification, and packaging
+</span></span><span style="display:flex;"><span>tests/             unit, integration, and browser user flows
+</span></span><span style="display:flex;"><span>supabase/          account, review-role, and data policies
+</span></span></code></pre></div><p>A repository reader should start with <code>src/app</code> to see entry routes, move to <code>src/lib/content</code> to understand what reaches the screen, and then inspect <code>src/lib/security</code> and <code>tests</code> for the publication and no-answer-leak contracts.</p>
 <h2 id="build-sequence">Build sequence</h2>
 <ol>
 <li>Inventory source material and reviewed notes, then assign stable IDs.</li>
@@ -791,8 +857,10 @@ document.documentElement.setAttribute('data-theme', theme)
   <ul>
     <li><a href="#problem">Problem</a></li>
     <li><a href="#representative-user-scene">Representative user scene</a></li>
+    <li><a href="#what-a-first-time-visitor-sees">What a first-time visitor sees</a></li>
     <li><a href="#what-the-tool-doesand-does-not-do">What the tool does—and does not do</a></li>
     <li><a href="#data-ai-and-human-roles">Data, AI, and human roles</a></li>
+    <li><a href="#screen-data-and-repository-structure">Screen, data, and repository structure</a></li>
     <li><a href="#build-sequence">Build sequence</a></li>
     <li><a href="#current-result">Current result</a></li>
     <li><a href="#company-value-and-limitations">Company value and limitations</a></li>

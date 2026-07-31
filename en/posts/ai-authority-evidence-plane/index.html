@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -162,13 +162,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-31">Jul 31, 2026</time>
              · 
-            9 minutes
+            11 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -469,6 +469,14 @@ document.documentElement.setAttribute('data-theme', theme)
 <li>If the task would change an external system, check the human approval scope, allow or stop the action, and read back the actual result after execution.</li>
 </ol>
 <p>This is a generalized public description of the implemented direction. It excludes company documents, equipment addresses, accounts, and private operating rules.</p>
+<h2 id="a-system-map-for-first-time-readers">A system map for first-time readers</h2>
+<p>This platform is not a single chatbot screen. It has an entry point for the request, an ontology and wiki that supply relevant knowledge, a composition stage that assembles a task-specific agent, a bounded execution stage, and a final evidence and result check.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><img src="/images/projects/ai-authority-evidence-plane/architecture-en.svg" alt="Five-stage platform from request through ontology and LLM wiki, agent composition, bounded execution, and evidence read-back" loading="lazy" decoding="async"></div>
+  <figcaption><strong>Five stages of the AI agent platform</strong><p>The ontology and LLM wiki supply the agent&#39;s knowledge and operating rules. Authority and evidence checks remain separate before and after execution. Because there is no public operating UI at this stage, this diagram shows the relationship among the locally validated components.</p><p class="project-screen__meta"><span>Generalized from the locally validated foundation</span><span aria-hidden="true">·</span><span>31 Jul 2026</span></p></figcaption>
+</figure>
+
+<p>A first-time reader can follow the diagram from left to right. The first three stages decide <strong>what agent should be composed</strong>. The last two decide <strong>what that agent may actually do and whether the observed result matches the request</strong>. Answer quality and permission to change an external system therefore remain separate concerns.</p>
 <h2 id="components-and-responsibilities">Components and responsibilities</h2>
 <table>
   <thead>
@@ -501,6 +509,19 @@ document.documentElement.setAttribute('data-theme', theme)
   </tbody>
 </table>
 <p>This separation means a knowledge change can be made in the ontology or wiki instead of editing every agent prompt. The runner records which knowledge was used, while the safety layer keeps analytical success separate from execution authority.</p>
+<h2 id="source-structure-and-reading-order">Source structure and reading order</h2>
+<p>The actual repository is not public. The names below are generalized responsibility units for explaining the codebase; they are not copies of private directory names.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>knowledge/
+</span></span><span style="display:flex;"><span>├── ontology/     relationships among equipment, process, documents, and roles
+</span></span><span style="display:flex;"><span>└── wiki/         task sequences, tool guidance, and cautions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>schemas/          agent execution and evidence contracts
+</span></span><span style="display:flex;"><span>composer/         selects knowledge and assembles an agent definition
+</span></span><span style="display:flex;"><span>runner/           invokes permitted tools and records the run
+</span></span><span style="display:flex;"><span>authority/        checks target, human approval, and external-effect scope
+</span></span><span style="display:flex;"><span>evidence/         preserves sources, artifact identity, and observed results
+</span></span><span style="display:flex;"><span>tests/            exercises stop conditions, replay, and artifact consistency
+</span></span></code></pre></div><p>For a first code read, start with <code>knowledge/</code> to see what an agent can know. Continue through <code>schemas/</code> and <code>composer/</code> to see how that knowledge becomes an executable definition. Then read <code>runner/</code> and <code>authority/</code> for the action boundary, followed by <code>evidence/</code> and <code>tests/</code> for result verification.</p>
 <h2 id="data-ai-and-human-roles">Data, AI, and human roles</h2>
 <p>The ontology and wiki retain concepts, relationships, task guidance, sources, scope, and constraints. An agent run records the request, selected knowledge, tools, result, risk, and approval boundary separately. This makes it possible to inspect how an agent was composed and which material it used.</p>
 <p>AI assists with request classification, candidate knowledge retrieval, agent-definition drafts, test and counterexample creation, and result summaries. A person reviews the ontology and wiki, chooses the permitted tools and data scope, and approves any external change. A better answer does not transfer human authority to the agent.</p>
@@ -787,7 +808,9 @@ document.documentElement.setAttribute('data-theme', theme)
     <li><a href="#what-this-platform-is">What this platform is</a></li>
     <li><a href="#why-i-built-it">Why I built it</a></li>
     <li><a href="#representative-user-scene">Representative user scene</a></li>
+    <li><a href="#a-system-map-for-first-time-readers">A system map for first-time readers</a></li>
     <li><a href="#components-and-responsibilities">Components and responsibilities</a></li>
+    <li><a href="#source-structure-and-reading-order">Source structure and reading order</a></li>
     <li><a href="#data-ai-and-human-roles">Data, AI, and human roles</a></li>
     <li><a href="#implemented-and-verified-scope">Implemented and verified scope</a></li>
     <li><a href="#potential-company-use">Potential company use</a></li>

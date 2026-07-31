@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -46,7 +46,7 @@
 
 <meta property="og:title" content="Indy7 로봇·Omniverse 디지털 트윈 실습">
 <meta property="og:type" content="article">
-<meta property="og:description" content="로봇 프로그램 JSON 호환성과 물리 제어 책임을 분리해 설계한 PC-HMI·상태 이력·디지털 트윈 프로토타입">
+<meta property="og:description" content="Conty JSON 편집부터 로봇 명령·상태·이력·PLC 감시·읽기 전용 트윈까지, 실제 화면 순서와 제어 경계를 설명하는 Indy7 HMI 프로토타입">
 <meta property="og:url" content="https://heungjaelee.github.io/posts/robot-json-omniverse/">
 <meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
 <meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
@@ -54,9 +54,9 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Indy7 로봇·Omniverse 디지털 트윈 실습">
-  <meta name="twitter:description" content="로봇 프로그램 JSON 호환성과 물리 제어 책임을 분리해 설계한 PC-HMI·상태 이력·디지털 트윈 프로토타입">
+  <meta name="twitter:description" content="Conty JSON 편집부터 로봇 명령·상태·이력·PLC 감시·읽기 전용 트윈까지, 실제 화면 순서와 제어 경계를 설명하는 Indy7 HMI 프로토타입">
 
-  <meta name="description" content="로봇 프로그램 JSON 호환성과 물리 제어 책임을 분리해 설계한 PC-HMI·상태 이력·디지털 트윈 프로토타입">
+  <meta name="description" content="Conty JSON 편집부터 로봇 명령·상태·이력·PLC 감시·읽기 전용 트윈까지, 실제 화면 순서와 제어 경계를 설명하는 Indy7 HMI 프로토타입">
 
 
     
@@ -366,12 +366,12 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
           <h1>Indy7 로봇·Omniverse 디지털 트윈 실습</h1>
           
-            <p class="portfolio-article__lead">로봇 프로그램 JSON 호환성과 물리 제어 책임을 분리해 설계한 PC-HMI·상태 이력·디지털 트윈 프로토타입</p>
+            <p class="portfolio-article__lead">Conty JSON 편집부터 로봇 명령·상태·이력·PLC 감시·읽기 전용 트윈까지, 실제 화면 순서와 제어 경계를 설명하는 Indy7 HMI 프로토타입</p>
           
           <p class="portfolio-article__meta">
             <time datetime="2026-07-09">2026. 7. 9.</time>
              · 
-            6 
+            11 
              · 
             마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
           </p>
@@ -401,7 +401,7 @@ document.documentElement.setAttribute('data-theme', theme)
       <p class="project-case-summary__eyebrow">30초 요약</p>
       <h2 id="project-case-summary-robot-json-omniverse">로봇 명령, 현재 상태, 이력 저장과 디지털 트윈을 한 프로그램이 모두 책임지면 장애와 권한 경계가 모호해집니다. 각 책임을 나눠야 안전하게 확장할 수 있습니다.</h2>
     </div>
-    <span class="project-case-summary__status">공개 프로토타입 · 실로봇 E2E 전</span>
+    <span class="project-case-summary__status">실물 로봇 기본 동작 확인 · 전체 E2E 보강 중</span>
   </header>
 
   <dl class="project-case-summary__meta">
@@ -423,7 +423,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <section aria-labelledby="project-case-role-robot-json-omniverse">
       <h3 id="project-case-role-robot-json-omniverse">내가 맡은 범위</h3>
-      <ul><li>IndyDCP 소켓, MQTT 명령·상태, MySQL 이력, PLC Bridge와 읽기 전용 트윈의 인터페이스 책임을 나눴습니다.</li>
+      <ul><li>로봇 프로젝트의 요구사항과 통합 순서를 정하고, IndyDCP·MQTT·MySQL·PLC Bridge·디지털 트윈이 한 흐름으로 이어지도록 소수 핵심 인원과 진행을 주도했습니다.</li>
       </ul>
     </section>
 
@@ -431,17 +431,17 @@ document.documentElement.setAttribute('data-theme', theme)
       <h3 id="project-case-result-robot-json-omniverse">확인된 결과·현재 단계</h3>
       <ul class="project-case-summary__claims"><li>
               <span>확인된 산출물 · 개인 역할</span>
-              <strong>명령·상태·이력·PLC Bridge·읽기 전용 트윈의 책임 분리</strong>
+              <strong>로봇 프로젝트 요구사항·인터페이스 경계·통합 순서 정의와 진행 주도</strong>
             </li><li>
               <span>현재 단계 · 팀 결과</span>
-              <strong>공개 프로토타입·실로봇 통합/E2E 검증 전</strong>
+              <strong>실물 로봇 기본 동작을 포함한 공개 프로토타입 · 전체 E2E·장시간 검증 전</strong>
             </li>
       </ul>
     </section>
 
     <section aria-labelledby="project-case-team-robot-json-omniverse">
       <h3 id="project-case-team-robot-json-omniverse">팀 경계</h3>
-      <p>실물 로봇 통합과 전체 E2E 완료를 주장하지 않으며, 공개 프로토타입의 설계 범위만 제 역할로 설명합니다.</p>
+      <p>제가 주도한 대표 로봇 프로젝트입니다. 전체 비전은 팀과 함께 정리하고 실제 구현은 소수 핵심 인원이 나눠 맡았지만, 로봇 프로젝트의 목표·인터페이스·통합 순서와 단계별 진행은 제가 이끌었습니다.</p>
     </section>
   </div>
 
@@ -451,39 +451,321 @@ document.documentElement.setAttribute('data-theme', theme)
   </footer>
 </aside>
 
-<h2 id="왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</h2>
-<p>Indy7 작업 프로그램은 좌표만 저장하는 파일이 아닙니다. Tool·TCP, Waypoint, 이동 명령과 program tree가 서로 참조하기 때문에 PC 편집기가 모르는 필드를 지우거나 참조를 바꾸면 화면에서는 정상처럼 보여도 티치펜던트에서 프로그램이 깨질 수 있습니다.</p>
-<p>통신 책임도 분명해야 합니다. HMI, 이력 저장기, PLC 연계와 디지털 트윈이 각각 로봇 소켓을 열면 어느 서비스가 명령을 보냈는지, 어떤 상태가 최신인지 추적하기 어렵습니다. 물리 로봇의 제어 경로가 화면이나 저장 기능에 따라 늘어나는 것은 안전 경계를 흐립니다.</p>
-<h2 id="왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</h2>
-<p>PC-HMI는 계층형 JSON을 읽고 편집하는 데 유용하지만, 편의 기능보다 원본 호환성이 먼저입니다. 그래서 모르는 필드를 보존하고 <code>로드 → 일부 편집 → 저장 → 다시 로드 → 참조 비교</code>로 왕복 결과를 확인하는 구조를 잡았습니다.</p>
-<p>통신은 Robot Controller 한 곳이 IndyDCP 연결을 소유하고, 다른 기능은 명령 요청이나 상태 이벤트를 주고받도록 나눴습니다. 이 방식은 화면, 기록과 시각화가 각자 물리 제어 소켓을 차지하지 않게 합니다.</p>
-<h2 id="실제로-맡은-역할">실제로 맡은 역할</h2>
-<p>이 프로젝트에서 JSON 호환 계층, PC-HMI, Robot Controller 중심의 통신 경계, 작업·상태·오류 이력과 Twin 서비스의 책임을 설계하고 프로토타입으로 구성했습니다. 핵심은 기능을 한 프로그램에 모으는 것이 아니라 다음 책임을 분리하는 일이었습니다.</p>
-<ul>
-<li><strong>Command</strong>: HMI가 명령 ID를 포함한 요청을 보내고 Robot Controller만 IndyDCP 명령을 실행합니다.</li>
-<li><strong>State와 result</strong>: 로봇의 실시간 상태, 연결 상태, 오류와 명령 결과를 별도 이벤트로 배포합니다.</li>
-<li><strong>History</strong>: DB Worker는 작업·상태·오류 이력을 저장하지만 물리 명령을 소유하지 않습니다.</li>
-<li><strong>PLC Bridge</strong>: PLC와 HMI가 필요한 상태를 event 계약으로 교환하는 경계이며, 임의의 우회 제어 경로로 두지 않습니다.</li>
-<li><strong>Digital Twin</strong>: 상태를 관측하는 읽기 전용 소비자이며 제어 버튼과 물리 명령 권한을 갖지 않습니다.</li>
-</ul>
-<h2 id="데이터-흐름">데이터 흐름</h2>
-<p><code>PC-HMI 명령 요청 → Robot Controller의 단일 IndyDCP 연결 → 명령 결과·실시간 상태 이벤트 → DB Worker 이력 / PLC Bridge 상태 교환 / 읽기 전용 Twin 관측</code></p>
-<p>command, result, realtime state, connection과 error를 같은 메시지에 섞지 않았습니다. 명령 ID로 요청과 결과를 연결하면 누가 무엇을 요청했고 어떻게 끝났는지 추적할 수 있습니다.</p>
-<h2 id="구현-순서">구현 순서</h2>
+<h2 id="먼저-밝혀-둘-현재-단계">먼저 밝혀 둘 현재 단계</h2>
+<p>이 사례는 실물 Indy7 연동 시험을 포함해 개발한 <strong>교육·개발 프로토타입</strong>입니다. 작업 프로그램을 PC에서 읽고 편집하는 CustomTkinter HMI와 Robot Controller·MQTT·이력 저장·PLC 감시·웹 트윈을 분리했습니다. 공개 소스에서 확인되는 트윈은 브라우저용 읽기 전용 모니터입니다. NVIDIA Omniverse USD 어댑터는 후속 방향이며 완료된 연동이나 생산 배포로 설명하지 않습니다.</p>
+<p>로봇 프로그램은 좌표 목록만이 아닙니다. Tool·TCP, Waypoint, 이동 설정과 program tree가 서로 참조합니다. 편집기가 모르는 필드를 지우거나 참조를 바꾸면 화면에서는 정상처럼 보여도 티치펜던트에서 프로그램이 깨질 수 있습니다. 그래서 이 실습의 출발점은 화려한 3D 장면이 아니라 <code>로드 → 편집 → 저장 → 재로딩 → 참조 비교</code>입니다.</p>
+<h2 id="전체-팀-시스템과-실제-기술-스택">전체 팀 시스템과 실제 기술 스택</h2>
+<p>전체 애플리케이션은 Windows PC에서 HMI를 실행하고 Docker Compose가 통신·저장·모니터링 서비스를 나누는 구조입니다. 아래 구성은 프로젝트 전체를 설명하기 위한 팀/시스템 범위이며 모두를 개인 단독 구현으로 표시하지 않습니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>계층</th>
+          <th>확인된 제품·모델·기술</th>
+          <th>시스템에서 하는 일</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>물리 로봇</td>
+          <td>Neuromeka Indy7 협동로봇</td>
+          <td>작업 프로그램과 이동 명령의 실제 실행 대상</td>
+      </tr>
+      <tr>
+          <td>프로그램 형식</td>
+          <td>Conty/APK JSON</td>
+          <td><code>info</code>, <code>wpList</code>, <code>program</code>, <code>moveList</code>와 상호 참조를 보존</td>
+      </tr>
+      <tr>
+          <td>데스크톱 HMI</td>
+          <td>Python, CustomTkinter, Matplotlib 3D</td>
+          <td>JSON 편집·가상 Play·티칭·상태·프로그램 실행 화면</td>
+      </tr>
+      <tr>
+          <td>로봇 제어</td>
+          <td>IndyDCP over TCP</td>
+          <td>Robot Controller 또는 별도 direct 랩 모드에서 로봇과 통신</td>
+      </tr>
+      <tr>
+          <td>이벤트 통신</td>
+          <td>Mosquitto MQTT</td>
+          <td>command, accepted, result, realtime, connection, error와 PLC event 분리</td>
+      </tr>
+      <tr>
+          <td>이력</td>
+          <td>MySQL, 로컬 JSONL</td>
+          <td>작업·상태·오류·Dry Run 샘플과 이벤트 기록</td>
+      </tr>
+      <tr>
+          <td>PLC 연계</td>
+          <td>Mitsubishi PLC, MC Protocol 계열 <code>pymcprotocol</code> Type3E</td>
+          <td>PLC 신호를 읽고 edge event로 변환하는 감시 경계</td>
+      </tr>
+      <tr>
+          <td>현재 디지털 트윈</td>
+          <td>데스크톱 Matplotlib 3D, <code>aiohttp</code> WebSocket·Canvas Web Twin</td>
+          <td>로봇 관절·TCP·연결·최근 이벤트 시각화</td>
+      </tr>
+      <tr>
+          <td>선택 서비스</td>
+          <td>Vision YOLO module</td>
+          <td>별도 profile로 실행하는 감지 좌표 공급 모듈. 이 글의 JSON·트윈 핵심 검증 범위와 분리</td>
+      </tr>
+      <tr>
+          <td>실행 구성</td>
+          <td>Windows host HMI, Docker Compose backend</td>
+          <td>UI와 Robot Controller·Broker·DB·PLC·Web Twin 서비스 분리</td>
+      </tr>
+      <tr>
+          <td>Omniverse</td>
+          <td>후속 read-only USD adapter 방향</td>
+          <td>현재 저장소에서 완료 구현이 확인되지 않음</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Desktop HMI ──명령 요청──&gt; Mosquitto MQTT ──&gt; Robot Controller ──IndyDCP/TCP──&gt; Indy7
+</span></span><span style="display:flex;"><span>     ^                           │                    │                         │
+</span></span><span style="display:flex;"><span>     └──────── 상태·결과 ────────┴────────────────────┴─────────────────────────┘
+</span></span><span style="display:flex;"><span>                                 ├──&gt; DB Worker ──&gt; MySQL
+</span></span><span style="display:flex;"><span>Mitsubishi PLC ──&gt; PLC Bridge ───┤
+</span></span><span style="display:flex;"><span>Optional Vision YOLO ────────────┤
+</span></span><span style="display:flex;"><span>                                 ├──&gt; Web Twin (WebSocket/Canvas, 읽기 전용)
+</span></span><span style="display:flex;"><span>                                 └ - -&gt; Omniverse USD adapter (후속, 읽기 전용)
+</span></span></code></pre></div><h3 id="내가-주도한-로봇-디지털-트윈-프로젝트">내가 주도한 로봇 디지털 트윈 프로젝트</h3>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>공개적으로 설명하는 범위</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>대표 프로젝트 범위</strong></td>
+          <td>Indy7 로봇 연결, HMI 네 페이지, MQTT Broker, Robot Controller, MySQL DB Worker, PLC Bridge, Web Twin, 선택형 Vision service와 Docker 실행 구성을 포함한 전체 애플리케이션</td>
+      </tr>
+      <tr>
+          <td><strong>내가 주도한 내용</strong></td>
+          <td>로봇 프로젝트의 목표와 실행 범위를 정하고, Conty JSON 호환성, HMI·backend 인터페이스, IndyDCP·MQTT 명령/상태·MySQL 이력·PLC Bridge·읽기 전용 트윈 사이의 통합 기준을 세우며 단계별 구현과 검증 진행을 이끈 역할</td>
+      </tr>
+      <tr>
+          <td><strong>구현 방식</strong></td>
+          <td>전체 시스템의 비전은 팀과 함께 정리하고, 실제 구현은 소수 핵심 인원이 나눠 맡아 하나의 동작 흐름으로 통합</td>
+      </tr>
+      <tr>
+          <td><strong>완료로 주장하지 않는 것</strong></td>
+          <td>실물 로봇 전체 E2E 검증, 생산 배포, Omniverse 연동 완료</td>
+      </tr>
+  </tbody>
+</table>
+<p>이 사례는 내가 주도한 대표 로봇 프로젝트입니다. 전체 비전은 팀과 함께 정리했고 실제 구현은 소수 핵심 인원이 나눠 맡았지만, 로봇 프로젝트의 목표·인터페이스·통합 순서와 단계별 진행은 내가 이끌었습니다. 따라서 개별 로봇 기능만 떼어내지 않고, JSON 편집기가 어디서 명령으로 바뀌며 상태와 이력이 어디로 흐르는지까지 전체 시스템 성과로 설명합니다.</p>
+<h2 id="저장소-구조">저장소 구조</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/
+</span></span><span style="display:flex;"><span>├─ readme.md
+</span></span><span style="display:flex;"><span>├─ BEGINNER_RUN_GUIDE.md
+</span></span><span style="display:flex;"><span>├─ ROBOT_COMMUNICATION_FLOW.md
+</span></span><span style="display:flex;"><span>├─ frontend/
+</span></span><span style="display:flex;"><span>│  ├─ run_ui_only.py
+</span></span><span style="display:flex;"><span>│  ├─ presentation/ui/
+</span></span><span style="display:flex;"><span>│  │  ├─ main_window.py
+</span></span><span style="display:flex;"><span>│  │  ├─ robot_hmi/
+</span></span><span style="display:flex;"><span>│  │  ├─ digital_twin/
+</span></span><span style="display:flex;"><span>│  │  ├─ virtual_test/
+</span></span><span style="display:flex;"><span>│  │  └─ ai_teaching/
+</span></span><span style="display:flex;"><span>│  ├─ core/domains/
+</span></span><span style="display:flex;"><span>│  │  ├─ teaching_management/
+</span></span><span style="display:flex;"><span>│  │  ├─ robot/communication/
+</span></span><span style="display:flex;"><span>│  │  └─ robot/use_cases/
+</span></span><span style="display:flex;"><span>│  ├─ infrastructure/
+</span></span><span style="display:flex;"><span>│  │  ├─ repositories/
+</span></span><span style="display:flex;"><span>│  │  ├─ mqtt/
+</span></span><span style="display:flex;"><span>│  │  └─ robot_control/
+</span></span><span style="display:flex;"><span>│  └─ user_programs/
+</span></span><span style="display:flex;"><span>├─ backend/
+</span></span><span style="display:flex;"><span>│  ├─ docker-compose.yml
+</span></span><span style="display:flex;"><span>│  ├─ robot_controller/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ db_worker/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ plc_bridge/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ digital_twin/src/
+</span></span><span style="display:flex;"><span>│  │  ├─ main.py
+</span></span><span style="display:flex;"><span>│  │  └─ web/index.html
+</span></span><span style="display:flex;"><span>│  └─ vision_yolo/
+</span></span><span style="display:flex;"><span>├─ deployment/windows/
+</span></span><span style="display:flex;"><span>└─ docs/
+</span></span></code></pre></div><p><code>user_programs/</code>는 실행 중 사용자가 고른 JSON과 경로를 다루는 영역입니다. 공개 fixture나 원본 자산 저장소라고 가정하면 안 됩니다.</p>
+<h3 id="git에서-읽는-권장-순서">Git에서 읽는 권장 순서</h3>
 <ol>
-<li>Conty JSON에서 보존해야 할 미지 필드와 Waypoint·program tree·이동 명령 참조를 구분했습니다.</li>
-<li>계층형 JSON 탐색·편집 화면과 원본 보존 parser·serializer 경계를 구성했습니다.</li>
-<li>로봇이 없는 Offline UI에서 파일 왕복과 화면 흐름을 먼저 확인하도록 했습니다.</li>
-<li>Direct 단계에서 Robot Controller가 IndyDCP 연결을 단독 소유하도록 경계를 잡았습니다.</li>
-<li>Gateway 단계에서 명령, 결과, 상태, 연결과 오류 event를 분리하고 DB Worker, PLC Bridge와 Twin 소비자를 나눴습니다.</li>
-<li>Twin에는 제어 기능을 넣지 않고 읽기 전용 상태 화면으로 제한했습니다.</li>
+<li><code>readme.md</code>와 <code>BEGINNER_RUN_GUIDE.md</code>로 화면, 실행 진입점과 배포 의도를 파악합니다.</li>
+<li><code>ROBOT_COMMUNICATION_FLOW.md</code>로 명령·상태·DB·PLC·트윈의 소유권을 먼저 고정합니다.</li>
+<li><code>frontend/run_ui_only.py</code> → <code>frontend/presentation/ui/main_window.py</code> 순서로 앱이 어떤 페이지를 만드는지 확인합니다.</li>
+<li><code>frontend/presentation/ui/robot_hmi/robot_hmi_view.py</code>와 <code>frontend/infrastructure/repositories/teaching_repository_impl.py</code>를 함께 읽어 JSON 트리, 원본 보존과 실행 버튼의 차이를 확인합니다.</li>
+<li><code>frontend/core/domains/robot/communication/client_manager.py</code> → <code>frontend/core/domains/robot/use_cases/robot_control_usecase.py</code> → <code>backend/robot_controller/src/main.py</code> 순서로 direct/gateway 선택, 인터록과 실제 명령 큐를 추적합니다.</li>
+<li><code>backend/db_worker/src/main.py</code>, <code>backend/plc_bridge/src/main.py</code>, <code>backend/digital_twin/src/main.py</code>와 <code>web/index.html</code>을 읽어 관찰·이력 소비자가 물리 명령에서 분리됐는지 확인합니다.</li>
+<li>선택형 Vision 흐름이 필요할 때만 <code>backend/vision_yolo/</code>를 추가로 읽습니다.</li>
+<li>마지막에 <code>backend/docker-compose.yml</code>과 배포 문서를 봅니다. 환경별 설정 예시는 아키텍처 계약이 아니며, 공개·운영 전에 민감 설정과 비이식 경로를 별도로 점검해야 합니다.</li>
 </ol>
-<h2 id="확인된-결과와-현재-단계">확인된 결과와 현재 단계</h2>
-<p>현재 결과는 JSON 호환성, PC-HMI와 서비스 책임을 함께 다룬 설계·프로토타입입니다. “원격으로 로봇을 운영했다”거나 생산 환경에 배포했다고 주장하지 않습니다. Omniverse는 후속 adapter 방향이며 완료된 연동 결과가 아닙니다.</p>
-<p>연결된 저장소에는 내부 네트워크, 로컬 경로와 기본 설정 형태의 값이 남아 있다는 진단이 있어 외부 링크를 보류하고 있습니다. 여러 Indy7 firmware의 JSON 왕복, 실제 로봇을 포함한 장시간 재접속과 중복 명령 시험도 남아 있습니다.</p>
-<h2 id="배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</h2>
-<p>실제 연결 전에는 firmware별 JSON 회귀시험, 명령 인증과 권한, idempotency, MQTT topic 권한, 타임아웃과 재접속, 감사 이력을 검증해야 합니다. PLC Bridge와 Twin이 Robot Controller의 단일 제어 경계를 우회하지 않는지도 hardware-in-the-loop로 확인해야 합니다. 비상 정지와 안전 인터록은 이 애플리케이션이 아니라 검증된 로봇·PLC 안전 회로의 책임으로 유지합니다.</p>
-<p>이 조건이 갖춰지면 회사는 작업 프로그램을 편집할 때 참조 손상 위험을 줄이고, 명령·상태·오류 이력을 한 흐름으로 추적할 수 있습니다. 읽기 전용 Twin은 현장 상태를 공유하되 새로운 제어 경로를 만들지 않는 시각화 수단이 될 수 있습니다. 실제 다운타임 감소나 작업 시간 절감은 별도 현장 측정이 필요합니다.</p>
+<h2 id="처음-실행한-사용자가-만나는-화면">처음 실행한 사용자가 만나는 화면</h2>
+<p>앱은 상단의 네 페이지 탭, 로봇 연결 버튼, 서비스 관리 패널과 하단 로그로 구성됩니다. 시작 화면은 <strong>Page 2 Setting / Teaching</strong>입니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>화면</th>
+          <th>사용자가 보는 것</th>
+          <th>주요 조작</th>
+          <th>물리 제어 가능성</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Page 2 · Setting / Teaching</td>
+          <td>로봇별 Conty JSON 트리, 명령 팔레트, 노드별 설정, Jog 패널</td>
+          <td>새 파일, 불러오기, 저장, 사본 내보내기, 노드 편집, 가상 Play, 실행·정지</td>
+          <td><code>가상 Play</code>는 화면 검토이지만 <code>실행</code>, Jog, TCP·DO 설정과 연결은 실제 명령 경로가 될 수 있음</td>
+      </tr>
+      <tr>
+          <td>Page 3 · Dry Run Recording</td>
+          <td>반복 횟수, 샘플 주기, 가상 DI 0~31, 로봇별 cycle·관절·좌표·토크, JSONL/MySQL 저장 설정</td>
+          <td>가상 DI 설정, 로봇별 기록 시작·정지, 저장 위치와 DB 연결 확인</td>
+          <td>이름과 달리 무동작 시뮬레이터가 아님. 연결된 로봇의 모션은 수행하고 DI/DO·툴 출력을 가상화해 진단 데이터를 수집</td>
+      </tr>
+      <tr>
+          <td>Page 1 · Auto / Monitor</td>
+          <td>3대 로봇·레일·공정의 3D 뷰, TCP·Joint·위험 가이드, 프로그램 상태</td>
+          <td>로봇 선택, Home, Zero, Error Reset, 프로그램 실행·정지, 궤적 초기화</td>
+          <td>데스크톱 HMI 안의 제어 가능 화면</td>
+      </tr>
+      <tr>
+          <td>Page 4 · AI Teaching</td>
+          <td>자연어 명령 초안을 만드는 실험 화면</td>
+          <td>초안 검토</td>
+          <td>핵심 검증 흐름 밖의 실험 기능이며 로봇 안전 검증 근거로 사용하지 않음</td>
+      </tr>
+      <tr>
+          <td>별도 Web Twin</td>
+          <td>로봇별 상태, 최근 이벤트, 공정 장면</td>
+          <td>상태 관찰</td>
+          <td>읽기 전용. Home·Zero·Stop 같은 제어 버튼 없음</td>
+      </tr>
+  </tbody>
+</table>
+<p>여기서 가장 중요한 구분은 <strong>Page 1 데스크톱 화면과 별도 Web Twin이 같은 것이 아니라는 점</strong>입니다. Page 1은 HMI 제어권 안에 있고, Web Twin과 향후 Omniverse 어댑터만 관찰 전용 경계에 둡니다.</p>
+<h2 id="사용자가-실제로-진행하는-순서">사용자가 실제로 진행하는 순서</h2>
+<ol>
+<li><strong>Offline에서 JSON부터 연다.</strong> Page 2에서 로봇 연결 없이 파일을 불러오고 <code>info</code>, <code>wpList</code>, <code>program</code>, <code>moveList</code>의 참조를 트리로 확인합니다.</li>
+<li><strong>노드를 편집하고 가상 Play로 순서를 본다.</strong> Pick·Place·Loop·DI/DO 같은 노드를 선택하면 우측 설정창과 Jog 패널이 바뀝니다. 이 단계에서는 저장 전 변경 범위와 프로그램 순서를 확인합니다.</li>
+<li><strong>저장 후 다시 읽는다.</strong> 알려진 필드만 새로 구성하고 나머지 원본 블록을 보존한 뒤, 저장 파일을 다시 로드해 노드 ID와 Waypoint·move 참조가 이어지는지 확인합니다.</li>
+<li><strong>연결 방식을 명시적으로 고른다.</strong> 운영형 <code>mqtt</code> 모드에서는 HMI가 명령 요청만 보내고 Robot Controller가 IndyDCP 소켓을 소유합니다. <code>direct</code>는 Docker 없이 랩에서 HMI가 직접 접속하는 별도 시험 경로이므로, 단일 Controller 구조와 같은 것으로 간주하지 않습니다.</li>
+<li><strong>실기 전 상태를 확인한다.</strong> 로봇 설정·통신 체크·서비스 관리에서 대상 로봇, MQTT, DB와 PLC 상태를 개별 확인합니다. 앱 창이 열렸다는 사실만으로 설비가 연결된 것은 아닙니다.</li>
+<li><strong>필요할 때만 실제 명령을 보낸다.</strong> Page 2의 실행·Jog 또는 Page 1의 빠른 제어는 쓰기 경로입니다. 화면의 E-STOP 버튼은 명령 버튼일 뿐, 검증된 하드웨어 비상정지 회로를 대신하지 않습니다.</li>
+<li><strong>Page 3에서 진단 기록을 남긴다.</strong> 이 모드는 가상 DI로 분기를 시험하고 DO·툴 출력을 생략하지만, 연결된 로봇의 이동과 상태 수집은 계속합니다. 따라서 안전 구역·저속·감독·정지 기준을 갖춘 실기 절차가 필요합니다.</li>
+<li><strong>Page 1과 Web Twin에서 상태를 본다.</strong> 작업자는 HMI에서 제어와 현재 상태를 함께 보고, 다른 관찰자는 Web Twin에서 동일한 <code>robot/realtime</code>과 최근 이벤트만 봅니다.</li>
+</ol>
+<h2 id="서비스별-책임">서비스별 책임</h2>
+<table>
+  <thead>
+      <tr>
+          <th>구성요소</th>
+          <th>맡는 일</th>
+          <th>맡지 않는 일</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PC-HMI</td>
+          <td>JSON 탐색·편집, 가상 Play, 사용자 명령 요청, 상태와 로그 표시</td>
+          <td>MQTT 운영 모드에서 별도 물리 소켓을 추가로 소유하지 않음</td>
+      </tr>
+      <tr>
+          <td>Robot Controller</td>
+          <td>로봇별 명령 큐, IndyDCP 연결, 명령 실행, 완료·오류·연결·실시간 상태 발행</td>
+          <td>이력 DB나 3D 화면 렌더링</td>
+      </tr>
+      <tr>
+          <td>Command / result 계약</td>
+          <td><code>command_id</code>로 요청, 수락, 결과와 오류를 연결</td>
+          <td>현재 코드만으로 중복 명령의 멱등 실행을 보장하지 않음</td>
+      </tr>
+      <tr>
+          <td>DB Worker</td>
+          <td>realtime, task, result, Dry Run과 PLC 이벤트를 MySQL 이력으로 저장</td>
+          <td>로봇을 다시 폴링하거나 명령 실행</td>
+      </tr>
+      <tr>
+          <td>PLC Bridge</td>
+          <td>PLC 신호의 초기값과 상승·하강 변화를 읽어 이벤트로 발행</td>
+          <td>PLC 쓰기나 로봇 명령. 메인 공정 제어권은 PLC에 유지</td>
+      </tr>
+      <tr>
+          <td>Web Twin</td>
+          <td>MQTT 상태·연결·결과·PLC 이벤트를 WebSocket으로 전달하고 브라우저에 표시</td>
+          <td>물리 로봇 명령</td>
+      </tr>
+      <tr>
+          <td>Omniverse adapter</td>
+          <td>향후 <code>robot/realtime</code>을 USD 관절·좌표에 매핑하는 읽기 전용 후보</td>
+          <td>현재 저장소에서 완료된 구현·검증 결과가 아님</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="쓰기-경로와-읽기-경로">쓰기 경로와 읽기 경로</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[쓰기 경로]
+</span></span><span style="display:flex;"><span>PC-HMI Page 1·2 ──command_id + 명령 요청──&gt; MQTT
+</span></span><span style="display:flex;"><span>    └──&gt; Robot Controller (IndyDCP 단일 소유자) ──물리 명령──&gt; Indy7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[읽기 경로]
+</span></span><span style="display:flex;"><span>Indy7 ──상태·결과──&gt; Robot Controller
+</span></span><span style="display:flex;"><span>    └──accepted / result / realtime / connection / error──&gt; MQTT
+</span></span><span style="display:flex;"><span>        ├──&gt; PC-HMI
+</span></span><span style="display:flex;"><span>        ├──&gt; DB Worker (이력 저장)
+</span></span><span style="display:flex;"><span>        └──&gt; Web Twin (읽기 전용)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PLC master ──신호 읽기──&gt; PLC Bridge (감시 전용) ──edge event──&gt; MQTT
+</span></span><span style="display:flex;"><span>MQTT - -후속 adapter- -&gt; Omniverse / USD (미완료·읽기 전용 목표)
+</span></span></code></pre></div><p><em>근거: 공개 저장소의 통신 문서와 HMI·Robot Controller·DB Worker·PLC Bridge·Web Twin 소스를 2026-07-31에 다시 확인해 일반화한 구조입니다. 화면이나 실행 결과를 새로 만들어 낸 그림이 아닙니다.</em></p>
+<p>command, accepted, result, realtime, connection과 error를 분리하면 “요청이 Broker에 들어갔다”와 “로봇 동작이 끝났다”를 구분할 수 있습니다. 다만 <code>command_id</code>가 있다는 사실만으로 멱등성이 생기지는 않습니다. 현재 Robot Controller에는 로봇별 큐와 완료 확인이 있지만, 재전송된 같은 명령을 영구 저장소 기준으로 제거하는 검증은 남아 있습니다.</p>
+<h2 id="확인된-출력과-남은-한계">확인된 출력과 남은 한계</h2>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>확인된 내용</th>
+          <th>해석</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>저장소 소스</td>
+          <td>4개 HMI 페이지, Robot Controller, DB Worker, PLC Bridge와 Web Twin 구현이 존재</td>
+          <td>구성요소와 책임 분리는 코드에서 확인됨</td>
+      </tr>
+      <tr>
+          <td>JSON 재검증 기록</td>
+          <td>공개된 한 시험 fixture에서 63개 program node와 고유 ID가 export 뒤 유지됨</td>
+          <td>해당 fixture의 결과이며 모든 firmware 호환 증명은 아님</td>
+      </tr>
+      <tr>
+          <td>분기·기록</td>
+          <td>공개 Dry Run 보고서에 가상 DI 조합별 분기, 관절·좌표·토크 샘플과 로컬·MySQL 기록 확인이 남아 있음</td>
+          <td>화면과 기록 경로의 실제 사용 근거</td>
+      </tr>
+      <tr>
+          <td>장애 관찰</td>
+          <td>같은 보고서에서 실제 이동 중 충돌 플래그와 장시간 반복 미완료가 기록됨</td>
+          <td>성공 사례만 선별하지 않았으며 생산 준비 완료가 아님</td>
+      </tr>
+      <tr>
+          <td>Web Twin</td>
+          <td>소스상 상태·연결·최근 이벤트를 읽고 표시하며 명령 발행 UI가 없음</td>
+          <td>읽기 전용 경계가 코드에서 확인됨</td>
+      </tr>
+      <tr>
+          <td>Omniverse</td>
+          <td>USD adapter, 관절 매핑과 좌표 보정 코드가 공개 저장소에서 확인되지 않음</td>
+          <td>완료된 Omniverse 통합으로 주장하지 않음</td>
+      </tr>
+  </tbody>
+</table>
+<p>이번 문서 작업에서는 로봇, Docker, MySQL, PLC나 Web Twin 런타임을 새로 실행하지 않았습니다. 확인 근거는 공개 저장소의 현재 소스와 날짜가 있는 공개 Dry Run 보고서입니다.</p>
+<p>남은 검증은 여러 Indy7 firmware의 JSON round-trip 회귀, 명령 인증·권한, 중복 명령 멱등성, Broker topic ACL, 장시간 재접속, DB 재전송과 중복 기록, 실제 설비 hardware-in-the-loop, 그리고 read-only Omniverse USD adapter입니다. 비상정지와 안전 인터록은 HMI 버튼이나 가상 위험 가이드가 아니라 검증된 로봇·PLC 안전 시스템의 책임으로 유지해야 합니다.</p>
 <h2 id="설계검증-기록">설계·검증 기록</h2>
 <details class="project-blueprint">
   <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
@@ -491,7 +773,7 @@ document.documentElement.setAttribute('data-theme', theme)
     <div class="project-blueprint__heading">
       <p class="project-blueprint__eyebrow">설계·검증 기록</p>
       <h2 id="project-blueprint-robot-json-omniverse">구성 이유와 작업 흐름</h2>
-      <p class="project-blueprint__summary">로봇 프로그램 호환성과 물리 제어 책임을 핵심 요구사항으로 두고 JSON 편집, 소켓 소유권, 이벤트·DB·디지털 트윈 Task를 분리했습니다.</p>
+      <p class="project-blueprint__summary">제가 주도한 대표 로봇 프로젝트입니다. 로봇 프로젝트의 요구사항·통합 순서·단계별 진행을 이끌며 JSON 편집, 물리 제어, 이벤트·DB·PLC·디지털 트윈을 하나의 동작 흐름으로 구성했습니다.</p>
     </div>
     <span class="project-blueprint__status project-blueprint__status--planned">프로토타입 · 공개 링크 보류</span>
   </header>
@@ -499,11 +781,11 @@ document.documentElement.setAttribute('data-theme', theme)
   <dl class="project-blueprint__meta">
       <div>
         <dt>프로젝트 유형</dt>
-        <dd>개인 Robot HMI 프로토타입</dd>
+        <dd>팀 프로젝트 · 로봇 파트 주도</dd>
       </div>
       <div>
         <dt>개인 역할</dt>
-        <dd>JSON 호환 계층, PC-HMI·backend 경계, 운영 문서</dd>
+        <dd>로봇 프로젝트 정의·인터페이스 경계·통합 순서·진행 주도</dd>
       </div>
       <div>
         <dt>주요 사용자</dt>
@@ -591,7 +873,7 @@ document.documentElement.setAttribute('data-theme', theme)
   <section class="project-blueprint__work" aria-labelledby="project-work-robot-json-omniverse">
     <div class="project-blueprint__section-heading">
       <h3 id="project-work-robot-json-omniverse">작업 내역과 계획</h3>
-      <p>저장소의 구현·문서와 향후 Omniverse/실로봇 작업을 분리했습니다.</p>
+      <p>전체 시스템 비전은 팀과 함께 정리하고 구현은 소수 핵심 인원이 나눠 맡았으며, 로봇 프로젝트의 정의·통합·진행은 제가 주도했습니다.</p>
     </div>
     <ol class="project-blueprint__tasks">
         <li>
@@ -697,7 +979,7 @@ document.documentElement.setAttribute('data-theme', theme)
 </details>
 
 <h2 id="공개-링크">공개 링크</h2>
-<p>현재는 공개 링크를 보류하고 있습니다. 설정 정리와 다시 확인하는 절차가 끝난 뒤에만 추가합니다.</p>
+<p>외부 저장소 버튼은 설정 정리와 재검증이 끝날 때까지 보류합니다. 이 문서에도 저장소 주소나 환경별 연결값을 다시 싣지 않습니다.</p>
 
         </div>
 
@@ -738,13 +1020,22 @@ document.documentElement.setAttribute('data-theme', theme)
         <hr>
         <div class="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</a></li>
-    <li><a href="#왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</a></li>
-    <li><a href="#실제로-맡은-역할">실제로 맡은 역할</a></li>
-    <li><a href="#데이터-흐름">데이터 흐름</a></li>
-    <li><a href="#구현-순서">구현 순서</a></li>
-    <li><a href="#확인된-결과와-현재-단계">확인된 결과와 현재 단계</a></li>
-    <li><a href="#배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</a></li>
+    <li><a href="#먼저-밝혀-둘-현재-단계">먼저 밝혀 둘 현재 단계</a></li>
+    <li><a href="#전체-팀-시스템과-실제-기술-스택">전체 팀 시스템과 실제 기술 스택</a>
+      <ul>
+        <li><a href="#내가-주도한-로봇-디지털-트윈-프로젝트">내가 주도한 로봇 디지털 트윈 프로젝트</a></li>
+      </ul>
+    </li>
+    <li><a href="#저장소-구조">저장소 구조</a>
+      <ul>
+        <li><a href="#git에서-읽는-권장-순서">Git에서 읽는 권장 순서</a></li>
+      </ul>
+    </li>
+    <li><a href="#처음-실행한-사용자가-만나는-화면">처음 실행한 사용자가 만나는 화면</a></li>
+    <li><a href="#사용자가-실제로-진행하는-순서">사용자가 실제로 진행하는 순서</a></li>
+    <li><a href="#서비스별-책임">서비스별 책임</a></li>
+    <li><a href="#쓰기-경로와-읽기-경로">쓰기 경로와 읽기 경로</a></li>
+    <li><a href="#확인된-출력과-남은-한계">확인된 출력과 남은 한계</a></li>
     <li><a href="#설계검증-기록">설계·검증 기록</a></li>
     <li><a href="#공개-링크">공개 링크</a></li>
   </ul>

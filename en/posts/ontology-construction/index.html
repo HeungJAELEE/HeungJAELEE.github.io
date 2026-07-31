@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-09">Jul 9, 2026</time>
              · 
-            7 minutes
+            8 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -448,32 +448,98 @@ document.documentElement.setAttribute('data-theme', theme)
   </footer>
 </aside>
 
-<h2 id="why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</h2>
-<p>The same machine or defect can have different names across manufacturing documents. When process instructions, quality criteria, equipment history, and corrective-action records use inconsistent terminology, a search result does not establish that every document refers to the same subject. Unsupported explanations can also appear beside source-backed content.</p>
-<p>HeungTology is a personal project for managing terminology and relationships under one contract and tracing a retrieved statement back to its source. The key decision was to separate “a document exists” from “this document supports this claim.”</p>
-<h2 id="why-a-digital-method-was-needed">Why a digital method was needed</h2>
-<p>A person can navigate folders by memory only while the collection remains small. Consistent IDs, aliases, types, provenance, and relationships allow structural checks and support both exact-term and semantic retrieval.</p>
-<p>Human-readable Markdown and YAML remain the authoring source. Graph and retrieval representations are derived from that source, preserving ownership and provenance while making relationships searchable.</p>
+<h2 id="what-this-project-is">What this project is</h2>
+<p>The same machine or defect can have different names across manufacturing documents. When process instructions, quality criteria, equipment history, and corrective-action records use inconsistent terminology, finding a document does not establish that it refers to the same object.</p>
+<p>HeungTology is a personal experiment that stores industrial-knowledge documents as Markdown nodes and indexes their YAML front matter and body text in a local vector store. It is <strong>a Git repository containing a knowledge collection and a local Python CLI</strong>, not a public web service or graph dashboard.</p>
+<h2 id="application-and-repository-guide-for-a-first-time-reader">Application and repository guide for a first-time reader</h2>
+<h3 id="public-surfaces-and-entry-points">Public surfaces and entry points</h3>
+<p>The following entry points were confirmed in the public repository on July 31, 2026.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Entry point</th>
+          <th>What a reader can inspect</th>
+          <th>Current limitation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/main/README.md" target="_blank" rel="noopener">GitHub README</a></td>
+          <td>Intended search architecture and example local commands</td>
+          <td>Version labels and figures in the README are not implementation or performance proof by themselves</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/tree/main/02_Knowledge" target="_blank" rel="noopener">GitHub file browser</a></td>
+          <td>Domain Markdown documents, front matter, and index files</td>
+          <td>Review depth varies; <code>pending_review</code>, <code>TBD</code>, and <code>[데이터 부재]</code> markers remain</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/main/rag_cli_v2.py" target="_blank" rel="noopener"><code>rag_cli_v2.py</code></a></td>
+          <td>A terminal entry point accepting <code>--sync</code> or a natural-language query</td>
+          <td>It is not a public screen, and the repository lacks a portable setup for running it from a clean checkout</td>
+      </tr>
+  </tbody>
+</table>
+<p>The public repository metadata has no separate homepage, and the source tree contains no web frontend. Instead of fabricating an application UI, the case shows the GitHub repository that visitors actually use. The other entry point is a local terminal after its environment has been prepared separately.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ontology-construction/github-repository-live-2026-07-31.png" alt="Public HeungTology GitHub repository showing its knowledge folder, Python CLI, and README" loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>Actual public surface: a Git repository containing knowledge and a search CLI</strong><p>The first screen exposes `02_Knowledge`, `rag_cli_v2.py`, and the README. It is a source-and-document entry point, not a public web application.</p><p class="project-screen__meta"><span>Public GitHub repository</span><span aria-hidden="true">·</span><span>31 Jul 2026</span></p></figcaption>
+</figure>
+
+<h3 id="user-journey">User journey</h3>
+<p>A first-time reviewer can read the README for orientation, then compare documents in <code>02_Knowledge</code> with <code>rag_cli_v2.py</code> to distinguish implemented behavior from design language.</p>
+<p>The local flow visible in code is <code>prepare Markdown nodes → run --sync to read front matter and body text → create BGE-M3 embeddings → upsert into ChromaDB → enter a query → retrieve candidates → rerank with BGE reranker → apply time decay and hash status → print a terminal scoreboard</code>. The current CLI prints candidate filenames, parent information, and scores. It does not provide a web page or a natural-language answer screen.</p>
+<h3 id="data-flow-and-component-responsibilities">Data flow and component responsibilities</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Responsibility</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>02_Knowledge/</code></td>
+          <td>Store domain Markdown bodies and YAML front matter</td>
+      </tr>
+      <tr>
+          <td><code>rag_cli_v2.py</code></td>
+          <td>Walk and parse documents, synchronize ChromaDB, run vector retrieval and reranking, apply time decay and a limited hash comparison, and print terminal output</td>
+      </tr>
+      <tr>
+          <td><code>02_Knowledge/_System/</code></td>
+          <td>Store the ontology map and large index artifacts included in the public repository</td>
+      </tr>
+      <tr>
+          <td><code>README.md</code></td>
+          <td>Explain project intent and example commands; it is not a substitute for tests or reproducible evidence</td>
+      </tr>
+  </tbody>
+</table>
+<p>The public CLI does not connect to Neo4j or generate JSON-LD, OWL, or SHACL files. Those terms remain in repository design language, but this case does not present them as behavior executed by the current public code.</p>
+<h3 id="public-repository-structure-and-reading-order">Public repository structure and reading order</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HeungTology/
+</span></span><span style="display:flex;"><span>├─ README.md
+</span></span><span style="display:flex;"><span>├─ rag_cli_v2.py
+</span></span><span style="display:flex;"><span>└─ 02_Knowledge/
+</span></span><span style="display:flex;"><span>   ├─ [MOC] 00_INDEX.md
+</span></span><span style="display:flex;"><span>   ├─ _System/
+</span></span><span style="display:flex;"><span>   │  ├─ _Ontology_Map.json
+</span></span><span style="display:flex;"><span>   │  └─ _index/
+</span></span><span style="display:flex;"><span>   ├─ 01_Semiconductor/
+</span></span><span style="display:flex;"><span>   ├─ 02_Battery/
+</span></span><span style="display:flex;"><span>   ├─ 03_AI_Data/
+</span></span><span style="display:flex;"><span>   └─ ...domain knowledge folders
+</span></span></code></pre></div><p>Recommended order: ① use the README for a short statement of intent, ② read <code>rag_cli_v2.py</code> for the actual synchronization and query path, ③ inspect <code>[MOC] 00_INDEX.md</code> and one <code>Concept</code> or <code>Data</code> document to see the front-matter and body format, and ④ examine <code>_Ontology_Map.json</code> and <code>_index</code> artifacts last. Large index files and self-reported figures inside documents are not achievement evidence unless their generation and evaluation can also be reproduced.</p>
 <h2 id="my-actual-role">My actual role</h2>
-<p>As a personal project, I designed and implemented the YAML document contract, transformation and validation flow, knowledge-graph representation, and retrieval stages. Duplicate identities, missing relationship targets, local absolute paths, and format errors were defined as pre-release checks. Ambiguous relationships remain for human review rather than being attached automatically to the nearest-looking record.</p>
-<p>For retrieval, vector and lexical raw scores are not added directly. Their candidate ranks are fused, and the final context carries its source path and heading so a reviewer can trace where the answer began.</p>
-<h2 id="data-flow">Data flow</h2>
-<p><code>Manufacturing terminology mismatch → YAML document contract → knowledge-graph representation → schema, relationship, and path validation → source-linked search use</code></p>
-<p>YAML IDs and aliases let several terms resolve to one managed concept. Graph relationships support traversal across process, equipment, defect, cause, and action. Only validated material becomes a search candidate, and retrieved context includes its document and heading.</p>
-<h2 id="implementation-sequence">Implementation sequence</h2>
-<ol>
-<li>Define a YAML contract for identity, title, aliases, type, lifecycle, provenance, and relationships.</li>
-<li>Separate conversion boundaries for graph representations used by JSON-LD, OWL, SHACL, and Neo4j.</li>
-<li>Validate schemas, identifiers, relationship targets, and local-path leakage; leave uncertain links for review.</li>
-<li>Build heading-aware retrieval data and fuse ranked lexical and vector candidates.</li>
-<li>Expand only selected relationships, rerank the context, and pass source path and heading with the answer material.</li>
-</ol>
-<h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
-<p>The public repository supports claims about the data structure, transformation and validation code, and retrieval design documentation. Local release metrics or completion ratings that cannot be reproduced from public material are not used as achievements. This case does not claim node, assertion, error, or warning counts.</p>
-<p>The current stage is a personal project demonstrating the structure and retrieval flow. The documents do not all have the same depth of human review, and retrieval quality still needs a fixed question set with relevance judgments.</p>
-<h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
-<p>Company use requires named terminology owners, controlled change and review procedures, provenance rules, access control, and audit history. Retrieval must remain read-only and separate from equipment control, so unsupported text cannot become an operating condition or work instruction.</p>
-<p>Under those conditions, shared IDs and relationships could help teams find process conditions, equipment history, and corrective-action sources across departmental vocabulary. The company value lies in a reusable review and provenance structure, not in fluent search wording alone.</p>
+<p>As a personal project, I structured metadata for Markdown knowledge nodes and implemented the local retrieval flow in <code>rag_cli_v2.py</code>. The script maps domain, object type, parent relationship, tier, date, and trust fields into search metadata, reranks retrieved candidates, and applies time decay and a hash-comparison result to the score.</p>
+<h2 id="what-is-implemented-and-what-remains-limited">What is implemented and what remains limited</h2>
+<p>The public code supports Markdown front-matter parsing, ChromaDB synchronization, BGE-M3 embedding retrieval, BGE reranking, date-based score decay, a limited <code>evidence_hash</code> comparison, and a terminal scoreboard.</p>
+<p>The repository does not currently include a dependency manifest, automated tests, portable path and device settings, a web UI, or a public runtime URL. The CLI assumes Windows absolute paths, local CUDA, and pre-existing model and database resources, so it is not presented as a reproducible clean-checkout application. Several repository documents also retain <code>pending_review</code>, placeholder, and <code>[데이터 부재]</code> markers; performance figures and completion declarations inside those documents are not treated as verified results.</p>
+<p>This case therefore claims no node count, accuracy, latency, error or warning count, or release grade. Accuracy, authorization, and freshness for real company-document retrieval require separate data and an operating environment.</p>
+<h2 id="conditions-for-company-use">Conditions for company use</h2>
+<p>Company use would require named terminology owners, controlled change and review procedures, source-acceptance rules, access control, and audit history. Retrieval must remain read-only and separate from equipment control so unsupported text cannot become an operating condition or work instruction.</p>
+<p>With those controls and a reproducible installation and evaluation path, common metadata and relationships could help teams find process conditions, equipment history, and corrective-action evidence across departmental vocabulary. The current public result is not that operating outcome; it is a reviewable starting point for the document structure and local retrieval experiment.</p>
 <h2 id="design-and-validation-record">Design and validation record</h2>
 <details class="project-blueprint">
   <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
@@ -735,13 +801,18 @@ document.documentElement.setAttribute('data-theme', theme)
         <hr>
         <div class="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
-    <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
+    <li><a href="#what-this-project-is">What this project is</a></li>
+    <li><a href="#application-and-repository-guide-for-a-first-time-reader">Application and repository guide for a first-time reader</a>
+      <ul>
+        <li><a href="#public-surfaces-and-entry-points">Public surfaces and entry points</a></li>
+        <li><a href="#user-journey">User journey</a></li>
+        <li><a href="#data-flow-and-component-responsibilities">Data flow and component responsibilities</a></li>
+        <li><a href="#public-repository-structure-and-reading-order">Public repository structure and reading order</a></li>
+      </ul>
+    </li>
     <li><a href="#my-actual-role">My actual role</a></li>
-    <li><a href="#data-flow">Data flow</a></li>
-    <li><a href="#implementation-sequence">Implementation sequence</a></li>
-    <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>
-    <li><a href="#deployment-conditions-and-company-value">Deployment conditions and company value</a></li>
+    <li><a href="#what-is-implemented-and-what-remains-limited">What is implemented and what remains limited</a></li>
+    <li><a href="#conditions-for-company-use">Conditions for company use</a></li>
     <li><a href="#design-and-validation-record">Design and validation record</a></li>
     <li><a href="#public-link">Public link</a></li>
   </ul>

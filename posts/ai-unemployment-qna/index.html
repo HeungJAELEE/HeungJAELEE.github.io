@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-31">2026. 7. 31.</time>
              · 
-            6 
+            7 
              · 
             마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
           </p>
@@ -457,12 +457,72 @@ document.documentElement.setAttribute('data-theme', theme)
 <h2 id="대표-사용자-장면">대표 사용자 장면</h2>
 <p>퇴사한 사용자가 사이트에서 자기 상황과 가까운 유형을 고릅니다. 가이드에서 퇴사 사유, 기간, 필요한 서류와 구직활동처럼 먼저 확인할 항목을 살펴본 뒤 고용24, 고용노동부와 국가법령정보센터의 관련 근거로 이동합니다. 자신에게 적용되는 최종 결과는 사이트 문장이 아니라 기관이 발행한 개인 통지, 고용24의 현재 안내와 관할 고용센터에서 다시 확인합니다.</p>
 <p>사이트에는 원본 채팅이나 이름, 연락처, 고용주와 사건 세부정보가 나오지 않습니다.</p>
+<h2 id="처음-보는-사람을-위한-화면-안내">처음 보는 사람을 위한 화면 안내</h2>
+<p>첫 화면은 챗봇 입력창이 아니라 “지금 무엇을 해야 하는가”를 고르는 안내판입니다. 상단에는 처음 신청, 실업인정 차수, 인정서류, 근로·소득 신고처럼 방문 목적이 분명한 메뉴를 두었습니다. 본문은 처음 방문 순서, 자주 쓰는 9개 가이드, 8개 질문 유형으로 내려갑니다.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://unemployment-benefit-qna-kr.pages.dev/" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ai-unemployment-qna/home-live-2026-07-31.png" alt="실업급여 Q&amp;A 첫 화면. 오늘 할 일 안내와 처음 방문 순서, 165개 질문과 8개 유형 요약이 보인다." loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>상황을 고르는 첫 화면</strong><p>자유 질문을 받는 대신, 신청 단계와 상황별 가이드로 먼저 안내합니다. 165개 비식별 질문과 8개 유형은 탐색 범위를 보여 주는 분류 정보입니다.</p><p class="project-screen__meta"><span>Cloudflare Pages 운영 화면</span><span aria-hidden="true">·</span><span>2026-07-31 캡처</span></p></figcaption>
+</figure>
+
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://unemployment-benefit-qna-kr.pages.dev/guides/getting-started/" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ai-unemployment-qna/getting-started-live-2026-07-31.png" alt="실업급여 처음 신청 준비물과 순서 상세 가이드 화면. 기준일, 준비물과 방문 전 순서가 보인다." loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>행동 순서가 보이는 상세 가이드</strong><p>가이드마다 기준일, 공통 준비물, 상황별 추가 증빙, 센터 방문 전 순서와 관련 질문을 같은 형식으로 보여 줍니다.</p><p class="project-screen__meta"><span>Cloudflare Pages 운영 화면</span><span aria-hidden="true">·</span><span>2026-07-31 캡처</span></p></figcaption>
+</figure>
+
+<table>
+  <thead>
+      <tr>
+          <th>화면</th>
+          <th>독자가 확인하는 것</th>
+          <th>설계한 이유</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>홈</td>
+          <td>지금 필요한 가이드와 자기 상황에 가까운 질문 유형</td>
+          <td>긴 검색 없이 다음 행동부터 찾게 함</td>
+      </tr>
+      <tr>
+          <td>핵심 가이드</td>
+          <td>준비물, 순서, 예외와 기준일</td>
+          <td>반복 질문을 실제 행동 순서로 바꿈</td>
+      </tr>
+      <tr>
+          <td>질문 유형</td>
+          <td>비슷한 질문과 공통 확인 항목</td>
+          <td>원본 대화를 공개하지 않고 사례를 재사용</td>
+      </tr>
+      <tr>
+          <td>공식 출처</td>
+          <td>고용24·고용노동부·법령의 현재 안내</td>
+          <td>사이트 문장보다 공식 판단이 우선임을 분명히 함</td>
+      </tr>
+      <tr>
+          <td>편집 기준</td>
+          <td>답변 범위, 비식별화와 최신성 한계</td>
+          <td>무엇을 근거로 발행했는지 독자가 확인</td>
+      </tr>
+  </tbody>
+</table>
 <h2 id="이-도구가-하는-일과-하지-않는-일">이 도구가 하는 일과 하지 않는 일</h2>
 <p>이 도구는 비식별화한 질문 165개를 8개 유형으로 묶고 각 유형을 확인 항목, 공식 출처, 9개 실전 가이드와 21개 검색 페이지에 연결합니다. 사용자는 자유 대화 답변 대신 같은 근거와 주의 문구를 다시 확인할 수 있습니다.</p>
 <p>이 도구는 개인의 수급 자격, 지급액이나 이의신청 결과를 확정하지 않습니다. 신청을 제출하거나 고용24 계정에 접근하지도 않습니다. 제도가 바뀌어도 사이트가 자동으로 최신이 되지는 않습니다. 기관 통지·고용24·관할 고용센터의 안내가 항상 사이트보다 우선합니다.</p>
 <h2 id="데이터-ai-사람의-역할">데이터, AI, 사람의 역할</h2>
 <p>데이터는 질문 유형, 상황, 확인할 사실과 문서, 공식 출처, 주의 문구를 나눠 보관합니다. 같은 source에서 Q&amp;A, 가이드, 검색 페이지와 구조화 데이터를 생성해 문구나 링크를 서로 다른 파일에서 따로 관리하지 않도록 했습니다.</p>
 <p>AI는 질문 유형 초안, 중복과 검색어 묶음, 답변 구조와 메타데이터 초안을 만드는 데 사용했습니다. 사람은 원본 질문을 비식별화했습니다. 고용24·고용노동부·국가법령정보센터 링크를 확인했고 개인 판정처럼 읽힐 수 있는 문장도 검토했습니다.</p>
+<h2 id="화면데이터저장소-구조">화면·데이터·저장소 구조</h2>
+<p>이 사이트는 사용자 질문을 실시간으로 LLM에 보내지 않습니다. 검토한 콘텐츠 source에서 홈, 질문 유형, 상세 가이드, 검색용 페이지와 구조화 데이터를 한 번에 생성하는 정적 구조입니다. 같은 주의 문구와 공식 링크를 여러 HTML 파일에 손으로 복사하지 않기 때문에 수정 범위를 추적하기 쉽고, 운영 화면에서 개인 대화를 수집하지 않아도 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>content/cases.json            비식별 질문 165건
+</span></span><span style="display:flex;"><span>content/site-content.mjs      8개 유형, 홈과 공통 안내
+</span></span><span style="display:flex;"><span>content/practical-guides.mjs  행동 순서 중심 상세 가이드
+</span></span><span style="display:flex;"><span>scripts/build-content-site.mjs
+</span></span><span style="display:flex;"><span>                              source를 HTML·sitemap·구조화 데이터로 생성
+</span></span><span style="display:flex;"><span>site-src/                     공통 CSS·브라우저 동작·아이콘
+</span></span><span style="display:flex;"><span>cloudflare-pages/             Cloudflare Pages용 정적 산출물
+</span></span><span style="display:flex;"><span>public/guide/                 Sites 미러가 사용하는 동일 콘텐츠
+</span></span><span style="display:flex;"><span>tests/                        수량·링크·메타데이터·모바일 답변 구조 검사
+</span></span></code></pre></div><p>Git에서 읽는 순서는 <code>content/</code>에서 어떤 사실과 문구를 관리하는지 확인하고, <code>scripts/build-content-site.mjs</code>에서 페이지가 어떻게 만들어지는지 본 뒤, <code>site-src/</code>와 <code>tests/</code>로 표현과 회귀 기준을 확인하는 방식입니다. 배포 폴더는 source가 아니라 생성 결과이므로 직접 고치는 대상이 아닙니다. 소스 저장소는 공개하지 않았으며, 위 지도는 운영 화면을 이해하는 데 필요한 책임 단위만 공개한 것입니다.</p>
 <h2 id="만든-순서">만든 순서</h2>
 <ol>
 <li>원본 질문에서 개인정보와 사건 세부정보를 제거하고 165개 질문을 비식별화했습니다.</li>
@@ -779,8 +839,10 @@ document.documentElement.setAttribute('data-theme', theme)
   <ul>
     <li><a href="#문제">문제</a></li>
     <li><a href="#대표-사용자-장면">대표 사용자 장면</a></li>
+    <li><a href="#처음-보는-사람을-위한-화면-안내">처음 보는 사람을 위한 화면 안내</a></li>
     <li><a href="#이-도구가-하는-일과-하지-않는-일">이 도구가 하는 일과 하지 않는 일</a></li>
     <li><a href="#데이터-ai-사람의-역할">데이터, AI, 사람의 역할</a></li>
+    <li><a href="#화면데이터저장소-구조">화면·데이터·저장소 구조</a></li>
     <li><a href="#만든-순서">만든 순서</a></li>
     <li><a href="#현재-결과">현재 결과</a></li>
     <li><a href="#회사에서-얻을-수-있는-가치와-한계">회사에서 얻을 수 있는 가치와 한계</a></li>

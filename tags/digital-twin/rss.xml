@@ -18,7 +18,7 @@
       &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
       &lt;h2 id=&#34;project-case-summary-robot-json-omniverse&#34;&gt;로봇 명령, 현재 상태, 이력 저장과 디지털 트윈을 한 프로그램이 모두 책임지면 장애와 권한 경계가 모호해집니다. 각 책임을 나눠야 안전하게 확장할 수 있습니다.&lt;/h2&gt;
     &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;공개 프로토타입 · 실로봇 E2E 전&lt;/span&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;실물 로봇 기본 동작 확인 · 전체 E2E 보강 중&lt;/span&gt;
   &lt;/header&gt;
 
   &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
@@ -40,7 +40,7 @@
 
     &lt;section aria-labelledby=&#34;project-case-role-robot-json-omniverse&#34;&gt;
       &lt;h3 id=&#34;project-case-role-robot-json-omniverse&#34;&gt;내가 맡은 범위&lt;/h3&gt;
-      &lt;ul&gt;&lt;li&gt;IndyDCP 소켓, MQTT 명령·상태, MySQL 이력, PLC Bridge와 읽기 전용 트윈의 인터페이스 책임을 나눴습니다.&lt;/li&gt;
+      &lt;ul&gt;&lt;li&gt;로봇 프로젝트의 요구사항과 통합 순서를 정하고, IndyDCP·MQTT·MySQL·PLC Bridge·디지털 트윈이 한 흐름으로 이어지도록 소수 핵심 인원과 진행을 주도했습니다.&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/section&gt;
 
@@ -48,17 +48,17 @@
       &lt;h3 id=&#34;project-case-result-robot-json-omniverse&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
       &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
               &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
-              &lt;strong&gt;명령·상태·이력·PLC Bridge·읽기 전용 트윈의 책임 분리&lt;/strong&gt;
+              &lt;strong&gt;로봇 프로젝트 요구사항·인터페이스 경계·통합 순서 정의와 진행 주도&lt;/strong&gt;
             &lt;/li&gt;&lt;li&gt;
               &lt;span&gt;현재 단계 · 팀 결과&lt;/span&gt;
-              &lt;strong&gt;공개 프로토타입·실로봇 통합/E2E 검증 전&lt;/strong&gt;
+              &lt;strong&gt;실물 로봇 기본 동작을 포함한 공개 프로토타입 · 전체 E2E·장시간 검증 전&lt;/strong&gt;
             &lt;/li&gt;
       &lt;/ul&gt;
     &lt;/section&gt;
 
     &lt;section aria-labelledby=&#34;project-case-team-robot-json-omniverse&#34;&gt;
       &lt;h3 id=&#34;project-case-team-robot-json-omniverse&#34;&gt;팀 경계&lt;/h3&gt;
-      &lt;p&gt;실물 로봇 통합과 전체 E2E 완료를 주장하지 않으며, 공개 프로토타입의 설계 범위만 제 역할로 설명합니다.&lt;/p&gt;</description>
+      &lt;p&gt;제가 주도한 대표 로봇 프로젝트입니다. 전체 비전은 팀과 함께 정리하고 실제 구현은 소수 핵심 인원이 나눠 맡았지만, 로봇 프로젝트의 목표·인터페이스·통합 순서와 단계별 진행은 제가 이끌었습니다.&lt;/p&gt;</description>
     </item>
     
     <item>

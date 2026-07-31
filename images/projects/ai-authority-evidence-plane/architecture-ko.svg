@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">Ontology와 LLM Wiki 기반 AI Agent 플랫폼의 5단계 구조</title>
+  <desc id="desc">사용자 요청을 지식 검색, Agent 구성, 제한된 실행, 근거와 결과 재확인으로 연결하는 흐름</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0077B6"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #16324A; }
+      .step { font: 700 18px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #16324A; }
+      .body { font: 500 14px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #2F4D63; }
+      .rail-title { font: 700 17px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #FFFFFF; }
+      .rail-body { font: 500 14px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #EAF7FD; }
+      .num { font: 800 13px "Noto Sans KR", "Malgun Gothic", sans-serif; fill: #FFFFFF; }
+    </style>
+  </defs>
+  <rect width="1280" height="520" fill="#F7FAFC"/>
+  <text x="40" y="56" class="title">요청에서 실행 결과 확인까지</text>
+  <text x="40" y="84" class="body">지식과 실행 규칙을 분리하고, 필요한 부분만 골라 Agent 실행 명세로 묶습니다.</text>
+
+  <g transform="translate(40 132)">
+    <rect width="216" height="164" rx="14" fill="#FFFFFF" stroke="#D5E5EF" stroke-width="2"/>
+    <circle cx="28" cy="28" r="16" fill="#0077B6"/><text x="24" y="33" class="num">1</text>
+    <text x="22" y="72" class="step">사용자 요청</text>
+    <text x="22" y="102" class="body">목적·대상·결과물</text>
+    <text x="22" y="126" class="body">위험과 변경 여부 구분</text>
+  </g>
+  <path d="M 260 214 L 282 214" stroke="#0077B6" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(286 132)">
+    <rect width="216" height="164" rx="14" fill="#EAF7FD" stroke="#7CC9E8" stroke-width="2"/>
+    <circle cx="28" cy="28" r="16" fill="#0077B6"/><text x="24" y="33" class="num">2</text>
+    <text x="22" y="72" class="step">Ontology · Wiki</text>
+    <text x="22" y="102" class="body">개념·관계·업무 규칙</text>
+    <text x="22" y="126" class="body">출처·도구·금지조건 검색</text>
+  </g>
+  <path d="M 506 214 L 528 214" stroke="#0077B6" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(532 132)">
+    <rect width="216" height="164" rx="14" fill="#FFFFFF" stroke="#D5E5EF" stroke-width="2"/>
+    <circle cx="28" cy="28" r="16" fill="#0077B6"/><text x="24" y="33" class="num">3</text>
+    <text x="22" y="72" class="step">Agent 구성</text>
+    <text x="22" y="102" class="body">역할·입력·도구·출력</text>
+    <text x="22" y="126" class="body">중단 조건을 명세로 생성</text>
+  </g>
+  <path d="M 752 214 L 774 214" stroke="#0077B6" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(778 132)">
+    <rect width="216" height="164" rx="14" fill="#FFFFFF" stroke="#D5E5EF" stroke-width="2"/>
+    <circle cx="28" cy="28" r="16" fill="#0077B6"/><text x="24" y="33" class="num">4</text>
+    <text x="22" y="72" class="step">제한된 실행</text>
+    <text x="22" y="102" class="body">허용된 자료와 도구만 사용</text>
+    <text x="22" y="126" class="body">외부 변경은 승인 범위 확인</text>
+  </g>
+  <path d="M 998 214 L 1020 214" stroke="#0077B6" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1024 132)">
+    <rect width="216" height="164" rx="14" fill="#EAF7FD" stroke="#7CC9E8" stroke-width="2"/>
+    <circle cx="28" cy="28" r="16" fill="#0077B6"/><text x="24" y="33" class="num">5</text>
+    <text x="22" y="72" class="step">근거·결과 확인</text>
+    <text x="22" y="102" class="body">사용 근거와 실행 결과 기록</text>
+    <text x="22" y="126" class="body">실제 상태를 다시 읽어 대조</text>
+  </g>
+
+  <g transform="translate(40 354)">
+    <rect width="1200" height="116" rx="14" fill="#0F2B46"/>
+    <text x="28" y="42" class="rail-title">Authority &amp; Evidence 안전 계층</text>
+    <text x="28" y="72" class="rail-body">지식 검색이 성공해도 실행 권한이 생기지는 않습니다. 근거·대상·사람 승인·산출물 식별 정보가 부족하면 멈춥니다.</text>
+    <text x="28" y="96" class="rail-body">실행했다면 응답값만 믿지 않고 외부 시스템의 실제 상태를 다시 확인해 예상 결과와 대조합니다.</text>
+  </g>
+</svg>

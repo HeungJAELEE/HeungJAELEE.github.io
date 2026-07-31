@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-09">2026. 7. 9.</time>
              · 
-            6 
+            7 
              · 
             마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
           </p>
@@ -448,32 +448,98 @@ document.documentElement.setAttribute('data-theme', theme)
   </footer>
 </aside>
 
-<h2 id="왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</h2>
-<p>제조 현장에서는 같은 설비나 불량이 문서마다 다른 이름으로 적힙니다. 공정 문서, 품질 기준, 설비 이력과 조치 기록의 용어가 맞지 않으면 검색 결과가 있어도 같은 대상을 말하는지 다시 확인해야 합니다. 더 큰 문제는 출처가 없는 설명이 근거가 확인된 내용처럼 섞이는 경우입니다.</p>
-<p>HeungTology는 문서를 많이 모으는 프로젝트가 아니라, 용어와 관계를 같은 규칙으로 관리하고 검색 결과가 어느 원문에서 왔는지 확인하기 위한 개인 프로젝트입니다. “문서가 존재한다”와 “그 문서가 특정 주장을 뒷받침한다”를 분리하는 것이 핵심 판단이었습니다.</p>
-<h2 id="왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</h2>
-<p>사람이 폴더와 파일명을 기억해 관련 문서를 찾는 방식은 자료가 늘수록 유지하기 어렵습니다. 문서마다 ID, 별칭, 종류, 출처와 관계를 같은 형식으로 적으면 컴퓨터가 구조 오류를 검사하고, 정확한 용어 검색과 의미가 비슷한 문장 검색을 함께 사용할 수 있습니다.</p>
-<p>원본 문서는 사람이 읽고 수정하기 쉬운 Markdown과 YAML로 두고, 관계 탐색용 표현과 검색용 데이터를 파생시키도록 구성했습니다. 이렇게 하면 검색 편의를 위해 원본의 책임과 출처를 잃지 않을 수 있습니다.</p>
+<h2 id="무엇을-만든-프로젝트인가">무엇을 만든 프로젝트인가</h2>
+<p>제조 현장에서는 같은 설비나 불량이 문서마다 다른 이름으로 적힙니다. 공정 문서, 품질 기준, 설비 이력과 조치 기록의 용어가 맞지 않으면 검색 결과가 있어도 같은 대상을 말하는지 다시 확인해야 합니다.</p>
+<p>HeungTology는 산업 지식 문서를 Markdown 노드로 모으고, 문서의 YAML 머리말과 본문을 로컬 벡터 저장소에 색인해 검색하는 개인 실험 저장소입니다. 공개 웹 서비스나 그래프 대시보드가 아니라, <strong>지식 문서 모음과 로컬 Python 명령행 도구를 함께 둔 Git 저장소</strong>입니다.</p>
+<h2 id="처음-보는-사람을-위한-앱저장소-안내">처음 보는 사람을 위한 앱·저장소 안내</h2>
+<h3 id="공개-화면과-진입점">공개 화면과 진입점</h3>
+<p>2026년 7월 31일 공개 저장소를 기준으로 확인한 진입점은 다음과 같습니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>진입점</th>
+          <th>실제로 볼 수 있는 것</th>
+          <th>현재 한계</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/main/README.md" target="_blank" rel="noopener">GitHub README</a></td>
+          <td>프로젝트가 의도하는 검색 구조와 로컬 실행 예시</td>
+          <td>README의 상태명·수치만으로 구현 또는 성능을 검증할 수 없음</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/tree/main/02_Knowledge" target="_blank" rel="noopener">GitHub 파일 브라우저</a></td>
+          <td>산업 분야별 Markdown 문서, YAML 머리말, 인덱스 파일</td>
+          <td>문서마다 검토 깊이가 다르고 <code>pending_review</code>, <code>TBD</code>, <code>[데이터 부재]</code> 표시가 남아 있음</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/main/rag_cli_v2.py" target="_blank" rel="noopener"><code>rag_cli_v2.py</code></a></td>
+          <td><code>--sync</code>와 자연어 질의를 받는 터미널 진입점</td>
+          <td>공개 웹 화면이 아니며, 새로 받은 저장소에서 바로 실행할 설치 파일과 이식 가능한 설정이 없음</td>
+      </tr>
+  </tbody>
+</table>
+<p>공개 저장소 정보에는 별도 홈페이지가 없고, 소스 트리에도 웹 프런트엔드가 없습니다. 따라서 앱 화면을 꾸며 만들지 않고, 방문자가 실제로 접하는 GitHub 저장소 화면을 그대로 보여 줍니다. 다른 진입점은 환경을 따로 준비한 뒤 사용하는 로컬 터미널입니다.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener noreferrer"><img src="/images/projects/ontology-construction/github-repository-live-2026-07-31.png" alt="HeungTology 공개 GitHub 저장소의 폴더, Python CLI와 README 화면" loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>실제 공개 화면: 지식 폴더와 검색 CLI가 함께 있는 Git 저장소</strong><p>첫 화면에서 `02_Knowledge`, `rag_cli_v2.py`, README를 확인할 수 있습니다. 이 화면은 웹 앱이 아니라 공개 소스와 문서를 탐색하는 진입점입니다.</p><p class="project-screen__meta"><span>GitHub 공개 저장소</span><span aria-hidden="true">·</span><span>2026-07-31</span></p></figcaption>
+</figure>
+
+<h3 id="사용자-흐름">사용자 흐름</h3>
+<p>처음 보는 검토자는 README로 목적을 파악한 뒤, <code>02_Knowledge</code>의 실제 문서와 <code>rag_cli_v2.py</code>를 대조해 무엇이 코드로 구현됐는지 확인할 수 있습니다.</p>
+<p>로컬 사용 흐름은 코드 기준으로 <code>Markdown 문서 준비 → --sync로 YAML 머리말과 본문 읽기 → BGE-M3 임베딩 생성 → ChromaDB에 저장 → 질문 입력 → 후보 검색 → BGE 재정렬 모델로 순서 조정 → 시간 감쇠·해시 상태 반영 → 터미널 점수표 출력</code> 순서입니다. 현재 명령행 도구는 검색 후보의 파일명, 상위 관계와 점수를 보여 주며, 웹 화면이나 자연어 답변 화면을 제공하지 않습니다.</p>
+<h3 id="데이터와-구성요소의-책임">데이터와 구성요소의 책임</h3>
+<table>
+  <thead>
+      <tr>
+          <th>구성요소</th>
+          <th>책임</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>02_Knowledge/</code></td>
+          <td>분야별 Markdown 본문과 YAML 머리말을 보관</td>
+      </tr>
+      <tr>
+          <td><code>rag_cli_v2.py</code></td>
+          <td>문서 순회·해석, ChromaDB 동기화, 벡터 검색, 후보 재정렬, 시간 감쇠와 일부 해시 비교, 터미널 출력</td>
+      </tr>
+      <tr>
+          <td><code>02_Knowledge/_System/</code></td>
+          <td>공개 저장소에 포함된 ontology map과 대형 인덱스 산출물을 보관</td>
+      </tr>
+      <tr>
+          <td><code>README.md</code></td>
+          <td>프로젝트 의도와 예시 명령을 설명하지만, 테스트 결과나 재현 증거를 대신하지 않음</td>
+      </tr>
+  </tbody>
+</table>
+<p>공개 CLI는 Neo4j를 연결하거나 JSON-LD·OWL·SHACL 파일을 생성하지 않습니다. 이런 표현은 README와 문서의 설계 언어로 남아 있지만, 현재 공개 코드에서 실행되는 기능으로 설명하지 않습니다.</p>
+<h3 id="공개-저장소-구조와-읽는-순서">공개 저장소 구조와 읽는 순서</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HeungTology/
+</span></span><span style="display:flex;"><span>├─ README.md
+</span></span><span style="display:flex;"><span>├─ rag_cli_v2.py
+</span></span><span style="display:flex;"><span>└─ 02_Knowledge/
+</span></span><span style="display:flex;"><span>   ├─ [MOC] 00_INDEX.md
+</span></span><span style="display:flex;"><span>   ├─ _System/
+</span></span><span style="display:flex;"><span>   │  ├─ _Ontology_Map.json
+</span></span><span style="display:flex;"><span>   │  └─ _index/
+</span></span><span style="display:flex;"><span>   ├─ 01_Semiconductor/
+</span></span><span style="display:flex;"><span>   ├─ 02_Battery/
+</span></span><span style="display:flex;"><span>   ├─ 03_AI_Data/
+</span></span><span style="display:flex;"><span>   └─ ...분야별 지식 폴더
+</span></span></code></pre></div><p>권장 순서는 ① README로 의도를 짧게 읽고, ② <code>rag_cli_v2.py</code>에서 실제 동기화·질의 경로를 확인하고, ③ <code>[MOC] 00_INDEX.md</code>와 한 개의 <code>Concept</code> 또는 <code>Data</code> 문서에서 YAML 머리말과 본문 형식을 확인한 뒤, ④ <code>_Ontology_Map.json</code>과 <code>_index</code> 산출물을 마지막에 살펴보는 방식입니다. 큰 인덱스 파일이나 문서 안의 자체 선언 수치는 생성 과정과 평가 근거가 함께 재현되지 않는 한 성과 증거로 보지 않습니다.</p>
 <h2 id="실제로-맡은-역할">실제로 맡은 역할</h2>
-<p>개인 프로젝트로 YAML 문서 계약, 변환·검증 흐름, 지식 그래프 표현과 검색 단계를 설계하고 구현했습니다. 중복 식별자, 존재하지 않는 관계 대상, 로컬 절대경로와 형식 오류를 배포 전 점검 대상으로 두고, 애매한 관계는 비슷한 문서에 자동 연결하지 않고 사람 검토에 남기는 방향을 정했습니다.</p>
-<p>검색에서는 벡터와 문자열 검색의 원점수를 바로 더하지 않고 각각의 순위를 결합하도록 설계했습니다. 최종 문맥에는 원문 경로와 제목을 함께 전달해 답변의 출발점을 되짚을 수 있게 했습니다.</p>
-<h2 id="데이터-흐름">데이터 흐름</h2>
-<p><code>제조 용어 불일치 → YAML 문서 계약 → 지식 그래프 표현 → 스키마·관계·경로 검증 → 출처를 동반한 검색 사용</code></p>
-<p>YAML의 ID와 별칭은 같은 개념을 여러 이름으로 찾되 하나의 대상으로 관리하는 기준이 됩니다. 관계 표현은 공정, 설비, 불량, 원인과 조치를 따라가는 탐색에 사용합니다. 검증을 통과한 문서만 검색 후보로 넘기고, 검색 결과에는 문서와 제목 정보를 붙입니다.</p>
-<h2 id="구현-순서">구현 순서</h2>
-<ol>
-<li>문서마다 ID, 제목, 별칭, 종류, 상태, 출처와 관계를 같은 위치에 두는 YAML 계약을 정했습니다.</li>
-<li>YAML을 JSON-LD·OWL·SHACL과 Neo4j에서 다룰 수 있는 그래프 표현으로 변환하는 경계를 나눴습니다.</li>
-<li>스키마, 식별자, 관계 대상과 로컬 경로를 검사하고 애매한 연결은 검토 대상으로 남겼습니다.</li>
-<li>제목과 본문 단위의 검색 데이터를 만들고, 문자열 검색과 벡터 검색의 후보 순위를 결합하도록 구성했습니다.</li>
-<li>필요한 관계만 제한적으로 확장한 뒤 문맥을 다시 정렬하고, 원문 경로와 제목을 답변 근거로 전달하도록 했습니다.</li>
-</ol>
-<h2 id="확인된-결과와-현재-단계">확인된 결과와 현재 단계</h2>
-<p>공개 저장소에서 확인할 수 있는 범위는 데이터 구조, 변환·검증 코드와 검색 설계 문서입니다. 공개 자료로 재현되지 않는 로컬 release 수치나 완료 등급은 성과로 사용하지 않습니다. 이 글에서도 노드 수, assertion 수, 오류·경고 수를 제시하지 않습니다.</p>
-<p>현재는 구조와 검증·검색 흐름을 보여 주는 개인 프로젝트 단계입니다. 모든 문서가 같은 깊이의 사람 검토를 받은 것은 아니며, 검색 품질은 고정 질문과 relevance 판정 기준을 둔 추가 평가가 필요합니다.</p>
-<h2 id="배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</h2>
+<p>개인 프로젝트로 Markdown 지식 노드의 메타데이터 구조와 로컬 검색 흐름을 구성하고, <code>rag_cli_v2.py</code>에서 문서 동기화와 질의 단계를 구현했습니다. 문서의 분야, 문서 종류, 상위 관계, 단계, 날짜와 신뢰도 항목을 검색 메타데이터로 옮기고, 검색 후보를 재정렬 모델로 다시 정렬한 뒤 시간 감쇠와 해시 비교 결과를 점수에 반영하도록 했습니다.</p>
+<h2 id="실제-구현과-남은-한계">실제 구현과 남은 한계</h2>
+<p>공개 코드로 확인되는 것은 Markdown YAML 머리말 해석, ChromaDB 동기화, BGE-M3 임베딩 검색, BGE 후보 재정렬, 날짜 기반 점수 감쇠, 일부 <code>evidence_hash</code> 비교와 터미널 점수표입니다.</p>
+<p>반면 현재 저장소에는 의존성 설치 명세, 자동화된 테스트, 이식 가능한 경로·장치 설정, 웹 UI, 공개 실행 URL이 없습니다. 명령행 도구는 Windows 절대경로, 로컬 CUDA와 기존 모델·DB 환경을 전제로 하므로 새로 받은 저장소에서 재현 가능한 애플리케이션으로 보지 않습니다. 또한 저장소의 여러 문서에는 <code>pending_review</code>, placeholder, <code>[데이터 부재]</code>가 남아 있어 문서 안의 성능 수치나 완료 선언을 검증된 결과로 사용하지 않습니다.</p>
+<p>그래서 이 글은 노드 수, 정확도, 지연시간, 오류·경고 수, 릴리스 등급을 성과로 제시하지 않습니다. 실제 회사 문서 검색의 정확성·권한·최신성도 별도 데이터와 운영 환경에서 검증해야 합니다.</p>
+<h2 id="회사에-적용하려면">회사에 적용하려면</h2>
 <p>회사에서 사용하려면 제조 용어의 소유자와 변경 절차, 문서별 검토 책임, 출처의 허용 기준, 접근 권한과 감사 이력을 먼저 정해야 합니다. 검색 결과는 설비 제어와 분리된 읽기 기능으로 유지하고, 근거가 부족한 내용은 자동으로 운전 조건이나 작업 지시가 되지 않게 해야 합니다.</p>
-<p>이 조건이 갖춰지면 서로 다른 부서의 표현을 공통 ID와 관계로 연결해 공정 조건, 설비 이력과 조치 근거를 더 빨리 찾을 수 있습니다. 회사 가치는 검색 답변의 문장보다, 같은 용어와 출처 기준으로 지식을 검토하고 다시 사용할 수 있는 구조에 있습니다.</p>
+<p>이 조건과 재현 가능한 설치·평가 체계가 갖춰지면, 서로 다른 부서의 표현을 공통 메타데이터와 관계로 연결해 공정 조건, 설비 이력과 조치 근거를 찾는 구조로 확장할 수 있습니다. 현재 공개 결과는 그 운영 성과가 아니라, 문서 구조와 로컬 검색 실험을 검토할 수 있는 출발점입니다.</p>
 <h2 id="설계검증-기록">설계·검증 기록</h2>
 <details class="project-blueprint">
   <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
@@ -735,13 +801,18 @@ document.documentElement.setAttribute('data-theme', theme)
         <hr>
         <div class="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</a></li>
-    <li><a href="#왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</a></li>
+    <li><a href="#무엇을-만든-프로젝트인가">무엇을 만든 프로젝트인가</a></li>
+    <li><a href="#처음-보는-사람을-위한-앱저장소-안내">처음 보는 사람을 위한 앱·저장소 안내</a>
+      <ul>
+        <li><a href="#공개-화면과-진입점">공개 화면과 진입점</a></li>
+        <li><a href="#사용자-흐름">사용자 흐름</a></li>
+        <li><a href="#데이터와-구성요소의-책임">데이터와 구성요소의 책임</a></li>
+        <li><a href="#공개-저장소-구조와-읽는-순서">공개 저장소 구조와 읽는 순서</a></li>
+      </ul>
+    </li>
     <li><a href="#실제로-맡은-역할">실제로 맡은 역할</a></li>
-    <li><a href="#데이터-흐름">데이터 흐름</a></li>
-    <li><a href="#구현-순서">구현 순서</a></li>
-    <li><a href="#확인된-결과와-현재-단계">확인된 결과와 현재 단계</a></li>
-    <li><a href="#배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</a></li>
+    <li><a href="#실제-구현과-남은-한계">실제 구현과 남은 한계</a></li>
+    <li><a href="#회사에-적용하려면">회사에 적용하려면</a></li>
     <li><a href="#설계검증-기록">설계·검증 기록</a></li>
     <li><a href="#공개-링크">공개 링크</a></li>
   </ul>

@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -46,7 +46,7 @@
 
 <meta property="og:title" content="Indy7 Robot and Omniverse Digital Twin Lab">
 <meta property="og:type" content="article">
-<meta property="og:description" content="A PC-HMI, event-history, and read-only digital-twin prototype designed around robot-program compatibility and clear control ownership">
+<meta property="og:description" content="A first-reader walkthrough of an Indy7 HMI prototype, from Conty JSON editing to command, state, history, PLC monitoring, and a read-only twin">
 <meta property="og:url" content="https://heungjaelee.github.io/en/posts/robot-json-omniverse/">
 <meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
 <meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
@@ -54,9 +54,9 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Indy7 Robot and Omniverse Digital Twin Lab">
-  <meta name="twitter:description" content="A PC-HMI, event-history, and read-only digital-twin prototype designed around robot-program compatibility and clear control ownership">
+  <meta name="twitter:description" content="A first-reader walkthrough of an Indy7 HMI prototype, from Conty JSON editing to command, state, history, PLC monitoring, and a read-only twin">
 
-  <meta name="description" content="A PC-HMI, event-history, and read-only digital-twin prototype designed around robot-program compatibility and clear control ownership">
+  <meta name="description" content="A first-reader walkthrough of an Indy7 HMI prototype, from Conty JSON editing to command, state, history, PLC monitoring, and a read-only twin">
 
 
     
@@ -366,12 +366,12 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
           <h1>Indy7 Robot and Omniverse Digital Twin Lab</h1>
           
-            <p class="portfolio-article__lead">A PC-HMI, event-history, and read-only digital-twin prototype designed around robot-program compatibility and clear control ownership</p>
+            <p class="portfolio-article__lead">A first-reader walkthrough of an Indy7 HMI prototype, from Conty JSON editing to command, state, history, PLC monitoring, and a read-only twin</p>
           
           <p class="portfolio-article__meta">
             <time datetime="2026-07-09">Jul 9, 2026</time>
              · 
-            7 minutes
+            13 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -401,7 +401,7 @@ document.documentElement.setAttribute('data-theme', theme)
       <p class="project-case-summary__eyebrow">30-second summary</p>
       <h2 id="project-case-summary-robot-json-omniverse">If one program owns robot commands, current state, history, and the digital twin, failures and authority become ambiguous; separating responsibilities makes the system safer to extend.</h2>
     </div>
-    <span class="project-case-summary__status">Public prototype · Before end-to-end robot validation</span>
+    <span class="project-case-summary__status">Basic physical-robot motion demonstrated · full E2E work remains</span>
   </header>
 
   <dl class="project-case-summary__meta">
@@ -423,7 +423,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <section aria-labelledby="project-case-role-robot-json-omniverse">
       <h3 id="project-case-role-robot-json-omniverse">My scope</h3>
-      <ul><li>Separated interface responsibility across IndyDCP sockets, MQTT command/state topics, MySQL history, the PLC bridge, and a read-only twin.</li>
+      <ul><li>Led the robot project&#39;s requirements and integration sequence with a small execution core, connecting IndyDCP, MQTT, MySQL, the PLC bridge, and the digital twin into one system flow.</li>
       </ul>
     </section>
 
@@ -431,17 +431,17 @@ document.documentElement.setAttribute('data-theme', theme)
       <h3 id="project-case-result-robot-json-omniverse">Verified result / current stage</h3>
       <ul class="project-case-summary__claims"><li>
               <span>Verified output · Individual</span>
-              <strong>Separated command, state, history, PLC-bridge, and read-only-twin responsibilities</strong>
+              <strong>Led robot-project requirements, interface boundaries, integration sequence, and delivery progression</strong>
             </li><li>
               <span>Current stage · Team</span>
-              <strong>Public prototype; before physical-robot integration and E2E validation</strong>
+              <strong>Public prototype with basic physical-robot motion · full E2E and long-duration validation remain</strong>
             </li>
       </ul>
     </section>
 
     <section aria-labelledby="project-case-team-robot-json-omniverse">
       <h3 id="project-case-team-robot-json-omniverse">Team boundary</h3>
-      <p>The case does not claim completed physical-robot integration or full E2E validation; my role is limited to the public prototype design.</p>
+      <p>This is a representative robot project that I led. The broader vision was shaped with the team and a small execution core divided the implementation, while I drove the goals, interfaces, integration sequence, and staged progression.</p>
     </section>
   </div>
 
@@ -451,39 +451,321 @@ document.documentElement.setAttribute('data-theme', theme)
   </footer>
 </aside>
 
-<h2 id="why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</h2>
-<p>An Indy7 program is not only a list of positions. Tool and TCP settings, waypoints, motion commands, and the program tree reference one another. If a PC editor drops an unknown field or changes a reference, the file can look correct on screen and still fail on the teach pendant.</p>
-<p>Communications ownership creates a related risk. If the HMI, historian, PLC integration, and digital twin each open a robot socket, it becomes difficult to trace command ownership and determine which state is current. Allowing display or storage features to create additional physical-control paths weakens the safety boundary.</p>
-<h2 id="why-a-digital-method-was-needed">Why a digital method was needed</h2>
-<p>A PC-HMI makes hierarchical JSON easier to inspect and edit, but source compatibility must come before convenience. Unknown fields are therefore preserved, and the basic round-trip check is <code>load → edit → save → reload → compare references</code>.</p>
-<p>For communications, one Robot Controller owns the IndyDCP connection. Other functions exchange command requests or consume state events. This keeps visualization and history from independently owning the physical-control socket.</p>
-<h2 id="my-actual-role">My actual role</h2>
-<p>In this project, I designed and prototyped the JSON compatibility layer, PC-HMI, Robot Controller-centered communications boundary, and the responsibilities of history and twin services. The design separates:</p>
-<ul>
-<li><strong>Command</strong>: the HMI sends a request with a command ID; only the Robot Controller executes IndyDCP commands.</li>
-<li><strong>State and result</strong>: realtime robot state, connection, errors, and command outcomes are published as separate events.</li>
-<li><strong>History</strong>: the DB Worker stores job, state, and error history without owning physical commands.</li>
-<li><strong>PLC Bridge</strong>: PLC and HMI consumers exchange required state through an event contract; it is not an arbitrary bypass control path.</li>
-<li><strong>Digital Twin</strong>: the twin is a read-only state consumer with no physical command controls.</li>
-</ul>
-<h2 id="data-flow">Data flow</h2>
-<p><code>PC-HMI command request → Robot Controller’s single IndyDCP connection → command-result and realtime-state events → DB Worker history / PLC Bridge state exchange / read-only twin observation</code></p>
-<p>Command, result, realtime state, connection, and error are not mixed into one message. A command ID connects each request to its outcome so the path remains traceable.</p>
-<h2 id="implementation-sequence">Implementation sequence</h2>
+<h2 id="current-stage-before-anything-else">Current stage, before anything else</h2>
+<p>This case is a <strong>training and development prototype</strong> exercised with a physical Indy7. It separates a CustomTkinter HMI for reading and editing robot programs from a Robot Controller, MQTT, history storage, PLC monitoring, and a web twin. The public source contains a read-only browser monitor. An NVIDIA Omniverse USD adapter is a future direction, not a completed integration or production deployment.</p>
+<p>A robot program is more than a list of positions. Tool and TCP settings, waypoints, motion settings, and the program tree reference one another. If an editor removes an unknown field or changes a reference, the file may look correct on the PC and still fail on the teach pendant. The lab therefore starts with <code>load → edit → save → reload → compare references</code>, not with a polished 3D scene.</p>
+<h2 id="whole-team-system-and-verified-stack">Whole team system and verified stack</h2>
+<p>The full application runs its HMI on a Windows PC and separates communications, storage, and monitoring services with Docker Compose. The table describes the team/system scope needed to understand the application; it does not attribute every component to one person.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>Verified product, model, or technology</th>
+          <th>System responsibility</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Physical robot</td>
+          <td>Neuromeka Indy7 collaborative robot</td>
+          <td>Executes the real work program and motion commands</td>
+      </tr>
+      <tr>
+          <td>Program format</td>
+          <td>Conty/APK JSON</td>
+          <td>Preserves references across <code>info</code>, <code>wpList</code>, <code>program</code>, and <code>moveList</code></td>
+      </tr>
+      <tr>
+          <td>Desktop HMI</td>
+          <td>Python, CustomTkinter, Matplotlib 3D</td>
+          <td>JSON editing, virtual Play, teaching, state, and program execution screens</td>
+      </tr>
+      <tr>
+          <td>Robot control</td>
+          <td>IndyDCP over TCP</td>
+          <td>Communicates through the Robot Controller or a separate direct lab mode</td>
+      </tr>
+      <tr>
+          <td>Event transport</td>
+          <td>Mosquitto MQTT</td>
+          <td>Separates command, accepted, result, realtime, connection, error, and PLC events</td>
+      </tr>
+      <tr>
+          <td>History</td>
+          <td>MySQL and local JSONL</td>
+          <td>Stores task, state, error, Dry Run samples, and events</td>
+      </tr>
+      <tr>
+          <td>PLC integration</td>
+          <td>Mitsubishi PLC and MC Protocol-family <code>pymcprotocol</code> Type3E</td>
+          <td>Reads PLC signals and converts edges into monitor events</td>
+      </tr>
+      <tr>
+          <td>Current digital twin</td>
+          <td>Desktop Matplotlib 3D plus an <code>aiohttp</code> WebSocket and Canvas Web Twin</td>
+          <td>Visualizes joints, TCP, connections, and recent events</td>
+      </tr>
+      <tr>
+          <td>Optional service</td>
+          <td>Vision YOLO module</td>
+          <td>Supplies detected coordinates under a separate profile; outside the core JSON/twin evidence in this case</td>
+      </tr>
+      <tr>
+          <td>Runtime composition</td>
+          <td>Windows-hosted HMI and Docker Compose backend</td>
+          <td>Separates UI from Robot Controller, Broker, DB, PLC, and Web Twin services</td>
+      </tr>
+      <tr>
+          <td>Omniverse</td>
+          <td>Future read-only USD-adapter direction</td>
+          <td>No completed implementation was found in the current repository</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Desktop HMI ──command request──&gt; Mosquitto MQTT ──&gt; Robot Controller ──IndyDCP/TCP──&gt; Indy7
+</span></span><span style="display:flex;"><span>     ^                              │                    │                         │
+</span></span><span style="display:flex;"><span>     └──────── state/result ─────────┴────────────────────┴─────────────────────────┘
+</span></span><span style="display:flex;"><span>                                    ├──&gt; DB Worker ──&gt; MySQL
+</span></span><span style="display:flex;"><span>Mitsubishi PLC ──&gt; PLC Bridge ──────┤
+</span></span><span style="display:flex;"><span>Optional Vision YOLO ───────────────┤
+</span></span><span style="display:flex;"><span>                                    ├──&gt; Web Twin (WebSocket/Canvas, read only)
+</span></span><span style="display:flex;"><span>                                    └ - -&gt; Omniverse USD adapter (future, read only)
+</span></span></code></pre></div><h3 id="the-robot-digital-twin-project-i-led">The robot digital-twin project I led</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Scope</th>
+          <th>What this case attributes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Representative project scope</strong></td>
+          <td>The complete application, including Indy7 connectivity, four HMI pages, MQTT Broker, Robot Controller, MySQL DB Worker, PLC Bridge, Web Twin, optional Vision service, and Docker composition</td>
+      </tr>
+      <tr>
+          <td><strong>What I led</strong></td>
+          <td>Defining the project&rsquo;s goal and execution scope, establishing the integration criteria across Conty JSON compatibility, the HMI/backend interface, IndyDCP, MQTT command/state, MySQL history, the PLC Bridge, and the read-only twin, and driving implementation and validation forward in stages</td>
+      </tr>
+      <tr>
+          <td><strong>Implementation model</strong></td>
+          <td>The team shaped the broader vision, while a small execution core divided the implementation and integrated it into one operating flow</td>
+      </tr>
+      <tr>
+          <td><strong>Not claimed as complete</strong></td>
+          <td>Full physical-robot E2E validation, production deployment, or completed Omniverse integration</td>
+      </tr>
+  </tbody>
+</table>
+<p>This is a representative robot project that I led. The broader vision was shaped with the team and a small execution core divided the implementation, but I drove the robot project&rsquo;s goals, interfaces, integration sequence, and staged progression. The case therefore presents the complete system outcome—not just isolated robot functions—from the point where JSON editing becomes a command to the paths taken by state and history.</p>
+<h2 id="repository-structure">Repository structure</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/
+</span></span><span style="display:flex;"><span>├─ readme.md
+</span></span><span style="display:flex;"><span>├─ BEGINNER_RUN_GUIDE.md
+</span></span><span style="display:flex;"><span>├─ ROBOT_COMMUNICATION_FLOW.md
+</span></span><span style="display:flex;"><span>├─ frontend/
+</span></span><span style="display:flex;"><span>│  ├─ run_ui_only.py
+</span></span><span style="display:flex;"><span>│  ├─ presentation/ui/
+</span></span><span style="display:flex;"><span>│  │  ├─ main_window.py
+</span></span><span style="display:flex;"><span>│  │  ├─ robot_hmi/
+</span></span><span style="display:flex;"><span>│  │  ├─ digital_twin/
+</span></span><span style="display:flex;"><span>│  │  ├─ virtual_test/
+</span></span><span style="display:flex;"><span>│  │  └─ ai_teaching/
+</span></span><span style="display:flex;"><span>│  ├─ core/domains/
+</span></span><span style="display:flex;"><span>│  │  ├─ teaching_management/
+</span></span><span style="display:flex;"><span>│  │  ├─ robot/communication/
+</span></span><span style="display:flex;"><span>│  │  └─ robot/use_cases/
+</span></span><span style="display:flex;"><span>│  ├─ infrastructure/
+</span></span><span style="display:flex;"><span>│  │  ├─ repositories/
+</span></span><span style="display:flex;"><span>│  │  ├─ mqtt/
+</span></span><span style="display:flex;"><span>│  │  └─ robot_control/
+</span></span><span style="display:flex;"><span>│  └─ user_programs/
+</span></span><span style="display:flex;"><span>├─ backend/
+</span></span><span style="display:flex;"><span>│  ├─ docker-compose.yml
+</span></span><span style="display:flex;"><span>│  ├─ robot_controller/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ db_worker/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ plc_bridge/src/main.py
+</span></span><span style="display:flex;"><span>│  ├─ digital_twin/src/
+</span></span><span style="display:flex;"><span>│  │  ├─ main.py
+</span></span><span style="display:flex;"><span>│  │  └─ web/index.html
+</span></span><span style="display:flex;"><span>│  └─ vision_yolo/
+</span></span><span style="display:flex;"><span>├─ deployment/windows/
+</span></span><span style="display:flex;"><span>└─ docs/
+</span></span></code></pre></div><p><code>user_programs/</code> contains JSON and selected paths used at runtime. It should not be assumed to be a public fixture or source-asset repository.</p>
+<h3 id="recommended-git-reading-order">Recommended Git reading order</h3>
 <ol>
-<li>Identify unknown Conty JSON fields and waypoint, program-tree, and motion-command references that must survive a round trip.</li>
-<li>Build the hierarchical JSON browser and editor around parser and serializer boundaries that preserve source data.</li>
-<li>Use an Offline UI stage to check file behavior and screen flow without a robot.</li>
-<li>Add a Direct stage in which the Robot Controller alone owns the IndyDCP connection.</li>
-<li>Add a Gateway stage that separates command, result, state, connection, and error events for the DB Worker, PLC Bridge, and twin consumers.</li>
-<li>Keep the twin read-only and omit physical command controls.</li>
+<li>Read <code>readme.md</code> and <code>BEGINNER_RUN_GUIDE.md</code> for the screens, entry point, and deployment intent.</li>
+<li>Read <code>ROBOT_COMMUNICATION_FLOW.md</code> to lock down ownership of commands, state, DB, PLC, and the twin.</li>
+<li>Follow <code>frontend/run_ui_only.py</code> into <code>frontend/presentation/ui/main_window.py</code> to see which pages the app constructs.</li>
+<li>Read <code>frontend/presentation/ui/robot_hmi/robot_hmi_view.py</code> beside <code>frontend/infrastructure/repositories/teaching_repository_impl.py</code> to distinguish the JSON tree and source-preserving persistence from the Execute button.</li>
+<li>Follow <code>frontend/core/domains/robot/communication/client_manager.py</code> → <code>frontend/core/domains/robot/use_cases/robot_control_usecase.py</code> → <code>backend/robot_controller/src/main.py</code> to trace direct/gateway selection, interlocks, and the actual command queue.</li>
+<li>Read <code>backend/db_worker/src/main.py</code>, <code>backend/plc_bridge/src/main.py</code>, <code>backend/digital_twin/src/main.py</code>, and <code>web/index.html</code> to verify that observation and history consumers remain separate from physical commands.</li>
+<li>Read <code>backend/vision_yolo/</code> only when the optional vision path is relevant.</li>
+<li>Read <code>backend/docker-compose.yml</code> and deployment notes last. Environment examples are not the architecture contract and require a separate sensitive-configuration and portability review before publication or operation.</li>
 </ol>
-<h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
-<p>The current output is a design and prototype joining JSON compatibility with PC-HMI and service ownership. It is not presented as production remote robot operation. Omniverse remains a future adapter direction rather than a completed integration.</p>
-<p>The associated repository was reported to contain internal-network, local-path, and default-configuration patterns, so its external link remains withheld. Round-trip tests across Indy7 firmware versions and long-running reconnect and duplicate-command tests with hardware are still open.</p>
-<h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
-<p>Field connection requires firmware-specific JSON regression tests, command authentication and authorization, idempotency, MQTT topic permissions, timeout and reconnect behavior, and audit history. Hardware-in-the-loop testing must also confirm that the PLC Bridge and twin cannot bypass the Robot Controller’s single command boundary. Emergency stop and safety interlocks remain the responsibility of validated robot and PLC safety systems.</p>
-<p>Under those conditions, the company could reduce the risk of corrupting program references and trace commands, state, and errors through one path. A read-only twin could share current state without creating a new control channel. Any reduction in downtime or editing effort still needs field measurement.</p>
+<h2 id="what-a-first-time-user-sees">What a first-time user sees</h2>
+<p>The app has four page tabs, a robot-connect button, an expandable service panel, and a log terminal. It opens on <strong>Page 2 Setting / Teaching</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Surface</th>
+          <th>What the user sees</th>
+          <th>Main controls</th>
+          <th>Physical-control potential</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Page 2 · Setting / Teaching</td>
+          <td>A per-robot Conty JSON tree, command palette, node settings, and Jog panel</td>
+          <td>New, load, save, export a copy, edit nodes, virtual Play, execute, and stop</td>
+          <td>Virtual Play is an on-screen review; Execute, Jog, TCP/DO settings, and connection controls can reach the physical command path</td>
+      </tr>
+      <tr>
+          <td>Page 3 · Dry Run Recording</td>
+          <td>Repeat count, sample interval, virtual DI 0–31, per-robot cycle/joint/pose/torque, and JSONL/MySQL settings</td>
+          <td>Set virtual DI, start or stop a recording per robot, choose storage, and check DB connection</td>
+          <td>Despite the name, this is not a motion-free simulator. It can move a connected robot while virtualizing DI/DO and tool output for diagnostic collection</td>
+      </tr>
+      <tr>
+          <td>Page 1 · Auto / Monitor</td>
+          <td>A 3D view of three robots, the rail and process, TCP/joint data, a risk guide, and program status</td>
+          <td>Select robot, Home, Zero, Error Reset, start or stop a saved program, and clear trails</td>
+          <td>A control-capable screen inside the desktop HMI</td>
+      </tr>
+      <tr>
+          <td>Page 4 · AI Teaching</td>
+          <td>An experimental natural-language command-drafting screen</td>
+          <td>Review a draft</td>
+          <td>Outside the core verified flow and not safety evidence</td>
+      </tr>
+      <tr>
+          <td>Separate Web Twin</td>
+          <td>Per-robot state, recent events, and the process scene</td>
+          <td>Observe state</td>
+          <td>Read-only; it has no Home, Zero, or Stop controls</td>
+      </tr>
+  </tbody>
+</table>
+<p>The key distinction is that <strong>desktop Page 1 and the separate Web Twin are not the same surface</strong>. Page 1 remains inside the HMI control boundary. Only the Web Twin and a future Omniverse adapter are intended to be observation-only.</p>
+<h2 id="the-order-a-user-actually-follows">The order a user actually follows</h2>
+<ol>
+<li><strong>Open the JSON offline first.</strong> On Page 2, load a file without connecting a robot and inspect the references across <code>info</code>, <code>wpList</code>, <code>program</code>, and <code>moveList</code>.</li>
+<li><strong>Edit nodes and review the order with virtual Play.</strong> Selecting a Pick, Place, Loop, DI, or DO node changes the settings and Jog area on the right. This stage reviews the intended sequence and edit scope.</li>
+<li><strong>Save, then read the file again.</strong> The repository keeps the original blocks that it does not own, rebuilds known fields, and reloads the result to check node IDs and waypoint/move references.</li>
+<li><strong>Choose the connection path explicitly.</strong> In the operational <code>mqtt</code> mode, the HMI publishes requests and the Robot Controller owns IndyDCP. <code>direct</code> is a separate lab path in which the HMI connects without the Docker gateway; it must not be treated as the same single-controller topology.</li>
+<li><strong>Check state before connecting equipment.</strong> Robot Settings, Communication Check, and Service Management expose the selected robot, MQTT, DB, and PLC status separately. An open app window does not mean the equipment is connected.</li>
+<li><strong>Send a real command only when intended.</strong> Page 2 Execute/Jog and Page 1 quick controls are write paths. The on-screen E-STOP is a command button, not a replacement for a validated hardware emergency-stop circuit.</li>
+<li><strong>Use Page 3 for diagnostic recording.</strong> It can evaluate branches with virtual DI and skip physical DO/tool outputs, but the connected robot still moves and publishes telemetry. It therefore requires a controlled area, reduced-speed procedure, supervision, and explicit stop criteria.</li>
+<li><strong>Observe state on Page 1 and the Web Twin.</strong> The operator sees control and live state in the HMI, while another viewer sees only the same <code>robot/realtime</code> stream and recent events in the Web Twin.</li>
+</ol>
+<h2 id="responsibility-by-component">Responsibility by component</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Owns</th>
+          <th>Does not own</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PC-HMI</td>
+          <td>JSON browsing and editing, virtual Play, user command requests, state, and logs</td>
+          <td>An additional physical socket in operational MQTT mode</td>
+      </tr>
+      <tr>
+          <td>Robot Controller</td>
+          <td>Per-robot command queues, IndyDCP connections, execution, and result/error/connection/realtime publication</td>
+          <td>History persistence or 3D rendering</td>
+      </tr>
+      <tr>
+          <td>Command/result contract</td>
+          <td>Correlating request, acceptance, result, and error with <code>command_id</code></td>
+          <td>Idempotent duplicate suppression merely because an ID exists</td>
+      </tr>
+      <tr>
+          <td>DB Worker</td>
+          <td>Persisting realtime, task, result, Dry Run, and PLC events to MySQL</td>
+          <td>Polling or commanding a robot</td>
+      </tr>
+      <tr>
+          <td>PLC Bridge</td>
+          <td>Reading initial values and signal edges, then publishing events</td>
+          <td>PLC writes or robot commands; the PLC retains process-control authority</td>
+      </tr>
+      <tr>
+          <td>Web Twin</td>
+          <td>Forwarding MQTT state, connection, result, and PLC events over WebSocket and rendering them</td>
+          <td>Physical robot commands</td>
+      </tr>
+      <tr>
+          <td>Omniverse adapter</td>
+          <td>A future read-only mapping from <code>robot/realtime</code> into USD joints and coordinates</td>
+          <td>A completed or validated implementation in the current repository</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="write-path-and-read-paths">Write path and read paths</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Write path]
+</span></span><span style="display:flex;"><span>PC-HMI Pages 1 and 2 ──command_id + request──&gt; MQTT
+</span></span><span style="display:flex;"><span>    └──&gt; Robot Controller (sole IndyDCP owner) ──physical command──&gt; Indy7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Read paths]
+</span></span><span style="display:flex;"><span>Indy7 ──state/outcome──&gt; Robot Controller
+</span></span><span style="display:flex;"><span>    └──accepted / result / realtime / connection / error──&gt; MQTT
+</span></span><span style="display:flex;"><span>        ├──&gt; PC-HMI
+</span></span><span style="display:flex;"><span>        ├──&gt; DB Worker (history)
+</span></span><span style="display:flex;"><span>        └──&gt; Web Twin (read only)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PLC master ──read signals──&gt; PLC Bridge (monitor only) ──edge event──&gt; MQTT
+</span></span><span style="display:flex;"><span>MQTT - -future adapter- -&gt; Omniverse / USD (not complete, read-only goal)
+</span></span></code></pre></div><p><em>Basis: a generalized diagram derived from the public communications guide and the HMI, Robot Controller, DB Worker, PLC Bridge, and Web Twin source inspected on July 31, 2026. It is not a fabricated screen or run result.</em></p>
+<p>Separating command, accepted, result, realtime, connection, and error distinguishes “the Broker received a request” from “the robot completed the action.” A <code>command_id</code> alone does not create idempotency. The current Robot Controller has per-robot queues and completion checks, but durable duplicate-command rejection remains to be verified.</p>
+<h2 id="verified-outputs-and-remaining-limits">Verified outputs and remaining limits</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>What the evidence supports</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Repository source</td>
+          <td>Four HMI pages plus Robot Controller, DB Worker, PLC Bridge, and Web Twin implementations exist</td>
+          <td>Component and responsibility boundaries are visible in code</td>
+      </tr>
+      <tr>
+          <td>JSON revalidation record</td>
+          <td>One published test fixture retained all 63 program nodes and unique IDs after export</td>
+          <td>A fixture-specific result, not proof across all firmware versions</td>
+      </tr>
+      <tr>
+          <td>Branching and records</td>
+          <td>The public Dry Run report records virtual-DI branch checks, joint/pose/torque samples, and local plus MySQL persistence</td>
+          <td>Evidence that the screens and recording path were exercised</td>
+      </tr>
+      <tr>
+          <td>Observed failure</td>
+          <td>The same report records a physical-motion collision flag and an incomplete long repetition test</td>
+          <td>The case does not hide failure or claim production readiness</td>
+      </tr>
+      <tr>
+          <td>Web Twin</td>
+          <td>Source reads state, connection, and recent events and exposes no command-publishing UI</td>
+          <td>The read-only boundary is visible in code</td>
+      </tr>
+      <tr>
+          <td>Omniverse</td>
+          <td>No public USD adapter, joint mapping, or calibration implementation was found</td>
+          <td>This is not presented as completed Omniverse integration</td>
+      </tr>
+  </tbody>
+</table>
+<p>This documentation change did not run the robot, Docker services, MySQL, PLC, or Web Twin. Its current evidence is the public repository source and a dated public Dry Run report.</p>
+<p>Remaining gates include JSON round-trip regression across Indy7 firmware versions, command authentication and authorization, duplicate-command idempotency, Broker topic ACLs, long reconnect tests, DB replay and duplicate handling, hardware-in-the-loop validation, and a read-only Omniverse USD adapter. Emergency stops and safety interlocks must remain the responsibility of validated robot and PLC safety systems, not HMI buttons or virtual risk guides.</p>
 <h2 id="design-and-validation-record">Design and validation record</h2>
 <details class="project-blueprint">
   <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
@@ -491,7 +773,7 @@ document.documentElement.setAttribute('data-theme', theme)
     <div class="project-blueprint__heading">
       <p class="project-blueprint__eyebrow">Design and validation record</p>
       <h2 id="project-blueprint-robot-json-omniverse">Design choices and work flow</h2>
-      <p class="project-blueprint__summary">Robot-program compatibility and physical-control accountability drive separate tasks for JSON editing, socket ownership, events, history, and a read-only twin.</p>
+      <p class="project-blueprint__summary">This is a representative robot project that I led. I drove its requirements, integration sequence, and staged progression, arranging JSON editing, physical control, events, history, PLC, and the digital twin into one operating flow.</p>
     </div>
     <span class="project-blueprint__status project-blueprint__status--planned">Prototype · public link withheld</span>
   </header>
@@ -499,11 +781,11 @@ document.documentElement.setAttribute('data-theme', theme)
   <dl class="project-blueprint__meta">
       <div>
         <dt>Project type</dt>
-        <dd>Personal robot-HMI prototype</dd>
+        <dd>Team project · robot workstream led by me</dd>
       </div>
       <div>
         <dt>My scope</dt>
-        <dd>JSON compatibility, PC-HMI/backend boundaries, operating docs</dd>
+        <dd>Robot-project definition, interface boundaries, integration sequence, and progression</dd>
       </div>
       <div>
         <dt>Primary audience</dt>
@@ -591,7 +873,7 @@ document.documentElement.setAttribute('data-theme', theme)
   <section class="project-blueprint__work" aria-labelledby="project-work-robot-json-omniverse">
     <div class="project-blueprint__section-heading">
       <h3 id="project-work-robot-json-omniverse">Work completed and planned</h3>
-      <p>Repository-backed work and future Omniverse/hardware validation are intentionally separate.</p>
+      <p>The broader vision was shaped with the team and a small execution core divided the implementation, while I led the robot project&#39;s definition, integration, and progression.</p>
     </div>
     <ol class="project-blueprint__tasks">
         <li>
@@ -697,7 +979,7 @@ document.documentElement.setAttribute('data-theme', theme)
 </details>
 
 <h2 id="public-link">Public link</h2>
-<p>No external link is published until the configuration cleanup and public revalidation are complete.</p>
+<p>The external repository button remains withheld until configuration cleanup and revalidation are complete. This page does not republish the repository address or environment-specific connection values.</p>
 
         </div>
 
@@ -738,13 +1020,22 @@ document.documentElement.setAttribute('data-theme', theme)
         <hr>
         <div class="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
-    <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
-    <li><a href="#my-actual-role">My actual role</a></li>
-    <li><a href="#data-flow">Data flow</a></li>
-    <li><a href="#implementation-sequence">Implementation sequence</a></li>
-    <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>
-    <li><a href="#deployment-conditions-and-company-value">Deployment conditions and company value</a></li>
+    <li><a href="#current-stage-before-anything-else">Current stage, before anything else</a></li>
+    <li><a href="#whole-team-system-and-verified-stack">Whole team system and verified stack</a>
+      <ul>
+        <li><a href="#the-robot-digital-twin-project-i-led">The robot digital-twin project I led</a></li>
+      </ul>
+    </li>
+    <li><a href="#repository-structure">Repository structure</a>
+      <ul>
+        <li><a href="#recommended-git-reading-order">Recommended Git reading order</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-a-first-time-user-sees">What a first-time user sees</a></li>
+    <li><a href="#the-order-a-user-actually-follows">The order a user actually follows</a></li>
+    <li><a href="#responsibility-by-component">Responsibility by component</a></li>
+    <li><a href="#write-path-and-read-paths">Write path and read paths</a></li>
+    <li><a href="#verified-outputs-and-remaining-limits">Verified outputs and remaining limits</a></li>
     <li><a href="#design-and-validation-record">Design and validation record</a></li>
     <li><a href="#public-link">Public link</a></li>
   </ul>

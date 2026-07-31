@@ -30,7 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+<link rel="stylesheet" href="/application.54499330722fdfedf8aa0a49b92af5f6c3ba352193e3d4f76470ecdfa5b588ec.css" integrity="sha256-VEmTMHIv3&#43;34qgpJuSr19sO6NSGT49T3ZHDs36W1iOw=">
 
 
 
@@ -162,13 +162,13 @@ document.documentElement.setAttribute('data-theme', theme)
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
+              <a class="nav-link" href="/en/#projects">Projects</a>
             </li>
           
         
           
             <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
+              <a class="nav-link" href="/en/#education">Education</a>
             </li>
           
         
@@ -371,7 +371,7 @@ document.documentElement.setAttribute('data-theme', theme)
           <p class="portfolio-article__meta">
             <time datetime="2026-07-09">Jul 9, 2026</time>
              · 
-            7 minutes
+            11 minutes
              · 
             Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
           </p>
@@ -451,33 +451,213 @@ document.documentElement.setAttribute('data-theme', theme)
   </footer>
 </aside>
 
-<h2 id="why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</h2>
-<p>With high-capital equipment, a sequence or communications problem discovered after installation is more expensive and riskier to correct. When sensor state, PLC logic, and operator displays disagree, the team also spends time deciding which information is authoritative. This project used a Giga Press factory context to examine how process and data connections could be checked before physical commissioning.</p>
-<p>The scope was not a complete production Giga Press. It was a team PoC that connected Factory I/O, PLC, SCADA, and an upstream communications path to define what should be tested before moving to physical equipment.</p>
-<h2 id="why-a-digital-method-was-needed">Why a digital method was needed</h2>
-<p>Testing only on physical equipment can reveal missing sensors, delayed completion signals, and restart conditions late in the project. A virtual process allows those abnormal cases to be repeated while the team checks whether control state and displayed data remain consistent.</p>
-<p>The team kept control authority in the PLC. Factory I/O represented the virtual process, the PLC owned sequence and interlock decisions, SCADA displayed state and alarms, and the OPC UA path defined how upstream systems and an AI candidate could receive data. AI remained an optimization candidate rather than a safety controller.</p>
-<h2 id="my-actual-role">My actual role</h2>
-<p>This was a <strong>ten-person team project</strong>. My scope in the Digital Twin group was limited to <strong>AI-model selection and training, communications setup, and technical research</strong>. I reviewed a DQN candidate using realtime sensor and PLC data and organized where the OPC UA communications path fit within the team scenario.</p>
-<p>Ladder and SCADA implementation belonged to other team members. They are described as parts of the team architecture, not as my individual work.</p>
-<h2 id="data-flow">Data flow</h2>
-<p><code>Field signals → PLC sequence and interlock decisions → Factory I/O virtual process and SCADA state display → OPC UA boundary → web and AI candidates</code></p>
-<p>The layers see related signals but have different responsibilities. A displayed or AI-generated value does not become a safety command by itself; run permission and safe behavior during communications loss stay within PLC and dedicated safety design.</p>
-<h2 id="implementation-sequence">Implementation sequence</h2>
+<h2 id="the-first-minute">The first minute</h2>
+<p>In this case, “Giga Press” names a <strong>training scenario</strong> in which a factory adds another process cell around a large casting machine. Instead of waiting for the equipment to arrive before aligning PLC sequences, screen tags, and upstream data, the team connected them around a virtual machine and repeated failure cases first.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>What to know</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Team output</td>
+          <td>A demonstration and report connecting a Factory I/O virtual machine, PLC, SCADA, and an OPC UA flow</td>
+      </tr>
+      <tr>
+          <td>Project form</td>
+          <td>A ten-person education team PoC, not the construction of a production Giga Press</td>
+      </tr>
+      <tr>
+          <td>My scope</td>
+          <td>AI-model candidate selection and training, communications setup including OPC UA, and technical research</td>
+      </tr>
+      <tr>
+          <td>Teammates’ scope</td>
+          <td>PLC Ladder logic and SCADA screen and tag implementation</td>
+      </tr>
+      <tr>
+          <td>Current evidence</td>
+          <td>Team demonstration and report stage; no live-plant HIL, FAT, or before-and-after result measurement</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="the-factory-expansion-scenario">The factory-expansion scenario</h2>
+<p>The team assumed that a factory was adding a cell similar to an existing process. Copying the machine is not enough. The teams also need to agree on the sensor sequence, when the previous process sends completion, which alarms the operator sees, and whether upstream systems understand equipment state under the same names.</p>
+<p>If that work starts only on the physical machine, missing sensors, delayed completion signals, manual/automatic mode conflicts, and restart conditions may appear late. This PoC used Factory I/O in place of the machine while connecting the PLC sequence, SCADA display, and OPC UA data flow. It reviewed stop and recovery conditions as well as the normal run.</p>
+<h2 id="complete-system-architecture">Complete system architecture</h2>
+<div class="mermaid">
+flowchart LR
+    A["Factory I/O<br/>virtual sensors, actuators, and process motion"] <-->|"I/O signals"| B["PLC and Ladder<br/>sequence, interlocks, and final run permission"]
+    B <-->|"state, alarms, and manual-action results"| C["SCADA<br/>operator screens and alarms"]
+    B -->|"equipment tags"| D["OPC UA boundary<br/>value, quality, and time"]
+    D --> E["Web status-view candidate"]
+    D --> F["DQN optimization candidate<br/>advisory review"]
+    G["Future physical sensors and actuators"] -. "replace the virtual machine<br/>during HIL and FAT" .-> A
+</div>
+
+<p>Each component had a distinct responsibility.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Responsibility</th>
+          <th>Not its responsibility</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Factory I/O</td>
+          <td>Run a virtual process with sensors and actuators and repeat fault conditions</td>
+          <td>Prove hydraulic, servo, or safety behavior of the physical machine</td>
+      </tr>
+      <tr>
+          <td>PLC and Ladder</td>
+          <td>Decide process sequence, interlocks, and final run permission</td>
+          <td>Execute an AI output without review</td>
+      </tr>
+      <tr>
+          <td>SCADA</td>
+          <td>Display state, alarms, and operator-action results</td>
+          <td>Replace the safety circuit or PLC interlocks</td>
+      </tr>
+      <tr>
+          <td>OPC UA</td>
+          <td>Carry PLC data to upper layers as tags</td>
+          <td>Guarantee a value is safe merely because communication succeeded</td>
+      </tr>
+      <tr>
+          <td>Web and AI candidates</td>
+          <td>Display state or examine optimization potential</td>
+          <td>Own emergency stop or machine authority</td>
+      </tr>
+  </tbody>
+</table>
+<p>The Ladder and SCADA implementations belonged to the responsible teammates. I do not present this architecture as a solo build. My work was to review and train the DQN candidate, set up the communications path including OPC UA, and research how the components should meet at their boundaries.</p>
+<h2 id="how-one-signal-moves">How one signal moves</h2>
+<p>Consider a virtual “die ready” signal.</p>
 <ol>
-<li>The team defined the normal process sequence together with stop, delay, and restart conditions.</li>
-<li>The responsible team member connected Factory I/O scenarios to Ladder logic.</li>
-<li>The responsible team member configured SCADA state and alarm visibility.</li>
-<li>I selected and trained the AI candidate and handled communications setup and supporting research.</li>
-<li>The team integrated PLC, SCADA, Factory I/O, web, and AI-extension concepts into one demonstration and report.</li>
-<li>The report kept projected benefits separate from measured outcomes.</li>
+<li>A virtual sensor in Factory I/O creates the ready state.</li>
+<li>The PLC checks the current mode, completion of the preceding step, and related interlocks.</li>
+<li>If the conditions agree, the PLC permits the next action. If they do not, it keeps the process stopped with a cause.</li>
+<li>SCADA presents the same state as an equipment name and alarm an operator can understand.</li>
+<li>OPC UA carries equipment, signal, value, quality, and time information to upper layers.</li>
+<li>A web view or AI candidate consumes that data, but it does not bypass the PLC safety decision to move equipment.</li>
 </ol>
-<h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
-<p>The verified output is the team demonstration and report connecting process flow, Ladder and Factory I/O, SCADA, web, and an AI-extension structure. Validation with a production Giga Press safety PLC, hydraulic and servo dynamics, and real production I/O is outside the completed scope.</p>
-<p>The report’s <strong>50–75% setup-time reduction</strong> and <strong>50% equipment-expansion labor reduction</strong> are expected benefits or targets for virtual commissioning and Ladder modularization. They are not controlled before-and-after plant results and are not presented as achievements.</p>
-<h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
-<p>Field use requires hardware-in-the-loop tests with actual I/O and safety requirements, communications-loss and reconnect tests, versioned tag specifications, alarm priorities, network segmentation, and access-control review. If an AI candidate is used, it cannot own run or safety commands; recommendations need approval, rejection, and rollback paths.</p>
-<p>Under those conditions, virtual commissioning could move logic and data-integrity checks earlier than physical trial and give teams a reusable review standard. The company value is earlier change-impact review and accumulated commissioning knowledge. Time or labor savings can be confirmed only after measurement against a controlled baseline.</p>
+<p>The team design treated matching signal names as insufficient. <code>equipment</code>, <code>signal</code>, <code>value</code>, <code>quality</code>, and <code>timestamp</code> were needed together so a stale value after communications loss would not look like a current healthy state. The actual tag list and equipment addresses remain in internal team material and are not reproduced here.</p>
+<h2 id="my-model-and-communications-work">My model and communications work</h2>
+<h3 id="dqn-candidate-selection-and-training">DQN candidate selection and training</h3>
+<p>I selected and trained a DQN candidate to examine whether real-time sensor and PLC states could support process optimization. The important questions were not the model name alone:</p>
+<ul>
+<li>Which PLC and sensor states should become observations?</li>
+<li>How should a reward distinguish shorter cycle behavior from safety violations?</li>
+<li>Where should an AI output remain advisory so it cannot bypass PLC interlocks?</li>
+</ul>
+<p>The project has no repeated production-machine measurement of model performance or operating benefit. The DQN is therefore described as an upper-layer optimization candidate, not a production controller.</p>
+<h3 id="opc-ua-setup-and-technical-research">OPC UA setup and technical research</h3>
+<p>I organized where the OPC UA connection belonged so PLC values could retain a common meaning across SCADA, web, and AI layers. The setup considered the meaning of a tag, communication quality, and time rather than transferring addresses alone. I also researched why loss of communication, stale values, and state synchronization after reconnect should be separate test cases, then reflected those concerns in the team scenario.</p>
+<h2 id="ten-person-team-result-versus-my-role">Ten-person team result versus my role</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Scope</th>
+          <th>Attribution</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Process scenario, the complete Factory I/O–PLC–SCADA–OPC UA connection, integrated demo, and report</td>
+          <td><strong>Ten-person team result</strong></td>
+      </tr>
+      <tr>
+          <td>AI-model candidate selection and training, communications setup, and related technical research</td>
+          <td><strong>My role</strong></td>
+      </tr>
+      <tr>
+          <td>PLC Ladder sequences and interlock implementation</td>
+          <td><strong>Responsible teammate’s role</strong></td>
+      </tr>
+      <tr>
+          <td>SCADA screens, tags, and alarm implementation</td>
+          <td><strong>Responsible teammate’s role</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>This distinction is more than an R&amp;R table. In an interview, it lets me explain the complete system context while keeping the work I did not implement—Ladder and SCADA—out of my individual contribution.</p>
+<h2 id="work-sequence">Work sequence</h2>
+<ol>
+<li><strong>Define the expansion case.</strong> The team mapped the normal sequence plus stop, delay, missing-sensor, manual/automatic mode, and restart conditions.</li>
+<li><strong>Assign signal responsibility.</strong> It separated PLC decisions, SCADA display, and data sent to upper layers.</li>
+<li><strong>Connect virtual process and control.</strong> The responsible teammate connected Factory I/O scenarios to Ladder logic.</li>
+<li><strong>Build the operator view.</strong> The responsible teammate configured SCADA state, alarms, and action results on the same signal basis.</li>
+<li><strong>Review AI and communications candidates.</strong> I selected and trained the DQN candidate, set up the OPC UA flow, and researched the supporting design.</li>
+<li><strong>Integrate normal, failure, and recovery flows.</strong> The team combined the parts into one demonstration and report.</li>
+<li><strong>Review claim boundaries.</strong> The team output, individual contribution, expected effects, and uncompleted plant validation were kept separate.</li>
+</ol>
+<h2 id="problems-and-decisions">Problems and decisions</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Problem</th>
+          <th>Decision</th>
+          <th>Reason</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>The virtual machine, PLC, and screen can interpret one signal differently</td>
+          <td>Define a shared tag meaning together with value, quality, and time</td>
+          <td>A screen can look healthy while showing a stale value</td>
+      </tr>
+      <tr>
+          <td>Failure cases are difficult and risky to repeat on physical equipment</td>
+          <td>Review missing sensors, delay, and restart in Factory I/O first</td>
+          <td>Find logic and display errors before physical trial</td>
+      </tr>
+      <tr>
+          <td>AI response and networks introduce delay and variability</td>
+          <td>Keep final run permission and interlocks in the PLC</td>
+          <td>An optimization candidate must not replace safety decisions</td>
+      </tr>
+      <tr>
+          <td>Different people implemented different layers</td>
+          <td>Separate the team result from individual roles in the document</td>
+          <td>Explain the whole context without overstating individual implementation</td>
+      </tr>
+      <tr>
+          <td>The report included efficiency targets</td>
+          <td>Label targets separately from measured results</td>
+          <td>Prevent expected effects from being mistaken for achieved outcomes</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="verified-result-and-potential-benefits">Verified result and potential benefits</h2>
+<p>The verified result is the <strong>ten-person team demonstration and report</strong> connecting the process flow, Factory I/O and Ladder, SCADA, OPC UA, and the placement of web and AI extensions. It showed a method for reviewing sequence, signal names, alarms, and communications failures on one basis before equipment installation.</p>
+<p>The report’s <strong>50–75% setup-time reduction</strong> and <strong>50% equipment-expansion labor reduction</strong> are <strong>expected effects or targets</strong> for successful virtual commissioning and Ladder modularization. They are not controlled before-and-after plant measurements and are not presented as project achievements.</p>
+<p>After a controlled comparison against a plant baseline, potential benefits could include:</p>
+<ul>
+<li>finding sequence and tag mismatches before physical equipment trial;</li>
+<li>reusing signal definitions and failure/recovery test order during expansion;</li>
+<li>giving controls, operator-interface, communications, and analytics teams a common description of state; and</li>
+<li>reviewing how a logic change affects other process steps and alarms before commissioning.</li>
+</ul>
+<h2 id="current-limitations-and-next-validation">Current limitations and next validation</h2>
+<p>The PoC was not validated on physical Giga Press hardware, a safety PLC, hydraulic or servo dynamics, live takt conditions, or production I/O. It also did not measure DQN performance in a live plant, long-duration communications stability, or operator response to alarms.</p>
+<p>Field use would require hardware-in-the-loop testing with actual I/O, FAT, communications-loss and reconnect tests, tag-version changes, alarm priorities, network segmentation, and access review. Even if an AI candidate is used, it needs accept, reject, and rollback paths for its recommendations. Machine commands and safety decisions must remain with validated PLC and safety systems.</p>
+<h2 id="public-source-and-evidence-structure">Public source and evidence structure</h2>
+<p>There is currently no verified dedicated public code repository or view-only report for this case. The Canva address grants editing access, so it and the original team materials are not published. The shareable evidence is divided within this portfolio as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>data/project_cases.json
+</span></span><span style="display:flex;"><span>  └─ team/self attribution, shareable claims, expected effects, and limits
+</span></span><span style="display:flex;"><span>data/en/project_blueprints.yaml
+</span></span><span style="display:flex;"><span>  └─ scope, design choices, work sequence, and verification state
+</span></span><span style="display:flex;"><span>content/en/posts/giga-press-dx.en.md
+</span></span><span style="display:flex;"><span>  └─ English explanation for an interviewer
+</span></span><span style="display:flex;"><span>content/ko/posts/giga-press-dx.ko.md
+</span></span><span style="display:flex;"><span>  └─ Korean explanation of the same scope
+</span></span><span style="display:flex;"><span>data/en/sections/projects.yaml · data/ko/sections/projects.yaml
+</span></span><span style="display:flex;"><span>  └─ portfolio card and public-link status
+</span></span></code></pre></div><p>The external report button remains absent until a view-only copy is redacted and verified. For the same reason, this page does not recreate an unverifiable report screen or use a fabricated screenshot.</p>
 <h2 id="design-and-validation-record">Design and validation record</h2>
 <details class="project-blueprint">
   <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
@@ -732,13 +912,22 @@ document.documentElement.setAttribute('data-theme', theme)
         <hr>
         <div class="toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
-    <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
-    <li><a href="#my-actual-role">My actual role</a></li>
-    <li><a href="#data-flow">Data flow</a></li>
-    <li><a href="#implementation-sequence">Implementation sequence</a></li>
-    <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>
-    <li><a href="#deployment-conditions-and-company-value">Deployment conditions and company value</a></li>
+    <li><a href="#the-first-minute">The first minute</a></li>
+    <li><a href="#the-factory-expansion-scenario">The factory-expansion scenario</a></li>
+    <li><a href="#complete-system-architecture">Complete system architecture</a></li>
+    <li><a href="#how-one-signal-moves">How one signal moves</a></li>
+    <li><a href="#my-model-and-communications-work">My model and communications work</a>
+      <ul>
+        <li><a href="#dqn-candidate-selection-and-training">DQN candidate selection and training</a></li>
+        <li><a href="#opc-ua-setup-and-technical-research">OPC UA setup and technical research</a></li>
+      </ul>
+    </li>
+    <li><a href="#ten-person-team-result-versus-my-role">Ten-person team result versus my role</a></li>
+    <li><a href="#work-sequence">Work sequence</a></li>
+    <li><a href="#problems-and-decisions">Problems and decisions</a></li>
+    <li><a href="#verified-result-and-potential-benefits">Verified result and potential benefits</a></li>
+    <li><a href="#current-limitations-and-next-validation">Current limitations and next validation</a></li>
+    <li><a href="#public-source-and-evidence-structure">Public source and evidence structure</a></li>
     <li><a href="#design-and-validation-record">Design and validation record</a></li>
     <li><a href="#public-links">Public links</a></li>
   </ul>
