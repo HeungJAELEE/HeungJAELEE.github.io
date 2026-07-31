@@ -1,2 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qual on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/qual/</link><description>Recent content in Qual on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/qual/rss.xml" rel="self" type="application/rss+xml"/><item><title>Semiconductor and Display-Part Surface Treatment and Measurement Correlation</title><link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Surface-treatment results change with material, geometry, contamination, and process conditions even when a nominal recipe is unchanged. My scope included chemical anodizing, etching, and cleaning as well as dry mechanical bead blasting. Because those processes work differently, I managed their conditions and inspection methods separately instead of grouping all of them as wet processing. Even stable internal measurements can fail qualification when the customer&amp;rsquo;s instrument and rule differ.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qual on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/qual/</link>
+    <description>Recent content in Qual on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/qual/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Semiconductor and Display-Part Surface Treatment and Measurement Correlation</title>
+      <link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-wet-process-standardization&#34; data-project-id=&#34;wet-process-standardization&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-wet-process-standardization&#34;&gt;Matching process conditions alone was not enough; bath condition and cross-instrument differences had to be understood so internal and customer measurements agreed.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Process and inspection criteria applied to production&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;During tenure at YMC · Mar 2016–Jan 2021&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Company project · Surface-treatment process development and qualification&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-wet-process-standardization&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-wet-process-standardization&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;If anodizing, etching, cleaning, bath analysis, and inspection measurements were not connected, sample results varied and qualification criteria were difficult to align.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

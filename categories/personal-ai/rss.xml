@@ -1,31 +1,153 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal AI on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/categories/personal-ai/</link><description>Recent content in Personal AI on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/personal-ai/rss.xml" rel="self" type="application/rss+xml"/><item><title>Fail-Closed AI Authority &amp; Evidence Plane: AI가 볼 수 있어도 실행할 수는 없다</title><link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid><description>&lt;h2 id="문제-테스트-성공이-실행-권한을-의미하지-않는다"&gt;문제: 테스트 성공이 실행 권한을 의미하지 않는다&lt;/h2&gt;
-&lt;p&gt;AI 시스템에서 다음 문장은 서로 다른 사실입니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;모델이 데이터를 읽었다.&lt;/li&gt;
-&lt;li&gt;모델이 행동을 추천했다.&lt;/li&gt;
-&lt;li&gt;코드가 로컬 테스트를 통과했다.&lt;/li&gt;
-&lt;li&gt;승인된 사람이 실제 행동을 허가했다.&lt;/li&gt;
-&lt;li&gt;동일한 artifact가 운영 환경에서 실행됐다.&lt;/li&gt;
-&lt;li&gt;외부 시스템에서 효과가 발생했고 read-back됐다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이 구분이 없으면 “테스트 PASS”가 “배포 가능”, “추천 생성”이 “주문 승인”, “로컬 상태 변경”이 “실제 외부 효과”로 잘못 해석될 수 있습니다.&lt;/p&gt;
-&lt;p&gt;이 프로젝트는 AI 기능을 더 많이 연결하는 대신, &lt;strong&gt;필수 근거가 하나라도 없으면 다음 단계로 가지 않는 fail-closed Authority &amp;amp; Evidence Plane&lt;/strong&gt;을 로컬 Foundation으로 구성했습니다.&lt;/p&gt;</description></item><item><title>공식 근거 기반 실업급여 Q&amp;A: 165개 질문을 판정이 아닌 확인 경로로 바꾸기</title><link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="문제-비슷한-질문도-행정-결과는-다를-수-있다"&gt;문제: 비슷한 질문도 행정 결과는 다를 수 있다&lt;/h2&gt;
-&lt;p&gt;“자진 퇴사인데 받을 수 있나요?”처럼 짧은 질문은 퇴사 사유, 피보험 기간, 이직확인서, 구직활동, 개인 통지와 관할 기관 판단에 따라 결과가 달라질 수 있습니다. 사이트가 개인 자격을 단정하면 최신 법령이나 실제 처분과 충돌할 위험이 있습니다.&lt;/p&gt;
-&lt;p&gt;따라서 이 서비스는 답을 대신 결정하는 챗봇이 아니라 다음을 빠르게 찾는 &lt;strong&gt;정적 확인 도구&lt;/strong&gt;로 설계했습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;내 질문이 어떤 유형에 가까운가&lt;/li&gt;
-&lt;li&gt;어떤 사실과 문서를 먼저 확인해야 하는가&lt;/li&gt;
-&lt;li&gt;고용24·고용노동부·법령의 어느 근거를 읽어야 하는가&lt;/li&gt;
-&lt;li&gt;개인 통지나 관할 고용센터에 무엇을 다시 확인해야 하는가&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="왜-165개-질문을-8개-카테고리로-묶었는가"&gt;왜 165개 질문을 8개 카테고리로 묶었는가&lt;/h2&gt;
-&lt;p&gt;원문 대화를 그대로 공개하면 개인정보와 중복이 늘어납니다. 반대로 하나의 거대한 FAQ는 사용자가 자기 상황을 찾기 어렵습니다.&lt;/p&gt;</description></item><item><title>근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유</title><link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid><description>&lt;h2 id="문제-자연스러운-해설이-올바른-해설을-보장하지-않는다"&gt;문제: 자연스러운 해설이 올바른 해설을 보장하지 않는다&lt;/h2&gt;
-&lt;p&gt;자격 학습 자료는 문제, 정답, 이론, NCS 능력단위와 실기 이미지가 서로 다른 출처에 흩어져 있습니다. AI는 빈칸을 자연스럽게 채울 수 있지만, 다음 조건을 확인하지 않으면 오히려 잘못된 학습을 강화합니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;정답 후보가 서로 충돌하는가&lt;/li&gt;
-&lt;li&gt;이미지·도면을 공개할 권리가 있는가&lt;/li&gt;
-&lt;li&gt;문제와 연결한 이론이 실제 의미상 일치하는가&lt;/li&gt;
-&lt;li&gt;제출 전에 클라이언트가 정답·해설을 이미 받는가&lt;/li&gt;
-&lt;li&gt;필기·필답·작업형의 다른 답안 형식을 같은 UI로 억지로 처리하는가&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;그래서 목표를 “문제 수를 빠르게 늘리는 사이트”가 아니라 &lt;strong&gt;근거가 확인된 항목만 공개하고 불확실한 항목은 HOLD로 남기는 학습 플랫폼&lt;/strong&gt;으로 정했습니다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal AI on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/categories/personal-ai/</link>
+    <description>Recent content in Personal AI on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/personal-ai/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Ontology·LLM Wiki 기반 AI Agent 실행 플랫폼</title>
+      <link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-authority-evidence-plane&#34; data-project-id=&#34;ai-authority-evidence-plane&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-authority-evidence-plane&#34;&gt;Ontology와 LLM Wiki에서 업무 지식과 규칙을 골라 역할·도구·근거·중단 조건이 정해진 AI Agent를 구성하고 실행하는 플랫폼입니다. 권한과 Evidence 검사는 Agent 실행을 안전하게 제한하는 하위 계층입니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Agent 구성·로컬 실행 기반 검증 · 운영 연결 전&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;마지막 완료 로컬 검증 스냅숏 · 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;개인 AI 활용 · Ontology·LLM Wiki 기반 Agent 플랫폼&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;Agent마다 긴 Prompt에 지식·도구·규칙을 반복하면 용어와 판단 기준이 달라지고, 어떤 근거로 구성됐는지 확인하기 어렵습니다. 실행 권한까지 섞이면 승인되지 않은 외부 변경으로 이어질 수도 있습니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>설비보전기사 수험생을 위한 학습 마스터북</title>
+      <link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-seolbi-learning-platform&#34; data-project-id=&#34;ai-seolbi-learning-platform&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-seolbi-learning-platform&#34;&gt;문제를 많이 보여주는 것보다 답안 제출 전 정답을 숨기고, 제출 뒤에는 왜 맞고 틀렸는지 근거까지 따라갈 수 있어야 실제 학습에 도움이 됩니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;운영 중 · 일부 자료 공개 보류&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;마지막 완료 검증 스냅숏 · 2026.07.30&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;개인 AI 활용 · 근거 기반 학습 플랫폼&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;문제·정답·해설의 출처와 권리가 섞여 있고 근거가 부족한 자료까지 자동 공개하면 잘못된 학습과 권리 문제가 생길 수 있었습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-ai-seolbi-learning-platform&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-ai-seolbi-learning-platform&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;문제 선택→답안 제출→근거 확인→오답 학습 흐름과 공개·보류 판정, 제출 전 정답 비노출을 설계·검증했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-ai-seolbi-learning-platform&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-ai-seolbi-learning-platform&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;제출 전 정답 비노출과 제출 후 근거·오답 학습 흐름&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;운영 중·근거 또는 권리가 부족한 자료는 공개 보류&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-ai-seolbi-learning-platform&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-ai-seolbi-learning-platform&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;AI는 분류·초안·점검을 돕고, 출처·권리·정답 충돌과 공개 여부는 사람이 확인합니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>실업급여 수급자를 위한 공식 근거 안내 가이드북</title>
+      <link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-unemployment-qna&#34; data-project-id=&#34;ai-unemployment-qna&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-unemployment-qna&#34;&gt;실업급여 질문은 짧은 답으로 자격을 단정하기보다, 질문 유형을 나누고 공식 출처와 개인별 확인 경로로 연결해야 안전합니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;운영 중 · 제도 변경 가능&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;공개 검증 스냅숏 · 2026.07.19&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;개인 AI 활용 · 공식 근거 Q&amp;amp;A&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;비슷해 보이는 질문도 퇴사 사유·피보험 기간·개인 통지에 따라 답이 달라져, 일반적인 설명이 실제 행정 판단을 대신하면 안 됐습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-ai-unemployment-qna&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;비식별 질문 165건을 8개 유형으로 나누고 공식 출처·실전 가이드·정적 페이지 생성 흐름을 구성했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-ai-unemployment-qna&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;측정 결과 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;비식별 질문 165건·8개 유형 분류&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;공식 출처를 연결한 정적 Q&amp;amp;A·가이드 운영 중&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-ai-unemployment-qna&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;AI는 질문 분류와 초안을 돕고, 출처 선택·법적 표현·최종 공개는 사람이 확인합니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

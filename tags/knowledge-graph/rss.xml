@@ -1,35 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Knowledge Graph on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/knowledge-graph/</link><description>Recent content in Knowledge Graph on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/knowledge-graph/rss.xml" rel="self" type="application/rss+xml"/><item><title>HeungTology: 산업 지식을 근거와 함께 찾는 구조</title><link>https://heungjaelee.github.io/posts/ontology-construction/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ontology-construction/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
-&lt;p&gt;제조 현장 자료는 공정, 설비, 품질, 불량, 조치 문서로 나뉘어 있습니다. 문서가 많아질수록 같은 설비가 다른 이름으로 적히고, 관계 대상이 사라지거나, 출처가 없는 설명이 검색 결과에 섞이는 문제가 생깁니다.&lt;/p&gt;
-&lt;p&gt;HeungTology는 문서 수를 늘리는 프로젝트가 아닙니다. 사람이 편집하는 문서를 일정한 구조로 검사하고, 공정과 설비의 관계를 추적하며, 검색 결과가 어느 문서의 어느 부분에서 왔는지 확인할 수 있게 만든 개인 프로젝트입니다.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;구분&lt;/th&gt;
-&lt;th&gt;공개 범위&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;문제&lt;/td&gt;
-&lt;td&gt;중복된 식별자, 깨진 관계, 출처가 약한 주장, 로컬 경로 유입&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;맡은 범위&lt;/td&gt;
-&lt;td&gt;데이터 구조, 변환·검증 절차, 그래프 표현, 검색 흐름 설계와 구현&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;사용 기술&lt;/td&gt;
-&lt;td&gt;YAML, JSON Schema, JSON-LD, OWL, SHACL, Neo4j, Python&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;현재 상태&lt;/td&gt;
-&lt;td&gt;공개 저장소에서 확인되는 코드와 문서 범위로 설명&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;보류한 주장&lt;/td&gt;
-&lt;td&gt;공개 보고서로 다시 확인할 수 없는 로컬 release 수치와 완료 등급&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="왜-이런-구조로-만들었는가"&gt;왜 이런 구조로 만들었는가&lt;/h2&gt;
-&lt;p&gt;문서 원본, 그래프 표현, 검색용 데이터를 하나의 파일에서 함께 관리하면 수정할 때마다 서로 다른 결과가 생기기 쉽습니다. 그래서 책임을 나눴습니다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge Graph on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/knowledge-graph/</link>
+    <description>Recent content in Knowledge Graph on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/knowledge-graph/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>HeungTology: 산업 지식을 근거와 함께 찾는 구조</title>
+      <link>https://heungjaelee.github.io/posts/ontology-construction/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/ontology-construction/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-ontology-construction&#34; data-project-id=&#34;ontology-construction&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ontology-construction&#34;&gt;같은 설비·품질 개념도 부서와 문서마다 표현이 달라 검색이 끊깁니다. 용어와 관계를 먼저 계약으로 정해야 근거가 있는 검색이 가능하다고 봤습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;공개 저장소로 확인 가능한 범위&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;개인 프로젝트 · 공개 저장소 현재 범위&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;제조 지식 데이터·검색&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ontology-construction&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ontology-construction&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;한국어·영어 약어와 유사어가 섞인 제조 문서를 단순 키워드로 찾으면 같은 개념이 빠지거나 다른 의미가 함께 검색됩니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-ontology-construction&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-ontology-construction&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;YAML 원천 계약에서 JSON-LD·OWL·SHACL·Neo4j 표현으로 이어지는 변환과 검증 구조를 설계했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-ontology-construction&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-ontology-construction&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;YAML 계약→그래프 표현→검증→검색으로 이어지는 공개 코드 구조&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-ontology-construction&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-ontology-construction&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;개인 공개 프로젝트이며, 회사 내부 지식이나 고객 문서를 학습 데이터로 사용했다고 주장하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

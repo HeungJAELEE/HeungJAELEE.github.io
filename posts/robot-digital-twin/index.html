@@ -1,28 +1,803 @@
-<!doctype html><html lang=ko><head><title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/robot-digital-twin/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/robot-digital-twin/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC"><meta property="og:type" content="article"><meta property="og:description" content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC"><meta property="og:url" content="https://heungjaelee.github.io/posts/robot-digital-twin/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC"><meta name=twitter:description content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC"><meta name=description content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>기술 사례</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/robot-digital-twin>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/robot-digital-twin>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>인쇄</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="기술 사례 검색"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/search/><label class=visually-hidden for=search-box>기술 사례 검색</label>
-<input type=search name=keyword placeholder="기술 사례 검색" id=search-box></form><nav aria-label="글 목록"><ul class=tree id=tree><li id=list-heading><a href=/posts/>전체 기술 사례</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</h1><p class=portfolio-article__lead>QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC</p><p class=portfolio-article__meta><time datetime=2026-07-09>2026. 7. 9.</time>
-·
-5
-·
-마지막 검토 <time datetime=2026-07-31>2026. 7. 31.</time></p><div class=tags><ul style=padding-left:0><li><a href=/tags/digital-twin/ class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li><li><a href=/tags/robot/ class="btn btn-sm btn-outline-info rounded">Robot</a></li><li><a href=/tags/edge-ai/ class="btn btn-sm btn-outline-info rounded">Edge AI</a></li><li><a href=/tags/vision/ class="btn btn-sm btn-outline-info rounded">Vision</a></li><li><a href=/tags/plc/ class="btn btn-sm btn-outline-info rounded">PLC</a></li><li><a href=/tags/mes/ class="btn btn-sm btn-outline-info rounded">MES</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=어떤-문제를-해결하려-했는가>어떤 문제를 해결하려 했는가</h2><p>로봇 동작, Vision 판정, PLC 시퀀스와 MES 기록을 따로 시연하면 개별 기능은 보여 줄 수 있어도 제품 한 개가 어떤 공정과 검사를 거쳤는지 다시 찾기 어렵습니다.</p><p>이 교육 팀 프로젝트는 QR serial을 공통 key로 사용해 Indy7 협동로봇 조립 흐름, Edge Vision 판정, PLC·SCADA, MySQL/MES와 디지털 트윈 상태를 한 작업 흐름으로 연결한 PoC입니다.</p><table><thead><tr><th>구분</th><th>공개 범위</th></tr></thead><tbody><tr><td>프로젝트 형태</td><td>교육 과정의 팀 PoC</td></tr><tr><td>내 역할</td><td>Robot·Digital Twin 영역</td></tr><tr><td>팀 구현</td><td>QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES</td></tr><tr><td>사용 기술</td><td>Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL</td></tr><tr><td>현재 상태</td><td>교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증</td></tr></tbody></table><p>팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.</p><h2 id=왜-이런-흐름으로-구성했는가>왜 이런 흐름으로 구성했는가</h2><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["QR serial 등록"] --> B["MySQL / MES\n제품·공정 이력"]
-B --> C["PLC 시퀀스"]
-C --> D["Indy7 조립·이송"]
-D --> E["Camera + Edge Vision"]
-E --> F["판정 결과"]
-F --> C
-F --> B
-C --> G["SCADA·Digital Twin\n공정 상태 표시"]</div><h3 id=qr-serial을-공통-key로-사용>QR serial을 공통 key로 사용</h3><p>최소 기록 항목은 제품 serial, 공정 단계, 설비 또는 Robot ID, 검사 model version, 판정과 score, 발생 시각입니다. 이 값이 같은 작업 단위로 묶여야 불량이 발생했을 때 어느 공정과 설비 상태를 확인할지 정할 수 있습니다.</p><h3 id=ai-판정과-물리-제어를-분리>AI 판정과 물리 제어를 분리</h3><p>Vision 결과가 로봇을 바로 움직이는 구조로 만들지 않았습니다. PLC가 검사 완료, 통신 상태와 인터록을 함께 확인한 뒤 다음 공정으로 넘어가는 흐름을 사용했습니다. 모델의 오판정과 통신 오류가 물리 동작으로 바로 이어지지 않게 하기 위해서입니다.</p><h3 id=twin은-관측-화면으로-제한>Twin은 관측 화면으로 제한</h3><p>디지털 트윈은 로봇과 검사 상태를 같은 시간축에서 보는 화면입니다. 3D 장면이 정상적으로 움직이는 것과 실제 안전 조건이 검증된 것은 다른 문제이므로, 물리 제어권은 PLC·Robot Controller·Safety 회로에 남겨야 합니다.</p><h2 id=내가-맡고-확인한-범위>내가 맡고 확인한 범위</h2><ul><li>협동로봇 공정 순서와 상태 표현 검토</li><li>Robot 상태를 Twin 화면에 연결하는 데이터 항목 정리</li><li>Offline 확인 뒤 단일 동작과 공정 흐름으로 확대하는 시험 순서</li><li>제품 ID, 공정 단계, 검사 결과와 시간을 연결하는 이력 구조</li><li>Vision 결과와 물리 시퀀스 사이의 책임 구분</li></ul><p>발표 자료에 포함된 모델 지표와 Edge 장치 비교값은 교육 데모 조건의 결과입니다. 데이터 분할, 반복 평가와 장시간 온도 조건을 공개 방문자가 다시 확인할 수 없기 때문에 이 페이지의 대표 성과 수치로 사용하지 않습니다.</p><h2 id=결과>결과</h2><p>제품 식별부터 로봇 공정, 검사 결과와 MES 기록까지 이어지는 전체 흐름을 팀 단위로 구성했습니다. 개인적으로는 Robot과 Digital Twin 영역에서 어떤 상태를 공유해야 하는지, Twin이 어디까지 관측하고 어디서부터 제어권을 넘지 않아야 하는지를 정리했습니다.</p><p>현장 경력에서 FAT/SAT를 진행할 때 기능, 인터록, 반복성과 생산 이력을 따로 확인했던 경험을 이 프로젝트의 단계별 시험 순서에 적용했습니다.</p><h2 id=확인-자료와-한계>확인 자료와 한계</h2><ul><li>팀 발표자료는 개인별 상세 R&amp;R을 모두 나누지 않으므로 내 역할을 Robot·Digital Twin 범위로 제한합니다.</li><li>팀원 실명과 메타정보가 포함된 원본 파일은 사이트에서 제거했습니다.</li><li>교육 데모의 모델 지표와 속도값을 양산 성능으로 확대하지 않습니다.</li><li>실공장 Cycle Time, 통신 지연, 안전, 재시작 복구와 장기 drift는 검증하지 않았습니다.</li><li>연결된 별도 저장소는 공개 설정 정리가 끝나기 전까지 근거 링크로 사용하지 않습니다.</li></ul><h2 id=설계검증-기록>설계·검증 기록</h2><details class=project-blueprint><summary class=project-blueprint__toggle>검증 상세</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>설계·검증 기록</p><h2 id=project-blueprint-robot-digital-twin>구성 이유와 작업 흐름</h2><p class=project-blueprint__summary>QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.</p></div><span class="project-blueprint__status project-blueprint__status--partial">교육 팀 PoC 완료 · 현장 적용 전</span></header><dl class=project-blueprint__meta><div><dt>프로젝트 유형</dt><dd>교육 팀 PoC</dd></div><div><dt>개인 역할</dt><dd>Robot·Digital Twin 범위</dd></div><div><dt>주요 사용자</dt><dd>생산기술·로봇·Vision·MES 담당자</dd></div><div><dt>Evidence 수준</dt><dd>팀원 정보가 포함된 원본은 비공개, 공개 링크 보류</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.</p></article><article><h3>Goal</h3><p>QR serial을 공통 키로 삼아 세 대의 Indy7 조립 흐름, YOLOv11 검사, PLC/SCADA, MySQL/MES와 디지털 트윈 상태를 연결하는 것입니다.</p></article><article><h3>Success</h3><p>제품 ID→공정 단계→로봇/설비→검사 결과→시간 흐름이 팀 데모와 보고서에서 재구성되고 edge 성능 비교가 근거와 함께 제시되면 성공입니다.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-robot-digital-twin><h3 id=project-scope-robot-digital-twin>범위와 경계</h3><div class=project-blueprint__scope><div><h4>포함 범위</h4><ul><li>QR serial 등록과 MySQL/MES 공정 이력</li><li>Indy7 3대의 투입·차체/유리 결합·적재 시퀀스</li><li>YOLOv11 검사와 Pi5·Hailo-10H edge inference 비교</li><li>PLC·SCADA·Digital Twin 상태 연결</li></ul></div><div><h4>제외·미검증 범위</h4><ul><li>팀 전체 결과를 개인 단독 구현으로 귀속</li><li>GitHub 확장 구현과 팀 PDF 전체를 동일 산출물로 간주</li><li>교육 셀 결과를 자동차 생산 라인 성능으로 일반화</li></ul></div></div></section><section aria-labelledby=project-requirements-robot-digital-twin><h3 id=project-requirements-robot-digital-twin>구현·검증 기준</h3><div class=project-blueprint__requirements><div><h4>해야 할 일</h4><ul><li>QR serial이 공정 이력과 검사 결과의 공통 키가 된다.</li><li>PLC가 로봇 시퀀스와 검사 결과에 따른 good/reject 흐름을 조정한다.</li><li>SCADA·MES·twin이 같은 공정 단계와 상태를 표시한다.</li></ul></div><div><h4>품질·운영 기준</h4><ul><li>팀 산출물과 개인 역할, 연관 저장소를 분리 표시한다.</li><li>공개 방문자가 재현할 수 없는 모델·속도 수치를 대표 성과로 사용하지 않는다.</li><li>오프라인 시연과 실제 설비 적용의 안전·성능 차이를 명시한다.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-robot-digital-twin><h3 id=project-decisions-robot-digital-twin>왜 이렇게 구성했나</h3><ol><li><strong>QR serial을 end-to-end 키로 사용</strong><p>공정·검사·로봇 이벤트를 제품 단위로 재구성하기 위해서입니다.</p></li><li><strong>edge accelerator 비교</strong><p>Pi5 단독과 Hailo-10H 사용 시 추론 차이를 실제 배치 관점에서 확인하기 위해서입니다.</p></li><li><strong>팀 결과와 확장 저장소 분리</strong><p>검증 가능한 팀 PDF와 후속 PC-HMI 구현의 Evidence 범위를 혼용하지 않기 위해서입니다.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-robot-digital-twin><div class=project-blueprint__section-heading><h3 id=project-work-robot-digital-twin>작업 내역과 계획</h3><p>팀 단위 작업은 ‘팀 완료’, 개인 확인 범위는 역할과 Evidence를 별도로 적었습니다.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span></div><h4>제품 추적·공정 범위 정의</h4><p>QR serial 중심의 공정 흐름과 Robot·Digital Twin 역할, 팀/개인 Evidence 경계를 정했습니다.</p><dl><dt>남긴 결과</dt><dd>공정 Flow와 역할 경계</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span></div><h4>QR·MES 이력 흐름 구성</h4><p>제품 serial, 단계, 검사 결과와 시간을 MySQL/MES 기준으로 연결했습니다.</p><dl><dt>남긴 결과</dt><dd>제품 이력 schema와 시연</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span></div><h4>Indy7 조립 셀 시퀀스 통합</h4><p>투입, 차체 결합, 유리창 결합, 적재와 good/reject 흐름을 PLC 단계에 연결했습니다.</p><dl><dt>남긴 결과</dt><dd>3-robot assembly demo</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span></div><h4>Vision·edge inference 검증</h4><p>팀 데모에서 Vision 판정과 edge 장치 비교를 수행했으나 공개 페이지에서는 재현 불가능한 수치를 대표 성과로 쓰지 않습니다.</p><dl><dt>남긴 결과</dt><dd>팀 데모 결과</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span></div><h4>SCADA·Digital Twin 가시화</h4><p>공정 단계와 로봇/검사 상태가 운영 화면에서 같은 흐름으로 보이도록 통합했습니다.</p><dl><dt>남긴 결과</dt><dd>팀 시연</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">다음 단계</span></div><h4>현장 장주기·안전 검증</h4><p>실제 cycle time, 네트워크 지연, robot safety, 모델 drift와 MES 장애 복구 검증이 필요합니다.</p><dl><dt>남긴 결과</dt><dd>현장 파일럿 결과</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-robot-digital-twin><h3 id=project-acceptance-robot-digital-twin>확인 결과</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>제품 ID에서 공정·로봇·검사 결과까지 추적 흐름이 설명된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>재현할 수 없는 모델·속도 수치를 대표 성과로 사용하지 않는다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>팀 성과, 개인 역할과 연관 저장소의 경계를 공개한다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>실제 생산 환경의 safety·cycle·drift·복구를 장기간 검증한다.</p><strong>미검증</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>개인정보를 제거한 보기 전용 근거를 공개할 수 있다.</p><strong>보류</strong></li></ul><p class=project-blueprint__evidence-note><strong>확인 근거:</strong> 팀원 정보가 포함된 원본 파일과 설정 정리 전 저장소는 공개 근거에서 제외했습니다.</p></section></details><h2 id=공개-링크>공개 링크</h2><p>개인정보를 제거한 보기 전용 보고서나 안전하게 정리된 저장소가 확인되기 전까지 외부 버튼을 두지 않습니다.</p></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label=목차><div class=toc-holder><h2 class="h5 text-center ps-3">목차</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#어떤-문제를-해결하려-했는가>어떤 문제를 해결하려 했는가</a></li><li><a href=#왜-이런-흐름으로-구성했는가>왜 이런 흐름으로 구성했는가</a><ul><li><a href=#qr-serial을-공통-key로-사용>QR serial을 공통 key로 사용</a></li><li><a href=#ai-판정과-물리-제어를-분리>AI 판정과 물리 제어를 분리</a></li><li><a href=#twin은-관측-화면으로-제한>Twin은 관측 화면으로 제한</a></li></ul></li><li><a href=#내가-맡고-확인한-범위>내가 맡고 확인한 범위</a></li><li><a href=#결과>결과</a></li><li><a href=#확인-자료와-한계>확인 자료와 한계</a></li><li><a href=#설계검증-기록>설계·검증 기록</a></li><li><a href=#공개-링크>공개 링크</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p><p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>기술 사례</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/robot-digital-twin/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/robot-digital-twin/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC">
+<meta property="og:type" content="article">
+<meta property="og:description" content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/robot-digital-twin/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC">
+  <meta name="twitter:description" content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC">
+
+  <meta name="description" content="QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/robot-digital-twin">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/robot-digital-twin">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</h1>
+          
+            <p class="portfolio-article__lead">QR 추적, Indy7 로봇, Vision 검사, PLC·SCADA·MES와 디지털 트윈을 연결한 교육 팀 PoC</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-09">2026. 7. 9.</time>
+             · 
+            5 
+             · 
+            마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/digital-twin/" class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li>
+    
+    
+    <li><a href="/tags/robot/" class="btn btn-sm btn-outline-info rounded">Robot</a></li>
+    
+    
+    <li><a href="/tags/edge-ai/" class="btn btn-sm btn-outline-info rounded">Edge AI</a></li>
+    
+    
+    <li><a href="/tags/vision/" class="btn btn-sm btn-outline-info rounded">Vision</a></li>
+    
+    
+    <li><a href="/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/tags/mes/" class="btn btn-sm btn-outline-info rounded">MES</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="어떤-문제를-해결하려-했는가">어떤 문제를 해결하려 했는가</h2>
+<p>로봇 동작, Vision 판정, PLC 시퀀스와 MES 기록을 따로 시연하면 개별 기능은 보여 줄 수 있어도 제품 한 개가 어떤 공정과 검사를 거쳤는지 다시 찾기 어렵습니다.</p>
+<p>이 교육 팀 프로젝트는 QR serial을 공통 key로 사용해 Indy7 협동로봇 조립 흐름, Edge Vision 판정, PLC·SCADA, MySQL/MES와 디지털 트윈 상태를 한 작업 흐름으로 연결한 PoC입니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>공개 범위</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>프로젝트 형태</td>
+          <td>교육 과정의 팀 PoC</td>
+      </tr>
+      <tr>
+          <td>내 역할</td>
+          <td>Robot·Digital Twin 영역</td>
+      </tr>
+      <tr>
+          <td>팀 구현</td>
+          <td>QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES</td>
+      </tr>
+      <tr>
+          <td>사용 기술</td>
+          <td>Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL</td>
+      </tr>
+      <tr>
+          <td>현재 상태</td>
+          <td>교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증</td>
+      </tr>
+  </tbody>
+</table>
+<p>팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.</p>
+<h2 id="왜-이런-흐름으로-구성했는가">왜 이런 흐름으로 구성했는가</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["QR serial 등록"] --> B["MySQL / MES\n제품·공정 이력"]
+    B --> C["PLC 시퀀스"]
+    C --> D["Indy7 조립·이송"]
+    D --> E["Camera + Edge Vision"]
+    E --> F["판정 결과"]
+    F --> C
+    F --> B
+    C --> G["SCADA·Digital Twin\n공정 상태 표시"]
+</div>
+
+<h3 id="qr-serial을-공통-key로-사용">QR serial을 공통 key로 사용</h3>
+<p>최소 기록 항목은 제품 serial, 공정 단계, 설비 또는 Robot ID, 검사 model version, 판정과 score, 발생 시각입니다. 이 값이 같은 작업 단위로 묶여야 불량이 발생했을 때 어느 공정과 설비 상태를 확인할지 정할 수 있습니다.</p>
+<h3 id="ai-판정과-물리-제어를-분리">AI 판정과 물리 제어를 분리</h3>
+<p>Vision 결과가 로봇을 바로 움직이는 구조로 만들지 않았습니다. PLC가 검사 완료, 통신 상태와 인터록을 함께 확인한 뒤 다음 공정으로 넘어가는 흐름을 사용했습니다. 모델의 오판정과 통신 오류가 물리 동작으로 바로 이어지지 않게 하기 위해서입니다.</p>
+<h3 id="twin은-관측-화면으로-제한">Twin은 관측 화면으로 제한</h3>
+<p>디지털 트윈은 로봇과 검사 상태를 같은 시간축에서 보는 화면입니다. 3D 장면이 정상적으로 움직이는 것과 실제 안전 조건이 검증된 것은 다른 문제이므로, 물리 제어권은 PLC·Robot Controller·Safety 회로에 남겨야 합니다.</p>
+<h2 id="내가-맡고-확인한-범위">내가 맡고 확인한 범위</h2>
+<ul>
+<li>협동로봇 공정 순서와 상태 표현 검토</li>
+<li>Robot 상태를 Twin 화면에 연결하는 데이터 항목 정리</li>
+<li>Offline 확인 뒤 단일 동작과 공정 흐름으로 확대하는 시험 순서</li>
+<li>제품 ID, 공정 단계, 검사 결과와 시간을 연결하는 이력 구조</li>
+<li>Vision 결과와 물리 시퀀스 사이의 책임 구분</li>
+</ul>
+<p>발표 자료에 포함된 모델 지표와 Edge 장치 비교값은 교육 데모 조건의 결과입니다. 데이터 분할, 반복 평가와 장시간 온도 조건을 공개 방문자가 다시 확인할 수 없기 때문에 이 페이지의 대표 성과 수치로 사용하지 않습니다.</p>
+<h2 id="결과">결과</h2>
+<p>제품 식별부터 로봇 공정, 검사 결과와 MES 기록까지 이어지는 전체 흐름을 팀 단위로 구성했습니다. 개인적으로는 Robot과 Digital Twin 영역에서 어떤 상태를 공유해야 하는지, Twin이 어디까지 관측하고 어디서부터 제어권을 넘지 않아야 하는지를 정리했습니다.</p>
+<p>현장 경력에서 FAT/SAT를 진행할 때 기능, 인터록, 반복성과 생산 이력을 따로 확인했던 경험을 이 프로젝트의 단계별 시험 순서에 적용했습니다.</p>
+<h2 id="확인-자료와-한계">확인 자료와 한계</h2>
+<ul>
+<li>팀 발표자료는 개인별 상세 R&amp;R을 모두 나누지 않으므로 내 역할을 Robot·Digital Twin 범위로 제한합니다.</li>
+<li>팀원 실명과 메타정보가 포함된 원본 파일은 사이트에서 제거했습니다.</li>
+<li>교육 데모의 모델 지표와 속도값을 양산 성능으로 확대하지 않습니다.</li>
+<li>실공장 Cycle Time, 통신 지연, 안전, 재시작 복구와 장기 drift는 검증하지 않았습니다.</li>
+<li>연결된 별도 저장소는 공개 설정 정리가 끝나기 전까지 근거 링크로 사용하지 않습니다.</li>
+</ul>
+<h2 id="설계검증-기록">설계·검증 기록</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">설계·검증 기록</p>
+      <h2 id="project-blueprint-robot-digital-twin">구성 이유와 작업 흐름</h2>
+      <p class="project-blueprint__summary">QR–MES–로봇–Vision–PLC–Digital Twin을 하나의 제품 이력으로 연결한 팀 프로젝트를 단계·산출물·역할 경계 중심으로 정리했습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">교육 팀 PoC 완료 · 현장 적용 전</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>교육 팀 PoC</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>Robot·Digital Twin 범위</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>생산기술·로봇·Vision·MES 담당자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>팀원 정보가 포함된 원본은 비공개, 공개 링크 보류</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>제품 ID, 로봇 동작, 검사 이미지, PLC 시퀀스와 MES 결과가 분리되면 어떤 제품이 어떤 공정과 검사 결과를 거쳤는지 추적하기 어렵습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>QR serial을 공통 키로 삼아 세 대의 Indy7 조립 흐름, YOLOv11 검사, PLC/SCADA, MySQL/MES와 디지털 트윈 상태를 연결하는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>제품 ID→공정 단계→로봇/설비→검사 결과→시간 흐름이 팀 데모와 보고서에서 재구성되고 edge 성능 비교가 근거와 함께 제시되면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-digital-twin">
+      <h3 id="project-scope-robot-digital-twin">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>QR serial 등록과 MySQL/MES 공정 이력</li><li>Indy7 3대의 투입·차체/유리 결합·적재 시퀀스</li><li>YOLOv11 검사와 Pi5·Hailo-10H edge inference 비교</li><li>PLC·SCADA·Digital Twin 상태 연결</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>팀 전체 결과를 개인 단독 구현으로 귀속</li><li>GitHub 확장 구현과 팀 PDF 전체를 동일 산출물로 간주</li><li>교육 셀 결과를 자동차 생산 라인 성능으로 일반화</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-digital-twin">
+      <h3 id="project-requirements-robot-digital-twin">구현·검증 기준</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>해야 할 일</h4>
+          <ul>
+              <li>QR serial이 공정 이력과 검사 결과의 공통 키가 된다.</li>
+              <li>PLC가 로봇 시퀀스와 검사 결과에 따른 good/reject 흐름을 조정한다.</li>
+              <li>SCADA·MES·twin이 같은 공정 단계와 상태를 표시한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 기준</h4>
+          <ul>
+              <li>팀 산출물과 개인 역할, 연관 저장소를 분리 표시한다.</li>
+              <li>공개 방문자가 재현할 수 없는 모델·속도 수치를 대표 성과로 사용하지 않는다.</li>
+              <li>오프라인 시연과 실제 설비 적용의 안전·성능 차이를 명시한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-digital-twin">
+    <h3 id="project-decisions-robot-digital-twin">왜 이렇게 구성했나</h3>
+    <ol>
+        <li>
+          <strong>QR serial을 end-to-end 키로 사용</strong>
+          <p>공정·검사·로봇 이벤트를 제품 단위로 재구성하기 위해서입니다.</p>
+        </li>
+        <li>
+          <strong>edge accelerator 비교</strong>
+          <p>Pi5 단독과 Hailo-10H 사용 시 추론 차이를 실제 배치 관점에서 확인하기 위해서입니다.</p>
+        </li>
+        <li>
+          <strong>팀 결과와 확장 저장소 분리</strong>
+          <p>검증 가능한 팀 PDF와 후속 PC-HMI 구현의 Evidence 범위를 혼용하지 않기 위해서입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-digital-twin">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-digital-twin">작업 내역과 계획</h3>
+      <p>팀 단위 작업은 ‘팀 완료’, 개인 확인 범위는 역할과 Evidence를 별도로 적었습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>제품 추적·공정 범위 정의</h4>
+          <p>QR serial 중심의 공정 흐름과 Robot·Digital Twin 역할, 팀/개인 Evidence 경계를 정했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>공정 Flow와 역할 경계</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>QR·MES 이력 흐름 구성</h4>
+          <p>제품 serial, 단계, 검사 결과와 시간을 MySQL/MES 기준으로 연결했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>제품 이력 schema와 시연</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>Indy7 조립 셀 시퀀스 통합</h4>
+          <p>투입, 차체 결합, 유리창 결합, 적재와 good/reject 흐름을 PLC 단계에 연결했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>3-robot assembly demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>Vision·edge inference 검증</h4>
+          <p>팀 데모에서 Vision 판정과 edge 장치 비교를 수행했으나 공개 페이지에서는 재현 불가능한 수치를 대표 성과로 쓰지 않습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>팀 데모 결과</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">팀 완료</span>
+          </div>
+          <h4>SCADA·Digital Twin 가시화</h4>
+          <p>공정 단계와 로봇/검사 상태가 운영 화면에서 같은 흐름으로 보이도록 통합했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>팀 시연</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">다음 단계</span>
+          </div>
+          <h4>현장 장주기·안전 검증</h4>
+          <p>실제 cycle time, 네트워크 지연, robot safety, 모델 drift와 MES 장애 복구 검증이 필요합니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>현장 파일럿 결과</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-digital-twin">
+    <h3 id="project-acceptance-robot-digital-twin">확인 결과</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>제품 ID에서 공정·로봇·검사 결과까지 추적 흐름이 설명된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>재현할 수 없는 모델·속도 수치를 대표 성과로 사용하지 않는다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>팀 성과, 개인 역할과 연관 저장소의 경계를 공개한다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>실제 생산 환경의 safety·cycle·drift·복구를 장기간 검증한다.</p>
+          <strong>미검증</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>개인정보를 제거한 보기 전용 근거를 공개할 수 있다.</p>
+          <strong>보류</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>확인 근거:</strong> 팀원 정보가 포함된 원본 파일과 설정 정리 전 저장소는 공개 근거에서 제외했습니다.</p>
+  </section>
+</details>
+
+<h2 id="공개-링크">공개 링크</h2>
+<p>개인정보를 제거한 보기 전용 보고서나 안전하게 정리된 저장소가 확인되기 전까지 외부 버튼을 두지 않습니다.</p>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#어떤-문제를-해결하려-했는가">어떤 문제를 해결하려 했는가</a></li>
+    <li><a href="#왜-이런-흐름으로-구성했는가">왜 이런 흐름으로 구성했는가</a>
+      <ul>
+        <li><a href="#qr-serial을-공통-key로-사용">QR serial을 공통 key로 사용</a></li>
+        <li><a href="#ai-판정과-물리-제어를-분리">AI 판정과 물리 제어를 분리</a></li>
+        <li><a href="#twin은-관측-화면으로-제한">Twin은 관측 화면으로 제한</a></li>
+      </ul>
+    </li>
+    <li><a href="#내가-맡고-확인한-범위">내가 맡고 확인한 범위</a></li>
+    <li><a href="#결과">결과</a></li>
+    <li><a href="#확인-자료와-한계">확인 자료와 한계</a></li>
+    <li><a href="#설계검증-기록">설계·검증 기록</a></li>
+    <li><a href="#공개-링크">공개 링크</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

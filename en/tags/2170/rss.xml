@@ -1,3 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2170 on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/2170/</link><description>Recent content in 2170 on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/2170/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Assembly-Line Good Yield: About 40%→98.7%</title><link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Good-product yield on the 2170 assembly line was initially about 40%. Before increasing output, we had to distinguish whether losses came from the product, equipment, or inspection. Treating a gauge error as a process defect can lead to the wrong process change; treating a real defect as an inspection issue allows it to recur.&lt;/p&gt;
-&lt;p&gt;I therefore started by aligning production quantity, inspected quantity, defect categories, downtime, and measurement rules rather than tuning one recipe from a headline yield number.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2170 on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/2170/</link>
+    <description>Recent content in 2170 on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/2170/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2170 Assembly-Line Good Yield: About 40%→98.7%</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-battery-2170-pilot&#34; data-project-id=&#34;battery-2170-pilot&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-battery-2170-pilot&#34;&gt;Before trying to improve the yield number, I separated inspection errors from actual process defects so that equipment and process actions targeted the right cause.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Production stabilization result&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;During tenure at Kumyang · May 2024–Sep 2025&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Company project · Assembly process lead&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-battery-2170-pilot&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Effective good yield was initially about 40%, while production, quality, and equipment teams were using different denominators and defect definitions.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

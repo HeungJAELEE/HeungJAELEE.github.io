@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OPC UA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/opc-ua/</link>
+    <description>Recent content in OPC UA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/opc-ua/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>디지털 트윈 기반 기가프레스 공장 확장 시나리오</title>
+      <link>https://heungjaelee.github.io/posts/giga-press-dx/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-giga-press-dx&#34; data-project-id=&#34;giga-press-dx&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-giga-press-dx&#34;&gt;실물 설비에서 처음 시퀀스와 통신을 맞추면 오류 수정 비용이 커집니다. 가상 환경에서 신호 책임과 실패 조건을 먼저 확인하는 이유를 보여주기 위해 구성했습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;팀 데모·보고서 단계 · 실공장 실측 아님&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;10인 교육 팀 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;가상 시운전·데이터 흐름 PoC&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-giga-press-dx&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;PLC·SCADA·가상설비·상위 데이터가 같은 신호를 서로 다르게 해석하면 시운전 단계에서 인터록·알람·통신 오류가 늦게 발견됩니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-giga-press-dx&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;AI 모델 후보 선정·학습, 통신 셋업과 기술 조사를 맡았습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-giga-press-dx&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;가상설비·PLC·SCADA·OPC UA를 연결한 팀 데모와 보고서&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;AI 모델 후보·학습, 통신 셋업, 기술 조사&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-giga-press-dx&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;Ladder와 SCADA 구현은 팀원 역할이며, Factory I/O–PLC–SCADA–OPC UA 전체는 10인 팀 결과입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

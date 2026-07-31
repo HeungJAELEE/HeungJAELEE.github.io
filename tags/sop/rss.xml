@@ -1,96 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SOP on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/sop/</link><description>Recent content in SOP on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/sop/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 조립라인 실질 양품수율 약 40%→98.7%</title><link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid><description>&lt;h2 id="문제와-배경"&gt;문제와 배경&lt;/h2&gt;
-&lt;p&gt;2170 조립라인의 초기 실질 양품수율은 약 40%였습니다. 생산량을 늘리기 전에 먼저 해야 할 일은 낮은 수율의 원인이 제품, 설비, 검사 중 어디에 있는지 나누는 것이었습니다. 판정 장비의 오차를 제품불량으로 집계하면 잘못된 공정조건을 고칠 수 있고, 반대로 실제 불량을 검사 문제로 돌리면 같은 문제가 다음 Lot에서 반복됩니다.&lt;/p&gt;
-&lt;p&gt;그래서 수율 숫자 하나보다 &lt;code&gt;생산량·검사량·불량유형·비가동·측정방법&lt;/code&gt;을 같은 기준으로 맞추는 일부터 시작했습니다.&lt;/p&gt;
-&lt;h2 id="내가-맡은-일"&gt;내가 맡은 일&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;조립공정 리더로 생산계획, 재공, 불량과 비가동 현황을 정리했습니다.&lt;/li&gt;
-&lt;li&gt;생산·품질·설비·개발 담당자가 같은 분모와 불량명으로 결과를 보도록 기준을 맞췄습니다.&lt;/li&gt;
-&lt;li&gt;MSA와 Gage R&amp;amp;R 결과를 품질 담당자와 검토하고 판정 오류와 실제 공정불량을 나눴습니다.&lt;/li&gt;
-&lt;li&gt;Jig 공차, 설비 Recipe, 소모부품 마모, Vision·검사조건의 담당자와 재시험 일정을 관리했습니다.&lt;/li&gt;
-&lt;li&gt;확인된 조건을 SOP·QCP·P-FMEA·검사기준과 작업자 교육자료에 반영했습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="확인하고-바꾼-내용"&gt;확인하고 바꾼 내용&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;확인 대상&lt;/th&gt;
-&lt;th&gt;확인한 이유&lt;/th&gt;
-&lt;th&gt;조치&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;수율 분모와 불량명&lt;/td&gt;
-&lt;td&gt;부서마다 다른 숫자를 보고 있지 않은지 확인&lt;/td&gt;
-&lt;td&gt;생산량·검사량·재검·폐기 기준을 한 표로 정리&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;측정시스템&lt;/td&gt;
-&lt;td&gt;판정 오류를 공정불량으로 세고 있지 않은지 확인&lt;/td&gt;
-&lt;td&gt;MSA·Gage R&amp;amp;R 검토 후 판정과 공정 원인을 분리&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Jig·정렬 상태&lt;/td&gt;
-&lt;td&gt;공차와 마모가 제품 위치에 영향을 주는지 확인&lt;/td&gt;
-&lt;td&gt;Jig 공차와 교체·점검 기준 보완&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Recipe·소모부품&lt;/td&gt;
-&lt;td&gt;조건 변경과 마모 영향이 섞이지 않는지 확인&lt;/td&gt;
-&lt;td&gt;한 번에 한 조건을 바꾸고 같은 검사기준으로 재시험&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Vision·검사조건&lt;/td&gt;
-&lt;td&gt;검출 조건이 실제 CTQ와 맞는지 확인&lt;/td&gt;
-&lt;td&gt;품질 기준과 일치하도록 판정조건 재확인&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;개선 시험에서는 여러 조건을 동시에 바꾸지 않았습니다. 시험 대상, 검사방법과 판정기준을 고정한 뒤 한 조건씩 비교하고, 반복 결과가 맞을 때만 현장 조건에 반영했습니다.&lt;/p&gt;</description></item><item><title>진공로봇 Overhaul: 구전 작업을 SOP와 점검표로 정리</title><link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid><description>&lt;h2 id="문제와-배경"&gt;문제와 배경&lt;/h2&gt;
-&lt;p&gt;진공로봇 Overhaul은 분해·세척·부품교체만으로 끝나지 않습니다. Arm 정렬, Encoder 원점, 진공 Leak와 반복정밀도가 기준 안에 들어와야 장비에 다시 투입할 수 있습니다. 당시에는 작업순서와 검사 노하우가 작업자 경험에 많이 의존해, 사람에 따라 조립시간과 확인항목이 달라지는 문제가 있었습니다.&lt;/p&gt;
-&lt;h2 id="내가-맡은-일"&gt;내가 맡은 일&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;진공로봇 분해·세척과 Bearing·Belt·Motor 교체를 수행했습니다.&lt;/li&gt;
-&lt;li&gt;Arm Align, Encoder Zero, 진공 Leak, 반복정밀도, Teaching과 시운전을 확인했습니다.&lt;/li&gt;
-&lt;li&gt;Parts List, 분해·조립순서, Torque, 정렬과 검사기준을 문서로 정리했습니다.&lt;/li&gt;
-&lt;li&gt;SOP·점검표를 기준으로 작업자를 교육하고 초도 작업을 함께 확인했습니다.&lt;/li&gt;
-&lt;li&gt;해외 현장에서는 생산라인 Set-up과 Sample Overhaul을 지원했으며, 공개 성과는 재직 중 직접 확인한 초기 Sample Qual까지만으로 제한합니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="확인하고-바꾼-내용"&gt;확인하고 바꾼 내용&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;단계&lt;/th&gt;
-&lt;th&gt;확인 항목&lt;/th&gt;
-&lt;th&gt;정리한 내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;입고·분해&lt;/td&gt;
-&lt;td&gt;외관, 구동상태, 부품 위치&lt;/td&gt;
-&lt;td&gt;입고점검과 분해순서&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;세척·교체&lt;/td&gt;
-&lt;td&gt;오염, Bearing·Belt·Motor 상태&lt;/td&gt;
-&lt;td&gt;교체기준과 Parts List&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;조립&lt;/td&gt;
-&lt;td&gt;체결순서, Torque, Arm 위치&lt;/td&gt;
-&lt;td&gt;조립순서와 주의사항&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;정렬·원점&lt;/td&gt;
-&lt;td&gt;Arm Align, Encoder Zero&lt;/td&gt;
-&lt;td&gt;기준점과 확인방법&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;최종검사&lt;/td&gt;
-&lt;td&gt;Leak, 반복정밀도, Teaching, 시운전&lt;/td&gt;
-&lt;td&gt;검사순서·판정·이상조치&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;문서는 단순 작업설명서가 아니라, 다음 작업자가 같은 순서로 조립하고 같은 검사에서 이상을 찾을 수 있도록 구성했습니다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SOP on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/sop/</link>
+    <description>Recent content in SOP on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/sop/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2170 조립라인 실질 양품수율 약 40%→98.7%</title>
+      <link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-battery-2170-pilot&#34; data-project-id=&#34;battery-2170-pilot&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-battery-2170-pilot&#34;&gt;수율 숫자를 바로 개선하려 하지 않고, 먼저 판정 오류와 실제 공정불량을 나눠야 올바른 설비·공정 조치를 정할 수 있다고 판단했습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;양산 안정화 결과&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;금양 재직 기간 중 · 2024.05–2025.09&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;회사 프로젝트 · 조립공정 리더&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-battery-2170-pilot&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;초기 실질 양품수율이 약 40%였고 생산·품질·설비가 서로 다른 분모와 불량 기준을 보고 있어 원인과 우선순위를 합의하기 어려웠습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-battery-2170-pilot&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;생산량·검사량·재검·폐기 기준과 불량명을 맞추고 부서별 개선 일정과 재시험 결과를 관리했습니다.&lt;/li&gt;&lt;li&gt;MSA 결과를 바탕으로 판정 오류와 실제 불량을 나눈 뒤 Jig 공차, Recipe, 소모부품, Vision·검사조건을 한 항목씩 확인했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-battery-2170-pilot&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;측정 결과 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;확인 범위의 실질 양품수율 약 40%→98.7%&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;확정 조건을 SOP·QCP·P-FMEA·검사기준과 교육자료에 반영&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-battery-2170-pilot&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;수율은 생산·품질·설비·개발이 함께 만든 팀 결과이며, 제 역할은 조립공정 리더로 기준·우선순위·재검증을 연결한 것입니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>진공로봇 Overhaul: 구전 작업을 SOP와 점검표로 정리</title>
+      <link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-robot-overhaul-standardization&#34; data-project-id=&#34;robot-overhaul-standardization&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-robot-overhaul-standardization&#34;&gt;숙련자의 기억에 의존하던 Overhaul을 작업 순서와 검사 기준으로 남겨야 작업자가 달라도 같은 조립·검사 품질을 만들 수 있습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;SOP·점검표 현장 적용&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;본테크 재직 기간 중 · 2021.02–2022.03&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;회사 프로젝트 · 정밀조립 표준화&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-robot-overhaul-standardization&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-robot-overhaul-standardization&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;분해·조립 순서와 Torque, Align, Leak·반복정밀도 확인 방법이 구전 중심이어서 누락과 작업자 편차를 줄이기 어려웠습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-robot-overhaul-standardization&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-robot-overhaul-standardization&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;진공로봇 분해·세척, 부품교체, 정밀조립, Arm Align, Encoder Zero와 시운전을 수행했습니다.&lt;/li&gt;&lt;li&gt;Parts List·작업순서·Torque·검사항목·이상 조치사항을 SOP와 점검표로 정리하고 작업자 교육에 사용했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-robot-overhaul-standardization&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-robot-overhaul-standardization&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;측정 결과 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;같은 기간 팀 월 출하 실적 1–2대→4–5대&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;분해·조립·검사 SOP, 점검표와 작업자 교육자료&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-robot-overhaul-standardization&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-robot-overhaul-standardization&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;월 출하 실적은 같은 기간 팀 전체 결과입니다. 저는 그중 Overhaul 수행, 검사 기준 정리와 교육을 맡았습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Flask on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/flask/</link><description>Recent content in Flask on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/flask/rss.xml" rel="self" type="application/rss+xml"/><item><title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title><link>https://heungjaelee.github.io/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/resumopenai/</guid><description>&lt;h2 id="문제-문장을-잘-만드는-것보다-경력-사실을-안전하게-통제하는-일이-먼저다"&gt;문제: 문장을 잘 만드는 것보다 경력 사실을 안전하게 통제하는 일이 먼저다&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt;는 사용자가 입력한 경력·교육·프로젝트 정보를 직무에 맞는 이력서 초안으로 재구성하는 &lt;strong&gt;Flask·React·OpenAI 기반 LLM 애플리케이션 프로토타입&lt;/strong&gt;이다. 이 프로젝트에서 중요하게 본 것은 문장을 화려하게 만드는 기능이 아니라, 원본 경력 사실을 잃지 않으면서 필요한 정보만 모델에 전달하고 생성 결과를 다시 검증할 수 있는 흐름이었다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;이 글은 프로토타입의 설계와 구현 관점을 설명한다. 별도의 학습 데이터셋, 학습 로그, 평가 결과로 확인되지 않은 fine-tuning 완료나 모델 성능 향상을 성과로 주장하지 않는다. 현재 단계에서는 프롬프트 규칙, 구조화 출력, 후처리 검증을 우선 적용하는 것이 합리적이라고 판단했다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/flask/</link>
+    <description>Recent content in Flask on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/flask/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>resumOpenAI: 경력 사실을 구조화하는 맞춤형 이력서 생성 PoC</title>
+      <link>https://heungjaelee.github.io/posts/resumopenai/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/resumopenai/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-resumopenai&#34; data-project-id=&#34;resumopenai&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-resumopenai&#34;&gt;지원 직무에 맞춰 문장을 바꾸더라도 경력 사실까지 바뀌면 안 됩니다. 사실 원장과 출력 문구를 나누고 사람이 마지막에 확인하는 흐름을 만들었습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;PoC · 공개 저장소 없음&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;개인 PoC · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;경력 근거·직무 문구 분리&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-resumopenai&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;이력서 문구를 매번 다시 쓰면 기간·수치·역할이 달라지거나, 필요 이상의 개인정보가 모델 입력과 출력에 섞일 수 있습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-resumopenai&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;경력 사실과 직무별 표현을 분리하고, 개인정보 최소화와 사람의 최종 확인을 포함한 Flask·React 기반 처리 흐름을 설계했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-resumopenai&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;경력 사실→직무 요구→문장 후보→사람 확인으로 이어지는 PoC 흐름&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;개인 PoC·공개 저장소와 운영 서비스 없음&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-resumopenai&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;개인 PoC이며 AI는 문장 후보를 만들 뿐, 사실 확인과 제출 결정은 사람이 맡습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

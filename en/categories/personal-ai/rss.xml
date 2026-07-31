@@ -1,30 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Personal AI on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/categories/personal-ai/</link><description>Recent content in Personal AI on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/categories/personal-ai/rss.xml" rel="self" type="application/rss+xml"/><item><title>Evidence- and Rights-Governed Maintenance Learning: Why PUBLIC and HOLD Both Matter</title><link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid><description>&lt;h2 id="problem-a-fluent-explanation-is-not-necessarily-a-supported-answer"&gt;Problem: a fluent explanation is not necessarily a supported answer&lt;/h2&gt;
-&lt;p&gt;Qualification material fragments questions, answers, theory, NCS units, and practical visuals across sources. AI can fill gaps fluently while still relying on:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;conflicting answer candidates;&lt;/li&gt;
-&lt;li&gt;images without publication rights;&lt;/li&gt;
-&lt;li&gt;theory that is textually similar but semantically wrong;&lt;/li&gt;
-&lt;li&gt;answers already present in a pre-submit client payload;&lt;/li&gt;
-&lt;li&gt;one UI forced across written and practical answer formats.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The project goal is therefore not rapid question growth. It is a platform that &lt;strong&gt;publishes only evidence-qualified learning and preserves uncertainty as HOLD&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Fail-Closed AI Authority &amp; Evidence Plane: Visibility Is Not Execution Authority</title><link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid><description>&lt;h2 id="problem-test-success-is-not-execution-authority"&gt;Problem: test success is not execution authority&lt;/h2&gt;
-&lt;p&gt;These statements describe different facts:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a model read data;&lt;/li&gt;
-&lt;li&gt;a model recommended an action;&lt;/li&gt;
-&lt;li&gt;local code passed tests;&lt;/li&gt;
-&lt;li&gt;an authorized person approved a bounded action;&lt;/li&gt;
-&lt;li&gt;the same artifact ran in the operating environment;&lt;/li&gt;
-&lt;li&gt;an external effect occurred and was read back.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Without that separation, “test PASS” can become “ready to deploy,” recommendation can become order approval, and local state can be mistaken for external effect.&lt;/p&gt;</description></item><item><title>Official-source Unemployment Benefit Q&amp;A: Turning 165 Questions into Verification Paths</title><link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="problem-similar-questions-can-produce-different-administrative-outcomes"&gt;Problem: similar questions can produce different administrative outcomes&lt;/h2&gt;
-&lt;p&gt;A short question such as “Can I qualify after resigning?” may depend on separation reason, insured periods, documents, job-search activity, an individual notice, and agency review. A website that decides the case can conflict with current law or the actual disposition.&lt;/p&gt;
-&lt;p&gt;The service is therefore a &lt;strong&gt;static verification aid&lt;/strong&gt;, not an eligibility chatbot. It helps a user find:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the closest question type;&lt;/li&gt;
-&lt;li&gt;facts and documents to check;&lt;/li&gt;
-&lt;li&gt;the relevant Work24, ministry, or statute source;&lt;/li&gt;
-&lt;li&gt;what to confirm through an individual notice or competent employment center.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-165-questions-become-eight-categories"&gt;Why 165 questions become eight categories&lt;/h2&gt;
-&lt;p&gt;Publishing raw conversations would expose personal context and create duplicates. One giant FAQ would make discovery difficult.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal AI on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/categories/personal-ai/</link>
+    <description>Recent content in Personal AI on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/categories/personal-ai/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Maintenance Engineer Exam Masterbook</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-seolbi-learning-platform&#34; data-project-id=&#34;ai-seolbi-learning-platform&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-seolbi-learning-platform&#34;&gt;Useful learning requires more than showing many questions: answers must remain hidden before submission, and evidence must explain why an answer is right or wrong afterward.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Live · Selected material remains deferred&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Last completed validation snapshot · Jul 30, 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Personal AI use · Evidence-based learning platform&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Question, answer, explanation, source, and rights status were mixed, so automatically publishing weakly supported material risked incorrect learning and rights issues.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Official-Source Unemployment Benefit Guidebook</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-unemployment-qna&#34; data-project-id=&#34;ai-unemployment-qna&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-unemployment-qna&#34;&gt;Unemployment-benefit questions are safer when categorized and linked to official and individual verification paths rather than answered with a simple eligibility verdict.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Live · Policies may change&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Public validation snapshot · Jul 19, 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Personal AI use · Official-source Q&amp;amp;A&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Similar questions can have different answers depending on separation reason, insured period, and individual notices, so general guidance must not replace administrative decisions.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ontology- and LLM-Wiki-Based AI Agent Platform</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-authority-evidence-plane&#34; data-project-id=&#34;ai-authority-evidence-plane&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-authority-evidence-plane&#34;&gt;A platform that selects domain knowledge and rules from an ontology and LLM wiki to compose and run AI agents with defined roles, tools, evidence, and stop conditions. Authority and evidence checks form its execution-safety layer.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Agent composition and local execution foundation verified · not connected to production&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Last completed local validation snapshot · Jul 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Personal AI use · Ontology- and LLM-wiki-based agent platform&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Repeating knowledge, tools, and rules in every long prompt creates inconsistent terminology and opaque agent definitions. Mixing in execution authority can also lead to an unapproved external change.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

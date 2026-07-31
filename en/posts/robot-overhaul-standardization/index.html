@@ -1,20 +1,759 @@
-<!doctype html><html lang=en><head><title>Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/robot-overhaul-standardization/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs"><meta property="og:type" content="article"><meta property="og:description" content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="Heungjae Lee technical portfolio preview"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs"><meta name=twitter:description content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period"><meta name=description content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Technical Cases</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/robot-overhaul-standardization>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/robot-overhaul-standardization>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>Print</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="Search case studies"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/en/search/><label class=visually-hidden for=search-box>Search case studies</label>
-<input type=search name=keyword placeholder="Search case studies" id=search-box></form><nav aria-label="Post navigation"><ul class=tree id=tree><li id=list-heading><a href=/en/posts/>All case studies</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs</h1><p class=portfolio-article__lead>A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period</p><p class=portfolio-article__meta><time datetime=2026-07-31>Jul 31, 2026</time>
-·
-4 minutes
-·
-Last reviewed <time datetime=2026-07-31>Jul 31, 2026</time></p><div class=tags><ul style=padding-left:0><li><a href=/en/tags/vacuum-robot/ class="btn btn-sm btn-outline-info rounded">Vacuum Robot</a></li><li><a href=/en/tags/overhaul/ class="btn btn-sm btn-outline-info rounded">Overhaul</a></li><li><a href=/en/tags/leak-test/ class="btn btn-sm btn-outline-info rounded">Leak Test</a></li><li><a href=/en/tags/repeatability/ class="btn btn-sm btn-outline-info rounded">Repeatability</a></li><li><a href=/en/tags/sop/ class="btn btn-sm btn-outline-info rounded">SOP</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=problem-and-context>Problem and context</h2><p>Vacuum-robot overhaul does not end with cleaning and parts replacement. Arm alignment, encoder zero, vacuum leak, and repeatability must be within the acceptance rule before the robot returns to equipment. Work order and inspection know-how had depended heavily on individual experience, leading to different assembly times and missed checks.</p><h2 id=what-i-owned>What I owned</h2><ul><li>Performed disassembly, cleaning, and bearing, belt, and motor replacement.</li><li>Checked arm alignment, encoder zero, vacuum leak, repeatability, teaching, and commissioning.</li><li>Documented parts lists, disassembly/assembly order, torque, alignment, and inspection criteria.</li><li>Trained operators with SOPs and checklists and reviewed their first work.</li><li>Supported overseas line setup and sample overhaul; the public result stops at the initial sample qualification I directly confirmed during employment.</li></ul><h2 id=what-i-checked-and-changed>What I checked and changed</h2><table><thead><tr><th>Stage</th><th>Checks</th><th>Documented baseline</th></tr></thead><tbody><tr><td>Incoming/disassembly</td><td>External condition, motion, part locations</td><td>Incoming checklist and disassembly order</td></tr><tr><td>Cleaning/replacement</td><td>Contamination, bearings, belts, motors</td><td>Replacement criteria and parts list</td></tr><tr><td>Assembly</td><td>Fastening order, torque, arm position</td><td>Assembly sequence and cautions</td></tr><tr><td>Alignment/zero</td><td>Arm alignment and encoder zero</td><td>Reference and check method</td></tr><tr><td>Final inspection</td><td>Leak, repeatability, teaching, commissioning</td><td>Test order, decision, and abnormal-response steps</td></tr></tbody></table><p>The documents were written so the next operator could follow the same assembly order and find an abnormality through the same tests.</p><h2 id=result-and-limits>Result and limits</h2><ul><li>Documented verbal know-how as SOPs, checklists, and training material and used them in actual work.</li><li>During the same period, team output increased from <strong>1–2 to 4–5 units per month</strong>.</li><li>Connected assembly and inspection in one flow to reduce operator-dependent omissions.</li></ul><p>I do not attribute the output increase to the documents alone because public evidence does not preserve demand, product mix, or monthly workday differences. Equipment drawings, customer identities, serial numbers, and detailed torque values remain private. A long-duration final approval completed after I left the company is not included in my result.</p><h2 id=public-links-and-next-evidence>Public links and next evidence</h2><p>Company material is not public. This case provides a de-identified account of assembly, testing, and standard-work experience relevant to semiconductor equipment manufacturing.</p><details class=project-blueprint><summary class=project-blueprint__toggle>Verification details</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>Verification and work record</p><h2 id=project-blueprint-robot-overhaul-standardization>Public scope and supporting evidence</h2><p class=project-blueprint__summary>A case that documented vacuum-robot overhaul work previously passed on verbally into parts lists, assembly order, torque, alignment, and final-inspection criteria.</p></div><span class="project-blueprint__status project-blueprint__status--partial">Completed during employment · customer and drawings private</span></header><dl class=project-blueprint__meta><div><dt>Project type</dt><dd>Semiconductor/display vacuum-robot overhaul</dd></div><div><dt>My scope</dt><dd>Disassembly/assembly, alignment, leak/repeatability, SOP and training</dd></div><div><dt>Primary users</dt><dd>Robot-technology operators and quality staff</dd></div><div><dt>Evidence level</dt><dd>Career record and interview-explainable scope</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>Work order and inspection know-how were passed on verbally, so assembly time and checks varied by operator.</p></article><article><h3>Goal</h3><p>Create SOPs and checklists that cover the same sequence from disassembly through leak, repeatability, and teaching.</p></article><article><h3>Success</h3><p>SOPs, checklists, and training are used in actual work, with assembly and inspection omissions managed under one baseline. Team output during the same period is recorded separately as a career result.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-robot-overhaul-standardization><h3 id=project-scope-robot-overhaul-standardization>Scope and boundaries</h3><div class=project-blueprint__scope><div><h4>In scope</h4><ul><li>Disassembly, cleaning, and bearing/belt/motor replacement</li><li>Arm alignment, encoder zero, leak, repeatability, and teaching</li><li>Parts lists, assembly order, torque, SOPs, checklists, and training</li></ul></div><div><h4>Out of scope or unverified</h4><ul><li>Customer identities, equipment drawings/serials, and detailed torque</li><li>Claiming a long-duration final approval completed after employment</li><li>Applying one work baseline to every robot model</li></ul></div></div></section><section aria-labelledby=project-requirements-robot-overhaul-standardization><h3 id=project-requirements-robot-overhaul-standardization>Implementation and verification</h3><div class=project-blueprint__requirements><div><h4>What had to work</h4><ul><li>Record the sequence from incoming check through disassembly, cleaning, replacement, assembly, and final inspection.</li><li>Put alignment, encoder zero, leak, repeatability, and teaching decisions in the checklist.</li><li>Use the same SOP for operator training and first-work review.</li></ul></div><div><h4>Quality and operating rules</h4><ul><li>Do not disclose customer, drawing, equipment identity, or detailed torque.</li><li>Separate directly completed employment results from later approval.</li><li>Present the output increase only as a result in this work environment.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-robot-overhaul-standardization><h3 id=project-decisions-robot-overhaul-standardization>Why it was designed this way</h3><ol><li><strong>Connect assembly and inspection in one document</strong><p>Stage checks reduce the chance of finding an assembly omission only at final inspection.</p></li><li><strong>Include training in completion</strong><p>Publishing a document alone does not change the actual work sequence, so first work was reviewed.</p></li><li><strong>Limit overseas-result wording</strong><p>Only the initial sample qualification directly confirmed during employment is public.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-robot-overhaul-standardization><div class=project-blueprint__section-heading><h3 id=project-work-robot-overhaul-standardization>Work completed and planned</h3><p>Only directly performed assembly, inspection, and standardization work is public.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span></div><h4>Define the work and inspection flow</h4><p>Separated verbal know-how into disassembly, assembly, alignment, and final-inspection stages.</p><dl><dt>Result</dt><dd>Work and inspection structure</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span></div><h4>Write SOPs and checklists</h4><p>Documented parts lists, assembly order, torque, and inspection criteria.</p><dl><dt>Result</dt><dd>SOPs and checklists</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span></div><h4>Train operators</h4><p>Explained standard work and reviewed the sequence and checks on first work.</p><dl><dt>Result</dt><dd>Training and first-work review</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span></div><h4>Separate implementation from output context</h4><p>Recorded both SOP/checklist use and same-period team output of 1–2→4–5 units per month without claiming the documents were the sole cause.</p><dl><dt>Result</dt><dd>Implementation scope and same-period output</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-robot-overhaul-standardization><h3 id=project-acceptance-robot-overhaul-standardization>What was verified</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Disassembly, assembly, alignment, and final inspection form one flow.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>The relationship between SOPs, checklists, and operator training is explained.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Customer/drawing confidentiality and post-employment approval are excluded.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>Company source and detailed torque are published.</p><strong>Private</strong></li></ul><p class=project-blueprint__evidence-note><strong>Supporting evidence:</strong> Uses only the career scope for vacuum-robot overhaul, alignment/leak/repeatability checks, SOP/training, and same-period team output of 1–2→4–5 units per month; it does not claim a single cause.</p></section></details></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label="Table of contents"><div class=toc-holder><h2 class="h5 text-center ps-3">Table of Contents</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#problem-and-context>Problem and context</a></li><li><a href=#what-i-owned>What I owned</a></li><li><a href=#what-i-checked-and-changed>What I checked and changed</a></li><li><a href=#result-and-limits>Result and limits</a></li><li><a href=#public-links-and-next-evidence>Public links and next evidence</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p><p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Technical Cases</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/robot-overhaul-standardization/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs">
+<meta property="og:type" content="article">
+<meta property="og:description" content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs">
+  <meta name="twitter:description" content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period">
+
+  <meta name="description" content="A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Technical Cases</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/robot-overhaul-standardization">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/robot-overhaul-standardization">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="Search case studies">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/en/search/">
+          <label class="visually-hidden" for="search-box">Search case studies</label>
+          <input type="search" name="keyword" placeholder="Search case studies" id="search-box">
+        </form>
+        <nav aria-label="Post navigation">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/en/posts/">All case studies</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs</h1>
+          
+            <p class="portfolio-article__lead">A vacuum-robot overhaul case that documented disassembly, assembly, torque, alignment, leak, and repeatability checks; team output rose from 1–2 to 4–5 units per month during the same period</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-31">Jul 31, 2026</time>
+             · 
+            5 minutes
+             · 
+            Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/vacuum-robot/" class="btn btn-sm btn-outline-info rounded">Vacuum Robot</a></li>
+    
+    
+    <li><a href="/en/tags/leak-test/" class="btn btn-sm btn-outline-info rounded">Leak Test</a></li>
+    
+    
+    <li><a href="/en/tags/sop/" class="btn btn-sm btn-outline-info rounded">SOP</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-robot-overhaul-standardization" data-project-id="robot-overhaul-standardization">
+  <header class="project-case-summary__header">
+    <div>
+      <p class="project-case-summary__eyebrow">30-second summary</p>
+      <h2 id="project-case-summary-robot-overhaul-standardization">An overhaul process dependent on individual memory had to be documented as work and inspection criteria so different operators could reproduce the same quality.</h2>
+    </div>
+    <span class="project-case-summary__status">SOP and checklist applied in work</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>Period / basis</dt>
+      <dd>During tenure at Bontech · Feb 2021–Mar 2022</dd>
+    </div>
+    <div>
+      <dt>Project form</dt>
+      <dd>Company project · Precision-assembly standardization</dd>
+    </div>
+  </dl>
+
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-robot-overhaul-standardization">
+      <h3 id="project-case-problem-robot-overhaul-standardization">Problem to solve</h3>
+      <p>Disassembly and assembly order, torque, alignment, leak, and repeatability checks were largely passed on verbally, creating omission and operator-variation risk.</p>
+    </section>
+
+    <section aria-labelledby="project-case-role-robot-overhaul-standardization">
+      <h3 id="project-case-role-robot-overhaul-standardization">My scope</h3>
+      <ul><li>Performed vacuum-robot disassembly, cleaning, component replacement, precision assembly, arm alignment, encoder zeroing, and commissioning.</li><li>Documented parts, sequence, torque, inspection points, and abnormal-condition actions in SOPs and checklists used for operator training.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-robot-overhaul-standardization">
+      <h3 id="project-case-result-robot-overhaul-standardization">Verified result / current stage</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>Measured result · Team</span>
+              <strong>Team monthly shipment volume in the same period: 1–2→4–5 units</strong>
+            </li><li>
+              <span>Verified output · Individual</span>
+              <strong>Disassembly, assembly, and inspection SOPs, checklists, and operator training material</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-robot-overhaul-standardization">
+      <h3 id="project-case-team-robot-overhaul-standardization">Team boundary</h3>
+      <p>Monthly shipment volume was a team result for the same period. My scope was overhaul work, inspection standardization, and training.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>Disclosure scope:</strong> Customer names, specifications, drawings, and site details are withheld; only my direct assembly, inspection, and standardization work is described.</p>
+    <p>The sequence below generalizes the actual work within a publicly shareable scope.</p>
+  </footer>
+</aside>
+
+<h2 id="the-three-minute-case">The three-minute case</h2>
+<h3 id="why-it-mattered">Why it mattered</h3>
+<p>Vacuum-robot overhaul depended heavily on verbal instruction and individual experience. Disassembly and assembly order varied by operator, and torque, alignment, leak, and repeatability checks did not always read as one continuous workflow. The practical need was to turn experienced judgment into a baseline another operator could follow.</p>
+<h3 id="my-scope">My scope</h3>
+<p>I performed vacuum-robot disassembly and assembly while organizing the torque, alignment, leak, and repeatability checks. I converted the field sequence and decision items into SOPs and checklists, then used them in operator training and initial work review.</p>
+<h3 id="workflow">Workflow</h3>
+<p>Review verbal work practices → document disassembly and assembly → connect torque, alignment, leak, and repeatability checks → issue SOPs and checklists → train operators</p>
+<h3 id="key-decisions-and-verification">Key decisions and verification</h3>
+<ul>
+<li>The documents linked each assembly stage to the inspection item and decision sequence that followed it.</li>
+<li>Torque and alignment were treated as assembly conditions; leak and repeatability were treated as result checks. This made omissions visible.</li>
+<li>The SOPs and checklists were used in actual work so I could check whether the next operator reproduced the same sequence.</li>
+</ul>
+<h3 id="result-and-standardization">Result and standardization</h3>
+<p>Verbal know-how became SOPs, checklists, and training material used on the shop floor. During the same period, team output increased from <strong>1–2 to 4–5 units per month</strong>. This was a team result, not my individual output, and I do not attribute the increase to the documents alone.</p>
+<h3 id="transferability">Transferability</h3>
+<p>An overhaul standard needs more than a disassembly and assembly sequence. Fastening and alignment conditions, leak and repeatability checks, and operator training must sit in one reproducible flow.</p>
+<h3 id="limits">Limits</h3>
+<p>The customer remains anonymous, and company drawings, customer specifications, and detailed torque values remain confidential. I do not claim a final customer approval that I did not personally verify.</p>
+<h2 id="links-and-evidence">Links and evidence</h2>
+<p>The public evidence for this case is the de-identified career account and the blueprint below. In an interview I can explain the work sequence, how the checks were connected, and how the documents were used in training.</p>
+<h2 id="project-blueprint-appendix">Project blueprint appendix</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Verification and work record</p>
+      <h2 id="project-blueprint-robot-overhaul-standardization">Public scope and supporting evidence</h2>
+      <p class="project-blueprint__summary">A case that documented vacuum-robot overhaul work previously passed on verbally into parts lists, assembly order, torque, alignment, and final-inspection criteria.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Completed during employment · customer and drawings private</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Semiconductor/display vacuum-robot overhaul</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Disassembly/assembly, alignment, leak/repeatability, SOP and training</dd>
+      </div>
+      <div>
+        <dt>Primary users</dt>
+        <dd>Robot-technology operators and quality staff</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Career record and interview-explainable scope</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Work order and inspection know-how were passed on verbally, so assembly time and checks varied by operator.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Create SOPs and checklists that cover the same sequence from disassembly through leak, repeatability, and teaching.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>SOPs, checklists, and training are used in actual work, with assembly and inspection omissions managed under one baseline. Team output during the same period is recorded separately as a career result.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-overhaul-standardization">
+      <h3 id="project-scope-robot-overhaul-standardization">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Disassembly, cleaning, and bearing/belt/motor replacement</li><li>Arm alignment, encoder zero, leak, repeatability, and teaching</li><li>Parts lists, assembly order, torque, SOPs, checklists, and training</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Customer identities, equipment drawings/serials, and detailed torque</li><li>Claiming a long-duration final approval completed after employment</li><li>Applying one work baseline to every robot model</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-overhaul-standardization">
+      <h3 id="project-requirements-robot-overhaul-standardization">Implementation and verification</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>What had to work</h4>
+          <ul>
+              <li>Record the sequence from incoming check through disassembly, cleaning, replacement, assembly, and final inspection.</li>
+              <li>Put alignment, encoder zero, leak, repeatability, and teaching decisions in the checklist.</li>
+              <li>Use the same SOP for operator training and first-work review.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operating rules</h4>
+          <ul>
+              <li>Do not disclose customer, drawing, equipment identity, or detailed torque.</li>
+              <li>Separate directly completed employment results from later approval.</li>
+              <li>Present the output increase only as a result in this work environment.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-overhaul-standardization">
+    <h3 id="project-decisions-robot-overhaul-standardization">Why it was designed this way</h3>
+    <ol>
+        <li>
+          <strong>Connect assembly and inspection in one document</strong>
+          <p>Stage checks reduce the chance of finding an assembly omission only at final inspection.</p>
+        </li>
+        <li>
+          <strong>Include training in completion</strong>
+          <p>Publishing a document alone does not change the actual work sequence, so first work was reviewed.</p>
+        </li>
+        <li>
+          <strong>Limit overseas-result wording</strong>
+          <p>Only the initial sample qualification directly confirmed during employment is public.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-overhaul-standardization">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-overhaul-standardization">Work completed and planned</h3>
+      <p>Only directly performed assembly, inspection, and standardization work is public.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span>
+          </div>
+          <h4>Define the work and inspection flow</h4>
+          <p>Separated verbal know-how into disassembly, assembly, alignment, and final-inspection stages.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Work and inspection structure</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span>
+          </div>
+          <h4>Write SOPs and checklists</h4>
+          <p>Documented parts lists, assembly order, torque, and inspection criteria.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>SOPs and checklists</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span>
+          </div>
+          <h4>Train operators</h4>
+          <p>Explained standard work and reviewed the sequence and checks on first work.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Training and first-work review</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Done</span>
+          </div>
+          <h4>Separate implementation from output context</h4>
+          <p>Recorded both SOP/checklist use and same-period team output of 1–2→4–5 units per month without claiming the documents were the sole cause.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Implementation scope and same-period output</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-overhaul-standardization">
+    <h3 id="project-acceptance-robot-overhaul-standardization">What was verified</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Disassembly, assembly, alignment, and final inspection form one flow.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>The relationship between SOPs, checklists, and operator training is explained.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Customer/drawing confidentiality and post-employment approval are excluded.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Company source and detailed torque are published.</p>
+          <strong>Private</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Supporting evidence:</strong> Uses only the career scope for vacuum-robot overhaul, alignment/leak/repeatability checks, SOP/training, and same-period team output of 1–2→4–5 units per month; it does not claim a single cause.</p>
+  </section>
+</details>
+
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-three-minute-case">The three-minute case</a>
+      <ul>
+        <li><a href="#why-it-mattered">Why it mattered</a></li>
+        <li><a href="#my-scope">My scope</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#key-decisions-and-verification">Key decisions and verification</a></li>
+        <li><a href="#result-and-standardization">Result and standardization</a></li>
+        <li><a href="#transferability">Transferability</a></li>
+        <li><a href="#limits">Limits</a></li>
+      </ul>
+    </li>
+    <li><a href="#links-and-evidence">Links and evidence</a></li>
+    <li><a href="#project-blueprint-appendix">Project blueprint appendix</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p>
+      <p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Technical Cases</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

@@ -1,124 +1,163 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Manufacturing IT on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/categories/manufacturing-it/</link><description>Recent content in Manufacturing IT on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/manufacturing-it/rss.xml" rel="self" type="application/rss+xml"/><item><title>Indy7 JSON·PC-HMI·디지털 트윈 설계</title><link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
-&lt;p&gt;로봇 작업 프로그램은 좌표 몇 개로 끝나지 않습니다. Tool·TCP, Waypoint, 이동 명령, 반복과 분기, 속도와 입출력 정보가 서로 참조합니다. PC 프로그램이 이해하는 항목만 읽고 다시 저장하면, 화면에서는 정상처럼 보여도 티치펜던트에서 참조가 깨질 수 있습니다.&lt;/p&gt;
-&lt;p&gt;통신에도 비슷한 문제가 있습니다. HMI, 데이터 저장기와 디지털 트윈이 로봇 소켓에 각각 접속하면 어느 프로그램이 명령을 보냈는지, 어떤 상태가 최신인지 판단하기 어렵습니다.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;구분&lt;/th&gt;
-&lt;th&gt;내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;목표&lt;/td&gt;
-&lt;td&gt;원본 JSON의 참조를 보존하고 로봇 연결 책임을 한 서비스로 모으기&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;맡은 범위&lt;/td&gt;
-&lt;td&gt;JSON 호환 계층, PC-HMI, 통신·이력·Twin 서비스 경계 설계&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;사용 기술&lt;/td&gt;
-&lt;td&gt;Python, CustomTkinter, IndyDCP, MQTT, MySQL, WebSocket, Docker&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;현재 상태&lt;/td&gt;
-&lt;td&gt;설계·프로토타입, 공개 링크 보류&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;아직 필요한 검증&lt;/td&gt;
-&lt;td&gt;실로봇 firmware별 회귀시험, 장시간 재접속, Omniverse 연동 E2E&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="왜-이렇게-구성했는가"&gt;왜 이렇게 구성했는가&lt;/h2&gt;
-&lt;div class="mermaid" align="center" style="background-color: none; border-radius: 5px;"&gt;
-flowchart LR
-A["Conty JSON"] --&gt; B["Load·검사·편집·재저장"]
-B --&gt; C["원본 참조와 미지 필드 보존"]
-D["PC-HMI"] --&gt; E["Robot Controller\nIndyDCP 단일 소유"]
-E --&gt; F["MQTT command / result / state"]
-F --&gt; G["DB Worker\n작업·오류 이력"]
-F --&gt; H["PLC Bridge"]
-F --&gt; I["읽기 전용 Digital Twin"]
-&lt;/div&gt;
-&lt;h3 id="json-호환-계층"&gt;JSON 호환 계층&lt;/h3&gt;
-&lt;p&gt;원본에 모르는 필드가 있어도 삭제하지 않고 보존하는 방식을 택했습니다. 기본 확인 순서는 &lt;code&gt;원본 로드 → 일부 편집 → 저장 → 다시 로드 → 참조 비교&lt;/code&gt;입니다. Waypoint와 program tree, move 명령 사이의 참조가 남아 있는지를 별도로 검사하도록 설계했습니다.&lt;/p&gt;</description></item><item><title>기가프레스 공장 DX 전환 시나리오: 현장 신호부터 가상 검증까지</title><link>https://heungjaelee.github.io/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid><description>&lt;h2 id="문제-실제-설비-투입-전에-공정통신-위험을-검증해야-한다"&gt;문제: 실제 설비 투입 전에 공정·통신 위험을 검증해야 한다&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;항목&lt;/th&gt;
-&lt;th&gt;확인된 내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;실제 설비를 투입해야만 시퀀스와 파라미터를 확인할 수 있어 트라이아웃이 길어지고, PLC·SCADA·가상 모델 사이 데이터 정합성을 사전에 확인하기 어려웠습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Role&lt;/td&gt;
-&lt;td&gt;10인 팀 프로젝트에서 Digital Twin 파트의 &lt;strong&gt;AI 모델 선정·학습, 통신 셋업, 자료 조사&lt;/strong&gt;를 맡았습니다. Ladder와 SCADA 구현은 담당 팀원의 결과이며 제 개인 역할로 확대하지 않습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Action&lt;/td&gt;
-&lt;td&gt;Factory I/O–PLC–SCADA–OPC UA 계층의 데이터 흐름을 정리하고, 실시간 센서·PLC 데이터를 사용하는 DQN 후보와 통신 구성을 검토했습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Result&lt;/td&gt;
-&lt;td&gt;공정 Flow, Ladder/Factory I/O, SCADA, 웹·AI 확장 구조를 하나의 팀 시연·보고서로 통합했습니다. 보고서의 “셋업 50~75% 단축”과 “증설 공수 50% 절감”은 &lt;strong&gt;기대효과/목표값&lt;/strong&gt;이며 실제 공장 실측 성과로 주장하지 않습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evidence&lt;/td&gt;
-&lt;td&gt;팀 발표 PDF·Canva 보고서의 역할표, 아키텍처, 결과 및 기대효과 페이지. 전용 공개 소스 저장소는 미분리 상태입니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="이력서-bullet"&gt;이력서 Bullet&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;10인 제조 DX 팀 프로젝트에서 AI 모델 선정·학습과 OPC UA 통신 셋업 범위를 담당하고, Factory I/O–PLC–SCADA 데이터 흐름을 가상 시운전 시나리오로 구조화했습니다.&lt;/li&gt;
-&lt;li&gt;실제 설비 성과와 설계 기대효과를 분리해, 보고서의 50~75% 셋업 단축·50% 증설 공수 절감을 검증 전 목표값으로 관리했습니다.&lt;/li&gt;
-&lt;li&gt;배터리 라인 FAT/SAT 경험을 바탕으로 정상 시퀀스뿐 아니라 센서 누락·통신 지연·재기동 조건을 검증 항목에 포함했습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="면접-star"&gt;면접 STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; 고가 설비는 실제 투입 전 제어 로직과 데이터 정합성을 충분히 시험하기 어렵고, 현장 트라이아웃이 길어질 위험이 있었습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; 제 역할은 팀의 가상 공정 구조에서 AI 적용 후보와 통신 경계를 정리해 제어·모니터링 계층이 같은 데이터를 보도록 만드는 것이었습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; 센서/PLC 데이터를 OPC UA 흐름으로 연결하고 DQN 적용 위치를 검토했으며, 현장 제어권은 PLC에 남기고 AI는 검증·최적화 후보로 한정했습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; 팀이 Factory I/O, Ladder, SCADA, 웹·AI 확장을 하나의 시나리오로 시연할 수 있었습니다. 정량값은 기대효과로 남기고 실측 성과와 구분했습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="프로젝트를-한-문장으로-설명하면"&gt;프로젝트를 한 문장으로 설명하면&lt;/h3&gt;
-&lt;p&gt;현장 센서 신호를 곧바로 상위 시스템에 연결하는 대신, &lt;strong&gt;에지 수집·PLC 제어·SCADA 가시화·Factory I/O 사전 검증&lt;/strong&gt;의 네 계층으로 분리해 설비 변경의 영향을 먼저 확인할 수 있도록 구성한 제조 DX 시나리오입니다.&lt;/p&gt;</description></item><item><title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title><link>https://heungjaelee.github.io/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-digital-twin/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manufacturing IT on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/categories/manufacturing-it/</link>
+    <description>Recent content in Manufacturing IT on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/manufacturing-it/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Indy7 로봇·Omniverse 디지털 트윈 실습</title>
+      <link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-robot-json-omniverse&#34; data-project-id=&#34;robot-json-omniverse&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-robot-json-omniverse&#34;&gt;로봇 명령, 현재 상태, 이력 저장과 디지털 트윈을 한 프로그램이 모두 책임지면 장애와 권한 경계가 모호해집니다. 각 책임을 나눠야 안전하게 확장할 수 있습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;공개 프로토타입 · 실로봇 E2E 전&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;교육 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;PC-HMI·상태 이력·읽기 전용 트윈&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-robot-json-omniverse&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-robot-json-omniverse&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;로봇 프로그램 JSON 호환성을 유지하면서 실물 제어와 모니터링·이력·가상 시각화를 구분해야 했습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-robot-json-omniverse&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-robot-json-omniverse&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;IndyDCP 소켓, MQTT 명령·상태, MySQL 이력, PLC Bridge와 읽기 전용 트윈의 인터페이스 책임을 나눴습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-robot-json-omniverse&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-robot-json-omniverse&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;명령·상태·이력·PLC Bridge·읽기 전용 트윈의 책임 분리&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;공개 프로토타입·실로봇 통합/E2E 검증 전&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-robot-json-omniverse&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-robot-json-omniverse&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;실물 로봇 통합과 전체 E2E 완료를 주장하지 않으며, 공개 프로토타입의 설계 범위만 제 역할로 설명합니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>디지털 트윈 기반 기가프레스 공장 확장 시나리오</title>
+      <link>https://heungjaelee.github.io/posts/giga-press-dx/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-giga-press-dx&#34; data-project-id=&#34;giga-press-dx&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-giga-press-dx&#34;&gt;실물 설비에서 처음 시퀀스와 통신을 맞추면 오류 수정 비용이 커집니다. 가상 환경에서 신호 책임과 실패 조건을 먼저 확인하는 이유를 보여주기 위해 구성했습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;팀 데모·보고서 단계 · 실공장 실측 아님&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;10인 교육 팀 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;가상 시운전·데이터 흐름 PoC&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-giga-press-dx&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;PLC·SCADA·가상설비·상위 데이터가 같은 신호를 서로 다르게 해석하면 시운전 단계에서 인터록·알람·통신 오류가 늦게 발견됩니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-giga-press-dx&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;AI 모델 후보 선정·학습, 통신 셋업과 기술 조사를 맡았습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-giga-press-dx&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;가상설비·PLC·SCADA·OPC UA를 연결한 팀 데모와 보고서&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;AI 모델 후보·학습, 통신 셋업, 기술 조사&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-giga-press-dx&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-giga-press-dx&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;Ladder와 SCADA 구현은 팀원 역할이며, Factory I/O–PLC–SCADA–OPC UA 전체는 10인 팀 결과입니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title>
+      <link>https://heungjaelee.github.io/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/robot-digital-twin/</guid>
+      <description>&lt;h2 id=&#34;어떤-문제를-해결하려-했는가&#34;&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
 &lt;p&gt;로봇 동작, Vision 판정, PLC 시퀀스와 MES 기록을 따로 시연하면 개별 기능은 보여 줄 수 있어도 제품 한 개가 어떤 공정과 검사를 거쳤는지 다시 찾기 어렵습니다.&lt;/p&gt;
 &lt;p&gt;이 교육 팀 프로젝트는 QR serial을 공통 key로 사용해 Indy7 협동로봇 조립 흐름, Edge Vision 판정, PLC·SCADA, MySQL/MES와 디지털 트윈 상태를 한 작업 흐름으로 연결한 PoC입니다.&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;구분&lt;/th&gt;
-&lt;th&gt;공개 범위&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;프로젝트 형태&lt;/td&gt;
-&lt;td&gt;교육 과정의 팀 PoC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;내 역할&lt;/td&gt;
-&lt;td&gt;Robot·Digital Twin 영역&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;팀 구현&lt;/td&gt;
-&lt;td&gt;QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;사용 기술&lt;/td&gt;
-&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;현재 상태&lt;/td&gt;
-&lt;td&gt;교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;구분&lt;/th&gt;
+          &lt;th&gt;공개 범위&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;프로젝트 형태&lt;/td&gt;
+          &lt;td&gt;교육 과정의 팀 PoC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;내 역할&lt;/td&gt;
+          &lt;td&gt;Robot·Digital Twin 영역&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;팀 구현&lt;/td&gt;
+          &lt;td&gt;QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;사용 기술&lt;/td&gt;
+          &lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;현재 상태&lt;/td&gt;
+          &lt;td&gt;교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

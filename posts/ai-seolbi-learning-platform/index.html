@@ -1,41 +1,847 @@
-<!doctype html><html lang=ko><head><title>근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유"><meta property="og:type" content="article"><meta property="og:description" content="설비보전 문제·이론·NCS 근거와 공개 Gate를 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례"><meta property="og:url" content="https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유"><meta name=twitter:description content="설비보전 문제·이론·NCS 근거와 공개 Gate를 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례"><meta name=description content="설비보전 문제·이론·NCS 근거와 공개 Gate를 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>기술 사례</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/ai-seolbi-learning-platform>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/ai-seolbi-learning-platform>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>인쇄</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="기술 사례 검색"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/search/><label class=visually-hidden for=search-box>기술 사례 검색</label>
-<input type=search name=keyword placeholder="기술 사례 검색" id=search-box></form><nav aria-label="글 목록"><ul class=tree id=tree><li id=list-heading><a href=/posts/>전체 기술 사례</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유</h1><p class=portfolio-article__lead>설비보전 문제·이론·NCS 근거와 공개 Gate를 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례</p><p class=portfolio-article__meta><time datetime=2026-07-31>2026. 7. 31.</time>
-·
-5
-·
-마지막 검토 <time datetime=2026-07-31>2026. 7. 31.</time></p><div class=tags><ul style=padding-left:0><li><a href=/tags/ai-learning/ class="btn btn-sm btn-outline-info rounded">AI Learning</a></li><li><a href=/tags/evidence/ class="btn btn-sm btn-outline-info rounded">Evidence</a></li><li><a href=/tags/hold/ class="btn btn-sm btn-outline-info rounded">HOLD</a></li><li><a href=/tags/no-answer-leak/ class="btn btn-sm btn-outline-info rounded">No-answer-leak</a></li><li><a href=/tags/playwright/ class="btn btn-sm btn-outline-info rounded">Playwright</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=문제-자연스러운-해설이-올바른-해설을-보장하지-않는다>문제: 자연스러운 해설이 올바른 해설을 보장하지 않는다</h2><p>자격 학습 자료는 문제, 정답, 이론, NCS 능력단위와 실기 이미지가 서로 다른 출처에 흩어져 있습니다. AI는 빈칸을 자연스럽게 채울 수 있지만, 다음 조건을 확인하지 않으면 오히려 잘못된 학습을 강화합니다.</p><ul><li>정답 후보가 서로 충돌하는가</li><li>이미지·도면을 공개할 권리가 있는가</li><li>문제와 연결한 이론이 실제 의미상 일치하는가</li><li>제출 전에 클라이언트가 정답·해설을 이미 받는가</li><li>필기·필답·작업형의 다른 답안 형식을 같은 UI로 억지로 처리하는가</li></ul><p>그래서 목표를 “문제 수를 빠르게 늘리는 사이트”가 아니라 <strong>근거가 확인된 항목만 공개하고 불확실한 항목은 HOLD로 남기는 학습 플랫폼</strong>으로 정했습니다.</p><h2 id=왜-이렇게-구성했는가>왜 이렇게 구성했는가</h2><p>이 프로젝트의 중요한 데이터는 문제 본문만이 아닙니다. 공개 여부를 설명하는 상태와 근거가 함께 있어야 합니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Question
-</span></span><span style=display:flex><span>├─ stable_id
-</span></span><span style=display:flex><span>├─ assessment_type
-</span></span><span style=display:flex><span>├─ answer_state
-</span></span><span style=display:flex><span>├─ theory_anchor
-</span></span><span style=display:flex><span>├─ source_binding
-</span></span><span style=display:flex><span>├─ rights_state
-</span></span><span style=display:flex><span>├─ publication_state
-</span></span><span style=display:flex><span>└─ hold_reason
-</span></span></code></pre></div><p><code>publication_state=PUBLIC</code>은 콘텐츠가 존재한다는 뜻이 아니라 출처·정답·권리 Gate를 모두 통과했다는 뜻입니다. 하나라도 부족하면 <code>HOLD</code>를 유지합니다.</p><h2 id=아키텍처와-데이터-흐름>아키텍처와 데이터 흐름</h2><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["원본 자료·확인된 메모"] --> B["Source inventory"]
-B --> C["정규화\nstable ID · 유형 · 이론 anchor"]
-C --> D{"정답 근거?"}
-D -- "충돌" --> H["HOLD\nheld_answer_conflict"]
-D -- "확인" --> E{"권리·시각 자산?"}
-E -- "누락/불명" --> I["HOLD\nheld_asset_missing"]
-E -- "확인" --> F["PUBLIC dataset"]
-F --> G["필기 CBT · 필답 · 실기 UI"]
-G --> J["제출"]
-J --> K["정답·해설·선택지 피드백"]</div><p>정답은 <code>제출</code> 뒤에만 전달합니다. 버튼을 누르기 전 화면에서 숨기는 수준이 아니라, 제출 전 API·정적 payload에 정답과 해설이 포함되지 않는지를 검사합니다.</p><h2 id=사용-기술과-구성>사용 기술과 구성</h2><table><thead><tr><th>영역</th><th>기술</th><th>사용 이유</th></tr></thead><tbody><tr><td>애플리케이션</td><td>Next.js App Router, TypeScript</td><td>학습 route와 데이터 계약을 타입 수준에서 분리</td></tr><tr><td>입력 검증</td><td>Zod·source validation</td><td>누락 ID, 상태 충돌, 공개 불가 항목을 빌드 전에 차단</td></tr><tr><td>UI</td><td>Tailwind 기반 반응형 구성</td><td>필기·필답·실기 화면을 모바일까지 일관되게 제공</td></tr><tr><td>회귀 검사</td><td>Vitest</td><td>공개 Gate, 데이터 수량, 정답 비노출을 빠르게 검증</td></tr><tr><td>실제 흐름</td><td>Playwright/Chromium</td><td>진입→문제 풀이→제출→피드백 흐름 확인</td></tr><tr><td>배포</td><td>정적 빌드, Cloudflare Pages, Sites</td><td>같은 공개 artifact를 두 경로에서 read-back</td></tr></tbody></table><h2 id=ai와-사람의-역할>AI와 사람의 역할</h2><h3 id=ai가-지원한-일>AI가 지원한 일</h3><ul><li>자료를 문제·이론·NCS 후보로 분류</li><li>중복·의미 불일치 후보 탐색</li><li>해설과 선택지 피드백 초안</li><li>누출·상태 충돌·반응형 회귀 테스트 후보 작성</li></ul><h3 id=사람이-직접-확인한-일>사람이 직접 확인한 일</h3><ul><li>원본 출처와 실제 정답</li><li>정답 충돌의 최종 판정</li><li>이미지·도면의 공개 권리</li><li>PUBLIC/HOLD 전환</li><li>실제 공개 배포 승인</li></ul><p>AI가 “그럴듯하다”고 판단한 결과는 공개 근거가 아닙니다. 출처·권리·정답 확인과 최종 승인은 사람의 책임입니다.</p><h2 id=pdd와-관련-task>PDD와 관련 Task</h2><details class=project-blueprint><summary class=project-blueprint__toggle>검증 상세</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>AI 활용·검증 기록</p><h2 id=project-blueprint-ai-seolbi-learning-platform>구성 이유와 확인한 결과</h2><p class=project-blueprint__summary>정답을 많이 생성하는 것이 아니라 출처·권리·정답 근거가 확인된 학습 흐름만 공개하고, 불확실한 자료는 HOLD로 보존하는 플랫폼 운영 사례입니다.</p></div><span class="project-blueprint__status project-blueprint__status--partial">운영 중 · 일부 HOLD와 E2E 잔여</span></header><dl class=project-blueprint__meta><div><dt>프로젝트 유형</dt><dd>개인 AI 학습 플랫폼</dd></div><div><dt>개인 역할</dt><dd>소스 Governance·UX·검증·배포</dd></div><div><dt>주요 사용자</dt><dd>설비보전 자격 학습자</dd></div><div><dt>Evidence 수준</dt><dd>공개 운영 화면·완료 검증 스냅숏</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>문제·정답·이론·실기 자료가 흩어져 있고 권리나 시각 자료가 불충분하면, AI가 자연스러운 해설을 만들어도 학습자가 잘못된 답을 확신할 수 있습니다.</p></article><article><h3>Goal</h3><p>문제, 이론, NCS 근거, 답안 공개 상태와 HOLD 사유를 안정 ID로 연결하고 제출 전에는 정답이 노출되지 않는 필기·필답·실기 학습 흐름을 만드는 것입니다.</p></article><article><h3>Success</h3><p>공개된 항목은 출처·정답·권리 Gate를 통과하고, HOLD는 노출되지 않으며, 빌드·누출 방지·대표 E2E가 같은 정적 산출물에서 재현되면 성공입니다.</p></article></div><section class=project-blueprint__governance aria-labelledby=project-governance-ai-seolbi-learning-platform><h3 id=project-governance-ai-seolbi-learning-platform>AI와 사람이 나눈 역할</h3><dl><div><dt>AI 역할</dt><dd>자료 분류, 중복 후보 탐색, 해설·이론 연결 초안, 테스트 케이스와 회귀 점검 목록 생성을 지원했습니다.</dd></div><div><dt>사람 역할</dt><dd>출처 원문, 정답 충돌, 이미지 권리, 공개/HOLD 판정과 최종 배포 승인을 사람이 확인했습니다.</dd></div><div><dt>공개 Gate</dt><dd>출처·정답·권리가 모두 확인된 항목만 PUBLIC으로 전환하고, 누락 시 held_asset_missing 또는 held_answer_conflict를 유지합니다. 개인정보와 원본 저작물을 공개 복제하지 않습니다.</dd></div><div><dt>외부 효과</dt><dd>정적 학습 사이트 2개에 공개 배포된 읽기·학습 화면만 있습니다. 결제·자격 판정·외부 계정 권한 변경은 없습니다.</dd></div></dl></section><div class=project-blueprint__columns><section aria-labelledby=project-scope-ai-seolbi-learning-platform><h3 id=project-scope-ai-seolbi-learning-platform>범위와 경계</h3><div class=project-blueprint__scope><div><h4>포함 범위</h4><ul><li>문제·이론·NCS·답안 상태의 source-aware 데이터 계약</li><li>필기 CBT, 필답·실기 정보 구조와 제출 전 정답 비노출</li><li>PUBLIC/HOLD Gate, 반응형 UI, 빌드·회귀·E2E 검증</li></ul></div><div><h4>제외·미검증 범위</h4><ul><li>권리 불명 이미지와 정답 충돌 항목의 자동 공개</li><li>공식 시험 문제·합격을 보장하는 표현</li><li>진행 중인 Skill 개편과 미구현 inventory 계약의 완료 주장</li></ul></div></div></section><section aria-labelledby=project-requirements-ai-seolbi-learning-platform><h3 id=project-requirements-ai-seolbi-learning-platform>구현·검증 기준</h3><div class=project-blueprint__requirements><div><h4>해야 할 일</h4><ul><li>각 문제를 이론·출처·상태·HOLD 사유와 안정 ID로 연결한다.</li><li>답안 제출 전 클라이언트에 정답·해설·선택지 피드백을 포함하지 않는다.</li><li>필기·필답·실기 화면에서 출처와 현재 공개 상태를 확인할 수 있다.</li></ul></div><div><h4>품질·운영 기준</h4><ul><li>정답 충돌·자산 누락·권리 불명은 fail-closed HOLD로 처리한다.</li><li>Node 24 기반 빌드와 단위·통합·대표 E2E를 기록한다.</li><li>전체 E2E 잔여 실패를 숨기지 않고 알려진 제한으로 공개한다.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-ai-seolbi-learning-platform><h3 id=project-decisions-ai-seolbi-learning-platform>왜 이렇게 구성했나</h3><ol><li><strong>생성량보다 Publication Gate 우선</strong><p>검증되지 않은 한 문제는 많은 정상 문제보다 학습 신뢰를 크게 해칠 수 있기 때문입니다.</p></li><li><strong>정답 비노출을 데이터 계약으로 적용</strong><p>화면에서 숨기기만 하면 네트워크 응답이나 HTML source로 정답이 새어 나갈 수 있기 때문입니다.</p></li><li><strong>HOLD를 삭제하지 않고 사유와 함께 보존</strong><p>근거가 추가되었을 때 같은 ID로 재검토하고 과거 불확실성을 추적하기 위해서입니다.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-ai-seolbi-learning-platform><div class=project-blueprint__section-heading><h3 id=project-work-ai-seolbi-learning-platform>작업 내역과 계획</h3><p>마지막 완료 스냅숏의 구현·검증만 완료로 표시했습니다.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>소스·권리·정답 Gate 설계</h4><p>PUBLIC과 HOLD 상태, source binding, 정답 충돌과 시각 자산 누락 사유를 데이터 계약으로 정의했습니다.</p><dl><dt>남긴 결과</dt><dd>Publication contract</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>학습 화면과 답안 비노출 구현</h4><p>필기·필답·실기 진입 흐름과 제출 전 정답 누출 방지 응답을 구현했습니다.</p><dl><dt>남긴 결과</dt><dd>반응형 학습 UI·no-answer-leak</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>완료 스냅숏 검증</h4><p>Node 24.14.0에서 데이터 검사, TypeScript, ESLint, 372개 Vitest, 빌드, 정답 비노출, 집중 E2E 7개를 통과했습니다.</p><dl><dt>남긴 결과</dt><dd>2026-07-30 완료 검증 스냅숏</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">잔여</span></div><h4>전체 E2E 잔여 항목 해소</h4><p>전체 Chromium 회귀는 95 pass·27 fail이었고, 공통 기존 실패를 포함한 잔여 항목을 별도 추적합니다.</p><dl><dt>남긴 결과</dt><dd>전체 E2E green evidence</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-ai-seolbi-learning-platform><h3 id=project-acceptance-ai-seolbi-learning-platform>확인 결과</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>출처·정답·권리 미충족 항목이 HOLD로 유지된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>제출 전 정답·해설이 클라이언트 응답에 포함되지 않는다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>대표 학습 흐름과 정적 빌드가 완료 스냅숏에서 재현된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>전체 브라우저 회귀가 알려진 잔여 없이 통과한다.</p><strong>미충족</strong></li></ul><p class=project-blueprint__evidence-note><strong>확인 근거:</strong> 2026-07-30 Node 24.14.0 완료 스냅숏과 공개 운영 화면을 기준으로 하며, 진행 중 작업은 제외했습니다.</p></section></details><h2 id=검증-결과>검증 결과</h2><p>마지막 완료 스냅숏은 <strong>2026-07-30, Node.js 24.14.0</strong> 기준입니다.</p><table><thead><tr><th>검증</th><th style=text-align:right>결과</th><th>해석</th></tr></thead><tbody><tr><td>데이터 검증</td><td style=text-align:right>PASS</td><td>공개 상태와 source 계약 검사</td></tr><tr><td>TypeScript·ESLint</td><td style=text-align:right>PASS</td><td>타입·정적 규칙 검사</td></tr><tr><td>Vitest</td><td style=text-align:right>372 PASS</td><td>데이터·학습 로직·누출 방지 회귀</td></tr><tr><td>Production build</td><td style=text-align:right>PASS</td><td>공개 정적 artifact 생성</td></tr><tr><td>No-answer-leak</td><td style=text-align:right>PASS</td><td>제출 전 정답·해설 payload 차단</td></tr><tr><td>집중 E2E</td><td style=text-align:right>7 PASS</td><td>대표 필기·필답·실기 흐름</td></tr><tr><td>전체 Chromium 회귀</td><td style=text-align:right>95 PASS / 27 FAIL</td><td>26개 공통 기존 실패를 포함한 알려진 잔여</td></tr></tbody></table><p>전체 회귀가 완전히 green이라고 주장하지 않습니다. 집중 경로와 공개 build는 완료됐지만, 전체 E2E의 잔여 항목과 일부 HOLD 자료는 후속 작업입니다.</p><h2 id=한계와-공개-gate>한계와 공개 Gate</h2><ul><li>권리나 정답 근거가 불충분한 자산은 삭제해 “완료”로 보이게 하지 않고 HOLD 사유를 유지합니다.</li><li>공식 시험기관의 원문·정답을 대체하거나 합격을 보장하지 않습니다.</li><li>진행 중인 Skill 업데이트와 미구현 inventory 계약은 이 글의 완료 성과가 아닙니다.</li><li>공개 사이트에서 보이는 내용이 최신 공식 출제 기준과 다른 경우 공식 자료가 우선합니다.</li></ul><h2 id=공개-링크>공개 링크</h2><section class=project-resources aria-labelledby=project-resources-ai-seolbi-learning-platform><h2 id=project-resources-ai-seolbi-learning-platform>공개 링크</h2><p class=project-resources__lead>프로젝트 근거와 실제 사용 화면을 확인할 수 있는 공개 자료입니다.</p><ul class=project-resources__links><li><a href=https://seolbi-learning-platform.pages.dev/practical/info target=_blank rel=noopener><span class=project-resources__label>Cloudflare 운영 화면</span>
-<span class=project-resources__url>seolbi-learning-platform.pages.dev/practical/info</span></a></li><li><a href=https://seolbi-masterbook.wanran2.chatgpt.site/practical/info target=_blank rel=noopener><span class=project-resources__label>Sites 미러 화면</span>
-<span class=project-resources__url>seolbi-masterbook.wanran2.chatgpt.site/practical/info</span></a></li></ul><p class=project-resources__note>마지막으로 완료된 검증 범위까지만 공개합니다. 진행 중인 기능과 알려진 전체 E2E 미해결 항목은 완료 성과에 포함하지 않습니다.</p></section></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label=목차><div class=toc-holder><h2 class="h5 text-center ps-3">목차</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#문제-자연스러운-해설이-올바른-해설을-보장하지-않는다>문제: 자연스러운 해설이 올바른 해설을 보장하지 않는다</a></li><li><a href=#왜-이렇게-구성했는가>왜 이렇게 구성했는가</a></li><li><a href=#아키텍처와-데이터-흐름>아키텍처와 데이터 흐름</a></li><li><a href=#사용-기술과-구성>사용 기술과 구성</a></li><li><a href=#ai와-사람의-역할>AI와 사람의 역할</a><ul><li><a href=#ai가-지원한-일>AI가 지원한 일</a></li><li><a href=#사람이-직접-확인한-일>사람이 직접 확인한 일</a></li></ul></li><li><a href=#pdd와-관련-task>PDD와 관련 Task</a></li><li><a href=#검증-결과>검증 결과</a></li><li><a href=#한계와-공개-gate>한계와 공개 Gate</a></li><li><a href=#공개-링크>공개 링크</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p><p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>기술 사례</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>설비보전기사 수험생을 위한 학습 마스터북</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="설비보전기사 수험생을 위한 학습 마스터북">
+<meta property="og:type" content="article">
+<meta property="og:description" content="설비보전 문제·이론·NCS 근거와 공개 기준을 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="설비보전기사 수험생을 위한 학습 마스터북">
+  <meta name="twitter:description" content="설비보전 문제·이론·NCS 근거와 공개 기준을 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례">
+
+  <meta name="description" content="설비보전 문제·이론·NCS 근거와 공개 기준을 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ai-seolbi-learning-platform">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ai-seolbi-learning-platform">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>설비보전기사 수험생을 위한 학습 마스터북</h1>
+          
+            <p class="portfolio-article__lead">설비보전 문제·이론·NCS 근거와 공개 기준을 연결하고 제출 전 정답 누출을 차단한 개인 AI 학습 플랫폼 사례</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-31">2026. 7. 31.</time>
+             · 
+            6 
+             · 
+            마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/evidence/" class="btn btn-sm btn-outline-info rounded">Evidence</a></li>
+    
+    
+    <li><a href="/tags/%EA%B3%B5%EA%B0%9C-%EA%B2%80%ED%86%A0/" class="btn btn-sm btn-outline-info rounded">공개 검토</a></li>
+    
+    
+    <li><a href="/tags/no-answer-leak/" class="btn btn-sm btn-outline-info rounded">No-answer-leak</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-seolbi-learning-platform" data-project-id="ai-seolbi-learning-platform">
+  <header class="project-case-summary__header">
+    <div>
+      <p class="project-case-summary__eyebrow">30초 요약</p>
+      <h2 id="project-case-summary-ai-seolbi-learning-platform">문제를 많이 보여주는 것보다 답안 제출 전 정답을 숨기고, 제출 뒤에는 왜 맞고 틀렸는지 근거까지 따라갈 수 있어야 실제 학습에 도움이 됩니다.</h2>
+    </div>
+    <span class="project-case-summary__status">운영 중 · 일부 자료 공개 보류</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>기간·기준</dt>
+      <dd>마지막 완료 검증 스냅숏 · 2026.07.30</dd>
+    </div>
+    <div>
+      <dt>프로젝트 형태</dt>
+      <dd>개인 AI 활용 · 근거 기반 학습 플랫폼</dd>
+    </div>
+  </dl>
+
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-ai-seolbi-learning-platform">
+      <h3 id="project-case-problem-ai-seolbi-learning-platform">해결하려던 문제</h3>
+      <p>문제·정답·해설의 출처와 권리가 섞여 있고 근거가 부족한 자료까지 자동 공개하면 잘못된 학습과 권리 문제가 생길 수 있었습니다.</p>
+    </section>
+
+    <section aria-labelledby="project-case-role-ai-seolbi-learning-platform">
+      <h3 id="project-case-role-ai-seolbi-learning-platform">내가 맡은 범위</h3>
+      <ul><li>문제 선택→답안 제출→근거 확인→오답 학습 흐름과 공개·보류 판정, 제출 전 정답 비노출을 설계·검증했습니다.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-ai-seolbi-learning-platform">
+      <h3 id="project-case-result-ai-seolbi-learning-platform">확인된 결과·현재 단계</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>확인된 산출물 · 개인 역할</span>
+              <strong>제출 전 정답 비노출과 제출 후 근거·오답 학습 흐름</strong>
+            </li><li>
+              <span>현재 단계 · 개인 역할</span>
+              <strong>운영 중·근거 또는 권리가 부족한 자료는 공개 보류</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-ai-seolbi-learning-platform">
+      <h3 id="project-case-team-ai-seolbi-learning-platform">팀 경계</h3>
+      <p>AI는 분류·초안·점검을 돕고, 출처·권리·정답 충돌과 공개 여부는 사람이 확인합니다.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>공개 범위:</strong> 공개 운영 화면과 마지막 완료 검증 범위만 설명하며, 진행 중 기능은 완료 성과에 넣지 않습니다.</p>
+    <p>학습자가 실제로 사용하는 문제 선택부터 오답 복귀까지의 흐름으로 설명합니다.</p>
+  </footer>
+</aside>
+
+<h2 id="문제">문제</h2>
+<p>설비보전 자격 학습 자료는 문제, 정답, 이론, NCS 능력단위와 실기 이미지가 여러 출처에 흩어져 있습니다. AI가 매끄러운 해설을 만들더라도 정답 후보가 충돌하거나 이미지 권리가 불분명하면 학습자는 틀린 내용을 확신할 수 있습니다. 화면에서 정답을 가렸어도 제출 전 응답에 정답이나 해설이 들어 있다면 학습 흐름도 성립하지 않습니다.</p>
+<p>이 프로젝트는 문제 수를 늘리는 데서 출발하지 않았습니다. 근거가 확인된 항목만 공개합니다. 정답·출처·권리 중 하나라도 부족하면 같은 ID와 사유를 남기되 공개 목록에서는 제외하는 데 초점을 맞췄습니다.</p>
+<h2 id="대표-사용자-장면">대표 사용자 장면</h2>
+<p>학습자는 필기 문제를 고르고 답을 선택한 뒤 제출합니다. 제출 전에는 정답, 해설, 선택지별 피드백을 받지 않습니다. 제출하고 나면 정답과 해설뿐 아니라 연결된 출처와 이론 근거를 확인합니다. 틀린 선택지는 왜 틀렸는지 짚어 본 뒤 같은 근거를 다시 살펴보며 오답 학습으로 이어 갑니다.</p>
+<p>필답형과 실기 자료도 같은 원칙을 따르되 답안 형식은 억지로 하나로 합치지 않습니다. 공개할 근거가 없는 문제나 시각 자료는 학습 경로에 나타나지 않고 보류 사유와 함께 남습니다.</p>
+<h2 id="이-도구가-하는-일과-하지-않는-일">이 도구가 하는 일과 하지 않는 일</h2>
+<p>이 도구는 문제 선택에서 제출, 근거 확인, 오답 학습까지 한 흐름으로 연결합니다. 각 문제에는 안정 ID, 시험 유형, 정답 상태, 이론 연결, 출처, 권리 상태, 공개 여부와 보류 사유가 따라갑니다. 공개 가능 판정은 콘텐츠가 있다는 뜻이 아니라 출처·정답·권리를 모두 확인했다는 뜻입니다.</p>
+<p>이 도구는 공식 시험기관의 원문과 정답을 대신하지 않으며 합격을 보장하지 않습니다. AI가 자연스럽게 만든 설명만으로 문제를 공개하지도 않습니다. 정답 충돌은 <code>held_answer_conflict</code>, 필요한 시각 자료가 없거나 공개 권리를 확인할 수 없으면 <code>held_asset_missing</code>으로 남깁니다.</p>
+<h2 id="데이터-ai-사람의-역할">데이터, AI, 사람의 역할</h2>
+<p>데이터는 문제 본문뿐 아니라 출처와 검토 상태를 함께 보관합니다. 문제와 이론, NCS 근거, 답안 상태, 권리와 공개 여부가 같은 ID로 연결되어야 나중에 근거가 보강됐을 때도 불확실성의 이력을 잃지 않습니다.</p>
+<p>AI는 자료 분류, 중복과 의미 불일치 후보 탐색, 해설·선택지 피드백 초안, 회귀 검사 후보 작성에 사용했습니다. 사람은 원본 출처와 정답, 충돌 판정, 이미지·도면의 공개 권리, 공개·보류 전환과 최종 배포 승인을 확인했습니다. AI의 그럴듯함은 공개 근거가 되지 않습니다.</p>
+<h2 id="만든-순서">만든 순서</h2>
+<ol>
+<li>원본 자료와 확인된 메모를 모으고 각 항목에 안정 ID를 붙였습니다.</li>
+<li>필기·필답·실기 유형을 나눈 뒤 문제를 이론, NCS 근거와 출처에 연결했습니다.</li>
+<li>정답 충돌과 시각 자료의 권리를 확인하고 부족한 항목은 공개 대상에서 분리했습니다.</li>
+<li>Next.js App Router, TypeScript, Zod와 Tailwind로 문제 선택→제출→근거 확인→오답 학습 흐름을 만들었습니다.</li>
+<li>제출 전 응답에서 정답·해설·선택지 피드백을 제외하고 Vitest와 Playwright/Chromium으로 데이터와 대표 흐름을 확인했습니다.</li>
+<li>정적 산출물을 Cloudflare Pages와 Sites에서 다시 확인했습니다.</li>
+</ol>
+<h2 id="현재-결과">현재 결과</h2>
+<p>마지막 완료 스냅숏은 <strong>2026-07-30, Node.js 24.14.0</strong> 기준입니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>검증</th>
+          <th style="text-align: right">결과</th>
+          <th>해석</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>데이터 검증</td>
+          <td style="text-align: right">PASS</td>
+          <td>공개 상태와 source 계약 검사</td>
+      </tr>
+      <tr>
+          <td>TypeScript·ESLint</td>
+          <td style="text-align: right">PASS</td>
+          <td>타입·정적 규칙 검사</td>
+      </tr>
+      <tr>
+          <td>Vitest</td>
+          <td style="text-align: right">372 PASS</td>
+          <td>데이터·학습 로직·누출 방지 회귀</td>
+      </tr>
+      <tr>
+          <td>Production build</td>
+          <td style="text-align: right">PASS</td>
+          <td>공개 정적 artifact 생성</td>
+      </tr>
+      <tr>
+          <td>No-answer-leak</td>
+          <td style="text-align: right">PASS</td>
+          <td>제출 전 정답·해설 payload 차단</td>
+      </tr>
+      <tr>
+          <td>집중 E2E</td>
+          <td style="text-align: right">7 PASS</td>
+          <td>대표 필기·필답·실기 흐름</td>
+      </tr>
+      <tr>
+          <td>전체 Chromium 회귀</td>
+          <td style="text-align: right">95 PASS / 27 FAIL</td>
+          <td>26개 공통 기존 실패를 포함한 알려진 잔여</td>
+      </tr>
+  </tbody>
+</table>
+<p>데이터 검증, TypeScript·ESLint, 정적 빌드와 제출 전 정답 비노출 검사는 통과했습니다. Vitest는 372개, 집중 E2E는 7개가 통과했습니다. 전체 Chromium 회귀는 95 PASS / 27 FAIL입니다. 27개 실패에는 26개의 공통 기존 실패가 포함됩니다. 대표 학습 흐름은 확인됐지만 전체 E2E의 알려진 잔여가 모두 해결된 상태는 아닙니다.</p>
+<h2 id="회사에서-얻을-수-있는-가치와-한계">회사에서 얻을 수 있는 가치와 한계</h2>
+<p>회사 교육이나 정비 지식 시스템에도 같은 방식을 적용할 수 있습니다. 작업 지식에 출처, 개정 상태, 권리와 사람의 검토 결과를 함께 묶으면 AI가 만든 설명과 승인된 교육 내용을 구분하기 쉬워집니다. 문제 선택부터 근거 확인과 오답 학습까지 이어지는 구조는 단순 문서 열람보다 실제 학습 행동을 설계하는 데 도움이 됩니다.</p>
+<p>한계도 분명합니다. 권리나 정답 근거가 부족한 자료는 여전히 공개 보류 상태입니다. 전체 E2E 잔여도 남아 있습니다. 공식 출제 기준이 사이트와 다르면 공식 자료가 우선합니다. 진행 중인 Skill 개편과 미구현 inventory 계약은 이 글의 결과에 포함하지 않았습니다.</p>
+<h2 id="상세-설계와-관련-task">상세 설계와 관련 Task</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">AI 활용·검증 기록</p>
+      <h2 id="project-blueprint-ai-seolbi-learning-platform">구성 이유와 확인한 결과</h2>
+      <p class="project-blueprint__summary">정답을 많이 생성하는 것이 아니라 출처·권리·정답 근거가 확인된 학습 흐름만 공개하고, 불확실한 자료는 HOLD로 보존하는 플랫폼 운영 사례입니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">운영 중 · 일부 HOLD와 E2E 잔여</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 AI 학습 플랫폼</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>소스 Governance·UX·검증·배포</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>설비보전 자격 학습자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>공개 운영 화면·완료 검증 스냅숏</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>문제·정답·이론·실기 자료가 흩어져 있고 권리나 시각 자료가 불충분하면, AI가 자연스러운 해설을 만들어도 학습자가 잘못된 답을 확신할 수 있습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>문제, 이론, NCS 근거, 답안 공개 상태와 HOLD 사유를 안정 ID로 연결하고 제출 전에는 정답이 노출되지 않는 필기·필답·실기 학습 흐름을 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>공개된 항목은 출처·정답·권리 Gate를 통과하고, HOLD는 노출되지 않으며, 빌드·누출 방지·대표 E2E가 같은 정적 산출물에서 재현되면 성공입니다.</p>
+      </article>
+  </div>
+    <section class="project-blueprint__governance" aria-labelledby="project-governance-ai-seolbi-learning-platform">
+      <h3 id="project-governance-ai-seolbi-learning-platform">AI와 사람이 나눈 역할</h3>
+      <dl>
+          <div>
+            <dt>AI 역할</dt>
+            <dd>자료 분류, 중복 후보 탐색, 해설·이론 연결 초안, 테스트 케이스와 회귀 점검 목록 생성을 지원했습니다.</dd>
+          </div>
+          <div>
+            <dt>사람 역할</dt>
+            <dd>출처 원문, 정답 충돌, 이미지 권리, 공개/HOLD 판정과 최종 배포 승인을 사람이 확인했습니다.</dd>
+          </div>
+          <div>
+            <dt>공개 Gate</dt>
+            <dd>출처·정답·권리가 모두 확인된 항목만 PUBLIC으로 전환하고, 누락 시 held_asset_missing 또는 held_answer_conflict를 유지합니다. 개인정보와 원본 저작물을 공개 복제하지 않습니다.</dd>
+          </div>
+          <div>
+            <dt>외부 효과</dt>
+            <dd>정적 학습 사이트 2개에 공개 배포된 읽기·학습 화면만 있습니다. 결제·자격 판정·외부 계정 권한 변경은 없습니다.</dd>
+          </div>
+      </dl>
+    </section>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-ai-seolbi-learning-platform">
+      <h3 id="project-scope-ai-seolbi-learning-platform">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>문제·이론·NCS·답안 상태의 source-aware 데이터 계약</li><li>필기 CBT, 필답·실기 정보 구조와 제출 전 정답 비노출</li><li>PUBLIC/HOLD Gate, 반응형 UI, 빌드·회귀·E2E 검증</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>권리 불명 이미지와 정답 충돌 항목의 자동 공개</li><li>공식 시험 문제·합격을 보장하는 표현</li><li>진행 중인 Skill 개편과 미구현 inventory 계약의 완료 주장</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-ai-seolbi-learning-platform">
+      <h3 id="project-requirements-ai-seolbi-learning-platform">구현·검증 기준</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>해야 할 일</h4>
+          <ul>
+              <li>각 문제를 이론·출처·상태·HOLD 사유와 안정 ID로 연결한다.</li>
+              <li>답안 제출 전 클라이언트에 정답·해설·선택지 피드백을 포함하지 않는다.</li>
+              <li>필기·필답·실기 화면에서 출처와 현재 공개 상태를 확인할 수 있다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 기준</h4>
+          <ul>
+              <li>정답 충돌·자산 누락·권리 불명은 fail-closed HOLD로 처리한다.</li>
+              <li>Node 24 기반 빌드와 단위·통합·대표 E2E를 기록한다.</li>
+              <li>전체 E2E 잔여 실패를 숨기지 않고 알려진 제한으로 공개한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-ai-seolbi-learning-platform">
+    <h3 id="project-decisions-ai-seolbi-learning-platform">왜 이렇게 구성했나</h3>
+    <ol>
+        <li>
+          <strong>생성량보다 Publication Gate 우선</strong>
+          <p>검증되지 않은 한 문제는 많은 정상 문제보다 학습 신뢰를 크게 해칠 수 있기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>정답 비노출을 데이터 계약으로 적용</strong>
+          <p>화면에서 숨기기만 하면 네트워크 응답이나 HTML source로 정답이 새어 나갈 수 있기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>HOLD를 삭제하지 않고 사유와 함께 보존</strong>
+          <p>근거가 추가되었을 때 같은 ID로 재검토하고 과거 불확실성을 추적하기 위해서입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-ai-seolbi-learning-platform">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-ai-seolbi-learning-platform">작업 내역과 계획</h3>
+      <p>마지막 완료 스냅숏의 구현·검증만 완료로 표시했습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>소스·권리·정답 Gate 설계</h4>
+          <p>PUBLIC과 HOLD 상태, source binding, 정답 충돌과 시각 자산 누락 사유를 데이터 계약으로 정의했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>Publication contract</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>학습 화면과 답안 비노출 구현</h4>
+          <p>필기·필답·실기 진입 흐름과 제출 전 정답 누출 방지 응답을 구현했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>반응형 학습 UI·no-answer-leak</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span>
+          </div>
+          <h4>완료 스냅숏 검증</h4>
+          <p>Node 24.14.0에서 데이터 검사, TypeScript, ESLint, 372개 Vitest, 빌드, 정답 비노출, 집중 E2E 7개를 통과했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>2026-07-30 완료 검증 스냅숏</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">잔여</span>
+          </div>
+          <h4>전체 E2E 잔여 항목 해소</h4>
+          <p>전체 Chromium 회귀는 95 pass·27 fail이었고, 공통 기존 실패를 포함한 잔여 항목을 별도 추적합니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>전체 E2E green evidence</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-ai-seolbi-learning-platform">
+    <h3 id="project-acceptance-ai-seolbi-learning-platform">확인 결과</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>출처·정답·권리 미충족 항목이 HOLD로 유지된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>제출 전 정답·해설이 클라이언트 응답에 포함되지 않는다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>대표 학습 흐름과 정적 빌드가 완료 스냅숏에서 재현된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>전체 브라우저 회귀가 알려진 잔여 없이 통과한다.</p>
+          <strong>미충족</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>확인 근거:</strong> 2026-07-30 Node 24.14.0 완료 스냅숏과 공개 운영 화면을 기준으로 하며, 진행 중 작업은 제외했습니다.</p>
+  </section>
+</details>
+
+<h2 id="공개-링크">공개 링크</h2>
+<section class="project-resources" aria-labelledby="project-resources-ai-seolbi-learning-platform">
+  <h2 id="project-resources-ai-seolbi-learning-platform">공개 링크</h2>
+  <p class="project-resources__lead">프로젝트 근거와 실제 사용 화면을 확인할 수 있는 공개 자료입니다.</p>
+    <ul class="project-resources__links"><li>
+          <a href="https://seolbi-learning-platform.pages.dev/practical/info" target="_blank" rel="noopener">
+            <span class="project-resources__label">Cloudflare 운영 화면</span>
+            <span class="project-resources__url">seolbi-learning-platform.pages.dev/practical/info</span>
+          </a>
+        </li><li>
+          <a href="https://seolbi-masterbook.wanran2.chatgpt.site/practical/info" target="_blank" rel="noopener">
+            <span class="project-resources__label">Sites 미러 화면</span>
+            <span class="project-resources__url">seolbi-masterbook.wanran2.chatgpt.site/practical/info</span>
+          </a>
+        </li>
+    </ul>
+  <p class="project-resources__note">두 운영 링크에서는 마지막으로 완료된 공개 범위와 실제 학습 흐름을 확인할 수 있습니다.</p>
+</section>
+
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#문제">문제</a></li>
+    <li><a href="#대표-사용자-장면">대표 사용자 장면</a></li>
+    <li><a href="#이-도구가-하는-일과-하지-않는-일">이 도구가 하는 일과 하지 않는 일</a></li>
+    <li><a href="#데이터-ai-사람의-역할">데이터, AI, 사람의 역할</a></li>
+    <li><a href="#만든-순서">만든 순서</a></li>
+    <li><a href="#현재-결과">현재 결과</a></li>
+    <li><a href="#회사에서-얻을-수-있는-가치와-한계">회사에서 얻을 수 있는 가치와 한계</a></li>
+    <li><a href="#상세-설계와-관련-task">상세 설계와 관련 Task</a></li>
+    <li><a href="#공개-링크">공개 링크</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

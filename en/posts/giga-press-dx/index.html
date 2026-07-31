@@ -1,26 +1,790 @@
-<!doctype html><html lang=en><head><title>Giga Press Factory DX: From Field Signals to Virtual Commissioning</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/giga-press-dx/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/giga-press-dx/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="Giga Press Factory DX: From Field Signals to Virtual Commissioning"><meta property="og:type" content="article"><meta property="og:description" content="A team manufacturing-DX PoC connecting Factory I/O, PLC, SCADA, OPC UA, and an AI-control candidate while separating expected benefits from measured evidence"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/giga-press-dx/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="Heungjae Lee technical portfolio preview"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Giga Press Factory DX: From Field Signals to Virtual Commissioning"><meta name=twitter:description content="A team manufacturing-DX PoC connecting Factory I/O, PLC, SCADA, OPC UA, and an AI-control candidate while separating expected benefits from measured evidence"><meta name=description content="A team manufacturing-DX PoC connecting Factory I/O, PLC, SCADA, OPC UA, and an AI-control candidate while separating expected benefits from measured evidence"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Technical Cases</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/giga-press-dx>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/giga-press-dx>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>Print</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="Search case studies"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/en/search/><label class=visually-hidden for=search-box>Search case studies</label>
-<input type=search name=keyword placeholder="Search case studies" id=search-box></form><nav aria-label="Post navigation"><ul class=tree id=tree><li id=list-heading><a href=/en/posts/>All case studies</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>Giga Press Factory DX: From Field Signals to Virtual Commissioning</h1><p class=portfolio-article__lead>A team manufacturing-DX PoC connecting Factory I/O, PLC, SCADA, OPC UA, and an AI-control candidate while separating expected benefits from measured evidence</p><p class=portfolio-article__meta><time datetime=2026-07-09>Jul 9, 2026</time>
-·
-8 minutes
-·
-Last reviewed <time datetime=2026-07-31>Jul 31, 2026</time></p><div class=tags><ul style=padding-left:0><li><a href=/en/tags/dx/ class="btn btn-sm btn-outline-info rounded">DX</a></li><li><a href=/en/tags/factory-i/o/ class="btn btn-sm btn-outline-info rounded">Factory I/O</a></li><li><a href=/en/tags/plc/ class="btn btn-sm btn-outline-info rounded">PLC</a></li><li><a href=/en/tags/scada/ class="btn btn-sm btn-outline-info rounded">SCADA</a></li><li><a href=/en/tags/opc-ua/ class="btn btn-sm btn-outline-info rounded">OPC UA</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=problem-process-and-communication-risk-must-be-tested-before-equipment-deployment>Problem: process and communication risk must be tested before equipment deployment</h2><table><thead><tr><th>Item</th><th>Verified scope</th></tr></thead><tbody><tr><td>Problem</td><td>Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance.</td></tr><tr><td>Role</td><td>In a ten-person team, I worked in the Digital Twin group on <strong>AI-model selection/training, communications setup, and technical research</strong>. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work.</td></tr><tr><td>Action</td><td>I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization.</td></tr><tr><td>Result</td><td>The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are <strong>expected benefits/targets</strong>, not measured factory outcomes.</td></tr><tr><td>Evidence</td><td>The team report&rsquo;s R&amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository.</td></tr></tbody></table><h3 id=resume-bullets>Resume bullets</h3><ul><li>Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario.</li><li>Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority.</li><li>Kept the report&rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings.</li></ul><h3 id=interview-star>Interview STAR</h3><ul><li><strong>Situation:</strong> High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial.</li><li><strong>Task:</strong> My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority.</li><li><strong>Action:</strong> I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary.</li><li><strong>Result:</strong> The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available.</li></ul><h2 id=why-the-project-uses-virtual-commissioning>Why the project uses virtual commissioning</h2><p>The project models a Giga Press factory context through four responsibilities:</p><ol><li>edge acquisition and signal normalization;</li><li>PLC sequence, interlock, and safe-state control;</li><li>SCADA state, alarm, and history visibility;</li><li>Factory I/O virtual commissioning and fault-scenario checks.</li></ol><p>It is a team PoC and design scenario. It does not claim that a production Giga Press, its safety PLC, hydraulics, or complete physical dynamics were commissioned.</p><h2 id=architecture-and-data-flow>Architecture and data flow</h2><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["Sensors / switches / actuators"] --> B["Arduino / Raspberry Pi\nacquisition · filtering · normalization"]
-B --> C["PLC\nsequence · interlock · safe state"]
-C --> D["SCADA\nstate · alarm · history"]
-C <--> E["Factory I/O\nvirtual commissioning"]
-C --> F["OPC UA data path"]
-F --> G["Web / MES / AI candidates"]</div><p>The control boundary matters. Edge devices may collect and normalize data, and AI may recommend parameters, but emergency stop, door interlock, sequence permission, and communication-timeout behavior remain deterministic PLC/safety responsibilities.</p><h2 id=technologies-and-data-contract>Technologies and data contract</h2><p>Exposing physical PLC addresses directly to every consumer would make a small I/O change ripple through SCADA and reporting. The scenario therefore uses a logical tag model.</p><table><thead><tr><th>Field</th><th>Purpose</th></tr></thead><tbody><tr><td><code>equipment_id</code></td><td>Stable equipment identity</td></tr><tr><td><code>signal_name</code></td><td>Human-readable process signal</td></tr><tr><td><code>value</code></td><td>Boolean, numeric, or state value</td></tr><tr><td><code>quality</code></td><td>Good, delayed, disconnected, or invalid</td></tr><tr><td><code>timestamp</code></td><td>Event ordering and freshness</td></tr><tr><td><code>mode</code></td><td>Auto, manual, or maintenance state</td></tr></tbody></table><p>OPC UA is useful when meaning, quality, and hierarchy must be shared upstream. Modbus/TCP remains a simpler candidate for constrained register exchange. The article treats them as interface choices subject to device and system requirements rather than claiming every protocol was production-deployed.</p><h3 id=implementation-sequence>Implementation sequence</h3><ol><li>Define normal process steps together with stop, timeout, and restart conditions.</li><li>Build an I/O list and a logical tag dictionary.</li><li>Separate reusable command/status/alarm/interlock blocks from equipment-specific exceptions.</li><li>Treat communication loss as a quality state and require PLC re-authorization after recovery.</li><li>Run Factory I/O scenarios for normal cycles, missing completion, duplicate sensors, and delayed actuators.</li><li>Present process state, alarm cause, and communication freshness together in SCADA.</li><li>Place AI at the optimization/recommendation boundary, not as an unrestricted safety controller.</li></ol><h2 id=ai-and-human-roles>AI and human roles</h2><p>AI was used to structure the public team material into process flow, communication boundaries, validation items, and a technical writing draft. A human reviewed the PLC, SCADA, OPC UA, Factory I/O sequence, team responsibilities, and the boundary between a projected benefit and a measured result.</p><h2 id=pdd-and-related-tasks>PDD and related tasks</h2><details class=project-blueprint><summary class=project-blueprint__toggle>Verification details</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>Design and validation record</p><h2 id=project-blueprint-giga-press-dx>Design choices and work flow</h2><p class=project-blueprint__summary>This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.</p></div><span class="project-blueprint__status project-blueprint__status--partial">Team validation complete · HIL pending</span></header><dl class=project-blueprint__meta><div><dt>Project type</dt><dd>Ten-person education team PoC</dd></div><div><dt>My scope</dt><dd>AI candidate/training, OPC UA setup, technical research</dd></div><div><dt>Primary audience</dt><dd>Equipment, controls, and manufacturing engineers</dd></div><div><dt>Evidence level</dt><dd>Team-report backed</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>PLC sequences, SCADA tags, sensor faults, and network delay are difficult to validate together before physical equipment, so defects are discovered late during plant trial.</p></article><article><h3>Goal</h3><p>Define the Factory I/O–PLC–SCADA–OPC UA responsibilities and data contract first, then review normal, failure, and restart scenarios in a virtual environment.</p></article><article><h3>Success</h3><p>The team demo and report must trace data flow, ownership, and tests while clearly separating expected benefits from measured plant outcomes.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-giga-press-dx><h3 id=project-scope-giga-press-dx>Scope and boundaries</h3><div class=project-blueprint__scope><div><h4>In scope</h4><ul><li>Signal flow and ownership across Factory I/O, PLC, SCADA, and OPC UA</li><li>Normal run, missing sensor, communication delay, and restart scenarios</li><li>Review of a DQN candidate using real-time sensor and PLC data</li></ul></div><div><h4>Out of scope or unverified</h4><ul><li>Production deployment on a real Giga Press safety PLC</li><li>Presenting Ladder or SCADA work by teammates as my individual work</li><li>Treating the 50–75% and 50% targets as measured factory results</li></ul></div></div></section><section aria-labelledby=project-requirements-giga-press-dx><h3 id=project-requirements-giga-press-dx>Implementation and verification</h3><div class=project-blueprint__requirements><div><h4>What had to work</h4><ul><li>Shared tags include equipment, signal, value, quality, and timestamp.</li><li>The PLC owns interlocks and final run permission; AI provides advisory output only.</li><li>SCADA traces status, alarms, delay, and manual-command results through the same tags.</li></ul></div><div><h4>Quality and operating rules</h4><ul><li>Communication loss moves the process to a safe state instead of holding the last command.</li><li>Failure and recovery scenarios are repeated in addition to the normal path.</li><li>Targets, team results, individual contribution, and unverified work remain separate.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-giga-press-dx><h3 id=project-decisions-giga-press-dx>Why it was designed this way</h3><ol><li><strong>Keep control authority in the PLC</strong><p>Non-deterministic AI output or network delay must not bypass safety interlocks.</p></li><li><strong>Use OPC UA as the upper-layer boundary</strong><p>Semantic tags and quality metadata reduce coupling between control, SCADA, and analytics.</p></li><li><strong>Inject failures in Factory I/O first</strong><p>Missing sensors, delay, and mode conflicts are safer and cheaper to repeat virtually.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-giga-press-dx><div class=project-blueprint__section-heading><h3 id=project-work-giga-press-dx>Work completed and planned</h3><p>A task is marked complete only where public evidence supports that status.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Define problem, role, and claim boundaries</h4><p>Separated plant-trial risk, team and individual R&amp;R, and measured results from expected benefits.</p><dl><dt>Result</dt><dd>Public scope, role, and evidence boundary</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Design I/O and failure scenarios</h4><p>Mapped signals, interlocks, alarms, timeouts, and normal, missing, delayed, and restart cases.</p><dl><dt>Result</dt><dd>Signal model and validation matrix</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span></div><h4>Integrate PLC, SCADA, and Factory I/O flow</h4><p>Defined layer ownership and OPC UA placement, then integrated team outputs into one process story.</p><dl><dt>Result</dt><dd>Architecture, process flow, team demo</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Review AI candidate and communications</h4><p>Reviewed DQN placement, real-time inputs, reward concerns, and the PLC safety boundary.</p><dl><dt>Result</dt><dd>AI proposal and OPC UA setup</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Review results and expected benefits</h4><p>Confirmed that the report figures are targets, not measured plant savings, and preserved that limit publicly.</p><dl><dt>Result</dt><dd>Team report and public evidence note</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span></div><h4>Validate with equipment HIL and FAT</h4><p>Actual I/O, safety PLC, equipment cycles, and network conditions require controlled before/after measurement.</p><dl><dt>Result</dt><dd>HIL results and plant measurements</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-giga-press-dx><h3 id=project-acceptance-giga-press-dx>What was verified</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Layered data flow and control authority are documented.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Normal, failure, and recovery cases are defined.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Individual scope, team work, and target figures are separated.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>HIL and FAT are measured under real Giga Press constraints.</p><strong>Unverified</strong></li></ul><p class=project-blueprint__evidence-note><strong>Supporting evidence:</strong> The team report's R&amp;R, architecture, result, and expected-benefit slides are linked to the validation story in this article.</p></section></details><h2 id=verification-snapshot>Verification snapshot</h2><table><thead><tr><th>Scenario</th><th>What to inspect</th><th>Example pass condition</th></tr></thead><tbody><tr><td>Normal automatic cycle</td><td>state transition and completion</td><td>no undefined transition</td></tr><tr><td>Sensor chatter</td><td>duplicate commands</td><td>one validated event</td></tr><tr><td>Communication loss</td><td>quality and safe transition</td><td>timeout alarm; no automatic restart</td></tr><tr><td>Actuator incomplete</td><td>blocked next step</td><td>cause is visible</td></tr><tr><td>Manual/auto switch</td><td>mode conflict</td><td>transition requires a valid state</td></tr><tr><td>Module addition</td><td>change impact</td><td>shared interface limits edits</td></tr></tbody></table><p>The public report proposes 50–75% shorter setup and 50% lower expansion effort as expected benefits of virtual commissioning and Ladder modularization. It does not provide controlled plant before/after measurements, so those values are not listed as achieved results.</p><h3 id=why-this-case-matters-for-manufacturing-roles>Why this case matters for manufacturing roles</h3><ul><li><strong>Manufacturing engineering:</strong> process sequence, FAT/SAT thinking, interlocks, and change-impact checks.</li><li><strong>Manufacturing AI & data:</strong> signal quality, OPC UA, AI-placement boundary, and traceable virtual validation.</li><li><strong>Data analysis:</strong> tag definitions, timestamp/quality interpretation, and test-result separation from forecasts.</li></ul><h2 id=limits-and-next-steps>Limits and next steps</h2><ol><li>Add hardware-in-the-loop tests using actual I/O and safety requirements.</li><li>Version the tag specification and formalize the OPC UA information model.</li><li>Automate regression scenarios and issue a machine-readable test report.</li><li>Add MES work-order, lot, and quality traceability.</li><li>Validate network segmentation, access control, and audit logs.</li><li>Measure any setup or engineering-effort improvement with a controlled baseline before using it as an achieved KPI.</li></ol><p>The technical value of this case is not a large target number. It is the discipline of <strong>separating physical control, data acquisition, monitoring, virtual verification, and AI so that each layer can be tested and its evidence stated honestly</strong>.</p><h2 id=public-links>Public links</h2><section class=project-resources aria-labelledby=project-resources-giga-press-dx><h2 id=project-resources-giga-press-dx>Public links</h2><p class=project-resources__lead>Public material for reviewing project evidence and the live user surface.</p><p class=project-resources__note>Canva edit links are not public. The external report button remains withheld until a view-only, redacted version is verified.</p></section></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label="Table of contents"><div class=toc-holder><h2 class="h5 text-center ps-3">Table of Contents</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#problem-process-and-communication-risk-must-be-tested-before-equipment-deployment>Problem: process and communication risk must be tested before equipment deployment</a><ul><li><a href=#resume-bullets>Resume bullets</a></li><li><a href=#interview-star>Interview STAR</a></li></ul></li><li><a href=#why-the-project-uses-virtual-commissioning>Why the project uses virtual commissioning</a></li><li><a href=#architecture-and-data-flow>Architecture and data flow</a></li><li><a href=#technologies-and-data-contract>Technologies and data contract</a><ul><li><a href=#implementation-sequence>Implementation sequence</a></li></ul></li><li><a href=#ai-and-human-roles>AI and human roles</a></li><li><a href=#pdd-and-related-tasks>PDD and related tasks</a></li><li><a href=#verification-snapshot>Verification snapshot</a><ul><li><a href=#why-this-case-matters-for-manufacturing-roles>Why this case matters for manufacturing roles</a></li></ul></li><li><a href=#limits-and-next-steps>Limits and next steps</a></li><li><a href=#public-links>Public links</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p><p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Technical Cases</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Giga Press Factory Expansion through a Digital Twin</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/giga-press-dx/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/giga-press-dx/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Giga Press Factory Expansion through a Digital Twin">
+<meta property="og:type" content="article">
+<meta property="og:description" content="A 10-person manufacturing-DX PoC that checked process sequence, communications boundaries, and failure conditions before physical commissioning">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/giga-press-dx/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Giga Press Factory Expansion through a Digital Twin">
+  <meta name="twitter:description" content="A 10-person manufacturing-DX PoC that checked process sequence, communications boundaries, and failure conditions before physical commissioning">
+
+  <meta name="description" content="A 10-person manufacturing-DX PoC that checked process sequence, communications boundaries, and failure conditions before physical commissioning">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Technical Cases</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/giga-press-dx">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/giga-press-dx">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="Search case studies">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/en/search/">
+          <label class="visually-hidden" for="search-box">Search case studies</label>
+          <input type="search" name="keyword" placeholder="Search case studies" id="search-box">
+        </form>
+        <nav aria-label="Post navigation">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/en/posts/">All case studies</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Giga Press Factory Expansion through a Digital Twin</h1>
+          
+            <p class="portfolio-article__lead">A 10-person manufacturing-DX PoC that checked process sequence, communications boundaries, and failure conditions before physical commissioning</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-09">Jul 9, 2026</time>
+             · 
+            7 minutes
+             · 
+            Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/dx/" class="btn btn-sm btn-outline-info rounded">DX</a></li>
+    
+    
+    <li><a href="/en/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/en/tags/opc-ua/" class="btn btn-sm btn-outline-info rounded">OPC UA</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <aside class="project-case-summary project-case-summary--dx" aria-labelledby="project-case-summary-giga-press-dx" data-project-id="giga-press-dx">
+  <header class="project-case-summary__header">
+    <div>
+      <p class="project-case-summary__eyebrow">30-second summary</p>
+      <h2 id="project-case-summary-giga-press-dx">Debugging sequence and communication for the first time on physical equipment is expensive, so the project demonstrated why signal ownership and failure cases should be checked in a virtual environment first.</h2>
+    </div>
+    <span class="project-case-summary__status">Team demo and report stage · Not measured in a live factory</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>Period / basis</dt>
+      <dd>10-person training team project · Public case updated Jul 2026</dd>
+    </div>
+    <div>
+      <dt>Project form</dt>
+      <dd>Virtual commissioning and data-flow PoC</dd>
+    </div>
+  </dl>
+
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-giga-press-dx">
+      <h3 id="project-case-problem-giga-press-dx">Problem to solve</h3>
+      <p>When PLC, SCADA, virtual equipment, and upper-layer data interpret the same signal differently, interlock, alarm, and communication errors surface late in commissioning.</p>
+    </section>
+
+    <section aria-labelledby="project-case-role-giga-press-dx">
+      <h3 id="project-case-role-giga-press-dx">My scope</h3>
+      <ul><li>Owned AI-model selection and training, communication setup, and technical research.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-giga-press-dx">
+      <h3 id="project-case-result-giga-press-dx">Verified result / current stage</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>Verified output · Team</span>
+              <strong>Team demo and report connecting virtual equipment, PLC, SCADA, and OPC UA</strong>
+            </li><li>
+              <span>Verified output · Individual</span>
+              <strong>AI-model selection and training, communication setup, and technical research</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-giga-press-dx">
+      <h3 id="project-case-team-giga-press-dx">Team boundary</h3>
+      <p>Ladder and SCADA implementation belonged to teammates; the full Factory I/O–PLC–SCADA–OPC UA system was a 10-person team result.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>Disclosure scope:</strong> Internal edit links and source material are not public; the case is limited to my role and the shareable system flow.</p>
+    <p>The flow below generalizes the team exercise for a virtual-commissioning context.</p>
+  </footer>
+</aside>
+
+<h2 id="why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</h2>
+<p>With high-capital equipment, a sequence or communications problem discovered after installation is more expensive and riskier to correct. When sensor state, PLC logic, and operator displays disagree, the team also spends time deciding which information is authoritative. This project used a Giga Press factory context to examine how process and data connections could be checked before physical commissioning.</p>
+<p>The scope was not a complete production Giga Press. It was a team PoC that connected Factory I/O, PLC, SCADA, and an upstream communications path to define what should be tested before moving to physical equipment.</p>
+<h2 id="why-a-digital-method-was-needed">Why a digital method was needed</h2>
+<p>Testing only on physical equipment can reveal missing sensors, delayed completion signals, and restart conditions late in the project. A virtual process allows those abnormal cases to be repeated while the team checks whether control state and displayed data remain consistent.</p>
+<p>The team kept control authority in the PLC. Factory I/O represented the virtual process, the PLC owned sequence and interlock decisions, SCADA displayed state and alarms, and the OPC UA path defined how upstream systems and an AI candidate could receive data. AI remained an optimization candidate rather than a safety controller.</p>
+<h2 id="my-actual-role">My actual role</h2>
+<p>This was a <strong>ten-person team project</strong>. My scope in the Digital Twin group was limited to <strong>AI-model selection and training, communications setup, and technical research</strong>. I reviewed a DQN candidate using realtime sensor and PLC data and organized where the OPC UA communications path fit within the team scenario.</p>
+<p>Ladder and SCADA implementation belonged to other team members. They are described as parts of the team architecture, not as my individual work.</p>
+<h2 id="data-flow">Data flow</h2>
+<p><code>Field signals → PLC sequence and interlock decisions → Factory I/O virtual process and SCADA state display → OPC UA boundary → web and AI candidates</code></p>
+<p>The layers see related signals but have different responsibilities. A displayed or AI-generated value does not become a safety command by itself; run permission and safe behavior during communications loss stay within PLC and dedicated safety design.</p>
+<h2 id="implementation-sequence">Implementation sequence</h2>
+<ol>
+<li>The team defined the normal process sequence together with stop, delay, and restart conditions.</li>
+<li>The responsible team member connected Factory I/O scenarios to Ladder logic.</li>
+<li>The responsible team member configured SCADA state and alarm visibility.</li>
+<li>I selected and trained the AI candidate and handled communications setup and supporting research.</li>
+<li>The team integrated PLC, SCADA, Factory I/O, web, and AI-extension concepts into one demonstration and report.</li>
+<li>The report kept projected benefits separate from measured outcomes.</li>
+</ol>
+<h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
+<p>The verified output is the team demonstration and report connecting process flow, Ladder and Factory I/O, SCADA, web, and an AI-extension structure. Validation with a production Giga Press safety PLC, hydraulic and servo dynamics, and real production I/O is outside the completed scope.</p>
+<p>The report’s <strong>50–75% setup-time reduction</strong> and <strong>50% equipment-expansion labor reduction</strong> are expected benefits or targets for virtual commissioning and Ladder modularization. They are not controlled before-and-after plant results and are not presented as achievements.</p>
+<h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
+<p>Field use requires hardware-in-the-loop tests with actual I/O and safety requirements, communications-loss and reconnect tests, versioned tag specifications, alarm priorities, network segmentation, and access-control review. If an AI candidate is used, it cannot own run or safety commands; recommendations need approval, rejection, and rollback paths.</p>
+<p>Under those conditions, virtual commissioning could move logic and data-integrity checks earlier than physical trial and give teams a reusable review standard. The company value is earlier change-impact review and accumulated commissioning knowledge. Time or labor savings can be confirmed only after measurement against a controlled baseline.</p>
+<h2 id="design-and-validation-record">Design and validation record</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Design and validation record</p>
+      <h2 id="project-blueprint-giga-press-dx">Design choices and work flow</h2>
+      <p class="project-blueprint__summary">This public plan explains why virtual commissioning was needed, what was implemented or reviewed, and how team delivery was broken into traceable tasks and acceptance criteria.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Team validation complete · HIL pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Ten-person education team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>AI candidate/training, OPC UA setup, technical research</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Equipment, controls, and manufacturing engineers</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Team-report backed</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>PLC sequences, SCADA tags, sensor faults, and network delay are difficult to validate together before physical equipment, so defects are discovered late during plant trial.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Define the Factory I/O–PLC–SCADA–OPC UA responsibilities and data contract first, then review normal, failure, and restart scenarios in a virtual environment.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>The team demo and report must trace data flow, ownership, and tests while clearly separating expected benefits from measured plant outcomes.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-giga-press-dx">
+      <h3 id="project-scope-giga-press-dx">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Signal flow and ownership across Factory I/O, PLC, SCADA, and OPC UA</li><li>Normal run, missing sensor, communication delay, and restart scenarios</li><li>Review of a DQN candidate using real-time sensor and PLC data</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Production deployment on a real Giga Press safety PLC</li><li>Presenting Ladder or SCADA work by teammates as my individual work</li><li>Treating the 50–75% and 50% targets as measured factory results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-giga-press-dx">
+      <h3 id="project-requirements-giga-press-dx">Implementation and verification</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>What had to work</h4>
+          <ul>
+              <li>Shared tags include equipment, signal, value, quality, and timestamp.</li>
+              <li>The PLC owns interlocks and final run permission; AI provides advisory output only.</li>
+              <li>SCADA traces status, alarms, delay, and manual-command results through the same tags.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operating rules</h4>
+          <ul>
+              <li>Communication loss moves the process to a safe state instead of holding the last command.</li>
+              <li>Failure and recovery scenarios are repeated in addition to the normal path.</li>
+              <li>Targets, team results, individual contribution, and unverified work remain separate.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-giga-press-dx">
+    <h3 id="project-decisions-giga-press-dx">Why it was designed this way</h3>
+    <ol>
+        <li>
+          <strong>Keep control authority in the PLC</strong>
+          <p>Non-deterministic AI output or network delay must not bypass safety interlocks.</p>
+        </li>
+        <li>
+          <strong>Use OPC UA as the upper-layer boundary</strong>
+          <p>Semantic tags and quality metadata reduce coupling between control, SCADA, and analytics.</p>
+        </li>
+        <li>
+          <strong>Inject failures in Factory I/O first</strong>
+          <p>Missing sensors, delay, and mode conflicts are safer and cheaper to repeat virtually.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-giga-press-dx">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-giga-press-dx">Work completed and planned</h3>
+      <p>A task is marked complete only where public evidence supports that status.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define problem, role, and claim boundaries</h4>
+          <p>Separated plant-trial risk, team and individual R&amp;R, and measured results from expected benefits.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Public scope, role, and evidence boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Design I/O and failure scenarios</h4>
+          <p>Mapped signals, interlocks, alarms, timeouts, and normal, missing, delayed, and restart cases.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Signal model and validation matrix</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Integrate PLC, SCADA, and Factory I/O flow</h4>
+          <p>Defined layer ownership and OPC UA placement, then integrated team outputs into one process story.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Architecture, process flow, team demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Review AI candidate and communications</h4>
+          <p>Reviewed DQN placement, real-time inputs, reward concerns, and the PLC safety boundary.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>AI proposal and OPC UA setup</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Review results and expected benefits</h4>
+          <p>Confirmed that the report figures are targets, not measured plant savings, and preserved that limit publicly.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Team report and public evidence note</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Validate with equipment HIL and FAT</h4>
+          <p>Actual I/O, safety PLC, equipment cycles, and network conditions require controlled before/after measurement.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>HIL results and plant measurements</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-giga-press-dx">
+    <h3 id="project-acceptance-giga-press-dx">What was verified</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Layered data flow and control authority are documented.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Normal, failure, and recovery cases are defined.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Individual scope, team work, and target figures are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>HIL and FAT are measured under real Giga Press constraints.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Supporting evidence:</strong> The team report&#39;s R&amp;R, architecture, result, and expected-benefit slides are linked to the validation story in this article.</p>
+  </section>
+</details>
+
+<h2 id="public-links">Public links</h2>
+<section class="project-resources" aria-labelledby="project-resources-giga-press-dx">
+  <h2 id="project-resources-giga-press-dx">Public links</h2>
+  <p class="project-resources__lead">Public material for reviewing project evidence and the live user surface.</p>
+  <p class="project-resources__note">Canva edit links are not public. The external report button remains withheld until a view-only, redacted version is verified.</p>
+</section>
+
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
+    <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
+    <li><a href="#my-actual-role">My actual role</a></li>
+    <li><a href="#data-flow">Data flow</a></li>
+    <li><a href="#implementation-sequence">Implementation sequence</a></li>
+    <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>
+    <li><a href="#deployment-conditions-and-company-value">Deployment conditions and company value</a></li>
+    <li><a href="#design-and-validation-record">Design and validation record</a></li>
+    <li><a href="#public-links">Public links</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p>
+      <p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Technical Cases</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

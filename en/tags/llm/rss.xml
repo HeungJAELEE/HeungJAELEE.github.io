@@ -1,38 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/llm/</link><description>Recent content in LLM on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/llm/rss.xml" rel="self" type="application/rss+xml"/><item><title>resumOpenAI: An Evidence-aware Resume Generation PoC</title><link>https://heungjaelee.github.io/en/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/resumopenai/</guid><description>&lt;h2 id="problem-controlling-career-facts-matters-more-than-fluent-generation"&gt;Problem: controlling career facts matters more than fluent generation&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt; explores a narrower problem than “ask an LLM to write a resume.” It separates &lt;strong&gt;verified career facts, private fields, target-role selection, draft generation, and output validation&lt;/strong&gt; so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Design&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Frontend&lt;/td&gt;
-&lt;td&gt;React form and draft review&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;API&lt;/td&gt;
-&lt;td&gt;Flask request validation and generation orchestration&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;structured career facts with evidence/status fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LLM&lt;/td&gt;
-&lt;td&gt;controlled prompt and optional adaptation path&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Safety&lt;/td&gt;
-&lt;td&gt;personal-data minimization and public/private separation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;QA&lt;/td&gt;
-&lt;td&gt;claim/date/number checks before export&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="why-structure-comes-before-fine-tuning"&gt;Why structure comes before fine-tuning&lt;/h2&gt;
-&lt;p&gt;Fine-tuning can make style more consistent, but it cannot repair missing or contradictory facts. The first quality gate is a structured source model.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/llm/</link>
+    <description>Recent content in LLM on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/llm/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>resumOpenAI: An Evidence-aware Resume Generation PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/resumopenai/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/resumopenai/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-resumopenai&#34; data-project-id=&#34;resumopenai&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-resumopenai&#34;&gt;Job-specific wording may change, but career facts must not; the PoC separates the fact registry from generated wording and requires final human review.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;PoC · No public repository&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Personal PoC · Public case updated Jul 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Career-evidence and job-wording separation&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-resumopenai&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Repeatedly rewriting resumes can drift dates, metrics, and roles, while exposing more personal information than necessary.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-resumopenai&#34;&gt;My scope&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;Designed a Flask/React workflow that separates career facts from job-specific wording, minimizes personal data, and requires final human review.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-resumopenai&#34;&gt;Verified result / current stage&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;Verified output · Individual&lt;/span&gt;
+              &lt;strong&gt;PoC flow from career facts to job requirements, wording candidates, and human confirmation&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;Current stage · Individual&lt;/span&gt;
+              &lt;strong&gt;Personal PoC with no public repository or operating service&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-resumopenai&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-resumopenai&#34;&gt;Team boundary&lt;/h3&gt;
+      &lt;p&gt;This is a personal PoC; AI proposes wording, while a person verifies facts and decides what to submit.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

@@ -1,79 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vision on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/vision/</link><description>Recent content in Vision on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/vision/rss.xml" rel="self" type="application/rss+xml"/><item><title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title><link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid><description>&lt;h2 id="problem-accuracy-alone-cannot-define-a-welding-defect-operating-threshold"&gt;Problem: accuracy alone cannot define a welding-defect operating threshold&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Item&lt;/th&gt;
-&lt;th&gt;Verified scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Role&lt;/td&gt;
-&lt;td&gt;I was responsible for &lt;strong&gt;evaluation-metric design and validation&lt;/strong&gt;, including F1, recall, false-positive behavior, and threshold interpretation.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Action&lt;/td&gt;
-&lt;td&gt;The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Result&lt;/td&gt;
-&lt;td&gt;On the recorded evaluation set and selected threshold, the report lists &lt;strong&gt;F1 93.10%, Recall 100%, and Precision 87.07%&lt;/strong&gt;. These values do not establish production-wide generalization.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evidence&lt;/td&gt;
-&lt;td&gt;The public report&amp;rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="resume-bullets"&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.&lt;/li&gt;
-&lt;li&gt;Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.&lt;/li&gt;
-&lt;li&gt;Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="interview-star"&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-this-project-was-structured-this-way"&gt;Why this project was structured this way&lt;/h2&gt;
-&lt;p&gt;Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:&lt;/p&gt;</description></item><item><title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title><link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vision on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/vision/</link>
+    <description>Recent content in Vision on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/vision/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
 &lt;p&gt;Separate demonstrations of robot motion, vision results, PLC sequences, and MES records do not reconstruct what happened to one product.&lt;/p&gt;
 &lt;p&gt;This education team PoC used a QR serial as the common key across an Indy7 assembly flow, edge-vision inspection, PLC and SCADA, MySQL/MES, and digital-twin state.&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Public scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Project type&lt;/td&gt;
-&lt;td&gt;Education team PoC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;My role&lt;/td&gt;
-&lt;td&gt;Robot and Digital Twin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Team implementation&lt;/td&gt;
-&lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Technologies&lt;/td&gt;
-&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Current status&lt;/td&gt;
-&lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Area&lt;/th&gt;
+          &lt;th&gt;Public scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project type&lt;/td&gt;
+          &lt;td&gt;Education team PoC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;My role&lt;/td&gt;
+          &lt;td&gt;Robot and Digital Twin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Team implementation&lt;/td&gt;
+          &lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Technologies&lt;/td&gt;
+          &lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Current status&lt;/td&gt;
+          &lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

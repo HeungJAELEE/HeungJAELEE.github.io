@@ -1,46 +1,790 @@
-<!doctype html><html lang=ko><head><title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/deep-learning-modeling/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/deep-learning-modeling/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계"><meta property="og:type" content="article"><meta property="og:description" content="배터리·반도체 제조 현장에서 수행한 공정 안정화, FAT/SAT, 품질 개선과 제조 DX 사례를 정리한 이재흥의 포트폴리오"><meta property="og:url" content="https://heungjaelee.github.io/posts/deep-learning-modeling/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계"><meta name=twitter:description content="문제: 실행되는 학습 코드만으로는 재현 가능한 실험이 되지 않는다 딥러닝 모델링 교과서는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.
-공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다."><meta name=description content="문제: 실행되는 학습 코드만으로는 재현 가능한 실험이 되지 않는다 딥러닝 모델링 교과서는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.
-공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.
-"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>기술 사례</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/deep-learning-modeling>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/deep-learning-modeling>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>인쇄</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="기술 사례 검색"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/search/><label class=visually-hidden for=search-box>기술 사례 검색</label>
-<input type=search name=keyword placeholder="기술 사례 검색" id=search-box></form><nav aria-label="글 목록"><ul class=tree id=tree><li id=list-heading><a href=/posts/>전체 기술 사례</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</h1><p class=portfolio-article__meta><time datetime=2026-07-13>2026. 7. 13.</time>
-·
-11
-·
-마지막 검토 <time datetime=2026-07-31>2026. 7. 31.</time></p><div class=tags><ul style=padding-left:0><li><a href=/tags/deep-learning/ class="btn btn-sm btn-outline-info rounded">Deep Learning</a></li><li><a href=/tags/python/ class="btn btn-sm btn-outline-info rounded">Python</a></li><li><a href=/tags/mlops/ class="btn btn-sm btn-outline-info rounded">MLOps</a></li><li><a href=/tags/reproducibility/ class="btn btn-sm btn-outline-info rounded">Reproducibility</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=문제-실행되는-학습-코드만으로는-재현-가능한-실험이-되지-않는다>문제: 실행되는 학습 코드만으로는 재현 가능한 실험이 되지 않는다</h2><p><strong>딥러닝 모델링 교과서</strong>는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.</p><blockquote><p>공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.</p></blockquote><hr><h3 id=프로젝트-배경-실행되는-코드와-신뢰할-수-있는-실험은-다르다>프로젝트 배경: 실행되는 코드와 신뢰할 수 있는 실험은 다르다</h3><p>딥러닝 학습 예제는 하나의 노트북 안에서 데이터 로딩부터 정확도 출력까지 빠르게 실행할 수 있다. 하지만 실무에서는 다음 질문에 답할 수 있어야 한다.</p><ul><li>어떤 버전의 데이터로 학습했는가?</li><li>학습·검증·테스트 데이터가 서로 섞이지 않았는가?</li><li>전처리 기준이 학습 시점과 추론 시점에 동일한가?</li><li>모델이 좋아졌다는 판단은 어떤 지표와 기준선에 근거하는가?</li><li>같은 설정으로 다시 실행했을 때 결과 차이를 설명할 수 있는가?</li><li>제조 현장에 적용할 때 미검출과 오검출 중 무엇이 더 위험한가?</li></ul><p>이 프로젝트는 이런 질문을 모델 학습 뒤에 붙이는 부가 문서가 아니라, 처음부터 실험 흐름 안에 넣는 연습이다. 목표는 가장 복잡한 모델을 만드는 것이 아니라 <strong>데이터와 결과 사이의 인과관계를 추적할 수 있는 실험 습관</strong>을 갖추는 것이다.</p><h3 id=프로젝트-목표>프로젝트 목표</h3><ol><li>전처리, 학습, 평가 단계를 명확히 분리한다.</li><li>데이터 누수와 평가 오염을 모델 선택 전에 차단한다.</li><li>설정, 코드, 결과물을 함께 기록해 실험을 재현 가능하게 만든다.</li><li>전체 정확도뿐 아니라 오류 유형과 업무 비용을 함께 해석한다.</li><li>학습용 예제를 제조 품질·설비 데이터 문제에 옮길 수 있는 기준으로 정리한다.</li></ol><hr><h2 id=왜-파이프라인-구조로-구성하는가>왜 파이프라인 구조로 구성하는가</h2><p>딥러닝 모델링은 “데이터를 넣고 학습한다”는 한 단계가 아니다. 각 단계의 입력과 출력이 분명해야 오류가 발생했을 때 원인을 좁힐 수 있다. 그래서 원본 데이터부터 평가 보고서까지를 다음과 같은 파이프라인으로 본다.</p><div class=mermaid align=center style=background-color:none;border-radius:5px>graph LR
-A["원본 데이터"] --> B["스키마·품질 점검"]
-B --> C["학습·검증·테스트 분할"]
-C --> D["전처리·특징 변환"]
-D --> E["기준선 모델"]
-E --> F["딥러닝 학습"]
-F --> G["고정 테스트 평가"]
-G --> H["오류 분석"]
-H --> I["모델·설정·평가 기록"]
-I -->|"개선 가설"| B</div><p>이 구조를 선택한 이유는 세 가지다.</p><ul><li><strong>누수 방지</strong>: 데이터 분할을 먼저 확정한 뒤 학습 데이터에만 전처리 기준을 맞춘다.</li><li><strong>비교 가능성</strong>: 모델 구조가 달라도 동일한 데이터 분할과 평가 함수로 비교한다.</li><li><strong>원인 추적</strong>: 성능 변화가 데이터, 전처리, 모델, 임계값 중 어디에서 발생했는지 기록한다.</li></ul><p>노트북 하나에 모든 로직을 넣으면 탐색은 빠르지만, 실행 순서와 숨은 상태에 따라 결과가 달라질 수 있다. 학습용 저장소에서도 데이터 준비, 학습, 평가를 함수 또는 스크립트 단위로 나누는 편이 실무 전환에 유리하다.</p><hr><h2 id=아키텍처와-데이터-흐름>아키텍처와 데이터 흐름</h2><p>데이터 계약, 전처리, 학습, 평가, artifact와 실행 환경 기록을 분리하고 동일한 설정으로 다시 실행할 수 있게 구성했습니다. 입력 데이터와 평가 기준이 바뀌면 기존 결과를 최신 성능처럼 재사용하지 않는 것이 핵심입니다.</p><h2 id=사용-기술과-선택-이유>사용 기술과 선택 이유</h2><h3 id=python>Python</h3><p>데이터 처리, 모델 실험, 평가 자동화를 하나의 언어로 연결하기 위해 Python을 중심 언어로 둔다. 특정 딥러닝 프레임워크에 종속된 사용법을 외우기보다, 입력 텐서 형태, 학습 루프, 손실 함수, 평가 함수가 어떤 계약을 갖는지 이해하는 데 초점을 맞춘다.</p><h3 id=deep-learning-모델링>Deep Learning 모델링</h3><p>모델은 문제를 해결하는 구성 요소 중 하나로 취급한다. 모델 깊이나 파라미터 수를 늘리기 전에 단순 기준선, 데이터 분할, 오류 비용을 먼저 정의한다. 이 순서를 지켜야 복잡한 모델이 실제로 개선됐는지 판단할 수 있다.</p><h3 id=mlops-관점의-실험-관리>MLOps 관점의 실험 관리</h3><p>여기서 MLOps는 대규모 배포 플랫폼을 구축했다는 뜻이 아니다. 학습 단계에서도 다음 정보를 함께 관리하는 실무 습관을 의미한다.</p><ul><li>데이터 스냅샷 또는 데이터 버전 식별자</li><li>학습·검증·테스트 분할 기준</li><li>전처리 설정과 모델 하이퍼파라미터</li><li>난수 시드와 실행 환경</li><li>모델 가중치, 평가 지표, 오류 분석 결과</li><li>코드 커밋과 실험 결과의 연결</li></ul><h3 id=github>GitHub</h3><p>코드와 문서를 버전으로 남겨 학습 과정과 설계 변경 이유를 추적하는 공간으로 사용한다. 다만 현재 공개 저장소의 내용만으로 실제 실험 재현성을 검증할 수는 없으며, 향후 코드·설정·실행 방법을 보강해야 한다.</p><hr><h3 id=권장-저장소-구조와-각-구성의-이유>권장 저장소 구조와 각 구성의 이유</h3><p>다음 구조는 현재 구현 완료 상태를 설명하는 목록이 아니라, 프로젝트를 재현 가능한 학습·검증 저장소로 발전시키기 위한 설계 기준이다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Deep_Learning_Text_book/
-</span></span><span style=display:flex><span>├─ README.md              # 문제 정의, 실행 순서, 결과 해석
-</span></span><span style=display:flex><span>├─ configs/               # 데이터·모델·학습 설정
-</span></span><span style=display:flex><span>├─ notebooks/             # 탐색과 개념 검증
-</span></span><span style=display:flex><span>├─ src/
-</span></span><span style=display:flex><span>│  ├─ data/               # 로딩, 검증, 분할
-</span></span><span style=display:flex><span>│  ├─ preprocessing/      # 학습/추론 공통 변환
-</span></span><span style=display:flex><span>│  ├─ models/             # 모델 생성 인터페이스
-</span></span><span style=display:flex><span>│  ├─ train.py            # 학습 진입점
-</span></span><span style=display:flex><span>│  └─ evaluate.py         # 고정 평가 진입점
-</span></span><span style=display:flex><span>├─ tests/                 # 스키마와 전처리 단위 테스트
-</span></span><span style=display:flex><span>├─ reports/               # 지표, 혼동행렬, 오류 사례
-</span></span><span style=display:flex><span>└─ artifacts/             # 모델과 실행 메타데이터
-</span></span></code></pre></div><h3 id=notebooks와-src를-나누는-이유><code>notebooks/</code>와 <code>src/</code>를 나누는 이유</h3><p>노트북은 데이터 분포를 보고 가설을 빠르게 확인하는 데 적합하다. 반면 재현이 필요한 전처리와 학습 로직은 실행 순서가 고정된 코드로 옮겨야 한다. 탐색과 운영 가능한 로직을 분리하면 노트북 셀의 숨은 상태에 의존하는 문제를 줄일 수 있다.</p><h3 id=configs를-별도로-두는-이유><code>configs/</code>를 별도로 두는 이유</h3><p>학습률, 배치 크기, 입력 크기 같은 설정이 코드 곳곳에 흩어지면 어떤 변경이 결과에 영향을 주었는지 찾기 어렵다. 설정을 파일로 분리하고 결과와 함께 저장하면 실험 간 차이를 비교할 수 있다. 이 글에서는 특정 최적값을 제시하지 않는다. 적절한 값은 데이터와 평가 결과로 정해야 한다.</p><h3 id=reports와-artifacts를-나누는-이유><code>reports/</code>와 <code>artifacts/</code>를 나누는 이유</h3><p>보고서는 사람이 판단하기 위한 지표와 오류 사례이고, 아티팩트는 모델 가중치와 실행 메타데이터처럼 다시 실행할 때 필요한 결과물이다. 목적이 다른 산출물을 분리하면 무엇을 검토하고 무엇을 재사용해야 하는지 명확해진다.</p><hr><h3 id=데이터와-구현-흐름>데이터와 구현 흐름</h3><h3 id=문제와-평가-단위를-먼저-정의한다>문제와 평가 단위를 먼저 정의한다</h3><p>모델을 선택하기 전에 한 건의 예측이 무엇인지 정의한다. 이미지 한 장인지, 제품 한 개의 여러 촬영면인지, 설비의 일정 시간 구간인지에 따라 데이터 분할과 평가 방식이 달라진다. 제조 문제라면 불량 미검출, 정상 오검출, 추론 지연이 각각 어떤 비용을 만드는지도 함께 적는다.</p><h3 id=원본-데이터를-보존하고-스키마를-검사한다>원본 데이터를 보존하고 스키마를 검사한다</h3><p>원본 데이터는 수정하지 않고 읽기 전용 기준으로 남긴다. 파일 경로, 레이블, 설비, 생산 일자, 로트와 같은 메타데이터의 형식·누락·중복을 먼저 확인한다. 이미지나 센서 값 자체보다 메타데이터 오류 때문에 데이터가 잘못 섞이는 경우도 있으므로 스키마 검사가 선행돼야 한다.</p><h3 id=전처리-전에-데이터를-분할한다>전처리 전에 데이터를 분할한다</h3><p>전체 데이터 통계로 정규화 값을 만들거나 증강한 샘플이 서로 다른 세트에 들어가면 데이터 누수가 생길 수 있다. 따라서 학습·검증·테스트의 경계를 먼저 고정하고, 학습 데이터로 계산한 전처리 기준만 검증과 테스트에 적용한다.</p><p>제조 데이터는 같은 설비, 로트, 촬영 세션의 샘플이 매우 비슷할 수 있다. 무작위 행 분할만 사용하면 사실상 같은 제품의 정보가 학습과 테스트에 함께 들어갈 수 있으므로, 문제에 따라 설비·로트·시간 기준의 그룹 분할을 검토한다.</p><h3 id=단순-기준선을-먼저-만든다>단순 기준선을 먼저 만든다</h3><p>딥러닝 모델을 복잡하게 만들기 전에 단순 규칙이나 작은 모델로 기준선을 만든다. 기준선은 높은 성능을 내기 위한 것이 아니라, 이후 변경이 실제 가치를 추가했는지 판단하기 위한 비교점이다.</p><h3 id=설정-기반으로-학습한다>설정 기반으로 학습한다</h3><p>데이터 버전, 분할 기준, 모델 설정, 학습 설정, 난수 시드, 실행 환경을 한 번의 실행 단위로 묶는다. 학습 손실만 저장하지 않고 검증 지표 변화와 과적합 징후를 함께 본다. 테스트 세트는 모델 선택에 반복 사용하지 않고 최종 평가 단계까지 고정한다.</p><h3 id=지표와-오류-사례를-함께-본다>지표와 오류 사례를 함께 본다</h3><p>분류 문제라면 정확도 외에도 정밀도, 재현율, F1, 혼동행렬을 문제의 비용에 맞게 선택한다. 예를 들어 불량품을 정상으로 통과시키는 비용이 크다면 불량 클래스의 재현율과 미검출 사례를 우선 확인한다. 반대로 과도한 오검출이 생산 중단을 유발한다면 정밀도와 알람 빈도도 함께 봐야 한다.</p><h3 id=결과를-모델-파일-하나로-끝내지-않는다>결과를 모델 파일 하나로 끝내지 않는다</h3><p>최소한 다음 정보를 결과와 함께 남겨야 한다.</p><table><thead><tr><th>기록 항목</th><th>필요한 이유</th></tr></thead><tbody><tr><td>데이터 식별자와 분할 기준</td><td>평가 데이터가 바뀌었는지 확인하기 위해</td></tr><tr><td>코드 커밋과 설정</td><td>어떤 구현과 조건으로 실행했는지 재현하기 위해</td></tr><tr><td>학습·검증 곡선</td><td>과적합, 미학습, 불안정 여부를 보기 위해</td></tr><tr><td>클래스별 지표와 혼동행렬</td><td>평균값에 가려진 오류 유형을 찾기 위해</td></tr><tr><td>대표 오류 샘플</td><td>다음 데이터·모델 개선 가설을 만들기 위해</td></tr><tr><td>실행 환경</td><td>라이브러리·하드웨어 차이를 설명하기 위해</td></tr></tbody></table><hr><h3 id=기술적-난제와-해결-관점>기술적 난제와 해결 관점</h3><h3 id=데이터-누수>데이터 누수</h3><p>가장 위험한 문제는 모델 코드가 아니라 평가 경계가 무너지는 것이다. 중복 데이터, 같은 로트, 같은 촬영 세션, 미래 시점 정보가 서로 다른 세트에 섞이지 않는지 먼저 검사한다. 분할 기준 자체를 설정과 보고서에 남겨야 한다.</p><h3 id=클래스-불균형>클래스 불균형</h3><p>제조 품질 데이터는 정상 샘플이 많고 희귀 불량이 적을 수 있다. 전체 정확도만 보면 모델이 모든 샘플을 정상으로 예측해도 좋아 보일 수 있다. 클래스별 지표, 샘플링 전략, 손실 가중치, 임계값 조정을 비교하되, 어느 방식이 낫다고 미리 단정하지 않고 고정 검증 세트에서 판단한다.</p><h3 id=재현성과-완전한-동일성의-차이>재현성과 완전한 동일성의 차이</h3><p>난수 시드를 고정해도 하드웨어와 라이브러리 연산에 따라 결과가 완전히 같지 않을 수 있다. 재현성의 목표를 “모든 숫자가 동일함”으로만 두지 않고, 동일한 코드·데이터·설정으로 유사한 결론을 다시 얻고 차이를 설명할 수 있는 상태로 정의한다.</p><h3 id=좋은-오프라인-지표와-현장-성능의-차이>좋은 오프라인 지표와 현장 성능의 차이</h3><p>학습 데이터와 실제 설비의 조명, 소재, 센서 조건이 달라지면 성능이 변할 수 있다. 따라서 오프라인 테스트와 별도로 조건별 슬라이스 평가, 시간 경과에 따른 데이터 변화, 추론 시간과 실패 처리 같은 운영 관점을 준비해야 한다.</p><h3 id=실험-수-증가에-따른-비교-혼란>실험 수 증가에 따른 비교 혼란</h3><p>하이퍼파라미터를 많이 바꾸면 가장 높은 결과만 골라 해석하기 쉽다. 한 번에 하나의 가설을 바꾸고, 실패한 실험도 설정과 이유를 남겨야 같은 시도를 반복하지 않는다.</p><hr><h2 id=ai와-사람의-역할>AI와 사람의 역할</h2><p>AI는 모델 후보, 전처리·평가 코드 초안, 실험 비교표와 문서화를 보조합니다. 사람은 데이터 사용 권리, train·validation·test 분리, 평가 지표, 실행 환경, 결과 승인과 공개 범위를 확인하며 검증되지 않은 성능을 성과로 채택하지 않습니다.</p><h2 id=pdd와-관련-task>PDD와 관련 Task</h2><details class=project-blueprint><summary class=project-blueprint__toggle>검증 상세</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>학습·검증 기록</p><h2 id=project-blueprint-deep-learning-modeling>구성 이유와 작업 흐름</h2><p class=project-blueprint__summary>학습 저장소의 현재 공개 범위를 과장하지 않고, 제조 데이터에 적용 가능한 재현성 기준과 구현 Backlog를 PDD·Task로 나눴습니다.</p></div><span class="project-blueprint__status project-blueprint__status--planned">설계 기준 공개 · 구현 검증 진행 전</span></header><dl class=project-blueprint__meta><div><dt>프로젝트 유형</dt><dd>개인 학습·실험 설계</dd></div><div><dt>개인 역할</dt><dd>모델링 기준, 실험 구조와 검증 계획</dd></div><div><dt>주요 사용자</dt><dd>AI 학습자·제조 데이터 실무자</dd></div><div><dt>Evidence 수준</dt><dd>공개 저장소 제한적 · 설계 문서 중심</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>노트북이 한 번 실행된 사실만으로는 데이터 누수, 전처리 일관성, 재현성, 기준선 대비 개선과 제조 현장의 오류 비용을 설명할 수 없습니다.</p></article><article><h3>Goal</h3><p>전처리–학습–평가–재현성 관리를 분리하고, 새로운 제조 데이터에도 같은 기준으로 실험을 반복할 수 있는 학습 저장소 구조를 만드는 것입니다.</p></article><article><h3>Success</h3><p>고정 데이터 분할, 설정·seed·artifact 기록, 기준선 비교와 error analysis가 자동 검증되고 다른 환경에서 재실행되면 성공입니다.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-deep-learning-modeling><h3 id=project-scope-deep-learning-modeling>범위와 경계</h3><div class=project-blueprint__scope><div><h4>포함 범위</h4><ul><li>데이터 schema·split·전처리·augmentation 기준</li><li>baseline, train/evaluate pipeline, metric·artifact logging</li><li>제조 불균형 데이터의 Recall·Precision·F1·error analysis</li></ul></div><div><h4>제외·미검증 범위</h4><ul><li>공개 근거 없는 특정 모델 정확도와 학습 완료 주장</li><li>운영 배포와 MLOps 플랫폼이 이미 완성됐다는 표현</li><li>하나의 노트북 결과를 재현 가능한 실험으로 간주</li></ul></div></div></section><section aria-labelledby=project-requirements-deep-learning-modeling><h3 id=project-requirements-deep-learning-modeling>구현·검증 기준</h3><div class=project-blueprint__requirements><div><h4>해야 할 일</h4><ul><li>train/validation/test split을 고정하고 데이터 누수를 검사한다.</li><li>config, seed, code/data version과 model artifact를 함께 기록한다.</li><li>accuracy 외 Recall·Precision·F1과 confusion matrix를 생성한다.</li></ul></div><div><h4>품질·운영 기준</h4><ul><li>같은 설정을 다른 환경에서 재실행할 수 있다.</li><li>baseline 대비 개선과 실패 사례를 같이 기록한다.</li><li>제조 현장의 미검출·오검출 비용을 metric 선택에 반영한다.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-deep-learning-modeling><h3 id=project-decisions-deep-learning-modeling>왜 이렇게 구성했나</h3><ol><li><strong>노트북보다 pipeline을 기준으로 설계</strong><p>단계별 입력·출력과 오류 위치를 분리해야 반복 실험과 검증이 가능하기 때문입니다.</p></li><li><strong>config와 artifact를 code와 함께 추적</strong><p>모델 파일만으로는 어떤 데이터·전처리·seed에서 나온 결과인지 설명할 수 없기 때문입니다.</p></li><li><strong>성능 주장은 구현 Evidence 이후로 보류</strong><p>현재 공개 저장소만으로 학습 완료나 특정 수치를 검증할 수 없기 때문입니다.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-deep-learning-modeling><div class=project-blueprint__section-heading><h3 id=project-work-deep-learning-modeling>작업 내역과 계획</h3><p>완료된 설계와 아직 공개 검증이 필요한 구현 Task를 의도적으로 구분했습니다.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span></div><h4>재현성·평가 요구사항 정의</h4><p>데이터 분할, config, seed, artifact, 기준선과 제조 오류 비용을 성공 기준으로 정했습니다.</p><dl><dt>남긴 결과</dt><dd>실험 설계와 검증 기준</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span></div><h4>저장소·config 구조 정리</h4><p>data, src, configs, tests, artifacts 책임을 분리하는 기준을 문서화했습니다.</p><dl><dt>남긴 결과</dt><dd>권장 repository layout</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span></div><h4>전처리·split pipeline 구현</h4><p>schema validation, 중복 검사, fixed split과 train-only augmentation을 코드로 고정해야 합니다.</p><dl><dt>남긴 결과</dt><dd>data pipeline과 단위 테스트</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span></div><h4>baseline·학습·평가 자동화</h4><p>공통 config로 baseline과 후보 모델을 실행하고 metric·checkpoint를 기록해야 합니다.</p><dl><dt>남긴 결과</dt><dd>train/evaluate CLI와 artifacts</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">계획</span></div><h4>재현성·오류 분석 검증</h4><p>동일 run 재실행, confusion matrix, failure slice와 기준선 대비 결과를 공개해야 합니다.</p><dl><dt>남긴 결과</dt><dd>실험 report와 reproducibility check</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-deep-learning-modeling><h3 id=project-acceptance-deep-learning-modeling>확인 결과</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>전처리–학습–평가–재현성 단계와 책임이 문서화된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>데이터 누수·기준선·제조 오류 비용이 완료 기준에 포함된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>공개 source에서 pipeline test와 artifact를 재실행할 수 있다.</p><strong>미검증</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>검증된 모델 결과와 한계가 release report로 제공된다.</p><strong>미검증</strong></li></ul><p class=project-blueprint__evidence-note><strong>확인 근거:</strong> 현재 저장소와 본문의 설계 문서만 사용하며 학습 완료·성능·운영 배포를 추가로 주장하지 않습니다.</p></section></details><h2 id=검증-체계>검증 체계</h2><p>이 프로젝트가 지향하는 검증은 데이터, 모델, 운영의 세 층으로 나뉜다.</p><table><thead><tr><th>검증 층</th><th>주요 질문</th><th>예시 점검 항목</th></tr></thead><tbody><tr><td>데이터</td><td>입력이 올바르고 평가 경계가 독립적인가?</td><td>스키마, 결측, 중복, 레이블 분포, 그룹 누수</td></tr><tr><td>모델</td><td>기준선보다 의미 있게 개선됐는가?</td><td>고정 분할, 클래스별 지표, 혼동행렬, 오류 사례</td></tr><tr><td>재현성</td><td>같은 실험을 다시 설명하고 실행할 수 있는가?</td><td>설정, 시드, 환경, 코드·데이터 버전</td></tr><tr><td>운영</td><td>현장 조건에서도 안전하게 사용할 수 있는가?</td><td>추론 시간, 입력 이탈, 실패 처리, 데이터 드리프트</td></tr></tbody></table><p>검증 결과는 숫자 하나로 합치기보다 의사결정에 맞춰 읽는다. 품질 검사 모델이라면 불량 미검출과 정상 오검출의 비용이 다르고, 설비 이상 탐지라면 알람의 조기성과 작업자의 대응 가능성도 중요하다.</p><hr><h3 id=제조-엔지니어-경력과의-연결>제조 엔지니어 경력과의 연결</h3><p>제조 현장에서는 공정 조건, 사용 설비, 소재 로트, 작업 시간, 검사 결과를 연결해야 불량 원인을 추적할 수 있다. 딥러닝 실험도 같은 원칙으로 접근했다.</p><ul><li><strong>원본 보존</strong>: 현장 원시 데이터와 가공 데이터를 분리한다.</li><li><strong>변경점 관리</strong>: 코드, 설정, 데이터 분할의 변경을 실험 단위로 남긴다.</li><li><strong>검사 기준 명확화</strong>: 모델 지표를 현장의 양품·불량 판정 비용과 연결한다.</li><li><strong>이력 추적</strong>: 모델 결과를 데이터 버전과 실행 조건까지 역추적한다.</li><li><strong>이상 원인 분석</strong>: 평균 지표보다 조건별 오류 사례를 보고 개선 가설을 세운다.</li><li><strong>표준화</strong>: 반복 가능한 모델링 절차를 작업 표준처럼 문서화한다.</li></ul><p>이 경험은 AI를 제조 업무와 분리된 연구 주제로 보지 않게 했다. 모델은 공정의 한 구성 요소이고, 데이터 수집 조건과 판정 기준, 추적성, 실패 대응까지 연결돼야 실제 품질 개선 도구가 될 수 있다.</p><hr><h2 id=현재-한계>현재 한계</h2><ul><li>공개 저장소에는 프로젝트 목적을 뒷받침할 코드, 데이터 설명, 설정, 실행 결과가 충분히 공개되어 있지 않다.</li><li>특정 데이터셋과 모델을 대상으로 한 성능 수치가 없어 모델 간 우열을 말할 수 없다.</li><li>재현 가능한 실행 명령, 의존성 버전, 테스트가 공개 자료만으로 확인되지 않는다.</li><li>제조 현장 데이터에 적용했다는 실증 결과나 운영 지표를 이 글에서 주장하지 않는다.</li><li>따라서 현재 단계의 포트폴리오 가치는 완성 모델 성능보다 <strong>실험을 어떤 기준으로 설계하고 검증할 것인지 정리한 사고 과정</strong>에 있다.</li></ul><hr><h3 id=향후-개선-로드맵>향후 개선 로드맵</h3><ol><li>공개 가능한 작은 예제 데이터와 명확한 문제 정의를 추가한다.</li><li>데이터 검사, 학습, 평가를 독립 실행 가능한 코드로 분리한다.</li><li>환경 파일과 실행 명령을 문서화해 처음부터 재현할 수 있게 한다.</li><li>기준선과 한 개 이상의 딥러닝 모델을 동일한 분할·지표로 비교한다.</li><li>혼동행렬과 대표 오류 사례를 포함한 평가 보고서를 자동 생성한다.</li><li>전처리와 데이터 누수 방지 규칙에 단위 테스트를 추가한다.</li><li>코드 변경 시 최소 테스트를 실행하고, 모델 카드에 적용 범위와 한계를 기록한다.</li><li>제조 공개 데이터로 설비·로트·시간 분할 시나리오를 검증한다.</li></ol><p>딥러닝 모델링에서 중요한 것은 한 번의 최고 점수가 아니라, <strong>왜 이 데이터와 구조를 선택했는지 설명하고 같은 절차로 다시 검증할 수 있는가</strong>이다. 이 프로젝트는 그 기준을 학습하고 제조 데이터 문제까지 연결하기 위한 장기적인 실험 저장소로 발전시키는 것을 목표로 한다.</p><h2 id=공개-링크>공개 링크</h2><section class=project-resources aria-labelledby=project-resources-deep-learning-modeling><h2 id=project-resources-deep-learning-modeling>공개 링크</h2><p class=project-resources__lead>프로젝트 근거와 실제 사용 화면을 확인할 수 있는 공개 자료입니다.</p><ul class=project-resources__links><li><a href=https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master target=_blank rel=noopener><span class=project-resources__label>딥러닝 학습 공개 코드</span>
-<span class=project-resources__url>github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master</span></a></li></ul><p class=project-resources__note>별도 공개 보고서는 없습니다. 저장소와 기술 글에서 확인할 수 있는 학습·실험 설계 범위만 설명합니다.</p></section></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label=목차><div class=toc-holder><h2 class="h5 text-center ps-3">목차</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#문제-실행되는-학습-코드만으로는-재현-가능한-실험이-되지-않는다>문제: 실행되는 학습 코드만으로는 재현 가능한 실험이 되지 않는다</a><ul><li><a href=#프로젝트-배경-실행되는-코드와-신뢰할-수-있는-실험은-다르다>프로젝트 배경: 실행되는 코드와 신뢰할 수 있는 실험은 다르다</a></li><li><a href=#프로젝트-목표>프로젝트 목표</a></li></ul></li><li><a href=#왜-파이프라인-구조로-구성하는가>왜 파이프라인 구조로 구성하는가</a></li><li><a href=#아키텍처와-데이터-흐름>아키텍처와 데이터 흐름</a></li><li><a href=#사용-기술과-선택-이유>사용 기술과 선택 이유</a><ul><li><a href=#python>Python</a></li><li><a href=#deep-learning-모델링>Deep Learning 모델링</a></li><li><a href=#mlops-관점의-실험-관리>MLOps 관점의 실험 관리</a></li><li><a href=#github>GitHub</a></li><li><a href=#권장-저장소-구조와-각-구성의-이유>권장 저장소 구조와 각 구성의 이유</a></li><li><a href=#notebooks와-src를-나누는-이유><code>notebooks/</code>와 <code>src/</code>를 나누는 이유</a></li><li><a href=#configs를-별도로-두는-이유><code>configs/</code>를 별도로 두는 이유</a></li><li><a href=#reports와-artifacts를-나누는-이유><code>reports/</code>와 <code>artifacts/</code>를 나누는 이유</a></li><li><a href=#데이터와-구현-흐름>데이터와 구현 흐름</a></li><li><a href=#문제와-평가-단위를-먼저-정의한다>문제와 평가 단위를 먼저 정의한다</a></li><li><a href=#원본-데이터를-보존하고-스키마를-검사한다>원본 데이터를 보존하고 스키마를 검사한다</a></li><li><a href=#전처리-전에-데이터를-분할한다>전처리 전에 데이터를 분할한다</a></li><li><a href=#단순-기준선을-먼저-만든다>단순 기준선을 먼저 만든다</a></li><li><a href=#설정-기반으로-학습한다>설정 기반으로 학습한다</a></li><li><a href=#지표와-오류-사례를-함께-본다>지표와 오류 사례를 함께 본다</a></li><li><a href=#결과를-모델-파일-하나로-끝내지-않는다>결과를 모델 파일 하나로 끝내지 않는다</a></li><li><a href=#기술적-난제와-해결-관점>기술적 난제와 해결 관점</a></li><li><a href=#데이터-누수>데이터 누수</a></li><li><a href=#클래스-불균형>클래스 불균형</a></li><li><a href=#재현성과-완전한-동일성의-차이>재현성과 완전한 동일성의 차이</a></li><li><a href=#좋은-오프라인-지표와-현장-성능의-차이>좋은 오프라인 지표와 현장 성능의 차이</a></li><li><a href=#실험-수-증가에-따른-비교-혼란>실험 수 증가에 따른 비교 혼란</a></li></ul></li><li><a href=#ai와-사람의-역할>AI와 사람의 역할</a></li><li><a href=#pdd와-관련-task>PDD와 관련 Task</a></li><li><a href=#검증-체계>검증 체계</a><ul><li><a href=#제조-엔지니어-경력과의-연결>제조 엔지니어 경력과의 연결</a></li></ul></li><li><a href=#현재-한계>현재 한계</a><ul><li><a href=#향후-개선-로드맵>향후 개선 로드맵</a></li></ul></li><li><a href=#공개-링크>공개 링크</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p><p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>기술 사례</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/deep-learning-modeling/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/deep-learning-modeling/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.cad56e4b58d343a86c588ab54b2c801fbb5925fbc13bec540e8d9d52a19f87a3.css" integrity="sha256-ytVuS1jTQ6hsWIq1SyyAH7tZJfvBO&#43;xUDo2dUqGfh6M=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계">
+<meta property="og:type" content="article">
+<meta property="og:description" content="배터리·반도체 제조 현장에서 수행한 공정 안정화, FAT/SAT, 품질 개선과 제조 DX 사례를 정리한 이재흥의 포트폴리오">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/deep-learning-modeling/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계">
+  <meta name="twitter:description" content="30초 요약
+모델 이름을 많이 아는 것보다 데이터 전처리부터 평가와 재현까지 같은 조건으로 다시 실행할 수 있는 흐름이 제조 데이터 적용에 더 중요하다고 봤습니다. 학습·실험 흐름 공개 · 제조 현장 검증 전 기간·기준 개인 학습 프로젝트 · 공개 저장소 현재 범위 프로젝트 형태 재현 가능한 모델링 학습 저장소 해결하려던 문제 전처리·분할·학습·평가 조건이 흩어지면 성능 차이가 모델 때문인지 데이터 처리 때문인지 설명하기 어렵습니다.
+내가 맡은 범위 데이터 전처리, 모델 학습, 평가와 재현성 관리를 한 저장소 흐름으로 정리했습니다. 확인된 결과·현재 단계 확인된 산출물 · 개인 역할 전처리→학습→평가→재현성 관리의 공개 학습 흐름 현재 단계 · 개인 역할 제조 생산 데이터 적용·현장 성능 검증 전 팀 경계 개인 학습 저장소이며, 회사 생산 데이터에 적용한 성과로 표현하지 않습니다.">
+
+  <meta name="description" content=" 30초 요약
+모델 이름을 많이 아는 것보다 데이터 전처리부터 평가와 재현까지 같은 조건으로 다시 실행할 수 있는 흐름이 제조 데이터 적용에 더 중요하다고 봤습니다. 학습·실험 흐름 공개 · 제조 현장 검증 전 기간·기준 개인 학습 프로젝트 · 공개 저장소 현재 범위 프로젝트 형태 재현 가능한 모델링 학습 저장소 해결하려던 문제 전처리·분할·학습·평가 조건이 흩어지면 성능 차이가 모델 때문인지 데이터 처리 때문인지 설명하기 어렵습니다.
+내가 맡은 범위 데이터 전처리, 모델 학습, 평가와 재현성 관리를 한 저장소 흐름으로 정리했습니다. 확인된 결과·현재 단계 확인된 산출물 · 개인 역할 전처리→학습→평가→재현성 관리의 공개 학습 흐름 현재 단계 · 개인 역할 제조 생산 데이터 적용·현장 성능 검증 전 팀 경계 개인 학습 저장소이며, 회사 생산 데이터에 적용한 성과로 표현하지 않습니다.
+">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/deep-learning-modeling">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/deep-learning-modeling">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</h1>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-13">2026. 7. 13.</time>
+             · 
+            6 
+             · 
+            마지막 검토 <time datetime="2026-07-31">2026. 7. 31.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/deep-learning/" class="btn btn-sm btn-outline-info rounded">Deep Learning</a></li>
+    
+    
+    <li><a href="/tags/evaluation/" class="btn btn-sm btn-outline-info rounded">Evaluation</a></li>
+    
+    
+    <li><a href="/tags/reproducibility/" class="btn btn-sm btn-outline-info rounded">Reproducibility</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <aside class="project-case-summary project-case-summary--dx" aria-labelledby="project-case-summary-deep-learning-modeling" data-project-id="deep-learning-modeling">
+  <header class="project-case-summary__header">
+    <div>
+      <p class="project-case-summary__eyebrow">30초 요약</p>
+      <h2 id="project-case-summary-deep-learning-modeling">모델 이름을 많이 아는 것보다 데이터 전처리부터 평가와 재현까지 같은 조건으로 다시 실행할 수 있는 흐름이 제조 데이터 적용에 더 중요하다고 봤습니다.</h2>
+    </div>
+    <span class="project-case-summary__status">학습·실험 흐름 공개 · 제조 현장 검증 전</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>기간·기준</dt>
+      <dd>개인 학습 프로젝트 · 공개 저장소 현재 범위</dd>
+    </div>
+    <div>
+      <dt>프로젝트 형태</dt>
+      <dd>재현 가능한 모델링 학습 저장소</dd>
+    </div>
+  </dl>
+
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-deep-learning-modeling">
+      <h3 id="project-case-problem-deep-learning-modeling">해결하려던 문제</h3>
+      <p>전처리·분할·학습·평가 조건이 흩어지면 성능 차이가 모델 때문인지 데이터 처리 때문인지 설명하기 어렵습니다.</p>
+    </section>
+
+    <section aria-labelledby="project-case-role-deep-learning-modeling">
+      <h3 id="project-case-role-deep-learning-modeling">내가 맡은 범위</h3>
+      <ul><li>데이터 전처리, 모델 학습, 평가와 재현성 관리를 한 저장소 흐름으로 정리했습니다.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-deep-learning-modeling">
+      <h3 id="project-case-result-deep-learning-modeling">확인된 결과·현재 단계</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>확인된 산출물 · 개인 역할</span>
+              <strong>전처리→학습→평가→재현성 관리의 공개 학습 흐름</strong>
+            </li><li>
+              <span>현재 단계 · 개인 역할</span>
+              <strong>제조 생산 데이터 적용·현장 성능 검증 전</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-deep-learning-modeling">
+      <h3 id="project-case-team-deep-learning-modeling">팀 경계</h3>
+      <p>개인 학습 저장소이며, 회사 생산 데이터에 적용한 성과로 표현하지 않습니다.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>공개 범위:</strong> 공개 코드로 확인되는 실험 절차만 설명하고, 확인되지 않은 성능 수치는 성과에 넣지 않습니다.</p>
+    <p>제조 데이터에 모델을 적용하기 전 필요한 검증 순서로 일반화했습니다.</p>
+  </footer>
+</aside>
+
+<h2 id="왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</h2>
+<p>딥러닝 코드는 한 번 실행될 수 있어도, 어떤 데이터와 설정으로 나온 결과인지 설명하지 못하면 업무 판단에 쓰기 어렵습니다. 같은 제품이나 Lot의 정보가 학습과 테스트에 섞이거나, 테스트 결과를 보며 모델을 반복 수정하면 점수가 좋아 보여도 실제 성능을 과대평가할 수 있습니다.</p>
+<p>제조에서는 이 문제가 품질 판단과 바로 연결됩니다. 불량 미검출과 정상 오검출의 비용이 다르고, 설비·소재·촬영 조건이 바뀌면 오프라인 결과도 달라질 수 있습니다. 그래서 최고 점수보다 데이터와 결과 사이의 경로를 다시 확인할 수 있는 실험 기준을 먼저 정했습니다.</p>
+<h2 id="왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</h2>
+<p>노트북 하나에 전처리, 학습과 평가를 모두 넣으면 빠르게 시험할 수 있지만 실행 순서와 숨은 상태에 따라 결과가 달라질 수 있습니다. 전처리, 학습, 평가와 실행 기록을 분리하면 어느 단계의 변경이 결과에 영향을 줬는지 추적할 수 있습니다.</p>
+<p>이 프로젝트에서 MLOps는 운영 플랫폼을 이미 구축했다는 뜻이 아닙니다. 데이터 식별자, 분할 기준, 설정, 코드, 실행 환경과 평가 결과를 한 실험 단위로 연결하는 학습 습관을 뜻합니다.</p>
+<h2 id="실제로-맡은-역할">실제로 맡은 역할</h2>
+<p>개인 학습·실무 검증 프로젝트로 문제 정의, 데이터 분할, 전처리, 학습, 평가와 재현성 관리가 이어지는 모델링 기준을 정리했습니다. 모델 후보를 많이 나열하기보다 단순 기준선을 먼저 두고, 동일한 분할과 평가 함수로 비교하며, 지표와 오류 사례를 함께 읽는 흐름에 집중했습니다.</p>
+<p>현재 공개 자료가 제한적이므로 이 글은 구현 완료 목록이 아니라 설계 문서입니다. 특정 데이터셋 규모, 모델 정확도, 학습 완료나 운영 배포를 제 역할의 성과로 주장하지 않습니다.</p>
+<h2 id="데이터-흐름">데이터 흐름</h2>
+<p><code>원본 데이터 보존·분할 → 전처리 → 설정 기반 학습 → 고정 평가와 오류 분석 → 데이터·코드·환경·결과 기록으로 재현성 관리</code></p>
+<p>전처리 기준은 학습 데이터에서만 계산해 검증과 테스트에 적용합니다. 모델 선택에 사용하지 않은 고정 테스트 세트로 마지막 평가를 수행하고, 평균 점수뿐 아니라 클래스별 지표와 대표 오류를 남기는 구조입니다.</p>
+<h2 id="구현-순서">구현 순서</h2>
+<ol>
+<li>한 건의 예측이 이미지 한 장인지, 제품 단위인지, 설비의 시간 구간인지 먼저 정합니다.</li>
+<li>원본을 읽기 전용 기준으로 보존하고 파일, 라벨, 설비, Lot와 시간 정보의 누락·중복을 검사합니다.</li>
+<li>학습 전에 설비·Lot·시간 기준을 고려해 train·validation·test 경계를 고정합니다.</li>
+<li>학습 데이터로만 전처리 기준을 맞추고, 단순 기준선을 만듭니다.</li>
+<li>데이터 버전, 분할 규칙, 모델 설정, 난수 시드와 실행 환경을 기록한 상태로 학습합니다.</li>
+<li>고정된 평가 기준으로 클래스별 지표와 오류 사례를 확인하고, 모델·설정·보고서를 같은 실행 기록에 연결합니다.</li>
+</ol>
+<p>이 순서는 저장소를 발전시키기 위한 기준이며, 공개 저장소에서 모두 구현·검증됐다는 뜻은 아닙니다.</p>
+<h2 id="확인된-결과와-현재-단계">확인된 결과와 현재 단계</h2>
+<p>공개 저장소에서 확인할 수 있는 설명은 전처리–학습–평가–재현성 관리라는 프로젝트 방향입니다. 공개 자료만으로 재현 가능한 실행 명령, 의존성 버전, 특정 데이터셋과 모델 성능을 확인할 수 없으므로 정량 성과를 제시하지 않습니다.</p>
+<p>현재 포트폴리오의 결과는 완성된 모델이 아니라, 데이터를 나누고 실험을 기록하며 결과를 해석하는 기준을 정리한 설계입니다. 제조 데이터에 적용했다는 실증 결과도 아직 주장하지 않습니다.</p>
+<h2 id="배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</h2>
+<p>제조 적용에는 별도 검증이 필요합니다. 설비·Lot·시간 기준의 독립 평가, 실제 조명과 센서 조건별 슬라이스, 추론 지연, 입력 이탈과 실패 처리, 데이터 드리프트를 확인해야 합니다. 데이터 사용 권리, 모델 버전, 판정 임계값, 승인과 되돌리기 절차도 운영 기준에 포함돼야 합니다.</p>
+<p>이 조건이 갖춰지면 회사는 점수 하나가 아니라 어떤 데이터와 조건에서 모델을 신뢰할 수 있는지 검토할 수 있습니다. 실패한 실험까지 같은 형식으로 남기면 반복 작업을 줄이고 다음 개선 가설을 더 빨리 세울 수 있습니다. 다만 실제 품질 개선이나 공수 절감은 별도 현장 검증으로 확인해야 합니다.</p>
+<h2 id="설계검증-기록">설계·검증 기록</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">학습·검증 기록</p>
+      <h2 id="project-blueprint-deep-learning-modeling">구성 이유와 작업 흐름</h2>
+      <p class="project-blueprint__summary">학습 저장소의 현재 공개 범위를 과장하지 않고, 제조 데이터에 적용 가능한 재현성 기준과 구현 Backlog를 PDD·Task로 나눴습니다.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--planned">설계 기준 공개 · 구현 검증 진행 전</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>프로젝트 유형</dt>
+        <dd>개인 학습·실험 설계</dd>
+      </div>
+      <div>
+        <dt>개인 역할</dt>
+        <dd>모델링 기준, 실험 구조와 검증 계획</dd>
+      </div>
+      <div>
+        <dt>주요 사용자</dt>
+        <dd>AI 학습자·제조 데이터 실무자</dd>
+      </div>
+      <div>
+        <dt>Evidence 수준</dt>
+        <dd>공개 저장소 제한적 · 설계 문서 중심</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>노트북이 한 번 실행된 사실만으로는 데이터 누수, 전처리 일관성, 재현성, 기준선 대비 개선과 제조 현장의 오류 비용을 설명할 수 없습니다.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>전처리–학습–평가–재현성 관리를 분리하고, 새로운 제조 데이터에도 같은 기준으로 실험을 반복할 수 있는 학습 저장소 구조를 만드는 것입니다.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>고정 데이터 분할, 설정·seed·artifact 기록, 기준선 비교와 error analysis가 자동 검증되고 다른 환경에서 재실행되면 성공입니다.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-deep-learning-modeling">
+      <h3 id="project-scope-deep-learning-modeling">범위와 경계</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>포함 범위</h4>
+          <ul><li>데이터 schema·split·전처리·augmentation 기준</li><li>baseline, train/evaluate pipeline, metric·artifact logging</li><li>제조 불균형 데이터의 Recall·Precision·F1·error analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h4>제외·미검증 범위</h4>
+          <ul><li>공개 근거 없는 특정 모델 정확도와 학습 완료 주장</li><li>운영 배포와 MLOps 플랫폼이 이미 완성됐다는 표현</li><li>하나의 노트북 결과를 재현 가능한 실험으로 간주</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-deep-learning-modeling">
+      <h3 id="project-requirements-deep-learning-modeling">구현·검증 기준</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>해야 할 일</h4>
+          <ul>
+              <li>train/validation/test split을 고정하고 데이터 누수를 검사한다.</li>
+              <li>config, seed, code/data version과 model artifact를 함께 기록한다.</li>
+              <li>accuracy 외 Recall·Precision·F1과 confusion matrix를 생성한다.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>품질·운영 기준</h4>
+          <ul>
+              <li>같은 설정을 다른 환경에서 재실행할 수 있다.</li>
+              <li>baseline 대비 개선과 실패 사례를 같이 기록한다.</li>
+              <li>제조 현장의 미검출·오검출 비용을 metric 선택에 반영한다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-deep-learning-modeling">
+    <h3 id="project-decisions-deep-learning-modeling">왜 이렇게 구성했나</h3>
+    <ol>
+        <li>
+          <strong>노트북보다 pipeline을 기준으로 설계</strong>
+          <p>단계별 입력·출력과 오류 위치를 분리해야 반복 실험과 검증이 가능하기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>config와 artifact를 code와 함께 추적</strong>
+          <p>모델 파일만으로는 어떤 데이터·전처리·seed에서 나온 결과인지 설명할 수 없기 때문입니다.</p>
+        </li>
+        <li>
+          <strong>성능 주장은 구현 Evidence 이후로 보류</strong>
+          <p>현재 공개 저장소만으로 학습 완료나 특정 수치를 검증할 수 없기 때문입니다.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-deep-learning-modeling">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-deep-learning-modeling">작업 내역과 계획</h3>
+      <p>완료된 설계와 아직 공개 검증이 필요한 구현 Task를 의도적으로 구분했습니다.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>재현성·평가 요구사항 정의</h4>
+          <p>데이터 분할, config, seed, artifact, 기준선과 제조 오류 비용을 성공 기준으로 정했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>실험 설계와 검증 기준</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">설계 완료</span>
+          </div>
+          <h4>저장소·config 구조 정리</h4>
+          <p>data, src, configs, tests, artifacts 책임을 분리하는 기준을 문서화했습니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>권장 repository layout</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span>
+          </div>
+          <h4>전처리·split pipeline 구현</h4>
+          <p>schema validation, 중복 검사, fixed split과 train-only augmentation을 코드로 고정해야 합니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>data pipeline과 단위 테스트</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">구현 확인 필요</span>
+          </div>
+          <h4>baseline·학습·평가 자동화</h4>
+          <p>공통 config로 baseline과 후보 모델을 실행하고 metric·checkpoint를 기록해야 합니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>train/evaluate CLI와 artifacts</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">계획</span>
+          </div>
+          <h4>재현성·오류 분석 검증</h4>
+          <p>동일 run 재실행, confusion matrix, failure slice와 기준선 대비 결과를 공개해야 합니다.</p>
+          <dl>
+            <dt>남긴 결과</dt>
+            <dd>실험 report와 reproducibility check</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-deep-learning-modeling">
+    <h3 id="project-acceptance-deep-learning-modeling">확인 결과</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>전처리–학습–평가–재현성 단계와 책임이 문서화된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>데이터 누수·기준선·제조 오류 비용이 완료 기준에 포함된다.</p>
+          <strong>충족</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>공개 source에서 pipeline test와 artifact를 재실행할 수 있다.</p>
+          <strong>미검증</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>검증된 모델 결과와 한계가 release report로 제공된다.</p>
+          <strong>미검증</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>확인 근거:</strong> 현재 저장소와 본문의 설계 문서만 사용하며 학습 완료·성능·운영 배포를 추가로 주장하지 않습니다.</p>
+  </section>
+</details>
+
+<h2 id="공개-링크">공개 링크</h2>
+<section class="project-resources" aria-labelledby="project-resources-deep-learning-modeling">
+  <h2 id="project-resources-deep-learning-modeling">공개 링크</h2>
+  <p class="project-resources__lead">프로젝트 근거와 실제 사용 화면을 확인할 수 있는 공개 자료입니다.</p>
+    <ul class="project-resources__links"><li>
+          <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener">
+            <span class="project-resources__label">딥러닝 학습 공개 코드</span>
+            <span class="project-resources__url">github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master</span>
+          </a>
+        </li>
+    </ul>
+  <p class="project-resources__note">별도 공개 보고서는 없습니다. 저장소와 기술 글에서 확인할 수 있는 학습·실험 설계 범위만 설명합니다.</p>
+</section>
+
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#왜-이-의사결정이-중요했는가">왜 이 의사결정이 중요했는가</a></li>
+    <li><a href="#왜-디지털-방식이-필요했는가">왜 디지털 방식이 필요했는가</a></li>
+    <li><a href="#실제로-맡은-역할">실제로 맡은 역할</a></li>
+    <li><a href="#데이터-흐름">데이터 흐름</a></li>
+    <li><a href="#구현-순서">구현 순서</a></li>
+    <li><a href="#확인된-결과와-현재-단계">확인된 결과와 현재 단계</a></li>
+    <li><a href="#배포-조건과-회사에-줄-수-있는-가치">배포 조건과 회사에 줄 수 있는 가치</a></li>
+    <li><a href="#설계검증-기록">설계·검증 기록</a></li>
+    <li><a href="#공개-링크">공개 링크</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

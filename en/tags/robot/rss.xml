@@ -1,36 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Robot on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/robot/</link><description>Recent content in Robot on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/robot/rss.xml" rel="self" type="application/rss+xml"/><item><title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title><link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robot on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/robot/</link>
+    <description>Recent content in Robot on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/robot/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
 &lt;p&gt;Separate demonstrations of robot motion, vision results, PLC sequences, and MES records do not reconstruct what happened to one product.&lt;/p&gt;
 &lt;p&gt;This education team PoC used a QR serial as the common key across an Indy7 assembly flow, edge-vision inspection, PLC and SCADA, MySQL/MES, and digital-twin state.&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Public scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Project type&lt;/td&gt;
-&lt;td&gt;Education team PoC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;My role&lt;/td&gt;
-&lt;td&gt;Robot and Digital Twin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Team implementation&lt;/td&gt;
-&lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Technologies&lt;/td&gt;
-&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Current status&lt;/td&gt;
-&lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Area&lt;/th&gt;
+          &lt;th&gt;Public scope&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Project type&lt;/td&gt;
+          &lt;td&gt;Education team PoC&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;My role&lt;/td&gt;
+          &lt;td&gt;Robot and Digital Twin&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Team implementation&lt;/td&gt;
+          &lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Technologies&lt;/td&gt;
+          &lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Current status&lt;/td&gt;
+          &lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description></item><item><title>Indy7 JSON, PC-HMI, and Digital-Twin Design</title><link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;A robot program is more than a list of joint positions. Tool and TCP settings, waypoints, motion commands, branches, speed, and I/O fields reference one another. If a PC editor reads only familiar fields and rewrites the file, the result may look correct on screen while failing on the teach pendant.&lt;/p&gt;
-&lt;p&gt;Communication has a similar ownership problem. If the HMI, historian, and digital twin each open a robot socket, it becomes difficult to identify the command owner and the latest state.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Indy7 Robot and Omniverse Digital Twin Lab</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-robot-json-omniverse&#34; data-project-id=&#34;robot-json-omniverse&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-robot-json-omniverse&#34;&gt;If one program owns robot commands, current state, history, and the digital twin, failures and authority become ambiguous; separating responsibilities makes the system safer to extend.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Public prototype · Before end-to-end robot validation&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Training project · Public case updated Jul 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;PC-HMI, state history, and read-only twin&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-robot-json-omniverse&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-robot-json-omniverse&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;The project needed to preserve robot-program JSON compatibility while separating physical control from monitoring, history, and virtual visualization.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

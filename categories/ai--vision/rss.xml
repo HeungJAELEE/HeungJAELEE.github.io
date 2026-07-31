@@ -1,48 +1,121 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI &amp; Vision on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/categories/ai--vision/</link><description>Recent content in AI &amp; Vision on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/ai--vision/rss.xml" rel="self" type="application/rss+xml"/><item><title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title><link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid><description>&lt;h2 id="문제-실행되는-학습-코드만으로는-재현-가능한-실험이-되지-않는다"&gt;문제: 실행되는 학습 코드만으로는 재현 가능한 실험이 되지 않는다&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;딥러닝 모델링 교과서&lt;/strong&gt;는 데이터 전처리, 모델 학습, 평가, 재현성 관리를 하나의 흐름으로 정리하기 위한 개인 학습·실무 검증 프로젝트다. 단편적인 예제 코드를 따라 쓰는 데서 끝내지 않고, 새로운 데이터가 들어왔을 때 같은 절차로 문제를 정의하고 결과를 확인할 수 있는 모델링 기준을 만드는 데 목적을 두었다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;공개 저장소에서 현재 확인할 수 있는 설명은 제한적이다. 따라서 이 글은 저장소의 기존 프로젝트 요약인 “전처리–학습–평가–재현성 관리”를 바탕으로 한 설계 문서이며, 특정 데이터셋 규모, 모델 정확도, 학습 완료, 운영 배포 성과를 주장하지 않는다. 아래 디렉터리와 검증 항목 역시 구현 완료 목록이 아니라 저장소를 발전시키기 위한 기준이다.&lt;/p&gt;</description></item><item><title>AI 용접 Vision 구축 프로젝트: 현장 품질 문제를 데이터와 임계값으로 풀어낸 과정</title><link>https://heungjaelee.github.io/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid><description>&lt;h2 id="문제-높은-정확도만으로는-용접-결함-검출-기준을-설명할-수-없다"&gt;문제: 높은 정확도만으로는 용접 결함 검출 기준을 설명할 수 없다&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;항목&lt;/th&gt;
-&lt;th&gt;확인된 내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;미세 용접 결함은 양품과 시각 특성이 겹치고 데이터 불균형이 있어 Accuracy만으로는 불량 미검출 위험을 설명하기 어려웠습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Role&lt;/td&gt;
-&lt;td&gt;팀 프로젝트에서 &lt;strong&gt;F1·Recall·FPR 등 평가지표 설계와 검증&lt;/strong&gt;을 담당했습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Action&lt;/td&gt;
-&lt;td&gt;AI-Hub 공개 이미지 약 60,000장과 현장 이미지 198장의 역할을 분리하고, DenseNet 단독·2-model 조합을 거쳐 ResNet+DeiT 앙상블을 비교했습니다. 2차 테스트에서 양품/불량 혼재 구간을 확인한 뒤 Recall을 우선하도록 Threshold를 조정했습니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Result&lt;/td&gt;
-&lt;td&gt;선택한 평가셋과 임계값에서 **F1 93.10%, Recall 100%, Precision 87.07%**를 기록했습니다. 이는 해당 데이터 조건의 결과이며 양산 전수검사 성능 보장은 아닙니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evidence&lt;/td&gt;
-&lt;td&gt;AI 용접 Vision 보고서의 데이터·모델 진화·2차 Test·최종 지표 페이지. 전용 공개 repo는 미분리 상태입니다.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="이력서-bullet"&gt;이력서 Bullet&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;공개 용접 이미지 약 60,000장과 현장 이미지 198장을 학습 기반/현장 검증 데이터로 분리하고, 데이터 출처와 평가 목적을 추적 가능하게 구성했습니다.&lt;/li&gt;
-&lt;li&gt;DenseNet 단독·2-model 조합·ResNet+DeiT 앙상블을 비교하고, 2차 테스트 오류 구간을 분석해 불량 미검출을 우선하는 Threshold를 선택했습니다.&lt;/li&gt;
-&lt;li&gt;해당 평가셋에서 F1 93.10%, Recall 100%, Precision 87.07%를 확인하고, 오검은 재검사로 관리하는 품질 의사결정 기준을 제안했습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="면접-star"&gt;면접 STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; 미세 용접 결함은 놓쳤을 때의 품질 비용이 크지만 정상 표면과 특성이 겹쳐 Accuracy만 높이는 접근이 위험했습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; 모델 후보를 같은 기준으로 비교하고, 불량 미검출을 우선 줄이는 평가·판정 기준을 만드는 역할을 맡았습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; 공개/현장 데이터를 분리하고 Confusion Matrix로 오류를 확인했으며, 2차 테스트의 혼재 구간을 바탕으로 Recall이 유지되는 임계값을 탐색했습니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; 제한된 평가셋에서 Recall 100%, F1 93.10%, Precision 87.07%를 기록했습니다. 동시에 양산 일반화가 아닌 검사 보조 PoC라는 한계를 명시했습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;제조 현장에서 비전 AI의 가치는 모델 이름보다 &lt;strong&gt;어떤 불량을 놓치지 않아야 하는지&lt;/strong&gt;, 그리고 &lt;strong&gt;오검을 어느 수준까지 감수할 것인지&lt;/strong&gt;를 품질 기준으로 정의하는 데서 시작합니다. 이 프로젝트는 용접부의 미세 크랙과 핀홀을 판별하는 과제를 대상으로, 공개 데이터와 현장 이미지를 연결하고 판정 임계값을 조정해 불량 미검출을 줄이는 과정을 설계·검증한 비전 모델링 프로젝트입니다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI &amp; Vision on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/categories/ai--vision/</link>
+    <description>Recent content in AI &amp; Vision on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/categories/ai--vision/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>딥러닝 모델링 교과서: 제조 데이터까지 연결하는 학습·실험 설계</title>
+      <link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-deep-learning-modeling&#34; data-project-id=&#34;deep-learning-modeling&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-deep-learning-modeling&#34;&gt;모델 이름을 많이 아는 것보다 데이터 전처리부터 평가와 재현까지 같은 조건으로 다시 실행할 수 있는 흐름이 제조 데이터 적용에 더 중요하다고 봤습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;학습·실험 흐름 공개 · 제조 현장 검증 전&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;개인 학습 프로젝트 · 공개 저장소 현재 범위&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;재현 가능한 모델링 학습 저장소&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-deep-learning-modeling&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-deep-learning-modeling&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;전처리·분할·학습·평가 조건이 흩어지면 성능 차이가 모델 때문인지 데이터 처리 때문인지 설명하기 어렵습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-deep-learning-modeling&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-deep-learning-modeling&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;데이터 전처리, 모델 학습, 평가와 재현성 관리를 한 저장소 흐름으로 정리했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-deep-learning-modeling&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-deep-learning-modeling&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;전처리→학습→평가→재현성 관리의 공개 학습 흐름&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;제조 생산 데이터 적용·현장 성능 검증 전&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-deep-learning-modeling&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-deep-learning-modeling&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;개인 학습 저장소이며, 회사 생산 데이터에 적용한 성과로 표현하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AI Vision 기반 용접 불량 검출 모델링</title>
+      <link>https://heungjaelee.github.io/posts/welding-vision-ai/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-welding-vision-ai&#34; data-project-id=&#34;welding-vision-ai&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-welding-vision-ai&#34;&gt;현장에서는 전체 정확도보다 불량을 놓쳤을 때의 비용이 큽니다. 그래서 데이터 출처를 나누고 Recall과 임계값을 먼저 보는 방식으로 PoC를 구성했습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;검출 기준 검토 단계&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;교육 팀 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;제조 DX PoC · 생산 적용 전&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-welding-vision-ai&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;공개 데이터에서 잘 보이는 모델이 조명·각도·표면 상태가 다른 현장 이미지에서도 같은 판단을 할 것이라고 가정할 수 없었습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-welding-vision-ai&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;공개 학습 데이터와 현장 실습 이미지를 역할별로 나누고, 미검출 위험을 기준으로 평가 지표와 임계값 검토 순서를 정했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-welding-vision-ai&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;공개·현장 데이터 분리와 Recall·임계값 중심 평가 흐름&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;교육 PoC 완료·생산 적용 전&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-welding-vision-ai&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;교육 팀 PoC이며 모델 성능을 실제 양산 품질 성과로 귀속하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

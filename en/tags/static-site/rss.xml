@@ -1,11 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Static Site on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/static-site/</link><description>Recent content in Static Site on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/static-site/rss.xml" rel="self" type="application/rss+xml"/><item><title>Official-source Unemployment Benefit Q&amp;A: Turning 165 Questions into Verification Paths</title><link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="problem-similar-questions-can-produce-different-administrative-outcomes"&gt;Problem: similar questions can produce different administrative outcomes&lt;/h2&gt;
-&lt;p&gt;A short question such as “Can I qualify after resigning?” may depend on separation reason, insured periods, documents, job-search activity, an individual notice, and agency review. A website that decides the case can conflict with current law or the actual disposition.&lt;/p&gt;
-&lt;p&gt;The service is therefore a &lt;strong&gt;static verification aid&lt;/strong&gt;, not an eligibility chatbot. It helps a user find:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the closest question type;&lt;/li&gt;
-&lt;li&gt;facts and documents to check;&lt;/li&gt;
-&lt;li&gt;the relevant Work24, ministry, or statute source;&lt;/li&gt;
-&lt;li&gt;what to confirm through an individual notice or competent employment center.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-165-questions-become-eight-categories"&gt;Why 165 questions become eight categories&lt;/h2&gt;
-&lt;p&gt;Publishing raw conversations would expose personal context and create duplicates. One giant FAQ would make discovery difficult.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Static Site on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/static-site/</link>
+    <description>Recent content in Static Site on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/static-site/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Official-Source Unemployment Benefit Guidebook</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-unemployment-qna&#34; data-project-id=&#34;ai-unemployment-qna&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-unemployment-qna&#34;&gt;Unemployment-benefit questions are safer when categorized and linked to official and individual verification paths rather than answered with a simple eligibility verdict.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Live · Policies may change&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Public validation snapshot · Jul 19, 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Personal AI use · Official-source Q&amp;amp;A&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Similar questions can have different answers depending on separation reason, insured period, and individual notices, so general guidance must not replace administrative decisions.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>
