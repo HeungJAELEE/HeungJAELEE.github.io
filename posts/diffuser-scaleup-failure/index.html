@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>Diffuser 초음파 박리 Scale-up 실패와 검증 기준 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/diffuser-scaleup-failure/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/diffuser-scaleup-failure/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.35ba8fd1561599ed0d61bfe678828a21926c7d8ee991abef714ce9eb825e0b0a.css" integrity="sha256-NbqP0VYVme0NYb/meIKKIZJsfY7pkavvcUzp64JeCwo=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Diffuser 초음파 박리 Scale-up 실패와 검증 기준">
+<meta property="og:type" content="article">
+<meta property="og:description" content="Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다. 정상 운영에는 실패했으며, Sample 품질·재사용성·설비조건·중단기준을 제작 전에 확인하는 원칙을 남겼습니다.">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/diffuser-scaleup-failure/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Diffuser 초음파 박리 Scale-up 실패와 검증 기준">
+  <meta name="twitter:description" content="목표와 초기 전제 Display Diffuser 부품의 잔류층을 초음파 방식으로 박리해 세정·재생 공정을 개선하는 국책과제였습니다. 목표는 Lab Sample에서 박리 가능성을 확인한 뒤 설비로 Scale-up해 반복 운영 가능한 조건을 만드는 것이었습니다.
+그러나 “박리가 된다”는 사실과 “제품을 손상 없이 다시 사용할 수 있다”는 사실은 다릅니다. 조도, Diffusion 특성, 형상 손상과 재사용성이 함께 기준을 통과해야 실제 공정이 됩니다.
+Lab 단계에서 발견된 위험 Sample 시험에서는 박리 여부만이 아니라 다음 위험이 확인됐습니다.
+박리 후 표면 조도가 원래 관리범위를 벗어날 가능성 Diffusion 특성이 달라져 부품 기능에 영향을 줄 가능성 한 번 처리한 제품을 고객 공정에 다시 투입할 수 있는지 불명확 초음파 조건과 치구·세정 흐름이 제품 면적과 형상에 따라 달라지는 문제 이 항목들은 설비를 크게 만들면 자동으로 해결되는 문제가 아니었습니다. 오히려 Lab 단계에서 판정기준과 중단조건을 먼저 확정해야 했습니다.">
+<meta name="description" content="Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다. 정상 운영에는 실패했으며, Sample 품질·재사용성·설비조건·중단기준을 제작 전에 확인하는 원칙을 남겼습니다.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다. 정상 운영에는 실패했으며, Sample 품질·재사용성·설비조건·중단기준을 제작 전에 확인하는 원칙을 남겼습니다.","headline":"Diffuser 초음파 박리 Scale-up 실패와 검증 기준","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/diffuser-scaleup-failure/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/diffuser-scaleup-failure">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/diffuser-scaleup-failure">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--failure-lesson" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+            <span class="portfolio-article__stage">실패에서 정리한 검증 원칙</span>
+          </div>
+          <h1>Diffuser 초음파 박리 Scale-up 실패와 검증 기준</h1>
+          <p class="portfolio-article__lead">Lab 위험이 닫히기 전에 설비 제작으로 넘어갔을 때 무엇을 먼저 중단해야 하는지 배운 사례</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>YMC 재직 중 국책과제 참여</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>와이엠씨 기술연구소 재직 중 수행</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <p>30 SECOND READ</p>
+            <h2 id="case-summary-title">30초 요약</h2>
+          </header>
+          <dl>
+            <div><dt>문제</dt><dd>Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다.</dd></div>
+            <div><dt>내 역할</dt><dd>Sample 품질과 재사용성 문제를 확인하고 Scale-up 결과를 정리해 이후 프로젝트의 제작 전 Gate로 바꿨습니다.</dd></div>
+            <div><dt>결과·현재 단계</dt><dd>정상 운영에는 실패했으며, Sample 품질·재사용성·설비조건·중단기준을 제작 전에 확인하는 원칙을 남겼습니다.</dd></div><div><dt>팀 결과</dt><dd>Scale-up 정상 운영 실패</dd></div><div><dt>내가 직접 한 일</dt><dd>닫히지 않은 Lab 위험을 정리하고 제작 전 검증 순서로 재구성</dd></div></dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="목표와-초기-전제">목표와 초기 전제</h2>
+<p>Display Diffuser 부품의 잔류층을 초음파 방식으로 박리해 세정·재생 공정을 개선하는 국책과제였습니다. 목표는 Lab Sample에서 박리 가능성을 확인한 뒤 설비로 Scale-up해 반복 운영 가능한 조건을 만드는 것이었습니다.</p>
+<p>그러나 “박리가 된다”는 사실과 “제품을 손상 없이 다시 사용할 수 있다”는 사실은 다릅니다. 조도, Diffusion 특성, 형상 손상과 재사용성이 함께 기준을 통과해야 실제 공정이 됩니다.</p>
+<h2 id="lab-단계에서-발견된-위험">Lab 단계에서 발견된 위험</h2>
+<p>Sample 시험에서는 박리 여부만이 아니라 다음 위험이 확인됐습니다.</p>
+<ul>
+<li>박리 후 표면 조도가 원래 관리범위를 벗어날 가능성</li>
+<li>Diffusion 특성이 달라져 부품 기능에 영향을 줄 가능성</li>
+<li>한 번 처리한 제품을 고객 공정에 다시 투입할 수 있는지 불명확</li>
+<li>초음파 조건과 치구·세정 흐름이 제품 면적과 형상에 따라 달라지는 문제</li>
+</ul>
+<p>이 항목들은 설비를 크게 만들면 자동으로 해결되는 문제가 아니었습니다. 오히려 Lab 단계에서 판정기준과 중단조건을 먼저 확정해야 했습니다.</p>
+<h2 id="닫히지-않은-문제">닫히지 않은 문제</h2>
+<p>당시에는 Sample 품질과 재사용성 위험이 완전히 닫히지 않은 상태에서 설비 제작과 Scale-up이 진행됐습니다. 개발 일정과 설비 제작이 앞서가면서, “어떤 결과가 나오면 중단할 것인지”와 “설비 제작 전에 반드시 통과해야 할 품질 Gate”가 충분히 분리되지 않았습니다.</p>
+<p>이 설명은 특정 개인에게 실패 책임을 돌리기 위한 것이 아닙니다. 개발·설비·품질 의사결정 순서가 어떻게 연결돼야 하는지를 보여주기 위한 사례입니다.</p>
+<h2 id="scale-up-결과와-실패-판단">Scale-up 결과와 실패 판단</h2>
+<p>설비 Scale-up 뒤에도 Lab에서 남아 있던 조도·Diffusion·재사용성 문제가 해소됐다는 근거를 만들지 못했습니다. 따라서 반복 가능한 정상 운영과 양산 성공으로 볼 수 없었습니다.</p>
+<p>중요한 점은 실패를 “설비가 잘 안 됐다”로 끝내지 않은 것입니다. 이후 비슷한 과제에서는 제작 전에 무엇을 확인해야 하는지 다음 Gate로 정리했습니다.</p>
+<h2 id="다음-프로젝트에서-먼저-통과시킬-gate">다음 프로젝트에서 먼저 통과시킬 Gate</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Gate</th>
+          <th>통과 조건</th>
+          <th>통과하지 못했을 때</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Sample 품질</td>
+          <td>박리 후 CTQ가 기존 관리범위 안에 있음</td>
+          <td>조건 탐색으로 되돌아감</td>
+      </tr>
+      <tr>
+          <td>재사용성</td>
+          <td>고객 사용조건에서 재투입 가능성을 확인</td>
+          <td>Scale-up 보류</td>
+      </tr>
+      <tr>
+          <td>반복성</td>
+          <td>같은 조건에서 반복 Sample 결과가 재현됨</td>
+          <td>원인과 측정방법 재검토</td>
+      </tr>
+      <tr>
+          <td>설비조건</td>
+          <td>치구·초음파·세정·취급 조건이 정의됨</td>
+          <td>상세설계 보류</td>
+      </tr>
+      <tr>
+          <td>중단기준</td>
+          <td>손상·품질이탈 시 즉시 멈출 기준이 있음</td>
+          <td>시험 승인 보류</td>
+      </tr>
+  </tbody>
+</table>
+<p>아래 순서는 당시 담당업무를 바탕으로 공개 가능한 범위에서 일반화한 작업 흐름입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>기술 가능성 확인
+</span></span><span style="display:flex;"><span>→ Sample CTQ와 재사용성 확인
+</span></span><span style="display:flex;"><span>→ 반복성 확인
+</span></span><span style="display:flex;"><span>→ 중단기준 승인
+</span></span><span style="display:flex;"><span>→ 설비 상세설계
+</span></span><span style="display:flex;"><span>→ Scale-up
+</span></span><span style="display:flex;"><span>→ 생산 조건 검증
+</span></span></code></pre></div><p>당시 과제는 이 순서의 앞부분이 닫히기 전에 뒤 단계가 진행됐습니다.</p>
+<h2 id="현재-활용-가능한-교훈">현재 활용 가능한 교훈</h2>
+<ol>
+<li>기술적으로 가능한 현상과 생산 가능한 공정을 구분합니다.</li>
+<li>설비 제작은 해결되지 않은 품질 위험을 대신 닫아 주지 않습니다.</li>
+<li>Scale-up 전에는 성공기준뿐 아니라 중단기준도 승인해야 합니다.</li>
+<li>실패 사례도 다음 과제의 검증 순서를 바꾸면 유효한 기술 자산이 됩니다.</li>
+</ol>
+<details class="project-blueprint project-blueprint--v4">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <div class="project-blueprint__compact">
+    <dl>
+      <div><dt>문제</dt><dd>Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다.</dd></div>
+      <div><dt>역할 범위</dt><dd>Sample 평가, 위험 정리, Scale-up 결과와 재발방지 Gate 도출</dd></div><div><dt>팀 결과</dt><dd>Scale-up 정상 운영 실패</dd></div><div><dt>개인 기여</dt><dd>닫히지 않은 Lab 위험을 정리하고 제작 전 검증 순서로 재구성</dd></div><div><dt>근거 범위</dt><dd>career-material</dd></div>
+      <div><dt>한계</dt><dd>특정 개인의 책임으로 설명하지 않고, 의사결정과 검증 순서의 문제로 다룹니다.</dd></div>
+    </dl>
+  </div>
+</details>
+
+
+        </div>
+
+        <aside class="portfolio-case-limitations" aria-labelledby="case-limitations-title">
+          <h2 id="case-limitations-title">확인 범위와 한계</h2>
+          <p>특정 개인의 책임으로 설명하지 않고, 의사결정과 검증 순서의 문제로 다룹니다.</p>
+        </aside>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 기술 사례로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#목표와-초기-전제">목표와 초기 전제</a></li>
+    <li><a href="#lab-단계에서-발견된-위험">Lab 단계에서 발견된 위험</a></li>
+    <li><a href="#닫히지-않은-문제">닫히지 않은 문제</a></li>
+    <li><a href="#scale-up-결과와-실패-판단">Scale-up 결과와 실패 판단</a></li>
+    <li><a href="#다음-프로젝트에서-먼저-통과시킬-gate">다음 프로젝트에서 먼저 통과시킬 Gate</a></li>
+    <li><a href="#현재-활용-가능한-교훈">현재 활용 가능한 교훈</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

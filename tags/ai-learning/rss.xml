@@ -1,10 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Learning on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/ai-learning/</link><description>Recent content in AI Learning on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/ai-learning/rss.xml" rel="self" type="application/rss+xml"/><item><title>근거·권리 기반 설비보전 학습 플랫폼: PUBLIC과 HOLD를 함께 설계한 이유</title><link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid><description>&lt;h2 id="문제-자연스러운-해설이-올바른-해설을-보장하지-않는다"&gt;문제: 자연스러운 해설이 올바른 해설을 보장하지 않는다&lt;/h2&gt;
-&lt;p&gt;자격 학습 자료는 문제, 정답, 이론, NCS 능력단위와 실기 이미지가 서로 다른 출처에 흩어져 있습니다. AI는 빈칸을 자연스럽게 채울 수 있지만, 다음 조건을 확인하지 않으면 오히려 잘못된 학습을 강화합니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;정답 후보가 서로 충돌하는가&lt;/li&gt;
-&lt;li&gt;이미지·도면을 공개할 권리가 있는가&lt;/li&gt;
-&lt;li&gt;문제와 연결한 이론이 실제 의미상 일치하는가&lt;/li&gt;
-&lt;li&gt;제출 전에 클라이언트가 정답·해설을 이미 받는가&lt;/li&gt;
-&lt;li&gt;필기·필답·작업형의 다른 답안 형식을 같은 UI로 억지로 처리하는가&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;그래서 목표를 “문제 수를 빠르게 늘리는 사이트”가 아니라 &lt;strong&gt;근거가 확인된 항목만 공개하고 불확실한 항목은 HOLD로 남기는 학습 플랫폼&lt;/strong&gt;으로 정했습니다.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/</link>
+    <description>배터리·반도체 제조 현장에서 수행한 공정 안정화, FAT/SAT, 품질 개선과 제조 DX 사례를 정리한 이재흥의 포트폴리오</description>
+    <atom:link href="https://heungjaelee.github.io/tags/ai-learning/rss.xml" rel="self" type="application/rss&#43;xml" /><item>
+      <title>2170 조립라인 실질 양품수율 안정화</title>
+      <link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link>
+      <guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid>
+      <description>표시수율과 현장 체감 불량이 달라, 무엇을 먼저 고쳐야 하는지 부서마다 판단이 달랐습니다. 2024년 12월 월평균 실질 양품수율을 약 40%에서 98.7%로 안정화하고 SOP·QCP·P-FMEA에 반영했습니다.</description>
+    </item><item>
+      <title>NCM 각형 Pilot Line 핵심설비 11대 FAT/SAT</title>
+      <link>https://heungjaelee.github.io/posts/ncm-fat-sat/</link>
+      <guid>https://heungjaelee.github.io/posts/ncm-fat-sat/</guid>
+      <description>설비 개별 Auto Cycle만으로는 전후공정 연결, 안전, 반복성과 실제 생산 준비를 판단할 수 없었습니다. 약 5일간 약 1,000 Cell에서 재작업 후 기준 충족품을 포함한 초기 조립수율 약 95%를 확인했습니다.</description>
+    </item><item>
+      <title>진공로봇 Overhaul 작업표준화</title>
+      <link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link>
+      <guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid>
+      <description>작업자 경험에 의존하던 분해·조립과 검사 순서 때문에 작업시간과 누락 항목이 달라졌습니다. SOP·점검표를 현장에 적용했고, 같은 기간 팀 월 출하 실적은 1–2대에서 4–5대로 늘었습니다.</description>
+    </item><item>
+      <title>OLED 고내열 Anodizing 피막개발</title>
+      <link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link>
+      <guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid>
+      <description>고온 반복 사용에서 피막 균열과 Particle이 발생해 보증수명 안에 고객 VOC가 반복됐습니다. 개선 조건을 양산에 적용하고 혼재 과도기를 거쳐 약 1년간 적용 상태를 확인했습니다.</description>
+    </item><item>
+      <title>AMAT·AKT CVD·PECVD 부품 Qual</title>
+      <link>https://heungjaelee.github.io/posts/amat-akt-qual/</link>
+      <guid>https://heungjaelee.github.io/posts/amat-akt-qual/</guid>
+      <description>사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다. 기술 Qual을 수행했지만 고난도 부품 중심 거래구조와 수익성 문제로 약 1년 뒤 회사 차원에서 거래가 종료됐습니다.</description>
+    </item><item>
+      <title>Diffuser 초음파 박리 Scale-up 실패와 검증 기준</title>
+      <link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link>
+      <guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid>
+      <description>Lab 단계에서 조도·Diffusion·제품 재사용성 위험이 남아 있었지만 설비 제작과 Scale-up이 진행됐습니다. 정상 운영에는 실패했으며, Sample 품질·재사용성·설비조건·중단기준을 제작 전에 확인하는 원칙을 남겼습니다.</description>
+    </item><item>
+      <title>Indy7 HMI·MQTT·PLC·Web Twin 통합 프로토타입</title>
+      <link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link>
+      <guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid>
+      <description>HMI·DB·Twin이 로봇에 각각 접속하면 명령 주체와 최신 상태가 뒤섞이고 JSON 재저장 과정에서 참조가 깨질 수 있습니다. 공개 코드에서 명령·상태·이력·읽기 전용 Web Twin 흐름이 확인되며, Omniverse는 후속 확장 방향으로 분리했습니다.</description>
+    </item><item>
+      <title>용접 Vision AI 평가·미검출 기준 설계 PoC</title>
+      <link>https://heungjaelee.github.io/posts/welding-vision-ai/</link>
+      <guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid>
+      <description>Accuracy 하나로는 드문 불량을 놓치는 위험과 오검에 따른 재검사 비용을 설명하기 어려웠습니다. 제한된 평가셋에서 검사 보조 가능성을 확인했지만 생산 배포와 현장 일반화는 완료하지 않았습니다.</description>
+    </item><item>
+      <title>Factory I/O 기반 가상 시운전·OPC UA 연동 교육 PoC</title>
+      <link>https://heungjaelee.github.io/posts/giga-press-dx/</link>
+      <guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid>
+      <description>실제 설비를 투입한 뒤에야 시퀀스와 통신 오류를 찾으면 트라이아웃 비용이 커집니다. Factory I/O–PLC–SCADA–OPC UA 흐름을 교육 시연으로 통합했으며 실공장 생산성 효과는 측정하지 않았습니다.</description>
+    </item><item>
+      <title>YMC 표면처리·공정개발 사례 허브</title>
+      <link>https://heungjaelee.github.io/posts/wet-process-standardization/</link>
+      <guid>https://heungjaelee.github.io/posts/wet-process-standardization/</guid>
+      <description>서로 다른 개발·Qual·실패 사례를 한 글에 묶으면 각 과제의 판단 기준과 결과가 섞였습니다. 같은 경력 안에서도 양산 성과, 기술 Qual, 실패 교훈을 분리해 읽을 수 있게 했습니다.</description>
+    </item><item>
+      <title>HeungTology Markdown 지식 저장소·검색 CLI</title>
+      <link>https://heungjaelee.github.io/posts/ontology-construction/</link>
+      <guid>https://heungjaelee.github.io/posts/ontology-construction/</guid>
+      <description>제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다. 공개 main에서 지식 저장소, 그래프 인덱스와 `--sync`·질의 코드가 확인됩니다. JSON-LD·OWL·SHACL 실행 완료는 주장하지 않습니다.</description>
+    </item><item>
+      <title>딥러닝 학습·실험 아카이브</title>
+      <link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link>
+      <guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid>
+      <description>실행되는 예제 코드와 데이터·설정·평가를 다시 설명할 수 있는 실험은 다릅니다. 현재 공개 main은 README 수준의 학습 저장소이므로 모델 성능·완료된 실험을 주장하지 않고 학습 아카이브로 공개합니다.</description>
+    </item><item>
+      <title>설비보전기사 수험생을 위한 마스터북</title>
+      <link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link>
+      <guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid>
+      <description>자격시험 자료는 정답·이론·이미지 권리가 서로 다른 근거에 있어 AI가 자연스럽게 채우면 잘못된 학습을 만들 수 있습니다. 근거가 확인된 항목만 공개하고 충돌하거나 권리가 불분명한 항목은 HOLD로 유지하는 수험생용 마스터북을 운영하고 있습니다.</description>
+    </item><item>
+      <title>실업급여 안내 가이드북</title>
+      <link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link>
+      <guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid>
+      <description>비슷한 질문도 퇴사 사유·기간·서류와 개인 통지에 따라 결과가 달라 사이트가 자격을 단정하면 위험합니다. 사용자가 결론 대신 확인할 사실·서류·공식 경로를 찾는 가이드북을 운영하며 개인 통지와 관할 기관 안내를 우선합니다.</description>
+    </item><item>
+      <title>Ontology·LLM Wiki 기반 Agent 실행명세·안전 검증 Foundation</title>
+      <link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link>
+      <guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid>
+      <description>AI가 자료를 읽고 행동을 제안했다는 사실만으로 실제 실행 권한과 안전한 결과를 보장할 수 없습니다. 로컬 제한 실행과 차단 조건을 확인한 Foundation이며 운영 플랫폼, 외부 효과, 운영 GO는 완료하지 않았습니다.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,3 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MSA on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/msa/</link><description>Recent content in MSA on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/msa/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Assembly-Line Good Yield: About 40%→98.7%</title><link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Good-product yield on the 2170 assembly line was initially about 40%. Before increasing output, we had to distinguish whether losses came from the product, equipment, or inspection. Treating a gauge error as a process defect can lead to the wrong process change; treating a real defect as an inspection issue allows it to recur.&lt;/p&gt;
-&lt;p&gt;I therefore started by aligning production quantity, inspected quantity, defect categories, downtime, and measurement rules rather than tuning one recipe from a headline yield number.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/</link>
+    <description>Manufacturing and process-engineering portfolio covering battery production, semiconductor components, equipment FAT/SAT, quality improvement, and manufacturing DX</description>
+    <atom:link href="https://heungjaelee.github.io/en/tags/msa/rss.xml" rel="self" type="application/rss&#43;xml" /><item>
+      <title>2170 Assembly-Line Good-Yield Stabilization</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link>
+      <guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid>
+      <description>Displayed yield and shop-floor loss did not agree, so teams prioritized different causes. Monthly average good yield reached 98.7% in December 2024 from an initial level of about 40%, followed by SOP, QCP, and P-FMEA updates.</description>
+    </item><item>
+      <title>FAT/SAT of 11 Core Machines for an NCM Prismatic Pilot Line</title>
+      <link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid>
+      <description>Individual auto cycles could not prove end-to-end flow, safety, repeatability, or pilot-production readiness. Initial assembly yield was about 95% across roughly 1,000 cells over five days, including reworked cells that met quality criteria.</description>
+    </item><item>
+      <title>Vacuum-Robot Overhaul Standardization</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</link>
+      <guid>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</guid>
+      <description>Experience-dependent assembly and inspection created variation in work time and missed checks. The SOP and checklist were applied in the field; team monthly output increased from 1–2 to 4–5 units during the same period.</description>
+    </item><item>
+      <title>High-Temperature Anodizing Film Development for OLED Parts</title>
+      <link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link>
+      <guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid>
+      <description>Film cracking and particles recurred within warranty life under repeated high-temperature use. The revised condition entered production and was monitored for about a year through the transition period.</description>
+    </item><item>
+      <title>AMAT/AKT CVD &amp; PECVD Component Qualification</title>
+      <link>https://heungjaelee.github.io/en/posts/amat-akt-qual/</link>
+      <guid>https://heungjaelee.github.io/en/posts/amat-akt-qual/</guid>
+      <description>Stable internal results were insufficient when customer measurement methods and acceptance criteria differed. The technical qualification was completed, but the company ended the business about a year later because of the product mix and profitability.</description>
+    </item><item>
+      <title>Diffuser Ultrasonic-Stripping Scale-up Failure and Validation Gates</title>
+      <link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link>
+      <guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid>
+      <description>Roughness, diffusion, and product-reuse risks remained open at lab scale before equipment fabrication proceeded. Normal operation was not achieved; the case produced explicit gates for sample quality, reusability, equipment conditions, and stopping criteria.</description>
+    </item><item>
+      <title>Indy7 HMI, MQTT, PLC, and Web Twin Integrated Prototype</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link>
+      <guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid>
+      <description>Separate robot connections from HMI, database, and twin services blur command ownership and current state; JSON rewrites can also break references. The public code verifies command, state, history, and read-only Web Twin paths; Omniverse is explicitly a future extension.</description>
+    </item><item>
+      <title>Weld Vision AI Evaluation and Miss-Criteria PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link>
+      <guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid>
+      <description>Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection. The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.</description>
+    </item><item>
+      <title>Factory I/O Virtual Commissioning and OPC UA Training PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link>
+      <guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid>
+      <description>Finding sequence and communication issues only after equipment installation makes tryout expensive. The team integrated Factory I/O, PLC, SCADA, and OPC UA in a training demonstration; no real-plant productivity effect was measured.</description>
+    </item><item>
+      <title>YMC Surface-Treatment and Process-Development Case Hub</title>
+      <link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link>
+      <guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid>
+      <description>Combining development, qualification, and failure in one article blurred each case&#39;s decisions and outcomes. Readers can now distinguish production application, technical qualification, and failure lessons within the same career period.</description>
+    </item><item>
+      <title>HeungTology Markdown Knowledge Vault and Search CLI</title>
+      <link>https://heungjaelee.github.io/en/posts/ontology-construction/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ontology-construction/</guid>
+      <description>Manufacturing, semiconductor, and battery knowledge accumulated with inconsistent terms and links, making evidence retrieval difficult. The public main branch verifies the vault, graph index, and sync/query code. Completed JSON-LD, OWL, or SHACL execution is not claimed.</description>
+    </item><item>
+      <title>Deep-Learning Study and Experiment Archive</title>
+      <link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link>
+      <guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid>
+      <description>Runnable examples are not the same as experiments whose data, settings, and evaluation can be explained and reproduced. The public main branch currently contains only a minimal README, so no model performance or completed experiment is claimed.</description>
+    </item><item>
+      <title>Masterbook for Maintenance Engineer Exam Candidates</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid>
+      <description>Exam answers, theory, and image rights come from different evidence, so fluent AI completion can create incorrect learning material. The masterbook publishes only supported items and keeps conflicting or rights-uncertain material on HOLD.</description>
+    </item><item>
+      <title>Unemployment-Benefit Guidance Book</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid>
+      <description>Similar questions can produce different outcomes based on separation reason, insured period, documents, and individual notice; a website should not decide eligibility. The operating guide helps users find facts, documents, and official channels rather than issuing personal determinations.</description>
+    </item><item>
+      <title>Ontology and LLM Wiki Agent Specification &amp; Safety Foundation</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid>
+      <description>An AI reading data and proposing an action does not prove authority to execute or a safe external result. This is a local bounded-execution and stop-condition foundation—not an operating platform or production approval.</description>
+    </item>
+  </channel>
+</rss>

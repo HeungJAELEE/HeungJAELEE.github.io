@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">2170 수율 안정화 흐름</title>
+  <desc id="desc">기준 통일, MSA, 원인 분리, 조건별 재시험, 표준화의 다섯 단계</desc>
+  <rect width="1200" height="360" fill="#f7fafc"/>
+  <g font-family="Pretendard, Noto Sans KR, sans-serif">
+    <text x="56" y="58" fill="#0f2b46" font-size="28" font-weight="700">2170 수율 안정화: 숫자를 고치기 전에 판정 기준부터 맞췄습니다</text>
+    <g transform="translate(56 112)">
+      <g>
+        <rect width="188" height="150" rx="10" fill="#ffffff" stroke="#0077b6" stroke-width="2"/>
+        <text x="20" y="42" fill="#005f8f" font-size="16" font-weight="700">01 기준 통일</text>
+        <text x="20" y="78" fill="#2f4d63" font-size="15">투입·양품·재검·폐기</text>
+        <text x="20" y="104" fill="#2f4d63" font-size="15">불량명과 분모 정리</text>
+      </g>
+      <g transform="translate(220)">
+        <rect width="188" height="150" rx="10" fill="#ffffff" stroke="#d5e5ef" stroke-width="2"/>
+        <text x="20" y="42" fill="#005f8f" font-size="16" font-weight="700">02 MSA</text>
+        <text x="20" y="78" fill="#2f4d63" font-size="15">판정 오류와</text>
+        <text x="20" y="104" fill="#2f4d63" font-size="15">실제 불량 분리</text>
+      </g>
+      <g transform="translate(440)">
+        <rect width="188" height="150" rx="10" fill="#ffffff" stroke="#d5e5ef" stroke-width="2"/>
+        <text x="20" y="42" fill="#005f8f" font-size="16" font-weight="700">03 원인 분리</text>
+        <text x="20" y="78" fill="#2f4d63" font-size="15">Jig · Recipe</text>
+        <text x="20" y="104" fill="#2f4d63" font-size="15">마모 · 검사조건</text>
+      </g>
+      <g transform="translate(660)">
+        <rect width="188" height="150" rx="10" fill="#ffffff" stroke="#d5e5ef" stroke-width="2"/>
+        <text x="20" y="42" fill="#005f8f" font-size="16" font-weight="700">04 재시험</text>
+        <text x="20" y="78" fill="#2f4d63" font-size="15">한 번에 한 조건</text>
+        <text x="20" y="104" fill="#2f4d63" font-size="15">동일 판정기준 비교</text>
+      </g>
+      <g transform="translate(880)">
+        <rect width="188" height="150" rx="10" fill="#eaf7fd" stroke="#0077b6" stroke-width="2"/>
+        <text x="20" y="42" fill="#005f8f" font-size="16" font-weight="700">05 표준화</text>
+        <text x="20" y="78" fill="#2f4d63" font-size="15">SOP · QCP</text>
+        <text x="20" y="104" fill="#2f4d63" font-size="15">P-FMEA · 교육</text>
+      </g>
+      <g fill="#0077b6">
+        <path d="M194 70h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
+        <path d="M414 70h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
+        <path d="M634 70h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
+        <path d="M854 70h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
+      </g>
+    </g>
+  </g>
+</svg>

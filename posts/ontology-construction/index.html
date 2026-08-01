@@ -1,29 +1,552 @@
-<!doctype html><html lang=ko><head><title>HeungTology: 산업 지식을 근거와 함께 찾는 구조</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/ontology-construction/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/ontology-construction/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="HeungTology: 산업 지식을 근거와 함께 찾는 구조"><meta property="og:type" content="article"><meta property="og:description" content="산업 지식 문서를 데이터 계약, 관계 검증, 하이브리드 검색과 출처 인용으로 연결한 개인 프로젝트"><meta property="og:url" content="https://heungjaelee.github.io/posts/ontology-construction/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="HeungTology: 산업 지식을 근거와 함께 찾는 구조"><meta name=twitter:description content="산업 지식 문서를 데이터 계약, 관계 검증, 하이브리드 검색과 출처 인용으로 연결한 개인 프로젝트"><meta name=description content="산업 지식 문서를 데이터 계약, 관계 검증, 하이브리드 검색과 출처 인용으로 연결한 개인 프로젝트"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>기술 사례</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/ontology-construction>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/ontology-construction>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>인쇄</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="기술 사례 검색"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/search/><label class=visually-hidden for=search-box>기술 사례 검색</label>
-<input type=search name=keyword placeholder="기술 사례 검색" id=search-box></form><nav aria-label="글 목록"><ul class=tree id=tree><li id=list-heading><a href=/posts/>전체 기술 사례</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>HeungTology: 산업 지식을 근거와 함께 찾는 구조</h1><p class=portfolio-article__lead>산업 지식 문서를 데이터 계약, 관계 검증, 하이브리드 검색과 출처 인용으로 연결한 개인 프로젝트</p><p class=portfolio-article__meta><time datetime=2026-07-09>2026. 7. 9.</time>
-·
-5
-·
-마지막 검토 <time datetime=2026-07-31>2026. 7. 31.</time></p><div class=tags><ul style=padding-left:0><li><a href=/tags/knowledge-graph/ class="btn btn-sm btn-outline-info rounded">Knowledge Graph</a></li><li><a href=/tags/neo4j/ class="btn btn-sm btn-outline-info rounded">Neo4j</a></li><li><a href=/tags/ontology/ class="btn btn-sm btn-outline-info rounded">Ontology</a></li><li><a href=/tags/graphrag/ class="btn btn-sm btn-outline-info rounded">GraphRAG</a></li><li><a href=/tags/data-quality/ class="btn btn-sm btn-outline-info rounded">Data Quality</a></li><li><a href=/tags/ai/ class="btn btn-sm btn-outline-info rounded">AI</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=어떤-문제를-해결하려-했는가>어떤 문제를 해결하려 했는가</h2><p>제조 현장 자료는 공정, 설비, 품질, 불량, 조치 문서로 나뉘어 있습니다. 문서가 많아질수록 같은 설비가 다른 이름으로 적히고, 관계 대상이 사라지거나, 출처가 없는 설명이 검색 결과에 섞이는 문제가 생깁니다.</p><p>HeungTology는 문서 수를 늘리는 프로젝트가 아닙니다. 사람이 편집하는 문서를 일정한 구조로 검사하고, 공정과 설비의 관계를 추적하며, 검색 결과가 어느 문서의 어느 부분에서 왔는지 확인할 수 있게 만든 개인 프로젝트입니다.</p><table><thead><tr><th>구분</th><th>공개 범위</th></tr></thead><tbody><tr><td>문제</td><td>중복된 식별자, 깨진 관계, 출처가 약한 주장, 로컬 경로 유입</td></tr><tr><td>맡은 범위</td><td>데이터 구조, 변환·검증 절차, 그래프 표현, 검색 흐름 설계와 구현</td></tr><tr><td>사용 기술</td><td>YAML, JSON Schema, JSON-LD, OWL, SHACL, Neo4j, Python</td></tr><tr><td>현재 상태</td><td>공개 저장소에서 확인되는 코드와 문서 범위로 설명</td></tr><tr><td>보류한 주장</td><td>공개 보고서로 다시 확인할 수 없는 로컬 release 수치와 완료 등급</td></tr></tbody></table><h2 id=왜-이런-구조로-만들었는가>왜 이런 구조로 만들었는가</h2><p>문서 원본, 그래프 표현, 검색용 데이터를 하나의 파일에서 함께 관리하면 수정할 때마다 서로 다른 결과가 생기기 쉽습니다. 그래서 책임을 나눴습니다.</p><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["Markdown + YAML\n사람이 편집하는 원본"] --> B["Schema·관계·경로 검사"]
-B --> C["JSON-LD / OWL / SHACL\n교환·의미 검증"]
-B --> D["제목·본문 단위 검색 데이터"]
-D --> E["Vector + Full-text"]
-C --> F["Neo4j 관계 탐색"]
-E --> G["후보 결합·재정렬"]
-F --> G
-G --> H["출처 문서와 제목을 붙인 답변"]</div><ul><li><strong>YAML과 JSON Schema</strong>는 사람이 입력한 필드의 이름과 형식을 검사합니다.</li><li><strong>JSON-LD·OWL·SHACL</strong>은 다른 시스템과 교환할 그래프 표현과 관계 조건을 다룹니다.</li><li><strong>Neo4j</strong>는 공정→설비→불량→원인→조치처럼 관계를 따라가야 하는 질문에 사용합니다.</li><li><strong>Vector와 full-text 검색</strong>은 의미가 비슷한 문장과 정확한 설비명·약어를 각각 찾습니다.</li><li><strong>출처 인용 규칙</strong>은 검색 결과가 좋아 보여도 근거 문서가 없으면 확정적으로 답하지 않게 합니다.</li></ul><h2 id=내가-확인하고-바꾼-것>내가 확인하고 바꾼 것</h2><h3 id=문서-구조를-먼저-고정>문서 구조를 먼저 고정</h3><p>문서마다 다음 정보를 같은 위치에 두도록 계약을 잡았습니다.</p><table><thead><tr><th>항목</th><th>목적</th></tr></thead><tbody><tr><td>ID·제목·별칭</td><td>같은 개념을 여러 이름으로 찾되 하나의 대상으로 관리</td></tr><tr><td>종류·분야·상태</td><td>검색과 검토 범위를 구분</td></tr><tr><td>출처·검토자·본문 hash</td><td>내용이 어디에서 왔고 바뀌었는지 추적</td></tr><tr><td>상위·관련·사례 관계</td><td>그래프 탐색 경로 구성</td></tr><tr><td>주장과 근거 위치</td><td>문서 존재와 근거 있는 주장을 구분</td></tr></tbody></table><p>중복 key, 존재하지 않는 관계 대상, 로컬 절대경로와 형식 오류는 변환 단계에서 따로 보고하도록 했습니다. 관계가 애매할 때는 가장 비슷한 문서에 자동으로 붙이지 않고 검토 대상으로 남기는 방식을 택했습니다.</p><h3 id=검색-단계를-분리>검색 단계를 분리</h3><p>벡터 검색 결과와 문자열 검색 점수는 기준이 다르기 때문에 원점수를 바로 더하지 않았습니다. 각각 후보 순위를 만든 뒤 순위를 결합하고, 필요한 관계만 한 단계 확장한 다음 다시 정렬하도록 구성했습니다. 답변에는 원문 경로와 제목을 함께 넘겨 어떤 내용에 기대어 작성했는지 확인할 수 있게 했습니다.</p><h3 id=공개-범위를-다시-정리>공개 범위를 다시 정리</h3><p>이전 글에는 로컬에서 만든 release 수치가 공개 저장소에서도 바로 재현되는 것처럼 적혀 있었습니다. 공개 저장소에서 같은 보고서를 확인하지 못했기 때문에 노드 수, assertion 수, 오류·경고 수와 같은 값은 이 글의 성과에서 내렸습니다. 공개 링크는 저장소에서 직접 확인할 수 있는 구조와 문서만 보여 줍니다.</p><h2 id=결과와-제조-경험의-연결>결과와 제조 경험의 연결</h2><p>이 프로젝트를 통해 산업 지식을 저장할 때 “문서가 있다”와 “근거가 확인된 주장이 있다”를 구분하는 구조를 만들었습니다. 또 검색 결과가 물리 설비의 제어 명령으로 곧바로 이어지지 않도록 읽기·검색 영역과 실행 권한을 분리했습니다.</p><p>배터리와 자동화 라인에서 공정 조건, 검사 기준, 설비 이력과 불량 조치가 서로 다른 문서에 흩어지는 문제를 겪은 경험이 설계의 출발점이었습니다. QCP·P-FMEA·MSA에서 기준과 판정 근거를 따로 관리했던 방식은 이 프로젝트의 출처·주장·검증 구조에 반영했습니다.</p><h2 id=확인-자료와-한계>확인 자료와 한계</h2><ul><li>공개 저장소에서 데이터 구조, 변환·검증 코드와 검색 설계 문서를 확인할 수 있습니다.</li><li>공개 저장소에 없는 로컬 검증 수치는 대표 성과로 사용하지 않습니다.</li><li>모든 문서가 같은 깊이의 사람 검토를 받은 것은 아닙니다.</li><li>검색 품질은 고정 질문과 relevance 판정표를 사용한 추가 평가가 필요합니다.</li><li>지식 검색은 설비 제어 권한과 분리된 읽기 기능으로 유지해야 합니다.</li></ul><h2 id=설계검증-기록>설계·검증 기록</h2><details class=project-blueprint><summary class=project-blueprint__toggle>검증 상세</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>설계·검증 기록</p><h2 id=project-blueprint-ontology-construction>구성 이유와 작업 흐름</h2><p class=project-blueprint__summary>문서 수집이 아니라 데이터 계약, 결정적 마이그레이션, 의미 검증, 검색 근거까지 하나의 릴리스 체계로 설계한 과정을 공개합니다.</p></div><span class="project-blueprint__status project-blueprint__status--planned">공개 저장소 확인 범위로 기술</span></header><dl class=project-blueprint__meta><div><dt>프로젝트 유형</dt><dd>개인 오픈소스 데이터·GraphRAG 프로젝트</dd></div><div><dt>개인 역할</dt><dd>PDD, 데이터 계약, 구현, 검증, 릴리스 전 과정</dd></div><div><dt>주요 사용자</dt><dd>제조 지식 관리자·데이터·AI 개발자</dd></div><div><dt>Evidence 수준</dt><dd>공개 저장소에서 확인 가능한 코드·문서</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>Markdown과 임의 frontmatter에 흩어진 산업 지식은 중복 키, 깨진 참조, 출처 없는 주장과 로컬 경로 때문에 검색 결과를 신뢰하기 어렵습니다.</p></article><article><h3>Goal</h3><p>사람이 편집 가능한 YAML 원본을 유지하면서 schema·hash·provenance·relation을 검증하고, 같은 release에서 GraphRAG가 근거를 인용하도록 만드는 것입니다.</p></article><article><h3>Success</h3><p>같은 입력에서 변환 결과가 일관되고 검색 응답에서 원문과 제목을 추적할 수 있으면 성공입니다.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-ontology-construction><h3 id=project-scope-ontology-construction>범위와 경계</h3><div class=project-blueprint__scope><div><h4>포함 범위</h4><ul><li>YAML v9 canonical node와 JSON Schema 계약</li><li>결정적 migration, manifest, JSON-LD·OWL·SHACL release</li><li>Neo4j vector/full-text/RRF/graph expansion/reranking와 근거 인용</li></ul></div><div><h4>제외·미검증 범위</h4><ul><li>애매한 관계를 임의로 추정해 연결하는 작업</li><li>DGX Spark가 상시 공개 서비스 중이라는 주장</li><li>검증되지 않은 문서를 자동으로 authoritative source로 승격</li></ul></div></div></section><section aria-labelledby=project-requirements-ontology-construction><h3 id=project-requirements-ontology-construction>구현·검증 기준</h3><div class=project-blueprint__requirements><div><h4>해야 할 일</h4><ul><li>모든 node가 안정 ID, type, aliases, relations, provenance, body hash를 가진다.</li><li>migration과 release가 같은 입력에서 같은 결과를 만든다.</li><li>검색 결과가 source node, heading, provenance를 포함한다.</li></ul></div><div><h4>품질·운영 기준</h4><ul><li>schema·hash·참조 오류는 release를 중단하고 경고는 명시적으로 보존한다.</li><li>Windows 로컬 경로와 민감 정보는 ingestion 전에 차단한다.</li><li>공개 성과 수치는 방문자가 읽을 수 있는 보고서에서 다시 확인되어야 한다.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-ontology-construction><h3 id=project-decisions-ontology-construction>왜 이렇게 구성했나</h3><ol><li><strong>authoring과 semantic release 분리</strong><p>YAML은 사람이 유지하고 JSON-LD·OWL·SHACL은 기계가 생성하게 해 수동 동기화 오류를 줄였습니다.</p></li><li><strong>경고를 숨기지 않는 release gate</strong><p>미해결 외부 관계를 임의 연결하지 않고 데이터 부채로 보존해야 검색 근거를 신뢰할 수 있기 때문입니다.</p></li><li><strong>hybrid retrieval과 인용 경계</strong><p>벡터 유사도만으로는 정확한 용어·관계·출처를 함께 만족시키기 어려워 단계별 검색과 reranking을 사용했습니다.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-ontology-construction><div class=project-blueprint__section-heading><h3 id=project-work-ontology-construction>작업 내역과 계획</h3><p>완료 표시는 현재 공개 저장소에서 다시 확인 가능한 범위에만 사용합니다.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>Canonical node 계약 정의</h4><p>stable ID, YAML 1.2, provenance, relation, hash와 release gate를 요구사항으로 정했습니다.</p><dl><dt>남긴 결과</dt><dd>v9 schema·authoring 계약</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>결정적 migration CLI 구현</h4><p>legacy 문서를 정규화하고 중복·로컬 경로·깨진 관계를 report에 남기는 변환 흐름을 구현했습니다.</p><dl><dt>남긴 결과</dt><dd>migration CLI와 report</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">공개 재검증 필요</span></div><h4>semantic release 생성</h4><p>canonical source에서 JSON-LD, OWL 2 RL, SHACL과 manifest를 재현 가능하게 생성했습니다.</p><dl><dt>남긴 결과</dt><dd>공개 가능한 semantic release</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">완료</span></div><h4>Neo4j hybrid retrieval 구성</h4><p>heading chunk, vector/full-text search, RRF, graph expansion, reranking과 citation을 분리했습니다.</p><dl><dt>남긴 결과</dt><dd>GraphRAG ingestion·retrieval pipeline</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">보류</span></div><h4>공개 수치 재검증</h4><p>이전 로컬 수치를 공개 보고서에서 다시 확인하지 못해 대표 성과에서 제외했습니다.</p><dl><dt>남긴 결과</dt><dd>공개 가능한 validation report</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">진행 예정</span></div><h4>외부 관계 큐레이션·회귀 평가</h4><p>미해결 관계를 사람이 검토하고 retrieval benchmark와 운영 latency를 지속 측정해야 합니다.</p><dl><dt>남긴 결과</dt><dd>curation queue와 benchmark</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-ontology-construction><h3 id=project-acceptance-ontology-construction>확인 결과</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>v9 데이터 계약과 release artifact가 현재 공개 저장소에서 확인된다.</p><strong>미충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>공개 validation report가 errors=0과 스냅숏 수치를 재현한다.</p><strong>미충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>검색 결과의 source·heading·provenance 추적 경계가 문서화된다.</p><strong>충족</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>미해결·외부 관계가 모두 사람이 검토한 관계로 전환된다.</p><strong>잔여 작업</strong></li></ul><p class=project-blueprint__evidence-note><strong>확인 근거:</strong> 공개 저장소에서 확인되지 않는 로컬 release 수치와 완료 등급은 공개 성과에서 제외했습니다.</p></section></details><h2 id=공개-링크>공개 링크</h2><section class=project-resources aria-labelledby=project-resources-ontology-construction><h2 id=project-resources-ontology-construction>공개 링크</h2><p class=project-resources__lead>프로젝트 근거와 실제 사용 화면을 확인할 수 있는 공개 자료입니다.</p><ul class=project-resources__links><li><a href=https://github.com/HeungJAELEE/HeungTology target=_blank rel=noopener><span class=project-resources__label>HeungTology 공개 코드</span>
-<span class=project-resources__url>github.com/HeungJAELEE/HeungTology</span></a></li></ul><p class=project-resources__note>공개 저장소에서 다시 확인할 수 없는 로컬 release 수치와 완료 등급은 대표 성과에서 제외했습니다.</p></section></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label=목차><div class=toc-holder><h2 class="h5 text-center ps-3">목차</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#어떤-문제를-해결하려-했는가>어떤 문제를 해결하려 했는가</a></li><li><a href=#왜-이런-구조로-만들었는가>왜 이런 구조로 만들었는가</a></li><li><a href=#내가-확인하고-바꾼-것>내가 확인하고 바꾼 것</a><ul><li><a href=#문서-구조를-먼저-고정>문서 구조를 먼저 고정</a></li><li><a href=#검색-단계를-분리>검색 단계를 분리</a></li><li><a href=#공개-범위를-다시-정리>공개 범위를 다시 정리</a></li></ul></li><li><a href=#결과와-제조-경험의-연결>결과와 제조 경험의 연결</a></li><li><a href=#확인-자료와-한계>확인 자료와 한계</a></li><li><a href=#설계검증-기록>설계·검증 기록</a></li><li><a href=#공개-링크>공개 링크</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p><p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>기술 사례</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>HeungTology Markdown 지식 저장소·검색 CLI | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/ontology-construction/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/ontology-construction/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.35ba8fd1561599ed0d61bfe678828a21926c7d8ee991abef714ce9eb825e0b0a.css" integrity="sha256-NbqP0VYVme0NYb/meIKKIZJsfY7pkavvcUzp64JeCwo=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="HeungTology Markdown 지식 저장소·검색 CLI">
+<meta property="og:type" content="article">
+<meta property="og:description" content="제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다. 공개 main에서 지식 저장소, 그래프 인덱스와 `--sync`·질의 코드가 확인됩니다. JSON-LD·OWL·SHACL 실행 완료는 주장하지 않습니다.">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/ontology-construction/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HeungTology Markdown 지식 저장소·검색 CLI">
+  <meta name="twitter:description" content="사용자와 기존 문제 제조·반도체·배터리 자료를 오래 모으면 같은 설비와 현상을 서로 다른 이름으로 적게 됩니다. 폴더가 커질수록 “관련 문서가 있는지”, “어떤 원문에서 나온 설명인지”, “최근에 바뀐 문서만 다시 색인할 수 있는지”가 더 중요해집니다.
+HeungTology는 Markdown 문서를 사람이 읽는 원본으로 유지하면서 YAML Metadata와 문서 링크를 이용해 주제와 관계를 찾고, 자연어 질문으로 후보 문서를 검색하기 위한 개인 지식 저장소입니다.
+실제 공개 저장소에서 확인한 구조 2026-08-01에 공개 main Branch Snapshot을 다시 확인했습니다.
+HeungTology ├─ 02_Knowledge/ # 산업별 Markdown 지식 문서 │ └─ _System/_index/ │ ├─ GRAPH.md # 문서 링크 기반 관계 인덱스 │ ├─ VAULT_INDEX.md # 저장소 탐색용 인덱스 │ └─ index.json # 검색·도구용 인덱스 ├─ 02_Knowledge/_System/ │ └─ _Ontology_Map.json # 주제·관계 Map ├─ rag_cli_v2.py # 변경분 동기화와 자연어 질의 CLI └─ README.md 공개 코드에서 --sync는 Markdown 변경분을 찾아 ChromaDB Collection에 넣고, 질의 흐름은 BGE 계열 Embedding과 Reranker를 사용하도록 작성돼 있습니다. 문서의 [[Link]], YAML Metadata와 별도 그래프 인덱스도 확인됩니다.">
+<meta name="description" content="제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다. 공개 main에서 지식 저장소, 그래프 인덱스와 `--sync`·질의 코드가 확인됩니다. JSON-LD·OWL·SHACL 실행 완료는 주장하지 않습니다.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다. 공개 main에서 지식 저장소, 그래프 인덱스와 `--sync`·질의 코드가 확인됩니다. JSON-LD·OWL·SHACL 실행 완료는 주장하지 않습니다.","headline":"HeungTology Markdown 지식 저장소·검색 CLI","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ontology-construction/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ontology-construction">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ontology-construction">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--personal-product" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+            <span class="portfolio-article__stage">통합 프로토타입</span>
+          </div>
+          <h1>HeungTology Markdown 지식 저장소·검색 CLI</h1>
+          <p class="portfolio-article__lead">대규모 Markdown/YAML 지식과 링크 그래프 인덱스를 ChromaDB 동기화·질의 흐름으로 연결</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>개인 프로젝트 · 공개 main Snapshot 검증</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>개인 AI 활용 프로젝트</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <p>30 SECOND READ</p>
+            <h2 id="case-summary-title">30초 요약</h2>
+          </header>
+          <dl>
+            <div><dt>문제</dt><dd>제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다.</dd></div>
+            <div><dt>내 역할</dt><dd>Markdown/YAML 저장소 구조와 링크 그래프 인덱스를 정리하고, 변경 파일을 ChromaDB에 동기화해 검색·재정렬하는 CLI를 구성했습니다.</dd></div>
+            <div><dt>결과·현재 단계</dt><dd>공개 main에서 지식 저장소, 그래프 인덱스와 `--sync`·질의 코드가 확인됩니다. JSON-LD·OWL·SHACL 실행 완료는 주장하지 않습니다.</dd></div><div><dt>내가 직접 한 일</dt><dd>개인 설계·구현</dd></div></dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="사용자와-기존-문제">사용자와 기존 문제</h2>
+<p>제조·반도체·배터리 자료를 오래 모으면 같은 설비와 현상을 서로 다른 이름으로 적게 됩니다. 폴더가 커질수록 “관련 문서가 있는지”, “어떤 원문에서 나온 설명인지”, “최근에 바뀐 문서만 다시 색인할 수 있는지”가 더 중요해집니다.</p>
+<p>HeungTology는 Markdown 문서를 사람이 읽는 원본으로 유지하면서 YAML Metadata와 문서 링크를 이용해 주제와 관계를 찾고, 자연어 질문으로 후보 문서를 검색하기 위한 개인 지식 저장소입니다.</p>
+<h2 id="실제-공개-저장소에서-확인한-구조">실제 공개 저장소에서 확인한 구조</h2>
+<p>2026-08-01에 공개 <code>main</code> Branch Snapshot을 다시 확인했습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HeungTology
+</span></span><span style="display:flex;"><span>├─ 02_Knowledge/                 # 산업별 Markdown 지식 문서
+</span></span><span style="display:flex;"><span>│  └─ _System/_index/
+</span></span><span style="display:flex;"><span>│     ├─ GRAPH.md                # 문서 링크 기반 관계 인덱스
+</span></span><span style="display:flex;"><span>│     ├─ VAULT_INDEX.md          # 저장소 탐색용 인덱스
+</span></span><span style="display:flex;"><span>│     └─ index.json              # 검색·도구용 인덱스
+</span></span><span style="display:flex;"><span>├─ 02_Knowledge/_System/
+</span></span><span style="display:flex;"><span>│  └─ _Ontology_Map.json         # 주제·관계 Map
+</span></span><span style="display:flex;"><span>├─ rag_cli_v2.py                 # 변경분 동기화와 자연어 질의 CLI
+</span></span><span style="display:flex;"><span>└─ README.md
+</span></span></code></pre></div><p>공개 코드에서 <code>--sync</code>는 Markdown 변경분을 찾아 ChromaDB Collection에 넣고, 질의 흐름은 BGE 계열 Embedding과 Reranker를 사용하도록 작성돼 있습니다. 문서의 <code>[[Link]]</code>, YAML Metadata와 별도 그래프 인덱스도 확인됩니다.</p>
+<p>반면 현재 공개 Snapshot에서는 JSON-LD·OWL·SHACL 변환·검증 코드와 Neo4j 적재·질의 코드를 확인하지 못했습니다. README에 더 큰 Architecture가 설명돼 있더라도 이 글의 완료 범위는 실제 코드에서 확인한 저장소·인덱스·검색 CLI로 제한합니다.</p>
+<h2 id="as-is--to-be">AS-IS → TO-BE</h2>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>기존 방식</th>
+          <th>HeungTology에서 정리한 방식</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>원본</td>
+          <td>폴더마다 형식이 다른 문서</td>
+          <td>Markdown 본문과 YAML Metadata</td>
+      </tr>
+      <tr>
+          <td>관계</td>
+          <td>사람이 기억하거나 문서 안에서 검색</td>
+          <td><code>[[Link]]</code>와 Graph Index</td>
+      </tr>
+      <tr>
+          <td>갱신</td>
+          <td>전체를 다시 읽음</td>
+          <td>수정시간 Checkpoint 기반 변경분 동기화</td>
+      </tr>
+      <tr>
+          <td>검색</td>
+          <td>파일명·키워드 중심</td>
+          <td>ChromaDB 의미검색과 Reranking</td>
+      </tr>
+      <tr>
+          <td>답변 근거</td>
+          <td>기억에 의존</td>
+          <td>후보 문서 제목과 본문을 함께 확인</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="데이터와-실행-흐름">데이터와 실행 흐름</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Markdown + YAML
+</span></span><span style="display:flex;"><span>→ 파일 변경 여부 확인
+</span></span><span style="display:flex;"><span>→ Chunk와 Metadata 구성
+</span></span><span style="display:flex;"><span>→ ChromaDB 동기화
+</span></span><span style="display:flex;"><span>→ 질문 Embedding
+</span></span><span style="display:flex;"><span>→ 후보 문서 검색
+</span></span><span style="display:flex;"><span>→ Reranking
+</span></span><span style="display:flex;"><span>→ 원문 제목·본문을 붙여 검토
+</span></span></code></pre></div><p>문서 원본과 생성 인덱스를 분리한 이유는 인덱스가 손상돼도 사람이 읽는 원문을 다시 기준으로 만들 수 있게 하기 위해서입니다.</p>
+<h2 id="내가-직접-구성한-부분">내가 직접 구성한 부분</h2>
+<ul>
+<li>산업별 Markdown 저장소와 Metadata 규칙</li>
+<li>문서 링크를 이용한 관계 인덱스</li>
+<li>변경 파일만 다시 처리하는 동기화 흐름</li>
+<li>자연어 질문의 후보 검색과 재정렬 CLI</li>
+<li>검색 결과에서 원문을 다시 확인하기 위한 제목·본문 연결</li>
+</ul>
+<p>AI는 후보를 빠르게 찾는 역할을 합니다. 문서 내용의 사실 여부, 출처 상태와 최종 공개 판단은 사람이 확인해야 합니다.</p>
+<h2 id="테스트와-현재-단계">테스트와 현재 단계</h2>
+<p>공개 저장소의 Branch·Commit·파일 구조와 CLI 코드는 확인했습니다. 하지만 README에 적힌 성능 수치, “Zero Hallucination”, 모든 노드 수, Neo4j 운영 상태를 현재 Snapshot에서 재현하지 않았습니다. 따라서 이 프로젝트는 “엔터프라이즈 지식 그래프 완료”가 아니라 <strong>Markdown 지식 저장소·검색 CLI 프로토타입</strong>으로 공개합니다.</p>
+<h2 id="제조현장에서-쓰려면-남은-조건">제조현장에서 쓰려면 남은 조건</h2>
+<ol>
+<li>원문별 출처와 갱신일을 강제해야 합니다.</li>
+<li>검색 결과에 문서 위치와 인용 가능한 근거를 함께 보여줘야 합니다.</li>
+<li>생성 인덱스를 지우고 다시 만드는 재현 시험이 필요합니다.</li>
+<li>Graph DB를 실제 사용한다면 적재 코드, Query와 결과 Snapshot을 별도로 검증해야 합니다.</li>
+<li>품질·안전 판단은 검색 결과만으로 자동 승인하지 않아야 합니다.</li>
+</ol>
+<details class="project-blueprint project-blueprint--v4">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <div class="project-blueprint__compact">
+    <dl>
+      <div><dt>문제</dt><dd>제조·반도체·배터리 지식이 파일마다 다른 용어와 링크로 쌓여 필요한 근거를 다시 찾기 어려웠습니다.</dd></div>
+      <div><dt>역할 범위</dt><dd>지식 구조, 변경분 동기화, 검색·재정렬 CLI</dd></div><div><dt>개인 기여</dt><dd>개인 설계·구현</dd></div><div><dt>근거 범위</dt><dd>public-evidence</dd></div>
+      <div><dt>한계</dt><dd>README의 엔터프라이즈 표현과 수치가 현재 코드로 모두 재현되는 것은 아니므로 대표 성과에서 제외했습니다.</dd></div>
+    </dl>
+  </div>
+</details>
+
+
+        </div>
+
+        <aside class="portfolio-case-limitations" aria-labelledby="case-limitations-title">
+          <h2 id="case-limitations-title">확인 범위와 한계</h2>
+          <p>README의 엔터프라이즈 표현과 수치가 현재 코드로 모두 재현되는 것은 아니므로 대표 성과에서 제외했습니다.</p>
+        </aside>
+        <section class="project-resources" aria-labelledby="case-links-title">
+          <h2 id="case-links-title">공개 링크</h2>
+          <ul class="project-resources__links">
+            <li>
+              <a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener noreferrer">
+                <span class="project-resources__label">공개 저장소</span>
+                <span class="project-resources__url">github.com/HeungJAELEE/HeungTology</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 기술 사례로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#사용자와-기존-문제">사용자와 기존 문제</a></li>
+    <li><a href="#실제-공개-저장소에서-확인한-구조">실제 공개 저장소에서 확인한 구조</a></li>
+    <li><a href="#as-is--to-be">AS-IS → TO-BE</a></li>
+    <li><a href="#데이터와-실행-흐름">데이터와 실행 흐름</a></li>
+    <li><a href="#내가-직접-구성한-부분">내가 직접 구성한 부분</a></li>
+    <li><a href="#테스트와-현재-단계">테스트와 현재 단계</a></li>
+    <li><a href="#제조현장에서-쓰려면-남은-조건">제조현장에서 쓰려면 남은 조건</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

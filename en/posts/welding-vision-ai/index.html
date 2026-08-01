@@ -1,34 +1,591 @@
-<!doctype html><html lang=en><head><title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/welding-vision-ai/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/welding-vision-ai/><link rel=stylesheet href=/application.42cc3f29e6b0a03699b3ad50aea4cf18e94618ba20740f481571ad741bc1b50f.css integrity="sha256-Qsw/KeawoDaZs61QrqTPGOlGGLogdA9IFXGtdBvBtQ8="><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="AI Welding Vision: Designing Metrics Around Missed-Defect Risk"><meta property="og:type" content="article"><meta property="og:description" content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/welding-vision-ai/"><meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg"><meta property="og:image:alt" content="Heungjae Lee technical portfolio preview"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="AI Welding Vision: Designing Metrics Around Missed-Defect Risk"><meta name=twitter:description content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1"><meta name=description content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1"><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Technical Cases</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/welding-vision-ai>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/welding-vision-ai>English</a></div></li><li class="nav-item portfolio-navbar__print-item"><button class="nav-link portfolio-navbar__print btn-print" type=button onclick=window.print()>
-<i data-feather=printer aria-hidden=true></i>
-<span>Print</span></button></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li></ul></div></div><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=main-logo alt>
-<img src=/images/site/main-logo_hu_8a1145a45d3076fc.png class=d-none id=inverted-logo alt></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24;let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=s&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><section class=sidebar-section id=sidebar-section aria-label="Search case studies"><div class=sidebar-holder><div class=sidebar id=sidebar><form class="mx-auto portfolio-sidebar-search" method=get action=/en/search/><label class=visually-hidden for=search-box>Search case studies</label>
-<input type=search name=keyword placeholder="Search case studies" id=search-box></form><nav aria-label="Post navigation"><ul class=tree id=tree><li id=list-heading><a href=/en/posts/>All case studies</a><ul class=subtree></ul></li></ul></nav></div></div></section><main id=main-content tabindex=-1><section class="content-section portfolio-article-section" id=content-section><div class=content><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><p class=portfolio-article__eyebrow>TECHNICAL CASE STUDY</p><h1>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</h1><p class=portfolio-article__lead>A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1</p><p class=portfolio-article__meta><time datetime=2026-07-09>Jul 9, 2026</time>
-·
-7 minutes
-·
-Last reviewed <time datetime=2026-07-31>Jul 31, 2026</time></p><div class=tags><ul style=padding-left:0><li><a href=/en/tags/ai/ class="btn btn-sm btn-outline-info rounded">AI</a></li><li><a href=/en/tags/vision/ class="btn btn-sm btn-outline-info rounded">Vision</a></li><li><a href=/en/tags/manufacturing/ class="btn btn-sm btn-outline-info rounded">Manufacturing</a></li><li><a href=/en/tags/quality/ class="btn btn-sm btn-outline-info rounded">Quality</a></li><li><a href=/en/tags/threshold/ class="btn btn-sm btn-outline-info rounded">Threshold</a></li></ul></div></header><div class="post-content portfolio-article__content" id=post-content><h2 id=problem-accuracy-alone-cannot-define-a-welding-defect-operating-threshold>Problem: accuracy alone cannot define a welding-defect operating threshold</h2><table><thead><tr><th>Item</th><th>Verified scope</th></tr></thead><tbody><tr><td>Problem</td><td>Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.</td></tr><tr><td>Role</td><td>I was responsible for <strong>evaluation-metric design and validation</strong>, including F1, recall, false-positive behavior, and threshold interpretation.</td></tr><tr><td>Action</td><td>The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.</td></tr><tr><td>Result</td><td>On the recorded evaluation set and selected threshold, the report lists <strong>F1 93.10%, Recall 100%, and Precision 87.07%</strong>. These values do not establish production-wide generalization.</td></tr><tr><td>Evidence</td><td>The public report&rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.</td></tr></tbody></table><h3 id=resume-bullets>Resume bullets</h3><ul><li>Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.</li><li>Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.</li><li>Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.</li></ul><h3 id=interview-star>Interview STAR</h3><ul><li><strong>Situation:</strong> Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.</li><li><strong>Task:</strong> Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.</li><li><strong>Action:</strong> Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.</li><li><strong>Result:</strong> The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.</li></ul><h2 id=why-this-project-was-structured-this-way>Why this project was structured this way</h2><p>Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:</p><ol><li>What exactly counts as a defect?</li><li>Which data was used for learning and which data checks field transfer?</li><li>What is the cost of a false negative versus a false positive?</li><li>Can a quality engineer review the evidence behind a wrong decision?</li></ol><p>My battery-assembly experience with laser and ultrasonic welding made the decision boundary the center of this project. The model architecture matters, but the operational threshold and reinspection rule determine how a model affects quality risk.</p><h2 id=architecture-and-data-flow>Architecture and data flow</h2><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["AI-Hub public images\n~60,000"] --> B["label / quality checks"]
-B --> C["model comparison"]
-D["field images\n198"] --> E["field-condition check"]
-C --> E
-E --> F["probability outputs"]
-F --> G["threshold search"]
-G --> H["confusion matrix"]
-H --> I["F1 93.10%\nRecall 100%\nPrecision 87.07%"]
-H --> J["FP/FN image review"]</div><p>The public and field data are not described as 60,198 interchangeable training images. The public set supplies breadth; the 198 field images provide a limited check against lighting, surface, camera, and domain differences.</p><h2 id=technologies-and-implementation>Technologies and implementation</h2><p>The project report records three stages.</p><table><thead><tr><th>Stage</th><th>Approach</th><th>Decision reason</th></tr></thead><tbody><tr><td>1</td><td>DenseNet121</td><td>baseline affected by the reported 2:8 imbalance</td></tr><tr><td>2</td><td>DenseNet + Mask R-CNN combination</td><td>compatibility and expected-benefit gap</td></tr><tr><td>3</td><td>ResNet + DeiT ensemble, augmentation, threshold tuning</td><td>final selected direction</td></tr></tbody></table><p>The case does not claim that choosing a newer architecture alone produced the final quality decision. The useful work was maintaining a common evaluation frame and reviewing where normal and defect predictions overlapped.</p><h3 id=why-recall-was-prioritized>Why recall was prioritized</h3><p>For defect probability (p) and threshold (t), lowering (t) normally increases sensitivity but can increase false alarms. The quality tradeoff is summarized by:</p><p>[
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>Weld Vision AI Evaluation and Miss-Criteria PoC | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/welding-vision-ai/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/welding-vision-ai/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.35ba8fd1561599ed0d61bfe678828a21926c7d8ee991abef714ce9eb825e0b0a.css" integrity="sha256-NbqP0VYVme0NYb/meIKKIZJsfY7pkavvcUzp64JeCwo=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Weld Vision AI Evaluation and Miss-Criteria PoC">
+<meta property="og:type" content="article">
+<meta property="og:description" content="Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection. The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/welding-vision-ai/">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Welding Vision AI Evaluation and Missed-Defect Threshold PoC">
+  <meta name="twitter:description" content="Why this problem mattered For weld inspection, the central question is not the model name or a single accuracy score. It is how to control the risk of passing a defect as normal. With an imbalanced dataset, a model can show high accuracy while detecting very few defects. Lowering the decision threshold too far, however, sends more good parts to reinspection and slows production.
+This education team PoC classified weld-defect images. It separated public learning material from limited field images, then defined an evaluation flow that considered recall, precision, false alarms, and missed defects when converting model probabilities into an inspection decision.">
+<meta name="description" content="Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection. The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection. The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.","headline":"Weld Vision AI Evaluation and Miss-Criteria PoC","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/welding-vision-ai/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Technical Cases</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/welding-vision-ai">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/welding-vision-ai">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--dx-system" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+            <span class="portfolio-article__stage">Team education PoC</span>
+          </div>
+          <h1>Weld Vision AI Evaluation and Miss-Criteria PoC</h1>
+          <p class="portfolio-article__lead">A team training project that prioritized defect-miss cost, data roles, and threshold decisions over model names</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>Project period</dt>
+              <dd>AI-convergence team training project</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>Training PoC · not deployed to a production line</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <p>30 SECOND READ</p>
+            <h2 id="case-summary-title">30-second summary</h2>
+          </header>
+          <dl>
+            <div><dt>Problem</dt><dd>Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection.</dd></div>
+            <div><dt>My role</dt><dd>I separated public and field-training image roles and defined Recall, Precision, F1, and threshold-comparison criteria.</dd></div>
+            <div><dt>Outcome / current stage</dt><dd>The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.</dd></div><div><dt>Team result</dt><dd>PoC on a training evaluation set</dd></div><div><dt>My direct contribution</dt><dd>Miss-priority evaluation criteria and result interpretation</dd></div></dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="why-this-problem-mattered">Why this problem mattered</h2>
+<p>For weld inspection, the central question is not the model name or a single accuracy score. It is <strong>how to control the risk of passing a defect as normal</strong>. With an imbalanced dataset, a model can show high accuracy while detecting very few defects. Lowering the decision threshold too far, however, sends more good parts to reinspection and slows production.</p>
+<p>This education team PoC classified weld-defect images. It separated public learning material from limited field images, then defined an evaluation flow that considered recall, precision, false alarms, and missed defects when converting model probabilities into an inspection decision.</p>
+<h2 id="from-the-existing-workflow-to-the-poc">From the existing workflow to the PoC</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Existing risk</th>
+          <th>Direction established in the PoC</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Data</td>
+          <td>images from different sources and capture conditions can be mixed</td>
+          <td>separate the roles of public learning data and field-check images</td>
+      </tr>
+      <tr>
+          <td>Evaluation</td>
+          <td>compare candidates using accuracy alone</td>
+          <td>inspect recall, precision, and the confusion matrix together</td>
+      </tr>
+      <tr>
+          <td>Decision</td>
+          <td>use a default probability threshold</td>
+          <td>compare thresholds around the cost of missed defects</td>
+      </tr>
+      <tr>
+          <td>Operation</td>
+          <td>stop at a model output</td>
+          <td>connect false alarms to reinspection and missed defects to cause review</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="my-scope">My scope</h2>
+<ul>
+<li>translated weld-quality risk into evaluation priorities</li>
+<li>separated the intended roles of public data and field-check material</li>
+<li>organized a common comparison flow for model candidates</li>
+<li>interpreted recall, precision, false alarms, and missed defects across thresholds</li>
+<li>documented the additional tests and operator-review flow required before production use</li>
+</ul>
+<p>No dedicated public repository or fully reproducible experiment artifact was verified. The case therefore does not present a model-specific score as a completed result. Its confirmed scope is an <strong>education team PoC for evaluation logic and missed-defect threshold design</strong>.</p>
+<h2 id="data-and-decision-flow">Data and decision flow</h2>
+
+
+    
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["Public learning material"] --> B["Label, duplicate and quality checks"]
+    B --> C["Train and validation split"]
+    C --> D["Model-candidate comparison"]
+    E["Limited field images"] --> F["Capture-condition check"]
+    D --> G["Defect probability"]
+    F --> G
+    G --> H["Confusion matrix by threshold"]
+    H --> I["Review missed defects first"]
+    H --> J["Review false-alarm burden"]
+    I --> K["Select a candidate rule"]
+    J --> K
+</div>
+
+<p>Public material supplied learning breadth. Field images were treated as a limited check against changes in lighting, reflection, surface condition, and camera position. They were not simply combined and described as one interchangeable training dataset.</p>
+<h2 id="why-these-metrics-were-used">Why these metrics were used</h2>
+<p>A false negative can allow a defective weld to continue downstream, so recall was reviewed first. Recall was not optimized in isolation: lowering a threshold can increase false positives and add reinspection labor and cycle-time cost.</p>
+<p>[
 \text{Precision} = \frac{TP}{TP+FP}, \qquad
 \text{Recall} = \frac{TP}{TP+FN}
-]</p><p>[
+]</p>
+<p>[
 \text{F1} = 2 \cdot \frac{\text{Precision}\cdot\text{Recall}}{\text{Precision}+\text{Recall}}
-]</p><p>The recorded Recall 100% means no defect in that evaluation set was missed at the selected threshold. Precision 87.07% means some predicted defects were normal. The operating decision was therefore: protect against missed defects first, then route suspected false positives to reinspection.</p><h2 id=ai-and-human-roles>AI and human roles</h2><p>AI assisted with public-data classification, experiment comparison, threshold-metric interpretation, and the technical-writing draft. A human reviewed train/validation separation, the role of the 198 field images, the cost of missed defects, the public evidence boundary, and the additional checks required before line deployment.</p><h2 id=pdd-and-related-tasks>PDD and related tasks</h2><details class=project-blueprint><summary class=project-blueprint__toggle>Verification details</summary><header class=project-blueprint__header><div class=project-blueprint__heading><p class=project-blueprint__eyebrow>Design and validation record</p><h2 id=project-blueprint-welding-vision-ai>Design choices and work flow</h2><p class=project-blueprint__summary>The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.</p></div><span class="project-blueprint__status project-blueprint__status--partial">Evaluation complete · production generalization pending</span></header><dl class=project-blueprint__meta><div><dt>Project type</dt><dd>Manufacturing Vision AI team PoC</dd></div><div><dt>My scope</dt><dd>Metric design and F1, recall, false-positive validation</dd></div><div><dt>Primary audience</dt><dd>Quality, process, and inspection-automation teams</dd></div><div><dt>Evidence level</dt><dd>Public-report backed</dd></div></dl><div class=project-blueprint__definition><article><h3>Problem</h3><p>Micro-defect features overlap normal surfaces and the data is imbalanced, so accuracy alone does not represent the cost of passing a defective weld.</p></article><article><h3>Goal</h3><p>Separate public and field data, compare model stages on the same metrics, and design a recall-first threshold with a reinspection policy.</p></article><article><h3>Success</h3><p>F1, recall, and precision are reported together with threshold rationale, false-positive handling, and explicit production limits.</p></article></div><div class=project-blueprint__columns><section aria-labelledby=project-scope-welding-vision-ai><h3 id=project-scope-welding-vision-ai>Scope and boundaries</h3><div class=project-blueprint__scope><div><h4>In scope</h4><ul><li>Purpose separation for about 60,000 AI-Hub images and 198 field images</li><li>DenseNet baseline, two-model combination, and ResNet+DeiT comparison</li><li>Second test and threshold tuning around missed-defect risk</li></ul></div><div><h4>Out of scope or unverified</h4><ul><li>Claiming a dedicated public source repository</li><li>Generalization to every weld process and camera condition</li><li>Shipment decisions with no human reinspection path</li></ul></div></div></section><section aria-labelledby=project-requirements-welding-vision-ai><h3 id=project-requirements-welding-vision-ai>Implementation and verification</h3><div class=project-blueprint__requirements><div><h4>What had to work</h4><ul><li>Separate data source and training, validation, and field-review purpose.</li><li>Compare model stages with the same F1, recall, precision, and split policy.</li><li>Record false negatives and false positives across thresholds and retain reinspection.</li></ul></div><div><h4>Quality and operating rules</h4><ul><li>Prioritize missed-defect cost over the cost of reinspecting a normal part.</li><li>Separate evaluation-set results from production claims and check leakage.</li><li>Treat lighting, material, and camera drift as separate validation work.</li></ul></div></div></section></div><section class=project-blueprint__decisions aria-labelledby=project-decisions-welding-vision-ai><h3 id=project-decisions-welding-vision-ai>Why it was designed this way</h3><ol><li><strong>Use recall as the primary operating metric</strong><p>Passing a defective weld carries more quality risk than reinspecting a normal part.</p></li><li><strong>Keep 198 field images as a distinct validation view</strong><p>Small field data should not be mixed into a large public set to imply broad generalization.</p></li><li><strong>Compare threshold policy with model choice</strong><p>The same model produces different miss and reinspection costs at different thresholds.</p></li></ol></section><section class=project-blueprint__work aria-labelledby=project-work-welding-vision-ai><div class=project-blueprint__section-heading><h3 id=project-work-welding-vision-ai>Work completed and planned</h3><p>Model development, evaluation, and production readiness are shown as separate task states.</p></div><ol class=project-blueprint__tasks><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Define quality risk and evaluation objective</h4><p>Set asymmetric costs and the recall-first rule.</p><dl><dt>Result</dt><dd>Evaluation policy and success criteria</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span></div><h4>Separate data sources and purposes</h4><p>Kept public and field data distinct instead of presenting one undifferentiated training population.</p><dl><dt>Result</dt><dd>Data composition and limitation note</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span></div><h4>Compare baseline and ensembles</h4><p>Reviewed DenseNet, the two-model stage, and ResNet+DeiT under a common metric view.</p><dl><dt>Result</dt><dd>Model-evolution comparison</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Run second test and threshold validation</h4><p>Reviewed mixed cases and retained recall while checking precision and F1.</p><dl><dt>Result</dt><dd>F1 93.10%, Recall 100%, Precision 87.07%</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span></div><h4>Document operating interpretation and limits</h4><p>Used manual reinspection for false positives and did not expand the evaluation result into a plant-wide claim.</p><dl><dt>Result</dt><dd>Report and public claim boundary</dd></dl></li><li><div class=project-blueprint__task-topline><span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span></div><h4>Run line pilot and drift monitoring</h4><p>Line-specific conditions and false-negative tracking remain required.</p><dl><dt>Result</dt><dd>Line confusion matrices and operating threshold</dd></dl></li></ol></section><section class=project-blueprint__acceptance aria-labelledby=project-acceptance-welding-vision-ai><h3 id=project-acceptance-welding-vision-ai>What was verified</h3><ul><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Data source and evaluation purpose are separated.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>F1, recall, precision, and threshold rationale appear together.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done"><span aria-hidden=true>✓</span><p>Reinspection policy and production limits are explicit.</p><strong>Met</strong></li><li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned"><span aria-hidden=true>→</span><p>Long-term drift and missed-defect rate are measured across line conditions.</p><strong>Unverified</strong></li></ul><p class=project-blueprint__evidence-note><strong>Supporting evidence:</strong> The report's data, model-evolution, second-test, threshold, and final-metric slides support this record.</p></section></details><h2 id=verification-snapshot>Verification snapshot</h2><table><thead><tr><th>Metric</th><th style=text-align:right>Recorded result</th><th>Proper interpretation</th></tr></thead><tbody><tr><td>Public images</td><td style=text-align:right>~60,000</td><td>broad learning source</td></tr><tr><td>Field images</td><td style=text-align:right>198</td><td>limited field-condition check</td></tr><tr><td>Recall</td><td style=text-align:right>100%</td><td>no missed defect in this evaluation set</td></tr><tr><td>Precision</td><td style=text-align:right>87.07%</td><td>remaining false-positive cost</td></tr><tr><td>F1</td><td style=text-align:right>93.10%</td><td>balance at the selected threshold</td></tr></tbody></table><p>The public material does not fully disclose product/Lot split, class counts for every defect subtype, repeated-run variance, camera-cycle time, or long-term drift. The metrics therefore support a bounded PoC, not an unconditional production KPI.</p><h2 id=limits-and-production-readiness-requirements>Limits and production-readiness requirements</h2><ol><li>Split training and validation by product/Lot to reduce leakage.</li><li>Publish class-level confusion matrices and confidence intervals.</li><li>Standardize camera position, exposure, focus, and illumination.</li><li>Measure inference latency and missed-frame behavior at line speed.</li><li>Store model version, threshold, image, Lot, equipment condition, and operator reinspection.</li><li>Monitor domain drift and route disagreement cases to an active-learning queue.</li><li>Require model/threshold change approval and rollback records.</li></ol><h3 id=role-relevance>Role relevance</h3><ul><li><strong>Manufacturing AI & data:</strong> domain-aware data separation, model comparison, threshold control, and deployment gates.</li><li><strong>Data analysis:</strong> metric definition, class imbalance, confusion-matrix interpretation, and scope-limited conclusions.</li><li><strong>Manufacturing engineering:</strong> welding-process context, reinspection workflow, MES/PLC traceability, and quality-risk ownership.</li></ul><p>The most important result is not the F1 number in isolation. It is the ability to <strong>translate a manufacturing defect risk into data boundaries, comparable metrics, a decision threshold, and an honest deployment limit</strong>.</p><h2 id=public-links>Public links</h2><section class=project-resources aria-labelledby=project-resources-welding-vision-ai><h2 id=project-resources-welding-vision-ai>Public links</h2><p class=project-resources__lead>Public material for reviewing project evidence and the live user surface.</p><p class=project-resources__note>No dedicated public repository or view-only report is currently available, so external buttons are withheld. Education-set results are not presented as production performance.</p></section></div><footer class=portfolio-article__footer><hr><div class="row next-prev-navigator"></div></footer></article></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main><section class=toc-section id=toc-section aria-label="Table of contents"><div class=toc-holder><h2 class="h5 text-center ps-3">Table of Contents</h2><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#problem-accuracy-alone-cannot-define-a-welding-defect-operating-threshold>Problem: accuracy alone cannot define a welding-defect operating threshold</a><ul><li><a href=#resume-bullets>Resume bullets</a></li><li><a href=#interview-star>Interview STAR</a></li></ul></li><li><a href=#why-this-project-was-structured-this-way>Why this project was structured this way</a></li><li><a href=#architecture-and-data-flow>Architecture and data flow</a></li><li><a href=#technologies-and-implementation>Technologies and implementation</a><ul><li><a href=#why-recall-was-prioritized>Why recall was prioritized</a></li></ul></li><li><a href=#ai-and-human-roles>AI and human roles</a></li><li><a href=#pdd-and-related-tasks>PDD and related tasks</a></li><li><a href=#verification-snapshot>Verification snapshot</a></li><li><a href=#limits-and-production-readiness-requirements>Limits and production-readiness requirements</a><ul><li><a href=#role-relevance>Role relevance</a></li></ul></li><li><a href=#public-links>Public links</a></li></ul></nav></div></div></section></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p><p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Technical Cases</a></nav><address class=portfolio-footer__contact><a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.9b21118f8df586f8ceaee61afcef8fd4ab70162b249a23297b834b4b05e87c58.js integrity="sha256-myERj431hvjOruYa/O+P1KtwFiskmiMpe4NLSwXofFg=" defer></script></body></html>
+]</p>
+<p>Candidates were compared under the same data split and metrics. When a threshold changed, a human reviewed the actual false-positive and false-negative images instead of accepting the aggregate score alone.</p>
+<h2 id="normal-and-exception-flows">Normal and exception flows</h2>
+<p>The normal path is <code>image input → probability → threshold decision → result record → operator review</code>. Production use also needs explicit exception handling:</p>
+<ul>
+<li>low-confidence images affected by glare or lighting go to recapture or manual review</li>
+<li>model/operator disagreements are retained for label and cause review</li>
+<li>product, camera, or weld-condition changes trigger revalidation instead of silent reuse</li>
+<li>model version, threshold, Lot, and capture condition are stored with each decision</li>
+</ul>
+<h2 id="technologies-and-why-they-were-needed">Technologies and why they were needed</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Role in this project</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Python experiment workflow</td>
+          <td>manage data splits, candidate comparison, and metric calculation in a repeatable order</td>
+      </tr>
+      <tr>
+          <td>Deep-learning vision</td>
+          <td>learn irregular surface and defect features that are difficult to encode as fixed rules</td>
+      </tr>
+      <tr>
+          <td>Confusion matrix</td>
+          <td>expose false negatives and false positives hidden by accuracy</td>
+      </tr>
+      <tr>
+          <td>Threshold tuning</td>
+          <td>compare quality risk with reinspection burden</td>
+      </tr>
+      <tr>
+          <td>Manufacturing quality methods</td>
+          <td>connect the model output to P-FMEA, inspection criteria, and traceability</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="current-result-and-remaining-gates">Current result and remaining gates</h2>
+<p>Verified outputs are the data-role boundary, the model-comparison criteria, the threshold-evaluation flow, and the production-readiness gates. This was not a completed line deployment, real-time full inspection, or long-term drift-monitoring system.</p>
+<p>Before production use, the following would still be required:</p>
+<ol>
+<li>split training and validation by product, Lot, and capture period</li>
+<li>disclose class counts and confusion matrices by defect type</li>
+<li>standardize camera position, focus, exposure, and illumination</li>
+<li>measure inference time and dropped frames at line speed</li>
+<li>run a shadow test alongside inspectors</li>
+<li>govern model and threshold changes, rollback, and revalidation</li>
+</ol>
+<p>The value of the PoC is not a claim that AI replaced inspection. It shows how a manufacturing defect problem can be decomposed into <strong>data boundaries, missed-defect cost, a decision threshold, operator reinspection, and traceability</strong>.</p>
+<h2 id="design-and-work-record">Design and work record</h2>
+<details class="project-blueprint project-blueprint--v4">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <div class="project-blueprint__compact">
+    <dl>
+      <div><dt>Problem</dt><dd>Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection.</dd></div>
+      <div><dt>Role scope</dt><dd>Data-role separation, evaluation policy, threshold logic, and pre-deployment gates</dd></div><div><dt>Team result</dt><dd>PoC on a training evaluation set</dd></div><div><dt>Personal contribution</dt><dd>Miss-priority evaluation criteria and result interpretation</dd></div><div><dt>Evidence scope</dt><dd>career-material</dd></div>
+      <div><dt>Limitations</dt><dd>No dedicated public repository or reproducible evaluation artifact was verified, so model scores are excluded from headline results.</dd></div>
+    </dl>
+  </div>
+</details>
+
+
+        </div>
+
+        <aside class="portfolio-case-limitations" aria-labelledby="case-limitations-title">
+          <h2 id="case-limitations-title">Verified scope and limitations</h2>
+          <p>No dedicated public repository or reproducible evaluation artifact was verified, so model scores are excluded from headline results.</p>
+        </aside>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/en/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>Back to all case studies</span>
+          </a>
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-this-problem-mattered">Why this problem mattered</a></li>
+    <li><a href="#from-the-existing-workflow-to-the-poc">From the existing workflow to the PoC</a></li>
+    <li><a href="#my-scope">My scope</a></li>
+    <li><a href="#data-and-decision-flow">Data and decision flow</a></li>
+    <li><a href="#why-these-metrics-were-used">Why these metrics were used</a></li>
+    <li><a href="#normal-and-exception-flows">Normal and exception flows</a></li>
+    <li><a href="#technologies-and-why-they-were-needed">Technologies and why they were needed</a></li>
+    <li><a href="#current-result-and-remaining-gates">Current result and remaining gates</a></li>
+    <li><a href="#design-and-work-record">Design and work record</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Technical Cases</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

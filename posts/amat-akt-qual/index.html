@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>AMAT·AKT CVD·PECVD 부품 Qual | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/amat-akt-qual/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/amat-akt-qual/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.35ba8fd1561599ed0d61bfe678828a21926c7d8ee991abef714ce9eb825e0b0a.css" integrity="sha256-NbqP0VYVme0NYb/meIKKIZJsfY7pkavvcUzp64JeCwo=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="AMAT·AKT CVD·PECVD 부품 Qual">
+<meta property="og:type" content="article">
+<meta property="og:description" content="사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다. 기술 Qual을 수행했지만 고난도 부품 중심 거래구조와 수익성 문제로 약 1년 뒤 회사 차원에서 거래가 종료됐습니다.">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/amat-akt-qual/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AMAT·AKT CVD·PECVD 부품 Qual">
+  <meta name="twitter:description" content="왜 중요한 문제였는가 반도체·디스플레이 장비 부품은 사내 검사에서 합격해도 고객의 측정기, 검사 위치와 판정기준이 다르면 같은 결과로 인정받지 못할 수 있습니다. 특히 표면처리, 절연 성능, 내산성·내식성과 같은 항목은 공정조건과 검사방법을 함께 맞춰야 Qual 결과를 양산에서 반복할 수 있습니다.
+이 사례에서는 고객 상세 Spec이나 제품 식별정보를 공개하지 않고, 공정·검사 Correlation을 어떻게 만들고 Qual과 양산문서로 이어 갔는지에 집중합니다.
+초기 상태와 측정기준 처음부터 공정조건만 바꾸지 않았습니다. 사내 측정값과 고객 측정값이 왜 다른지 모르는 상태에서 Recipe를 조정하면, 실제 공정 차이와 측정 차이를 구분할 수 없기 때문입니다.">
+<meta name="description" content="사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다. 기술 Qual을 수행했지만 고난도 부품 중심 거래구조와 수익성 문제로 약 1년 뒤 회사 차원에서 거래가 종료됐습니다.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다. 기술 Qual을 수행했지만 고난도 부품 중심 거래구조와 수익성 문제로 약 1년 뒤 회사 차원에서 거래가 종료됐습니다.","headline":"AMAT·AKT CVD·PECVD 부품 Qual","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/amat-akt-qual/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >기술 사례</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/amat-akt-qual">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/amat-akt-qual">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--manufacturing-result" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+            <span class="portfolio-article__stage">양산 결과</span>
+          </div>
+          <h1>AMAT·AKT CVD·PECVD 부품 Qual</h1>
+          <p class="portfolio-article__lead">공정조건과 측정방법을 함께 맞추고, 기술 결과와 사업 결과를 분리해 본 고객 Qual 사례</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>YMC 재직 중 Qual 수행</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>와이엠씨 기술연구소 재직 중 수행</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <p>30 SECOND READ</p>
+            <h2 id="case-summary-title">30초 요약</h2>
+          </header>
+          <dl>
+            <div><dt>문제</dt><dd>사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다.</dd></div>
+            <div><dt>내 역할</dt><dd>표면처리·Hi-Pot·내산성·내식성 검사조건을 재구성하고 동일 Sample Correlation과 기술실사 대응을 맡았습니다.</dd></div>
+            <div><dt>결과·현재 단계</dt><dd>기술 Qual을 수행했지만 고난도 부품 중심 거래구조와 수익성 문제로 약 1년 뒤 회사 차원에서 거래가 종료됐습니다.</dd></div><div><dt>팀 결과</dt><dd>기술 Qual 수행 · 사업 지속 여부는 별도 회사 판단</dd></div><div><dt>내가 직접 한 일</dt><dd>공정·검사 기준과 동일 Sample 비교, 승인조건의 표준문서 반영</dd></div></dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="왜-중요한-문제였는가">왜 중요한 문제였는가</h2>
+<p>반도체·디스플레이 장비 부품은 사내 검사에서 합격해도 고객의 측정기, 검사 위치와 판정기준이 다르면 같은 결과로 인정받지 못할 수 있습니다. 특히 표면처리, 절연 성능, 내산성·내식성과 같은 항목은 공정조건과 검사방법을 함께 맞춰야 Qual 결과를 양산에서 반복할 수 있습니다.</p>
+<p>이 사례에서는 고객 상세 Spec이나 제품 식별정보를 공개하지 않고, 공정·검사 Correlation을 어떻게 만들고 Qual과 양산문서로 이어 갔는지에 집중합니다.</p>
+<h2 id="초기-상태와-측정기준">초기 상태와 측정기준</h2>
+<p>처음부터 공정조건만 바꾸지 않았습니다. 사내 측정값과 고객 측정값이 왜 다른지 모르는 상태에서 Recipe를 조정하면, 실제 공정 차이와 측정 차이를 구분할 수 없기 때문입니다.</p>
+<p>확인 대상을 세 층으로 나눴습니다.</p>
+<ol>
+<li>공정: 전처리, 표면처리, 세정과 후처리 조건</li>
+<li>제품: 막두께, 조도, 외관, 절연과 내환경 성능</li>
+<li>측정: 장비, Sample 위치, 반복횟수, 판정방법과 Bias</li>
+</ol>
+<h2 id="직접-수행한-조치">직접 수행한 조치</h2>
+<h3 id="공정과-검사-항목을-같은-표로-맞췄습니다">공정과 검사 항목을 같은 표로 맞췄습니다</h3>
+<p>고객 요구항목을 공정 단계와 연결해, 어떤 조건이 어떤 검사결과에 영향을 주는지 정리했습니다. 막두께·조도·색차·내전압과 Particle·치수 항목을 제품 특성과 연결하고, 확인되지 않은 항목은 Sample 검증 대상으로 남겼습니다.</p>
+<h3 id="동일-sample로-측정-차이를-확인했습니다">동일 Sample로 측정 차이를 확인했습니다</h3>
+<p>사내와 고객이 서로 다른 Sample을 측정하면 제품 차이와 장비 차이가 섞입니다. 동일 Sample을 반복 측정해 장비 간 Bias와 반복성을 확인하고, 검사 위치와 전처리 방법도 맞췄습니다. 공정능력과 측정시스템의 신뢰성은 별개의 질문으로 관리했습니다.</p>
+<h3 id="기술실사와-보완조치를-추적했습니다">기술실사와 보완조치를 추적했습니다</h3>
+<p>Sample 결과만 제출하는 데서 끝내지 않고, 고객 기술실사에서 확인된 보완사항을 공정·검사·문서 항목으로 나눠 담당자와 재확인했습니다. 변경한 조건은 다시 Sample로 확인한 뒤 표준문서에 반영했습니다.</p>
+<h2 id="확인재시험">확인·재시험</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>고객 요구조건 분해
+</span></span><span style="display:flex;"><span>→ 공정조건·검사항목 연결
+</span></span><span style="display:flex;"><span>→ 동일 Sample 반복측정
+</span></span><span style="display:flex;"><span>→ 측정 Bias와 공정 차이 분리
+</span></span><span style="display:flex;"><span>→ Sample 검증
+</span></span><span style="display:flex;"><span>→ 기술실사 보완
+</span></span><span style="display:flex;"><span>→ Qual
+</span></span><span style="display:flex;"><span>→ Recipe·Run Sheet·검사기준 반영
+</span></span></code></pre></div><p>재시험에서는 조건과 검사방법을 동시에 여러 개 바꾸지 않았습니다. 변경 이유, 대상 Sample, 검사 위치와 판정기준을 남겨 다음 결과를 이전 결과와 비교할 수 있게 했습니다.</p>
+<h2 id="결과">결과</h2>
+<h3 id="기술-결과">기술 결과</h3>
+<p>CVD·PECVD 공정부품의 표면처리와 Hi-Pot·내산성·내식성 기준을 글로벌 장비업체 요구조건에 맞춰 재구성하고 Qual을 수행했습니다. 확인된 조건은 Recipe, Run Sheet, 공정표준서와 검사기준으로 정리했습니다.</p>
+<h3 id="사업-결과">사업 결과</h3>
+<p>기술 Qual과 사업의 지속 여부는 같은 결과가 아닙니다. 이후 고난도 부품 중심의 거래구조와 수익성 문제로 회사가 약 1년 뒤 거래를 종료했습니다. 이 내용을 숨기지 않고, 제가 만든 기술 결과와 회사의 사업 판단을 분리해 설명합니다.</p>
+<h2 id="다른-제조업무에-적용할-원칙">다른 제조업무에 적용할 원칙</h2>
+<ul>
+<li>고객과 측정값이 다르면 공정부터 고치지 말고 동일 Sample과 측정방법을 먼저 확인합니다.</li>
+<li>Qual 승인조건은 개발자 개인 기록이 아니라 현장 Recipe와 검사기준으로 남깁니다.</li>
+<li>기술 승인, 양산 적용과 사업 수익성은 서로 다른 결과로 평가합니다.</li>
+</ul>
+<details class="project-blueprint project-blueprint--v4">
+  <summary class="project-blueprint__toggle">설계·작업·검증 기록</summary>
+  <div class="project-blueprint__compact">
+    <dl>
+      <div><dt>문제</dt><dd>사내 공정 결과가 안정적이어도 고객 측정방법과 기준이 다르면 Qual에서 같은 결과로 인정받기 어려웠습니다.</dd></div>
+      <div><dt>역할 범위</dt><dd>공정·검사 Spec 재구성, 측정 Correlation, Sample 검증과 기술실사</dd></div><div><dt>팀 결과</dt><dd>기술 Qual 수행 · 사업 지속 여부는 별도 회사 판단</dd></div><div><dt>개인 기여</dt><dd>공정·검사 기준과 동일 Sample 비교, 승인조건의 표준문서 반영</dd></div><div><dt>근거 범위</dt><dd>career-material</dd></div>
+      <div><dt>한계</dt><dd>Qual을 사업화 성공으로 표현하지 않습니다. 고객 상세 Spec과 제품 식별정보는 공개하지 않습니다.</dd></div>
+    </dl>
+  </div>
+</details>
+
+
+        </div>
+
+        <aside class="portfolio-case-limitations" aria-labelledby="case-limitations-title">
+          <h2 id="case-limitations-title">확인 범위와 한계</h2>
+          <p>Qual을 사업화 성공으로 표현하지 않습니다. 고객 상세 Spec과 제품 식별정보는 공개하지 않습니다.</p>
+        </aside>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 기술 사례로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#왜-중요한-문제였는가">왜 중요한 문제였는가</a></li>
+    <li><a href="#초기-상태와-측정기준">초기 상태와 측정기준</a></li>
+    <li><a href="#직접-수행한-조치">직접 수행한 조치</a>
+      <ul>
+        <li><a href="#공정과-검사-항목을-같은-표로-맞췄습니다">공정과 검사 항목을 같은 표로 맞췄습니다</a></li>
+        <li><a href="#동일-sample로-측정-차이를-확인했습니다">동일 Sample로 측정 차이를 확인했습니다</a></li>
+        <li><a href="#기술실사와-보완조치를-추적했습니다">기술실사와 보완조치를 추적했습니다</a></li>
+      </ul>
+    </li>
+    <li><a href="#확인재시험">확인·재시험</a></li>
+    <li><a href="#결과">결과</a>
+      <ul>
+        <li><a href="#기술-결과">기술 결과</a></li>
+        <li><a href="#사업-결과">사업 결과</a></li>
+      </ul>
+    </li>
+    <li><a href="#다른-제조업무에-적용할-원칙">다른 제조업무에 적용할 원칙</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">기술 사례</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

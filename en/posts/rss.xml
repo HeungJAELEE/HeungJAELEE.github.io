@@ -1,328 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/posts/</link><description>Recent content in Posts on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/posts/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Assembly-Line Good Yield: About 40%→98.7%</title><link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Good-product yield on the 2170 assembly line was initially about 40%. Before increasing output, we had to distinguish whether losses came from the product, equipment, or inspection. Treating a gauge error as a process defect can lead to the wrong process change; treating a real defect as an inspection issue allows it to recur.&lt;/p&gt;
-&lt;p&gt;I therefore started by aligning production quantity, inspected quantity, defect categories, downtime, and measurement rules rather than tuning one recipe from a headline yield number.&lt;/p&gt;</description></item><item><title>Evidence- and Rights-Governed Maintenance Learning: Why PUBLIC and HOLD Both Matter</title><link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid><description>&lt;h2 id="problem-a-fluent-explanation-is-not-necessarily-a-supported-answer"&gt;Problem: a fluent explanation is not necessarily a supported answer&lt;/h2&gt;
-&lt;p&gt;Qualification material fragments questions, answers, theory, NCS units, and practical visuals across sources. AI can fill gaps fluently while still relying on:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;conflicting answer candidates;&lt;/li&gt;
-&lt;li&gt;images without publication rights;&lt;/li&gt;
-&lt;li&gt;theory that is textually similar but semantically wrong;&lt;/li&gt;
-&lt;li&gt;answers already present in a pre-submit client payload;&lt;/li&gt;
-&lt;li&gt;one UI forced across written and practical answer formats.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The project goal is therefore not rapid question growth. It is a platform that &lt;strong&gt;publishes only evidence-qualified learning and preserves uncertainty as HOLD&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Fail-Closed AI Authority &amp; Evidence Plane: Visibility Is Not Execution Authority</title><link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid><description>&lt;h2 id="problem-test-success-is-not-execution-authority"&gt;Problem: test success is not execution authority&lt;/h2&gt;
-&lt;p&gt;These statements describe different facts:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a model read data;&lt;/li&gt;
-&lt;li&gt;a model recommended an action;&lt;/li&gt;
-&lt;li&gt;local code passed tests;&lt;/li&gt;
-&lt;li&gt;an authorized person approved a bounded action;&lt;/li&gt;
-&lt;li&gt;the same artifact ran in the operating environment;&lt;/li&gt;
-&lt;li&gt;an external effect occurred and was read back.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Without that separation, “test PASS” can become “ready to deploy,” recommendation can become order approval, and local state can be mistaken for external effect.&lt;/p&gt;</description></item><item><title>NCM Prismatic Pilot Line: FAT/SAT for 13 Processes and 11 Systems</title><link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;An automatic cycle on one machine does not mean a pilot line is ready. Upstream and downstream interfaces, cycle time, precision, repeatability, sensors, alarms, interlocks, operator safety, and recovery must work together. After product input, measurement variation must also be separated from process variation.&lt;/p&gt;
-&lt;p&gt;This project covered &lt;strong&gt;13 detailed processes and 11 core systems&lt;/strong&gt; on an NCM 50Ah prismatic-cell assembly pilot line.&lt;/p&gt;
-&lt;h2 id="what-i-owned"&gt;What I owned&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Prepared FAT/SAT acceptance sheets and checked specifications, intermediate-part tolerances, and acceptance criteria.&lt;/li&gt;
-&lt;li&gt;Managed vendor punch lists, action dates, and retest results.&lt;/li&gt;
-&lt;li&gt;Reviewed process capability (Cpk) separately from the measurement system (Gage R&amp;amp;R).&lt;/li&gt;
-&lt;li&gt;Checked laser, ultrasonic, and resistance welding plus filling through tensile, cross-section, leak, Hi-Pot, IR, and X-ray results.&lt;/li&gt;
-&lt;li&gt;Managed materials, WIP, staffing, and lot history for a 200-cell daily plan.&lt;/li&gt;
-&lt;li&gt;Used and improved an Excel VBA tracking sheet where MES was not yet available.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="what-i-checked-and-changed"&gt;What I checked and changed&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Stage&lt;/th&gt;
-&lt;th&gt;Checks&lt;/th&gt;
-&lt;th&gt;Method&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;FAT&lt;/td&gt;
-&lt;td&gt;Function, cycle, I/O, alarms, interlocks, safety&lt;/td&gt;
-&lt;td&gt;Specification and acceptance-sheet comparison; punch registration&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Installation&lt;/td&gt;
-&lt;td&gt;Utilities, reference points, precision, repeatability&lt;/td&gt;
-&lt;td&gt;Recheck after installation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SAT&lt;/td&gt;
-&lt;td&gt;Interfaces, sample run, restart, and recovery&lt;/td&gt;
-&lt;td&gt;Repeated tests under site conditions&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Process check&lt;/td&gt;
-&lt;td&gt;Cpk, Gage R&amp;amp;R, welding, and filling&lt;/td&gt;
-&lt;td&gt;Compared process and measurement variation separately&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Production operation&lt;/td&gt;
-&lt;td&gt;Material, WIP, people, lots, daily output&lt;/td&gt;
-&lt;td&gt;Managed priorities against the 200-cell plan&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;code&gt;Process capability (Cpk)&lt;/code&gt; describes the stability of process output against specification. &lt;code&gt;Gage R&amp;amp;R&lt;/code&gt; checks variation from the measurement system and operators. They are not one “process index.”&lt;/p&gt;</description></item><item><title>Official-source Unemployment Benefit Q&amp;A: Turning 165 Questions into Verification Paths</title><link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid><description>&lt;h2 id="problem-similar-questions-can-produce-different-administrative-outcomes"&gt;Problem: similar questions can produce different administrative outcomes&lt;/h2&gt;
-&lt;p&gt;A short question such as “Can I qualify after resigning?” may depend on separation reason, insured periods, documents, job-search activity, an individual notice, and agency review. A website that decides the case can conflict with current law or the actual disposition.&lt;/p&gt;
-&lt;p&gt;The service is therefore a &lt;strong&gt;static verification aid&lt;/strong&gt;, not an eligibility chatbot. It helps a user find:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the closest question type;&lt;/li&gt;
-&lt;li&gt;facts and documents to check;&lt;/li&gt;
-&lt;li&gt;the relevant Work24, ministry, or statute source;&lt;/li&gt;
-&lt;li&gt;what to confirm through an individual notice or competent employment center.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-165-questions-become-eight-categories"&gt;Why 165 questions become eight categories&lt;/h2&gt;
-&lt;p&gt;Publishing raw conversations would expose personal context and create duplicates. One giant FAQ would make discovery difficult.&lt;/p&gt;</description></item><item><title>Semiconductor and Display-Part Surface Treatment and Measurement Correlation</title><link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Surface-treatment results change with material, geometry, contamination, and process conditions even when a nominal recipe is unchanged. My scope included chemical anodizing, etching, and cleaning as well as dry mechanical bead blasting. Because those processes work differently, I managed their conditions and inspection methods separately instead of grouping all of them as wet processing. Even stable internal measurements can fail qualification when the customer&amp;rsquo;s instrument and rule differ.&lt;/p&gt;</description></item><item><title>Vacuum-Robot Overhaul: Turning Verbal Know-How into SOPs</title><link>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</guid><description>&lt;h2 id="problem-and-context"&gt;Problem and context&lt;/h2&gt;
-&lt;p&gt;Vacuum-robot overhaul does not end with cleaning and parts replacement. Arm alignment, encoder zero, vacuum leak, and repeatability must be within the acceptance rule before the robot returns to equipment. Work order and inspection know-how had depended heavily on individual experience, leading to different assembly times and missed checks.&lt;/p&gt;
-&lt;h2 id="what-i-owned"&gt;What I owned&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Performed disassembly, cleaning, and bearing, belt, and motor replacement.&lt;/li&gt;
-&lt;li&gt;Checked arm alignment, encoder zero, vacuum leak, repeatability, teaching, and commissioning.&lt;/li&gt;
-&lt;li&gt;Documented parts lists, disassembly/assembly order, torque, alignment, and inspection criteria.&lt;/li&gt;
-&lt;li&gt;Trained operators with SOPs and checklists and reviewed their first work.&lt;/li&gt;
-&lt;li&gt;Supported overseas line setup and sample overhaul; the public result stops at the initial sample qualification I directly confirmed during employment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="what-i-checked-and-changed"&gt;What I checked and changed&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Stage&lt;/th&gt;
-&lt;th&gt;Checks&lt;/th&gt;
-&lt;th&gt;Documented baseline&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Incoming/disassembly&lt;/td&gt;
-&lt;td&gt;External condition, motion, part locations&lt;/td&gt;
-&lt;td&gt;Incoming checklist and disassembly order&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Cleaning/replacement&lt;/td&gt;
-&lt;td&gt;Contamination, bearings, belts, motors&lt;/td&gt;
-&lt;td&gt;Replacement criteria and parts list&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Assembly&lt;/td&gt;
-&lt;td&gt;Fastening order, torque, arm position&lt;/td&gt;
-&lt;td&gt;Assembly sequence and cautions&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alignment/zero&lt;/td&gt;
-&lt;td&gt;Arm alignment and encoder zero&lt;/td&gt;
-&lt;td&gt;Reference and check method&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Final inspection&lt;/td&gt;
-&lt;td&gt;Leak, repeatability, teaching, commissioning&lt;/td&gt;
-&lt;td&gt;Test order, decision, and abnormal-response steps&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;The documents were written so the next operator could follow the same assembly order and find an abnormality through the same tests.&lt;/p&gt;</description></item><item><title>Deep Learning Modeling Textbook: Reproducible Experiments for Manufacturing Data</title><link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid><description>&lt;h2 id="problem-executable-training-code-is-not-yet-a-reproducible-experiment"&gt;Problem: executable training code is not yet a reproducible experiment&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Deep Learning Modeling Textbook&lt;/strong&gt; is a personal learning and practical validation project for organizing data preprocessing, model training, evaluation, and reproducibility as one traceable workflow. Instead of stopping at isolated tutorial code, the project defines a modeling standard that can be reused when new data arrives: frame the problem, run a controlled experiment, and explain the result.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The public repository currently exposes only limited implementation detail. This case study is therefore a design document based on the repository&amp;rsquo;s stated scope of preprocessing, training, evaluation, and reproducibility management. It does not claim a particular dataset size, model accuracy, completed training run, or production deployment. The directory structure and validation items below are target design criteria, not a list of finished features.&lt;/p&gt;</description></item><item><title>AI Welding Vision: Designing Metrics Around Missed-Defect Risk</title><link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid><description>&lt;h2 id="problem-accuracy-alone-cannot-define-a-welding-defect-operating-threshold"&gt;Problem: accuracy alone cannot define a welding-defect operating threshold&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Item&lt;/th&gt;
-&lt;th&gt;Verified scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;Micro-defect features overlapped with normal surfaces, data was imbalanced, and accuracy alone did not represent the cost of passing a defective weld.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Role&lt;/td&gt;
-&lt;td&gt;I was responsible for &lt;strong&gt;evaluation-metric design and validation&lt;/strong&gt;, including F1, recall, false-positive behavior, and threshold interpretation.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Action&lt;/td&gt;
-&lt;td&gt;The team separated roughly 60,000 AI-Hub images from 198 field images, compared a DenseNet baseline, a two-model combination, and a ResNet+DeiT ensemble, then reviewed a second test set and tuned the decision threshold to prioritize missed-defect control.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Result&lt;/td&gt;
-&lt;td&gt;On the recorded evaluation set and selected threshold, the report lists &lt;strong&gt;F1 93.10%, Recall 100%, and Precision 87.07%&lt;/strong&gt;. These values do not establish production-wide generalization.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evidence&lt;/td&gt;
-&lt;td&gt;The public report&amp;rsquo;s dataset, model-evolution, second-test, threshold, and final-metric slides; no dedicated public repository.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="resume-bullets"&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Separated approximately 60,000 public welding images and 198 field images by learning/field-validation purpose instead of presenting them as one undifferentiated training set.&lt;/li&gt;
-&lt;li&gt;Compared DenseNet, a two-model combination, and a ResNet+DeiT ensemble, then used second-test error review to tune the operating threshold around missed-defect cost.&lt;/li&gt;
-&lt;li&gt;Recorded F1 93.10%, Recall 100%, and Precision 87.07% on the stated evaluation set and defined manual reinspection as the control for remaining false positives.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="interview-star"&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; Missing a small weld defect carried a higher quality risk than sending a normal part to reinspection, while accuracy could remain high under class imbalance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Establish a comparable evaluation framework and a decision threshold aligned with that asymmetric risk.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; Separate data sources, compare model stages on the same metrics, inspect mixed normal/defect regions in a second test, and search thresholds that retained recall.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The selected evaluation produced Recall 100%, F1 93.10%, and Precision 87.07%. I also documented that this is inspection-assistance evidence, not proof of autonomous production deployment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-this-project-was-structured-this-way"&gt;Why this project was structured this way&lt;/h2&gt;
-&lt;p&gt;Manufacturing vision is not finished when a model outputs a class. A deployable quality decision must answer four questions:&lt;/p&gt;</description></item><item><title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title><link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;Separate demonstrations of robot motion, vision results, PLC sequences, and MES records do not reconstruct what happened to one product.&lt;/p&gt;
-&lt;p&gt;This education team PoC used a QR serial as the common key across an Indy7 assembly flow, edge-vision inspection, PLC and SCADA, MySQL/MES, and digital-twin state.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Public scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Project type&lt;/td&gt;
-&lt;td&gt;Education team PoC&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;My role&lt;/td&gt;
-&lt;td&gt;Robot and Digital Twin&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Team implementation&lt;/td&gt;
-&lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Technologies&lt;/td&gt;
-&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Current status&lt;/td&gt;
-&lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description></item><item><title>Giga Press Factory DX: From Field Signals to Virtual Commissioning</title><link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid><description>&lt;h2 id="problem-process-and-communication-risk-must-be-tested-before-equipment-deployment"&gt;Problem: process and communication risk must be tested before equipment deployment&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Item&lt;/th&gt;
-&lt;th&gt;Verified scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;Process sequences and parameter assumptions could only be checked late with physical equipment, while PLC, SCADA, and virtual-model data integrity was hard to review in advance.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Role&lt;/td&gt;
-&lt;td&gt;In a ten-person team, I worked in the Digital Twin group on &lt;strong&gt;AI-model selection/training, communications setup, and technical research&lt;/strong&gt;. Ladder and SCADA implementation belonged to other team members and is not presented as my individual work.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Action&lt;/td&gt;
-&lt;td&gt;I mapped the Factory I/O–PLC–SCADA–OPC UA data path, reviewed the DQN control candidate, and defined the boundary between control, monitoring, and AI-assisted optimization.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Result&lt;/td&gt;
-&lt;td&gt;The team integrated process flow, Ladder/Factory I/O, SCADA, web, and AI-extension concepts into one demonstration and report. The cited 50–75% setup reduction and 50% expansion-labor reduction are &lt;strong&gt;expected benefits/targets&lt;/strong&gt;, not measured factory outcomes.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evidence&lt;/td&gt;
-&lt;td&gt;The team report&amp;rsquo;s R&amp;amp;R table, architecture, result, and expected-benefit slides; no dedicated public source repository.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="resume-bullets"&gt;Resume bullets&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Owned AI-model selection/training and OPC UA communications scope in a ten-person manufacturing-DX project that connected Factory I/O, PLC, SCADA, and a virtual commissioning scenario.&lt;/li&gt;
-&lt;li&gt;Converted battery-line FAT/SAT experience into failure-oriented checks covering missing sensors, communication delay, restart conditions, and safe PLC authority.&lt;/li&gt;
-&lt;li&gt;Kept the report&amp;rsquo;s 50–75% setup and 50% expansion-effort figures as pre-production targets rather than presenting them as measured plant savings.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="interview-star"&gt;Interview STAR&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Situation:&lt;/strong&gt; High-capital equipment creates late discovery risk because control logic and data integrity are difficult to test before physical trial.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; My scope was to define where AI and communications fit so that control and monitoring layers used consistent data without giving AI unrestricted equipment authority.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Action:&lt;/strong&gt; I organized the OPC UA data flow, reviewed DQN as an optimization candidate, and kept deterministic control and safety checks inside the PLC boundary.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; The team produced an integrated simulation and report. Quantified values remained expected benefits until controlled before/after measurement is available.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="why-the-project-uses-virtual-commissioning"&gt;Why the project uses virtual commissioning&lt;/h2&gt;
-&lt;p&gt;The project models a Giga Press factory context through four responsibilities:&lt;/p&gt;</description></item><item><title>HeungTology: Finding Industrial Knowledge with Traceable Sources</title><link>https://heungjaelee.github.io/en/posts/ontology-construction/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ontology-construction/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;Manufacturing knowledge is split across process, equipment, quality, defect, and corrective-action documents. As the collection grows, one machine acquires several names, relationships point to missing records, and unsupported explanations enter search results.&lt;/p&gt;
-&lt;p&gt;HeungTology is not a document-count project. It is a personal project for validating human-edited documents, tracing process and equipment relationships, and showing which source section supports a retrieved answer.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Public scope&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Problem&lt;/td&gt;
-&lt;td&gt;Duplicate identities, broken relationships, weak provenance, and local-path leakage&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;My scope&lt;/td&gt;
-&lt;td&gt;Data structure, transformation and validation, graph representation, and retrieval design&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Technologies&lt;/td&gt;
-&lt;td&gt;YAML, JSON Schema, JSON-LD, OWL, SHACL, Neo4j, and Python&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Current status&lt;/td&gt;
-&lt;td&gt;Described only within the code and documentation visible in the public repository&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Withheld claims&lt;/td&gt;
-&lt;td&gt;Local release counts and completion ratings that cannot be reproduced from a public report&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="why-it-is-structured-this-way"&gt;Why it is structured this way&lt;/h2&gt;
-&lt;p&gt;Keeping authoring, graph exchange, and retrieval data in one hand-maintained file makes drift likely. The project therefore separates their responsibilities.&lt;/p&gt;</description></item><item><title>Indy7 JSON, PC-HMI, and Digital-Twin Design</title><link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;A robot program is more than a list of joint positions. Tool and TCP settings, waypoints, motion commands, branches, speed, and I/O fields reference one another. If a PC editor reads only familiar fields and rewrites the file, the result may look correct on screen while failing on the teach pendant.&lt;/p&gt;
-&lt;p&gt;Communication has a similar ownership problem. If the HMI, historian, and digital twin each open a robot socket, it becomes difficult to identify the command owner and the latest state.&lt;/p&gt;</description></item><item><title>resumOpenAI: An Evidence-aware Resume Generation PoC</title><link>https://heungjaelee.github.io/en/posts/resumopenai/</link><pubDate>Sun, 05 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/resumopenai/</guid><description>&lt;h2 id="problem-controlling-career-facts-matters-more-than-fluent-generation"&gt;Problem: controlling career facts matters more than fluent generation&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;resumOpenAI&lt;/code&gt; explores a narrower problem than “ask an LLM to write a resume.” It separates &lt;strong&gt;verified career facts, private fields, target-role selection, draft generation, and output validation&lt;/strong&gt; so that polished wording cannot silently alter dates, employers, roles, or measured outcomes.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Design&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Frontend&lt;/td&gt;
-&lt;td&gt;React form and draft review&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;API&lt;/td&gt;
-&lt;td&gt;Flask request validation and generation orchestration&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Data&lt;/td&gt;
-&lt;td&gt;structured career facts with evidence/status fields&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LLM&lt;/td&gt;
-&lt;td&gt;controlled prompt and optional adaptation path&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Safety&lt;/td&gt;
-&lt;td&gt;personal-data minimization and public/private separation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;QA&lt;/td&gt;
-&lt;td&gt;claim/date/number checks before export&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="why-structure-comes-before-fine-tuning"&gt;Why structure comes before fine-tuning&lt;/h2&gt;
-&lt;p&gt;Fine-tuning can make style more consistent, but it cannot repair missing or contradictory facts. The first quality gate is a structured source model.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/</link>
+    <description>Manufacturing and process-engineering portfolio covering battery production, semiconductor components, equipment FAT/SAT, quality improvement, and manufacturing DX</description>
+    <atom:link href="https://heungjaelee.github.io/en/posts/rss.xml" rel="self" type="application/rss&#43;xml" /><item>
+      <title>2170 Assembly-Line Good-Yield Stabilization</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link>
+      <guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid>
+      <description>Displayed yield and shop-floor loss did not agree, so teams prioritized different causes. Monthly average good yield reached 98.7% in December 2024 from an initial level of about 40%, followed by SOP, QCP, and P-FMEA updates.</description>
+    </item><item>
+      <title>FAT/SAT of 11 Core Machines for an NCM Prismatic Pilot Line</title>
+      <link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid>
+      <description>Individual auto cycles could not prove end-to-end flow, safety, repeatability, or pilot-production readiness. Initial assembly yield was about 95% across roughly 1,000 cells over five days, including reworked cells that met quality criteria.</description>
+    </item><item>
+      <title>Vacuum-Robot Overhaul Standardization</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</link>
+      <guid>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</guid>
+      <description>Experience-dependent assembly and inspection created variation in work time and missed checks. The SOP and checklist were applied in the field; team monthly output increased from 1–2 to 4–5 units during the same period.</description>
+    </item><item>
+      <title>High-Temperature Anodizing Film Development for OLED Parts</title>
+      <link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link>
+      <guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid>
+      <description>Film cracking and particles recurred within warranty life under repeated high-temperature use. The revised condition entered production and was monitored for about a year through the transition period.</description>
+    </item><item>
+      <title>AMAT/AKT CVD &amp; PECVD Component Qualification</title>
+      <link>https://heungjaelee.github.io/en/posts/amat-akt-qual/</link>
+      <guid>https://heungjaelee.github.io/en/posts/amat-akt-qual/</guid>
+      <description>Stable internal results were insufficient when customer measurement methods and acceptance criteria differed. The technical qualification was completed, but the company ended the business about a year later because of the product mix and profitability.</description>
+    </item><item>
+      <title>Diffuser Ultrasonic-Stripping Scale-up Failure and Validation Gates</title>
+      <link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link>
+      <guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid>
+      <description>Roughness, diffusion, and product-reuse risks remained open at lab scale before equipment fabrication proceeded. Normal operation was not achieved; the case produced explicit gates for sample quality, reusability, equipment conditions, and stopping criteria.</description>
+    </item><item>
+      <title>Indy7 HMI, MQTT, PLC, and Web Twin Integrated Prototype</title>
+      <link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link>
+      <guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid>
+      <description>Separate robot connections from HMI, database, and twin services blur command ownership and current state; JSON rewrites can also break references. The public code verifies command, state, history, and read-only Web Twin paths; Omniverse is explicitly a future extension.</description>
+    </item><item>
+      <title>Weld Vision AI Evaluation and Miss-Criteria PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link>
+      <guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid>
+      <description>Accuracy alone could not explain the risk of rare defect misses versus the cost of false alarms and reinspection. The limited evaluation set supported further inspection-assist work, but production deployment and field generalization remain unverified.</description>
+    </item><item>
+      <title>Factory I/O Virtual Commissioning and OPC UA Training PoC</title>
+      <link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link>
+      <guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid>
+      <description>Finding sequence and communication issues only after equipment installation makes tryout expensive. The team integrated Factory I/O, PLC, SCADA, and OPC UA in a training demonstration; no real-plant productivity effect was measured.</description>
+    </item><item>
+      <title>YMC Surface-Treatment and Process-Development Case Hub</title>
+      <link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link>
+      <guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid>
+      <description>Combining development, qualification, and failure in one article blurred each case&#39;s decisions and outcomes. Readers can now distinguish production application, technical qualification, and failure lessons within the same career period.</description>
+    </item><item>
+      <title>HeungTology Markdown Knowledge Vault and Search CLI</title>
+      <link>https://heungjaelee.github.io/en/posts/ontology-construction/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ontology-construction/</guid>
+      <description>Manufacturing, semiconductor, and battery knowledge accumulated with inconsistent terms and links, making evidence retrieval difficult. The public main branch verifies the vault, graph index, and sync/query code. Completed JSON-LD, OWL, or SHACL execution is not claimed.</description>
+    </item><item>
+      <title>Deep-Learning Study and Experiment Archive</title>
+      <link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link>
+      <guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid>
+      <description>Runnable examples are not the same as experiments whose data, settings, and evaluation can be explained and reproduced. The public main branch currently contains only a minimal README, so no model performance or completed experiment is claimed.</description>
+    </item><item>
+      <title>Masterbook for Maintenance Engineer Exam Candidates</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid>
+      <description>Exam answers, theory, and image rights come from different evidence, so fluent AI completion can create incorrect learning material. The masterbook publishes only supported items and keeps conflicting or rights-uncertain material on HOLD.</description>
+    </item><item>
+      <title>Unemployment-Benefit Guidance Book</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid>
+      <description>Similar questions can produce different outcomes based on separation reason, insured period, documents, and individual notice; a website should not decide eligibility. The operating guide helps users find facts, documents, and official channels rather than issuing personal determinations.</description>
+    </item><item>
+      <title>Ontology and LLM Wiki Agent Specification &amp; Safety Foundation</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link>
+      <guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid>
+      <description>An AI reading data and proposing an action does not prove authority to execute or a safe external result. This is a local bounded-execution and stop-condition foundation—not an operating platform or production approval.</description>
+    </item>
+  </channel>
+</rss>
