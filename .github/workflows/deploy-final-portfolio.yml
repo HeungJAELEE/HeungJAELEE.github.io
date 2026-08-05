@@ -1,4 +1,4 @@
-name: Deploy validated portfolio build
+name: Verify live reviewed portfolio deployment
 
 on:
   push:
@@ -8,57 +8,43 @@ on:
       - .github/workflows/deploy-final-portfolio.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  deploy:
+  live-readback:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out deployment branch
-        uses: actions/checkout@v4
-        with:
-          ref: codex/deploy-final-portfolio
-          fetch-depth: 0
-
-      - name: Download and verify validated artifact
-        shell: bash
-        env:
-          BUILD_URL: 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-c37c-8206-b6b6-494d698651c4/raw?se=2026-08-05T17:41:10Z&sp=r&sv=2026-02-06&sr=b&scid=c37347b3-9ce9-50ae-ade7-b32baf5ffe9b&skoid=6980ab1e-b994-4668-84de-ad0444c9d08b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T03:16:53Z&ske=2026-08-06T03:16:53Z&sks=b&skv=2026-02-06&sig=ybMYd3H9Xg14UeKGSmx7b6WF%2BvCz5fTmnhLqkdVOZG8%3D'
-        run: |
-          set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/portfolio-build-final.zip
-          echo '510be640a937ea560030ea0478a9ef3381373043f14ee1275309e31513675a9a  /tmp/portfolio-build-final.zip' | sha256sum --check --strict
-          rm -rf /tmp/portfolio-site
-          mkdir -p /tmp/portfolio-site
-          unzip -q /tmp/portfolio-build-final.zip -d /tmp/portfolio-site
-
-      - name: Verify deployment content
+      - name: Read live Pages with cache bypass
         shell: bash
         run: |
           set -euo pipefail
-          test -f /tmp/portfolio-site/index.html
-          test -f /tmp/portfolio-site/en/index.html
-          test -f /tmp/portfolio-site/posts/battery-2170-pilot/index.html
-          test -f /tmp/portfolio-site/posts/battery-4695-production-transition/index.html
-          test -f /tmp/portfolio-site/posts/battery-25p-lfp-development/index.html
-          test -f /tmp/portfolio-site/posts/cell-production-tracking/index.html
-          grep -Fq 'Cell S/N 생산이력 추적 도구' /tmp/portfolio-site/index.html
-          grep -Fq '설비보전기사 수험생을 위한 학습 마스터북' /tmp/portfolio-site/index.html
-          ! grep -Fq '2024.08' /tmp/portfolio-site/index.html
-          ! grep -Fq '96.8%' /tmp/portfolio-site/posts/battery-25p-lfp-development/index.html
-          ! grep -Fiq 'FYD' /tmp/portfolio-site/posts/battery-4695-production-transition/index.html
-          ! grep -Fq '372 PASS' /tmp/portfolio-site/posts/ai-seolbi-learning-platform/index.html
-
-      - name: Commit and fast-forward main
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm -r --ignore-unmatch .
-          cp -a /tmp/portfolio-site/. .
-          git add -A
-          git diff --cached --check
-          git commit -m 'Deploy final reviewed portfolio project revision'
-          git push origin HEAD:main
+          base='https://heungjaelee.github.io'
+          version='d11fc4069cf83c7e24222b7908789fe8d787fae9'
+          for attempt in 1 2 3 4 5 6; do
+            curl --fail --location --silent --show-error "$base/?commit=$version&attempt=$attempt" -o /tmp/home.html || true
+            curl --fail --location --silent --show-error "$base/posts/?commit=$version&attempt=$attempt" -o /tmp/posts.html || true
+            curl --fail --location --silent --show-error "$base/posts/battery-4695-production-transition/?commit=$version&attempt=$attempt" -o /tmp/4695.html || true
+            curl --fail --location --silent --show-error "$base/posts/battery-25p-lfp-development/?commit=$version&attempt=$attempt" -o /tmp/25p.html || true
+            curl --fail --location --silent --show-error "$base/posts/ai-authority-evidence-plane/?commit=$version&attempt=$attempt" -o /tmp/authority.html || true
+            curl --fail --location --silent --show-error "$base/en/?commit=$version&attempt=$attempt" -o /tmp/home-en.html || true
+            if grep -Fq '9년 4개월의 제조 현장 경험 중 대표 결과입니다.' /tmp/home.html \
+              && grep -Fq 'Cell S/N 생산이력 추적 도구' /tmp/home.html \
+              && grep -Fq '주요 제조 프로젝트' /tmp/posts.html \
+              && grep -Fq '25P LFP Cell 개발' /tmp/25p.html \
+              && grep -Fq 'AI가 작업하기 전에 근거와 승인을 확인하는 방법' /tmp/authority.html \
+              && grep -Fq 'A representative result from nine years and four months in manufacturing roles.' /tmp/home-en.html; then
+              break
+            fi
+            sleep 10
+          done
+          grep -Fq '9년 4개월의 제조 현장 경험 중 대표 결과입니다.' /tmp/home.html
+          grep -Fq 'Cell S/N 생산이력 추적 도구' /tmp/home.html
+          grep -Fq '주요 제조 프로젝트' /tmp/posts.html
+          grep -Fq '25P LFP Cell 개발' /tmp/25p.html
+          grep -Fq 'AI가 작업하기 전에 근거와 승인을 확인하는 방법' /tmp/authority.html
+          grep -Fq 'A representative result from nine years and four months in manufacturing roles.' /tmp/home-en.html
+          ! grep -Fq '2024.08' /tmp/home.html
+          ! grep -Fiq 'FYD' /tmp/4695.html
+          ! grep -Fq '96.8%' /tmp/25p.html
+          sha256sum /tmp/home.html /tmp/posts.html /tmp/4695.html /tmp/25p.html /tmp/authority.html /tmp/home-en.html
