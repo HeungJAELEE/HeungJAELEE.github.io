@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">NCM Pre-Forming 공정 검증 흐름</title>
+  <desc id="desc">수작업 편차 확인, 소재별 손상 분리, 임시 Jig 제작, 약 400개 Sample 검증, Pilot 적용, 설비 요구사항 반영 단계</desc>
+  <rect width="1200" height="400" fill="#f7fafc"/>
+  <g font-family="Pretendard, Noto Sans KR, sans-serif">
+    <text x="56" y="58" fill="#0f2b46" font-size="28" font-weight="700">수작업 편차를 Jig와 합격기준으로 바꿨습니다</text>
+    <path d="M96 184h1000" stroke="#d5e5ef" stroke-width="8" stroke-linecap="round"/>
+    <g text-anchor="middle">
+      <g transform="translate(100 184)">
+        <circle r="40" fill="#0f2b46"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">1</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">수작업</text>
+        <text y="108" fill="#2f4d63" font-size="14">위치·형상 편차</text>
+      </g>
+      <g transform="translate(300 184)">
+        <circle r="40" fill="#0077b6"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">2</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">원인 분리</text>
+        <text y="108" fill="#2f4d63" font-size="14">양극·음극 손상</text>
+      </g>
+      <g transform="translate(500 184)">
+        <circle r="40" fill="#0077b6"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">3</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">Jig·기준</text>
+        <text y="108" fill="#2f4d63" font-size="14">형상·위치·합격</text>
+      </g>
+      <g transform="translate(700 184)">
+        <circle r="40" fill="#0077b6"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">4</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">Sample</text>
+        <text y="108" fill="#2f4d63" font-size="14">약 400개 검증</text>
+      </g>
+      <g transform="translate(900 184)">
+        <circle r="40" fill="#0077b6"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">5</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">Pilot 사용</text>
+        <text y="108" fill="#2f4d63" font-size="14">후속 Sample 생산</text>
+      </g>
+      <g transform="translate(1100 184)">
+        <circle r="40" fill="#0f2b46"/>
+        <text y="7" fill="#fff" font-size="20" font-weight="700">6</text>
+        <text y="82" fill="#005f8f" font-size="17" font-weight="700">설비 요구</text>
+        <text y="108" fill="#2f4d63" font-size="14">RFQ·설계·제작</text>
+      </g>
+    </g>
+    <rect x="56" y="328" width="1088" height="42" rx="8" fill="#eaf7fd"/>
+    <text x="600" y="355" text-anchor="middle" fill="#16324a" font-size="16">
+      Pilot 사용은 확인했고 출하·현지 설치·단위시험은 다음 검증 단계로 구분했습니다
+    </text>
+  </g>
+</svg>
