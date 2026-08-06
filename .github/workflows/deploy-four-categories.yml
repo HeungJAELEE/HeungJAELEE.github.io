@@ -39,13 +39,6 @@ jobs:
           set -euo pipefail
           ko='/tmp/portfolio-site/posts'
           en='/tmp/portfolio-site/en/posts'
-          test -f "$ko/battery-2170-pilot/index.html"
-          test -f "$ko/battery-4695-production-transition/index.html"
-          test -f "$ko/battery-25p-lfp-development/index.html"
-          test -f "$ko/ncm-fat-sat/index.html"
-          test -f "$ko/welding-vision-ai/index.html"
-          test -f "$ko/giga-press-dx/index.html"
-          test -f "$ko/robot-json-omniverse/index.html"
           grep -Fq 'DMAIC 기반 양산 안정화' "$ko/battery-2170-pilot/index.html"
           grep -Fq '전체 개선 순서' "$ko/battery-2170-pilot/index.html"
           grep -Fq '총 투입량을 양품, 샘플 검사 Loss와 공정 불량으로 구분해 양품률을 평가했습니다.' "$ko/battery-2170-pilot/index.html"
@@ -60,7 +53,7 @@ jobs:
           ! grep -Fiq 'FYD' "$ko/battery-4695-production-transition/index.html"
           ! grep -Fq '96.8%' "$ko/battery-25p-lfp-development/index.html"
 
-      - name: Commit validated Pages build
+      - name: Apply validated Pages build when changed
         shell: bash
         run: |
           set -euo pipefail
@@ -70,8 +63,12 @@ jobs:
           cp -a /tmp/portfolio-site/. .
           git add -A
           git diff --cached --check
-          git commit -m 'Deploy detailed manufacturing and DX portfolio narratives'
-          git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo 'Pages main already matches the validated artifact.'
+          else
+            git commit -m 'Deploy detailed manufacturing and DX portfolio narratives'
+            git push origin HEAD:main
+          fi
 
       - name: Read live Pages with cache bypass
         shell: bash
@@ -81,9 +78,15 @@ jobs:
           base='https://heungjaelee.github.io'
           for attempt in 1 2 3 4 5 6; do
             curl --fail --location --silent --show-error "$base/posts/battery-2170-pilot/?commit=$version&attempt=$attempt" -o /tmp/live-2170.html || true
+            curl --fail --location --silent --show-error "$base/posts/battery-25p-lfp-development/?commit=$version&attempt=$attempt" -o /tmp/live-25p.html || true
+            curl --fail --location --silent --show-error "$base/posts/ncm-fat-sat/?commit=$version&attempt=$attempt" -o /tmp/live-ncm.html || true
+            curl --fail --location --silent --show-error "$base/posts/welding-vision-ai/?commit=$version&attempt=$attempt" -o /tmp/live-vision.html || true
             curl --fail --location --silent --show-error "$base/posts/giga-press-dx/?commit=$version&attempt=$attempt" -o /tmp/live-factory.html || true
             curl --fail --location --silent --show-error "$base/posts/robot-json-omniverse/?commit=$version&attempt=$attempt" -o /tmp/live-indy7.html || true
             if grep -Fq 'DMAIC 기반 양산 안정화' /tmp/live-2170.html \
+              && grep -Fq '개발 Gate와 공정조건 연결' /tmp/live-25p.html \
+              && grep -Fq 'FAT/SAT에서 무엇을 닫았는가' /tmp/live-ncm.html \
+              && grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/live-vision.html \
               && grep -Fq '왜 이 기술구조를 선택했는가' /tmp/live-factory.html \
               && grep -Fq '왜 Robot Controller가 명령을 전담했는가' /tmp/live-indy7.html; then
               break
@@ -91,6 +94,9 @@ jobs:
             sleep 10
           done
           grep -Fq 'DMAIC 기반 양산 안정화' /tmp/live-2170.html
+          grep -Fq '개발 Gate와 공정조건 연결' /tmp/live-25p.html
+          grep -Fq 'FAT/SAT에서 무엇을 닫았는가' /tmp/live-ncm.html
+          grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/live-vision.html
           grep -Fq '왜 이 기술구조를 선택했는가' /tmp/live-factory.html
           grep -Fq '왜 Robot Controller가 명령을 전담했는가' /tmp/live-indy7.html
-          sha256sum /tmp/live-2170.html /tmp/live-factory.html /tmp/live-indy7.html
+          sha256sum /tmp/live-2170.html /tmp/live-25p.html /tmp/live-ncm.html /tmp/live-vision.html /tmp/live-factory.html /tmp/live-indy7.html
