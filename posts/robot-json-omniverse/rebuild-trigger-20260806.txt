@@ -1,0 +1,1 @@
+force Pages rebuild after source/deploy synchronization repair
