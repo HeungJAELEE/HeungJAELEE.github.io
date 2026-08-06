@@ -1,0 +1,106 @@
+name: Deploy compact Indy7 portfolio build
+
+on:
+  push:
+    branches:
+      - codex/deploy-indy7-compact
+    paths:
+      - .github/workflows/deploy-indy7-compact.yml
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-and-readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out current Pages main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download and verify validated build
+        shell: bash
+        env:
+          BUILD_URL: 'https://sdmntprwestus3.oaiusercontent.com/files/00000000-78b4-81fd-aa0c-4247daffaffc/raw?se=2026-08-06T11%3A43%3A43Z&sp=r&sv=2026-02-06&sr=b&scid=58dfd067-f2ec-5b46-9054-cec3bf93857b&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T05%3A45%3A50Z&ske=2026-08-07T05%3A45%3A50Z&sks=b&skv=2026-02-06&sig=oq3rjBiOt%2BoSQdK3hjwvm%2BQ6TxqzvEWNzUbZgspLrts%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/indy7-compact-site.zip
+          echo '45e4366e53f819d367bf837a1b7b9c6b621c71bb8f94b44e0360e91645941682  /tmp/indy7-compact-site.zip' | sha256sum --check --strict
+          rm -rf /tmp/portfolio-site
+          mkdir -p /tmp/portfolio-site
+          unzip -q /tmp/indy7-compact-site.zip -d /tmp/portfolio-site
+          if [ ! -f /tmp/portfolio-site/index.html ] && [ -f /tmp/portfolio-site/_build/index.html ]; then
+            mv /tmp/portfolio-site/_build/* /tmp/portfolio-site/
+            rmdir /tmp/portfolio-site/_build
+          fi
+          test -s /tmp/portfolio-site/index.html
+
+      - name: Verify compact Indy7 artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          ko='/tmp/portfolio-site/posts/robot-json-omniverse/index.html'
+          en='/tmp/portfolio-site/en/posts/robot-json-omniverse/index.html'
+          test -s "$ko"
+          test -s "$en"
+          grep -Fq 'portfolio-article--compact-tables' "$ko"
+          grep -Fq 'portfolio-article--compact-tables' "$en"
+          grep -Fq 'SOW 해석:' "$ko"
+          grep -Fq 'WBS 해석:' "$ko"
+          grep -Fq '책임 해석:' "$ko"
+          grep -Fq '평가 판단:' "$ko"
+          grep -Fq '경계 해석:' "$ko"
+          grep -Fq 'SOW interpretation:' "$en"
+          grep -Fq 'WBS interpretation:' "$en"
+          grep -Fq 'Responsibility interpretation:' "$en"
+          grep -Fq 'Evaluation judgement:' "$en"
+          grep -Fq 'Boundary interpretation:' "$en"
+
+      - name: Publish validated site to Pages main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r --ignore-unmatch .
+          cp -a /tmp/portfolio-site/. .
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'Pages main already matches the validated artifact.'
+          else
+            git commit -m 'deploy: publish compact Indy7 SOW WBS case'
+            git push origin HEAD:main
+          fi
+
+      - name: Read live Indy7 pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(git rev-parse HEAD)"
+          base='https://heungjaelee.github.io'
+          ready=false
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            curl --fail --location --silent --show-error "$base/posts/robot-json-omniverse/?commit=$version&attempt=$attempt" -o /tmp/live-ko.html || true
+            curl --fail --location --silent --show-error "$base/en/posts/robot-json-omniverse/?commit=$version&attempt=$attempt" -o /tmp/live-en.html || true
+            if grep -Fq 'portfolio-article--compact-tables' /tmp/live-ko.html && \
+               grep -Fq 'SOW 해석:' /tmp/live-ko.html && \
+               grep -Fq 'WBS 해석:' /tmp/live-ko.html && \
+               grep -Fq 'portfolio-article--compact-tables' /tmp/live-en.html && \
+               grep -Fq 'SOW interpretation:' /tmp/live-en.html; then
+              ready=true
+              break
+            fi
+            sleep 10
+          done
+          "$ready"
+          grep -Fq '책임 해석:' /tmp/live-ko.html
+          grep -Fq '평가 판단:' /tmp/live-ko.html
+          grep -Fq '경계 해석:' /tmp/live-ko.html
+          grep -Fq 'Responsibility interpretation:' /tmp/live-en.html
+          grep -Fq 'Evaluation judgement:' /tmp/live-en.html
+          grep -Fq 'Boundary interpretation:' /tmp/live-en.html
+          sha256sum /tmp/live-ko.html /tmp/live-en.html
