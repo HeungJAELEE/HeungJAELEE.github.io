@@ -1,4 +1,4 @@
-name: Deploy natural manufacturing narratives
+name: Deploy welding report screenshots
 
 on:
   push:
@@ -24,71 +24,40 @@ jobs:
       - name: Download and verify validated build
         shell: bash
         env:
-          BUILD_URL: 'https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-7ca0-81f7-9a46-1caadee4f2fd/raw?se=2026-08-06T03:59:26Z&sp=r&sv=2026-02-06&sr=b&scid=3f3e0283-bc79-5fe4-9919-75f9d9f6256c&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T10:34:33Z&ske=2026-08-06T10:34:33Z&sks=b&skv=2026-02-06&sig=mNP/mqxmyxF8vHs9affFibazwmrpOJCXUDljD2jIqrA%3D'
+          BUILD_URL: 'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-ee24-8211-bbed-513baf1b5136/raw?se=2026-08-06T05:46:54Z&sp=r&sv=2026-02-06&sr=b&scid=1730a377-a54a-5327-aead-65cbebd2ae36&skoid=6980ab1e-b994-4668-84de-ad0444c9d08b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T21:19:48Z&ske=2026-08-06T21:19:48Z&sks=b&skv=2026-02-06&sig=eqmH5Phk4siuXpoZKY3/wzU3fqZzKH07UUwgiDvM7O8%3D'
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/manufacturing-language-build.zip
-          echo '35db7741ff68830c16541a80649d8b9493fcc6bf3c795940b4e5de6b90551164  /tmp/manufacturing-language-build.zip' | sha256sum --check --strict
+          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/welding-vision-screenshot-build.zip
+          echo 'e270658081a03a1b9958c649a34a42fdabff344cfc4cec6365069293815942c6  /tmp/welding-vision-screenshot-build.zip' | sha256sum --check --strict
           rm -rf /tmp/portfolio-site
           mkdir -p /tmp/portfolio-site
-          unzip -q /tmp/manufacturing-language-build.zip -d /tmp/portfolio-site
+          unzip -q /tmp/welding-vision-screenshot-build.zip -d /tmp/portfolio-site
 
-      - name: Verify natural language and retained evidence blocks
+      - name: Verify report screenshots and bilingual content
         shell: bash
         run: |
-          python - <<'PY'
-          from html import unescape
-          from pathlib import Path
-          import re
-
-          checks = {
-              '/tmp/portfolio-site/posts/cell-production-tracking/index.html': [
-                  '99.9% 단축', 'AS-IS → TO-BE', '데이터와 시스템 흐름', '여러 Cell이 같은 극판 Roll의 특정 생산구간'
-              ],
-              '/tmp/portfolio-site/posts/battery-2170-pilot/index.html': [
-                  '설비가 표시하는 수율과 사후 전수검사', 'Vision은 검사 오판정', '4M 원인축소', '추가 공정 개선 결과'
-              ],
-              '/tmp/portfolio-site/posts/battery-4695-production-transition/index.html': [
-                  '부분수리만으로는 생산준비 상태', '4M 원인 지도', '100 Cell × 2 Lot = 200 Cell'
-              ],
-              '/tmp/portfolio-site/posts/battery-25p-lfp-development/index.html': [
-                  '다음 공정과 최종 CTQ', '소재·구조 변경이 공정에 미친 영향', '4.5 mm 감소'
-              ],
-              '/tmp/portfolio-site/posts/battery-tabless-concept/index.html': [
-                  'A Sample 단계에서는', '제작 위험과 확인범위', '기능평가 진입비율'
-              ],
-              '/tmp/portfolio-site/posts/ncm-fat-sat/index.html': [
-                  '개별 동작하는지만 확인해서는', '인수부터 초기 생산까지의 흐름', '1,000 Cell / 5일'
-              ],
-              '/tmp/portfolio-site/posts/can-supplier-pilot-transition/index.html': [
-                  '단품 치수만 맞는다고', '변경점과 검증', '3/3 Lot'
-              ],
-              '/tmp/portfolio-site/posts/ncm-pre-forming-validation/index.html': [
-                  '용접조건을 약화하는 대신', '4M 원인 지도', '4 Lot × 50개 = 200개'
-              ],
-              '/tmp/portfolio-site/posts/robot-overhaul-standardization/index.html': [
-                  '부품을 교체하는 작업만으로', '작업변동을 줄인 기준', '2.5~4.0배'
-              ],
-              '/tmp/portfolio-site/posts/oled-anodizing-development/index.html': [
-                  '고객 사용환경만 원인으로', '단계별 확대시험', '4단계'
-              ],
-              '/tmp/portfolio-site/posts/amat-akt-qual/index.html': [
-                  '동일 Sample의 측정조건부터', '사내와 고객의 측정차이를 맞춘 방법', '막두께·조도·내전압'
-              ],
-              '/tmp/portfolio-site/posts/diffuser-scaleup-failure/index.html': [
-                  '5개 Gate', '당시 닫히지 않은 조건'
-              ],
-              '/tmp/portfolio-site/en/posts/cell-production-tracking/index.html': [
-                  '99.9% reduction in elapsed time', 'AS-IS → TO-BE'
-              ],
-          }
-          for path, phrases in checks.items():
-              html = Path(path).read_text(encoding='utf-8')
-              text = re.sub(r'\s+', ' ', unescape(re.sub(r'<[^>]+>', ' ', html)))
-              for phrase in phrases:
-                  if phrase not in text:
-                      raise SystemExit(f'{path}: missing {phrase}')
-          PY
+          set -euo pipefail
+          ko='/tmp/portfolio-site/posts/welding-vision-ai/index.html'
+          en='/tmp/portfolio-site/en/posts/welding-vision-ai/index.html'
+          test -f "$ko"
+          test -f "$en"
+          for asset in \
+            welding-vision-report-augmentation.svg \
+            welding-vision-report-threshold.svg \
+            welding-vision-report-app-flow.svg \
+            welding-vision-report-app-results.svg; do
+            test -s "/tmp/portfolio-site/images/projects/$asset"
+            grep -Fq "$asset" "$ko"
+            grep -Fq "$asset" "$en"
+          done
+          grep -Fq '보고서의 증강 예시입니다.' "$ko"
+          grep -Fq '동일한 용접실기품의 판정결과 비교입니다.' "$ko"
+          grep -Fq '보고서의 APP 시연 구조입니다.' "$ko"
+          grep -Fq 'A·C·D 등급 시연화면입니다.' "$ko"
+          grep -Fq 'The report capture shows framing, lighting, and noise augmentation' "$en"
+          grep -Fq 'The same specimen changes grade as the threshold changes.' "$en"
+          grep -Fq 'The report architecture sends the smartphone image to' "$en"
+          grep -Fq 'The report demonstration displays grade, defect type, and confidence' "$en"
 
       - name: Apply validated Pages build
         shell: bash
@@ -101,38 +70,47 @@ jobs:
           git add -A
           git diff --cached --check
           if git diff --cached --quiet; then
-            echo 'Pages main already matches validated artifact.'
+            echo 'Pages main already matches the validated artifact.'
           else
-            git commit -m 'Deploy natural manufacturing portfolio narratives'
+            git commit -m 'Deploy welding Vision report screenshots'
             git push origin HEAD:main
           fi
 
-      - name: Read live representative pages
+      - name: Read live bilingual pages with cache bypass
         shell: bash
         run: |
           set -euo pipefail
           version="$(git rev-parse HEAD)"
-          base='https://heungjaelee.github.io/posts'
-          for attempt in 1 2 3 4 5 6; do
-            curl --fail --location --silent --show-error "$base/cell-production-tracking/?commit=$version&attempt=$attempt" -o /tmp/tracking.html || true
-            curl --fail --location --silent --show-error "$base/battery-2170-pilot/?commit=$version&attempt=$attempt" -o /tmp/2170.html || true
-            curl --fail --location --silent --show-error "$base/battery-25p-lfp-development/?commit=$version&attempt=$attempt" -o /tmp/25p.html || true
-            curl --fail --location --silent --show-error "$base/ncm-fat-sat/?commit=$version&attempt=$attempt" -o /tmp/ncm.html || true
-            curl --fail --location --silent --show-error "$base/ncm-pre-forming-validation/?commit=$version&attempt=$attempt" -o /tmp/preforming.html || true
-            if grep -Fq '99.9% 단축' /tmp/tracking.html \
-              && grep -Fq 'Vision은 검사 오판정' /tmp/2170.html \
-              && grep -Fq '다음 공정과 최종 CTQ' /tmp/25p.html \
-              && grep -Fq '개별 동작하는지만 확인해서는' /tmp/ncm.html \
-              && grep -Fq '용접조건을 약화하는 대신' /tmp/preforming.html; then
+          base='https://heungjaelee.github.io'
+          for attempt in 1 2 3 4 5 6 7 8; do
+            curl --fail --location --silent --show-error "$base/posts/welding-vision-ai/?commit=$version&attempt=$attempt" -o /tmp/live-ko.html || true
+            curl --fail --location --silent --show-error "$base/en/posts/welding-vision-ai/?commit=$version&attempt=$attempt" -o /tmp/live-en.html || true
+            ready=true
+            for asset in \
+              welding-vision-report-augmentation.svg \
+              welding-vision-report-threshold.svg \
+              welding-vision-report-app-flow.svg \
+              welding-vision-report-app-results.svg; do
+              grep -Fq "$asset" /tmp/live-ko.html || ready=false
+              grep -Fq "$asset" /tmp/live-en.html || ready=false
+            done
+            if "$ready"; then
               break
             fi
             sleep 10
           done
-          grep -Fq '99.9% 단축' /tmp/tracking.html
-          grep -Fq 'AS-IS → TO-BE' /tmp/tracking.html
-          grep -Fq 'Vision은 검사 오판정' /tmp/2170.html
-          grep -Fq '4M 원인축소' /tmp/2170.html
-          grep -Fq '다음 공정과 최종 CTQ' /tmp/25p.html
-          grep -Fq '개별 동작하는지만 확인해서는' /tmp/ncm.html
-          grep -Fq '용접조건을 약화하는 대신' /tmp/preforming.html
-          git rev-parse HEAD
+          for asset in \
+            welding-vision-report-augmentation.svg \
+            welding-vision-report-threshold.svg \
+            welding-vision-report-app-flow.svg \
+            welding-vision-report-app-results.svg; do
+            grep -Fq "$asset" /tmp/live-ko.html
+            grep -Fq "$asset" /tmp/live-en.html
+            curl --fail --location --silent --show-error "$base/images/projects/$asset?commit=$version" -o "/tmp/$asset"
+            test -s "/tmp/$asset"
+          done
+          grep -Fq '보고서의 증강 예시입니다.' /tmp/live-ko.html
+          grep -Fq '동일한 용접실기품의 판정결과 비교입니다.' /tmp/live-ko.html
+          grep -Fq '보고서의 APP 시연 구조입니다.' /tmp/live-ko.html
+          grep -Fq 'A·C·D 등급 시연화면입니다.' /tmp/live-ko.html
+          sha256sum /tmp/live-ko.html /tmp/live-en.html
