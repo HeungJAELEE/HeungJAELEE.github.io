@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Agent on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/ai-agent/</link><description>Recent content in AI Agent on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/ai-agent/rss.xml" rel="self" type="application/rss+xml"/><item><title>Ontology·LLM Wiki 기반 AI Agent 실행 플랫폼</title><link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-authority-evidence-plane" data-project-id="ai-authority-evidence-plane"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-authority-evidence-plane"&gt;Ontology와 LLM Wiki에서 업무 지식과 규칙을 골라 역할·도구·근거·중단 조건이 정해진 AI Agent를 구성하고 실행하는 플랫폼입니다. 권한과 Evidence 검사는 Agent 실행을 안전하게 제한하는 하위 계층입니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Agent 구성·로컬 실행 기반 검증 · 운영 연결 전&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;마지막 완료 로컬 검증 스냅숏 · 2026.07&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;개인 AI 활용 · Ontology·LLM Wiki 기반 Agent 플랫폼&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-authority-evidence-plane"&gt;
+&lt;h3 id="project-case-problem-ai-authority-evidence-plane"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;Agent마다 긴 Prompt에 지식·도구·규칙을 반복하면 용어와 판단 기준이 달라지고, 어떤 근거로 구성됐는지 확인하기 어렵습니다. 실행 권한까지 섞이면 승인되지 않은 외부 변경으로 이어질 수도 있습니다.&lt;/p&gt;</description></item></channel></rss>
