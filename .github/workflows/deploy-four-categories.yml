@@ -1,4 +1,4 @@
-name: Verify live detailed portfolio text
+name: Deploy cell tracking narrative revision
 
 on:
   push:
@@ -8,54 +8,89 @@ on:
       - .github/workflows/deploy-four-categories.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  live-readback:
+  deploy-and-readback:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: Verify current Pages main SHA
-        shell: bash
-        run: |
-          set -euo pipefail
-          actual="$(git ls-remote https://github.com/HeungJAELEE/HeungJAELEE.github.io.git refs/heads/main | cut -f1)"
-          test "$actual" = 'd2395e34c4a902bf27ec60e746cd6c3ec7b26cb1'
+      - name: Check out current Pages main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
-      - name: Read live Pages with cache bypass
+      - name: Download and verify validated build
+        shell: bash
+        env:
+          BUILD_URL: 'https://sdmntprnznorth.oaiusercontent.com/files/00000000-176c-820b-95c4-2b2f4ea608e6/raw?se=2026-08-06T02:14:56Z&sp=r&sv=2026-02-06&sr=b&scid=399a5feb-ea20-572f-aff2-0ac23ac2a311&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T23:42:24Z&ske=2026-08-06T23:42:24Z&sks=b&skv=2026-02-06&sig=M1F3n6k8PP6ohFiEeV/GkO847A2Pe2E9mSLB0ToQk9k%3D'
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/cell-tracking-narrative-build.zip
+          echo 'c0a77d2a472919b9f082775093c715651573d7dac3548ce938282ff64183ab8f  /tmp/cell-tracking-narrative-build.zip' | sha256sum --check --strict
+          rm -rf /tmp/portfolio-site
+          mkdir -p /tmp/portfolio-site
+          unzip -q /tmp/cell-tracking-narrative-build.zip -d /tmp/portfolio-site
+
+      - name: Verify generated cell tracking page
         shell: bash
         run: |
           set -euo pipefail
-          version='d2395e34c4a902bf27ec60e746cd6c3ec7b26cb1'
+          ko='/tmp/portfolio-site/posts/cell-production-tracking/index.html'
+          en='/tmp/portfolio-site/en/posts/cell-production-tracking/index.html'
+          test -f "$ko"
+          test -f "$en"
+          grep -Fq 'AS-IS → TO-BE' "$ko"
+          grep -Fq '데이터와 시스템 흐름' "$ko"
+          grep -Fq '배경' "$ko"
+          grep -Fq '접근' "$ko"
+          grep -Fq '구현' "$ko"
+          grep -Fq '활용: 용량 이상 Cell 역추적' "$ko"
+          grep -Fq '운영과 한계' "$ko"
+          grep -Fq 'Use case: tracing a capacity anomaly' "$en"
+          grep -Fq 'Operation and limitations' "$en"
+          ! grep -Fq 'MES를 새로 구축한 것이 아니라' "$ko"
+          ! grep -Fq '도구가 원인을 자동으로 판정한 것은 아니며' "$ko"
+
+      - name: Apply validated Pages build
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r --ignore-unmatch .
+          cp -a /tmp/portfolio-site/. .
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'Pages main already matches validated artifact.'
+          else
+            git commit -m 'Deploy revised Cell S/N production-history narrative'
+            git push origin HEAD:main
+          fi
+
+      - name: Read live page with cache bypass
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(git rev-parse HEAD)"
           base='https://heungjaelee.github.io'
           for attempt in 1 2 3 4 5 6; do
-            curl --fail --location --silent --show-error "$base/posts/battery-2170-pilot/?commit=$version&attempt=$attempt" -o /tmp/live-2170.html || true
-            curl --fail --location --silent --show-error "$base/posts/battery-4695-production-transition/?commit=$version&attempt=$attempt" -o /tmp/live-4695.html || true
-            curl --fail --location --silent --show-error "$base/posts/battery-25p-lfp-development/?commit=$version&attempt=$attempt" -o /tmp/live-25p.html || true
-            curl --fail --location --silent --show-error "$base/posts/ncm-fat-sat/?commit=$version&attempt=$attempt" -o /tmp/live-ncm.html || true
-            curl --fail --location --silent --show-error "$base/posts/welding-vision-ai/?commit=$version&attempt=$attempt" -o /tmp/live-vision.html || true
-            curl --fail --location --silent --show-error "$base/posts/giga-press-dx/?commit=$version&attempt=$attempt" -o /tmp/live-factory.html || true
-            curl --fail --location --silent --show-error "$base/posts/robot-json-omniverse/?commit=$version&attempt=$attempt" -o /tmp/live-indy7.html || true
-            if grep -Fq 'DMAIC 기반 양산 안정화' /tmp/live-2170.html \
-              && grep -Fq '양산 전환 일정과 Gate' /tmp/live-4695.html \
-              && grep -Fq '개발 Gate와 공정조건 연결' /tmp/live-25p.html \
-              && grep -Fq 'FAT/SAT에서 무엇을 닫았는가' /tmp/live-ncm.html \
-              && grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/live-vision.html \
-              && grep -Fq '왜 이 기술구조를 선택했는가' /tmp/live-factory.html \
-              && grep -Fq '왜 Robot Controller가 명령을 전담했는가' /tmp/live-indy7.html; then
+            curl --fail --location --silent --show-error "$base/posts/cell-production-tracking/?commit=$version&attempt=$attempt" -o /tmp/live-ko.html || true
+            curl --fail --location --silent --show-error "$base/en/posts/cell-production-tracking/?commit=$version&attempt=$attempt" -o /tmp/live-en.html || true
+            if grep -Fq '활용: 용량 이상 Cell 역추적' /tmp/live-ko.html \
+              && grep -Fq '운영과 한계' /tmp/live-ko.html \
+              && grep -Fq 'Use case: tracing a capacity anomaly' /tmp/live-en.html; then
               break
             fi
             sleep 10
           done
-          grep -Fq 'DMAIC 기반 양산 안정화' /tmp/live-2170.html
-          grep -Fq '전체 개선 순서' /tmp/live-2170.html
-          grep -Fq '양산 전환 일정과 Gate' /tmp/live-4695.html
-          grep -Fq '개발 Gate와 공정조건 연결' /tmp/live-25p.html
-          grep -Fq 'FAT/SAT에서 무엇을 닫았는가' /tmp/live-ncm.html
-          grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/live-vision.html
-          grep -Fq '왜 Accuracy보다 미검출을 먼저 봤는가' /tmp/live-vision.html
-          grep -Fq '왜 이 기술구조를 선택했는가' /tmp/live-factory.html
-          grep -Fq '왜 Robot Controller가 명령을 전담했는가' /tmp/live-indy7.html
-          ! grep -Fiq 'FYD' /tmp/live-4695.html
-          ! grep -Fq '96.8%' /tmp/live-25p.html
-          sha256sum /tmp/live-2170.html /tmp/live-4695.html /tmp/live-25p.html /tmp/live-ncm.html /tmp/live-vision.html /tmp/live-factory.html /tmp/live-indy7.html
+          grep -Fq 'AS-IS → TO-BE' /tmp/live-ko.html
+          grep -Fq '데이터와 시스템 흐름' /tmp/live-ko.html
+          grep -Fq '활용: 용량 이상 Cell 역추적' /tmp/live-ko.html
+          grep -Fq '운영과 한계' /tmp/live-ko.html
+          grep -Fq 'Use case: tracing a capacity anomaly' /tmp/live-en.html
+          ! grep -Fq 'MES를 새로 구축한 것이 아니라' /tmp/live-ko.html
+          ! grep -Fq '도구가 원인을 자동으로 판정한 것은 아니며' /tmp/live-ko.html
+          git rev-parse HEAD
