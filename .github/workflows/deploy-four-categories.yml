@@ -1,4 +1,4 @@
-name: Deploy quantified manufacturing narratives
+name: Deploy natural manufacturing narratives
 
 on:
   push:
@@ -24,16 +24,16 @@ jobs:
       - name: Download and verify validated build
         shell: bash
         env:
-          BUILD_URL: 'https://sdmntprwestcentralus.oaiusercontent.com/files/00000000-725c-81fb-bfc2-fd1e3dcd09fc/raw?se=2026-08-06T02:52:35Z&sp=r&sv=2026-02-06&sr=b&scid=6d2dd9eb-a504-5672-8ff5-013eebe68501&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T00:11:41Z&ske=2026-08-07T00:11:41Z&sks=b&skv=2026-02-06&sig=LYoHpR04rKou3xVDpMwN1zjvqGjfznTHwEwst%2BbvUcA%3D'
+          BUILD_URL: 'https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-7ca0-81f7-9a46-1caadee4f2fd/raw?se=2026-08-06T03:59:26Z&sp=r&sv=2026-02-06&sr=b&scid=3f3e0283-bc79-5fe4-9919-75f9d9f6256c&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T10:34:33Z&ske=2026-08-06T10:34:33Z&sks=b&skv=2026-02-06&sig=mNP/mqxmyxF8vHs9affFibazwmrpOJCXUDljD2jIqrA%3D'
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/manufacturing-story-build.zip
-          echo '60199f573ca8da1660b31d727e028048c2bd24e03639d1583e12998dd732ef41  /tmp/manufacturing-story-build.zip' | sha256sum --check --strict
+          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/manufacturing-language-build.zip
+          echo '35db7741ff68830c16541a80649d8b9493fcc6bf3c795940b4e5de6b90551164  /tmp/manufacturing-language-build.zip' | sha256sum --check --strict
           rm -rf /tmp/portfolio-site
           mkdir -p /tmp/portfolio-site
-          unzip -q /tmp/manufacturing-story-build.zip -d /tmp/portfolio-site
+          unzip -q /tmp/manufacturing-language-build.zip -d /tmp/portfolio-site
 
-      - name: Verify generated manufacturing pages
+      - name: Verify natural language and retained evidence blocks
         shell: bash
         run: |
           python - <<'PY'
@@ -42,23 +42,49 @@ jobs:
           import re
 
           checks = {
-              '/tmp/portfolio-site/posts/battery-2170-pilot/index.html': ['98.3% 감소', '58.7%p 상승', 'SEPA 가동률'],
-              '/tmp/portfolio-site/posts/battery-4695-production-transition/index.html': ['100 Cell × 2 Lot = 200 Cell', 'Safety Interlock 변경'],
-              '/tmp/portfolio-site/posts/battery-25p-lfp-development/index.html': ['4.5 mm 감소', '40% 축소'],
-              '/tmp/portfolio-site/posts/battery-tabless-concept/index.html': ['기능평가 진입비율', '5%', '양산수율이 아닙니다'],
-              '/tmp/portfolio-site/posts/ncm-fat-sat/index.html': ['1,000 Cell / 5일', '재작업 후 품질기준을 충족한 Cell을 포함'],
-              '/tmp/portfolio-site/posts/can-supplier-pilot-transition/index.html': ['3/3 Lot', '600 Cell'],
-              '/tmp/portfolio-site/posts/ncm-pre-forming-validation/index.html': ['4 Lot × 50개 = 200개', '400개 Sample'],
-              '/tmp/portfolio-site/posts/robot-overhaul-standardization/index.html': ['2.5~4.0배', '150~300%'],
-              '/tmp/portfolio-site/posts/oled-anodizing-development/index.html': ['4단계', '1년'],
-              '/tmp/portfolio-site/posts/amat-akt-qual/index.html': ['막두께·조도·내전압', '3종'],
-              '/tmp/portfolio-site/posts/diffuser-scaleup-failure/index.html': ['5개 Gate'],
-              '/tmp/portfolio-site/en/posts/battery-2170-pilot/index.html': ['98.3% relative', '58.7 percentage points'],
+              '/tmp/portfolio-site/posts/cell-production-tracking/index.html': [
+                  '99.9% 단축', 'AS-IS → TO-BE', '데이터와 시스템 흐름', '여러 Cell이 같은 극판 Roll의 특정 생산구간'
+              ],
+              '/tmp/portfolio-site/posts/battery-2170-pilot/index.html': [
+                  '설비가 표시하는 수율과 사후 전수검사', 'Vision은 검사 오판정', '4M 원인축소', '추가 공정 개선 결과'
+              ],
+              '/tmp/portfolio-site/posts/battery-4695-production-transition/index.html': [
+                  '부분수리만으로는 생산준비 상태', '4M 원인 지도', '100 Cell × 2 Lot = 200 Cell'
+              ],
+              '/tmp/portfolio-site/posts/battery-25p-lfp-development/index.html': [
+                  '다음 공정과 최종 CTQ', '소재·구조 변경이 공정에 미친 영향', '4.5 mm 감소'
+              ],
+              '/tmp/portfolio-site/posts/battery-tabless-concept/index.html': [
+                  'A Sample 단계에서는', '제작 위험과 확인범위', '기능평가 진입비율'
+              ],
+              '/tmp/portfolio-site/posts/ncm-fat-sat/index.html': [
+                  '개별 동작하는지만 확인해서는', '인수부터 초기 생산까지의 흐름', '1,000 Cell / 5일'
+              ],
+              '/tmp/portfolio-site/posts/can-supplier-pilot-transition/index.html': [
+                  '단품 치수만 맞는다고', '변경점과 검증', '3/3 Lot'
+              ],
+              '/tmp/portfolio-site/posts/ncm-pre-forming-validation/index.html': [
+                  '용접조건을 약화하는 대신', '4M 원인 지도', '4 Lot × 50개 = 200개'
+              ],
+              '/tmp/portfolio-site/posts/robot-overhaul-standardization/index.html': [
+                  '부품을 교체하는 작업만으로', '작업변동을 줄인 기준', '2.5~4.0배'
+              ],
+              '/tmp/portfolio-site/posts/oled-anodizing-development/index.html': [
+                  '고객 사용환경만 원인으로', '단계별 확대시험', '4단계'
+              ],
+              '/tmp/portfolio-site/posts/amat-akt-qual/index.html': [
+                  '동일 Sample의 측정조건부터', '사내와 고객의 측정차이를 맞춘 방법', '막두께·조도·내전압'
+              ],
+              '/tmp/portfolio-site/posts/diffuser-scaleup-failure/index.html': [
+                  '5개 Gate', '당시 닫히지 않은 조건'
+              ],
+              '/tmp/portfolio-site/en/posts/cell-production-tracking/index.html': [
+                  '99.9% reduction in elapsed time', 'AS-IS → TO-BE'
+              ],
           }
           for path, phrases in checks.items():
               html = Path(path).read_text(encoding='utf-8')
-              text = unescape(re.sub(r'<[^>]+>', ' ', html))
-              text = re.sub(r'\s+', ' ', text)
+              text = re.sub(r'\s+', ' ', unescape(re.sub(r'<[^>]+>', ' ', html)))
               for phrase in phrases:
                   if phrase not in text:
                       raise SystemExit(f'{path}: missing {phrase}')
@@ -77,31 +103,36 @@ jobs:
           if git diff --cached --quiet; then
             echo 'Pages main already matches validated artifact.'
           else
-            git commit -m 'Deploy quantified manufacturing portfolio narratives'
+            git commit -m 'Deploy natural manufacturing portfolio narratives'
             git push origin HEAD:main
           fi
 
-      - name: Read live manufacturing pages
+      - name: Read live representative pages
         shell: bash
         run: |
           set -euo pipefail
           version="$(git rev-parse HEAD)"
           base='https://heungjaelee.github.io/posts'
           for attempt in 1 2 3 4 5 6; do
+            curl --fail --location --silent --show-error "$base/cell-production-tracking/?commit=$version&attempt=$attempt" -o /tmp/tracking.html || true
             curl --fail --location --silent --show-error "$base/battery-2170-pilot/?commit=$version&attempt=$attempt" -o /tmp/2170.html || true
             curl --fail --location --silent --show-error "$base/battery-25p-lfp-development/?commit=$version&attempt=$attempt" -o /tmp/25p.html || true
             curl --fail --location --silent --show-error "$base/ncm-fat-sat/?commit=$version&attempt=$attempt" -o /tmp/ncm.html || true
-            curl --fail --location --silent --show-error "$base/robot-overhaul-standardization/?commit=$version&attempt=$attempt" -o /tmp/robot.html || true
-            if grep -Fq 'SEPA 가동률' /tmp/2170.html \
-              && grep -Fq '4.5 mm' /tmp/25p.html \
-              && grep -Fq '1,000 Cell' /tmp/ncm.html \
-              && grep -Fq '2.5~4.0배' /tmp/robot.html; then
+            curl --fail --location --silent --show-error "$base/ncm-pre-forming-validation/?commit=$version&attempt=$attempt" -o /tmp/preforming.html || true
+            if grep -Fq '99.9% 단축' /tmp/tracking.html \
+              && grep -Fq 'Vision은 검사 오판정' /tmp/2170.html \
+              && grep -Fq '다음 공정과 최종 CTQ' /tmp/25p.html \
+              && grep -Fq '개별 동작하는지만 확인해서는' /tmp/ncm.html \
+              && grep -Fq '용접조건을 약화하는 대신' /tmp/preforming.html; then
               break
             fi
             sleep 10
           done
-          grep -Fq 'SEPA 가동률' /tmp/2170.html
-          grep -Fq '4.5 mm' /tmp/25p.html
-          grep -Fq '1,000 Cell' /tmp/ncm.html
-          grep -Fq '2.5~4.0배' /tmp/robot.html
+          grep -Fq '99.9% 단축' /tmp/tracking.html
+          grep -Fq 'AS-IS → TO-BE' /tmp/tracking.html
+          grep -Fq 'Vision은 검사 오판정' /tmp/2170.html
+          grep -Fq '4M 원인축소' /tmp/2170.html
+          grep -Fq '다음 공정과 최종 CTQ' /tmp/25p.html
+          grep -Fq '개별 동작하는지만 확인해서는' /tmp/ncm.html
+          grep -Fq '용접조건을 약화하는 대신' /tmp/preforming.html
           git rev-parse HEAD
