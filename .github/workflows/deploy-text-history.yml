@@ -1,4 +1,4 @@
-name: Deploy interview-focused portfolio text
+name: Verify interview-focused portfolio text live
 
 on:
   push:
@@ -8,63 +8,61 @@ on:
       - .github/workflows/deploy-text-history.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  deploy:
+  live-readback:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out deployment branch
-        uses: actions/checkout@v4
-        with:
-          ref: codex/deploy-text-history
-          fetch-depth: 0
-
-      - name: Download and verify validated build
-        shell: bash
-        env:
-          BUILD_URL: 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-9c00-8206-b542-aff41ac6d639/raw?se=2026-08-06T01:45:18Z&sp=r&sv=2026-02-06&sr=b&scid=8167faeb-1de3-50ef-8192-16430f1e13db&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-05T22:20:43Z&ske=2026-08-06T22:20:43Z&sks=b&skv=2026-02-06&sig=/UiiKvGxcgx7n39hYJ5zq4hT6C6znEX15Q0B%2BGLD%2BAk%3D'
-        run: |
-          set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2 "$BUILD_URL" --output /tmp/portfolio-text.zip
-          echo 'dc2be82c32dc6ead0489b6f36c3f0ad05f9c6656df72fc1038c683a0ddd32bce  /tmp/portfolio-text.zip' | sha256sum --check --strict
-          rm -rf /tmp/portfolio-site
-          mkdir -p /tmp/portfolio-site
-          unzip -q /tmp/portfolio-text.zip -d /tmp/portfolio-site
-
-      - name: Verify restored text and preserved analysis
+      - name: Read live Pages with cache bypass
         shell: bash
         run: |
           set -euo pipefail
-          p=/tmp/portfolio-site/posts
-          grep -Fq 'DMAIC 기반 양산 안정화' "$p/battery-2170-pilot/index.html"
-          grep -Fq '전체 개선 순서' "$p/battery-2170-pilot/index.html"
-          grep -Fq '회전방향별 정렬·Setting 수행 차이' "$p/battery-2170-pilot/index.html"
-          grep -Fq '양산 전환 일정과 Gate' "$p/battery-4695-production-transition/index.html"
-          grep -Fq '내가 맡은 범위와 협업' "$p/battery-4695-production-transition/index.html"
-          grep -Fq '최신 제품 형상·반사율·부품 변경' "$p/battery-4695-production-transition/index.html"
-          grep -Fq '개발 Gate와 공정조건 연결' "$p/battery-25p-lfp-development/index.html"
-          grep -Fq '대표 사례를 세 건으로 나눈 이유' "$p/battery-25p-lfp-development/index.html"
-          grep -Fq '인수부터 초기 생산까지의 흐름' "$p/ncm-fat-sat/index.html"
-          grep -Fq '내가 맡은 인수·초기생산 범위' "$p/ncm-fat-sat/index.html"
-          ! grep -Fq '>4M<' "$p/ncm-fat-sat/index.html"
-          grep -Fq '팀이 해결하려던 제조 품질문제' "$p/welding-vision-ai/index.html"
-          grep -Fq '왜 가상공장이 필요했는가' "$p/giga-press-dx/index.html"
-          grep -Fq '왜 이 기술구조를 선택했는가' "$p/giga-press-dx/index.html"
-          grep -Fq '팀이 해결하려던 제조 자동화문제' "$p/robot-json-omniverse/index.html"
-          grep -Fq '왜 Robot Controller가 명령을 전담했는가' "$p/robot-json-omniverse/index.html"
-          ! grep -Fq '당시에는 AI 도구를 사용하지 않았으며' "$p/cell-production-tracking/index.html"
+          base='https://heungjaelee.github.io/posts'
+          version='d2395e34c4a902bf27ec60e746cd6c3ec7b26cb1'
+          pages=(
+            battery-2170-pilot
+            battery-4695-production-transition
+            battery-25p-lfp-development
+            ncm-fat-sat
+            welding-vision-ai
+            giga-press-dx
+            robot-json-omniverse
+            cell-production-tracking
+          )
+          for attempt in 1 2 3 4 5 6; do
+            for page in "${pages[@]}"; do
+              curl --fail --location --silent --show-error "$base/$page/?commit=$version&attempt=$attempt" -o "/tmp/$page.html" || true
+            done
+            if grep -Fq 'DMAIC 기반 양산 안정화' /tmp/battery-2170-pilot.html \
+              && grep -Fq '양산 전환 일정과 Gate' /tmp/battery-4695-production-transition.html \
+              && grep -Fq '개발 Gate와 공정조건 연결' /tmp/battery-25p-lfp-development.html \
+              && grep -Fq '인수부터 초기 생산까지의 흐름' /tmp/ncm-fat-sat.html \
+              && grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/welding-vision-ai.html \
+              && grep -Fq '왜 가상공장이 필요했는가' /tmp/giga-press-dx.html \
+              && grep -Fq '팀이 해결하려던 제조 자동화문제' /tmp/robot-json-omniverse.html; then
+              break
+            fi
+            sleep 10
+          done
 
-      - name: Commit and fast-forward main
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm -r --ignore-unmatch .
-          cp -a /tmp/portfolio-site/. .
-          git add -A
-          git diff --cached --check
-          git commit -m 'Deploy interview-focused project history revision'
-          git push origin HEAD:main
+          grep -Fq 'DMAIC 기반 양산 안정화' /tmp/battery-2170-pilot.html
+          grep -Fq '전체 개선 순서' /tmp/battery-2170-pilot.html
+          grep -Fq '회전방향별 정렬·Setting 수행 차이' /tmp/battery-2170-pilot.html
+          grep -Fq '양산 전환 일정과 Gate' /tmp/battery-4695-production-transition.html
+          grep -Fq '내가 맡은 범위와 협업' /tmp/battery-4695-production-transition.html
+          grep -Fq '최신 제품 형상·반사율·부품 변경' /tmp/battery-4695-production-transition.html
+          grep -Fq '개발 Gate와 공정조건 연결' /tmp/battery-25p-lfp-development.html
+          grep -Fq '대표 사례를 세 건으로 나눈 이유' /tmp/battery-25p-lfp-development.html
+          grep -Fq '인수부터 초기 생산까지의 흐름' /tmp/ncm-fat-sat.html
+          grep -Fq '내가 맡은 인수·초기생산 범위' /tmp/ncm-fat-sat.html
+          ! grep -Fq '>4M<' /tmp/ncm-fat-sat.html
+          grep -Fq '팀이 해결하려던 제조 품질문제' /tmp/welding-vision-ai.html
+          grep -Fq '왜 가상공장이 필요했는가' /tmp/giga-press-dx.html
+          grep -Fq '왜 이 기술구조를 선택했는가' /tmp/giga-press-dx.html
+          grep -Fq '팀이 해결하려던 제조 자동화문제' /tmp/robot-json-omniverse.html
+          grep -Fq '왜 Robot Controller가 명령을 전담했는가' /tmp/robot-json-omniverse.html
+          ! grep -Fq '당시에는 AI 도구를 사용하지 않았으며' /tmp/cell-production-tracking.html
+
+          sha256sum /tmp/*.html
