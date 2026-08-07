@@ -29,7 +29,7 @@ jobs:
       - name: Download verified Hugo build artifact
         shell: bash
         env:
-          ARTIFACT_URL: 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-3df4-8206-97f0-0ac5712ee73b/raw?se=2026-08-07T01%3A57%3A39Z&sp=r&sv=2026-02-06&sr=b&scid=0ad4b535-0dd3-5659-8db2-1dadb8e1659a&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T05%3A24%3A36Z&ske=2026-08-07T05%3A24%3A36Z&sks=b&skv=2026-02-06&sig=6Ykm4AuCwmOpawHlAb09CkKqDCMonjlzexUAPJR2vsg%3D'
+          ARTIFACT_URL: 'https://sdmntprseasia.oaiusercontent.com/files/00000000-c4d8-8207-91c9-ba6adfeb67a1/raw?se=2026-08-07T02%3A02%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=d459145a-0117-5fbb-a67b-02ebe9b97f26&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T01%3A03%3A44Z&ske=2026-08-08T01%3A03%3A44Z&sks=b&skv=2026-02-06&sig=BCd2p4uleAK4GXaov1ozWnOP4D1yp94ffQ04YR7/yZk%3D'
         run: |
           set -euo pipefail
           rm -rf _site artifact.zip
@@ -45,7 +45,8 @@ jobs:
           EN='_site/en/posts/robot-json-omniverse/index.html'
           test -s "$KO"
           test -s "$EN"
-          grep -Fq '자동차 공장 Digital Twin DX Project' "$KO"
+          grep -Fq '<title>자동차 공장 Digital Twin DX Project' "$KO"
+          grep -Fq 'property="og:title" content="자동차 공장 Digital Twin DX Project"' "$KO"
           grep -Fq 'portfolio-article__header' "$KO"
           grep -Fq 'portfolio-article-toc' "$KO"
           grep -Fq '기존 Robot Teaching Data를 Digital Twin으로 연결한 방법' "$KO"
@@ -79,7 +80,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No generated-site changes to commit.'
           else
-            git commit -m 'deploy: restore standard template and publish Indy7 Digital Twin refactor'
+            git commit -m 'deploy: publish final Indy7 Digital Twin refactor with standard template'
             git push origin HEAD:main
           fi
 
