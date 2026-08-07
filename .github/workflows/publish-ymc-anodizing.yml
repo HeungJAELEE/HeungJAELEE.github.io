@@ -1,0 +1,105 @@
+name: Publish upgraded YMC anodizing case
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-ymc-anodizing.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct and verify Hugo overlay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .github/ymc-anodizing-overlay/part-*.b64 > /tmp/ymc-overlay.b64
+          base64 --decode /tmp/ymc-overlay.b64 > /tmp/ymc-overlay.tar.gz
+          echo '3d9e91ea11cdf19cdd0b3762d18883315fbd9cded8e0a3357ffa8299209c68c4  /tmp/ymc-overlay.tar.gz' | sha256sum --check
+          tar -tzf /tmp/ymc-overlay.tar.gz
+
+      - name: Apply generated Hugo pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -xzf /tmp/ymc-overlay.tar.gz -C .
+
+          KO='posts/oled-anodizing-development/index.html'
+          EN='en/posts/oled-anodizing-development/index.html'
+          KO_HUB='posts/wet-process-standardization/index.html'
+          EN_HUB='en/posts/wet-process-standardization/index.html'
+
+          test -s "$KO"
+          test -s "$EN"
+          test -s "$KO_HUB"
+          test -s "$EN_HUB"
+          grep -Fq '디스플레이 장비부품 고내열 Anodizing 공정개발' "$KO"
+          grep -Fq 'OLED Dry-Etch Upper Electrode용 혼산 Anodizing' "$KO"
+          grep -Fq 'Display PECVD Susceptor용 수산 Anodizing' "$KO"
+          grep -Fq 'Six Sigma Green Belt' "$KO"
+          grep -Fq '450℃' "$KO"
+          grep -Fq 'High-Temperature Anodizing Development for Display Equipment Parts' "$EN"
+          grep -Fq 'Oxalic-acid anodizing for a display PECVD susceptor' "$EN"
+          grep -Fq '디스플레이 장비부품 고내열 Anodizing 공정개발' posts/index.html
+          grep -Fq 'High-Temperature Anodizing Development for Display Equipment Parts' en/posts/index.html
+
+          test -s posts/welding-vision-ai/index.html
+          test -s posts/giga-press-dx/index.html
+          test -s posts/robot-json-omniverse/index.html
+          grep -Fq '용접실기품 외관검사 Vision AI Project' posts/welding-vision-ai/index.html
+          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' posts/giga-press-dx/index.html
+          grep -Fq '자동차 공장 Digital Twin DX Project' posts/robot-json-omniverse/index.html
+
+      - name: Commit generated site and remove staging files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .github/ymc-anodizing-overlay
+          rm -f .github/workflows/publish-ymc-anodizing.yml
+          rm -f /tmp/ymc-overlay.b64 /tmp/ymc-overlay.tar.gz
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish upgraded YMC anodizing case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
