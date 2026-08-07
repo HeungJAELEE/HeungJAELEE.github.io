@@ -1,15 +1,10 @@
-name: Publish exact supplied welding images
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -18,38 +13,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Download verified Hugo artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-b864-8206-b6bb-9f4f3e3f6af8/raw?se=2026-08-07T09%3A08%3A07Z&sp=r&sv=2026-02-06&sr=b&scid=76fcda90-66ef-5445-b37f-ff99e062a3a7&skoid=3e273c3d-5ea1-4088-9e18-79685531b184&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T04%3A53%3A48Z&ske=2026-08-08T04%3A53%3A48Z&sks=b&skv=2026-02-06&sig=tbg8jztugzy1xC%2Bq39PbPBSKgd%2BdNj56LYwicDGGgNc%3D'
-        run: |
-          set -euo pipefail
-          rm -rf _site artifact.zip
-          mkdir -p _site
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
-          unzip -q artifact.zip -d _site
-
-      - name: Verify exact welding references and existing portfolio contracts
+      - name: Verify portfolio titles, structures, and exact welding images
         shell: bash
         run: |
           set -euo pipefail
-          KO_WELD='_site/posts/welding-vision-ai/index.html'
-          EN_WELD='_site/en/posts/welding-vision-ai/index.html'
-          KO_GIGA='_site/posts/giga-press-dx/index.html'
-          KO_INDY='_site/posts/robot-json-omniverse/index.html'
+          KO_WELD='posts/welding-vision-ai/index.html'
+          EN_WELD='en/posts/welding-vision-ai/index.html'
+          KO_GIGA='posts/giga-press-dx/index.html'
+          KO_INDY='posts/robot-json-omniverse/index.html'
           test -s "$KO_WELD"
           test -s "$EN_WELD"
           test -s "$KO_GIGA"
           test -s "$KO_INDY"
           grep -Fq '용접실기품 외관검사 Vision AI Project' "$KO_WELD"
+          grep -Fq '전체 모델링 구조' "$KO_WELD"
           grep -Fq 'GIGA Press 공정 Digital Twin DX Project' "$KO_GIGA"
           grep -Fq '자동차 공장 Digital Twin DX Project' "$KO_INDY"
           grep -Fq 'portfolio-article__header' "$KO_INDY"
@@ -63,40 +46,14 @@ jobs:
             ! grep -Fq 'welding-vision-report-augmentation.svg' "$page"
             ! grep -Fq 'welding-vision-app-results.webp' "$page"
           done
-          P16='_site/images/projects/welding-p16-augmentation-regularization.avif'
-          P24='_site/images/projects/welding-p24-app-grade-results.avif'
+          P16='images/projects/welding-p16-augmentation-regularization.avif'
+          P24='images/projects/welding-p24-app-grade-results.avif'
           test -s "$P16"
           test -s "$P24"
           test "$(wc -c < "$P16")" -gt 30000
           test "$(wc -c < "$P24")" -gt 25000
           grep -aFq 'ftypavif' "$P16"
           grep -aFq 'ftypavif' "$P24"
-
-      - name: Synchronize generated Hugo output
-        shell: bash
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'artifact.zip' \
-            _site/ ./
-          rm -rf _site artifact.zip
-
-      - name: Commit generated output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: publish exact supplied welding images'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -107,7 +64,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
