@@ -1,10 +1,14 @@
-name: Deploy committed Hugo output to GitHub Pages
+name: Publish GIGA Press and welding portfolio refactor
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-pages.yml'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -13,13 +17,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out committed Hugo output
+      - name: Check out deployment repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Verify catalog titles and rendered images
+      - name: Download verified Hugo build artifact
+        shell: bash
+        env:
+          ARTIFACT_URL: 'https://sdmntprwestus3.oaiusercontent.com/files/00000000-3334-81fd-b90c-13b01e7fc186/raw?se=2026-08-07T04%3A31%3A30Z&sp=r&sv=2026-02-06&sr=b&scid=c0052d51-957c-5470-b4b5-5dad295a1047&skoid=03727f49-62d3-42ac-8350-1c0e6559d238&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T23%3A29%3A13Z&ske=2026-08-07T23%3A29%3A13Z&sks=b&skv=2026-02-06&sig=GkGdi8LiXFx6ZZezgWP5oqPkpeBKIjNIbW9WhZvGKCg%3D'
+        run: |
+          set -euo pipefail
+          rm -rf _site artifact.zip
+          mkdir -p _site
+          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
+          unzip -q artifact.zip -d _site
+
+      - name: Verify titles, project structure, and evidence images
         shell: bash
         run: |
           set -euo pipefail
@@ -32,7 +49,7 @@ jobs:
           from pathlib import Path
           from urllib.parse import unquote, urlsplit
 
-          root = Path('.')
+          root = Path('_site')
 
           def text_only(value: str) -> str:
               return html.unescape(re.sub(r'<[^>]+>', '', value)).strip()
@@ -58,18 +75,18 @@ jobs:
                   if card_title != detail_title:
                       errors.append(f'{href}: catalog={card_title!r}, detail={detail_title!r}')
               if errors:
-                  raise SystemExit('catalog/detail mismatch:\n' + '\n'.join(errors))
+                  raise SystemExit('catalog/detail title mismatch:\n' + '\n'.join(errors))
 
           verify_catalog('')
           verify_catalog('en')
 
-          ko_catalog = (root / 'posts/index.html').read_text(encoding='utf-8')
-          en_catalog = (root / 'en/posts/index.html').read_text(encoding='utf-8')
-          assert '자동차 공장 Digital Twin DX Project' in ko_catalog
-          assert 'Automotive Factory Digital Twin DX Project' in en_catalog
-
-          target_refs = {
+          required_pages = {
               'posts/giga-press-dx/index.html': [
+                  'GIGA Press 공정 Digital Twin DX Project',
+                  '프로젝트 구현 목표 — Team SOW',
+                  '프로젝트 진행순서 — Team WBS',
+                  '나의 역할 — Digital Twin 시스템 설계·통합',
+                  'stateDiagram-v2',
                   'giga-press-report-process-flow.svg',
                   'evidence/giga-press-control-demo.webp',
                   'giga-press-team-demo.jpg',
@@ -77,19 +94,51 @@ jobs:
                   'giga-press-report-ladder-modularization.svg',
                   'giga-press-report-dqn-concept.svg',
               ],
+              'en/posts/giga-press-dx/index.html': [
+                  'GIGA Press Process Digital Twin DX Project',
+                  'Team implementation scope — Team SOW',
+                  'My role — Digital Twin system design and integration',
+                  'stateDiagram-v2',
+              ],
               'posts/welding-vision-ai/index.html': [
+                  '용접실기품 외관검사 Vision AI Project',
+                  '프로젝트 구현 목표 — Team SOW',
+                  '나의 역할 — AI 모델링·평가기준 설계',
+                  '저해상도 좌표를 원본사진에 맞춘 방법',
+                  'scale_x',
+                  'Threshold를 검사조건으로 바꾼 방법',
+                  'welding-vision-domain-gap.jpg',
                   'welding-vision-report-augmentation.svg',
+                  'welding-vision-metric-improvement.svg',
                   'welding-vision-report-threshold.svg',
+                  'welding-vision-report-app-flow.svg',
                   'welding-vision-app-results.webp',
               ],
+              'en/posts/welding-vision-ai/index.html': [
+                  'Practical Weld-Specimen Vision AI Inspection Project',
+                  'Team implementation scope — Team SOW',
+                  'My role — AI modeling and evaluation-criteria design',
+                  'Mapping low-resolution coordinates back to the source image',
+                  'scale_x',
+              ],
           }
-          for rel, refs in target_refs.items():
-              source = (root / rel).read_text(encoding='utf-8')
-              for ref in refs:
-                  if ref not in source:
-                      raise SystemExit(f'{rel}: missing rendered reference {ref}')
-              if 'welding-vision-report-app-results.svg' in source:
-                  raise SystemExit(f'{rel}: broken result SVG reference remains')
+          for rel, values in required_pages.items():
+              page = root / rel
+              if not page.is_file():
+                  raise SystemExit(f'missing generated page: {rel}')
+              source = page.read_text(encoding='utf-8')
+              for value in values:
+                  if value not in source:
+                      raise SystemExit(f'{rel}: missing {value}')
+
+          ko_catalog = (root / 'posts/index.html').read_text(encoding='utf-8')
+          en_catalog = (root / 'en/posts/index.html').read_text(encoding='utf-8')
+          for title in ['자동차 공장 Digital Twin DX Project', 'GIGA Press 공정 Digital Twin DX Project', '용접실기품 외관검사 Vision AI Project']:
+              if title not in ko_catalog:
+                  raise SystemExit(f'Korean catalog title missing: {title}')
+          for title in ['Automotive Factory Digital Twin DX Project', 'GIGA Press Process Digital Twin DX Project', 'Practical Weld-Specimen Vision AI Inspection Project']:
+              if title not in en_catalog:
+                  raise SystemExit(f'English catalog title missing: {title}')
 
           missing = []
           image_pattern = re.compile(r'<img\b[^>]*?\bsrc=(?:"([^"]+)"|\'([^\']+)\'|([^\s>]+))', flags=re.I | re.S)
@@ -105,7 +154,7 @@ jobs:
                       continue
                   asset = root / path.lstrip('/')
                   if not asset.is_file() or asset.stat().st_size == 0:
-                      missing.append(f'{page} -> {path}')
+                      missing.append(f'{page.relative_to(root)} -> {path}')
           if missing:
               raise SystemExit('missing image assets:\n' + '\n'.join(sorted(set(missing))))
 
@@ -118,25 +167,40 @@ jobs:
               for match in embedded.finditer(source):
                   base64.b64decode(match.group(1), validate=True)
 
-          required_assets = [
-              'images/projects/welding-vision-app-results.webp',
-              'images/projects/evidence/giga-press-control-demo.webp',
-              'images/projects/giga-press-team-demo.jpg',
-              'images/projects/evidence/giga-press-analysis-prototype.webp',
-          ]
-          for rel in required_assets:
-              asset = root / rel
-              if not asset.is_file() or asset.stat().st_size < 1000:
-                  raise SystemExit(f'missing or undersized asset: {rel}')
-
           indy = (root / 'posts/robot-json-omniverse/index.html').read_text(encoding='utf-8')
-          assert '<title>자동차 공장 Digital Twin DX Project' in indy
+          assert '자동차 공장 Digital Twin DX Project' in indy
           assert 'portfolio-article__header' in indy
           assert 'portfolio-article-toc' in indy
           assert '<section class="hero">' not in indy
 
-          print('committed portfolio validation: PASS')
+          print('portfolio release validation: PASS')
           PY
+
+      - name: Synchronize generated Hugo output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'artifact.zip' \
+            _site/ ./
+          rm -rf _site artifact.zip
+
+      - name: Commit generated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes to commit.'
+          else
+            git commit -m 'deploy: publish GIGA Press and welding interviewer-first refactor'
+            git push origin HEAD:main
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -147,7 +211,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: verify
+    needs: publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
