@@ -1,14 +1,10 @@
-name: Publish validated portfolio title and image repair
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -17,25 +13,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - name: Download validated Hugo artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-dc44-8209-8879-27b4149a71ac/raw?se=2026-08-07T03%3A07%3A59Z&sp=r&sv=2026-02-06&sr=b&scid=ad1df5c0-82ee-5eb5-b5ec-f8a59aa62028&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T23%3A39%3A58Z&ske=2026-08-07T23%3A39%3A58Z&sks=b&skv=2026-02-06&sig=gvP0BpmcVHPbx7w0f7K41RloiP3VunGiFJYaeh3BmAs%3D'
-        run: |
-          set -euo pipefail
-          SITE_DIR="$RUNNER_TEMP/portfolio-site"
-          rm -rf "$SITE_DIR" "$RUNNER_TEMP/portfolio-public.zip"
-          mkdir -p "$SITE_DIR"
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output "$RUNNER_TEMP/portfolio-public.zip"
-          unzip -q "$RUNNER_TEMP/portfolio-public.zip" -d "$SITE_DIR"
 
       - name: Verify catalog titles and rendered images
         shell: bash
@@ -47,11 +29,10 @@ jobs:
           import base64
           import html
           import re
-          import os
           from pathlib import Path
           from urllib.parse import unquote, urlsplit
 
-          root = Path(os.environ['RUNNER_TEMP']) / 'portfolio-site'
+          root = Path('.')
 
           def text_only(value: str) -> str:
               return html.unescape(re.sub(r'<[^>]+>', '', value)).strip()
@@ -103,8 +84,7 @@ jobs:
               ],
           }
           for rel, refs in target_refs.items():
-              page = root / rel
-              source = page.read_text(encoding='utf-8')
+              source = (root / rel).read_text(encoding='utf-8')
               for ref in refs:
                   if ref not in source:
                       raise SystemExit(f'{rel}: missing rendered reference {ref}')
@@ -125,7 +105,7 @@ jobs:
                       continue
                   asset = root / path.lstrip('/')
                   if not asset.is_file() or asset.stat().st_size == 0:
-                      missing.append(f'{page.relative_to(root)} -> {path}')
+                      missing.append(f'{page} -> {path}')
           if missing:
               raise SystemExit('missing image assets:\n' + '\n'.join(sorted(set(missing))))
 
@@ -149,32 +129,14 @@ jobs:
               if not asset.is_file() or asset.stat().st_size < 1000:
                   raise SystemExit(f'missing or undersized asset: {rel}')
 
-          print('deployment artifact validation: PASS')
+          indy = (root / 'posts/robot-json-omniverse/index.html').read_text(encoding='utf-8')
+          assert '<title>자동차 공장 Digital Twin DX Project' in indy
+          assert 'portfolio-article__header' in indy
+          assert 'portfolio-article-toc' in indy
+          assert '<section class="hero">' not in indy
+
+          print('committed portfolio validation: PASS')
           PY
-
-      - name: Synchronize generated site
-        shell: bash
-        run: |
-          set -euo pipefail
-          SITE_DIR="$RUNNER_TEMP/portfolio-site"
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            "$SITE_DIR/" ./
-
-      - name: Commit generated output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: align case titles and restore GIGA Press and welding images'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -182,10 +144,10 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ${{ runner.temp }}/portfolio-site
+          path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
