@@ -1,14 +1,10 @@
-name: Publish welding model architecture refactor
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -17,78 +13,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Download verified Hugo artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-ee3c-8209-b5e0-5189437a12de/raw?se=2026-08-07T05%3A47%3A27Z&sp=r&sv=2026-02-06&sr=b&scid=6add19b3-3ba3-538f-9122-aa5c7eea8ee6&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T04%3A41%3A56Z&ske=2026-08-08T04%3A41%3A56Z&sks=b&skv=2026-02-06&sig=wTgAGMsePNrwYzPtiDJFwf%2BgvL0FWWPEYjC71O1VAuw%3D'
-        run: |
-          set -euo pipefail
-          rm -rf _site artifact.zip
-          mkdir -p _site
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
-          unzip -q artifact.zip -d _site
-
-      - name: Verify welding structure and existing evidence images
+      - name: Verify portfolio titles, structures, and evidence images
         shell: bash
         run: |
           set -euo pipefail
-          KO='_site/posts/welding-vision-ai/index.html'
-          EN='_site/en/posts/welding-vision-ai/index.html'
-          test -s "$KO"
-          test -s "$EN"
-          grep -Fq '전체 모델링 구조' "$KO"
-          grep -Fq '왜 이 순서로 평가했는가' "$KO"
-          grep -Fq '후보 아키텍처를 비교한 이유' "$KO"
-          grep -Fq 'ResNet-50 + DeiT-Small을 선택한 이유' "$KO"
-          grep -Fq '최종 모델 구조' "$KO"
-          grep -Fq 'Threshold를 검사조건으로 바꾼 방법' "$KO"
-          grep -Fq 'Overall modeling architecture' "$EN"
-          grep -Fq 'Why the evaluation was performed in this order' "$EN"
-          grep -Fq 'Final model architecture' "$EN"
+          KO_WELD='posts/welding-vision-ai/index.html'
+          EN_WELD='en/posts/welding-vision-ai/index.html'
+          KO_GIGA='posts/giga-press-dx/index.html'
+          KO_INDY='posts/robot-json-omniverse/index.html'
+          test -s "$KO_WELD"
+          test -s "$EN_WELD"
+          test -s "$KO_GIGA"
+          test -s "$KO_INDY"
+          grep -Fq '용접실기품 외관검사 Vision AI Project' "$KO_WELD"
+          grep -Fq '전체 모델링 구조' "$KO_WELD"
+          grep -Fq '왜 이 순서로 평가했는가' "$KO_WELD"
+          grep -Fq '후보 아키텍처를 비교한 이유' "$KO_WELD"
+          grep -Fq '최종 모델 구조' "$KO_WELD"
+          grep -Fq 'Threshold를 검사조건으로 바꾼 방법' "$KO_WELD"
+          grep -Fq 'Overall modeling architecture' "$EN_WELD"
+          grep -Fq 'Final model architecture' "$EN_WELD"
+          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' "$KO_GIGA"
+          grep -Fq '자동차 공장 Digital Twin DX Project' "$KO_INDY"
+          grep -Fq 'portfolio-article__header' "$KO_INDY"
+          if grep -Fq '<section class="hero">' "$KO_INDY"; then
+            echo 'Standalone Indy7 template detected' >&2
+            exit 1
+          fi
           for asset in \
-            _site/images/projects/welding-vision-domain-gap.jpg \
-            _site/images/projects/welding-vision-report-augmentation.svg \
-            _site/images/projects/welding-vision-metric-improvement.svg \
-            _site/images/projects/welding-vision-report-threshold.svg \
-            _site/images/projects/welding-vision-report-app-flow.svg \
-            _site/images/projects/welding-vision-app-results.webp
+            images/projects/welding-vision-domain-gap.jpg \
+            images/projects/welding-vision-report-augmentation.svg \
+            images/projects/welding-vision-metric-improvement.svg \
+            images/projects/welding-vision-report-threshold.svg \
+            images/projects/welding-vision-report-app-flow.svg \
+            images/projects/welding-vision-app-results.webp
           do
             test -s "$asset"
           done
-
-      - name: Synchronize generated Hugo output
-        shell: bash
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'artifact.zip' \
-            _site/ ./
-          rm -rf _site artifact.zip
-
-      - name: Commit generated output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: publish welding model architecture and evaluation rationale'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -99,7 +66,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
