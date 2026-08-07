@@ -1,10 +1,14 @@
-name: Deploy committed Hugo output to GitHub Pages
+name: Publish validated portfolio title and image repair
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-pages.yml'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -13,47 +17,164 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out committed Hugo output
+      - name: Check out deployment repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: Verify standard Indy7 template and content
+      - name: Download validated Hugo artifact
+        shell: bash
+        env:
+          ARTIFACT_URL: 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-dc44-8209-8879-27b4149a71ac/raw?se=2026-08-07T03%3A07%3A59Z&sp=r&sv=2026-02-06&sr=b&scid=ad1df5c0-82ee-5eb5-b5ec-f8a59aa62028&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T23%3A39%3A58Z&ske=2026-08-07T23%3A39%3A58Z&sks=b&skv=2026-02-06&sig=gvP0BpmcVHPbx7w0f7K41RloiP3VunGiFJYaeh3BmAs%3D'
+        run: |
+          set -euo pipefail
+          SITE_DIR="$RUNNER_TEMP/portfolio-site"
+          rm -rf "$SITE_DIR" "$RUNNER_TEMP/portfolio-public.zip"
+          mkdir -p "$SITE_DIR"
+          curl --fail --location --retry 3 "$ARTIFACT_URL" --output "$RUNNER_TEMP/portfolio-public.zip"
+          unzip -q "$RUNNER_TEMP/portfolio-public.zip" -d "$SITE_DIR"
+
+      - name: Verify catalog titles and rendered images
         shell: bash
         run: |
           set -euo pipefail
-          KO='posts/robot-json-omniverse/index.html'
-          EN='en/posts/robot-json-omniverse/index.html'
-          test -s "$KO"
-          test -s "$EN"
-          grep -Fq '<title>자동차 공장 Digital Twin DX Project' "$KO"
-          grep -Fq 'property="og:title" content="자동차 공장 Digital Twin DX Project"' "$KO"
-          grep -Fq 'portfolio-article__header' "$KO"
-          grep -Fq 'portfolio-article-toc' "$KO"
-          grep -Fq '기존 Robot Teaching Data를 Digital Twin으로 연결한 방법' "$KO"
-          grep -Fq 'Team SOW' "$KO"
-          grep -Fq 'Personal WBS' "$KO"
-          grep -Fq 'sequenceDiagram' "$KO"
-          if grep -Fq '<section class="hero">' "$KO"; then
-            echo 'Standalone replacement template detected' >&2
-            exit 1
+          python - <<'PY'
+          from __future__ import annotations
+
+          import base64
+          import html
+          import re
+          import os
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+
+          root = Path(os.environ['RUNNER_TEMP']) / 'portfolio-site'
+
+          def text_only(value: str) -> str:
+              return html.unescape(re.sub(r'<[^>]+>', '', value)).strip()
+
+          def verify_catalog(prefix: str) -> None:
+              index = root / prefix / 'posts' / 'index.html' if prefix else root / 'posts' / 'index.html'
+              source = index.read_text(encoding='utf-8')
+              cards = re.findall(r'<h2><a href=(?:"([^"]+)"|\'([^\']+)\'|([^ >]+))>(.*?)</a></h2>', source, flags=re.S)
+              if len(cards) < 15:
+                  raise SystemExit(f'unexpected card count in {index}: {len(cards)}')
+              errors = []
+              for quoted, single, bare, raw_title in cards:
+                  href = quoted or single or bare
+                  card_title = text_only(raw_title)
+                  rel = urlsplit(href).path.lstrip('/')
+                  page = root / rel / 'index.html'
+                  if not page.is_file():
+                      errors.append(f'missing detail page: {href}')
+                      continue
+                  detail = page.read_text(encoding='utf-8')
+                  match = re.search(r'<h1>(.*?)</h1>', detail, flags=re.S)
+                  detail_title = text_only(match.group(1)) if match else '<missing h1>'
+                  if card_title != detail_title:
+                      errors.append(f'{href}: catalog={card_title!r}, detail={detail_title!r}')
+              if errors:
+                  raise SystemExit('catalog/detail mismatch:\n' + '\n'.join(errors))
+
+          verify_catalog('')
+          verify_catalog('en')
+
+          ko_catalog = (root / 'posts/index.html').read_text(encoding='utf-8')
+          en_catalog = (root / 'en/posts/index.html').read_text(encoding='utf-8')
+          assert '자동차 공장 Digital Twin DX Project' in ko_catalog
+          assert 'Automotive Factory Digital Twin DX Project' in en_catalog
+
+          target_refs = {
+              'posts/giga-press-dx/index.html': [
+                  'giga-press-report-process-flow.svg',
+                  'evidence/giga-press-control-demo.webp',
+                  'giga-press-team-demo.jpg',
+                  'evidence/giga-press-analysis-prototype.webp',
+                  'giga-press-report-ladder-modularization.svg',
+                  'giga-press-report-dqn-concept.svg',
+              ],
+              'posts/welding-vision-ai/index.html': [
+                  'welding-vision-report-augmentation.svg',
+                  'welding-vision-report-threshold.svg',
+                  'welding-vision-app-results.webp',
+              ],
+          }
+          for rel, refs in target_refs.items():
+              page = root / rel
+              source = page.read_text(encoding='utf-8')
+              for ref in refs:
+                  if ref not in source:
+                      raise SystemExit(f'{rel}: missing rendered reference {ref}')
+              if 'welding-vision-report-app-results.svg' in source:
+                  raise SystemExit(f'{rel}: broken result SVG reference remains')
+
+          missing = []
+          image_pattern = re.compile(r'<img\b[^>]*?\bsrc=(?:"([^"]+)"|\'([^\']+)\'|([^\s>]+))', flags=re.I | re.S)
+          for page in root.rglob('*.html'):
+              source = page.read_text(encoding='utf-8')
+              for match in image_pattern.finditer(source):
+                  src = match.group(1) or match.group(2) or match.group(3)
+                  parsed = urlsplit(html.unescape(src))
+                  if parsed.scheme or parsed.netloc or parsed.path.startswith('data:'):
+                      continue
+                  path = unquote(parsed.path)
+                  if not path.startswith('/images/'):
+                      continue
+                  asset = root / path.lstrip('/')
+                  if not asset.is_file() or asset.stat().st_size == 0:
+                      missing.append(f'{page.relative_to(root)} -> {path}')
+          if missing:
+              raise SystemExit('missing image assets:\n' + '\n'.join(sorted(set(missing))))
+
+          marker = re.compile(r'TRUNCATED_FOR_TOOL|ELLIPSIZATION')
+          embedded = re.compile(r'data:image/(?:jpeg|png|webp);base64,([^"\']+)')
+          for svg in (root / 'images').rglob('*.svg'):
+              source = svg.read_text(encoding='utf-8')
+              if marker.search(source):
+                  raise SystemExit(f'truncation marker remains in {svg}')
+              for match in embedded.finditer(source):
+                  base64.b64decode(match.group(1), validate=True)
+
+          required_assets = [
+              'images/projects/welding-vision-app-results.webp',
+              'images/projects/evidence/giga-press-control-demo.webp',
+              'images/projects/giga-press-team-demo.jpg',
+              'images/projects/evidence/giga-press-analysis-prototype.webp',
+          ]
+          for rel in required_assets:
+              asset = root / rel
+              if not asset.is_file() or asset.stat().st_size < 1000:
+                  raise SystemExit(f'missing or undersized asset: {rel}')
+
+          print('deployment artifact validation: PASS')
+          PY
+
+      - name: Synchronize generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          SITE_DIR="$RUNNER_TEMP/portfolio-site"
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            "$SITE_DIR/" ./
+
+      - name: Commit generated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes to commit.'
+          else
+            git commit -m 'deploy: align case titles and restore GIGA Press and welding images'
+            git push origin HEAD:main
           fi
-          for asset in \
-            images/projects/indy7-automotive-poc/cell-overview.avif \
-            images/projects/indy7-automotive-poc/qr-mysql-history.avif \
-            images/projects/indy7-automotive-poc/window-assembly.avif \
-            images/projects/indy7-automotive-poc/vision-color-detection.avif \
-            images/projects/indy7-automotive-poc/vision-color-f1.avif \
-            images/projects/indy7-automotive-poc/vision-window-detection.avif \
-            images/projects/indy7-automotive-poc/vision-window-f1.avif \
-            images/projects/indy7-automotive-poc/routing-good.avif \
-            images/projects/indy7-web-twin-read-only.png \
-            images/projects/evidence/indy7-traceability-demo.webp
-          do
-            test -s "$asset"
-            test "$(wc -c < "$asset")" -gt 1000
-          done
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -61,10 +182,10 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: '.'
+          path: ${{ runner.temp }}/portfolio-site
 
   deploy:
-    needs: verify
+    needs: publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
