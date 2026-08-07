@@ -1,15 +1,10 @@
-name: Publish verified Hugo artifact to GitHub Pages
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -18,31 +13,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
-      - name: Download verified Hugo build artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntprseasia.oaiusercontent.com/files/00000000-c4d8-8207-91c9-ba6adfeb67a1/raw?se=2026-08-07T02%3A02%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=d459145a-0117-5fbb-a67b-02ebe9b97f26&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T01%3A03%3A44Z&ske=2026-08-08T01%3A03%3A44Z&sks=b&skv=2026-02-06&sig=BCd2p4uleAK4GXaov1ozWnOP4D1yp94ffQ04YR7/yZk%3D'
-        run: |
-          set -euo pipefail
-          rm -rf _site artifact.zip
-          mkdir -p _site
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
-          unzip -q artifact.zip -d _site
 
       - name: Verify standard Indy7 template and content
         shell: bash
         run: |
           set -euo pipefail
-          KO='_site/posts/robot-json-omniverse/index.html'
-          EN='_site/en/posts/robot-json-omniverse/index.html'
+          KO='posts/robot-json-omniverse/index.html'
+          EN='en/posts/robot-json-omniverse/index.html'
           test -s "$KO"
           test -s "$EN"
           grep -Fq '<title>자동차 공장 Digital Twin DX Project' "$KO"
@@ -57,32 +39,21 @@ jobs:
             echo 'Standalone replacement template detected' >&2
             exit 1
           fi
-
-      - name: Synchronize generated site into deployment repository
-        shell: bash
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'artifact.zip' \
-            _site/ ./
-          rm -rf _site artifact.zip
-
-      - name: Commit generated Hugo output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: publish final Indy7 Digital Twin refactor with standard template'
-            git push origin HEAD:main
-          fi
+          for asset in \
+            images/projects/indy7-automotive-poc/cell-overview.avif \
+            images/projects/indy7-automotive-poc/qr-mysql-history.avif \
+            images/projects/indy7-automotive-poc/window-assembly.avif \
+            images/projects/indy7-automotive-poc/vision-color-detection.avif \
+            images/projects/indy7-automotive-poc/vision-color-f1.avif \
+            images/projects/indy7-automotive-poc/vision-window-detection.avif \
+            images/projects/indy7-automotive-poc/vision-window-f1.avif \
+            images/projects/indy7-automotive-poc/routing-good.avif \
+            images/projects/indy7-web-twin-read-only.png \
+            images/projects/evidence/indy7-traceability-demo.webp
+          do
+            test -s "$asset"
+            test "$(wc -c < "$asset")" -gt 1000
+          done
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -93,7 +64,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
