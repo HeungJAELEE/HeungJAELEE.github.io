@@ -1,14 +1,10 @@
-name: Publish GIGA Press and welding portfolio refactor
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -17,26 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Download verified Hugo build artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntprwestus3.oaiusercontent.com/files/00000000-3334-81fd-b90c-13b01e7fc186/raw?se=2026-08-07T04%3A31%3A30Z&sp=r&sv=2026-02-06&sr=b&scid=c0052d51-957c-5470-b4b5-5dad295a1047&skoid=03727f49-62d3-42ac-8350-1c0e6559d238&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T23%3A29%3A13Z&ske=2026-08-07T23%3A29%3A13Z&sks=b&skv=2026-02-06&sig=GkGdi8LiXFx6ZZezgWP5oqPkpeBKIjNIbW9WhZvGKCg%3D'
-        run: |
-          set -euo pipefail
-          rm -rf _site artifact.zip
-          mkdir -p _site
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
-          unzip -q artifact.zip -d _site
-
-      - name: Verify titles, project structure, and evidence images
+      - name: Verify catalog titles, project structure, and images
         shell: bash
         run: |
           set -euo pipefail
@@ -49,7 +32,7 @@ jobs:
           from pathlib import Path
           from urllib.parse import unquote, urlsplit
 
-          root = Path('_site')
+          root = Path('.')
 
           def text_only(value: str) -> str:
               return html.unescape(re.sub(r'<[^>]+>', '', value)).strip()
@@ -81,6 +64,11 @@ jobs:
           verify_catalog('en')
 
           required_pages = {
+              'posts/robot-json-omniverse/index.html': [
+                  '자동차 공장 Digital Twin DX Project',
+                  'portfolio-article__header',
+                  'portfolio-article-toc',
+              ],
               'posts/giga-press-dx/index.html': [
                   'GIGA Press 공정 Digital Twin DX Project',
                   '프로젝트 구현 목표 — Team SOW',
@@ -125,7 +113,7 @@ jobs:
           for rel, values in required_pages.items():
               page = root / rel
               if not page.is_file():
-                  raise SystemExit(f'missing generated page: {rel}')
+                  raise SystemExit(f'missing committed page: {rel}')
               source = page.read_text(encoding='utf-8')
               for value in values:
                   if value not in source:
@@ -168,39 +156,10 @@ jobs:
                   base64.b64decode(match.group(1), validate=True)
 
           indy = (root / 'posts/robot-json-omniverse/index.html').read_text(encoding='utf-8')
-          assert '자동차 공장 Digital Twin DX Project' in indy
-          assert 'portfolio-article__header' in indy
-          assert 'portfolio-article-toc' in indy
           assert '<section class="hero">' not in indy
 
-          print('portfolio release validation: PASS')
+          print('committed portfolio validation: PASS')
           PY
-
-      - name: Synchronize generated Hugo output
-        shell: bash
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'artifact.zip' \
-            _site/ ./
-          rm -rf _site artifact.zip
-
-      - name: Commit generated output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: publish GIGA Press and welding interviewer-first refactor'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -211,7 +170,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
