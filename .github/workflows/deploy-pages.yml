@@ -1,4 +1,4 @@
-name: Build Hugo source and deploy to GitHub Pages
+name: Publish verified Hugo artifact to GitHub Pages
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -18,38 +18,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out portfolio source
+      - name: Check out deployment repository
         uses: actions/checkout@v4
         with:
-          repository: HeungJAELEE/blog-source
-          ref: codex/portfolio-evidence-v3
-          path: source
-          submodules: recursive
           fetch-depth: 1
 
-      - name: Set up Hugo Extended
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.161.1'
-          extended: true
+      - name: Download verified Hugo build artifact
+        shell: bash
+        env:
+          ARTIFACT_URL: 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-3df4-8206-97f0-0ac5712ee73b/raw?se=2026-08-07T01%3A57%3A39Z&sp=r&sv=2026-02-06&sr=b&scid=0ad4b535-0dd3-5659-8db2-1dadb8e1659a&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-06T05%3A24%3A36Z&ske=2026-08-07T05%3A24%3A36Z&sks=b&skv=2026-02-06&sig=6Ykm4AuCwmOpawHlAb09CkKqDCMonjlzexUAPJR2vsg%3D'
+        run: |
+          set -euo pipefail
+          rm -rf _site artifact.zip
+          mkdir -p _site
+          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
+          unzip -q artifact.zip -d _site
 
-      - name: Build production site
+      - name: Verify standard Indy7 template and content
         shell: bash
         run: |
           set -euo pipefail
-          hugo --gc --minify --environment production \
-            --source source \
-            --destination "$GITHUB_WORKSPACE/public"
-
-      - name: Verify Indy7 page and standard template
-        shell: bash
-        run: |
-          set -euo pipefail
-          KO='public/posts/robot-json-omniverse/index.html'
-          EN='public/en/posts/robot-json-omniverse/index.html'
+          KO='_site/posts/robot-json-omniverse/index.html'
+          EN='_site/en/posts/robot-json-omniverse/index.html'
           test -s "$KO"
           test -s "$EN"
           grep -Fq '자동차 공장 Digital Twin DX Project' "$KO"
@@ -63,21 +56,32 @@ jobs:
             echo 'Standalone replacement template detected' >&2
             exit 1
           fi
-          for asset in \
-            public/images/projects/indy7-automotive-poc/cell-overview.avif \
-            public/images/projects/indy7-automotive-poc/qr-mysql-history.avif \
-            public/images/projects/indy7-automotive-poc/window-assembly.avif \
-            public/images/projects/indy7-automotive-poc/vision-color-detection.avif \
-            public/images/projects/indy7-automotive-poc/vision-color-f1.avif \
-            public/images/projects/indy7-automotive-poc/vision-window-detection.avif \
-            public/images/projects/indy7-automotive-poc/vision-window-f1.avif \
-            public/images/projects/indy7-automotive-poc/routing-good.avif \
-            public/images/projects/indy7-web-twin-read-only.png \
-            public/images/projects/evidence/indy7-traceability-demo.webp
-          do
-            test -s "$asset"
-            test "$(wc -c < "$asset")" -gt 1000
-          done
+
+      - name: Synchronize generated site into deployment repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'artifact.zip' \
+            _site/ ./
+          rm -rf _site artifact.zip
+
+      - name: Commit generated Hugo output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes to commit.'
+          else
+            git commit -m 'deploy: restore standard template and publish Indy7 Digital Twin refactor'
+            git push origin HEAD:main
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -85,10 +89,10 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: public
+          path: '.'
 
   deploy:
-    needs: build
+    needs: publish
     runs-on: ubuntu-latest
     environment:
       name: github-pages
