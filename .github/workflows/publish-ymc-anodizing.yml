@@ -25,25 +25,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Reconstruct and verify Hugo overlay
+      - name: Download validated Hugo artifact
         shell: bash
         run: |
           set -euo pipefail
-          cat .github/ymc-anodizing-overlay/part-*.b64 > /tmp/ymc-overlay.b64
-          base64 --decode /tmp/ymc-overlay.b64 > /tmp/ymc-overlay.tar.gz
-          echo '3d9e91ea11cdf19cdd0b3762d18883315fbd9cded8e0a3357ffa8299209c68c4  /tmp/ymc-overlay.tar.gz' | sha256sum --check
-          tar -tzf /tmp/ymc-overlay.tar.gz
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-bc0c-8206-afcf-544f5b254fc9/raw?se=2026-08-07T16%3A15%3A16Z&sp=r&sv=2026-02-06&sr=b&scid=fed58c41-10dc-56fb-8030-cdeac46065a9&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T04%3A21%3A42Z&ske=2026-08-08T04%3A21%3A42Z&sks=b&skv=2026-02-06&sig=2xayZ/HUOA7qY71R6n67Cw%2BR%2BzWTfk48tcKAkouRnUE%3D' \
+            --output /tmp/portfolio-public.zip
+          echo 'ccf23f9b42af5dd53763942203ff178822d5e12fca4b4584788a91c70cc78f7f  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
 
-      - name: Apply generated Hugo pages
+      - name: Verify generated portfolio
         shell: bash
         run: |
           set -euo pipefail
-          tar -xzf /tmp/ymc-overlay.tar.gz -C .
-
-          KO='posts/oled-anodizing-development/index.html'
-          EN='en/posts/oled-anodizing-development/index.html'
-          KO_HUB='posts/wet-process-standardization/index.html'
-          EN_HUB='en/posts/wet-process-standardization/index.html'
+          KO='/tmp/site/posts/oled-anodizing-development/index.html'
+          EN='/tmp/site/en/posts/oled-anodizing-development/index.html'
+          KO_HUB='/tmp/site/posts/wet-process-standardization/index.html'
+          EN_HUB='/tmp/site/en/posts/wet-process-standardization/index.html'
 
           test -s "$KO"
           test -s "$EN"
@@ -56,23 +57,23 @@ jobs:
           grep -Fq '450℃' "$KO"
           grep -Fq 'High-Temperature Anodizing Development for Display Equipment Parts' "$EN"
           grep -Fq 'Oxalic-acid anodizing for a display PECVD susceptor' "$EN"
-          grep -Fq '디스플레이 장비부품 고내열 Anodizing 공정개발' posts/index.html
-          grep -Fq 'High-Temperature Anodizing Development for Display Equipment Parts' en/posts/index.html
+          grep -Fq '디스플레이 장비부품 고내열 Anodizing 공정개발' /tmp/site/posts/index.html
+          grep -Fq 'High-Temperature Anodizing Development for Display Equipment Parts' /tmp/site/en/posts/index.html
 
-          test -s posts/welding-vision-ai/index.html
-          test -s posts/giga-press-dx/index.html
-          test -s posts/robot-json-omniverse/index.html
-          grep -Fq '용접실기품 외관검사 Vision AI Project' posts/welding-vision-ai/index.html
-          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' posts/giga-press-dx/index.html
-          grep -Fq '자동차 공장 Digital Twin DX Project' posts/robot-json-omniverse/index.html
+          test -s /tmp/site/posts/welding-vision-ai/index.html
+          test -s /tmp/site/posts/giga-press-dx/index.html
+          test -s /tmp/site/posts/robot-json-omniverse/index.html
+          grep -Fq '용접실기품 외관검사 Vision AI Project' /tmp/site/posts/welding-vision-ai/index.html
+          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' /tmp/site/posts/giga-press-dx/index.html
+          grep -Fq '자동차 공장 Digital Twin DX Project' /tmp/site/posts/robot-json-omniverse/index.html
 
-      - name: Commit generated site and remove staging files
+      - name: Synchronize and commit generated site
         shell: bash
         run: |
           set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
           rm -rf .github/ymc-anodizing-overlay
           rm -f .github/workflows/publish-ymc-anodizing.yml
-          rm -f /tmp/ymc-overlay.b64 /tmp/ymc-overlay.tar.gz
 
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -91,7 +92,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '/tmp/site'
 
   deploy:
     needs: publish
