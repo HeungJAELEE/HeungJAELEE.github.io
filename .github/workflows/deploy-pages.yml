@@ -1,14 +1,10 @@
-name: Publish supplied welding evidence images
+name: Deploy committed Hugo output to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -17,41 +13,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out deployment repository
+      - name: Check out committed Hugo output
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
-      - name: Download verified Hugo artifact
-        shell: bash
-        env:
-          ARTIFACT_URL: 'https://sdmntpreastus2.oaiusercontent.com/files/00000000-5680-81f6-a3b7-6ddb73112adb/raw?se=2026-08-07T07%3A20%3A06Z&sp=r&sv=2026-02-06&sr=b&scid=e1f6ed71-90f5-5c1f-823c-785b6e9cb0ef&skoid=dd316919-ffbf-4550-9c54-dfc99f412009&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T04%3A23%3A15Z&ske=2026-08-08T04%3A23%3A15Z&sks=b&skv=2026-02-06&sig=%2B0o/V6fJQlR3EnYci2p4NAxH4W/%2BDs/6noicD5blH5k%3D'
-        run: |
-          set -euo pipefail
-          rm -rf _site artifact.zip
-          mkdir -p _site
-          curl --fail --location --retry 3 "$ARTIFACT_URL" --output artifact.zip
-          unzip -q artifact.zip -d _site
-
-      - name: Verify supplied welding evidence and existing portfolio contracts
+      - name: Verify portfolio titles, structures, and evidence images
         shell: bash
         run: |
           set -euo pipefail
-          KO_WELD='_site/posts/welding-vision-ai/index.html'
-          EN_WELD='_site/en/posts/welding-vision-ai/index.html'
-          KO_GIGA='_site/posts/giga-press-dx/index.html'
-          KO_INDY='_site/posts/robot-json-omniverse/index.html'
+          KO_WELD='posts/welding-vision-ai/index.html'
+          EN_WELD='en/posts/welding-vision-ai/index.html'
+          KO_GIGA='posts/giga-press-dx/index.html'
+          KO_INDY='posts/robot-json-omniverse/index.html'
           test -s "$KO_WELD"
           test -s "$EN_WELD"
           test -s "$KO_GIGA"
           test -s "$KO_INDY"
           grep -Fq '용접실기품 외관검사 Vision AI Project' "$KO_WELD"
           grep -Fq '전체 모델링 구조' "$KO_WELD"
+          grep -Fq '왜 이 순서로 평가했는가' "$KO_WELD"
           grep -Fq '검사대상 — 언더컷과 오버랩' "$KO_WELD"
           grep -Fq '고객 승인이나 공인 인증 결과가 아닙니다' "$KO_WELD"
+          grep -Fq 'Overall modeling architecture' "$EN_WELD"
           grep -Fq 'Inspection targets — undercut and overlap' "$EN_WELD"
           grep -Fq 'not customer approval or certification' "$EN_WELD"
           grep -Fq 'GIGA Press 공정 Digital Twin DX Project' "$KO_GIGA"
@@ -71,44 +56,18 @@ jobs:
             ! grep -Fq 'ANALYSIS OF NANO-ROBOT' "$page"
           done
           for asset in \
-            _site/images/projects/welding-p08-defect-types.avif \
-            _site/images/projects/welding-p07-source-data.avif \
-            _site/images/projects/welding-p11-domain-gap.avif \
-            _site/images/projects/welding-p15-baseline-field.avif \
-            _site/images/projects/welding-p17-augmentation-result.avif \
-            _site/images/projects/welding-p19-final-ensemble.avif \
-            _site/images/projects/welding-vision-report-augmentation.svg \
-            _site/images/projects/welding-vision-report-threshold.svg \
-            _site/images/projects/welding-vision-app-results.webp
+            images/projects/welding-p08-defect-types.avif \
+            images/projects/welding-p07-source-data.avif \
+            images/projects/welding-p11-domain-gap.avif \
+            images/projects/welding-p15-baseline-field.avif \
+            images/projects/welding-p17-augmentation-result.avif \
+            images/projects/welding-p19-final-ensemble.avif \
+            images/projects/welding-vision-report-augmentation.svg \
+            images/projects/welding-vision-report-threshold.svg \
+            images/projects/welding-vision-app-results.webp
           do
             test -s "$asset"
           done
-
-      - name: Synchronize generated Hugo output
-        shell: bash
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'artifact.zip' \
-            _site/ ./
-          rm -rf _site artifact.zip
-
-      - name: Commit generated output
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          if git diff --cached --quiet; then
-            echo 'No generated-site changes to commit.'
-          else
-            git commit -m 'deploy: publish supplied welding model-evaluation evidence images'
-            git push origin HEAD:main
-          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -119,7 +78,7 @@ jobs:
           path: '.'
 
   deploy:
-    needs: publish
+    needs: verify
     runs-on: ubuntu-latest
     environment:
       name: github-pages
