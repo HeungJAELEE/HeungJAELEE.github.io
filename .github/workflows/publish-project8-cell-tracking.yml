@@ -1,0 +1,129 @@
+name: Publish Cell S/N tracking field-tool refactor
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-project8-cell-tracking.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprwestus3.oaiusercontent.com/files/00000000-4624-81fd-a8cf-3674b85420e2/raw?se=2026-08-08T10%3A43%3A52Z&sp=r&sv=2026-02-06&sr=b&scid=27b0434e-75f3-5557-9ac8-6b416cb195f3&skoid=f5e14fda-2af7-44a3-9d18-d372ffcad871&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T01%3A49%3A06Z&ske=2026-08-09T01%3A49%3A06Z&sks=b&skv=2026-02-06&sig=Ap0gqRlCqAm5kBtGViOFlochRwwTe%2BOStWin4bLe0k0%3D' \
+            --output /tmp/portfolio-public.zip
+          echo '2a8deaabaed10e4077349a579fda5d6aab31dd13188090e0855b8d15518c9ebc  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify Cell S/N page and portfolio regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/site/posts/cell-production-tracking/index.html'
+          EN='/tmp/site/en/posts/cell-production-tracking/index.html'
+          PARENT_KO='/tmp/site/posts/ncm-fat-sat/index.html'
+          PARENT_EN='/tmp/site/en/posts/ncm-fat-sat/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          test -s "$PARENT_KO"
+          test -s "$PARENT_EN"
+          test -s /tmp/site/images/projects/cell-production-tracking-flow.svg
+
+          grep -Fq 'Cell S/N 생산이력 추적 도구' "$KO"
+          grep -Fq '현장 문제와 사용자' "$KO"
+          grep -Fq '조회해야 할 정보' "$KO"
+          grep -Fq '데이터 연결 논리' "$KO"
+          grep -Fq '제조현장·시스템 원인판정' "$KO"
+          grep -Fq 'Cell당 약 5–10초' "$KO"
+          grep -Fq '10개 Cell 검색' "$KO"
+          grep -Fq '보고서 작성 포함 약 반나절' "$KO"
+          grep -Fq 'Pump의 미세진동' "$KO"
+          grep -Fq '별도 생산이력 조회도구' "$KO"
+          grep -Fq '완료 판정' "$KO"
+          grep -Fq '검색·보고서 시간을 구분' "$PARENT_KO"
+
+          grep -Fq 'Cell S/N Production-History Trace Tool' "$EN"
+          grep -Fq 'Field problem and users' "$EN"
+          grep -Fq 'Information the user needs' "$EN"
+          grep -Fq 'Data-link logic' "$EN"
+          grep -Fq 'Manufacturing and system cause disposition' "$EN"
+          grep -Fq 'About 5–10 sec' "$EN"
+          grep -Fq 'Ten-cell search' "$EN"
+          grep -Fq 'About half a day' "$EN"
+          grep -Fq 'pump micro-vibration' "$EN"
+          grep -Fq 'Separate production-history lookup tool' "$EN"
+          grep -Fq 'Completion decision' "$EN"
+          grep -Fq 'separated search from report time' "$PARENT_EN"
+
+          test -s /tmp/site/posts/battery-2170-pilot/index.html
+          test -s /tmp/site/posts/battery-4695-production-transition/index.html
+          test -s /tmp/site/posts/battery-25p-lfp-development/index.html
+          test -s /tmp/site/posts/battery-tabless-concept/index.html
+          test -s /tmp/site/posts/can-supplier-pilot-transition/index.html
+          test -s /tmp/site/posts/ncm-fat-sat/index.html
+          test -s /tmp/site/posts/ncm-pre-forming-validation/index.html
+
+          if grep -Eqi '99\.9%|3일[[:space:]]*(→|->)[[:space:]]*(약[[:space:]]*)?3분|three days[[:space:]]*(→|->|to)[[:space:]]*(about[[:space:]]*)?three minutes|현재도[[:space:]]*사용|still[[:space:]]+in[[:space:]]+use|MES[[:space:]]*(구축|고도화|개발)[[:space:]]*(완료|성과|구현)?' "$KO" "$EN"; then
+            echo 'Prohibited Cell S/N tracking claim found in publish artifact' >&2
+            exit 1
+          fi
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-project8-cell-tracking.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish Cell S/N tracking field-tool refactor'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
