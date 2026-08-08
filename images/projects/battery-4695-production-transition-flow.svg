@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">4695 조립라인 주요 설비 정상화와 제한 생산 판정</title>
+  <desc id="desc">양산준비 이관에서 Laser 3공정, X-Ray·Vision, Ready·측정 Control, 설계한계 설비, 2개 Lot와 최종 50 Cell 제한 생산판정으로 이어지는 흐름</desc>
+  <rect width="1200" height="520" fill="#EFF1ED"/>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="54" y="52" fill="#1C232C" font-size="29" font-weight="700">4695 조립라인 — 정상화 가능한 공정과 설계개조 Gate를 분리했습니다</text>
+    <text x="54" y="82" fill="#5B6470" font-size="16">실제 제품을 기준으로 자동검사·자동운전·수동개입 범위를 다시 정하고 제한 생산 가능 여부를 판정했습니다.</text>
+  </g>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <rect x="54" y="125" width="180" height="82" rx="4" fill="#1C3F5B"/>
+    <text x="144" y="157" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">2025.02 이관</text>
+    <text x="144" y="184" text-anchor="middle" fill="#DDE8EF" font-size="13">개발완료 → 양산준비</text>
+
+    <rect x="258" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
+    <text x="361" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Laser 3공정</text>
+    <text x="361" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">정도·Align·조건 재설정</text>
+    <text x="361" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">절단·해체·인장</text>
+
+    <rect x="488" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
+    <text x="591" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">검사설비</text>
+    <text x="591" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">X-Ray·Vision V3/V4 자동</text>
+    <text x="591" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">V1/V2/V5 수동 Gate</text>
+
+    <rect x="718" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
+    <text x="821" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">라인 Control</text>
+    <text x="821" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">Ready·Interlock·측정</text>
+    <text x="821" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">QCP·P-FMEA·MES</text>
+
+    <rect x="948" y="125" width="198" height="82" rx="4" fill="#3F7D58"/>
+    <text x="1047" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">제품 재시험</text>
+    <text x="1047" y="176" text-anchor="middle" fill="#EAF4ED" font-size="13">100 Cell × 2 Lot</text>
+    <text x="1047" y="195" text-anchor="middle" fill="#EAF4ED" font-size="12">최종 50 Cell</text>
+  </g>
+  <g stroke="#AABBC7" stroke-width="4" fill="none">
+    <path d="M234 166H258"/><path d="M464 166H488"/><path d="M694 166H718"/><path d="M924 166H948"/>
+  </g>
+  <g fill="#2B5C8A"><path d="M255 166l-10-6v12z"/><path d="M485 166l-10-6v12z"/><path d="M715 166l-10-6v12z"/><path d="M945 166l-10-6v12z"/></g>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="54" y="262" fill="#1C232C" font-size="21" font-weight="700">재직 중 구조·프로그램 정상화가 끝나지 않은 설비</text>
+    <rect x="54" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="75" y="318" fill="#1C232C" font-size="17" font-weight="700">E/L Filling</text>
+    <text x="75" y="346" fill="#5B6470" font-size="14">기존 Spare 교체·누액확인</text>
+    <text x="75" y="374" fill="#E2711D" font-size="13" font-weight="700">밀봉부 소재·치수·구조개조 Gate</text>
+
+    <rect x="431" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="452" y="318" fill="#1C232C" font-size="17" font-weight="700">Crimping &amp; Sizing</text>
+    <text x="452" y="346" fill="#5B6470" font-size="14">윤활·속도조정·반복가압·전수검사</text>
+    <text x="452" y="374" fill="#E2711D" font-size="13" font-weight="700">구동계·하중전달·3-Jaw Gate</text>
+
+    <rect x="808" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="829" y="318" fill="#1C232C" font-size="17" font-weight="700">Marking</text>
+    <text x="829" y="346" fill="#5B6470" font-size="14">Lot·QR 수동입력·검사·MES 기록</text>
+    <text x="829" y="374" fill="#E2711D" font-size="13" font-weight="700">Template·MES 등록·변경기능 Gate</text>
+  </g>
+  <g font-family="IBM Plex Mono, Consolas, monospace">
+    <rect x="54" y="438" width="1092" height="46" rx="4" fill="#1C232C"/>
+    <text x="75" y="467" fill="#FFFFFF" font-size="14">DECISION  LIMITED PRODUCTION · CONTROLLED MANUAL INTERVENTION · LONG-RUN CAPACITY NOT CLAIMED</text>
+  </g>
+</svg>
