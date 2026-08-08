@@ -1,0 +1,103 @@
+name: Publish navigation and project 1 refactor
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-project1-2170.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-7b3c-8206-8d23-9f8315b5fc2d/raw?se=2026-08-08T05%3A49%3A51Z&sp=r&sv=2026-02-06&sr=b&scid=9c97489c-0340-5242-97fa-0b0dae9c4097&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T01%3A08%3A45Z&ske=2026-08-09T01%3A08%3A45Z&sks=b&skv=2026-02-06&sig=pkJFwDLP1OrrUck7yKJSd%2BOdWcCZZBwm0ZL16kXelg8%3D' \
+            --output /tmp/portfolio-public.zip
+          echo '75e0c6db3ec0ef4a76c9c6f85659aed71aa3aeb8d67527208b94dfd975167657  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify navigation and 2170 page
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO_HOME='/tmp/site/index.html'
+          EN_HOME='/tmp/site/en/index.html'
+          KO='/tmp/site/posts/battery-2170-pilot/index.html'
+          EN='/tmp/site/en/posts/battery-2170-pilot/index.html'
+          test -s "$KO_HOME"
+          test -s "$EN_HOME"
+          test -s "$KO"
+          test -s "$EN"
+          grep -Fq '상세보기' "$KO_HOME"
+          grep -Fq '>Details<' "$EN_HOME"
+          grep -Fq '2170 조립라인 실질 양품수율 안정화' "$KO"
+          grep -Fq 'portfolio-project-contract' "$KO"
+          grep -Fq '4M+2E 원인분석' "$KO"
+          grep -Fq 'Vision 오판정과 검사 마진 재설정' "$KO"
+          grep -Fq '주액 Loss와 기밀구조·Recipe 분리 검증' "$KO"
+          grep -Fq '저항용접 접합상태와 Formation IR 안정화' "$KO"
+          grep -Fq '형상·후공정 판정 안정화' "$KO"
+          grep -Fq '검증 범위' "$KO"
+          grep -Fq '2170 Assembly-Line Good-Yield Stabilization' "$EN"
+          test -s /tmp/site/posts/welding-vision-ai/index.html
+          test -s /tmp/site/posts/giga-press-dx/index.html
+          test -s /tmp/site/posts/robot-json-omniverse/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-project1-2170.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish project 1 refactor'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
