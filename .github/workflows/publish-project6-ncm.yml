@@ -1,0 +1,115 @@
+name: Publish NCM pilot-line manufacturing refactor
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-project6-ncm.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-0774-8211-b3bb-093f1e5b163b/raw?se=2026-08-08T09%3A46%3A07Z&sp=r&sv=2026-02-06&sr=b&scid=31380594-b508-56d3-8bf8-866c3f7c0e3b&skoid=6980ab1e-b994-4668-84de-ad0444c9d08b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T00%3A35%3A05Z&ske=2026-08-09T00%3A35%3A05Z&sks=b&skv=2026-02-06&sig=i0Ac9SbaEpbGcHk6f1k%2BdUGRXZL62sQONN/ga2xvV2Y%3D' \
+            --output /tmp/portfolio-public.zip
+          echo 'ea6f658807f210b30fd6b98a05436116c99431a26246489e23fa78d60300bae2  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify NCM page and manufacturing regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/site/posts/ncm-fat-sat/index.html'
+          EN='/tmp/site/en/posts/ncm-fat-sat/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          grep -Fq 'NCM 각형 Pilot Line 인수·초기 안정화' "$KO"
+          grep -Fq '프로젝트 SOW' "$KO"
+          grep -Fq '프로젝트 WBS' "$KO"
+          grep -Fq '공정 전체 4M+2E 원인판정' "$KO"
+          grep -Fq 'Pre-Charge 이후 Cell 두께 증가' "$KO"
+          grep -Fq 'Cap Plate C-Cut 변경 허용범위 검증' "$KO"
+          grep -Fq '7개 조건 × 5개 Cell' "$KO"
+          grep -Fq '약 5일·약 1,000 Cell' "$KO"
+          grep -Fq 'FPY 또는 장기 양산수율이 아니며' "$KO"
+          grep -Fq 'Gate 판정' "$KO"
+          grep -Fq 'Project-level 4M+2E cause disposition' "$EN"
+          grep -Fq 'not FPY or long-term production yield' "$EN"
+
+          if grep -Eqi '97\.4%|납기준수[^<]{0,40}100%|0\.5[^<]{0,20}(→|to|-&gt;)[^<]{0,20}0\.78|Cpk[^<]{0,20}1\.33' "$KO"; then
+            echo 'Prohibited NCM KPI found in Korean page' >&2
+            exit 1
+          fi
+          if grep -Eqi '97\.4%|100%[^<]{0,30}on-time|0\.5[^<]{0,20}(to|-&gt;)[^<]{0,20}0\.78|Cpk[^<]{0,20}1\.33' "$EN"; then
+            echo 'Prohibited NCM KPI found in English page' >&2
+            exit 1
+          fi
+
+          test -s /tmp/site/posts/battery-2170-pilot/index.html
+          test -s /tmp/site/posts/battery-4695-production-transition/index.html
+          test -s /tmp/site/posts/battery-25p-lfp-development/index.html
+          test -s /tmp/site/posts/battery-tabless-concept/index.html
+          test -s /tmp/site/posts/can-supplier-pilot-transition/index.html
+          test -s /tmp/site/posts/ncm-pre-forming-validation/index.html
+          test -s /tmp/site/posts/cell-production-tracking/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-project6-ncm.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish NCM pilot-line refactor'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
