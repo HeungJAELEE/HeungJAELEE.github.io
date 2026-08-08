@@ -1,0 +1,108 @@
+name: Publish refined 2170 manufacturing case
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-2170-language-v2.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprwestus.oaiusercontent.com/files/00000000-5d48-8230-8b7d-a30f1af425c5/raw?se=2026-08-08T07%3A14%3A06Z&sp=r&sv=2026-02-06&sr=b&scid=ba92ba22-fec6-5575-8bf3-7af7cf5cdf44&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T06%3A16%3A00Z&ske=2026-08-09T06%3A16%3A00Z&sks=b&skv=2026-02-06&sig=g6yZPc6%2B9l1vzAFa4fo4jtkpdMAXVSxxj95UAT4GEGc%3D' \
+            --output /tmp/portfolio-public.zip
+          echo '37c5de1956774db673a42dfcdc9ae4e3cb967405dc4c4e0160248b541bb7ba3f  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify refined page and regression boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/site/posts/battery-2170-pilot/index.html'
+          EN='/tmp/site/en/posts/battery-2170-pilot/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          grep -Fq '프로젝트 핵심 요약' "$KO"
+          grep -Fq '양산 초기 현상' "$KO"
+          grep -Fq '라인 공통 4M+2E' "$KO"
+          grep -Fq '사례 01. Vision 정상 Cell 오배출' "$KO"
+          grep -Fq '사례 02. 주액 누액·중량미달' "$KO"
+          grep -Fq '사례 03. 저항용접 미접합과 Formation IR' "$KO"
+          grep -Fq '사례 04. CBD Beading 형상불량' "$KO"
+          grep -Fq '사례 05. CBC·CCR 총고 판정과 Sizing 관리' "$KO"
+          grep -Fq '사례 06. CXI X-Ray 오판정' "$KO"
+          grep -Fq 'Manufacturing project summary' "$EN"
+          test "$(grep -o '2170-stabilization-flow.svg' "$KO" | wc -l)" -eq 1
+
+          for forbidden in '30% → 0%' '7.5~11.0%' '0.05%' '73% → 95%' '4% → 0.3%' '4% → 0.1%' '4% → 0.2%' '70% → 100%' '항목을 종료'; do
+            if grep -Fq "$forbidden" "$KO"; then
+              echo "Unresolved 2170 claim remains: $forbidden" >&2
+              exit 1
+            fi
+          done
+
+          test -s /tmp/site/posts/ncm-fat-sat/index.html
+          test -s /tmp/site/posts/welding-vision-ai/index.html
+          test -s /tmp/site/posts/robot-json-omniverse/index.html
+          test -s /tmp/site/posts/giga-press-dx/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-2170-language-v2.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish refined 2170 manufacturing case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
