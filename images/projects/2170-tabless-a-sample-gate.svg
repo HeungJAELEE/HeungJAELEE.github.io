@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
+  <title id="title">2170 Tabless A Sample 제조성 검증 흐름</title>
+  <desc id="desc">구조 요구와 안전위험 정의, 임시 Jig 제조경로, 약 100개 탐색 제작, 실패형태 분리, 기능 Sample 5개 확인, A Sample 제작가능성 판정</desc>
+  <rect width="1440" height="560" fill="#EFF1ED"/>
+  <text x="72" y="76" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#1C232C">2170 TABLESS · A SAMPLE MANUFACTURABILITY</text>
+  <text x="72" y="112" font-family="Arial, sans-serif" font-size="18" fill="#5B6470">기존 4695 설비와 임시 Jig로 제조경로를 만들고 실패형태를 분리한 뒤 기능 Sample까지 확인</text>
+  <line x1="112" y1="310" x2="1328" y2="310" stroke="#5B6470" stroke-width="3"/>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(95 0)">
+      <circle cx="0" cy="310" r="42" fill="#2B5C8A"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">01</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">구조·안전위험</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">Beam · Short · 손상</text>
+    </g>
+    <g transform="translate(345 0)">
+      <circle cx="0" cy="310" r="42" fill="#2B5C8A"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">02</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">임시 제조경로</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">4695 설비 · 3D Print Jig</text>
+    </g>
+    <g transform="translate(595 0)">
+      <circle cx="0" cy="310" r="42" fill="#E2711D"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">03</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">약 100개 탐색</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">A Sample 제작 시도</text>
+    </g>
+    <g transform="translate(845 0)">
+      <circle cx="0" cy="310" r="42" fill="#2B5C8A"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">04</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">실패형태 분리</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">용접 · Beam · Short · 정렬</text>
+    </g>
+    <g transform="translate(1095 0)">
+      <circle cx="0" cy="310" r="42" fill="#3F7D58"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">05</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">기능 Sample 5개</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">Hi-Pot · IR · Formation</text>
+    </g>
+    <g transform="translate(1345 0)">
+      <circle cx="0" cy="310" r="42" fill="#3F7D58"/><text x="0" y="318" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">06</text>
+      <text x="0" y="390" text-anchor="middle" font-size="20" font-weight="700" fill="#1C232C">A Sample PASS</text><text x="0" y="420" text-anchor="middle" font-size="16" fill="#5B6470">구조 제작가능성</text>
+    </g>
+  </g>
+  <rect x="72" y="474" width="1296" height="42" fill="#ffffff" stroke="#C5CBD0"/>
+  <text x="720" y="501" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#5B6470">5개는 탐색 제작에서 확보한 기능 Sample이며, 제작수율·Pilot·양산 결과로 사용하지 않음</text>
+</svg>
