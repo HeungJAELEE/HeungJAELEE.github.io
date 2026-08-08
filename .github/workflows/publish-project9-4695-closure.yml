@@ -1,0 +1,102 @@
+name: Publish final 4695 equipment closure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-project9-4695-closure.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-1d7c-8206-baf8-572a9de9cc85/raw?se=2026-08-08T16%3A59%3A50Z&sp=r&sv=2026-02-06&sr=b&scid=69779df2-0033-51a8-b16f-d4640032aa38&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T01%3A02%3A41Z&ske=2026-08-09T01%3A02%3A41Z&sks=b&skv=2026-02-06&sig=60t1LT0xcVfQ0JEbVmnpduiEb/0d49dGIjCuFzgcD3Y%3D' \
+            --output /tmp/portfolio-public.zip
+          echo '244105ef6b32d916d355f4f4cc1ca3785c74047af6cadd921e4c84c7959732a8  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify final 4695 site and employment regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/site/posts/battery-4695-production-transition/index.html'
+          EN='/tmp/site/en/posts/battery-4695-production-transition/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          test -s /tmp/site/images/projects/battery-4695-production-transition-flow.svg
+
+          grep -Fq '4695 조립라인 주요 설비 정상화 및 제한 생산 전환' "$KO"
+          grep -Fq '100 Cell × 2 Lot' "$KO"
+          grep -Fq '최종 50 Cell' "$KO"
+          grep -Fq '통제된 수동개입' "$KO"
+          grep -Fq '4695 Assembly-Line Equipment Recovery and Limited-Production Transition' "$EN"
+          grep -Fq '100 cells × 2 lots' "$EN"
+          grep -Fqi 'controlled manual intervention' "$EN"
+
+          test -s /tmp/site/posts/battery-2170-pilot/index.html
+          test -s /tmp/site/posts/battery-25p-lfp-development/index.html
+          test -s /tmp/site/posts/battery-tabless-concept/index.html
+          test -s /tmp/site/posts/can-supplier-pilot-transition/index.html
+          test -s /tmp/site/posts/ncm-fat-sat/index.html
+          test -s /tmp/site/posts/ncm-pre-forming-validation/index.html
+          test -s /tmp/site/posts/cell-production-tracking/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-project9-4695-closure.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish final 4695 equipment closure'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
