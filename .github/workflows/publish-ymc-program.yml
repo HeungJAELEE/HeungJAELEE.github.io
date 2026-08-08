@@ -1,0 +1,114 @@
+name: Publish full YMC portfolio reorganization
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-ymc-program.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-db7c-8209-aa32-8656ac68bcde/raw?se=2026-08-08T01%3A35%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=85a9b141-2406-539a-bbec-e68e1f948d7f&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-07T04%3A47%3A20Z&ske=2026-08-08T04%3A47%3A20Z&sks=b&skv=2026-02-06&sig=I/bS2oePM/2uoU/TICNnm5y5exuPMSlRJpqX/oPKmiQ%3D' \
+            --output /tmp/portfolio-public.zip
+          echo '978cf41c2907e05528dc77f485ad57c1d3c85a596d6fb1975f35a49d5a8b78de  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify YMC and existing portfolio pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO_HUB='/tmp/site/posts/wet-process-standardization/index.html'
+          KO_BATH='/tmp/site/posts/mixed-acid-bath-analysis/index.html'
+          KO_QUAL='/tmp/site/posts/amat-akt-qual/index.html'
+          KO_DIFF='/tmp/site/posts/diffuser-scaleup-failure/index.html'
+          KO_ROBOT='/tmp/site/posts/robot-overhaul-standardization/index.html'
+          EN_HUB='/tmp/site/en/posts/wet-process-standardization/index.html'
+          EN_BATH='/tmp/site/en/posts/mixed-acid-bath-analysis/index.html'
+          EN_QUAL='/tmp/site/en/posts/amat-akt-qual/index.html'
+          EN_DIFF='/tmp/site/en/posts/diffuser-scaleup-failure/index.html'
+          EN_ROBOT='/tmp/site/en/posts/robot-overhaul-standardization/index.html'
+
+          for file in "$KO_HUB" "$KO_BATH" "$KO_QUAL" "$KO_DIFF" "$KO_ROBOT" "$EN_HUB" "$EN_BATH" "$EN_QUAL" "$EN_DIFF" "$EN_ROBOT"; do
+            test -s "$file"
+          done
+
+          grep -Fq 'YMC 공정개발·기술 Qual·로봇 표준화' "$KO_HUB"
+          grep -Fq '혼산 Anodizing Bath 분석·보충기준 표준화' "$KO_BATH"
+          grep -Fq '같은 물리적 Sample을 사내에서 측정한 뒤 고객이 다시 측정한 것이 아니라' "$KO_QUAL"
+          grep -Fq 'Diffuser 초음파 박리 Scale-up 실패와 Stop Gate' "$KO_DIFF"
+          grep -Fq '반도체·디스플레이 이송로봇 Overhaul 표준체계 구축' "$KO_ROBOT"
+          grep -Fq 'Mixed-Acid Anodizing Bath Analysis and Replenishment Standardization' "$EN_BATH"
+          grep -Fq 'Transfer-Robot Overhaul Standard-System Development' "$EN_ROBOT"
+          grep -Fq '혼산 Anodizing Bath 분석·보충기준 표준화' /tmp/site/posts/index.html
+          grep -Fq 'Mixed-Acid Anodizing Bath Analysis and Replenishment Standardization' /tmp/site/en/posts/index.html
+
+          test -s /tmp/site/posts/battery-2170-pilot/index.html
+          test -s /tmp/site/posts/welding-vision-ai/index.html
+          test -s /tmp/site/posts/giga-press-dx/index.html
+          test -s /tmp/site/posts/robot-json-omniverse/index.html
+          grep -Fq '2170 조립라인 수율 안정화' /tmp/site/posts/battery-2170-pilot/index.html
+          grep -Fq '용접실기품 외관검사 Vision AI Project' /tmp/site/posts/welding-vision-ai/index.html
+          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' /tmp/site/posts/giga-press-dx/index.html
+          grep -Fq '자동차 공장 Digital Twin DX Project' /tmp/site/posts/robot-json-omniverse/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-ymc-program.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish full YMC case reorganization'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
