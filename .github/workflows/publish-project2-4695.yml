@@ -1,0 +1,105 @@
+name: Publish 4695 manufacturing refactor
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/publish-project2-4695.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out committed site
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-d768-81f7-b65e-5a53b81ffe10/raw?se=2026-08-08T07%3A40%3A40Z&sp=r&sv=2026-02-06&sr=b&scid=cfa1e6ad-8458-5ab4-b8b1-4f6c003506e8&skoid=732f244e-db13-47c3-bcc7-7ee02a9397bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T03%3A03%3A16Z&ske=2026-08-09T03%3A03%3A16Z&sks=b&skv=2026-02-06&sig=AlVHQGCTgGIfDEFEWfPI7RvXnsCYvdNEMZT1EC74Gp8%3D' \
+            --output /tmp/portfolio-public.zip
+          echo 'b7df6e52620aa0db676bd9d8363a44be93a46028bc4e6b1f6e25a24a5c587549  /tmp/portfolio-public.zip' | sha256sum --check
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          unzip -q /tmp/portfolio-public.zip -d /tmp/site
+
+      - name: Verify 4695 page and regression boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/site/posts/battery-4695-production-transition/index.html'
+          EN='/tmp/site/en/posts/battery-4695-production-transition/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          test -s /tmp/site/images/projects/4695-production-transition-flow.svg
+
+          grep -Fq '4695 조립설비 Auto Cycle 복구 및 제한 생산 전환' "$KO"
+          grep -Fq '프로젝트 SOW' "$KO"
+          grep -Fq '프로젝트 WBS' "$KO"
+          grep -Fq '공정 전체 4M+2E 원인판정' "$KO"
+          grep -Fq 'Collector Laser Welding Auto Cycle 복구' "$KO"
+          grep -Fq '100 Cell × 2 Lot' "$KO"
+          grep -Fq '최종 50 Cell One-way Run' "$KO"
+          grep -Fq '제한 생산 시작 판정' "$KO"
+          grep -Fq 'PASS' "$KO"
+          grep -Fq 'Punch 관리와 승인' "$KO"
+          grep -Fq '검증 범위' "$KO"
+          grep -Fq '4695 Assembly Auto-Cycle Recovery and Limited-Production Transition' "$EN"
+
+          test -s /tmp/site/posts/battery-2170-pilot/index.html
+          grep -Fq '2170 조립라인 실질 양품수율 안정화' /tmp/site/posts/battery-2170-pilot/index.html
+          test -s /tmp/site/posts/welding-vision-ai/index.html
+          test -s /tmp/site/posts/giga-press-dx/index.html
+          test -s /tmp/site/posts/robot-json-omniverse/index.html
+
+      - name: Synchronize and commit generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' /tmp/site/ ./
+          rm -f .github/workflows/publish-project2-4695.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No generated-site changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish 4695 manufacturing refactor'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/site'
+
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
