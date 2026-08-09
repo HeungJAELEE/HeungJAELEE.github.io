@@ -1,0 +1,80 @@
+name: Deploy natural 4695 manufacturing copy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-4695-natural-copy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-9ef4-8209-a537-fc0a994686ea/raw?se=2026-08-09T03%3A10%3A13Z&sp=r&sv=2026-02-06&sr=b&scid=73b83606-e94e-50bc-9178-c4732ee07309&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T01%3A26%3A01Z&ske=2026-08-10T01%3A26%3A01Z&sks=b&skv=2026-02-06&sig=D6KJp7UW6/nvJvrA9DvFrlcvosCV3hqv2r4fE2c9I/o%3D' -o /tmp/portfolio-public.zip
+          echo '1fa01c032c0f80e001a422a9bb63d76be2ed0a05c92f6bf949d1bd54b678086c  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify rewritten 4695 pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/battery-4695-production-transition/index.html'
+          EN='/tmp/portfolio-public/en/posts/battery-4695-production-transition/index.html'
+          SVG='/tmp/portfolio-public/images/projects/battery-4695-production-transition-flow.svg'
+          test -s "$KO"
+          test -s "$EN"
+          test -s "$SVG"
+
+          grep -Fq '4695 배터리 조립라인 주요 설비 정상화 및 제한 생산 체제 구축' "$KO"
+          grep -Fq '설비 점검 결과' "$KO"
+          grep -Fq 'AI Vision 종류 및 역할' "$KO"
+          grep -Fq 'X-Ray 검사' "$KO"
+          grep -Fq '설비 설계·프로그램 결함 및 생산 대응' "$KO"
+          grep -Fq '제한 생산 체제 승인' "$KO"
+
+          grep -Fq '4695 Battery Assembly-Line Equipment Stabilization and Limited-Production Setup' "$EN"
+          grep -Fq 'Equipment inspection findings' "$EN"
+          grep -Fq 'AI-vision types and functions' "$EN"
+          grep -Fq 'X-ray inspection' "$EN"
+          grep -Fq 'Equipment design and software gaps with production controls' "$EN"
+
+          if grep -Eqi '생산을 시작하기 전에 다시 맞춘 기준|전체 설비를 다시 확인한 순서|내가 맡은 업무와 협업부서|4M와 측정항목으로 나눈 원인|내부 Beam 유입 확인|X-Ray와 비전검사|비전검사 5곳의 최종 운영방법|자동운전 준비조건과 측정방법|영구개조가 남은 설비|회사 내부 관리값|공개하지 않았|완료하지 못했|검증하지 않았' "$KO"; then
+            echo 'Old Korean wording remains in deployment artifact' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-4695-natural-copy.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish natural 4695 manufacturing case'
+          git push origin HEAD:main
