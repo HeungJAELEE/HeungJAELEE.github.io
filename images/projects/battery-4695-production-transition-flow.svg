@@ -1,60 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
-  <title id="title">4695 조립라인 설비 정상화와 생산 확인</title>
-  <desc id="desc">양산준비 이관 후 레이저 3설비와 검사조건을 다시 맞추고, 임시 작업이 남은 주액·Crimping·Marking을 구분해 2개 Lot와 최종 50개로 생산 가능범위를 확인한 흐름</desc>
-  <rect width="1200" height="520" fill="#EFF1ED"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">4695 배터리 조립라인 정상화와 제한 생산 체제 구축</title>
+  <desc id="desc">설비 점검부터 레이저 3공정, AI Vision, X-Ray, Ready 조건과 설계 결함 설비의 생산 대응을 거쳐 100 Cell 2개 Lot 및 최종 50 Cell 연속 생산을 검증한 흐름</desc>
+  <rect width="1200" height="620" fill="#EFF1ED"/>
   <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
-    <text x="54" y="52" fill="#1C232C" font-size="29" font-weight="700">4695 조립라인 — 정상화한 설비와 수동작업이 남은 설비를 구분했습니다</text>
-    <text x="54" y="82" fill="#5B6470" font-size="16">설비 정도와 검사방법을 실제 Cell 기준으로 다시 맞추고, 2개 Lot와 최종 50개로 생산 가능한 범위를 확인했습니다.</text>
+    <text x="54" y="50" fill="#1C232C" font-size="29" font-weight="700">4695 배터리 조립라인 — 설비 정상화와 제한 생산 체제 구축</text>
+    <text x="54" y="80" fill="#5B6470" font-size="16">설비 정도와 검사조건을 실제 신제품에 맞추고, 설계 결함 설비는 표준 수동작업과 검사로 생산 범위를 확보했습니다.</text>
   </g>
+
   <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
-    <rect x="54" y="125" width="180" height="82" rx="4" fill="#1C3F5B"/>
-    <text x="144" y="157" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">2025.02 이관</text>
-    <text x="144" y="184" text-anchor="middle" fill="#DDE8EF" font-size="13">개발완료 → 양산준비</text>
+    <rect x="54" y="120" width="160" height="92" rx="4" fill="#1C3F5B"/>
+    <text x="134" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">설비 점검</text>
+    <text x="134" y="176" text-anchor="middle" fill="#DDE8EF" font-size="13">수동조작·Alarm</text>
+    <text x="134" y="196" text-anchor="middle" fill="#DDE8EF" font-size="13">품질 이상 정리</text>
 
-    <rect x="258" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
-    <text x="361" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">레이저 용접 3설비</text>
-    <text x="361" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">정도·Align·조건 재설정</text>
-    <text x="361" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">절단·해체·인장 확인</text>
+    <rect x="238" y="120" width="170" height="92" rx="4" fill="#2B5C8A"/>
+    <text x="323" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Laser 3공정</text>
+    <text x="323" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">정도·Align 복원</text>
+    <text x="323" y="196" text-anchor="middle" fill="#E8F1F7" font-size="13">조건 최적화</text>
 
-    <rect x="488" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
-    <text x="591" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">X-Ray·비전검사</text>
-    <text x="591" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">자동검사 2곳 적용</text>
-    <text x="591" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">3곳은 육안검사·MES 입력</text>
+    <rect x="432" y="120" width="170" height="92" rx="4" fill="#2B5C8A"/>
+    <text x="517" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">AI Vision</text>
+    <text x="517" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">V3·V4 자동검사</text>
+    <text x="517" y="196" text-anchor="middle" fill="#E8F1F7" font-size="13">V1·V2·V5 표준 육안</text>
 
-    <rect x="718" y="125" width="206" height="82" rx="4" fill="#2B5C8A"/>
-    <text x="821" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Ready·측정기준</text>
-    <text x="821" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">자동운전 준비조건</text>
-    <text x="821" y="195" text-anchor="middle" fill="#E8F1F7" font-size="12">QCP·P-FMEA·MES</text>
+    <rect x="626" y="120" width="170" height="92" rx="4" fill="#2B5C8A"/>
+    <text x="711" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">X-Ray</text>
+    <text x="711" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">Count·ROI 재설정</text>
+    <text x="711" y="196" text-anchor="middle" fill="#E8F1F7" font-size="13">해체·절단 교차검증</text>
 
-    <rect x="948" y="125" width="198" height="82" rx="4" fill="#3F7D58"/>
-    <text x="1047" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">제품 재시험</text>
-    <text x="1047" y="176" text-anchor="middle" fill="#EAF4ED" font-size="13">100 Cell × 2 Lot</text>
-    <text x="1047" y="195" text-anchor="middle" fill="#EAF4ED" font-size="12">최종 50 Cell</text>
+    <rect x="820" y="120" width="170" height="92" rx="4" fill="#2B5C8A"/>
+    <text x="905" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Ready·측정</text>
+    <text x="905" y="176" text-anchor="middle" fill="#E8F1F7" font-size="13">PLC·Interlock</text>
+    <text x="905" y="196" text-anchor="middle" fill="#E8F1F7" font-size="13">검사기준 표준화</text>
+
+    <rect x="1014" y="120" width="132" height="92" rx="4" fill="#3F7D58"/>
+    <text x="1080" y="151" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">생산 검증</text>
+    <text x="1080" y="176" text-anchor="middle" fill="#EAF4ED" font-size="13">100 Cell×2 Lot</text>
+    <text x="1080" y="196" text-anchor="middle" fill="#EAF4ED" font-size="13">최종 50 Cell</text>
   </g>
+
   <g stroke="#AABBC7" stroke-width="4" fill="none">
-    <path d="M234 166H258"/><path d="M464 166H488"/><path d="M694 166H718"/><path d="M924 166H948"/>
+    <path d="M214 166H238"/><path d="M408 166H432"/><path d="M602 166H626"/><path d="M796 166H820"/><path d="M990 166H1014"/>
   </g>
-  <g fill="#2B5C8A"><path d="M255 166l-10-6v12z"/><path d="M485 166l-10-6v12z"/><path d="M715 166l-10-6v12z"/><path d="M945 166l-10-6v12z"/></g>
+  <g fill="#2B5C8A">
+    <path d="M235 166l-10-6v12z"/><path d="M429 166l-10-6v12z"/><path d="M623 166l-10-6v12z"/><path d="M817 166l-10-6v12z"/><path d="M1011 166l-10-6v12z"/>
+  </g>
 
   <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
-    <text x="54" y="262" fill="#1C232C" font-size="21" font-weight="700">생산을 위해 임시 작업이 남았던 설비</text>
-    <rect x="54" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
-    <text x="75" y="318" fill="#1C232C" font-size="17" font-weight="700">E/L Filling</text>
-    <text x="75" y="346" fill="#5B6470" font-size="14">Spare 교체·누액·주액량 확인</text>
-    <text x="75" y="374" fill="#E2711D" font-size="13" font-weight="700">밀봉부 소재·치수 변경 필요</text>
+    <text x="54" y="272" fill="#1C232C" font-size="21" font-weight="700">설비 설계·프로그램 결함과 생산 대응</text>
 
-    <rect x="431" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
-    <text x="452" y="318" fill="#1C232C" font-size="17" font-weight="700">Crimping &amp; Sizing</text>
-    <text x="452" y="346" fill="#5B6470" font-size="14">윤활·속도조정·반복가압·전수검사</text>
-    <text x="452" y="374" fill="#E2711D" font-size="13" font-weight="700">구동계·하중중심 구조개선 필요</text>
+    <rect x="54" y="296" width="338" height="142" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="76" y="328" fill="#1C232C" font-size="17" font-weight="700">E/L Filling</text>
+    <text x="76" y="356" fill="#5B6470" font-size="14">문제 · 밀봉부 누액·주액량 산포</text>
+    <text x="76" y="382" fill="#5B6470" font-size="14">생산 · Spare 교체·누액/주액량 확인</text>
+    <text x="76" y="410" fill="#E2711D" font-size="13" font-weight="700">개선 · O-Ring 소재·치수·체결구조</text>
 
-    <rect x="808" y="286" width="338" height="112" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
-    <text x="829" y="318" fill="#1C232C" font-size="17" font-weight="700">Marking</text>
-    <text x="829" y="346" fill="#5B6470" font-size="14">Lot·QR 입력·Scanner 확인·MES 기록</text>
-    <text x="829" y="374" fill="#E2711D" font-size="13" font-weight="700">신규 Pattern 등록기능 개선 필요</text>
+    <rect x="431" y="296" width="338" height="142" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="453" y="328" fill="#1C232C" font-size="17" font-weight="700">Crimping &amp; Sizing</text>
+    <text x="453" y="356" fill="#5B6470" font-size="14">문제 · 하중편심·반복가압·형상 산포</text>
+    <text x="453" y="382" fill="#5B6470" font-size="14">생산 · 윤활·속도조정·전수검사</text>
+    <text x="453" y="410" fill="#E2711D" font-size="13" font-weight="700">개선 · 구동계·하중전달·3-Jaw</text>
+
+    <rect x="808" y="296" width="338" height="142" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="830" y="328" fill="#1C232C" font-size="17" font-weight="700">Marking</text>
+    <text x="830" y="356" fill="#5B6470" font-size="14">문제 · 신규 Pattern 등록 불가</text>
+    <text x="830" y="382" fill="#5B6470" font-size="14">생산 · 수동입력·Scanner·MES 기록</text>
+    <text x="830" y="410" fill="#E2711D" font-size="13" font-weight="700">개선 · Template·사용자 변경기능</text>
   </g>
-  <g font-family="IBM Plex Mono, Consolas, monospace">
-    <rect x="54" y="438" width="1092" height="46" rx="4" fill="#1C232C"/>
-    <text x="600" y="467" text-anchor="middle" fill="#FFFFFF" font-size="14">2 LOT 재시험 · 최종 50 CELL 전공정 확인 · 제한 생산 시작 판정</text>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <rect x="54" y="478" width="1092" height="92" rx="4" fill="#1C232C"/>
+    <text x="600" y="511" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">제한 생산 체제 승인</text>
+    <text x="600" y="538" text-anchor="middle" fill="#DDE8EF" font-size="14">자동·수동 혼합 전공정 연속 생산 · 작업표준·QCP·P-FMEA·Punch List 이관</text>
   </g>
 </svg>
