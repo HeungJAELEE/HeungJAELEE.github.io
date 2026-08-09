@@ -1,0 +1,112 @@
+name: Deploy robot-overhaul FMEA revision and document cascade
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-robot-overhaul-fmea-v2.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '7ebe29db585dcef582107127a853984ba97c1eb9'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-2f34-8206-b74d-b1c84bf5c2ab/raw?se=2026-08-09T15%3A46%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=430dd64f-5fd2-5ff7-8fcd-869520e25299&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T02%3A18%3A21Z&ske=2026-08-10T02%3A18%3A21Z&sks=b&skv=2026-02-06&sig=rdiAD%2BwJ3cEKjONA5di%2B/au8gM13lxk0KBe63D67bXs%3D' -o /tmp/portfolio-public.zip
+          echo '9262623b453c7b5c0a0f30aab15d91e55153a83652f654a7f69edb74949e6f90  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify FMEA revision and document cascade
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/robot-overhaul-standardization/index.html'
+          EN='/tmp/portfolio-public/en/posts/robot-overhaul-standardization/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          for phrase in \
+            'FMEA 신규 작성·개정과 표준문서 전개' \
+            'YMC 초기 FMEA 신규 작성' \
+            '초도 Qual 전 FMEA 개정' \
+            '본테크 반복운영 FMEA 개정' \
+            'Control Plan 반영' \
+            '표준문서 추가·개정' \
+            'FMEA 개정사항의 표준문서 전개 결과'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'FMEA creation, revision, and document cascade' \
+            'Initial FMEA creation at YMC' \
+            'Pre-qualification FMEA revision' \
+            'Repeat-operation FMEA revision at Bontech' \
+            'Control-plan change' \
+            'Standard document added or revised' \
+            'Standard-document cascade from FMEA revisions'; do
+            grep -Fq "$phrase" "$EN"
+          done
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-robot-overhaul-fmea-v2.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish FMEA revision and document cascade'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
