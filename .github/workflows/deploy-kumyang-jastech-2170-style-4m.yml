@@ -1,0 +1,106 @@
+name: Deploy Kumyang and Jastech 2170-style 4M pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-kumyang-jastech-2170-style-4m.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-f1fc-8211-ac1e-4bd29dd8f15d/raw?se=2026-08-09T06%3A16%3A27Z&sp=r&sv=2026-02-06&sr=b&scid=867d3ae2-e1ce-51a5-bf50-32f4b5ae0a72&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T22%3A30%3A12Z&ske=2026-08-09T22%3A30%3A12Z&sks=b&skv=2026-02-06&sig=Xsv0qlgo%2B/uW8mDgaujjzzp%2B8itWLTxBeLatv4cqF5o%3D' -o /tmp/portfolio-public.zip
+          echo 'fc38e1f8c1b2d4575370cfca98f72824463938b158879d55830e6ea3ba88d738  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify target pages and 4M case structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          checks = {
+            '/tmp/portfolio-public/posts/battery-2170-pilot/index.html': ['사례 07. 녹·변색·외관 판정과 환경조건 관리', '녹 한도견본', '공조 Bypass'],
+            '/tmp/portfolio-public/en/posts/battery-2170-pilot/index.html': ['Case 07. Rust, discoloration, appearance disposition, and environmental control', 'Rust limit samples', 'HVAC bypass'],
+            '/tmp/portfolio-public/posts/battery-25p-lfp-development/index.html': ['개발 성공 판정기준', '사례 01. LFP 전해액 함침조건', '사례 05. Beading·CCR·Crimping 조립치수와 밀봉조건'],
+            '/tmp/portfolio-public/en/posts/battery-25p-lfp-development/index.html': ['Development success criteria', 'Case 01. LFP electrolyte impregnation conditions', 'Case 05. Beading, CCR, crimping dimensions, and sealing conditions'],
+            '/tmp/portfolio-public/posts/battery-tabless-concept/index.html': ['사례 01. J/R·Collector 고정과 임시 Jig', '사례 03. 기능 Sample 5개 선별과 평가'],
+            '/tmp/portfolio-public/en/posts/battery-tabless-concept/index.html': ['Case 01. Jelly-roll and collector holding with temporary jigs', 'Case 03. Selection and evaluation of five functional samples'],
+            '/tmp/portfolio-public/posts/can-supplier-pilot-transition/index.html': ['공통 4M+2E 위험판정', 'Pilot 공급 전환'],
+            '/tmp/portfolio-public/en/posts/can-supplier-pilot-transition/index.html': ['Project-level 4M+2E risk disposition', 'pilot supply transition'],
+            '/tmp/portfolio-public/posts/ncm-fat-sat/index.html': ['Pilot Line 인수 초기 현상', '사례 01. FAT·SAT Punch 재시험', '사례 03. Cap Plate C-Cut 변경 허용범위'],
+            '/tmp/portfolio-public/en/posts/ncm-fat-sat/index.html': ['Initial pilot-line acceptance condition', 'Case 01. FAT/SAT punch retest', 'Case 03. Cap-plate C-cut acceptance range'],
+            '/tmp/portfolio-public/posts/ncm-pre-forming-validation/index.html': ['Pilot 생산 초기 현상', '사례 01. 양극·음극 손상기전 분리', '사례 03. 초기 탐색과 4개 Lot 반복검증'],
+            '/tmp/portfolio-public/en/posts/ncm-pre-forming-validation/index.html': ['Initial pilot-production condition', 'Case 01. Separate positive- and negative-electrode damage mechanisms', 'Case 03. Separate exploratory trials from four-lot validation'],
+            '/tmp/portfolio-public/posts/cell-production-tracking/index.html': ['공통 4M·시스템 분석', '사례 01. 용량 이상 Cell의 극판 Roll 역추적'],
+            '/tmp/portfolio-public/en/posts/cell-production-tracking/index.html': ['Common 4M and system analysis', 'Case 01. Trace a capacity anomaly back to an electrode-roll segment'],
+          }
+          for path, phrases in checks.items():
+              html = Path(path).read_text(encoding='utf-8')
+              assert html.count('<table') >= 3, path
+              for phrase in phrases:
+                  assert phrase in html, f'{path}: {phrase}'
+          print('public artifact verification: PASS')
+          PY
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-kumyang-jastech-2170-style-4m.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish Kumyang Jastech 2170-style 4M pages'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
