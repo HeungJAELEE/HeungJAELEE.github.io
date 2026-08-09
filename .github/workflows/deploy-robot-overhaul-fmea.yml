@@ -1,0 +1,136 @@
+name: Deploy robot overhaul FMEA control plan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-robot-overhaul-fmea.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '516a0560484736bc36c89268818d2c0a9095abf9'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-4ba4-822f-b637-d3c9279c1139/raw?se=2026-08-09T15%3A31%3A18Z&sp=r&sv=2026-02-06&sr=b&scid=e2d8e2af-0e21-5f3e-a48a-5ac6faec4787&skoid=77636ecc-ad8d-44df-baa7-163b524a0261&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T10%3A52%3A00Z&ske=2026-08-10T10%3A52%3A00Z&sks=b&skv=2026-02-06&sig=Kz/3kJH3QetBT2Oqyv8LMjbFeXDtUC5Hu3QDV12heqY%3D' -o /tmp/portfolio-public.zip
+          echo 'b83e097f53e448e716768934a13801acd7c954a226d6a7bc6090a1bda501867d  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify robot-overhaul FMEA output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/robot-overhaul-standardization/index.html'
+          EN='/tmp/portfolio-public/en/posts/robot-overhaul-standardization/index.html'
+          KO_HUB='/tmp/portfolio-public/posts/wet-process-standardization/index.html'
+          EN_HUB='/tmp/portfolio-public/en/posts/wet-process-standardization/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          test -s "$KO_HUB"
+          test -s "$EN_HUB"
+
+          for phrase in \
+            '반도체·디스플레이 진공 이송로봇 Overhaul 표준체계 구축 및 현장 셋업' \
+            'FMEA 기반 Overhaul Control Plan' \
+            'Failure Mode와 영향' \
+            '예방 Control' \
+            '검출 Control·Check Sheet' \
+            '입고검사표·고장기록' \
+            '정밀조립·Align·Zero Check Sheet' \
+            'Helium Leak' \
+            'FARO' \
+            '최소 15회' \
+            '부하 Cycle 50회 이상' \
+            '동일 Model 약 5대' \
+            'Site Setup·Teaching Check Sheet'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'Vacuum Transfer-Robot Overhaul Standard System and Field Setup' \
+            'FMEA-based overhaul control plan' \
+            'Failure mode and effect' \
+            'Preventive control' \
+            'Detection control and check sheet' \
+            'Incoming inspection and failure record' \
+            'Precision-assembly, alignment, and zero check sheet' \
+            'helium leak' \
+            'FARO' \
+            'at least 15 times' \
+            'at least 50 loaded cycles' \
+            'about five units' \
+            'Site setup and teaching check sheet'; do
+            grep -Fq "$phrase" "$EN"
+          done
+
+          grep -Fq '진공 이송로봇 Overhaul FMEA·표준체계' "$KO_HUB"
+          grep -Fq 'Vacuum Transfer-Robot Overhaul Standard System and Field Setup' "$EN_HUB"
+
+          if grep -Eqi '두 회사를 하나의 실적으로 합치지 않습니다|기계적 오차를 제로화|기밀성을 완벽히 보증|The two companies are not combined into one result|zero mechanical error|fully guaranteed leak integrity' "$KO" "$EN"; then
+            echo 'Old defensive or unsupported wording remains in deployment artifact' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-robot-overhaul-fmea.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish robot-overhaul FMEA control plan'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
