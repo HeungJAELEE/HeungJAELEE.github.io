@@ -1,0 +1,104 @@
+name: Deploy expanded Kumyang downstream cases
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-kumyang-downstream-cases.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-be2c-8206-830a-c23f5d82b849/raw?se=2026-08-09T08%3A01%3A49Z&sp=r&sv=2026-02-06&sr=b&scid=d3ea3a70-a154-5fd1-bbb3-e5b000b4d553&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T06%3A45%3A04Z&ske=2026-08-10T06%3A45%3A04Z&sks=b&skv=2026-02-06&sig=%2BmTOrcwo7SewO%2BSOY1SY6Wn2xmtKNoWle4zcFHTw9LQ%3D' -o /tmp/portfolio-public.zip
+          echo '60046c5c916834344f63006567703196520fcf459de520d5e8f242900c4c18d7  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify additional Kumyang cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/battery-2170-pilot/index.html'
+          EN='/tmp/portfolio-public/en/posts/battery-2170-pilot/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          for phrase in \
+            '사례 08. CWS 세정조건과 Brush 관리' \
+            '사례 09. CMK Marking Nozzle 막힘과 QR 기능 보류' \
+            '사례 10. CPF Pre-Charge 간헐 미동작·오측정 분리' \
+            '사례 11. CTB 대체 Tube 제한 제조성 검증' \
+            'CTB Tubing 공정에서 비교한 대체 Tube 2종'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'Case 08. CWS cleaning conditions and brush control' \
+            'Case 09. CMK marking-nozzle clogging and deferred QR function' \
+            'Case 10. CPF pre-charge intermittent no-operation and mismeasurement' \
+            'Case 11. CTB alternative-tube limited manufacturability validation'; do
+            grep -Fq "$phrase" "$EN"
+          done
+
+          ! grep -Fq '후공정 관리결정' "$KO"
+          ! grep -Fq 'Downstream control decisions' "$EN"
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-kumyang-downstream-cases.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish expanded Kumyang downstream cases'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
