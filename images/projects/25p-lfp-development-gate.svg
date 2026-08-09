@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 410" role="img" aria-labelledby="title desc">
-  <title id="title">25P LFP Power Cell 개발 Gate</title>
-  <desc id="desc">고객 요구사항과 CTQ에서 A, B, C Sample, 약 2만 Cell 시양산, 고객 Qual과 문서 이관으로 이어지는 흐름</desc>
+  <title id="title">25P LFP Power Cell NPI 공정개발</title>
+  <desc id="desc">고객 요구사항과 CTQ에서 A, B, C Sample, 약 2만 Cell 시양산, 고객 Qual과 CCB P.O 기술 승인으로 이어지는 흐름</desc>
   <rect width="1200" height="410" fill="#f7fafc"/>
   <g font-family="Pretendard, Noto Sans KR, sans-serif">
-    <text x="54" y="54" fill="#0f2b46" font-size="28" font-weight="700">25P LFP Power Cell: 요구사항을 공정조건으로 바꾸는 개발 Gate</text>
-    <text x="54" y="84" fill="#52697a" font-size="15">소재·구조 변경 → 공정별 CTQ → Sample Gate → 시양산 → 고객 평가·이관</text>
+    <text x="54" y="54" fill="#0f2b46" font-size="28" font-weight="700">25P LFP Power Cell — NPI 공정개발과 고객 Qual</text>
+    <text x="54" y="84" fill="#52697a" font-size="15">소재·구조 변경 → 핵심 공정조건 → A·B·C Sample → 약 2만 Cell 시양산 → 기술 승인</text>
     <g transform="translate(52 126)">
       <g>
         <rect width="164" height="172" rx="8" fill="#ffffff" stroke="#2b5c8a" stroke-width="2"/>
@@ -23,28 +23,28 @@
         <rect width="150" height="172" rx="8" fill="#ffffff" stroke="#c8d8e5" stroke-width="2"/>
         <text x="18" y="38" fill="#2b5c8a" font-size="16" font-weight="700">03 B Sample</text>
         <text x="18" y="76" fill="#334e62" font-size="14">함침·용접</text>
-        <text x="18" y="102" fill="#334e62" font-size="14">검사·후공정</text>
-        <text x="18" y="128" fill="#334e62" font-size="14">조건군 비교</text>
+        <text x="18" y="102" fill="#334e62" font-size="14">검사·밀봉</text>
+        <text x="18" y="128" fill="#334e62" font-size="14">조건 최적화</text>
       </g>
       <g transform="translate(542)">
         <rect width="174" height="172" rx="8" fill="#ffffff" stroke="#c8d8e5" stroke-width="2"/>
         <text x="18" y="38" fill="#2b5c8a" font-size="16" font-weight="700">04 C Sample</text>
-        <text x="18" y="76" fill="#334e62" font-size="14">MP 선행조건</text>
+        <text x="18" y="76" fill="#334e62" font-size="14">선정조건 연결</text>
         <text x="18" y="102" fill="#334e62" font-size="14">약 2만 Cell</text>
         <text x="18" y="128" fill="#334e62" font-size="14">시양산 검증</text>
       </g>
       <g transform="translate(742)">
         <rect width="164" height="172" rx="8" fill="#eaf4f9" stroke="#2b5c8a" stroke-width="2"/>
         <text x="18" y="38" fill="#2b5c8a" font-size="16" font-weight="700">05 고객 Qual</text>
-        <text x="18" y="76" fill="#334e62" font-size="14">평가조건 확인</text>
-        <text x="18" y="102" fill="#334e62" font-size="14">CCB P.O 승인</text>
+        <text x="18" y="76" fill="#334e62" font-size="14">용량·IR·수명</text>
+        <text x="18" y="102" fill="#334e62" font-size="14">공정 검증자료</text>
       </g>
       <g transform="translate(932)">
-        <rect width="164" height="172" rx="8" fill="#f3f5f6" stroke="#7b8790" stroke-width="2"/>
-        <text x="18" y="38" fill="#465661" font-size="16" font-weight="700">06 이관·상태</text>
-        <text x="18" y="76" fill="#334e62" font-size="14">표준문서 정리</text>
-        <text x="18" y="102" fill="#334e62" font-size="14">기술 Gate 완료</text>
-        <text x="18" y="128" fill="#8a4f28" font-size="14">상업 양산 미진행</text>
+        <rect width="164" height="172" rx="8" fill="#e9f4ec" stroke="#3f7d58" stroke-width="2"/>
+        <text x="18" y="38" fill="#2f6848" font-size="16" font-weight="700">06 기술 승인·이관</text>
+        <text x="18" y="76" fill="#334e62" font-size="14">CCB P.O 승인</text>
+        <text x="18" y="102" fill="#334e62" font-size="14">작업표준·QCP</text>
+        <text x="18" y="128" fill="#334e62" font-size="14">P-FMEA·검사기준</text>
       </g>
       <g fill="#2b5c8a">
         <path d="M168 80h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
@@ -54,7 +54,7 @@
         <path d="M910 80h18l-7-7 4-4 14 14-14 14-4-4 7-7h-18z"/>
       </g>
     </g>
-    <text x="54" y="352" fill="#52697a" font-size="15">판정 기준: 반제품 검사와 Cell 성능이 같은 조건에서 확인된 경우에만 다음 Sample 단계로 진행</text>
-    <text x="54" y="378" fill="#8a4f28" font-size="14">고객 Qual·생산단계 승인은 확인했으며, 상업 양산은 단가 문제로 진행되지 않음</text>
+    <text x="54" y="352" fill="#52697a" font-size="15">판정 기준: 해체·접합·검사 결과와 Cell 성능이 함께 확인된 조건만 다음 Sample 단계로 진행</text>
+    <text x="54" y="378" fill="#2f6848" font-size="14" font-weight="700">약 2만 Cell 시양산 · 고객 Qual · CCB P.O 기술 승인 · 공정·검사기준 이관</text>
   </g>
 </svg>
