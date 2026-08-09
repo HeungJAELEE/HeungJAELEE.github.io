@@ -1,0 +1,102 @@
+name: Deploy 4695 per-process 4M tables
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-4695-4m-tables.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprwestcentralus.oaiusercontent.com/files/00000000-794c-81fb-aa52-aa4e8b7f1450/raw?se=2026-08-09T05%3A32%3A57Z&sp=r&sv=2026-02-06&sr=b&scid=2ca09782-aed7-5479-9b49-d6e2f800b728&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T02%3A56%3A28Z&ske=2026-08-10T02%3A56%3A28Z&sks=b&skv=2026-02-06&sig=S310u/eaeHc0LIKSPhF0zQt2D5spKD5WbeYUQWWdgpc%3D' -o /tmp/portfolio-public.zip
+          echo '6d25b0930c91e918c2000cfa6a635ec5e53b53cb153215c90fc5b7d38618353a  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify per-process 4M tables
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/battery-4695-production-transition/index.html'
+          EN='/tmp/portfolio-public/en/posts/battery-4695-production-transition/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          KO_TABLES="$(grep -o '<table' "$KO" | wc -l)"
+          EN_TABLES="$(grep -o '<table' "$EN" | wc -l)"
+          echo "KO rendered tables: $KO_TABLES"
+          echo "EN rendered tables: $EN_TABLES"
+          test "$KO_TABLES" -ge 12
+          test "$EN_TABLES" -ge 12
+
+          grep -Fq '4M 분석표' "$KO"
+          grep -Fq '4M analysis table' "$EN"
+          grep -Fq 'Collector Laser Welding' "$KO"
+          grep -Fq 'AI Vision 종류 및 역할' "$KO"
+          grep -Fq 'X-Ray 검사' "$KO"
+          grep -Fq '자동운전 Ready 조건' "$KO"
+          grep -Fq 'E/L Filling' "$KO"
+          grep -Fq 'Crimping &amp; Sizing' "$KO"
+          grep -Fq 'Marking' "$KO"
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-4695-4m-tables.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish 4695 per-process 4M tables'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
