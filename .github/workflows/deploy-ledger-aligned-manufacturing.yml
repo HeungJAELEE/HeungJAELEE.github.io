@@ -1,0 +1,138 @@
+name: Deploy ledger-aligned manufacturing cases
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-ledger-aligned-manufacturing.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprseasia.oaiusercontent.com/files/00000000-9770-8207-9a5c-485b1385fe0b/raw?se=2026-08-09T07%3A40%3A52Z&sp=r&sv=2026-02-06&sr=b&scid=882dfdeb-14a2-5204-b26a-2b577998df06&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T00%3A58%3A38Z&ske=2026-08-10T00%3A58%3A38Z&sks=b&skv=2026-02-06&sig=/mnMHE2v0Kv3r2F6%2BosUgFUW13N/r0g/i%2BHdJFl5DIM%3D' -o /tmp/portfolio-public.zip
+          echo '2023c92970e092551b548471220d555aed883e7688533e05b24510f98300014c  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify canonical manufacturing pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('/tmp/portfolio-public')
+          checks = {
+              'posts/battery-2170-pilot/index.html': [
+                  '사례 07. 녹·변색·외관 판정과 환경조건 관리',
+                  '한도견본 기반 외관판정 교육',
+                  '<th>판정</th>', '<th>조치</th>',
+              ],
+              'en/posts/battery-2170-pilot/index.html': [
+                  'Case 07. Rust, discoloration, appearance disposition, and environmental control',
+                  'Train appearance disposition with limit samples',
+              ],
+              'posts/battery-4695-production-transition/index.html': [
+                  '전체 라인 원인축과 처리방향',
+                  '접합산포 원인판정',
+                  '자동·수동 검사 분리기준',
+                  'Ready 진입 불안정 원인판정',
+              ],
+              'en/posts/battery-4695-production-transition/index.html': [
+                  'Line-wide cause axes and disposition',
+                  'Joining-variation cause disposition',
+                  'Automatic versus visual inspection decision',
+              ],
+              'posts/ncm-fat-sat/index.html': [
+                  '조치·재시험', '결과·표준화', '2,000개 시험생산',
+              ],
+              'en/posts/ncm-fat-sat/index.html': [
+                  'Action and retest', 'Result and standardization', '2,000-unit production trial',
+              ],
+              'posts/ncm-pre-forming-validation/index.html': [
+                  '조치·재시험', '결과·표준화', '4개 Lot',
+              ],
+              'en/posts/ncm-pre-forming-validation/index.html': [
+                  'Action and retest', 'Result and standardization', 'four lots',
+              ],
+              'posts/cell-production-tracking/index.html': [
+                  '공통 4M·시스템 분석', '<th>판정</th>', '<th>조치</th>',
+              ],
+              'en/posts/cell-production-tracking/index.html': [
+                  'Common 4M and system analysis', '<th>Decision</th>', '<th>Action</th>',
+              ],
+          }
+
+          for rel, phrases in checks.items():
+              path = root / rel
+              assert path.is_file(), rel
+              html = path.read_text(encoding='utf-8')
+              for phrase in phrases:
+                  assert phrase in html, f'{rel}: {phrase}'
+
+          all_html = ''.join(path.read_text(encoding='utf-8') for path in root.rglob('*.html'))
+          assert '자표준' not in all_html
+          assert '4M 분석표' not in (root / 'posts/battery-4695-production-transition/index.html').read_text(encoding='utf-8')
+          assert '4M analysis table' not in (root / 'en/posts/battery-4695-production-transition/index.html').read_text(encoding='utf-8')
+          print('Public artifact verification: PASS')
+          PY
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-ledger-aligned-manufacturing.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish ledger-aligned manufacturing cases'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
