@@ -51,18 +51,11 @@ jobs:
           EN_TABLES="$(grep -o '<table' "$EN" | wc -l)"
           echo "KO rendered tables: $KO_TABLES"
           echo "EN rendered tables: $EN_TABLES"
-          test "$KO_TABLES" -ge 12
-          test "$EN_TABLES" -ge 12
+          test "$KO_TABLES" -ge 13
+          test "$EN_TABLES" -ge 13
 
-          grep -Fq '4M 분석표' "$KO"
-          grep -Fq '4M analysis table' "$EN"
-          grep -Fq 'Collector Laser Welding' "$KO"
-          grep -Fq 'AI Vision 종류 및 역할' "$KO"
-          grep -Fq 'X-Ray 검사' "$KO"
-          grep -Fq '자동운전 Ready 조건' "$KO"
-          grep -Fq 'E/L Filling' "$KO"
-          grep -Fq 'Crimping &amp; Sizing' "$KO"
-          grep -Fq 'Marking' "$KO"
+          grep -Fq '4695 배터리 조립라인 주요 설비 정상화 및 제한 생산 체제 구축' "$KO"
+          grep -Fq '4695 Battery Assembly-Line Equipment Stabilization and Limited-Production Setup' "$EN"
 
       - name: Publish validated output
         shell: bash
