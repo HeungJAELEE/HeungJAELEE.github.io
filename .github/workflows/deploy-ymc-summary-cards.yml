@@ -1,0 +1,123 @@
+name: Deploy noun-form YMC summary cards
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-ymc-summary-cards.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '61eb6400bb3ac47f8d1e9d1787dd4e9aaf4119da'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-ec80-8206-ba8d-85e5d09daa03/raw?se=2026-08-09T16%3A35%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=2bc8c65e-f8aa-551a-9ab9-65a175e629ef&skoid=1e4bb9ed-6bb5-424a-a3aa-79f21566e722&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-08T23%3A31%3A43Z&ske=2026-08-09T23%3A31%3A43Z&sks=b&skv=2026-02-06&sig=JHs%2BtvvRdgSt2alMTymYXfzNExIvkUvnLG6%2BL2lzmkI%3D' -o /tmp/portfolio-public.zip
+          echo '3e20f6f2abb8078bcee4e8ea099cef067d12cf6ff3ebd645cc9a554d48419eda  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify noun-form YMC cards
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          checks = {
+              'posts/oled-anodizing-development/index.html': [
+                  'OLED 공정온도 상승·PECVD 신규 고온 요구에 따른 Crack·Particle·Hi-Pot·대면적 균일성 재설계',
+                  '혼산·수산 고객 Qual·실제품 적용, Run Sheet·공정표준·검사기준 개정',
+              ],
+              'posts/mixed-acid-bath-analysis/index.html': [
+                  '정상 적정값과 건욕 경과 후 피막성능 저하의 불일치',
+                  '성분별 분석·보충·제품 Sample·Bath 교체판정 기준 확립, SOP·Log·교육 이관',
+              ],
+              'posts/amat-akt-qual/index.html': [
+                  '기존 공정·검사조건과 글로벌 장비사 제품군별 Spec·Hi-Pot 판정기준 Gap',
+                  '7회 반복·3회 재시험 기반 기술실사 지적 1건 Closure, 기술 Qual·약 1년 후속 납품',
+              ],
+              'posts/diffuser-scaleup-failure/index.html': [
+                  '물+초음파 Scale-up의 Erosion·Particle·재사용성 탈락',
+                  'Scale-up 중단·기존공정 회귀, 상대이동·표면손상·재사용·EHS 필수 Gate 제정',
+              ],
+              'posts/robot-overhaul-standardization/index.html': [
+                  '신규 기종 Parts List·조립·검사기준 부재에 따른 정렬오차·Leak·부하 Alarm·Teaching 오류 잠재',
+                  'YMC 초도 Qual·동일 Model 약 5대 출하, 본테크 반복 Overhaul·OJT·국내외 Site Setup 확장',
+              ],
+              'posts/wet-process-standardization/index.html': [
+                  '표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계',
+                  '고객 Qual·실제품 적용·한국/중국 표준화·Stop Gate·로봇 0→1 체계 확립',
+              ],
+          }
+          for rel, phrases in checks.items():
+              path = Path('/tmp/portfolio-public') / rel
+              assert path.is_file() and path.stat().st_size > 0, path
+              text = path.read_text(encoding='utf-8')
+              for phrase in phrases:
+                  assert phrase in text, f'{rel}: {phrase}'
+          print('Noun-form YMC summary cards: PASS')
+          PY
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-ymc-summary-cards.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish noun-form YMC summary cards'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
