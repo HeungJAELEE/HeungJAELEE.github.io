@@ -1,0 +1,118 @@
+name: Deploy Tabless early-manufacturing case
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-tabless-early-manufacturing.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-ad54-8209-90ac-dc5b70d3c19c/raw?se=2026-08-09T08%3A51%3A59Z&sp=r&sv=2026-02-06&sr=b&scid=150f72a7-e11d-5154-b8e0-88ceab218e71&skoid=9063adf3-a524-4acf-b70a-8731b33f2f50&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T01%3A15%3A14Z&ske=2026-08-10T01%3A15%3A14Z&sks=b&skv=2026-02-06&sig=xVS7t8OQiem3wBFtM9KPmaIGk/LvDTMCWXdZ9GZsgpI%3D' -o /tmp/portfolio-public.zip
+          echo 'f9f67c5548fbf8ca31c7ecd4f61bceb89d1707f8f571f9b41c72f087208b7bfc  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify Tabless early-manufacturing output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/battery-tabless-concept/index.html'
+          EN='/tmp/portfolio-public/en/posts/battery-tabless-concept/index.html'
+          SVG='/tmp/portfolio-public/images/projects/2170-tabless-a-sample-gate.svg'
+          test -s "$KO"
+          test -s "$EN"
+          test -s "$SVG"
+
+          for phrase in \
+            '차세대 2170 Tabless 구조 A Sample 선행 제조 검증' \
+            '선행 제조 검증 흐름' \
+            '전용 설비 없이 임시 제조경로 구축' \
+            'Laser Beam 유입과 Short 안전 검증' \
+            '약 100개 탐색 제작과 Failure Mode 분리' \
+            '기능 Sample 5개 구현과 전기적 평가' \
+            '차세대 2170 Tabless 구조의 A Sample 선행 제조 검증 완료'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'Next-Generation 2170 Tabless A-Sample Early Manufacturing Validation' \
+            'Early manufacturing validation flow' \
+            'Temporary manufacturing route without dedicated equipment' \
+            'Internal laser-entry and short-circuit validation' \
+            'About 100 exploratory builds and failure-mode separation' \
+            'Five functional samples and electrical evaluation'; do
+            grep -Fq "$phrase" "$EN"
+          done
+
+          for phrase in '프로젝트 SOW' '프로젝트 WBS' '공통 4M+2E 위험판정' '4M+2E 판단' '검증 범위'; do
+            ! grep -Fq "$phrase" "$KO"
+          done
+          for phrase in 'Project SOW' 'Project WBS' 'Project-level 4M+2E risk disposition' 'Local 4M+2E decision' 'Validation boundary'; do
+            ! grep -Fq "$phrase" "$EN"
+          done
+          ! grep -Fq 'portfolio-analysis-case' "$KO"
+          ! grep -Fq 'portfolio-analysis-case' "$EN"
+          grep -Fq 'A SAMPLE RESULT' "$SVG"
+          grep -Fq '기능 Sample 5개' "$SVG"
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-tabless-early-manufacturing.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish Tabless early-manufacturing case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
