@@ -1,0 +1,130 @@
+name: Deploy practical Welding Vision AI case
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-welding-vision-practical.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '4f97c7ab6da574348faa5ea2fb14e87ab15d7b4f'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-4968-8206-acd5-e26c9a8354e4/raw?se=2026-08-09T22%3A30%3A24Z&sp=r&sv=2026-02-06&sr=b&scid=55d41362-5037-53b2-a19c-6eb5f6b9cfa8&skoid=1e4bb9ed-6bb5-424a-a3aa-79f21566e722&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T22%3A23%3A36Z&ske=2026-08-10T22%3A23%3A36Z&sks=b&skv=2026-02-06&sig=nxElOBE7NPeSet2unBbRvUyehUkS07Mu0kOTdRCCem4%3D' -o /tmp/portfolio-public.zip
+          echo '0c400ea0d207e611536178db5920d7069ee6bcdb27d0e92bd6f1b7dee8c40097  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify practical Welding Vision output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/welding-vision-ai/index.html'
+          EN='/tmp/portfolio-public/en/posts/welding-vision-ai/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          for phrase in \
+            '용접실기품 Vision AI Domain Gap 개선 및 현장형 판정기준 설계' \
+            '문제 정의 및 Domain Gap' \
+            'Data Engineering' \
+            'Modeling' \
+            'Post-processing' \
+            'Recall 15.84%' \
+            'Recall 85.15%' \
+            'Threshold 0.40' \
+            'FN 0건·Recall 100%' \
+            'FastAPI' \
+            'PWA 검사보조'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design' \
+            'Problem definition and domain gap' \
+            'Data engineering' \
+            'Modeling' \
+            'Post-processing' \
+            '15.84% recall' \
+            '85.15% recall' \
+            'threshold 0.40' \
+            'zero FN and 100% recall' \
+            'FastAPI' \
+            'PWA inspection-assistance'; do
+            grep -Fqi "$phrase" "$EN"
+          done
+
+          if grep -Eqi 'Team SOW|Team WBS|Personal SOW|Personal WBS|평가항목을 이렇게 정한 이유|완료범위에 포함하지 않은 항목|고객 승인이나 공인 인증 결과가 아닙니다|실제 생산라인의 불량유출 0건을 입증한 결과는 아닙니다|이 글에서는 2-class 모델구조|언더컷은 비드 경계' "$KO"; then
+            echo 'Old administrative, tutorial, or defensive Korean copy remains in deployment artifact' >&2
+            exit 1
+          fi
+
+          if grep -Eqi 'Team SOW|Team WBS|Personal SOW|Personal WBS|not customer approval or certification|not proof of zero defect escape|separates the two-class model|Undercut forms a groove at the bead boundary' "$EN"; then
+            echo 'Old administrative, tutorial, or defensive English copy remains in deployment artifact' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-welding-vision-practical.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish practical Welding Vision AI case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
