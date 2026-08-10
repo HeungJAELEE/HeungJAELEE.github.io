@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BASE_SHA: '44c064c3ff89505cb2e67fa2249ea09cff71427d'
+  BASE_SHA: '575683a61785ba817cdd0adc43f2b67d097593cb'
 
 jobs:
   publish-and-deploy:
@@ -43,7 +43,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprwestus.oaiusercontent.com/files/00000000-2928-8230-beb8-98eae001f916/raw?se=2026-08-10T14%3A50%3A32Z&sp=r&sv=2026-02-06&sr=b&scid=95ae96f3-85bc-50af-b948-c7887124e07e&skoid=c69179d1-5b5d-430f-afa3-b9bdcf9d6497&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T11%3A22%3A06Z&ske=2026-08-11T11%3A22%3A06Z&sks=b&skv=2026-02-06&sig=9TApGr8VqLDp83BRc%2B78sa0CG5CdDWU75d2ds7HntTg%3D' -o /tmp/portfolio-public.zip
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprwestus.oaiusercontent.com/files/00000000-8f18-8230-a97d-45e00407940c/raw?se=2026-08-10T14%3A59%3A03Z&sp=r&sv=2026-02-06&sr=b&scid=29964490-645f-5569-ae3f-1869200d6471&skoid=c69179d1-5b5d-430f-afa3-b9bdcf9d6497&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T13%3A16%3A59Z&ske=2026-08-11T13%3A16%3A59Z&sks=b&skv=2026-02-06&sig=V8VPGevNj3YqbZw4YrLsWv5MlByBuPEPVO5TQq5oJaU%3D' -o /tmp/portfolio-public.zip
           echo '1efebbe44f17a513708c75d0d0cdc443c78e69ef8e6e44fabdb75fde148bb605  /tmp/portfolio-public.zip' | sha256sum -c -
           rm -rf /tmp/portfolio-public
           mkdir -p /tmp/portfolio-public
