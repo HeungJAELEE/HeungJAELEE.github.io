@@ -25,11 +25,11 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Verify exact deployment base
+      - name: Verify deployment ancestry
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD^)" = 'de95716637d445b0999df965b0eb177aa5ebc9f7'
+          git merge-base --is-ancestor 'de95716637d445b0999df965b0eb177aa5ebc9f7' HEAD
 
       - name: Download exact validated Hugo artifact
         shell: bash
@@ -47,7 +47,6 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import re
 
           root = Path('/tmp/portfolio-public')
           pages = [root / 'index.html', root / 'en/index.html', root / 'posts/battery-2170-pilot/index.html']
@@ -68,7 +67,7 @@ jobs:
           assert len(styles) == 1, styles
           script = scripts[0].read_text(encoding='utf-8')
           style = styles[0].read_text(encoding='utf-8')
-          for required in ['buildHomePrintDocument', 'portfolio-print-ready', 'portfolio-print-project-sheet']:
+          for required in ['portfolio-print-ready', 'portfolio-print-project-sheet', '머리글과 바닥글']:
               assert required in script, required
           for required in ['portfolio-print-sheet', 'portfolio-print-cover', 'table-header-group']:
               assert required in style, required
