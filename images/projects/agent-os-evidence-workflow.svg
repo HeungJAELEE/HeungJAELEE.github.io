@@ -1,101 +1,139 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">im-not-ai foundation and Agent OS target architecture</title>
-  <desc id="desc">The implemented im-not-ai evidence-governed career-writing foundation appears above, and the Agent OS expansion into persistent agents, workflow, human approval, domain packs and authoritative readback appears below.</desc>
+  <title id="title">Manufacturing Agent OS advisory architecture</title>
+  <desc id="desc">Legacy MES, PLC, OPC, quality and standard data enter a read-only data plane, are bound to evidence, analyzed independently by process, quality and production agents, reviewed by managers and a human engineer, then optionally sent through a limited effect adapter and verified by authoritative readback.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f7f9fc"/>
-      <stop offset="1" stop-color="#edf3f8"/>
+      <stop offset="0" stop-color="#f7fafc"/>
+      <stop offset="1" stop-color="#eaf1f6"/>
+    </linearGradient>
+    <linearGradient id="sourceBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#113b61"/>
+      <stop offset="1" stop-color="#246d92"/>
+    </linearGradient>
+    <linearGradient id="advisoryBand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#23658a"/>
+      <stop offset="1" stop-color="#2c8f9a"/>
     </linearGradient>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 z" fill="#345b7e"/>
+      <path d="M0,0 L12,6 L0,12 z" fill="#365f7e"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2c7654"/>
     </marker>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#17324d" flood-opacity=".12"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#17324d" flood-opacity=".12"/>
     </filter>
     <style>
-      .bg{fill:url(#bg)}.title{font:700 36px Arial,sans-serif;fill:#14283d}.sub{font:500 20px Arial,sans-serif;fill:#53677a}
-      .band{fill:#143d63}.band2{fill:#285f8a}.bandtext{font:700 22px Arial,sans-serif;fill:#fff;letter-spacing:1.2px}
-      .box{fill:#fff;stroke:#6f91ad;stroke-width:2;rx:16;filter:url(#shadow)}.box2{fill:#f3f7fa;stroke:#6f91ad;stroke-width:2;rx:16}
-      .label{font:700 15px Arial,sans-serif;fill:#2f668e;letter-spacing:1.1px}.head{font:700 23px Arial,sans-serif;fill:#17324d}.body{font:400 17px Arial,sans-serif;fill:#53677a}
-      .arrow{stroke:#345b7e;stroke-width:3;fill:none;marker-end:url(#arrow)}.dash{stroke:#849bac;stroke-width:2;stroke-dasharray:8 7;fill:none}
-      .pill{fill:#e8f0f6;stroke:#7f9db5;stroke-width:1.5;rx:14}.pilltext{font:600 16px Arial,sans-serif;fill:#244f72}
-      .note{font:600 18px Arial,sans-serif;fill:#26435e}.small{font:400 15px Arial,sans-serif;fill:#617487}
+      .bg{fill:url(#bg)}.title{font:700 37px Arial,"Noto Sans KR",sans-serif;fill:#132a3f}.sub{font:500 19px Arial,"Noto Sans KR",sans-serif;fill:#53697a}
+      .band{fill:url(#sourceBand)}.band2{fill:url(#advisoryBand)}.bandText{font:700 20px Arial,"Noto Sans KR",sans-serif;fill:#fff;letter-spacing:1.1px}
+      .box{fill:#fff;stroke:#6f92ad;stroke-width:2;rx:16;filter:url(#shadow)}.soft{fill:#f2f7fa;stroke:#7d9bb1;stroke-width:2;rx:16}
+      .agentP{fill:#edf5fa;stroke:#3f7da5;stroke-width:2;rx:16}.agentQ{fill:#eef7f4;stroke:#4d8a73;stroke-width:2;rx:16}.agentR{fill:#f7f3ea;stroke:#9a7b44;stroke-width:2;rx:16}
+      .human{fill:#173f63;stroke:#173f63;stroke-width:2;rx:18;filter:url(#shadow)}.effect{fill:#fff6e7;stroke:#c38935;stroke-width:2;rx:16}.readback{fill:#eaf6ef;stroke:#4b8b68;stroke-width:2;rx:16}
+      .label{font:700 14px Arial,"Noto Sans KR",sans-serif;fill:#2d668e;letter-spacing:1px}.head{font:700 22px Arial,"Noto Sans KR",sans-serif;fill:#18334d}
+      .body{font:400 16px Arial,"Noto Sans KR",sans-serif;fill:#536a7b}.body2{font:500 15px Arial,"Noto Sans KR",sans-serif;fill:#40596d}
+      .whiteHead{font:700 23px Arial,"Noto Sans KR",sans-serif;fill:#fff}.whiteBody{font:400 16px Arial,"Noto Sans KR",sans-serif;fill:#e3edf5}
+      .arrow{stroke:#365f7e;stroke-width:3;fill:none;marker-end:url(#arrow)}.arrowG{stroke:#2c7654;stroke-width:3;fill:none;marker-end:url(#arrowGreen)}
+      .dash{stroke:#7d94a6;stroke-width:2;stroke-dasharray:8 7;fill:none}.small{font:500 14px Arial,"Noto Sans KR",sans-serif;fill:#5d7284}
+      .pill{fill:#e6eef4;stroke:#8aa2b4;stroke-width:1.5;rx:14}.pillText{font:600 15px Arial,"Noto Sans KR",sans-serif;fill:#254d6a}
+      .metric{font:700 17px Arial,"Noto Sans KR",sans-serif;fill:#173f63}.metricSub{font:400 13px Arial,"Noto Sans KR",sans-serif;fill:#5f7485}
     </style>
   </defs>
-  <rect class="bg" width="1600" height="900" rx="24"/>
-  <text x="70" y="62" class="title">Evidence-Governed AI Work → Agent OS</text>
-  <text x="70" y="96" class="sub">구현된 im-not-ai Application Plane과 Persistent Agent·Approval·Readback 목표 구조</text>
 
-  <rect x="70" y="132" width="1460" height="46" rx="12" class="band"/>
-  <text x="100" y="162" class="bandtext">IMPLEMENTED FOUNDATION · im-not-ai@9160142</text>
+  <rect class="bg" width="1600" height="900" rx="26"/>
+  <text x="66" y="58" class="title">Manufacturing Agent OS — Advisory Before Control</text>
+  <text x="66" y="92" class="sub">레거시 제조데이터를 근거·독립 분석·사람 승인·실제 상태 Readback으로 연결</text>
 
-  <g transform="translate(70 208)">
-    <rect class="box" x="0" y="0" width="210" height="150"/>
-    <text class="label" x="24" y="35">SOURCE</text><text class="head" x="24" y="72">최신 근거</text>
-    <text class="body" x="24" y="105">원장·승인본</text><text class="body" x="24" y="130">Runtime Readback</text>
+  <rect x="66" y="122" width="1468" height="44" rx="12" class="band"/>
+  <text x="94" y="151" class="bandText">01 · LEGACY SOURCES → READ-ONLY DATA PLANE</text>
 
-    <path class="arrow" d="M220 75 H270"/>
-    <rect class="box" x="280" y="0" width="210" height="150"/>
-    <text class="label" x="304" y="35">LOCK</text><text class="head" x="304" y="72">공통 Claim 원장</text>
-    <text class="body" x="304" y="105">Contribution·Stage</text><text class="body" x="304" y="130">Metric·Public Scope</text>
+  <g transform="translate(66 192)">
+    <rect class="box" x="0" y="0" width="210" height="128"/>
+    <text class="label" x="22" y="31">PRODUCTION</text><text class="head" x="22" y="65">MES·WIP·Lot</text>
+    <text class="body" x="22" y="96">생산·재공·재작업</text><text class="body" x="22" y="118">계획·이력</text>
 
-    <path class="arrow" d="M500 75 H550"/>
-    <rect class="box" x="560" y="0" width="210" height="150"/>
-    <text class="label" x="584" y="35">ROUTE</text><text class="head" x="584" y="72">Career Router</text>
-    <text class="body" x="584" y="105">Resume·Portfolio</text><text class="body" x="584" y="130">산출물 책임 분리</text>
+    <rect class="box" x="235" y="0" width="210" height="128"/>
+    <text class="label" x="257" y="31">EQUIPMENT</text><text class="head" x="257" y="65">PLC·OPC·Alarm</text>
+    <text class="body" x="257" y="96">Tag·State·Interlock</text><text class="body" x="257" y="118">실제 Runtime</text>
 
-    <path class="arrow" d="M780 75 H830"/>
-    <rect class="box" x="840" y="0" width="210" height="150"/>
-    <text class="label" x="864" y="35">STYLE</text><text class="head" x="864" y="72">Humanize</text>
-    <text class="body" x="864" y="105">LOCKED CONTENT</text><text class="body" x="864" y="130">문체만 국소 수정</text>
+    <rect class="box" x="470" y="0" width="210" height="128"/>
+    <text class="label" x="492" y="31">QUALITY</text><text class="head" x="492" y="65">QMS·Inspection</text>
+    <text class="body" x="492" y="96">CTQ·판정·측정</text><text class="body" x="492" y="118">불량·재검사</text>
 
-    <path class="arrow" d="M1060 75 H1110"/>
-    <rect class="box" x="1120" y="0" width="270" height="150"/>
-    <text class="label" x="1144" y="35">VERIFY / ROLLBACK</text><text class="head" x="1144" y="72">결정적 Code Gate</text>
-    <text class="body" x="1144" y="105">Private Pattern Block</text><text class="body" x="1144" y="130">30% Warn · 50% Abort</text>
+    <rect class="box" x="705" y="0" width="210" height="128"/>
+    <text class="label" x="727" y="31">STANDARDS</text><text class="head" x="727" y="65">SOP·QCP·P-FMEA</text>
+    <text class="body" x="727" y="96">Revision·책임범위</text><text class="body" x="727" y="118">조치·예방</text>
+
+    <path class="arrow" d="M930 64 H980"/>
+    <rect class="soft" x="990" y="0" width="478" height="128"/>
+    <text class="label" x="1015" y="31">SOURCE BINDING</text>
+    <text class="head" x="1015" y="65">Read-only Data + Evidence Plane</text>
+    <text class="body2" x="1015" y="95">Time · Lot · Tag · State · Revision · Currentness</text>
+    <text class="body2" x="1015" y="118">Applicability · Rights · Source Hash · Conflict</text>
   </g>
 
-  <g transform="translate(250 390)">
-    <rect class="pill" x="0" y="0" width="210" height="42"/><text class="pilltext" x="105" y="27" text-anchor="middle">career-writing-korean</text>
-    <rect class="pill" x="235" y="0" width="170" height="42"/><text class="pilltext" x="320" y="27" text-anchor="middle">resume-korean</text>
-    <rect class="pill" x="430" y="0" width="180" height="42"/><text class="pilltext" x="520" y="27" text-anchor="middle">portfolio-korean</text>
-    <rect class="pill" x="635" y="0" width="185" height="42"/><text class="pilltext" x="727" y="27" text-anchor="middle">humanize-korean</text>
-    <rect class="pill" x="845" y="0" width="250" height="42"/><text class="pilltext" x="970" y="27" text-anchor="middle">bundle + change-rate validator</text>
+  <path class="dash" d="M800 330 V366"/>
+  <rect x="66" y="368" width="1468" height="44" rx="12" class="band2"/>
+  <text x="94" y="397" class="bandText">02 · INDEPENDENT ADVISORY → MANAGER ADJUDICATION → HUMAN AUTHORITY</text>
+
+  <g transform="translate(66 440)">
+    <rect class="agentP" x="0" y="0" width="280" height="150"/>
+    <text class="label" x="24" y="34">PROCESS AGENT</text>
+    <text class="head" x="24" y="70">공정조건 · 4M · 변경점</text>
+    <text class="body" x="24" y="105">Recipe가 아닌 원인 후보</text>
+    <text class="body" x="24" y="130">재검사·영향점검</text>
+
+    <rect class="agentQ" x="315" y="0" width="280" height="150"/>
+    <text class="label" x="339" y="34">QUALITY AGENT</text>
+    <text class="head" x="339" y="70">CTQ · 판정 · 측정</text>
+    <text class="body" x="339" y="105">검사신뢰성·오판정</text>
+    <text class="body" x="339" y="130">반대근거·추가측정</text>
+
+    <rect class="agentR" x="630" y="0" width="280" height="150"/>
+    <text class="label" x="654" y="34">PRODUCTION AGENT</text>
+    <text class="head" x="654" y="70">계획 · WIP · 병목 · Lot</text>
+    <text class="body" x="654" y="105">생산흐름·재공 영향</text>
+    <text class="body" x="654" y="130">작업순서·담당 후보</text>
+
+    <path class="arrow" d="M925 75 H975"/>
+    <rect class="soft" x="985" y="0" width="230" height="150"/>
+    <text class="label" x="1009" y="34">MANAGER FLOW</text>
+    <text class="head" x="1009" y="70">비교 · Dissent</text>
+    <text class="body" x="1009" y="105">공통점·충돌 분리</text>
+    <text class="body" x="1009" y="130">통합 재검사 1회</text>
+
+    <path class="arrow" d="M1230 75 H1270"/>
+    <rect class="human" x="1280" y="0" width="188" height="150"/>
+    <text class="label" x="1304" y="34" fill="#9bc7df">HUMAN AUTHORITY</text>
+    <text class="whiteHead" x="1304" y="70">생산기술 엔지니어</text>
+    <text class="whiteBody" x="1304" y="105">승인·보류·추가측정</text>
+    <text class="whiteBody" x="1304" y="130">범위·만료·복구</text>
   </g>
 
-  <path class="dash" d="M800 456 V505"/>
-  <text x="826" y="487" class="note">같은 Authority 계약을 다중 Agent와 외부 Effect로 확장</text>
+  <g transform="translate(66 628)">
+    <rect class="pill" x="0" y="0" width="254" height="42"/><text class="pillText" x="127" y="27" text-anchor="middle">AI analysis ≠ control authority</text>
+    <rect class="pill" x="275" y="0" width="220" height="42"/><text class="pillText" x="385" y="27" text-anchor="middle">Receipt ≠ process result</text>
+    <rect class="pill" x="516" y="0" width="210" height="42"/><text class="pillText" x="621" y="27" text-anchor="middle">One active writer</text>
+    <rect class="pill" x="747" y="0" width="252" height="42"/><text class="pillText" x="873" y="27" text-anchor="middle">Checkpoint · rollback</text>
 
-  <rect x="70" y="518" width="1460" height="46" rx="12" class="band2"/>
-  <text x="100" y="548" class="bandtext">AGENT OS TARGET PLATFORM · LOCAL DESIGN FOUNDATION</text>
+    <path class="arrow" d="M1018 21 H1060"/>
+    <rect class="effect" x="1070" y="-15" width="190" height="72"/>
+    <text class="label" x="1092" y="12">LIMITED EFFECT</text>
+    <text class="head" x="1092" y="43">Exact Adapter</text>
 
-  <g transform="translate(70 595)">
-    <rect class="box2" x="0" y="0" width="170" height="142"/>
-    <text class="label" x="20" y="32">WIKI</text><text class="head" x="20" y="68">근거·Revision</text><text class="body" x="20" y="103">Source Binding</text><text class="body" x="20" y="126">Conflict 표시</text>
-    <path class="arrow" d="M180 71 H220"/>
-    <rect class="box2" x="230" y="0" width="170" height="142"/>
-    <text class="label" x="250" y="32">BUILDER</text><text class="head" x="250" y="68">Agent Package</text><text class="body" x="250" y="103">Role·Tool·Policy</text><text class="body" x="250" y="126">Revision</text>
-    <path class="arrow" d="M410 71 H450"/>
-    <rect class="box2" x="460" y="0" width="170" height="142"/>
-    <text class="label" x="480" y="32">PERSIST</text><text class="head" x="480" y="68">Agent Registry</text><text class="body" x="480" y="103">Session 독립 ID</text><text class="body" x="480" y="126">조직·업무 이력</text>
-    <path class="arrow" d="M640 71 H680"/>
-    <rect class="box2" x="690" y="0" width="170" height="142"/>
-    <text class="label" x="710" y="32">FLOW</text><text class="head" x="710" y="68">Worker·Manager</text><text class="body" x="710" y="103">비교·Dissent</text><text class="body" x="710" y="126">통합 Rework</text>
-    <path class="arrow" d="M870 71 H910"/>
-    <rect class="box2" x="920" y="0" width="170" height="142"/>
-    <text class="label" x="940" y="32">CONTROL</text><text class="head" x="940" y="68">Runtime</text><text class="body" x="940" y="103">Lease·Checkpoint</text><text class="body" x="940" y="126">Stop·Recovery</text>
-    <path class="arrow" d="M1100 71 H1140"/>
-    <rect class="box2" x="1150" y="0" width="170" height="142"/>
-    <text class="label" x="1170" y="32">APPROVAL</text><text class="head" x="1170" y="68">Human Inbox</text><text class="body" x="1170" y="103">Target·Scope·Expiry</text><text class="body" x="1170" y="126">Rollback</text>
-    <path class="arrow" d="M1330 71 H1360"/>
-    <rect class="box2" x="1370" y="0" width="150" height="142"/>
-    <text class="label" x="1390" y="32">READBACK</text><text class="head" x="1390" y="68">Domain Pack</text><text class="body" x="1390" y="103">Effect 결과</text><text class="body" x="1390" y="126">실제 상태</text>
+    <path class="arrowG" d="M1275 21 H1310"/>
+    <rect class="readback" x="1320" y="-15" width="148" height="72"/>
+    <text class="label" x="1341" y="12">READBACK</text>
+    <text class="head" x="1341" y="43">Actual State</text>
   </g>
 
-  <g transform="translate(70 780)">
-    <rect x="0" y="0" width="1460" height="72" rx="16" fill="#dfeaf2" stroke="#88a2b8"/>
-    <text x="30" y="30" class="note">LOCAL FOUNDATION</text>
-    <text x="250" y="30" class="small">13 Areas · 167 Topics · 111 Realizations · 175 Dependencies · 172 Semantic Obligations</text>
-    <text x="250" y="55" class="small">1,837 Acceptance Bindings · 47 Node.js 24 Checks · 2 Independent Read-only Audits</text>
+  <path class="arrowG" d="M1394 684 V722 H1120 V594"/>
+  <text x="1140" y="712" class="small">설비·MES의 실제 상태 → Outcome Record → Close / Reopen</text>
+
+  <g transform="translate(66 760)">
+    <rect x="0" y="0" width="1468" height="88" rx="18" fill="#dfeaf2" stroke="#88a2b8"/>
+    <text x="28" y="32" class="metric">CURRENT STAGE · 상세 설계 + 로컬 계획 검증</text>
+    <text x="28" y="61" class="metricSub">Persistent Runtime · Approval UI · PLC/MES Effect Adapter · Production Readback은 다음 플랫폼 단계</text>
+    <text x="790" y="32" class="metric">13 Areas · 167 Topics · 111 Realizations</text>
+    <text x="790" y="61" class="metricSub">175 Dependencies · 172 Obligations · 1,837 Acceptance Bindings · 47 Node.js 24 Checks</text>
   </g>
 </svg>
