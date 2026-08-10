@@ -1,0 +1,117 @@
+name: Deploy manufacturing Agent OS portfolio
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-manufacturing-agent-os.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-public-write
+  cancel-in-progress: false
+
+env:
+  BASE_SHA: '3f8674771f3ea7ba736d5bdbed4b963407278fe9'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact public base
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = "$BASE_SHA"
+
+      - name: Download exact validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprkoreacentral.oaiusercontent.com/files/00000000-d6e4-8206-be30-aa24068efea0/raw?se=2026-08-10T12%3A07%3A16Z&sp=r&sv=2026-02-06&sr=b&scid=1ccbbecf-d928-5598-aa0d-08d58ce2a282&skoid=03727f49-62d3-42ac-8350-1c0e6559d238&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T08%3A30%3A58Z&ske=2026-08-11T08%3A30%3A58Z&sks=b&skv=2026-02-06&sig=fwPP0yu8MQkgO4%2BOfrJLziOkdxeheq4O00ThWykwusc%3D' -o /tmp/portfolio-public.zip
+          echo '729a3054783cac83c9da0789b9ddb11907be8c5e4676c758e095000a7b1b27fb  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify manufacturing Agent OS artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('/tmp/portfolio-public')
+          checks = {
+              root / 'posts/ai-authority-evidence-plane/index.html': [
+                  '제조·공정기술 Agent OS — 파편화된 현장 데이터를 안전한 생산기술 Copilot으로 연결',
+                  '1. 프로젝트 개요',
+                  '2. 현장 문제 정의',
+                  '3. 시스템 아키텍처',
+                  '4. 핵심 구현 성과',
+                  '5. 향후 확장 비전',
+                  'Read-only Data Plane',
+                  '공정 Agent',
+                  '품질 Agent',
+                  '생산 Agent',
+                  'Authoritative Readback',
+                  'agent-os-evidence-workflow.svg',
+              ],
+              root / 'en/posts/ai-authority-evidence-plane/index.html': [
+                  'Manufacturing Agent OS — Turning Fragmented Plant Data into a Safe Process-Engineering Copilot',
+                  '1. Project overview',
+                  '2. Field problem definition',
+                  '3. System architecture',
+                  '4. Core implementation results',
+                  '5. Expansion vision',
+                  'Read-only Data Plane',
+                  'Process Agent',
+                  'Quality Agent',
+                  'Production Agent',
+                  'Authoritative Readback',
+                  'agent-os-evidence-workflow.svg',
+              ],
+          }
+          forbidden = [
+              'Agent OS — 근거·승인·검증으로 AI 작업을 통제하는 개인 운영체제',
+              'Agent OS — Governing AI Work Through Evidence, Approval, and Verification',
+              '문서가 아니라 판단이 흔들리는 문제',
+              'the judgement drifted, not just the prose',
+          ]
+          for path, required in checks.items():
+              text = path.read_text(encoding='utf-8')
+              for value in required:
+                  assert value in text, (path, value)
+              for value in forbidden:
+                  assert value not in text, (path, value)
+          assert (root / 'images/projects/agent-os-evidence-workflow.svg').is_file()
+          print('Manufacturing Agent OS public artifact verification: PASS')
+          PY
+
+      - name: Publish exact validated artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-manufacturing-agent-os.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish manufacturing Agent OS case'
+          git push origin HEAD:main
