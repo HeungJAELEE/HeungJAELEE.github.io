@@ -1,0 +1,125 @@
+name: Deploy practical NCM Pre-Forming rewrite
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-ncm-preforming-practical.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = 'b766dcb3eec3b6c90e117a1d7f92cbe8492a6f18'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprcentralindia.oaiusercontent.com/files/00000000-bb44-8208-a2bc-6eb1c5e0d0c2/raw?se=2026-08-10T03%3A00%3A30Z&sp=r&sv=2026-02-06&sr=b&scid=d1dca55f-3c60-5d43-9c2d-282f18bb8dd9&skoid=6980ab1e-b994-4668-84de-ad0444c9d08b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T01%3A45%3A06Z&ske=2026-08-11T01%3A45%3A06Z&sks=b&skv=2026-02-06&sig=jczvjoTf6rEYs4oDaglY%2B7BHQLCOh0JxCHDwId1YNmM%3D' -o /tmp/portfolio-public.zip
+          echo '9305d6187d65c1040e4383f9d69d5d10a5666939a8e6735dab6de112541d40b5  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify practical Pre-Forming output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/ncm-pre-forming-validation/index.html'
+          EN='/tmp/portfolio-public/en/posts/ncm-pre-forming-validation/index.html'
+          test -s "$KO"
+          test -s "$EN"
+
+          for phrase in \
+            'NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증' \
+            '프로젝트 배경 및 문제 정의' \
+            '용접 강도와 손상 방지를 맞바꾸는 조건 타협은 제외' \
+            '4M+2E 원인판정' \
+            '전극 소재별 손상기전 분리' \
+            'Pilot Jig 설계 및 작업자 편차 통제' \
+            '약 400개 Sample 기반 Pilot 공정성 검증' \
+            '초기 폐기 Sample 약 200개' \
+            '4개 Lot × 50개' \
+            'Pre-Welding 접합요구 유지' \
+            '최종 성과 및 양산 이관'; do
+            grep -Fq "$phrase" "$KO"
+          done
+
+          for phrase in \
+            'NCM Pre-Forming Tear/Short Reduction and Pilot-Jig Design Validation' \
+            'Project background and problem definition' \
+            'rejected a condition compromise that traded joint strength for lower damage' \
+            '4M+2E cause disposition' \
+            'Separate the electrode-specific damage mechanisms' \
+            'Design the pilot jig and control operator variation' \
+            'Validate pilot processability across about 400 samples' \
+            'About 200 initial disposable samples' \
+            'four lots × 50 cells' \
+            'Pre-welding requirement retained' \
+            'Final result and production-equipment handoff'; do
+            grep -Fq "$phrase" "$EN"
+          done
+
+          if grep -Eqi '정식 공정명은|조건부 수치|공개 제외|프로젝트 SOW|프로젝트 WBS|왜 Pre-Forming이 필요했는가|용접조건 완화안을 제외한 이유|용접 강도 100%|불량을 근절|완벽히 제어|작업자 편차를 원천 차단|양산성 검증 완료|The formal process name is|Conditional value|Not public|Project SOW|Project WBS|Why Pre-Forming was required|Why the weaker-welding alternative was rejected' "$KO" "$EN"; then
+            echo 'Superseded or unsupported Pre-Forming wording remains' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-ncm-preforming-practical.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish practical NCM Pre-Forming case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
