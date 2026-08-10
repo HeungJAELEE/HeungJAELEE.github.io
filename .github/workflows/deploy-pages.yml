@@ -19,41 +19,72 @@ jobs:
       - name: Check out committed Hugo output
         uses: actions/checkout@v4
 
-      - name: Verify portfolio titles, structures, and exact welding images
+      - name: Verify current portfolio, index, feeds, and local links
         shell: bash
         run: |
           set -euo pipefail
-          KO_WELD='posts/welding-vision-ai/index.html'
-          EN_WELD='en/posts/welding-vision-ai/index.html'
-          KO_GIGA='posts/giga-press-dx/index.html'
-          KO_INDY='posts/robot-json-omniverse/index.html'
-          test -s "$KO_WELD"
-          test -s "$EN_WELD"
-          test -s "$KO_GIGA"
-          test -s "$KO_INDY"
-          grep -Fq '용접실기품 외관검사 Vision AI Project' "$KO_WELD"
-          grep -Fq '전체 모델링 구조' "$KO_WELD"
-          grep -Fq 'GIGA Press 공정 Digital Twin DX Project' "$KO_GIGA"
-          grep -Fq '자동차 공장 Digital Twin DX Project' "$KO_INDY"
-          grep -Fq 'portfolio-article__header' "$KO_INDY"
-          if grep -Fq '<section class="hero">' "$KO_INDY"; then
-            echo 'Standalone Indy7 template detected' >&2
-            exit 1
-          fi
-          for page in "$KO_WELD" "$EN_WELD"; do
-            grep -Fq 'welding-p16-augmentation-regularization.avif' "$page"
-            grep -Fq 'welding-p24-app-grade-results.avif' "$page"
-            ! grep -Fq 'welding-vision-report-augmentation.svg' "$page"
-            ! grep -Fq 'welding-vision-app-results.webp' "$page"
-          done
-          P16='images/projects/welding-p16-augmentation-regularization.avif'
-          P24='images/projects/welding-p24-app-grade-results.avif'
-          test -s "$P16"
-          test -s "$P24"
-          test "$(wc -c < "$P16")" -gt 30000
-          test "$(wc -c < "$P24")" -gt 25000
-          grep -aFq 'ftypavif' "$P16"
-          grep -aFq 'ftypavif' "$P24"
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+          import json
+          import re
+          import xml.etree.ElementTree as ET
+
+          root = Path('.')
+          ko_page = (root / 'posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
+          en_page = (root / 'en/posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
+          ko_home = (root / 'index.html').read_text(encoding='utf-8')
+          en_home = (root / 'en/index.html').read_text(encoding='utf-8')
+          deck = (root / 'print/featured-projects-ko/index.html').read_text(encoding='utf-8')
+
+          for text, values in [
+              (ko_page, ['제조·공정기술 Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
+              (en_page, ['Manufacturing Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
+              (ko_home, ['[Agent OS]', '생산기술 판단 AI Copilot', '/posts/ai-authority-evidence-plane/']),
+              (en_home, ['[Agent OS]', 'Manufacturing Decision AI Copilot', '/en/posts/ai-authority-evidence-plane/']),
+              (deck, ['생산기술 판단 AI Copilot', '생산기술 판단 AI Copilot — 5Why']),
+          ]:
+              for value in values:
+                  assert value in text, value
+
+          assert 'flowchart LR' not in ko_page + en_page
+          assert '저사양 PC용 LLM WIKI' not in ko_home
+          assert 'Low-Spec PC LLM Wiki' not in en_home
+          assert (root / 'images/projects/agent-os-manufacturing-lineage.svg').is_file()
+          json.loads((root / 'index.json').read_text(encoding='utf-8'))
+
+          xml_files = list(root.rglob('*.xml'))
+          assert xml_files, 'No XML files found'
+          for path in xml_files:
+              ET.parse(path)
+
+          local_targets = set()
+          for path in root.rglob('*'):
+              if not path.is_file():
+                  continue
+              rel = path.as_posix().lstrip('./')
+              local_targets.add('/' + rel)
+              if rel == 'index.html':
+                  local_targets.add('/')
+              elif rel.endswith('/index.html'):
+                  local_targets.add('/' + rel[:-10])
+
+          missing = []
+          attr_re = re.compile(r'''(?:href|src)=["']([^"']+)["']''', re.I)
+          for html in root.rglob('*.html'):
+              text = html.read_text(encoding='utf-8')
+              for raw in attr_re.findall(text):
+                  if not raw.startswith('/') or raw.startswith('//'):
+                      continue
+                  path = unquote(urlsplit(raw).path)
+                  if path in {'', '/'}:
+                      continue
+                  candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
+                  if not any(candidate in local_targets for candidate in candidates):
+                      missing.append((html.as_posix(), raw))
+          assert not missing, missing[:20]
+          print(f'Pages verification: {len(xml_files)} XML parsed, local link misses 0')
+          PY
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
