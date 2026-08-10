@@ -1,0 +1,101 @@
+name: Deploy featured homepage and locale-aware print flow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-home-featured-print.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-public-write
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify exact deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = 'ca480ebd01488ae27dd804d8f8f433fa2e1e93de'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-9494-8211-a866-4305945baa9b/raw?se=2026-08-10T03%3A18%3A54Z&sp=r&sv=2026-02-06&sr=b&scid=9d32e9d2-039c-5a85-acf2-9f81aec229cd&skoid=6980ab1e-b994-4668-84de-ad0444c9d08b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T00%3A00%3A07Z&ske=2026-08-11T00%3A00%3A07Z&sks=b&skv=2026-02-06&sig=QZzMds/BWU4IeZVDsk/njYwQi8qQD11RnbfXsjcRnDM%3D' -o /tmp/portfolio-public.zip
+          echo 'e2ae2dcc29cc70208c2101f70976ef505d35f26aad90e25bee90d13d57cadc1e  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify featured homepage and print artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('/tmp/portfolio-public')
+          featured = [
+              ('battery-2170-pilot', '2170 조립라인 실질 양품수율 안정화', '2170 Assembly-Line Good-Yield Stabilization'),
+              ('ncm-fat-sat', 'NCM 각형 Pilot Line 인수·초기 안정화', 'NCM Prismatic Pilot-Line Acceptance and Initial Stabilization'),
+              ('amat-akt-qual', '글로벌 디스플레이 장비사 CVD·PECVD 부품 공정 재구성 및 기술 Qual 획득', 'CVD and PECVD Component Process Reconfiguration and Technical Qualification'),
+          ]
+
+          ko = (root / 'index.html').read_text(encoding='utf-8')
+          en = (root / 'en/index.html').read_text(encoding='utf-8')
+          expected = [item[0] for item in featured]
+          for label, text, print_label in [('KO', ko, '>인쇄<'), ('EN', en, '>Print<')]:
+              ids = re.findall(r'data-featured-project-id=([^ >]+)', text)
+              assert ids == expected, (label, ids, expected)
+              assert text.count('data-featured-project-id=') == 3
+              assert 'data-portfolio-print-mode=home' in text
+              assert print_label in text
+              assert 'portfolio-project-grid--featured' in text
+
+          for project_id, ko_title, en_title in featured:
+              assert ko_title in ko
+              assert en_title in en
+              ko_detail = (root / f'posts/{project_id}/index.html').read_text(encoding='utf-8')
+              en_detail = (root / f'en/posts/{project_id}/index.html').read_text(encoding='utf-8')
+              assert 'data-portfolio-print-mode=project' in ko_detail
+              assert 'data-portfolio-print-mode=project' in en_detail
+              assert '>인쇄<' in ko_detail
+              assert '>Print<' in en_detail
+
+          assert any(root.rglob('portfolio-print*.js'))
+          assert any(root.rglob('portfolio-home-print*.css'))
+          print('Featured homepage and print artifact verification: PASS')
+          PY
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-home-featured-print.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish featured homepage and print flow'
+          git push origin HEAD:main
