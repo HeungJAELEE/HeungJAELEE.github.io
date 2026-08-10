@@ -1,0 +1,121 @@
+name: Deploy HeungTology Graph RAG Gemma Agent evidence
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-heungtology-graph-rag-agent.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '0f1cbe0c63f11262116b9dc8b6e906a4b8c9e732'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprwestus.oaiusercontent.com/files/00000000-3494-8230-a17b-68f4e9f32aa0/raw?se=2026-08-10T01%3A19%3A14Z&sp=r&sv=2026-02-06&sr=b&scid=9e2b1a7b-10aa-5ce5-a016-4aba332e7246&skoid=3e273c3d-5ea1-4088-9e18-79685531b184&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T02%3A46%3A04Z&ske=2026-08-10T02%3A46%3A04Z&sks=b&skv=2026-02-06&sig=gJG2B354dWianyd0QYw2SlpvaXQu52pjc4RE6pIV2Fc%3D' -o /tmp/portfolio-public.zip
+          echo '465e88c633fddfd94687fd0f2a7300e0214e703b6d0f5e2670bc7a54541fc92e  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify HeungTology Graph RAG Agent output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/ontology-construction/index.html'
+          EN='/tmp/portfolio-public/en/posts/ontology-construction/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          for phrase in \
+            '전통 제조기업을 위한 Graph+RAG 지식검색·AI Agent 문서생성 (HeungTology)' \
+            'Graphfy 관계 연결' \
+            'Gemma 12B Agent 문서생성' \
+            '실제 Agent Output 3건' \
+            'LFP 전극 탈리·밀도 부족 원인분석' \
+            'SIB 50Ah 제조공정 Spec' \
+            'heungtology-graph-before.webp' \
+            'heungtology-graphfy-connected.webp' \
+            'heungtology-agent-document-example.webp'; do
+            grep -Fq "$phrase" "$KO"
+          done
+          for phrase in \
+            'Graph+RAG Knowledge Retrieval and AI-Agent Drafting for Traditional Manufacturers (HeungTology)' \
+            'Graphfy relationship mapping' \
+            'Gemma 12B Agent document drafting' \
+            'Three actual Agent outputs' \
+            'LFP electrode delamination and low-density analysis' \
+            'SIB 50Ah manufacturing-process specification'; do
+            grep -Fq "$phrase" "$EN"
+          done
+          for asset in \
+            images/projects/heungtology-graph-before.webp \
+            images/projects/heungtology-graphfy-connected.webp \
+            images/projects/heungtology-agent-document-example.webp; do
+            test -s "/tmp/portfolio-public/$asset"
+          done
+          if grep -Eqi 'Sovereign Industrial Intelligence Fabric|Zero Hallucination|3,177개 노드|0\.05초|Google API|Gemini API|자동 승인 완료' "$KO" "$EN"; then
+            echo 'Unsupported HeungTology wording remains' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-heungtology-graph-rag-agent.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish HeungTology Graph RAG Agent evidence'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
