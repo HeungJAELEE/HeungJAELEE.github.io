@@ -1,0 +1,109 @@
+name: Deploy six featured homepage cards
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-home-featured-six.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-public-write
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out public repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify exact deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = 'd20c94a2d0a4380c3a02be7c93ade74f27fb5b0d'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprjapaneast.oaiusercontent.com/files/00000000-7a68-8209-9930-8a1799906274/raw?se=2026-08-10T05%3A02%3A10Z&sp=r&sv=2026-02-06&sr=b&scid=f5422d45-d198-5b29-a71a-e3cfe32115d1&skoid=0b778285-7b0b-4cdc-ac3b-fb93e8c3686f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T00%3A04%3A31Z&ske=2026-08-11T00%3A04%3A31Z&sks=b&skv=2026-02-06&sig=sD4i1eBxQ3oE9hzQfhbQKEhJYc%2B7DBn6S2uQxF8swCw%3D' -o /tmp/portfolio-public.zip
+          echo 'da65a23c98ac39066a864fc216c4e658e5efd351dc72e729a071a78b10edfa60  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify six-card homepage artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('/tmp/portfolio-public')
+          expected = [
+              'battery-2170-pilot',
+              'ncm-fat-sat',
+              'amat-akt-qual',
+              'robot-json-omniverse',
+              'ontology-construction',
+              'welding-vision-ai',
+          ]
+          pages = {
+              root / 'index.html': [
+                  '자동차 공장 Digital Twin',
+                  '용접 결함 감지 Vision 모델',
+                  '[AI Modeling]',
+                  '2-Model F1·Recall 96.04%',
+              ],
+              root / 'en/index.html': [
+                  'Automotive Factory Digital Twin',
+                  'Weld Defect Detection Vision Model',
+                  '[AI Modeling]',
+                  'Two-model F1 and recall reached 96.04%',
+              ],
+          }
+          for path, required in pages.items():
+              text = path.read_text(encoding='utf-8')
+              ids = re.findall(r'data-featured-project-id=([^ >]+)', text)
+              assert ids == expected, (path, ids, expected)
+              assert text.count('data-featured-project-id=') == 6
+              assert 'data-featured-project-count=6' in text
+              assert 'data-portfolio-print-mode=home' in text
+              for value in required:
+                  assert value in text, (path, value)
+
+          for project_id in expected:
+              ko = (root / f'posts/{project_id}/index.html').read_text(encoding='utf-8')
+              en = (root / f'en/posts/{project_id}/index.html').read_text(encoding='utf-8')
+              assert 'data-portfolio-print-mode=project' in ko
+              assert 'data-portfolio-print-mode=project' in en
+          print('Six-card homepage artifact verification: PASS')
+          PY
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-home-featured-six.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish six featured homepage cards'
+          git push origin HEAD:main
