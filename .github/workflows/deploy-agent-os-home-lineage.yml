@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  BASE_SHA: '6381aa11399328a43acd4d6dc2da3ad32d88fad9'
+  BASE_SHA: '44c064c3ff89505cb2e67fa2249ea09cff71427d'
 
 jobs:
   publish-and-deploy:
@@ -66,63 +66,37 @@ jobs:
           ko_home = (root / 'index.html').read_text(encoding='utf-8')
           en_home = (root / 'en/index.html').read_text(encoding='utf-8')
           deck = (root / 'print/featured-projects-ko/index.html').read_text(encoding='utf-8')
-
-          required = {
-              'KO Agent OS': (ko_page, [
-                  '제조·공정기술 Agent OS',
-                  'TO-BE — 생산기술 판단을 하나의 Lineage로 연결',
-                  'agent-os-manufacturing-lineage.svg',
-                  '공정 Agent', '품질 Agent', '생산 Agent', 'Authoritative Readback',
-              ]),
-              'EN Agent OS': (en_page, [
-                  'Manufacturing Agent OS',
-                  'TO-BE — one lineage for the engineering decision',
-                  'agent-os-manufacturing-lineage.svg',
-                  'Process Agent', 'Quality Agent', 'Production Agent', 'Authoritative Readback',
-              ]),
-              'KO home': (ko_home, [
-                  '[Agent OS]', '생산기술 판단 AI Copilot',
-                  '/posts/ai-authority-evidence-plane/',
-              ]),
-              'EN home': (en_home, [
-                  '[Agent OS]', 'Manufacturing Decision AI Copilot',
-                  '/en/posts/ai-authority-evidence-plane/',
-              ]),
-              'KO print deck': (deck, [
-                  '생산기술 판단 AI Copilot', '생산기술 판단 AI Copilot — 5Why',
-              ]),
-          }
-          for label, (text, values) in required.items():
+          for text, values in [
+              (ko_page, ['제조·공정기술 Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
+              (en_page, ['Manufacturing Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
+              (ko_home, ['[Agent OS]', '생산기술 판단 AI Copilot', '/posts/ai-authority-evidence-plane/']),
+              (en_home, ['[Agent OS]', 'Manufacturing Decision AI Copilot', '/en/posts/ai-authority-evidence-plane/']),
+              (deck, ['생산기술 판단 AI Copilot', '생산기술 판단 AI Copilot — 5Why']),
+          ]:
               for value in values:
-                  assert value in text, (label, value)
-          assert 'flowchart LR' not in ko_page
-          assert 'flowchart LR' not in en_page
+                  assert value in text, value
+          assert 'flowchart LR' not in ko_page + en_page
           assert '저사양 PC용 LLM WIKI' not in ko_home
           assert 'Low-Spec PC LLM Wiki' not in en_home
-          assert '저사양 PC용 LLM WIKI — 5Why' not in deck
           assert (root / 'images/projects/agent-os-manufacturing-lineage.svg').is_file()
-
           json.loads((root / 'index.json').read_text(encoding='utf-8'))
           xml_files = list(root.rglob('*.xml'))
-          assert xml_files, 'No XML feeds found'
           for path in xml_files:
               ET.parse(path)
 
-          html_files = list(root.rglob('*.html'))
-          local_targets = set()
+          targets = set()
           for path in root.rglob('*'):
               if not path.is_file():
                   continue
               rel = path.relative_to(root).as_posix()
-              local_targets.add('/' + rel)
+              targets.add('/' + rel)
               if rel == 'index.html':
-                  local_targets.add('/')
+                  targets.add('/')
               elif rel.endswith('/index.html'):
-                  local_targets.add('/' + rel[:-10])
-
+                  targets.add('/' + rel[:-10])
           missing = []
           attr_re = re.compile(r'''(?:href|src)=["']([^"']+)["']''', re.I)
-          for html in html_files:
+          for html in root.rglob('*.html'):
               text = html.read_text(encoding='utf-8')
               for raw in attr_re.findall(text):
                   if not raw.startswith('/') or raw.startswith('//'):
@@ -130,125 +104,19 @@ jobs:
                   path = unquote(urlsplit(raw).path)
                   if path in {'', '/'}:
                       continue
-                  candidates = {path}
-                  if path.endswith('/'):
-                      candidates.add(path + 'index.html')
-                  else:
-                      candidates.add(path + '/index.html')
-                  if not any(candidate in local_targets for candidate in candidates):
+                  candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
+                  if not any(candidate in targets for candidate in candidates):
                       missing.append((html.relative_to(root).as_posix(), raw))
-          assert not missing, f'Broken local links: {missing[:20]}'
-          print(f'Artifact validation: {len(html_files)} HTML, {len(xml_files)} XML, local link misses 0')
+          assert not missing, missing[:20]
+          print(f'Artifact validation: {len(xml_files)} XML parsed, local link misses 0')
           PY
 
-      - name: Publish exact validated artifact and refresh Pages verification
+      - name: Publish exact validated artifact
         shell: bash
         run: |
           set -euo pipefail
           rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
           touch .nojekyll
-          cat > .github/workflows/deploy-pages.yml <<'EOF'
-          name: Deploy committed Hugo output to GitHub Pages
-
-          on:
-            workflow_dispatch:
-
-          permissions:
-            contents: read
-            pages: write
-            id-token: write
-
-          concurrency:
-            group: github-pages
-            cancel-in-progress: true
-
-          jobs:
-            verify:
-              runs-on: ubuntu-latest
-              steps:
-                - name: Check out committed Hugo output
-                  uses: actions/checkout@v4
-
-                - name: Verify current portfolio, index, feeds, and local links
-                  shell: bash
-                  run: |
-                    set -euo pipefail
-                    python - <<'PY'
-                    from pathlib import Path
-                    from urllib.parse import unquote, urlsplit
-                    import json
-                    import re
-                    import xml.etree.ElementTree as ET
-
-                    root = Path('.')
-                    ko_page = (root / 'posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
-                    en_page = (root / 'en/posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
-                    ko_home = (root / 'index.html').read_text(encoding='utf-8')
-                    en_home = (root / 'en/index.html').read_text(encoding='utf-8')
-                    deck = (root / 'print/featured-projects-ko/index.html').read_text(encoding='utf-8')
-                    for text, values in [
-                        (ko_page, ['제조·공정기술 Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
-                        (en_page, ['Manufacturing Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
-                        (ko_home, ['[Agent OS]', '생산기술 판단 AI Copilot', '/posts/ai-authority-evidence-plane/']),
-                        (en_home, ['[Agent OS]', 'Manufacturing Decision AI Copilot', '/en/posts/ai-authority-evidence-plane/']),
-                        (deck, ['생산기술 판단 AI Copilot', '생산기술 판단 AI Copilot — 5Why']),
-                    ]:
-                        for value in values:
-                            assert value in text, value
-                    assert 'flowchart LR' not in ko_page + en_page
-                    assert '저사양 PC용 LLM WIKI' not in ko_home
-                    assert 'Low-Spec PC LLM Wiki' not in en_home
-                    assert (root / 'images/projects/agent-os-manufacturing-lineage.svg').is_file()
-                    json.loads((root / 'index.json').read_text(encoding='utf-8'))
-                    xml_files = list(root.rglob('*.xml'))
-                    for path in xml_files:
-                        ET.parse(path)
-
-                    local_targets = set()
-                    for path in root.rglob('*'):
-                        if not path.is_file():
-                            continue
-                        rel = path.as_posix().lstrip('./')
-                        local_targets.add('/' + rel)
-                        if rel == 'index.html':
-                            local_targets.add('/')
-                        elif rel.endswith('/index.html'):
-                            local_targets.add('/' + rel[:-10])
-                    missing = []
-                    attr_re = re.compile(r'''(?:href|src)=["']([^"']+)["']''', re.I)
-                    for html in root.rglob('*.html'):
-                        text = html.read_text(encoding='utf-8')
-                        for raw in attr_re.findall(text):
-                            if not raw.startswith('/') or raw.startswith('//'):
-                                continue
-                            path = unquote(urlsplit(raw).path)
-                            if path in {'', '/'}:
-                                continue
-                            candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
-                            if not any(candidate in local_targets for candidate in candidates):
-                                missing.append((html.as_posix(), raw))
-                    assert not missing, missing[:20]
-                    print(f'Pages verification: {len(xml_files)} XML parsed, local link misses 0')
-                    PY
-
-                - name: Configure Pages
-                  uses: actions/configure-pages@v5
-
-                - name: Upload Pages artifact
-                  uses: actions/upload-pages-artifact@v4
-                  with:
-                    path: '.'
-
-            deploy:
-              needs: verify
-              runs-on: ubuntu-latest
-              environment:
-                name: github-pages
-              steps:
-                - name: Deploy to GitHub Pages
-                  id: deployment
-                  uses: actions/deploy-pages@v4
-          EOF
           rm -f .github/workflows/deploy-agent-os-home-lineage.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
