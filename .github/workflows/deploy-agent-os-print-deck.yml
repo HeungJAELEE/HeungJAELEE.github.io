@@ -29,13 +29,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD^)" = '302bc782cbf26b88206d6608387c56106f305841'
+          test "$(git rev-parse HEAD^)" = '14c97773ca8051e8b19f74b890d79b0301828ae5'
 
       - name: Download exact validated Hugo artifact
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntpreastus2.oaiusercontent.com/files/00000000-609c-81f6-a722-5efd53a79cd8/raw?se=2026-08-10T10%3A33%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=9b600812-482a-5e17-a5a5-fc31700cb0d0&skoid=bbd22fc4-f881-4ea4-b2f3-c12033cf6a8b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T12%3A37%3A39Z&ske=2026-08-10T12%3A37%3A39Z&sks=b&skv=2026-02-06&sig=R%2B%2BLG%2Bxgu0Bv8fY7BqJKqTWTey0dSkbUb5oXnfX8h9M%3D' -o /tmp/portfolio-public.zip
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-db08-822f-a4b0-37252d680591/raw?se=2026-08-10T10%3A41%3A23Z&sp=r&sv=2026-02-06&sr=b&scid=7f33b890-ae4e-5037-87cc-6a89c77d1c43&skoid=bbd22fc4-f881-4ea4-b2f3-c12033cf6a8b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T12%3A55%3A03Z&ske=2026-08-10T12%3A55%3A03Z&sks=b&skv=2026-02-06&sig=Ho4onyqyqoCQCG4cGdiIW1a04iipe/ZI0gZNyAWnW%2Bs%3D' -o /tmp/portfolio-public.zip
           echo '8b48151c9e492e9731997592994eb71702e170f29a4556319077496299b8690d  /tmp/portfolio-public.zip' | sha256sum -c -
           rm -rf /tmp/portfolio-public
           mkdir -p /tmp/portfolio-public
