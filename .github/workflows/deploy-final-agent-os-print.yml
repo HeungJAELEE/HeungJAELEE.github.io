@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
 
       - name: Verify deployment base
-        run: test "$(git rev-parse HEAD^)" = '962cd4042b6379aff46e75a6a25fe0beeb24047b'
+        run: test "$(git rev-parse HEAD^)" = '4eef51be03bacf8e6b74df7535dc17507035ef46'
 
       - name: Download validated artifact
         run: |
@@ -53,7 +53,8 @@ jobs:
           assert len(js_files) == 1
           js = js_files[0].read_text(encoding='utf-8')
           assert '/print/featured-projects-ko/?autoprint=1' in js
-          assert "window.open(g,'_blank')" in js or "window.open(koreanHomePrintDeck, '_blank')" in js
+          assert 'window.open(g,"_blank")' in js
+          assert 'opener=null' in js
           PY
 
       - name: Publish exact artifact
