@@ -1,0 +1,116 @@
+name: Deploy focused NCM Pre-Forming rewrite
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-ncm-preforming-focused.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publish-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out triggering public commit
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = '6ff0d77a75ff0d514fb331d17e2fc8176f12f094'
+
+      - name: Download validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntpreastus2.oaiusercontent.com/files/00000000-9b2c-81f6-a0f6-d9318bcb4078/raw?se=2026-08-10T02%3A19%3A01Z&sp=r&sv=2026-02-06&sr=b&scid=3fd165fe-5c52-5d64-ac1f-b8798b22eb57&skoid=dd316919-ffbf-4550-9c54-dfc99f412009&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T01%3A16%3A20Z&ske=2026-08-11T01%3A16%3A20Z&sks=b&skv=2026-02-06&sig=1rTDu4A5hfUPhOLRrjVklgiQaVw%2BJgbfnLu2KfZXAsE%3D' -o /tmp/portfolio-public.zip
+          echo '38e691c3e795f5b4e424765bf51a328be21a8dc86f884ad0c82eefd0a442e002  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify focused Pre-Forming output
+        shell: bash
+        run: |
+          set -euo pipefail
+          KO='/tmp/portfolio-public/posts/ncm-pre-forming-validation/index.html'
+          EN='/tmp/portfolio-public/en/posts/ncm-pre-forming-validation/index.html'
+          test -s "$KO"
+          test -s "$EN"
+          for phrase in \
+            '왜 Pre-Forming이 필요했는가' \
+            '용접조건 완화안을 제외한 이유' \
+            '양극·음극 손상기전 분리' \
+            '4M+2E 원인판정' \
+            'Pilot Jig 설계와 작업자 편차 전환' \
+            '약 400개 Sample 검증' \
+            '4개 Lot × 50개' \
+            '표준문서와 양산설비 이관'; do
+            grep -Fq "$phrase" "$KO"
+          done
+          for phrase in \
+            'Why Pre-Forming was required' \
+            'Why the weaker-welding alternative was rejected' \
+            'Separating positive- and negative-electrode damage mechanisms' \
+            '4M+2E cause disposition' \
+            'Pilot-jig design and conversion of operator variation' \
+            'Validation across about 400 samples' \
+            'four lots × 50 cells' \
+            'Standard documents and production-equipment handoff'; do
+            grep -Fq "$phrase" "$EN"
+          done
+          if grep -Eqi '프로젝트 SOW|프로젝트 WBS|Project SOW|Project WBS|사례 0[1-3]\.|Case 0[1-3]\.|Gate 판정|Gate decision' "$KO" "$EN"; then
+            echo 'Superseded Pre-Forming template remains' >&2
+            exit 1
+          fi
+
+      - name: Publish validated output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          rm -f .github/workflows/deploy-ncm-preforming-focused.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No public output changes were produced.' >&2
+            exit 1
+          fi
+          git commit -m 'deploy(portfolio): publish focused NCM Pre-Forming case'
+          git push origin HEAD:main
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '/tmp/portfolio-public'
+
+  deploy:
+    needs: publish-and-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
