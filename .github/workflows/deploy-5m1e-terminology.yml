@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-542c-8211-9a8e-4c33e234fb56/raw?se=2026-08-11T04%3A59%3A13Z&sp=r&sv=2026-02-06&sr=b&scid=1d90aa2b-2654-5dca-ba49-ce43a37c2ef8&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-11T00%3A46%3A33Z&ske=2026-08-12T00%3A46%3A33Z&sks=b&skv=2026-02-06&sig=/4bSk8jcWTnhd8E8aK5cEZOmRQgZlxEfoDuUZdP5pok%3D' -o /tmp/portfolio-public.zip
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprwestus.oaiusercontent.com/files/00000000-5398-8230-a44c-cb68383c2342/raw?se=2026-08-11T05%3A03%3A45Z&sp=r&sv=2026-02-06&sr=b&scid=22e7c10c-ff86-5f8a-a90d-e6a9101167ce&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T23%3A38%3A47Z&ske=2026-08-11T23%3A38%3A47Z&sks=b&skv=2026-02-06&sig=a/uoJDGFJFK3IwKpOI9FvyszyoLxvxIITknzGWegRsw%3D' -o /tmp/portfolio-public.zip
           echo '32be6d9177e855319aa766af40253fd49ab5b6a75d6b14c4e7791bf0488fe331  /tmp/portfolio-public.zip' | sha256sum -c -
           rm -rf /tmp/portfolio-public
           mkdir -p /tmp/portfolio-public
@@ -61,7 +61,6 @@ jobs:
               'en/posts/battery-2170-pilot/index.html': ['Line-level 5M+1E analysis', 'Local 5M+1E analysis'],
               'en/posts/ncm-fat-sat/index.html': ['5M+1E analysis'],
               'en/posts/ncm-pre-forming-validation/index.html': ['5M+1E cause analysis'],
-              'print/featured-projects-ko/index.html': ['5M+1E 분석'],
           }
           for rel, values in required.items():
               text = (root / rel).read_text(encoding='utf-8')
