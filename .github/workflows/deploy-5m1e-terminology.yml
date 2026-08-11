@@ -1,0 +1,147 @@
+name: Deploy 5M+1E portfolio terminology
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-5m1e-terminology.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-public-write
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact public base
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify deployment base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = "b02a5a9f949c2793b14deeed46d836757f244705"
+
+      - name: Download exact validated Hugo artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 --retry-delay 2 'https://sdmntprindiasocentral.oaiusercontent.com/files/00000000-86c0-8211-adb8-5d5cf93844b3/raw?se=2026-08-11T04%3A55%3A36Z&sp=r&sv=2026-02-06&sr=b&scid=b48ffa07-692e-59f5-8abd-33a45e877d49&skoid=b1bca990-dcac-4c31-8ca1-ac563cf24c54&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-10T22%3A29%3A28Z&ske=2026-08-11T22%3A29%3A28Z&sks=b&skv=2026-02-06&sig=PhE/PjJ3wzMI0NI7Y4unXvsIPqml/xsuD7vqs0z6nmc%3D' -o /tmp/portfolio-public.zip
+          echo 'ae2ad0a187d4dce78d0a50399254b6af7fb510cc19bc3b2d0c6fd1b10f8a7eae  /tmp/portfolio-public.zip' | sha256sum -c -
+          rm -rf /tmp/portfolio-public
+          mkdir -p /tmp/portfolio-public
+          unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
+
+      - name: Verify 5M+1E artifact and derived outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+          import json
+          import re
+          import xml.etree.ElementTree as ET
+
+          root = Path('/tmp/portfolio-public')
+          required = {
+              'posts/battery-2170-pilot/index.html': ['라인 공통 5M+1E 분석', '5M+1E 분석'],
+              'posts/ncm-fat-sat/index.html': ['FAT·SAT 검수축 — 5M+1E 분석'],
+              'posts/ncm-pre-forming-validation/index.html': ['5M+1E 원인분석'],
+              'en/posts/battery-2170-pilot/index.html': ['Line-wide 5M+1E analysis', 'Local 5M+1E analysis'],
+              'en/posts/ncm-fat-sat/index.html': ['5M+1E analysis'],
+              'en/posts/ncm-pre-forming-validation/index.html': ['5M+1E cause analysis'],
+              'print/featured-projects-ko/index.html': ['5M+1E 분석'],
+          }
+          for rel, values in required.items():
+              text = (root / rel).read_text(encoding='utf-8')
+              for value in values:
+                  assert value in text, (rel, value)
+
+          obsolete = {
+              '4M+2E': re.compile(r'4M\s*[+·]\s*2E', re.I),
+              '4M+Measurement+Environment': re.compile(r'4M\s*[+·]\s*Measurement\s*[+·]\s*Environment', re.I),
+              '4M+Measurement': re.compile(r'4M\s*[+·]\s*Measurement', re.I),
+              '5M+1E 판단/판정': re.compile(r'5M\s*\+\s*1E\s*(?:판단|판정)', re.I),
+          }
+          failures = []
+          suffixes = {'.html', '.json', '.xml', '.svg', '.txt'}
+          for path in root.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in suffixes:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              for label, pattern in obsolete.items():
+                  if pattern.search(text):
+                      failures.append((path.relative_to(root).as_posix(), label))
+          assert not failures, failures[:20]
+
+          json.loads((root / 'index.json').read_text(encoding='utf-8'))
+          xml_files = list(root.rglob('*.xml'))
+          for path in xml_files:
+              ET.parse(path)
+
+          targets = set()
+          for path in root.rglob('*'):
+              if not path.is_file():
+                  continue
+              rel = path.relative_to(root).as_posix()
+              targets.add('/' + rel)
+              if rel == 'index.html':
+                  targets.add('/')
+              elif rel.endswith('/index.html'):
+                  targets.add('/' + rel[:-10])
+          missing = []
+          attr_re = re.compile(r'''(?:href|src)=["']([^"']+)["']''', re.I)
+          for html in root.rglob('*.html'):
+              text = html.read_text(encoding='utf-8')
+              for raw in attr_re.findall(text):
+                  if not raw.startswith('/') or raw.startswith('//'):
+                      continue
+                  path = unquote(urlsplit(raw).path)
+                  if path in {'', '/'}:
+                      continue
+                  candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
+                  if not any(candidate in targets for candidate in candidates):
+                      missing.append((html.relative_to(root).as_posix(), raw))
+          assert not missing, missing[:20]
+          print(f'5M+1E artifact validation: {len(xml_files)} XML parsed, local link misses 0')
+          PY
+
+      - name: Publish exact artifact and update permanent Pages verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude='.git/' --exclude='.github/' --exclude='.*' /tmp/portfolio-public/ ./
+          touch .nojekyll
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('.github/workflows/deploy-pages.yml')
+          text = path.read_text(encoding='utf-8')
+          marker = "          json.loads((root / 'index.json').read_text(encoding='utf-8'))\n"
+          addition = """          terminology_pages = [\n              root / 'posts/battery-2170-pilot/index.html',\n              root / 'posts/ncm-fat-sat/index.html',\n              root / 'posts/ncm-pre-forming-validation/index.html',\n              root / 'en/posts/battery-2170-pilot/index.html',\n              root / 'en/posts/ncm-fat-sat/index.html',\n              root / 'en/posts/ncm-pre-forming-validation/index.html',\n              root / 'print/featured-projects-ko/index.html',\n          ]\n          terminology = '\\n'.join(p.read_text(encoding='utf-8') for p in terminology_pages)\n          for required_term in ['5M+1E 분석', '5M+1E analysis']:\n              assert required_term in terminology, required_term\n          for pattern in [r'4M\\s*[+·]\\s*2E', r'4M\\s*[+·]\\s*Measurement', r'5M\\s*\\+\\s*1E\\s*(?:판단|판정)']:\n              assert not re.search(pattern, terminology, re.I), pattern\n\n"""
+          if addition not in text:
+              if marker not in text:
+                  raise SystemExit('deploy-pages insertion marker not found')
+              text = text.replace(marker, addition + marker, 1)
+              path.write_text(text, encoding='utf-8')
+          PY
+          rm -f .github/workflows/deploy-5m1e-terminology.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'deploy(portfolio): normalize cause analysis to 5M+1E'
+          git push origin HEAD:main
