@@ -1,67 +1,1053 @@
-<!doctype html><html lang=ko><head><title>전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology) | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/ontology-construction/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/ontology-construction/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology)"><meta property="og:type" content="article"><meta property="og:description" content="Markdown·YAML 제조지식을 Graphfy 관계망과 증분 RAG로 연결하고, 검색 근거를 Gemma 12B 기반 문서 생성 도구의 엔지니어링 문서 초안으로 전환한 개인 제조 AI 활용 시범 구현"><meta property="og:url" content="https://heungjaelee.github.io/posts/ontology-construction/"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology)"><meta name=twitter:description content="Markdown·YAML 제조지식을 Graphfy 관계망과 증분 RAG로 연결하고, 검색 근거를 Gemma 12B 기반 문서 생성 도구의 엔지니어링 문서 초안으로 전환한 개인 제조 AI 활용 시범 구현"><meta name=description content="분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성","headline":"전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology)","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ontology-construction/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>상세보기</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/ontology-construction>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/ontology-construction>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=인쇄>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>인쇄</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--personal-product portfolio-case-domain--manufacturing-ax" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>제조 AX 프로젝트</p><span class="portfolio-article__stage portfolio-article__stage--prototype">시범 구현</span></div><h1>전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology)</h1><p class=portfolio-article__lead>분산 제조문서의 관계 시각화→증분 검색·Reranking→Gemma 12B 원인분석·Spec 초안→엔지니어 검토</p><dl class=portfolio-case-meta><div><dt>프로젝트 기간</dt><dd>개인 프로젝트 · 2026.08.10 공개 코드·로컬 실행증거 검증</dd></div><div><dt>맥락</dt><dd>전통 제조기업의 파편화된 공정·설비·품질 지식을 Graph·RAG·Agent로 연결한 제조 AX 시범 구현</dd></div><div><dt>담당 범위</dt><dd>Markdown·YAML 지식원장, Graphfy 관계구조, 증분 RAG 검색, Gemma 12B Context·문서초안·검토 Gate 설계·구현</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>프로젝트·책임·검증 요약</h2></header><dl><div><dt>프로젝트 목적</dt><dd>분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수</dd></div><div><dt>기획·구현 범위</dt><dd>지식 Metadata·Graph 관계, ChromaDB·BGE 검색, Gemma 12B Context·문서초안·엔지니어 검토 흐름 설계</dd></div><div><dt>팀 결과·현재 단계</dt><dd>Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성</dd></div></dl></section><section class=portfolio-case-metrics aria-label="확인된 수치"><div><span>Graphfy 관계망</span>
-<strong>분산 상태 → 관계 연결</strong></div><div><span>Gemma 12B AI 초안</span>
-<strong>LFP 원인분석 1건 · SIB Spec 2건</strong></div></section><figure class=portfolio-case-visual><img src=/images/projects/heungtology-rag-pipeline.svg alt="Markdown/YAML 제조지식에서 변경파일 감지, BGE-M3, ChromaDB, BGE Reranking과 원문검토로 이어지는 HeungTology 증분형 RAG 흐름" loading=eager><figcaption>신규·수정 문서만 색인하고 관련 원문 후보를 재정렬하는 공개 검색코어</figcaption></figure><figure class=portfolio-case-visual><img src=/images/projects/heungtology-graph-before.webp alt="관계 연결 전 분산된 HeungTology 제조지식 Graph" loading=lazy><figcaption>문서와 Metadata는 존재하지만 관계 탐색이 약한 초기 상태</figcaption></figure><figure class=portfolio-case-visual><img src=/images/projects/heungtology-graphfy-connected.webp alt="Graphfy 관계망과 Markdown 원문을 함께 표시한 HeungTology 화면" loading=lazy><figcaption>관계노드 탐색에서 원문 실제 상태 확인으로 이어지는 로컬 실행화면</figcaption></figure><figure class=portfolio-case-visual><img src=/images/projects/heungtology-agent-document-example.webp alt="Gemma 12B 기반 문서 생성 도구가 생성한 배터리 엔지니어링 Markdown 문서 예시" loading=lazy><figcaption>검색 Context를 수치표·공학적 의미·리스크가 포함된 검토용 초안으로 재구성</figcaption></figure><div class="post-content portfolio-article__content" id=post-content><section class=portfolio-project-contract aria-label="HeungTology Graph RAG Agent 프로젝트 사실표"><dl><div><dt>프로젝트 유형</dt><dd>개인 Graph+RAG·Agent 시범 구현</dd></div><div><dt>사용 문제</dt><dd>원문 검색·관계 탐색·문서 재작성</dd></div><div><dt>직접 구현</dt><dd>Markdown/YAML·Sync·RAG·Agent Flow</dd></div><div><dt>실행 증거</dt><dd>Graphfy 전후·Gemma 12B 초안 3건</dd></div><div><dt>현재 결과</dt><dd>원문 후보→엔지니어링 문서 초안</dd></div><div><dt>판정 Gate</dt><dd>엔지니어 원문·수치·적용범위 검토</dd></div></dl></section><figure class="portfolio-logic-rail portfolio-logic-rail--system"><figcaption><span>GRAPH · RAG · GEMMA 12B AGENT</span>
-<strong>분산 제조지식을 검토 가능한 엔지니어링 초안으로 전환</strong><small>현재 증거: 공개 검색코드 + 사용자 제공 Graphfy·Gemma 12B 로컬 실행결과</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>SOURCE</b><strong>Markdown·YAML</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>GRAPH</b><strong>Graphfy 관계 연결</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>SYNC</b><strong>신규·수정 파일</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>RETRIEVE</b><strong>BGE-M3·ChromaDB</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>DRAFT</b><strong>Gemma 12B Markdown</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>REVIEW</b><strong>원문·수치·적용범위</strong></li></ol></figure><h2 id=프로젝트-배경과-vision>프로젝트 배경과 Vision</h2><p>제조·반도체·배터리 문서는 파일별 용어·폴더·링크가 달라 같은 문제가 재발해도 관련 원문과 과거 사례를 찾는 데 시간이 걸렸습니다. 원문을 찾은 뒤에도 원인 분석 보고서, 공정 Spec, 실행 계획으로 다시 정리하는 작업이 반복됐습니다.</p><p>HeungTology는 기존 Markdown 지식원장을 유지하면서 다음 흐름을 연결했습니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>분산 문서·Metadata
-</span></span><span style=display:flex><span>→ Graphfy 관계 시각화
-</span></span><span style=display:flex><span>→ 변경분 증분 Index
-</span></span><span style=display:flex><span>→ 자연어 검색·Reranking
-</span></span><span style=display:flex><span>→ Gemma 12B 엔지니어링 초안
-</span></span><span style=display:flex><span>→ 엔지니어 검토·수정
-</span></span><span style=display:flex><span>→ 개정 지식 재색인
-</span></span></code></pre></div><p>공개 저장소는 Markdown/YAML·ChromaDB·BGE-M3·Reranker 검색코어를 소유합니다. 이번에 추가한 실행증거는 로컬 Graphfy 관계망과 Gemma 12B 기반 문서 생성 도구가 실제로 생성한 Markdown 문서 3건입니다.</p><h2 id=knowledge-graph-분산-문서에서-관계형-지식으로>Knowledge Graph: 분산 문서에서 관계형 지식으로</h2><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"><div class=portfolio-evidence-figure__media><img src=/images/projects/heungtology-graph-before.webp alt="연결이 약한 상태로 분산된 HeungTology 제조지식 문서 Graph" loading=lazy decoding=async></div><figcaption><span class=portfolio-evidence-figure__label>Graph Before</span>
-<span class=portfolio-evidence-figure__copy><strong>문서와 Metadata는 존재하지만 관계 탐색이 약한 상태</strong>
-<span>도메인·상위개념·관련문서가 여러 군집으로 분산돼 원문 간 연결을 한눈에 파악하기 어려운 상태입니다.</span>
-<small>사용자 제공 로컬 실행 Screenshot</small></span></figcaption></figure><h3 id=graphfy-관계-연결>Graphfy 관계 연결</h3><p>문서 링크와 YAML Frontmatter의 Domain·Object Type·<code>is_instance_of</code>·SPO 관계를 기반으로 Graphfy에서 지식노드의 연결을 시각화했습니다.</p><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"><div class=portfolio-evidence-figure__media><img src=/images/projects/heungtology-graphfy-connected.webp alt="Graphfy로 관계가 연결된 HeungTology 제조지식 Graph와 Markdown 엔지니어링 문서 화면" loading=lazy decoding=async></div><figcaption><span class=portfolio-evidence-figure__label>Graphfy Connected</span>
-<span class=portfolio-evidence-figure__copy><strong>관계망 탐색과 원문 Readback을 같은 작업공간에 연결</strong>
-<span>Graph에서 관련 노드를 좁힌 뒤 원문 Markdown으로 이동해 수치·공식·공정조건을 다시 확인하는 탐색 흐름입니다.</span>
-<small>사용자 제공 로컬 실행 Screenshot</small></span></figcaption></figure><table><thead><tr><th>Graph 입력</th><th>연결 의미</th><th>검색·분석 모듈 활용</th></tr></thead><tbody><tr><td>Domain·Object Type·Tier</td><td>분야·문서유형·우선순위</td><td>후보범위·상위문서 분리</td></tr><tr><td><code>is_instance_of</code>·Related</td><td>상위개념·연관문서</td><td>주변 지식노드 확장</td></tr><tr><td>SPO 관계</td><td>Subject–Predicate–Object 문맥</td><td>원인·대상·행동 관계 보강</td></tr><tr><td>Expected Query</td><td>문서가 답할 질문</td><td>Query–Document 문맥 보강</td></tr><tr><td>Trust·Date·Hash</td><td>최신성·신뢰·변경상태</td><td>후보 Score·검토 우선순위</td></tr></tbody></table><p>Graph View의 현재 역할은 관계 탐색과 RAG Context 선택입니다. 자동 Graph 추론은 후속 Engineering Gate로 분리했습니다.</p><h2 id=as-is--to-be>AS-IS / TO-BE</h2><table><thead><tr><th>업무구간</th><th>AS-IS</th><th>TO-BE</th></tr></thead><tbody><tr><td>지식 원본 자료</td><td>폴더·문서별 용어·형식·링크 분산</td><td>Markdown·YAML·Frontmatter 규격</td></tr><tr><td>관계 탐색</td><td>파일·개인 기억 중심</td><td>Graphfy 노드·상위개념·Related 탐색</td></tr><tr><td>변경 반영</td><td>전체 재처리·수동 Index 갱신</td><td>중간 저장 지점 기반 증분 Upsert</td></tr><tr><td>검색</td><td>파일명·키워드 반복검색</td><td>Vector Retrieval·Reranking</td></tr><tr><td>문서 작성</td><td>검색 후 보고서·Spec 수작업 재구성</td><td>Retrieved Context→Gemma 12B 초안</td></tr><tr><td>최종 판정</td><td>초안 작성자별 확인편차</td><td>원문·수치·적용범위 Review Gate</td></tr></tbody></table><h2 id=data-standardization>Data Standardization</h2><p>지식 원문은 <code>02_Knowledge</code> 아래 Markdown으로 유지하고 YAML Frontmatter를 관계·검색 Metadata로 사용했습니다.</p><table><thead><tr><th>Metadata 그룹</th><th>주요 Field</th><th>시스템 역할</th></tr></thead><tbody><tr><td>Basic</td><td>Domain·Date·Version</td><td>분야·최신성 구분</td></tr><tr><td>Object</td><td>Object Type·Tier</td><td>문서유형·검색 우선순위</td></tr><tr><td>Semantic</td><td><code>is_instance_of</code>·Expected Queries</td><td>상위개념·예상질문 문맥</td></tr><tr><td>Relation</td><td>SPO Subject·Predicate·Object</td><td>Graph·RAG 관계문맥</td></tr><tr><td>Trust</td><td>Static Trust·Decay·Hash</td><td>후보 Score·무결성 판정</td></tr><tr><td>Body</td><td>Markdown 원문</td><td>Retrieval·분석 입력 자료·실제 상태 확인</td></tr></tbody></table><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"><div class=portfolio-evidence-figure__media><img src=/images/projects/heungtology-rag-pipeline.svg alt="Markdown YAML 제조지식에서 변경파일 감지, BGE-M3, ChromaDB, Reranking과 엔지니어 원문검토로 이어지는 HeungTology 증분 RAG 흐름" loading=lazy decoding=async></div><figcaption><span class=portfolio-evidence-figure__label>RAG Pipeline</span>
-<span class=portfolio-evidence-figure__copy><strong>변경분 중심의 증분 검색코어</strong>
-<span>신규·수정 문서만 Index에 반영하고 관련 원문 후보를 Reranking해 Agent Context와 엔지니어 검토 순서로 전달합니다.</span>
-<small>공개 코드 기반 비식별 재작성</small></span></figcaption></figure><h2 id=incremental-sync>Incremental Sync</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Markdown 탐색
-</span></span><span style=display:flex><span>→ 제외폴더 Filter
-</span></span><span style=display:flex><span>→ 파일 수정시각·Checkpoint 비교
-</span></span><span style=display:flex><span>→ 신규·수정 파일 선별
-</span></span><span style=display:flex><span>→ Frontmatter·본문 Parsing
-</span></span><span style=display:flex><span>→ ChromaDB 문서단위 Upsert
-</span></span><span style=display:flex><span>→ Checkpoint 갱신
-</span></span></code></pre></div><p>전체 문서를 매번 다시 처리하지 않고 변경된 파일만 반영했습니다. 제조 문서가 계속 개정되는 환경에서 자료 갱신 절차를 반복 실행할 수 있도록 정리했습니다.</p><h2 id=search--reranking>Search & Reranking</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>자연어 질문
-</span></span><span style=display:flex><span>→ Tier 0 후보 + 일반 후보 Retrieval
-</span></span><span style=display:flex><span>→ 동일 경로 중복 제거
-</span></span><span style=display:flex><span>→ Query–Document Pair Reranking
-</span></span><span style=display:flex><span>→ 문서 최신성·Trust 반영
-</span></span><span style=display:flex><span>→ SHA-256 무결성 상태
-</span></span><span style=display:flex><span>→ 관련 원문·상위관계 후보
-</span></span></code></pre></div><table><thead><tr><th>단계</th><th>구현</th><th>출력</th></tr></thead><tbody><tr><td>Embedding</td><td>BAAI BGE-M3</td><td>Query·Document Vector</td></tr><tr><td>Index</td><td>ChromaDB Persistent Client</td><td>문서·Metadata 후보</td></tr><tr><td>Retrieval</td><td>Tier 0 + 일반검색</td><td>관련 후보군</td></tr><tr><td>Reranking</td><td>BGE-Reranker-V2-M3</td><td>Query–Document Score</td></tr><tr><td>Trust</td><td>Date·Static Trust·Decay</td><td>시간경과 반영 Score</td></tr><tr><td>Integrity</td><td>본문 SHA-256·Evidence Hash</td><td>PASS·변경경고</td></tr><tr><td>CLI</td><td>파일명·Parent·Score</td><td>엔지니어 원문검토 순서</td></tr></tbody></table><p>검색모드는 검토할 원문 후보를 반환합니다. 문서 생성 모드는 해당 후보와 관계노드를 Context로 묶어 문서 초안을 생성합니다.</p><h2 id=gemma-12b-기반-문서-생성-도구-문서생성>Gemma 12B 기반 문서 생성 도구 문서생성</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>사용자 요청
-</span></span><span style=display:flex><span>→ Graph·RAG 후보검색
-</span></span><span style=display:flex><span>→ 관련 지식노드·원문 Context 구성
-</span></span><span style=display:flex><span>→ Gemma 12B Agent
-</span></span><span style=display:flex><span>→ 원인분석·Spec·FMEA·실행계획 Markdown
-</span></span><span style=display:flex><span>→ 엔지니어 원문·수치·조건 검토
-</span></span></code></pre></div><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"><div class=portfolio-evidence-figure__media><img src=/images/projects/heungtology-agent-document-example.webp alt="HeungTology 지식망과 Gemma 12B 기반 문서 생성 도구가 생성한 배터리 엔지니어링 Markdown 문서 예시" loading=lazy decoding=async></div><figcaption><span class=portfolio-evidence-figure__label>Agent Draft</span>
-<span class=portfolio-evidence-figure__copy><strong>검색된 제조지식을 엔지니어링 문서 구조로 재구성</strong>
-<span>수치표·공학적 의미·공정 리스크를 포함한 Markdown 초안 생성 예시입니다. 최종 Spec과 공정판정은 엔지니어 검토에서 확정합니다.</span>
-<small>사용자 제공 로컬 실행 Screenshot</small></span></figcaption></figure><h3 id=문서-생성-입력출력-범위>문서 생성 입력·출력 범위</h3><table><thead><tr><th>단계</th><th>입력·처리</th><th>산출물</th></tr></thead><tbody><tr><td>요청 해석</td><td>제품·공정·문서종류·질문</td><td>Retrieval Query·출력 Template</td></tr><tr><td>Context 구성</td><td>RAG 후보·Graph 인접노드·Metadata</td><td>Retrieved Nodes·원문 Context</td></tr><tr><td>초안 생성</td><td>Gemma 12B</td><td>Markdown 보고서·Spec·FMEA·WBS</td></tr><tr><td>검토</td><td>원문·수치·공정조건·적용범위</td><td>수정·보류·승인대기 판정</td></tr><tr><td>재사용</td><td>검토 후 개정 Markdown</td><td>다음 Sync·검색 원본 자료</td></tr></tbody></table><h3 id=실제-ai-초안-3건>실제 AI 초안 3건</h3><table><thead><tr><th>문서</th><th>생성된 구조</th><th>공개 실행증거</th></tr></thead><tbody><tr><td>LFP 전극 탈리·밀도 부족 원인분석</td><td>문제정의·관리지표·4M1E·FMEA·개선권고</td><td><a href=https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/REPORT_LFP_ELECTRODE_ADHESION_DENSITY_ANALYSIS_GEMMA12B_DRAFT.md target=_blank rel=noopener>Markdown 초안</a></td></tr><tr><td>SIB 50Ah 제조공정 Spec</td><td>극판·믹싱 Parameter·Formation·Aging·실행 Task</td><td><a href=https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/SIB_50Ah_CELL_MANUFACTURING_PROCESS_SPEC_GEMMA12B_DRAFT.md target=_blank rel=noopener>Markdown 초안</a></td></tr><tr><td>SIB 50Ah Cell 설계 Spec</td><td>Cell 설계 Parameter·공정조건·리스크·검증 Task</td><td><a href=https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/SIB_50Ah_CELL_DESIGN_SPECIFICATION_GEMMA12B_DRAFT.md target=_blank rel=noopener>Markdown 초안</a></td></tr></tbody></table><p>LFP 공개 예시는 원본의 분류·Provenance를 비식별화했습니다. 세 문서 모두 분석 모듈 생성본임을 상단에 표시하고, 실제 공정·제품 적용 전 엔지니어 검토 Gate를 고정했습니다.</p><h2 id=구현실행-evidence>구현·실행 Evidence</h2><table><thead><tr><th>계층</th><th>상태</th><th>근거</th></tr></thead><tbody><tr><td>Markdown·YAML 원본 자료</td><td>구현</td><td>공개 <code>02_Knowledge</code></td></tr><tr><td>변경분 증분 Sync</td><td>구현</td><td>공개 <code>rag_cli_v2.py</code></td></tr><tr><td>ChromaDB·BGE Retrieval</td><td>구현</td><td>공개 검색코드</td></tr><tr><td>Graphfy 관계 시각화</td><td>로컬 실행 확인</td><td>전·후 Screenshot</td></tr><tr><td>Gemma 12B 문서생성</td><td>로컬 실행 확인</td><td>Screenshot·Markdown 3건</td></tr><tr><td>자동 승인·공정 실행</td><td>설계범위 아님</td><td>엔지니어 Review Gate 유지</td></tr><tr><td>Web·권한·감사·복구</td><td>후속</td><td>Engineering Gate</td></tr></tbody></table><h2 id=전통-제조기업-적용-시나리오>전통 제조기업 적용 시나리오</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>문서 표준화
-</span></span><span style=display:flex><span>→ 관계 Graph·검색 가능성 향상
-</span></span><span style=display:flex><span>→ 원문 후보 재사용
-</span></span><span style=display:flex><span>→ Agent 보고서·Spec 초안
-</span></span><span style=display:flex><span>→ 엔지니어 검토
-</span></span><span style=display:flex><span>→ 개정 지식 재색인
-</span></span></code></pre></div><table><thead><tr><th>단계</th><th>사용자 경험</th><th>문서화 Feedback</th></tr></thead><tbody><tr><td>원본 자료 표준화</td><td>기존 문서를 Markdown·YAML로 정리</td><td>Domain·Type·Parent 누락 보완</td></tr><tr><td>Graph·검색 PoC</td><td>질문과 관계노드로 원문 탐색</td><td>검색되지 않는 문서의 용어·Metadata 개정</td></tr><tr><td>AI 초안</td><td>반복 보고서·Spec의 초안 생성</td><td>누락 근거·수치·조건 식별</td></tr><tr><td>부서 Pilot</td><td>대표 Query·정답문서·초안품질 비교</td><td>Template·Ground Truth·Review Gate 개정</td></tr><tr><td>운영 Wiki</td><td>Web·권한·Citation·Feedback</td><td>지식품질·검색품질·초안품질 반복개선</td></tr></tbody></table><h2 id=현재-구현-결과>현재 구현 결과</h2><ul><li>제조·반도체·배터리 Markdown·YAML 지식원장</li><li>Frontmatter·문서링크 기반 Graphfy 관계 시각화</li><li>신규·수정 파일 중간 저장 지점 기반 증분 동기화</li><li>ChromaDB·BGE-M3 후보검색·BGE Reranker 재정렬</li><li>문서 최신성·Trust·Hash 기반 후보판정</li><li>Gemma 12B 기반 문서 생성 도구 Markdown 문서생성 흐름</li><li>LFP 원인분석 1건·SIB Spec 2건 공개 실행예시</li><li>원문·수치·공정조건·적용범위 엔지니어 Review Gate</li></ul><h2 id=다음-engineering-gate>다음 Engineering Gate</h2><ul><li>Graphfy 관계 생성·갱신절차의 코드·Version 고정</li><li>삭제·이동 문서와 Index 정합화</li><li>Chunk·원문 위치 Anchor·Citation 실제 상태 확인</li><li>대표 Query·정답문서 Ground Truth·Recall@K·MRR</li><li>Gemma 12B Prompt·Context·Model·Output Version 고정</li><li>AI 초안의 Claim·수치·Source 자동대조</li><li>CPU·External API Runtime 비교와 비용·보안정책</li><li>Web UI·사용자 인증·부서별 권한</li><li>감사로그·실패복구·운영배포</li></ul><h2 id=코드실행근거>코드·실행근거</h2><ul><li><a href=https://github.com/HeungJAELEE/HeungTology target=_blank rel=noopener>HeungTology 공개 저장소</a></li><li><a href=https://github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7 target=_blank rel=noopener>Graphfy·Gemma 12B 실행증거 기준 자료</a></li><li><a href=https://github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs target=_blank rel=noopener>AI 초안 Sample 목록</a></li></ul></div><section class=project-resources aria-labelledby=case-links-title><h2 id=case-links-title>공개 링크</h2><ul class=project-resources__links><li><a href=https://github.com/HeungJAELEE/HeungTology target=_blank rel="noopener noreferrer"><span class=project-resources__label>공개 저장소</span>
-<span class=project-resources__url>github.com/HeungJAELEE/HeungTology</span></a></li><li><a href=https://github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7 target=_blank rel="noopener noreferrer"><span class=project-resources__label>Graphfy·Gemma 12B 실행증거 기준 자료</span>
-<span class=project-resources__url>github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7</span></a></li><li><a href=https://github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs target=_blank rel="noopener noreferrer"><span class=project-resources__label>Agent Output Sample</span>
-<span class=project-resources__url>github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs</span></a></li></ul></section><footer class=portfolio-article__footer><a class=portfolio-text-link href=/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>전체 프로젝트로 돌아가기</span></a></footer></article><aside class=portfolio-article-toc aria-label="이 글의 목차"><div class=portfolio-article-toc__inner><p>이 글의 목차</p><nav id=TableOfContents><ul><li><a href=#프로젝트-배경과-vision>프로젝트 배경과 Vision</a></li><li><a href=#knowledge-graph-분산-문서에서-관계형-지식으로>Knowledge Graph: 분산 문서에서 관계형 지식으로</a><ul><li><a href=#graphfy-관계-연결>Graphfy 관계 연결</a></li></ul></li><li><a href=#as-is--to-be>AS-IS / TO-BE</a></li><li><a href=#data-standardization>Data Standardization</a></li><li><a href=#incremental-sync>Incremental Sync</a></li><li><a href=#search--reranking>Search & Reranking</a></li><li><a href=#gemma-12b-기반-문서-생성-도구-문서생성>Gemma 12B 기반 문서 생성 도구 문서생성</a><ul><li><a href=#문서-생성-입력출력-범위>문서 생성 입력·출력 범위</a></li><li><a href=#실제-ai-초안-3건>실제 AI 초안 3건</a></li></ul></li><li><a href=#구현실행-evidence>구현·실행 Evidence</a></li><li><a href=#전통-제조기업-적용-시나리오>전통 제조기업 적용 시나리오</a></li><li><a href=#현재-구현-결과>현재 구현 결과</a></li><li><a href=#다음-engineering-gate>다음 Engineering Gate</a></li><li><a href=#코드실행근거>코드·실행근거</a></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>상세보기</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>이메일 보내기</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology) | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/ontology-construction/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/ontology-construction/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology)">
+<meta property="og:type" content="article">
+<meta property="og:description" content="Markdown·YAML 제조지식을 Graphfy 관계망과 증분 RAG로 연결하고, 검색 근거를 Gemma 12B 기반 문서 생성 도구의 엔지니어링 문서 초안으로 전환한 개인 제조 AI 활용 시범 구현">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/ontology-construction/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology)">
+  <meta name="twitter:description" content="Markdown·YAML 제조지식을 Graphfy 관계망과 증분 RAG로 연결하고, 검색 근거를 Gemma 12B 기반 문서 생성 도구의 엔지니어링 문서 초안으로 전환한 개인 제조 AI 활용 시범 구현">
+<meta name="description" content="분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성","headline":"전통 제조기업을 위한 Graph+RAG 지식검색·AI 문서 생성 (HeungTology)","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ontology-construction/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >상세보기</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ontology-construction">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ontology-construction">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="인쇄"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>인쇄</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--personal-product portfolio-case-domain--manufacturing-ax" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">제조 AX 프로젝트</p>
+            <span class="portfolio-article__stage portfolio-article__stage--prototype">시범 구현</span>
+          </div>
+          <h1>전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology)</h1>
+          <p class="portfolio-article__lead">분산 제조문서의 관계 시각화→증분 검색·Reranking→Gemma 12B 원인분석·Spec 초안→엔지니어 검토</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>개인 프로젝트 · 2026.08.10 공개 코드·로컬 실행증거 검증</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>전통 제조기업의 파편화된 공정·설비·품질 지식을 Graph·RAG·Agent로 연결한 제조 AX 시범 구현</dd>
+            </div>
+            <div>
+              <dt>담당 범위</dt>
+              <dd>Markdown·YAML 지식원장, Graphfy 관계구조, 증분 RAG 검색, Gemma 12B Context·문서초안·검토 Gate 설계·구현</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">프로젝트·책임·검증 요약</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>프로젝트 목적</dt>
+              <dd>분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수</dd>
+            </div>
+            <div>
+              <dt>기획·구현 범위</dt>
+              <dd>지식 Metadata·Graph 관계, ChromaDB·BGE 검색, Gemma 12B Context·문서초안·엔지니어 검토 흐름 설계</dd>
+            </div>
+            <div>
+              <dt>팀 결과·현재 단계</dt>
+              <dd>Graphfy 관계 시각화, 증분 RAG 검색, LFP 원인분석·SIB Spec 등 Gemma 12B 기반 문서 생성 도구 초안 3건 생성</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="portfolio-case-metrics" aria-label="확인된 수치"><div>
+              <span>Graphfy 관계망</span>
+              <strong>분산 상태 → 관계 연결</strong>
+            </div><div>
+              <span>Gemma 12B AI 초안</span>
+              <strong>LFP 원인분석 1건 · SIB Spec 2건</strong>
+            </div>
+        </section><figure class="portfolio-case-visual">
+            <img src="/images/projects/heungtology-rag-pipeline.svg" alt="Markdown/YAML 제조지식에서 변경파일 감지, BGE-M3, ChromaDB, BGE Reranking과 원문검토로 이어지는 HeungTology 증분형 RAG 흐름" loading="eager"><figcaption>신규·수정 문서만 색인하고 관련 원문 후보를 재정렬하는 공개 검색코어</figcaption></figure><figure class="portfolio-case-visual">
+            <img src="/images/projects/heungtology-graph-before.webp" alt="관계 연결 전 분산된 HeungTology 제조지식 Graph" loading="lazy"><figcaption>문서와 Metadata는 존재하지만 관계 탐색이 약한 초기 상태</figcaption></figure><figure class="portfolio-case-visual">
+            <img src="/images/projects/heungtology-graphfy-connected.webp" alt="Graphfy 관계망과 Markdown 원문을 함께 표시한 HeungTology 화면" loading="lazy"><figcaption>관계노드 탐색에서 원문 실제 상태 확인으로 이어지는 로컬 실행화면</figcaption></figure><figure class="portfolio-case-visual">
+            <img src="/images/projects/heungtology-agent-document-example.webp" alt="Gemma 12B 기반 문서 생성 도구가 생성한 배터리 엔지니어링 Markdown 문서 예시" loading="lazy"><figcaption>검색 Context를 수치표·공학적 의미·리스크가 포함된 검토용 초안으로 재구성</figcaption></figure>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <section class="portfolio-project-contract" aria-label="HeungTology Graph RAG Agent 프로젝트 사실표">
+  <dl>
+    <div>
+      <dt>프로젝트 유형</dt>
+      <dd>개인 Graph&#43;RAG·Agent 시범 구현</dd>
+    </div>
+    <div>
+      <dt>사용 문제</dt>
+      <dd>원문 검색·관계 탐색·문서 재작성</dd>
+    </div>
+    <div>
+      <dt>직접 구현</dt>
+      <dd>Markdown/YAML·Sync·RAG·Agent Flow</dd>
+    </div>
+    <div>
+      <dt>실행 증거</dt>
+      <dd>Graphfy 전후·Gemma 12B 초안 3건</dd>
+    </div>
+    <div>
+      <dt>현재 결과</dt>
+      <dd>원문 후보→엔지니어링 문서 초안</dd>
+    </div>
+    <div>
+      <dt>판정 Gate</dt>
+      <dd>엔지니어 원문·수치·적용범위 검토</dd>
+    </div>
+  </dl>
+</section>
+
+<figure class="portfolio-logic-rail portfolio-logic-rail--system">
+  <figcaption>
+    <span>GRAPH · RAG · GEMMA 12B AGENT</span>
+    <strong>분산 제조지식을 검토 가능한 엔지니어링 초안으로 전환</strong><small>현재 증거: 공개 검색코드 &#43; 사용자 제공 Graphfy·Gemma 12B 로컬 실행결과</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>SOURCE</b><strong>Markdown·YAML</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>GRAPH</b><strong>Graphfy 관계 연결</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>SYNC</b><strong>신규·수정 파일</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>RETRIEVE</b><strong>BGE-M3·ChromaDB</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>DRAFT</b><strong>Gemma 12B Markdown</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>REVIEW</b><strong>원문·수치·적용범위</strong>
+    </li>
+  </ol>
+</figure>
+
+<h2 id="프로젝트-배경과-vision">프로젝트 배경과 Vision</h2>
+<p>제조·반도체·배터리 문서는 파일별 용어·폴더·링크가 달라 같은 문제가 재발해도 관련 원문과 과거 사례를 찾는 데 시간이 걸렸습니다. 원문을 찾은 뒤에도 원인 분석 보고서, 공정 Spec, 실행 계획으로 다시 정리하는 작업이 반복됐습니다.</p>
+<p>HeungTology는 기존 Markdown 지식원장을 유지하면서 다음 흐름을 연결했습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>분산 문서·Metadata
+</span></span><span style="display:flex;"><span>→ Graphfy 관계 시각화
+</span></span><span style="display:flex;"><span>→ 변경분 증분 Index
+</span></span><span style="display:flex;"><span>→ 자연어 검색·Reranking
+</span></span><span style="display:flex;"><span>→ Gemma 12B 엔지니어링 초안
+</span></span><span style="display:flex;"><span>→ 엔지니어 검토·수정
+</span></span><span style="display:flex;"><span>→ 개정 지식 재색인
+</span></span></code></pre></div><p>공개 저장소는 Markdown/YAML·ChromaDB·BGE-M3·Reranker 검색코어를 소유합니다. 이번에 추가한 실행증거는 로컬 Graphfy 관계망과 Gemma 12B 기반 문서 생성 도구가 실제로 생성한 Markdown 문서 3건입니다.</p>
+<h2 id="knowledge-graph-분산-문서에서-관계형-지식으로">Knowledge Graph: 분산 문서에서 관계형 지식으로</h2>
+<figure class="portfolio-evidence-figure portfolio-evidence-figure--wide">
+  <div class="portfolio-evidence-figure__media">
+    <img
+      src="/images/projects/heungtology-graph-before.webp"
+      alt="연결이 약한 상태로 분산된 HeungTology 제조지식 문서 Graph"
+      loading="lazy"
+      decoding="async"
+      
+      
+    >
+  </div>
+  <figcaption>
+    <span class="portfolio-evidence-figure__label">Graph Before</span>
+    <span class="portfolio-evidence-figure__copy">
+      <strong>문서와 Metadata는 존재하지만 관계 탐색이 약한 상태</strong>
+      <span>도메인·상위개념·관련문서가 여러 군집으로 분산돼 원문 간 연결을 한눈에 파악하기 어려운 상태입니다.</span>
+      <small>사용자 제공 로컬 실행 Screenshot</small>
+    </span>
+  </figcaption>
+</figure>
+
+<h3 id="graphfy-관계-연결">Graphfy 관계 연결</h3>
+<p>문서 링크와 YAML Frontmatter의 Domain·Object Type·<code>is_instance_of</code>·SPO 관계를 기반으로 Graphfy에서 지식노드의 연결을 시각화했습니다.</p>
+<figure class="portfolio-evidence-figure portfolio-evidence-figure--wide">
+  <div class="portfolio-evidence-figure__media">
+    <img
+      src="/images/projects/heungtology-graphfy-connected.webp"
+      alt="Graphfy로 관계가 연결된 HeungTology 제조지식 Graph와 Markdown 엔지니어링 문서 화면"
+      loading="lazy"
+      decoding="async"
+      
+      
+    >
+  </div>
+  <figcaption>
+    <span class="portfolio-evidence-figure__label">Graphfy Connected</span>
+    <span class="portfolio-evidence-figure__copy">
+      <strong>관계망 탐색과 원문 Readback을 같은 작업공간에 연결</strong>
+      <span>Graph에서 관련 노드를 좁힌 뒤 원문 Markdown으로 이동해 수치·공식·공정조건을 다시 확인하는 탐색 흐름입니다.</span>
+      <small>사용자 제공 로컬 실행 Screenshot</small>
+    </span>
+  </figcaption>
+</figure>
+
+<table>
+  <thead>
+      <tr>
+          <th>Graph 입력</th>
+          <th>연결 의미</th>
+          <th>검색·분석 모듈 활용</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Domain·Object Type·Tier</td>
+          <td>분야·문서유형·우선순위</td>
+          <td>후보범위·상위문서 분리</td>
+      </tr>
+      <tr>
+          <td><code>is_instance_of</code>·Related</td>
+          <td>상위개념·연관문서</td>
+          <td>주변 지식노드 확장</td>
+      </tr>
+      <tr>
+          <td>SPO 관계</td>
+          <td>Subject–Predicate–Object 문맥</td>
+          <td>원인·대상·행동 관계 보강</td>
+      </tr>
+      <tr>
+          <td>Expected Query</td>
+          <td>문서가 답할 질문</td>
+          <td>Query–Document 문맥 보강</td>
+      </tr>
+      <tr>
+          <td>Trust·Date·Hash</td>
+          <td>최신성·신뢰·변경상태</td>
+          <td>후보 Score·검토 우선순위</td>
+      </tr>
+  </tbody>
+</table>
+<p>Graph View의 현재 역할은 관계 탐색과 RAG Context 선택입니다. 자동 Graph 추론은 후속 Engineering Gate로 분리했습니다.</p>
+<h2 id="as-is--to-be">AS-IS / TO-BE</h2>
+<table>
+  <thead>
+      <tr>
+          <th>업무구간</th>
+          <th>AS-IS</th>
+          <th>TO-BE</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>지식 원본 자료</td>
+          <td>폴더·문서별 용어·형식·링크 분산</td>
+          <td>Markdown·YAML·Frontmatter 규격</td>
+      </tr>
+      <tr>
+          <td>관계 탐색</td>
+          <td>파일·개인 기억 중심</td>
+          <td>Graphfy 노드·상위개념·Related 탐색</td>
+      </tr>
+      <tr>
+          <td>변경 반영</td>
+          <td>전체 재처리·수동 Index 갱신</td>
+          <td>중간 저장 지점 기반 증분 Upsert</td>
+      </tr>
+      <tr>
+          <td>검색</td>
+          <td>파일명·키워드 반복검색</td>
+          <td>Vector Retrieval·Reranking</td>
+      </tr>
+      <tr>
+          <td>문서 작성</td>
+          <td>검색 후 보고서·Spec 수작업 재구성</td>
+          <td>Retrieved Context→Gemma 12B 초안</td>
+      </tr>
+      <tr>
+          <td>최종 판정</td>
+          <td>초안 작성자별 확인편차</td>
+          <td>원문·수치·적용범위 Review Gate</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="data-standardization">Data Standardization</h2>
+<p>지식 원문은 <code>02_Knowledge</code> 아래 Markdown으로 유지하고 YAML Frontmatter를 관계·검색 Metadata로 사용했습니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metadata 그룹</th>
+          <th>주요 Field</th>
+          <th>시스템 역할</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Basic</td>
+          <td>Domain·Date·Version</td>
+          <td>분야·최신성 구분</td>
+      </tr>
+      <tr>
+          <td>Object</td>
+          <td>Object Type·Tier</td>
+          <td>문서유형·검색 우선순위</td>
+      </tr>
+      <tr>
+          <td>Semantic</td>
+          <td><code>is_instance_of</code>·Expected Queries</td>
+          <td>상위개념·예상질문 문맥</td>
+      </tr>
+      <tr>
+          <td>Relation</td>
+          <td>SPO Subject·Predicate·Object</td>
+          <td>Graph·RAG 관계문맥</td>
+      </tr>
+      <tr>
+          <td>Trust</td>
+          <td>Static Trust·Decay·Hash</td>
+          <td>후보 Score·무결성 판정</td>
+      </tr>
+      <tr>
+          <td>Body</td>
+          <td>Markdown 원문</td>
+          <td>Retrieval·분석 입력 자료·실제 상태 확인</td>
+      </tr>
+  </tbody>
+</table>
+<figure class="portfolio-evidence-figure portfolio-evidence-figure--wide">
+  <div class="portfolio-evidence-figure__media">
+    <img
+      src="/images/projects/heungtology-rag-pipeline.svg"
+      alt="Markdown YAML 제조지식에서 변경파일 감지, BGE-M3, ChromaDB, Reranking과 엔지니어 원문검토로 이어지는 HeungTology 증분 RAG 흐름"
+      loading="lazy"
+      decoding="async"
+      
+      
+    >
+  </div>
+  <figcaption>
+    <span class="portfolio-evidence-figure__label">RAG Pipeline</span>
+    <span class="portfolio-evidence-figure__copy">
+      <strong>변경분 중심의 증분 검색코어</strong>
+      <span>신규·수정 문서만 Index에 반영하고 관련 원문 후보를 Reranking해 Agent Context와 엔지니어 검토 순서로 전달합니다.</span>
+      <small>공개 코드 기반 비식별 재작성</small>
+    </span>
+  </figcaption>
+</figure>
+
+<h2 id="incremental-sync">Incremental Sync</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Markdown 탐색
+</span></span><span style="display:flex;"><span>→ 제외폴더 Filter
+</span></span><span style="display:flex;"><span>→ 파일 수정시각·Checkpoint 비교
+</span></span><span style="display:flex;"><span>→ 신규·수정 파일 선별
+</span></span><span style="display:flex;"><span>→ Frontmatter·본문 Parsing
+</span></span><span style="display:flex;"><span>→ ChromaDB 문서단위 Upsert
+</span></span><span style="display:flex;"><span>→ Checkpoint 갱신
+</span></span></code></pre></div><p>전체 문서를 매번 다시 처리하지 않고 변경된 파일만 반영했습니다. 제조 문서가 계속 개정되는 환경에서 자료 갱신 절차를 반복 실행할 수 있도록 정리했습니다.</p>
+<h2 id="search--reranking">Search &amp; Reranking</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>자연어 질문
+</span></span><span style="display:flex;"><span>→ Tier 0 후보 + 일반 후보 Retrieval
+</span></span><span style="display:flex;"><span>→ 동일 경로 중복 제거
+</span></span><span style="display:flex;"><span>→ Query–Document Pair Reranking
+</span></span><span style="display:flex;"><span>→ 문서 최신성·Trust 반영
+</span></span><span style="display:flex;"><span>→ SHA-256 무결성 상태
+</span></span><span style="display:flex;"><span>→ 관련 원문·상위관계 후보
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>단계</th>
+          <th>구현</th>
+          <th>출력</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Embedding</td>
+          <td>BAAI BGE-M3</td>
+          <td>Query·Document Vector</td>
+      </tr>
+      <tr>
+          <td>Index</td>
+          <td>ChromaDB Persistent Client</td>
+          <td>문서·Metadata 후보</td>
+      </tr>
+      <tr>
+          <td>Retrieval</td>
+          <td>Tier 0 + 일반검색</td>
+          <td>관련 후보군</td>
+      </tr>
+      <tr>
+          <td>Reranking</td>
+          <td>BGE-Reranker-V2-M3</td>
+          <td>Query–Document Score</td>
+      </tr>
+      <tr>
+          <td>Trust</td>
+          <td>Date·Static Trust·Decay</td>
+          <td>시간경과 반영 Score</td>
+      </tr>
+      <tr>
+          <td>Integrity</td>
+          <td>본문 SHA-256·Evidence Hash</td>
+          <td>PASS·변경경고</td>
+      </tr>
+      <tr>
+          <td>CLI</td>
+          <td>파일명·Parent·Score</td>
+          <td>엔지니어 원문검토 순서</td>
+      </tr>
+  </tbody>
+</table>
+<p>검색모드는 검토할 원문 후보를 반환합니다. 문서 생성 모드는 해당 후보와 관계노드를 Context로 묶어 문서 초안을 생성합니다.</p>
+<h2 id="gemma-12b-기반-문서-생성-도구-문서생성">Gemma 12B 기반 문서 생성 도구 문서생성</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>사용자 요청
+</span></span><span style="display:flex;"><span>→ Graph·RAG 후보검색
+</span></span><span style="display:flex;"><span>→ 관련 지식노드·원문 Context 구성
+</span></span><span style="display:flex;"><span>→ Gemma 12B Agent
+</span></span><span style="display:flex;"><span>→ 원인분석·Spec·FMEA·실행계획 Markdown
+</span></span><span style="display:flex;"><span>→ 엔지니어 원문·수치·조건 검토
+</span></span></code></pre></div><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide">
+  <div class="portfolio-evidence-figure__media">
+    <img
+      src="/images/projects/heungtology-agent-document-example.webp"
+      alt="HeungTology 지식망과 Gemma 12B 기반 문서 생성 도구가 생성한 배터리 엔지니어링 Markdown 문서 예시"
+      loading="lazy"
+      decoding="async"
+      
+      
+    >
+  </div>
+  <figcaption>
+    <span class="portfolio-evidence-figure__label">Agent Draft</span>
+    <span class="portfolio-evidence-figure__copy">
+      <strong>검색된 제조지식을 엔지니어링 문서 구조로 재구성</strong>
+      <span>수치표·공학적 의미·공정 리스크를 포함한 Markdown 초안 생성 예시입니다. 최종 Spec과 공정판정은 엔지니어 검토에서 확정합니다.</span>
+      <small>사용자 제공 로컬 실행 Screenshot</small>
+    </span>
+  </figcaption>
+</figure>
+
+<h3 id="문서-생성-입력출력-범위">문서 생성 입력·출력 범위</h3>
+<table>
+  <thead>
+      <tr>
+          <th>단계</th>
+          <th>입력·처리</th>
+          <th>산출물</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>요청 해석</td>
+          <td>제품·공정·문서종류·질문</td>
+          <td>Retrieval Query·출력 Template</td>
+      </tr>
+      <tr>
+          <td>Context 구성</td>
+          <td>RAG 후보·Graph 인접노드·Metadata</td>
+          <td>Retrieved Nodes·원문 Context</td>
+      </tr>
+      <tr>
+          <td>초안 생성</td>
+          <td>Gemma 12B</td>
+          <td>Markdown 보고서·Spec·FMEA·WBS</td>
+      </tr>
+      <tr>
+          <td>검토</td>
+          <td>원문·수치·공정조건·적용범위</td>
+          <td>수정·보류·승인대기 판정</td>
+      </tr>
+      <tr>
+          <td>재사용</td>
+          <td>검토 후 개정 Markdown</td>
+          <td>다음 Sync·검색 원본 자료</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="실제-ai-초안-3건">실제 AI 초안 3건</h3>
+<table>
+  <thead>
+      <tr>
+          <th>문서</th>
+          <th>생성된 구조</th>
+          <th>공개 실행증거</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>LFP 전극 탈리·밀도 부족 원인분석</td>
+          <td>문제정의·관리지표·4M1E·FMEA·개선권고</td>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/REPORT_LFP_ELECTRODE_ADHESION_DENSITY_ANALYSIS_GEMMA12B_DRAFT.md" target="_blank" rel="noopener">Markdown 초안</a></td>
+      </tr>
+      <tr>
+          <td>SIB 50Ah 제조공정 Spec</td>
+          <td>극판·믹싱 Parameter·Formation·Aging·실행 Task</td>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/SIB_50Ah_CELL_MANUFACTURING_PROCESS_SPEC_GEMMA12B_DRAFT.md" target="_blank" rel="noopener">Markdown 초안</a></td>
+      </tr>
+      <tr>
+          <td>SIB 50Ah Cell 설계 Spec</td>
+          <td>Cell 설계 Parameter·공정조건·리스크·검증 Task</td>
+          <td><a href="https://github.com/HeungJAELEE/HeungTology/blob/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs/SIB_50Ah_CELL_DESIGN_SPECIFICATION_GEMMA12B_DRAFT.md" target="_blank" rel="noopener">Markdown 초안</a></td>
+      </tr>
+  </tbody>
+</table>
+<p>LFP 공개 예시는 원본의 분류·Provenance를 비식별화했습니다. 세 문서 모두 분석 모듈 생성본임을 상단에 표시하고, 실제 공정·제품 적용 전 엔지니어 검토 Gate를 고정했습니다.</p>
+<h2 id="구현실행-evidence">구현·실행 Evidence</h2>
+<table>
+  <thead>
+      <tr>
+          <th>계층</th>
+          <th>상태</th>
+          <th>근거</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Markdown·YAML 원본 자료</td>
+          <td>구현</td>
+          <td>공개 <code>02_Knowledge</code></td>
+      </tr>
+      <tr>
+          <td>변경분 증분 Sync</td>
+          <td>구현</td>
+          <td>공개 <code>rag_cli_v2.py</code></td>
+      </tr>
+      <tr>
+          <td>ChromaDB·BGE Retrieval</td>
+          <td>구현</td>
+          <td>공개 검색코드</td>
+      </tr>
+      <tr>
+          <td>Graphfy 관계 시각화</td>
+          <td>로컬 실행 확인</td>
+          <td>전·후 Screenshot</td>
+      </tr>
+      <tr>
+          <td>Gemma 12B 문서생성</td>
+          <td>로컬 실행 확인</td>
+          <td>Screenshot·Markdown 3건</td>
+      </tr>
+      <tr>
+          <td>자동 승인·공정 실행</td>
+          <td>설계범위 아님</td>
+          <td>엔지니어 Review Gate 유지</td>
+      </tr>
+      <tr>
+          <td>Web·권한·감사·복구</td>
+          <td>후속</td>
+          <td>Engineering Gate</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="전통-제조기업-적용-시나리오">전통 제조기업 적용 시나리오</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>문서 표준화
+</span></span><span style="display:flex;"><span>→ 관계 Graph·검색 가능성 향상
+</span></span><span style="display:flex;"><span>→ 원문 후보 재사용
+</span></span><span style="display:flex;"><span>→ Agent 보고서·Spec 초안
+</span></span><span style="display:flex;"><span>→ 엔지니어 검토
+</span></span><span style="display:flex;"><span>→ 개정 지식 재색인
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>단계</th>
+          <th>사용자 경험</th>
+          <th>문서화 Feedback</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>원본 자료 표준화</td>
+          <td>기존 문서를 Markdown·YAML로 정리</td>
+          <td>Domain·Type·Parent 누락 보완</td>
+      </tr>
+      <tr>
+          <td>Graph·검색 PoC</td>
+          <td>질문과 관계노드로 원문 탐색</td>
+          <td>검색되지 않는 문서의 용어·Metadata 개정</td>
+      </tr>
+      <tr>
+          <td>AI 초안</td>
+          <td>반복 보고서·Spec의 초안 생성</td>
+          <td>누락 근거·수치·조건 식별</td>
+      </tr>
+      <tr>
+          <td>부서 Pilot</td>
+          <td>대표 Query·정답문서·초안품질 비교</td>
+          <td>Template·Ground Truth·Review Gate 개정</td>
+      </tr>
+      <tr>
+          <td>운영 Wiki</td>
+          <td>Web·권한·Citation·Feedback</td>
+          <td>지식품질·검색품질·초안품질 반복개선</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="현재-구현-결과">현재 구현 결과</h2>
+<ul>
+<li>제조·반도체·배터리 Markdown·YAML 지식원장</li>
+<li>Frontmatter·문서링크 기반 Graphfy 관계 시각화</li>
+<li>신규·수정 파일 중간 저장 지점 기반 증분 동기화</li>
+<li>ChromaDB·BGE-M3 후보검색·BGE Reranker 재정렬</li>
+<li>문서 최신성·Trust·Hash 기반 후보판정</li>
+<li>Gemma 12B 기반 문서 생성 도구 Markdown 문서생성 흐름</li>
+<li>LFP 원인분석 1건·SIB Spec 2건 공개 실행예시</li>
+<li>원문·수치·공정조건·적용범위 엔지니어 Review Gate</li>
+</ul>
+<h2 id="다음-engineering-gate">다음 Engineering Gate</h2>
+<ul>
+<li>Graphfy 관계 생성·갱신절차의 코드·Version 고정</li>
+<li>삭제·이동 문서와 Index 정합화</li>
+<li>Chunk·원문 위치 Anchor·Citation 실제 상태 확인</li>
+<li>대표 Query·정답문서 Ground Truth·Recall@K·MRR</li>
+<li>Gemma 12B Prompt·Context·Model·Output Version 고정</li>
+<li>AI 초안의 Claim·수치·Source 자동대조</li>
+<li>CPU·External API Runtime 비교와 비용·보안정책</li>
+<li>Web UI·사용자 인증·부서별 권한</li>
+<li>감사로그·실패복구·운영배포</li>
+</ul>
+<h2 id="코드실행근거">코드·실행근거</h2>
+<ul>
+<li><a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener">HeungTology 공개 저장소</a></li>
+<li><a href="https://github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7" target="_blank" rel="noopener">Graphfy·Gemma 12B 실행증거 기준 자료</a></li>
+<li><a href="https://github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs" target="_blank" rel="noopener">AI 초안 Sample 목록</a></li>
+</ul>
+
+        </div>
+        <section class="project-resources" aria-labelledby="case-links-title">
+          <h2 id="case-links-title">공개 링크</h2>
+          <ul class="project-resources__links">
+            <li>
+              <a href="https://github.com/HeungJAELEE/HeungTology" target="_blank" rel="noopener noreferrer">
+                <span class="project-resources__label">공개 저장소</span>
+                <span class="project-resources__url">github.com/HeungJAELEE/HeungTology</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7" target="_blank" rel="noopener noreferrer">
+                <span class="project-resources__label">Graphfy·Gemma 12B 실행증거 기준 자료</span>
+                <span class="project-resources__url">github.com/HeungJAELEE/HeungTology/commit/e297830afae75fc3504a932fef0b86440418b6b7</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs" target="_blank" rel="noopener noreferrer">
+                <span class="project-resources__label">Agent Output Sample</span>
+                <span class="project-resources__url">github.com/HeungJAELEE/HeungTology/tree/e297830afae75fc3504a932fef0b86440418b6b7/examples/agent_outputs</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 프로젝트로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
+          <div class="portfolio-article-toc__inner">
+            <p>이 글의 목차</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#프로젝트-배경과-vision">프로젝트 배경과 Vision</a></li>
+    <li><a href="#knowledge-graph-분산-문서에서-관계형-지식으로">Knowledge Graph: 분산 문서에서 관계형 지식으로</a>
+      <ul>
+        <li><a href="#graphfy-관계-연결">Graphfy 관계 연결</a></li>
+      </ul>
+    </li>
+    <li><a href="#as-is--to-be">AS-IS / TO-BE</a></li>
+    <li><a href="#data-standardization">Data Standardization</a></li>
+    <li><a href="#incremental-sync">Incremental Sync</a></li>
+    <li><a href="#search--reranking">Search &amp; Reranking</a></li>
+    <li><a href="#gemma-12b-기반-문서-생성-도구-문서생성">Gemma 12B 기반 문서 생성 도구 문서생성</a>
+      <ul>
+        <li><a href="#문서-생성-입력출력-범위">문서 생성 입력·출력 범위</a></li>
+        <li><a href="#실제-ai-초안-3건">실제 AI 초안 3건</a></li>
+      </ul>
+    </li>
+    <li><a href="#구현실행-evidence">구현·실행 Evidence</a></li>
+    <li><a href="#전통-제조기업-적용-시나리오">전통 제조기업 적용 시나리오</a></li>
+    <li><a href="#현재-구현-결과">현재 구현 결과</a></li>
+    <li><a href="#다음-engineering-gate">다음 Engineering Gate</a></li>
+    <li><a href="#코드실행근거">코드·실행근거</a></li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">상세보기</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

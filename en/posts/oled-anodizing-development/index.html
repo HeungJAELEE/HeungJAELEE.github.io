@@ -1,34 +1,863 @@
-<!doctype html><html lang=en><head><title>High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts | Jaeheung Lee | Manufacturing & Process Engineer</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/oled-anodizing-development/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/oled-anodizing-development/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts"><meta property="og:type" content="article"><meta property="og:description" content="Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/oled-anodizing-development/"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts"><meta name=twitter:description content="Two YMC process-development cases: DMAIC, 4M, and large-area scale-up for an OLED dry-etch upper-electrode mixed-acid film, and internal screening plus customer vacuum qualification for a PECVD susceptor oxalic-acid film"><meta name=description content="Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision","headline":"High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/oled-anodizing-development/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Details</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/oled-anodizing-development>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/oled-anodizing-development>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=Print>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>Print</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--manufacturing-result portfolio-case-domain--manufacturing" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>Manufacturing project</p><span class="portfolio-article__stage portfolio-article__stage--production-result">Field application</span></div><h1>High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts</h1><p class=portfolio-article__lead>I developed and qualified two anodizing processes for high-temperature display equipment parts, then updated the run sheets and inspection criteria</p><dl class=portfolio-case-meta><div><dt>Project period</dt><dd>Mixed-acid film development Jan–Jun 2017 · oxalic-acid high-temperature qualification Jul–Oct 2018</dd></div><div><dt>Context</dt><dd>Completed in YMC's Technical R&amp;D Center</dd></div><div><dt>Scope</dt><dd>Defect and run-sheet analysis, film-condition samples, heat/crack/Hi-Pot checks, large-area scale-up, customer qualification, and document revision</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>Manufacturing project summary</h2></header><dl><div><dt>Problem definition</dt><dd>Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements</dd></div><div><dt>Key role</dt><dd>Mixed-acid DMAIC, 4M, and 100×100→500×500 mm scale-up plus oxalic-acid 450℃×24-hour×five-cycle screening and customer vacuum qualification</dd></div><div><dt>Key result</dt><dd>Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision</dd></div></dl></section><div class="post-content portfolio-article__content" id=post-content><h2 id=project-overview>Project overview</h2><table><thead><tr><th>Area</th><th>Case A · Mixed-acid anodizing</th><th>Case B · Oxalic-acid anodizing</th></tr></thead><tbody><tr><td>Period</td><td>Jan–Jun 2017</td><td>Jul–Oct 2018</td></tr><tr><td>Part</td><td>OLED dry-etch upper-electrode family</td><td>Display PECVD susceptor family</td></tr><tr><td>Starting issue</td><td>Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature</td><td>New high-temperature qualification requirement</td></tr><tr><td>Development structure</td><td>DMAIC, 4M, and small-to-large-area scale-up</td><td>Requirement, design alternatives, internal screening, and customer qualification</td></tr><tr><td>Completion</td><td>Customer qualification, product application, and about one year of stabilization follow-up</td><td>Customer vacuum-heat qualification, product application, and about one year of use</td></tr></tbody></table><ul><li><strong>Direct scope:</strong> defect and run-sheet analysis, condition-based sample production, heat/crack/Hi-Pot evaluation, large-area scale-up, customer-sample response, and process/inspection-document revision</li><li><strong>Decision sequence:</strong> use condition and measurement alignment → 4M cause reduction → condition-based samples → scale-up or customer qualification → standard-document handoff</li></ul><figure class="portfolio-logic-rail portfolio-logic-rail--scaleup"><figcaption><span>DMAIC · Design Gate · Scale-up</span>
-<strong>Translate use-condition changes and customer CTQs into film conditions and inspection gates</strong><small>Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>ISSUE</b><strong>Heat, cracks, and particles</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>MEASURE</b><strong>Thickness, heat, Hi-Pot, and appearance</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>ANALYZE</b><strong>4M, current distribution, and racking</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>DESIGN</b><strong>Film, thickness, and post-treatment</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>VERIFY</b><strong>Large area, repeats, and qualification</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>CONTROL</b><strong>Run sheet, standard, and inspection</strong></li></ol></figure><h1 id=case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode>Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode</h1><h2 id=1-legacy-process-issue-and-ctqs>1. Legacy-process issue and CTQs</h2><p>The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:</p><ul><li>cracks and appearance degradation after heat exposure;</li><li>particle increase and etch-rate loss;</li><li>Hi-Pot variation relative to film thickness; and</li><li>position-dependent variation between small samples and large-area parts.</li></ul><p><strong>Success criteria</strong></p><ul><li>crack control after thermal exposure at the customer-required thickness;</li><li>aligned thickness and Hi-Pot disposition on the same sample;</li><li>reproduction of the 100×100 mm condition at 500×500 mm; and</li><li>customer qualification followed by product application.</li></ul><h2 id=2-dmaic-based-process-redesign>2. DMAIC-based process redesign</h2><table><thead><tr><th>Phase</th><th>Core work</th><th>Decision and output</th></tr></thead><tbody><tr><td>Define</td><td>Higher use temperature and crack, particle, and Hi-Pot CTQs</td><td>Scope and success criteria</td></tr><tr><td>Measure</td><td>Defect run sheets, bath history, thickness, heat, and Hi-Pot baseline</td><td>Legacy-condition performance map</td></tr><tr><td>Analyze</td><td>4M, current distribution, racking, thickness, and post-treatment effects</td><td>Primary design axes</td></tr><tr><td>Improve</td><td>Pretreatment, anodizing, thickness, and post-treatment condition groups</td><td>Candidate recipes and samples</td></tr><tr><td>Verify</td><td>Repeated coupons→100×100 mm→500×500 mm→customer qualification</td><td>Scale-up feasibility</td></tr><tr><td>Control</td><td>Run sheet, change report, process standard, and inspection criteria</td><td>Product-application handoff</td></tr></tbody></table><h2 id=3-4m-plus-measurement-disposition>3. 4M plus measurement disposition</h2><table><thead><tr><th>Axis</th><th>Legacy issue</th><th>Decision</th><th>Change and control</th></tr></thead><tbody><tr><td>Man</td><td>Work, analysis, and disposition-sequence variation</td><td>Standardization item</td><td>Fixed work and inspection sequence</td></tr><tr><td>Machine</td><td>Bath, power, temperature, racking, and large-area current distribution</td><td>Primary scale-up axis</td><td>Position-based current and racking reset</td></tr><tr><td>Material</td><td>Aluminum, mixed-acid bath, film, and post-treatment materials</td><td>Required design axis</td><td>Sample comparison by material and bath history</td></tr><tr><td>Method</td><td>Pretreatment, film condition, thickness, post-treatment, and thermal test</td><td>Core improvement axis</td><td>Condition groups and confirmation trials</td></tr><tr><td>Measurement</td><td>Thickness, cracks, appearance, and Hi-Pot variation</td><td>Approval evidence</td><td>Same-sample repeated measurement and aligned disposition</td></tr><tr><td>Environment</td><td>Customer high-temperature use and internal air test</td><td>Separated development condition</td><td>Independent use-environment and test-environment controls</td></tr></tbody></table><h2 id=4-condition-development-and-large-area-scale-up>4. Condition development and large-area scale-up</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Baseline defect history and legacy conditions
-</span></span><span style=display:flex><span>→ film, thickness, and post-treatment samples
-</span></span><span style=display:flex><span>→ 24-hour thermal exposure in air
-</span></span><span style=display:flex><span>→ at least three repeats under the same condition
-</span></span><span style=display:flex><span>→ crack, appearance, and Hi-Pot disposition
-</span></span><span style=display:flex><span>→ 100×100 mm sample
-</span></span><span style=display:flex><span>→ 500×500 mm large-area sample
-</span></span><span style=display:flex><span>→ customer qualification
-</span></span><span style=display:flex><span>→ product application
-</span></span></code></pre></div><p>The small-sample condition was not transferred directly. Current distribution, racking, and position-dependent film variation were revalidated on the large-area sample.</p><table><thead><tr><th>Representative test condition</th><th style=text-align:right>Legacy</th><th style=text-align:right>Revised</th><th>Decision</th></tr></thead><tbody><tr><td>50 μm thermal comparison</td><td style=text-align:right>About 260℃</td><td style=text-align:right>About 350℃</td><td>Expanded high-temperature range</td></tr><tr><td>50 μm Hi-Pot comparison</td><td style=text-align:right>About 2.4 kV</td><td style=text-align:right>About 2.7 kV</td><td>Improved electrical direction</td></tr></tbody></table><h2 id=5-risk-item-revision-and-document-cascade>5. Risk-item revision and document cascade</h2><table><thead><tr><th>Risk item added or revised through testing</th><th>Control</th><th>Standard-document change</th></tr></thead><tbody><tr><td>High-temperature cracks and appearance degradation</td><td>Thickness-specific heat test and crack disposition</td><td>Test plan and inspection criteria</td></tr><tr><td>Large-area current distribution and position variation</td><td>Racking and position-based film measurement</td><td>Run sheet and work standard</td></tr><tr><td>Thickness–Hi-Pot disposition mismatch</td><td>Same-sample repeated measurement</td><td>Inspection sequence and result sheet</td></tr><tr><td>Small-sample condition not reproduced at scale</td><td>100×100→500×500 gate</td><td>Change report and product-application basis</td></tr></tbody></table><h2 id=6-results>6. Results</h2><ul><li>Redesigned mixed-acid film condition, thickness, racking, and inspection gates</li><li>Completed 100×100 mm→500×500 mm scale-up validation</li><li>Obtained customer qualification and product application</li><li>Tracked stabilization for about one year after development</li><li>Revised run sheets, test results, change reports, process standards, and inspection criteria</li></ul><h1 id=case-b-oxalic-acid-anodizing-for-a-display-pecvd-susceptor>Case B. Oxalic-acid anodizing for a display PECVD susceptor</h1><h2 id=1-customer-requirement-and-design-alternatives>1. Customer requirement and design alternatives</h2><p>The following design axes were compared for the new high-temperature requirement.</p><table><thead><tr><th>Design axis</th><th>Alternatives</th><th>Response</th></tr></thead><tbody><tr><td>Material</td><td>Susceptor material, oxalic-acid bath, film, and post-treatment</td><td>Film uniformity and cracks</td></tr><tr><td>Machine</td><td>Bath, power, racking jig, and large-area current distribution</td><td>Position-based thickness and appearance</td></tr><tr><td>Method</td><td>Film condition, thickness, hybrid approach, and thermal cycle</td><td>Repeated high-temperature reliability</td></tr><tr><td>Measurement</td><td>Thickness, visual inspection, and microscopy</td><td>Internal screening and customer qualification</td></tr><tr><td>Environment</td><td>Internal air and customer vacuum</td><td>Environment-specific gates</td></tr></tbody></table><h2 id=2-internal-screening-and-customer-qualification>2. Internal screening and customer qualification</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Define high-temperature requirement and CTQs
-</span></span><span style=display:flex><span>→ design film, thickness, and racking alternatives
-</span></span><span style=display:flex><span>→ internal screening with the same three samples
-</span></span><span style=display:flex><span>→ 450℃×24 hours×five cycles
-</span></span><span style=display:flex><span>→ visual and microscope crack disposition after each cycle
-</span></span><span style=display:flex><span>→ build separate customer samples to the passing specification
-</span></span><span style=display:flex><span>→ customer vacuum-heat qualification
-</span></span><span style=display:flex><span>→ product application
-</span></span></code></pre></div><table><thead><tr><th>Area</th><th>Internal screening</th><th>Customer qualification</th></tr></thead><tbody><tr><td>Sample</td><td>Same three samples</td><td>Counterpart samples to the passing specification</td></tr><tr><td>Atmosphere</td><td>Air</td><td>Vacuum</td></tr><tr><td>Condition</td><td>450℃×24 hours×five cycles</td><td>Customer heat-test condition</td></tr><tr><td>Disposition</td><td>Visual and microscope cracks</td><td>Heat test and overall qualification</td></tr><tr><td>Purpose</td><td>Design-alternative screening</td><td>Equipment-use suitability approval</td></tr></tbody></table><h2 id=3-risk-item-revision-and-document-handoff>3. Risk-item revision and document handoff</h2><table><thead><tr><th>Risk item from validation</th><th>Control</th><th>Document change</th></tr></thead><tbody><tr><td>Film variation by racking position</td><td>Position-based thickness and appearance</td><td>Run sheet and racking basis</td></tr><tr><td>Cracks under repeated heat cycles</td><td>Cycle-by-cycle visual and microscope checks</td><td>Thermal-test and inspection criteria</td></tr><tr><td>Difference between air and vacuum tests</td><td>Separate internal screening and customer qualification</td><td>Sample gate and result report</td></tr><tr><td>Mixed use of design alternatives</td><td>Single passing specification</td><td>Change and product-application basis</td></tr></tbody></table><h2 id=4-results>4. Results</h2><ul><li>Completed internal screening at 450℃×24 hours×five cycles</li><li>Built customer counterpart samples from the passing condition</li><li>Obtained customer vacuum-heat qualification</li><li>Achieved product application and about one year of use</li><li>Handed off run sheets, test reports, process standards, and inspection criteria</li></ul><h2 id=related-ymc-cases>Related YMC cases</h2><ul><li><a href=/en/posts/mixed-acid-bath-analysis/>Mixed-Acid Anodizing Bath Analysis and Replenishment Redesign</a></li><li><a href=/en/posts/amat-akt-qual/>CVD and PECVD Component Process Reconfiguration and Technical Qualification</a></li></ul></div><footer class=portfolio-article__footer><a class=portfolio-text-link href=/en/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>Back to all projects</span></a></footer></article><aside class=portfolio-article-toc aria-label="Table of contents"><div class=portfolio-article-toc__inner><p>On this page</p><nav id=TableOfContents><ul><li><a href=#project-overview>Project overview</a></li></ul><ul><li><a href=#1-legacy-process-issue-and-ctqs>1. Legacy-process issue and CTQs</a></li><li><a href=#2-dmaic-based-process-redesign>2. DMAIC-based process redesign</a></li><li><a href=#3-4m-plus-measurement-disposition>3. 4M plus measurement disposition</a></li><li><a href=#4-condition-development-and-large-area-scale-up>4. Condition development and large-area scale-up</a></li><li><a href=#5-risk-item-revision-and-document-cascade>5. Risk-item revision and document cascade</a></li><li><a href=#6-results>6. Results</a></li></ul><ul><li><a href=#1-customer-requirement-and-design-alternatives>1. Customer requirement and design alternatives</a></li><li><a href=#2-internal-screening-and-customer-qualification>2. Internal screening and customer qualification</a></li><li><a href=#3-risk-item-revision-and-document-handoff>3. Risk-item revision and document handoff</a></li><li><a href=#4-results>4. Results</a></li><li><a href=#related-ymc-cases>Related YMC cases</a></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Details</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>Send email</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/oled-anodizing-development/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/oled-anodizing-development/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts">
+<meta property="og:type" content="article">
+<meta property="og:description" content="Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/oled-anodizing-development/">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts">
+  <meta name="twitter:description" content="Two YMC process-development cases: DMAIC, 4M, and large-area scale-up for an OLED dry-etch upper-electrode mixed-acid film, and internal screening plus customer vacuum qualification for a PECVD susceptor oxalic-acid film">
+<meta name="description" content="Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision","headline":"High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/oled-anodizing-development/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Details</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/oled-anodizing-development">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/oled-anodizing-development">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="Print"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>Print</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--manufacturing-result portfolio-case-domain--manufacturing" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">Manufacturing project</p>
+            <span class="portfolio-article__stage portfolio-article__stage--production-result">Field application</span>
+          </div>
+          <h1>High-Temperature Anodizing Process Development and Qualification for Display Equipment Parts</h1>
+          <p class="portfolio-article__lead">I developed and qualified two anodizing processes for high-temperature display equipment parts, then updated the run sheets and inspection criteria</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>Project period</dt>
+              <dd>Mixed-acid film development Jan–Jun 2017 · oxalic-acid high-temperature qualification Jul–Oct 2018</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>Completed in YMC&#39;s Technical R&amp;D Center</dd>
+            </div>
+            <div>
+              <dt>Scope</dt>
+              <dd>Defect and run-sheet analysis, film-condition samples, heat/crack/Hi-Pot checks, large-area scale-up, customer qualification, and document revision</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">Manufacturing project summary</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>Problem definition</dt>
+              <dd>Redesign of cracks, particles, Hi-Pot, and large-area uniformity for higher OLED and new PECVD temperature requirements</dd>
+            </div>
+            <div>
+              <dt>Key role</dt>
+              <dd>Mixed-acid DMAIC, 4M, and 100×100→500×500 mm scale-up plus oxalic-acid 450℃×24-hour×five-cycle screening and customer vacuum qualification</dd>
+            </div>
+            <div>
+              <dt>Key result</dt>
+              <dd>Customer qualification and product application for both films; run-sheet, process-standard, and inspection-criteria revision</dd>
+            </div>
+          </dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="project-overview">Project overview</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Case A · Mixed-acid anodizing</th>
+          <th>Case B · Oxalic-acid anodizing</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Period</td>
+          <td>Jan–Jun 2017</td>
+          <td>Jul–Oct 2018</td>
+      </tr>
+      <tr>
+          <td>Part</td>
+          <td>OLED dry-etch upper-electrode family</td>
+          <td>Display PECVD susceptor family</td>
+      </tr>
+      <tr>
+          <td>Starting issue</td>
+          <td>Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature</td>
+          <td>New high-temperature qualification requirement</td>
+      </tr>
+      <tr>
+          <td>Development structure</td>
+          <td>DMAIC, 4M, and small-to-large-area scale-up</td>
+          <td>Requirement, design alternatives, internal screening, and customer qualification</td>
+      </tr>
+      <tr>
+          <td>Completion</td>
+          <td>Customer qualification, product application, and about one year of stabilization follow-up</td>
+          <td>Customer vacuum-heat qualification, product application, and about one year of use</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li><strong>Direct scope:</strong> defect and run-sheet analysis, condition-based sample production, heat/crack/Hi-Pot evaluation, large-area scale-up, customer-sample response, and process/inspection-document revision</li>
+<li><strong>Decision sequence:</strong> use condition and measurement alignment → 4M cause reduction → condition-based samples → scale-up or customer qualification → standard-document handoff</li>
+</ul>
+<figure class="portfolio-logic-rail portfolio-logic-rail--scaleup">
+  <figcaption>
+    <span>DMAIC · Design Gate · Scale-up</span>
+    <strong>Translate use-condition changes and customer CTQs into film conditions and inspection gates</strong><small>Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>ISSUE</b><strong>Heat, cracks, and particles</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>MEASURE</b><strong>Thickness, heat, Hi-Pot, and appearance</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>ANALYZE</b><strong>4M, current distribution, and racking</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>DESIGN</b><strong>Film, thickness, and post-treatment</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>VERIFY</b><strong>Large area, repeats, and qualification</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>CONTROL</b><strong>Run sheet, standard, and inspection</strong>
+    </li>
+  </ol>
+</figure>
+
+<h1 id="case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode">Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode</h1>
+<h2 id="1-legacy-process-issue-and-ctqs">1. Legacy-process issue and CTQs</h2>
+<p>The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:</p>
+<ul>
+<li>cracks and appearance degradation after heat exposure;</li>
+<li>particle increase and etch-rate loss;</li>
+<li>Hi-Pot variation relative to film thickness; and</li>
+<li>position-dependent variation between small samples and large-area parts.</li>
+</ul>
+<p><strong>Success criteria</strong></p>
+<ul>
+<li>crack control after thermal exposure at the customer-required thickness;</li>
+<li>aligned thickness and Hi-Pot disposition on the same sample;</li>
+<li>reproduction of the 100×100 mm condition at 500×500 mm; and</li>
+<li>customer qualification followed by product application.</li>
+</ul>
+<h2 id="2-dmaic-based-process-redesign">2. DMAIC-based process redesign</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Phase</th>
+          <th>Core work</th>
+          <th>Decision and output</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Define</td>
+          <td>Higher use temperature and crack, particle, and Hi-Pot CTQs</td>
+          <td>Scope and success criteria</td>
+      </tr>
+      <tr>
+          <td>Measure</td>
+          <td>Defect run sheets, bath history, thickness, heat, and Hi-Pot baseline</td>
+          <td>Legacy-condition performance map</td>
+      </tr>
+      <tr>
+          <td>Analyze</td>
+          <td>4M, current distribution, racking, thickness, and post-treatment effects</td>
+          <td>Primary design axes</td>
+      </tr>
+      <tr>
+          <td>Improve</td>
+          <td>Pretreatment, anodizing, thickness, and post-treatment condition groups</td>
+          <td>Candidate recipes and samples</td>
+      </tr>
+      <tr>
+          <td>Verify</td>
+          <td>Repeated coupons→100×100 mm→500×500 mm→customer qualification</td>
+          <td>Scale-up feasibility</td>
+      </tr>
+      <tr>
+          <td>Control</td>
+          <td>Run sheet, change report, process standard, and inspection criteria</td>
+          <td>Product-application handoff</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="3-4m-plus-measurement-disposition">3. 4M plus measurement disposition</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Axis</th>
+          <th>Legacy issue</th>
+          <th>Decision</th>
+          <th>Change and control</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Man</td>
+          <td>Work, analysis, and disposition-sequence variation</td>
+          <td>Standardization item</td>
+          <td>Fixed work and inspection sequence</td>
+      </tr>
+      <tr>
+          <td>Machine</td>
+          <td>Bath, power, temperature, racking, and large-area current distribution</td>
+          <td>Primary scale-up axis</td>
+          <td>Position-based current and racking reset</td>
+      </tr>
+      <tr>
+          <td>Material</td>
+          <td>Aluminum, mixed-acid bath, film, and post-treatment materials</td>
+          <td>Required design axis</td>
+          <td>Sample comparison by material and bath history</td>
+      </tr>
+      <tr>
+          <td>Method</td>
+          <td>Pretreatment, film condition, thickness, post-treatment, and thermal test</td>
+          <td>Core improvement axis</td>
+          <td>Condition groups and confirmation trials</td>
+      </tr>
+      <tr>
+          <td>Measurement</td>
+          <td>Thickness, cracks, appearance, and Hi-Pot variation</td>
+          <td>Approval evidence</td>
+          <td>Same-sample repeated measurement and aligned disposition</td>
+      </tr>
+      <tr>
+          <td>Environment</td>
+          <td>Customer high-temperature use and internal air test</td>
+          <td>Separated development condition</td>
+          <td>Independent use-environment and test-environment controls</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="4-condition-development-and-large-area-scale-up">4. Condition development and large-area scale-up</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Baseline defect history and legacy conditions
+</span></span><span style="display:flex;"><span>→ film, thickness, and post-treatment samples
+</span></span><span style="display:flex;"><span>→ 24-hour thermal exposure in air
+</span></span><span style="display:flex;"><span>→ at least three repeats under the same condition
+</span></span><span style="display:flex;"><span>→ crack, appearance, and Hi-Pot disposition
+</span></span><span style="display:flex;"><span>→ 100×100 mm sample
+</span></span><span style="display:flex;"><span>→ 500×500 mm large-area sample
+</span></span><span style="display:flex;"><span>→ customer qualification
+</span></span><span style="display:flex;"><span>→ product application
+</span></span></code></pre></div><p>The small-sample condition was not transferred directly. Current distribution, racking, and position-dependent film variation were revalidated on the large-area sample.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Representative test condition</th>
+          <th style="text-align: right">Legacy</th>
+          <th style="text-align: right">Revised</th>
+          <th>Decision</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>50 μm thermal comparison</td>
+          <td style="text-align: right">About 260℃</td>
+          <td style="text-align: right">About 350℃</td>
+          <td>Expanded high-temperature range</td>
+      </tr>
+      <tr>
+          <td>50 μm Hi-Pot comparison</td>
+          <td style="text-align: right">About 2.4 kV</td>
+          <td style="text-align: right">About 2.7 kV</td>
+          <td>Improved electrical direction</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="5-risk-item-revision-and-document-cascade">5. Risk-item revision and document cascade</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Risk item added or revised through testing</th>
+          <th>Control</th>
+          <th>Standard-document change</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>High-temperature cracks and appearance degradation</td>
+          <td>Thickness-specific heat test and crack disposition</td>
+          <td>Test plan and inspection criteria</td>
+      </tr>
+      <tr>
+          <td>Large-area current distribution and position variation</td>
+          <td>Racking and position-based film measurement</td>
+          <td>Run sheet and work standard</td>
+      </tr>
+      <tr>
+          <td>Thickness–Hi-Pot disposition mismatch</td>
+          <td>Same-sample repeated measurement</td>
+          <td>Inspection sequence and result sheet</td>
+      </tr>
+      <tr>
+          <td>Small-sample condition not reproduced at scale</td>
+          <td>100×100→500×500 gate</td>
+          <td>Change report and product-application basis</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="6-results">6. Results</h2>
+<ul>
+<li>Redesigned mixed-acid film condition, thickness, racking, and inspection gates</li>
+<li>Completed 100×100 mm→500×500 mm scale-up validation</li>
+<li>Obtained customer qualification and product application</li>
+<li>Tracked stabilization for about one year after development</li>
+<li>Revised run sheets, test results, change reports, process standards, and inspection criteria</li>
+</ul>
+<h1 id="case-b-oxalic-acid-anodizing-for-a-display-pecvd-susceptor">Case B. Oxalic-acid anodizing for a display PECVD susceptor</h1>
+<h2 id="1-customer-requirement-and-design-alternatives">1. Customer requirement and design alternatives</h2>
+<p>The following design axes were compared for the new high-temperature requirement.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Design axis</th>
+          <th>Alternatives</th>
+          <th>Response</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Material</td>
+          <td>Susceptor material, oxalic-acid bath, film, and post-treatment</td>
+          <td>Film uniformity and cracks</td>
+      </tr>
+      <tr>
+          <td>Machine</td>
+          <td>Bath, power, racking jig, and large-area current distribution</td>
+          <td>Position-based thickness and appearance</td>
+      </tr>
+      <tr>
+          <td>Method</td>
+          <td>Film condition, thickness, hybrid approach, and thermal cycle</td>
+          <td>Repeated high-temperature reliability</td>
+      </tr>
+      <tr>
+          <td>Measurement</td>
+          <td>Thickness, visual inspection, and microscopy</td>
+          <td>Internal screening and customer qualification</td>
+      </tr>
+      <tr>
+          <td>Environment</td>
+          <td>Internal air and customer vacuum</td>
+          <td>Environment-specific gates</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="2-internal-screening-and-customer-qualification">2. Internal screening and customer qualification</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Define high-temperature requirement and CTQs
+</span></span><span style="display:flex;"><span>→ design film, thickness, and racking alternatives
+</span></span><span style="display:flex;"><span>→ internal screening with the same three samples
+</span></span><span style="display:flex;"><span>→ 450℃×24 hours×five cycles
+</span></span><span style="display:flex;"><span>→ visual and microscope crack disposition after each cycle
+</span></span><span style="display:flex;"><span>→ build separate customer samples to the passing specification
+</span></span><span style="display:flex;"><span>→ customer vacuum-heat qualification
+</span></span><span style="display:flex;"><span>→ product application
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Internal screening</th>
+          <th>Customer qualification</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Sample</td>
+          <td>Same three samples</td>
+          <td>Counterpart samples to the passing specification</td>
+      </tr>
+      <tr>
+          <td>Atmosphere</td>
+          <td>Air</td>
+          <td>Vacuum</td>
+      </tr>
+      <tr>
+          <td>Condition</td>
+          <td>450℃×24 hours×five cycles</td>
+          <td>Customer heat-test condition</td>
+      </tr>
+      <tr>
+          <td>Disposition</td>
+          <td>Visual and microscope cracks</td>
+          <td>Heat test and overall qualification</td>
+      </tr>
+      <tr>
+          <td>Purpose</td>
+          <td>Design-alternative screening</td>
+          <td>Equipment-use suitability approval</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="3-risk-item-revision-and-document-handoff">3. Risk-item revision and document handoff</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Risk item from validation</th>
+          <th>Control</th>
+          <th>Document change</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Film variation by racking position</td>
+          <td>Position-based thickness and appearance</td>
+          <td>Run sheet and racking basis</td>
+      </tr>
+      <tr>
+          <td>Cracks under repeated heat cycles</td>
+          <td>Cycle-by-cycle visual and microscope checks</td>
+          <td>Thermal-test and inspection criteria</td>
+      </tr>
+      <tr>
+          <td>Difference between air and vacuum tests</td>
+          <td>Separate internal screening and customer qualification</td>
+          <td>Sample gate and result report</td>
+      </tr>
+      <tr>
+          <td>Mixed use of design alternatives</td>
+          <td>Single passing specification</td>
+          <td>Change and product-application basis</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="4-results">4. Results</h2>
+<ul>
+<li>Completed internal screening at 450℃×24 hours×five cycles</li>
+<li>Built customer counterpart samples from the passing condition</li>
+<li>Obtained customer vacuum-heat qualification</li>
+<li>Achieved product application and about one year of use</li>
+<li>Handed off run sheets, test reports, process standards, and inspection criteria</li>
+</ul>
+<h2 id="related-ymc-cases">Related YMC cases</h2>
+<ul>
+<li><a href="/en/posts/mixed-acid-bath-analysis/">Mixed-Acid Anodizing Bath Analysis and Replenishment Redesign</a></li>
+<li><a href="/en/posts/amat-akt-qual/">CVD and PECVD Component Process Reconfiguration and Technical Qualification</a></li>
+</ul>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/en/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>Back to all projects</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="Table of contents">
+          <div class="portfolio-article-toc__inner">
+            <p>On this page</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#project-overview">Project overview</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-legacy-process-issue-and-ctqs">1. Legacy-process issue and CTQs</a></li>
+    <li><a href="#2-dmaic-based-process-redesign">2. DMAIC-based process redesign</a></li>
+    <li><a href="#3-4m-plus-measurement-disposition">3. 4M plus measurement disposition</a></li>
+    <li><a href="#4-condition-development-and-large-area-scale-up">4. Condition development and large-area scale-up</a></li>
+    <li><a href="#5-risk-item-revision-and-document-cascade">5. Risk-item revision and document cascade</a></li>
+    <li><a href="#6-results">6. Results</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-customer-requirement-and-design-alternatives">1. Customer requirement and design alternatives</a></li>
+    <li><a href="#2-internal-screening-and-customer-qualification">2. Internal screening and customer qualification</a></li>
+    <li><a href="#3-risk-item-revision-and-document-handoff">3. Risk-item revision and document handoff</a></li>
+    <li><a href="#4-results">4. Results</a></li>
+    <li><a href="#related-ymc-cases">Related YMC cases</a></li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Details</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">Send email</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

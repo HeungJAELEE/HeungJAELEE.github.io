@@ -1,42 +1,884 @@
-<!doctype html><html lang=en><head><title>Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions | Jaeheung Lee | Manufacturing & Process Engineer</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/ai-authority-evidence-plane/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions"><meta property="og:type" content="article"><meta property="og:description" content="A manufacturing decision-support design that aligns MES, PLC/OPC, quality records, and production history in a read-only data layer, then connects separate process, quality, and production analyses to human approval and verification against the system of record"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions"><meta name=twitter:description content="A manufacturing decision-support design that aligns MES, PLC/OPC, quality records, and production history in a read-only data layer, then connects separate process, quality, and production analyses to human approval and verification against the system of record"><meta name=description content="Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks","headline":"Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Details</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/ai-authority-evidence-plane>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/ai-authority-evidence-plane>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=Print>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>Print</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>Manufacturing AX project</p><span class="portfolio-article__stage portfolio-article__stage--local-foundation">Local foundation</span></div><h1>Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions</h1><p class=portfolio-article__lead>Legacy manufacturing data→source linkage→process·quality·production analyses→integrated review→human approval→limited effect→equipment·MES state verification</p><dl class=portfolio-case-meta><div><dt>Project period</dt><dd>Aug 2026 product vision, detailed architecture, and local plan validation</dd></div><div><dt>Context</dt><dd>Personal manufacturing-data and decision-support system design</dd></div><div><dt>Scope</dt><dd>Product definition, data and interface architecture, manufacturing rule set, control-analysis decoupling, approval, state verification, recovery conditions, and completion criteria</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>Project, responsibility, and validation summary</h2></header><dl><div><dt>Project objective</dt><dd>Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes</dd></div><div><dt>Planning and build scope</dt><dd>Designed a structure that collects existing sources read-only and connects process, quality, and production analyses to human approval and actual-state verification</dd></div><div><dt>Team result / current stage</dt><dd>Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks</dd></div></dl></section><section class=portfolio-case-metrics aria-label="Verified metrics"><div><span>Implemented outputs</span>
-<strong>Public plugin · four document-writing tools · automated validators</strong></div><div><span>Manufacturing rule-set design</span>
-<strong>13 areas · 111 implementation units</strong></div><div><span>Validation closure</span>
-<strong>1,837 validation bindings · 47 Node.js 24 checks</strong></div></section><figure class=portfolio-case-visual><img src=/images/projects/agent-os-evidence-workflow.svg alt="Manufacturing decision-support system architecture binding MES, PLC/OPC, quality, and standards in a read-only data layer and connecting process, quality, and production analyses to integrated review, process-engineer approval, and equipment/MES state verification" loading=eager><figcaption>Manufacturing decision-support design that separates AI analysis from equipment authority and closes work through actual-state verification rather than command receipt</figcaption></figure><div class="post-content portfolio-article__content" id=post-content><section class=portfolio-project-contract aria-label="Manufacturing decision-support system project facts"><dl><div><dt>Project type</dt><dd>Manufacturing AI decision-support vision and detailed design</dd></div><div><dt>Core role</dt><dd>Product definition, data connections, and safety boundary</dd></div><div><dt>Manufacturing review flow</dt><dd>Independent process, quality, and production analyses→integrated review</dd></div><div><dt>Control principle</dt><dd>Read-only by default; AI analysis separated from equipment authority</dd></div><div><dt>Design validation</dt><dd>13 areas·111 implementation units·1,837 bindings·47 checks</dd></div><div><dt>Current stage</dt><dd>Detailed design and local plan validation</dd></div></dl></section><p><strong>A process engineer does not diagnose an assembly-line problem from one alarm alone.</strong> MES history, inspection results, lot and rework records, operator actions, SOP/QCP/P-FMEA revisions, and the actual equipment state must be aligned on the same time axis and decision basis. Those records are distributed across different systems, and an AI model’s ability to read them does not grant authority to change a PLC or MES.</p><p>This project defines a <strong>manufacturing decision-support system</strong> for that gap. Its objective is not autonomous equipment control. It links process, quality, and production evidence, converts separate analyses into reviewable work proposals, and keeps human approval, limited connections, and verification against the system of record as separate stages whenever an external effect is required.</p><figure class="portfolio-logic-rail portfolio-logic-rail--system"><figcaption><span>MANUFACTURING DATA · ANALYSIS · ENGINEER APPROVAL</span>
-<strong>Connect fragmented plant data to safe process-engineering decisions</strong><small>Read-only by default · source/state alignment · separate analyses · human approval · actual-state verification</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>COLLECT</b><strong>MES·PLC/OPC·inspection·documents</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>LINK</b><strong>Tag·State·Lot·Revision·source</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>ANALYZE</b><strong>Process·quality·production views</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>REVIEW</b><strong>Compare·challenge·recheck</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>APPROVE</b><strong>Engineer scope and expiry</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>VERIFY</b><strong>Equipment·MES actual state</strong></li></ol></figure><h2 id=1-project-overview>1. Project overview</h2><h3 id=background>Background</h3><p>The data required to investigate equipment abnormalities, yield loss, or quality variation does not live in one screen. Current machine state is held in PLC/OPC, production history in MES, inspection results in quality files, and change history in SOP, QCP, P-FMEA, and owner records. When names, time bases, lots, and disposition codes differ by system, engineers repeatedly have to align meaning and applicability before cause analysis can even begin.</p><p>The system organizes that work as <strong>data collection → evidence linkage → independent analysis → work proposal → human approval → limited execution → actual-result verification</strong>.</p><table><thead><tr><th>Item</th><th>Design</th></tr></thead><tbody><tr><td>Users</td><td>Process, manufacturing, quality, and production engineers</td></tr><tr><td>Inputs</td><td>MES history, PLC/OPC state, inspection results, equipment alarms, standards, and action/change records</td></tr><tr><td>Core role</td><td>Product definition, data and interface structure, analysis responsibilities, control-analysis decoupling, approval, state verification, and recovery criteria</td></tr><tr><td>Outputs</td><td>Evidence-linked hypotheses, counter-evidence, recheck items, work proposals, and approval requests</td></tr><tr><td>Safety principle</td><td>Read-only advisory by default; physical commands and production orders isolated behind separate authority</td></tr><tr><td>Current result</td><td>Product vision, detailed architecture, execution plan, and local validation contracts</td></tr></tbody></table><h3 id=my-scope>My scope</h3><p>I used manufacturing-field experience to define and coordinate the following areas:</p><ul><li>the shared meaning and identifiers that bind process, quality, and production data</li><li>where Workers and Managers analyze, challenge, escalate, or stop</li><li>why recommendation, human approval, external execution, and result state verification must remain separate</li><li>the authority and recovery conditions required by PLC, OPC, and MES adapters</li><li>duplicate-trigger, active-writer, checkpoint, and rollback rules for long-running work</li><li>the UI, code, and actual-state evidence required before a stage is considered complete</li></ul><h2 id=2-field-problem-definition>2. Field problem definition</h2><h3 id=as-is--abundant-data-without-a-connected-decision-path>AS-IS — abundant data without a connected decision path</h3><table><thead><tr><th>Field segment</th><th>Existing limitation</th><th>Impact on process-engineering work</th></tr></thead><tbody><tr><td>Data location</td><td>MES, PLC/OPC, Excel, standards, and individual records are fragmented</td><td>Repeated tracing across screens and files</td></tr><tr><td>Semantic alignment</td><td>Tags, states, lots, defect codes, and time bases differ by system</td><td>Risk of correlating different subjects as one cause</td></tr><tr><td>Cause analysis</td><td>Relies on individual experience and manual comparison</td><td>Counter-evidence and retest conditions are found late</td></tr><tr><td>AI use</td><td>Generated answers are detached from source location and applicability</td><td>Fluent output cannot safely become a process decision</td></tr><tr><td>Execution authority</td><td>Boundary between analysis and PLC/MES change authority is unclear</td><td>A recommendation may drift into unsafe control</td></tr><tr><td>Completion</td><td>Work ends at request success, HTTP 200, or controller receipt</td><td>Actual equipment or MES state may remain unverified</td></tr></tbody></table><h3 id=to-be--one-lineage-for-the-engineering-decision>TO-BE — one lineage for the engineering decision</h3><figure class="portfolio-case-visual portfolio-case-visual--lineage"><img src=/images/projects/agent-os-manufacturing-lineage.svg alt="Manufacturing decision-support flow from a field question through source linkage, separate process quality and production analyses, engineer approval, limited actions, and equipment or MES state verification" loading=lazy><figcaption>Separate process, quality, and production analyses are closed through engineer approval and actual equipment or MES state verification.</figcaption></figure><p>The point is not to add more AI. <strong>process, quality, and production analyses inspect the same fixed shared source record independently, while Managers preserve conflicts and dissent in one work proposal.</strong> The process engineer reviews evidence, applicability, risk, and recovery options before approving, holding, or requesting more measurement.</p><h3 id=representative-use-case--tracing-a-recurring-defect>Representative use case — tracing a recurring defect</h3><ol><li>The engineer selects the equipment, lot, and time window of a recurring defect.</li><li>Read-only adapters freeze MES history, PLC/OPC state, inspection results, and the relevant standard revision.</li><li>The process analysis reviews conditions, 4M, and change history; the quality analysis reviews disposition and measurement reliability; the production analysis reviews WIP, bottlenecks, and lot flow.</li><li>Managers separate common hypotheses, exclusion evidence, unresolved items, and one consolidated recheck request.</li><li>The user approves, holds, or requests additional measurement.</li><li>Only when an actual change is needed does a separate approval bind the exact target, parameter, and expiry to a limited adapter.</li><li>The system reads the equipment or MES again and closes the work from actual state rather than command receipt.</li></ol><h2 id=3-system-architecture>3. System architecture</h2><p><img src=/images/projects/agent-os-evidence-workflow.svg alt="Manufacturing decision-support design separating read-only data access, process, quality, and production analysis modules, human approval, and equipment/MES state verification"></p><h3 id=five-planes-and-their-boundaries>Five planes and their boundaries</h3><table><thead><tr><th>Plane</th><th>Input and processing</th><th>Output</th><th>Safety and operating rule</th></tr></thead><tbody><tr><td>Read-only data access</td><td>MES, QMS, PLC, OPC, alarms, documents, and history</td><td>Time/lot/tag/state-bound snapshot</td><td>Read by default; do not change sources or runtime</td></tr><tr><td>evidence review</td><td>Source, revision, currentness, applicability, rights, and publication scope</td><td>Citable evidence plus missing/conflicting states</td><td>Do not fill evidence gaps by inference</td></tr><tr><td>Recommended checks</td><td>Process, quality, and production analysis flows</td><td>Hypotheses, counter-evidence, retests, and work proposal</td><td>Review coordination does not gain higher execution authority</td></tr><tr><td>approval and decision responsibility</td><td>Target, scope, parameter, expiry, risk, and rollback review</td><td>Human approval or hold</td><td>Reject stale, consumed, or mismatched approval</td></tr><tr><td>Limited execution and result verification</td><td>Approved limited adapter and actual-system reread</td><td>Receipt, actual result, mismatch, and recovery record</td><td>Separate request success from result success; one active writer</td></tr></tbody></table><h3 id=decoupling-ai-analysis-from-control-authority>Decoupling AI analysis from control authority</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>AI analysis authority
-</span></span><span style=display:flex><span>Read source → Compare → Explain → Recommend
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Human decision authority
-</span></span><span style=display:flex><span>Approve → Reject → Request measurement → Limit scope
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Separate effect authority
-</span></span><span style=display:flex><span>Exact target → Exact parameter → Expiry → One active writer → Rollback
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Completion
-</span></span><span style=display:flex><span>Command receipt ≠ Process result
-</span></span><span style=display:flex><span>Actual-state verification → result comparison → close / reopen
-</span></span></code></pre></div><p>The first manufacturing rule set stage focuses on read-only monitoring and reporting. PLC/OPC writes, production orders, material changes, and PO effects are not opened under one broad permission. Each adapter requires its own approval and recovery contract. This protects equipment safety while keeping the architecture extensible.</p><h3 id=control-runtime-for-long-running-work>Control Runtime for long-running work</h3><ul><li>one active writer per aggregate and duplicate-trigger prevention</li><li>queue claim, lease, and checkpoint for work ownership and progress</li><li>semantic rework separated from transport retry</li><li>recovery of the same Agent, Flow, and WorkItem after restart, without automatic replay when external state is ambiguous</li><li>one Outcome Record for evidence, dissent, approval, execution receipt, and state verification revision</li><li>Notion used as a human-readable projection rather than the message bus</li></ul><h2 id=4-core-implementation-results>4. Core implementation results</h2><h3 id=separate-what-is-implemented-validated-and-planned>Separate what is implemented, validated, and planned</h3><table><thead><tr><th>Layer</th><th>Confirmed result</th><th>Portfolio meaning</th></tr></thead><tbody><tr><td>Implemented outputs</td><td>Public <code>im-not-ai</code> plugin, four Career Router/Resume/Portfolio/Humanize writing tools, and private-pattern and change-rate validators</td><td>A minimum executable unit that fixes evidence, contribution, stage, and publication scope and checks them with code</td></tr><tr><td>Manufacturing-knowledge application</td><td><a href=/en/posts/ontology-construction/>HeungTology</a> graph relationships, incremental RAG/reranking, Gemma 12B engineering drafts, and engineer review gate</td><td>Distributed manufacturing documents connected from source candidates to reviewable engineering drafts</td></tr><tr><td>Manufacturing-data connection</td><td><a href=/en/posts/giga-press-dx/>GIGA Press decision-support PoC</a> normal flow across Factory I/O→PLC→OPC UA→SCADA/SQLite→web plus read-only recommendations</td><td>Manufacturing scenario evidence for tag/state alignment, control-analysis separation, and an engineer review screen</td></tr><tr><td>Manufacturing decision-support planning foundation</td><td>13 structural areas, 167 detailed topics, 111 implementation units, 175 dependencies, and 172 distinct obligations</td><td>Product vision decomposed into implementable units and order</td></tr><tr><td>Validation closure</td><td>1,837 validation bindings, 47 Node.js 24 declaration checks, and two independent read-only audits</td><td>Mechanically checkable criteria for moving to the next stage</td></tr></tbody></table><h3 id=intended-process-engineering-work-product>Intended process-engineering work product</h3><ul><li>bind the same equipment, lot, and time window across multiple systems into one shared source record</li><li>present Process, Quality, and Production hypotheses together with exclusion evidence</li><li>show measurement reliability, change points, affected scope, and owner before a retest</li><li>keep work proposals separate from execution authority so AI cannot change equipment conditions by itself</li><li>connect actual equipment/MES state and result revision to the close-or-reopen decision</li></ul><p>The first manufacturing pilot measures <strong>troubleshooting time, cause-narrowing time, retest count, and standard-document adoption</strong>.</p><table><thead><tr><th>Pilot KPI</th><th>Purpose</th></tr></thead><tbody><tr><td>Source and history retrieval lead time</td><td>Compare automated source linkage with manual search</td></tr><tr><td>Equipment/lot/inspection reconciliation time</td><td>Measure cross-system trace effort</td></tr><tr><td>Missing or incorrect-source rate</td><td>Evaluate advisory evidence quality</td></tr><tr><td>Precision of recheck and retest requests</td><td>Evaluate cause separation and field usefulness</td></tr><tr><td>Proposal accept/hold/reject rate</td><td>Measure the gap between AI advice and engineer judgment</td></tr><tr><td>Receipt–state verification mismatch rate</td><td>Prevent false completion</td></tr><tr><td>Stop and recovery time</td><td>Evaluate checkpoint and rollback operability</td></tr></tbody></table><h2 id=5-expansion-vision>5. Expansion vision</h2><h3 id=phased-scale-up>Phased scale-up</h3><table><thead><tr><th>Stage</th><th>Scope</th><th>Completion gate</th></tr></thead><tbody><tr><td>1. Read-only Shadow</td><td>MES, inspection, equipment state, and standards snapshot for one line</td><td>Source binding, time/lot/tag consistency, rights and security review</td></tr><tr><td>2. Production decision-support tool</td><td>Separate analyses and integrated work proposals</td><td>Ground-truth comparison, evidence-error cost, and engineer accept/reject KPIs</td></tr><tr><td>3. Limited Effect</td><td>One restricted command or manufacturing-work request through one adapter</td><td>Exact target/parameter/expiry, active writer, rollback, and reconciliation</td></tr><tr><td>4. Multi-line line-specific rule set</td><td>Reuse the same Core across different process types and sites</td><td>Namespace, manifest, adapter compatibility, and staged cutover</td></tr><tr><td>5. Autonomous Manufacturing Foundation</td><td>Evaluate proposals and control strategies in a Digital Twin or simulation first</td><td>Parallel field validation, safety interlock, human approval policy, and physical E2E revalidation</td></tr></tbody></table><p>The core manages module roles, process flow, approval, records, and recovery. Manufacturing rule sets add process, quality, and production decision criteria. A new line replaces its rule set and adapter while retaining source linkage, approval, actual-state recheck, and rollback procedures.</p><h3 id=target-state>Target state</h3><p>The target is not a screen where AI operates a plant at will. It is a <strong>manufacturing decision-support system where process engineers align system state and evidence, compare process, quality, and production analyses, approve defined work, and trace the actual result.</strong></p><p>The current stage is detailed design and local plan validation. The next priority is to establish one read-only Manufacturing Reference Journey in a real UI and runtime.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Field question
-</span></span><span style=display:flex><span>→ MES·PLC/OPC·inspection·standards snapshot
-</span></span><span style=display:flex><span>→ separate process·quality·production analyses
-</span></span><span style=display:flex><span>→ Manager work proposal and dissent
-</span></span><span style=display:flex><span>→ process-engineer approval
-</span></span><span style=display:flex><span>→ read-only outcome or limited effect
-</span></span><span style=display:flex><span>→ equipment·MES actual-state verification
-</span></span><span style=display:flex><span>→ close·reopen·standardize
-</span></span></code></pre></div><h2 id=related-implementation-evidence>Related implementation evidence</h2><ul><li><a href=/en/posts/giga-press-dx/>GIGA Press virtualization and process-engineering decision-support tool</a></li><li><a href=/en/posts/ontology-construction/>HeungTology Graph+RAG manufacturing knowledge and Agent drafting</a></li><li><a href=https://github.com/HeungJAELEE/im-not-ai target=_blank rel=noopener>im-not-ai public plugin</a></li></ul></div><section class=project-resources aria-labelledby=case-links-title><h2 id=case-links-title>Public links</h2><ul class=project-resources__links><li><a href=https://github.com/HeungJAELEE/im-not-ai target=_blank rel="noopener noreferrer"><span class=project-resources__label>im-not-ai public repository</span>
-<span class=project-resources__url>github.com/HeungJAELEE/im-not-ai</span></a></li><li><a href=https://github.com/HeungJAELEE/im-not-ai/commit/916014295ebbee10122bcb524ea09c4a210f55b1 target=_blank rel="noopener noreferrer"><span class=project-resources__label>Reviewed snapshot</span>
-<span class=project-resources__url>github.com/HeungJAELEE/im-not-ai/commit/916014295ebbee10122bcb524ea09c4a210f55b1</span></a></li></ul></section><footer class=portfolio-article__footer><a class=portfolio-text-link href=/en/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>Back to all projects</span></a></footer></article><aside class=portfolio-article-toc aria-label="Table of contents"><div class=portfolio-article-toc__inner><p>On this page</p><nav id=TableOfContents><ul><li><a href=#1-project-overview>1. Project overview</a><ul><li><a href=#background>Background</a></li><li><a href=#my-scope>My scope</a></li></ul></li><li><a href=#2-field-problem-definition>2. Field problem definition</a><ul><li><a href=#as-is--abundant-data-without-a-connected-decision-path>AS-IS — abundant data without a connected decision path</a></li><li><a href=#to-be--one-lineage-for-the-engineering-decision>TO-BE — one lineage for the engineering decision</a></li><li><a href=#representative-use-case--tracing-a-recurring-defect>Representative use case — tracing a recurring defect</a></li></ul></li><li><a href=#3-system-architecture>3. System architecture</a><ul><li><a href=#five-planes-and-their-boundaries>Five planes and their boundaries</a></li><li><a href=#decoupling-ai-analysis-from-control-authority>Decoupling AI analysis from control authority</a></li><li><a href=#control-runtime-for-long-running-work>Control Runtime for long-running work</a></li></ul></li><li><a href=#4-core-implementation-results>4. Core implementation results</a><ul><li><a href=#separate-what-is-implemented-validated-and-planned>Separate what is implemented, validated, and planned</a></li><li><a href=#intended-process-engineering-work-product>Intended process-engineering work product</a></li></ul></li><li><a href=#5-expansion-vision>5. Expansion vision</a><ul><li><a href=#phased-scale-up>Phased scale-up</a></li><li><a href=#target-state>Target state</a></li></ul></li><li><a href=#related-implementation-evidence>Related implementation evidence</a></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Details</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>Send email</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/ai-authority-evidence-plane/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions">
+<meta property="og:type" content="article">
+<meta property="og:description" content="A manufacturing decision-support design that aligns MES, PLC/OPC, quality records, and production history in a read-only data layer, then connects separate process, quality, and production analyses to human approval and verification against the system of record">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions">
+  <meta name="twitter:description" content="A manufacturing decision-support design that aligns MES, PLC/OPC, quality records, and production history in a read-only data layer, then connects separate process, quality, and production analyses to human approval and verification against the system of record">
+<meta name="description" content="Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks","headline":"Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Details</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ai-authority-evidence-plane">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ai-authority-evidence-plane">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="Print"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>Print</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">Manufacturing AX project</p>
+            <span class="portfolio-article__stage portfolio-article__stage--local-foundation">Local foundation</span>
+          </div>
+          <h1>Manufacturing Decision-Support System — Connecting Fragmented Plant Data to Process-Engineering Decisions</h1>
+          <p class="portfolio-article__lead">Legacy manufacturing data→source linkage→process·quality·production analyses→integrated review→human approval→limited effect→equipment·MES state verification</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>Project period</dt>
+              <dd>Aug 2026 product vision, detailed architecture, and local plan validation</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>Personal manufacturing-data and decision-support system design</dd>
+            </div>
+            <div>
+              <dt>Scope</dt>
+              <dd>Product definition, data and interface architecture, manufacturing rule set, control-analysis decoupling, approval, state verification, recovery conditions, and completion criteria</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">Project, responsibility, and validation summary</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>Project objective</dt>
+              <dd>Process, quality, and production data are fragmented across MES, PLC/OPC, standards, and individual records, forcing engineers to repeatedly reconcile evidence before tracing causes</dd>
+            </div>
+            <div>
+              <dt>Planning and build scope</dt>
+              <dd>Designed a structure that collects existing sources read-only and connects process, quality, and production analyses to human approval and actual-state verification</dd>
+            </div>
+            <div>
+              <dt>Team result / current stage</dt>
+              <dd>Detailed the manufacturing rule-set plan through 13 structural areas, 111 implementation units, 1,837 validation bindings, and 47 Node.js 24 checks</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="portfolio-case-metrics" aria-label="Verified metrics"><div>
+              <span>Implemented outputs</span>
+              <strong>Public plugin · four document-writing tools · automated validators</strong>
+            </div><div>
+              <span>Manufacturing rule-set design</span>
+              <strong>13 areas · 111 implementation units</strong>
+            </div><div>
+              <span>Validation closure</span>
+              <strong>1,837 validation bindings · 47 Node.js 24 checks</strong>
+            </div>
+        </section><figure class="portfolio-case-visual">
+            <img src="/images/projects/agent-os-evidence-workflow.svg" alt="Manufacturing decision-support system architecture binding MES, PLC/OPC, quality, and standards in a read-only data layer and connecting process, quality, and production analyses to integrated review, process-engineer approval, and equipment/MES state verification" loading="eager"><figcaption>Manufacturing decision-support design that separates AI analysis from equipment authority and closes work through actual-state verification rather than command receipt</figcaption></figure>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <section class="portfolio-project-contract" aria-label="Manufacturing decision-support system project facts">
+  <dl>
+    <div>
+      <dt>Project type</dt>
+      <dd>Manufacturing AI decision-support vision and detailed design</dd>
+    </div>
+    <div>
+      <dt>Core role</dt>
+      <dd>Product definition, data connections, and safety boundary</dd>
+    </div>
+    <div>
+      <dt>Manufacturing review flow</dt>
+      <dd>Independent process, quality, and production analyses→integrated review</dd>
+    </div>
+    <div>
+      <dt>Control principle</dt>
+      <dd>Read-only by default; AI analysis separated from equipment authority</dd>
+    </div>
+    <div>
+      <dt>Design validation</dt>
+      <dd>13 areas·111 implementation units·1,837 bindings·47 checks</dd>
+    </div>
+    <div>
+      <dt>Current stage</dt>
+      <dd>Detailed design and local plan validation</dd>
+    </div>
+  </dl>
+</section>
+
+<p><strong>A process engineer does not diagnose an assembly-line problem from one alarm alone.</strong> MES history, inspection results, lot and rework records, operator actions, SOP/QCP/P-FMEA revisions, and the actual equipment state must be aligned on the same time axis and decision basis. Those records are distributed across different systems, and an AI model’s ability to read them does not grant authority to change a PLC or MES.</p>
+<p>This project defines a <strong>manufacturing decision-support system</strong> for that gap. Its objective is not autonomous equipment control. It links process, quality, and production evidence, converts separate analyses into reviewable work proposals, and keeps human approval, limited connections, and verification against the system of record as separate stages whenever an external effect is required.</p>
+<figure class="portfolio-logic-rail portfolio-logic-rail--system">
+  <figcaption>
+    <span>MANUFACTURING DATA · ANALYSIS · ENGINEER APPROVAL</span>
+    <strong>Connect fragmented plant data to safe process-engineering decisions</strong><small>Read-only by default · source/state alignment · separate analyses · human approval · actual-state verification</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>COLLECT</b><strong>MES·PLC/OPC·inspection·documents</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>LINK</b><strong>Tag·State·Lot·Revision·source</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>ANALYZE</b><strong>Process·quality·production views</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>REVIEW</b><strong>Compare·challenge·recheck</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>APPROVE</b><strong>Engineer scope and expiry</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>VERIFY</b><strong>Equipment·MES actual state</strong>
+    </li>
+  </ol>
+</figure>
+
+<h2 id="1-project-overview">1. Project overview</h2>
+<h3 id="background">Background</h3>
+<p>The data required to investigate equipment abnormalities, yield loss, or quality variation does not live in one screen. Current machine state is held in PLC/OPC, production history in MES, inspection results in quality files, and change history in SOP, QCP, P-FMEA, and owner records. When names, time bases, lots, and disposition codes differ by system, engineers repeatedly have to align meaning and applicability before cause analysis can even begin.</p>
+<p>The system organizes that work as <strong>data collection → evidence linkage → independent analysis → work proposal → human approval → limited execution → actual-result verification</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Item</th>
+          <th>Design</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Users</td>
+          <td>Process, manufacturing, quality, and production engineers</td>
+      </tr>
+      <tr>
+          <td>Inputs</td>
+          <td>MES history, PLC/OPC state, inspection results, equipment alarms, standards, and action/change records</td>
+      </tr>
+      <tr>
+          <td>Core role</td>
+          <td>Product definition, data and interface structure, analysis responsibilities, control-analysis decoupling, approval, state verification, and recovery criteria</td>
+      </tr>
+      <tr>
+          <td>Outputs</td>
+          <td>Evidence-linked hypotheses, counter-evidence, recheck items, work proposals, and approval requests</td>
+      </tr>
+      <tr>
+          <td>Safety principle</td>
+          <td>Read-only advisory by default; physical commands and production orders isolated behind separate authority</td>
+      </tr>
+      <tr>
+          <td>Current result</td>
+          <td>Product vision, detailed architecture, execution plan, and local validation contracts</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="my-scope">My scope</h3>
+<p>I used manufacturing-field experience to define and coordinate the following areas:</p>
+<ul>
+<li>the shared meaning and identifiers that bind process, quality, and production data</li>
+<li>where Workers and Managers analyze, challenge, escalate, or stop</li>
+<li>why recommendation, human approval, external execution, and result state verification must remain separate</li>
+<li>the authority and recovery conditions required by PLC, OPC, and MES adapters</li>
+<li>duplicate-trigger, active-writer, checkpoint, and rollback rules for long-running work</li>
+<li>the UI, code, and actual-state evidence required before a stage is considered complete</li>
+</ul>
+<h2 id="2-field-problem-definition">2. Field problem definition</h2>
+<h3 id="as-is--abundant-data-without-a-connected-decision-path">AS-IS — abundant data without a connected decision path</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Field segment</th>
+          <th>Existing limitation</th>
+          <th>Impact on process-engineering work</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Data location</td>
+          <td>MES, PLC/OPC, Excel, standards, and individual records are fragmented</td>
+          <td>Repeated tracing across screens and files</td>
+      </tr>
+      <tr>
+          <td>Semantic alignment</td>
+          <td>Tags, states, lots, defect codes, and time bases differ by system</td>
+          <td>Risk of correlating different subjects as one cause</td>
+      </tr>
+      <tr>
+          <td>Cause analysis</td>
+          <td>Relies on individual experience and manual comparison</td>
+          <td>Counter-evidence and retest conditions are found late</td>
+      </tr>
+      <tr>
+          <td>AI use</td>
+          <td>Generated answers are detached from source location and applicability</td>
+          <td>Fluent output cannot safely become a process decision</td>
+      </tr>
+      <tr>
+          <td>Execution authority</td>
+          <td>Boundary between analysis and PLC/MES change authority is unclear</td>
+          <td>A recommendation may drift into unsafe control</td>
+      </tr>
+      <tr>
+          <td>Completion</td>
+          <td>Work ends at request success, HTTP 200, or controller receipt</td>
+          <td>Actual equipment or MES state may remain unverified</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="to-be--one-lineage-for-the-engineering-decision">TO-BE — one lineage for the engineering decision</h3>
+<figure class="portfolio-case-visual portfolio-case-visual--lineage">
+  <img src="/images/projects/agent-os-manufacturing-lineage.svg" alt="Manufacturing decision-support flow from a field question through source linkage, separate process quality and production analyses, engineer approval, limited actions, and equipment or MES state verification" loading="lazy">
+  <figcaption>Separate process, quality, and production analyses are closed through engineer approval and actual equipment or MES state verification.</figcaption>
+</figure>
+<p>The point is not to add more AI. <strong>process, quality, and production analyses inspect the same fixed shared source record independently, while Managers preserve conflicts and dissent in one work proposal.</strong> The process engineer reviews evidence, applicability, risk, and recovery options before approving, holding, or requesting more measurement.</p>
+<h3 id="representative-use-case--tracing-a-recurring-defect">Representative use case — tracing a recurring defect</h3>
+<ol>
+<li>The engineer selects the equipment, lot, and time window of a recurring defect.</li>
+<li>Read-only adapters freeze MES history, PLC/OPC state, inspection results, and the relevant standard revision.</li>
+<li>The process analysis reviews conditions, 4M, and change history; the quality analysis reviews disposition and measurement reliability; the production analysis reviews WIP, bottlenecks, and lot flow.</li>
+<li>Managers separate common hypotheses, exclusion evidence, unresolved items, and one consolidated recheck request.</li>
+<li>The user approves, holds, or requests additional measurement.</li>
+<li>Only when an actual change is needed does a separate approval bind the exact target, parameter, and expiry to a limited adapter.</li>
+<li>The system reads the equipment or MES again and closes the work from actual state rather than command receipt.</li>
+</ol>
+<h2 id="3-system-architecture">3. System architecture</h2>
+<p><img src="/images/projects/agent-os-evidence-workflow.svg" alt="Manufacturing decision-support design separating read-only data access, process, quality, and production analysis modules, human approval, and equipment/MES state verification"></p>
+<h3 id="five-planes-and-their-boundaries">Five planes and their boundaries</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Plane</th>
+          <th>Input and processing</th>
+          <th>Output</th>
+          <th>Safety and operating rule</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Read-only data access</td>
+          <td>MES, QMS, PLC, OPC, alarms, documents, and history</td>
+          <td>Time/lot/tag/state-bound snapshot</td>
+          <td>Read by default; do not change sources or runtime</td>
+      </tr>
+      <tr>
+          <td>evidence review</td>
+          <td>Source, revision, currentness, applicability, rights, and publication scope</td>
+          <td>Citable evidence plus missing/conflicting states</td>
+          <td>Do not fill evidence gaps by inference</td>
+      </tr>
+      <tr>
+          <td>Recommended checks</td>
+          <td>Process, quality, and production analysis flows</td>
+          <td>Hypotheses, counter-evidence, retests, and work proposal</td>
+          <td>Review coordination does not gain higher execution authority</td>
+      </tr>
+      <tr>
+          <td>approval and decision responsibility</td>
+          <td>Target, scope, parameter, expiry, risk, and rollback review</td>
+          <td>Human approval or hold</td>
+          <td>Reject stale, consumed, or mismatched approval</td>
+      </tr>
+      <tr>
+          <td>Limited execution and result verification</td>
+          <td>Approved limited adapter and actual-system reread</td>
+          <td>Receipt, actual result, mismatch, and recovery record</td>
+          <td>Separate request success from result success; one active writer</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="decoupling-ai-analysis-from-control-authority">Decoupling AI analysis from control authority</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI analysis authority
+</span></span><span style="display:flex;"><span>Read source → Compare → Explain → Recommend
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Human decision authority
+</span></span><span style="display:flex;"><span>Approve → Reject → Request measurement → Limit scope
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Separate effect authority
+</span></span><span style="display:flex;"><span>Exact target → Exact parameter → Expiry → One active writer → Rollback
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Completion
+</span></span><span style="display:flex;"><span>Command receipt ≠ Process result
+</span></span><span style="display:flex;"><span>Actual-state verification → result comparison → close / reopen
+</span></span></code></pre></div><p>The first manufacturing rule set stage focuses on read-only monitoring and reporting. PLC/OPC writes, production orders, material changes, and PO effects are not opened under one broad permission. Each adapter requires its own approval and recovery contract. This protects equipment safety while keeping the architecture extensible.</p>
+<h3 id="control-runtime-for-long-running-work">Control Runtime for long-running work</h3>
+<ul>
+<li>one active writer per aggregate and duplicate-trigger prevention</li>
+<li>queue claim, lease, and checkpoint for work ownership and progress</li>
+<li>semantic rework separated from transport retry</li>
+<li>recovery of the same Agent, Flow, and WorkItem after restart, without automatic replay when external state is ambiguous</li>
+<li>one Outcome Record for evidence, dissent, approval, execution receipt, and state verification revision</li>
+<li>Notion used as a human-readable projection rather than the message bus</li>
+</ul>
+<h2 id="4-core-implementation-results">4. Core implementation results</h2>
+<h3 id="separate-what-is-implemented-validated-and-planned">Separate what is implemented, validated, and planned</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>Confirmed result</th>
+          <th>Portfolio meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Implemented outputs</td>
+          <td>Four Career Router/Resume/Portfolio/Humanize writing tools with private-pattern and change-rate validators</td>
+          <td>A minimum executable unit that fixes evidence, contribution, stage, and publication scope and checks them with code</td>
+      </tr>
+      <tr>
+          <td>Manufacturing-knowledge application</td>
+          <td><a href="/en/posts/ontology-construction/">HeungTology</a> graph relationships, incremental RAG/reranking, Gemma 12B engineering drafts, and engineer review gate</td>
+          <td>Distributed manufacturing documents connected from source candidates to reviewable engineering drafts</td>
+      </tr>
+      <tr>
+          <td>Manufacturing-data connection</td>
+          <td><a href="/en/posts/giga-press-dx/">GIGA Press decision-support PoC</a> normal flow across Factory I/O→PLC→OPC UA→SCADA/SQLite→web plus read-only recommendations</td>
+          <td>Manufacturing scenario evidence for tag/state alignment, control-analysis separation, and an engineer review screen</td>
+      </tr>
+      <tr>
+          <td>Manufacturing decision-support planning foundation</td>
+          <td>13 structural areas, 167 detailed topics, 111 implementation units, 175 dependencies, and 172 distinct obligations</td>
+          <td>Product vision decomposed into implementable units and order</td>
+      </tr>
+      <tr>
+          <td>Validation closure</td>
+          <td>1,837 validation bindings, 47 Node.js 24 declaration checks, and two independent read-only audits</td>
+          <td>Mechanically checkable criteria for moving to the next stage</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="intended-process-engineering-work-product">Intended process-engineering work product</h3>
+<ul>
+<li>bind the same equipment, lot, and time window across multiple systems into one shared source record</li>
+<li>present Process, Quality, and Production hypotheses together with exclusion evidence</li>
+<li>show measurement reliability, change points, affected scope, and owner before a retest</li>
+<li>keep work proposals separate from execution authority so AI cannot change equipment conditions by itself</li>
+<li>connect actual equipment/MES state and result revision to the close-or-reopen decision</li>
+</ul>
+<p>The first manufacturing pilot measures <strong>troubleshooting time, cause-narrowing time, retest count, and standard-document adoption</strong>.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Pilot KPI</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Source and history retrieval lead time</td>
+          <td>Compare automated source linkage with manual search</td>
+      </tr>
+      <tr>
+          <td>Equipment/lot/inspection reconciliation time</td>
+          <td>Measure cross-system trace effort</td>
+      </tr>
+      <tr>
+          <td>Missing or incorrect-source rate</td>
+          <td>Evaluate advisory evidence quality</td>
+      </tr>
+      <tr>
+          <td>Precision of recheck and retest requests</td>
+          <td>Evaluate cause separation and field usefulness</td>
+      </tr>
+      <tr>
+          <td>Proposal accept/hold/reject rate</td>
+          <td>Measure the gap between AI advice and engineer judgment</td>
+      </tr>
+      <tr>
+          <td>Receipt–state verification mismatch rate</td>
+          <td>Prevent false completion</td>
+      </tr>
+      <tr>
+          <td>Stop and recovery time</td>
+          <td>Evaluate checkpoint and rollback operability</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="5-expansion-vision">5. Expansion vision</h2>
+<h3 id="phased-scale-up">Phased scale-up</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Stage</th>
+          <th>Scope</th>
+          <th>Completion gate</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1. Read-only Shadow</td>
+          <td>MES, inspection, equipment state, and standards snapshot for one line</td>
+          <td>Source binding, time/lot/tag consistency, rights and security review</td>
+      </tr>
+      <tr>
+          <td>2. Production decision-support tool</td>
+          <td>Separate analyses and integrated work proposals</td>
+          <td>Ground-truth comparison, evidence-error cost, and engineer accept/reject KPIs</td>
+      </tr>
+      <tr>
+          <td>3. Limited Effect</td>
+          <td>One restricted command or manufacturing-work request through one adapter</td>
+          <td>Exact target/parameter/expiry, active writer, rollback, and reconciliation</td>
+      </tr>
+      <tr>
+          <td>4. Multi-line line-specific rule set</td>
+          <td>Reuse the same Core across different process types and sites</td>
+          <td>Namespace, manifest, adapter compatibility, and staged cutover</td>
+      </tr>
+      <tr>
+          <td>5. Autonomous Manufacturing Foundation</td>
+          <td>Evaluate proposals and control strategies in a Digital Twin or simulation first</td>
+          <td>Parallel field validation, safety interlock, human approval policy, and physical E2E revalidation</td>
+      </tr>
+  </tbody>
+</table>
+<p>The core manages module roles, process flow, approval, records, and recovery. Manufacturing rule sets add process, quality, and production decision criteria. A new line replaces its rule set and adapter while retaining source linkage, approval, actual-state recheck, and rollback procedures.</p>
+<h3 id="target-state">Target state</h3>
+<p>The target is not a screen where AI operates a plant at will. It is a <strong>manufacturing decision-support system where process engineers align system state and evidence, compare process, quality, and production analyses, approve defined work, and trace the actual result.</strong></p>
+<p>The current stage is detailed design and local plan validation. The next priority is to establish one read-only Manufacturing Reference Journey in a real UI and runtime.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Field question
+</span></span><span style="display:flex;"><span>→ MES·PLC/OPC·inspection·standards snapshot
+</span></span><span style="display:flex;"><span>→ separate process·quality·production analyses
+</span></span><span style="display:flex;"><span>→ Manager work proposal and dissent
+</span></span><span style="display:flex;"><span>→ process-engineer approval
+</span></span><span style="display:flex;"><span>→ read-only outcome or limited effect
+</span></span><span style="display:flex;"><span>→ equipment·MES actual-state verification
+</span></span><span style="display:flex;"><span>→ close·reopen·standardize
+</span></span></code></pre></div><h2 id="related-implementation-evidence">Related implementation evidence</h2>
+<ul>
+<li><a href="/en/posts/giga-press-dx/">GIGA Press virtualization and process-engineering decision-support tool</a></li>
+<li><a href="/en/posts/ontology-construction/">HeungTology Graph+RAG manufacturing knowledge and Agent drafting</a></li>
+</ul>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/en/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>Back to all projects</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="Table of contents">
+          <div class="portfolio-article-toc__inner">
+            <p>On this page</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-project-overview">1. Project overview</a>
+      <ul>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#my-scope">My scope</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-field-problem-definition">2. Field problem definition</a>
+      <ul>
+        <li><a href="#as-is--abundant-data-without-a-connected-decision-path">AS-IS — abundant data without a connected decision path</a></li>
+        <li><a href="#to-be--one-lineage-for-the-engineering-decision">TO-BE — one lineage for the engineering decision</a></li>
+        <li><a href="#representative-use-case--tracing-a-recurring-defect">Representative use case — tracing a recurring defect</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-system-architecture">3. System architecture</a>
+      <ul>
+        <li><a href="#five-planes-and-their-boundaries">Five planes and their boundaries</a></li>
+        <li><a href="#decoupling-ai-analysis-from-control-authority">Decoupling AI analysis from control authority</a></li>
+        <li><a href="#control-runtime-for-long-running-work">Control Runtime for long-running work</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-core-implementation-results">4. Core implementation results</a>
+      <ul>
+        <li><a href="#separate-what-is-implemented-validated-and-planned">Separate what is implemented, validated, and planned</a></li>
+        <li><a href="#intended-process-engineering-work-product">Intended process-engineering work product</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-expansion-vision">5. Expansion vision</a>
+      <ul>
+        <li><a href="#phased-scale-up">Phased scale-up</a></li>
+        <li><a href="#target-state">Target state</a></li>
+      </ul>
+    </li>
+    <li><a href="#related-implementation-evidence">Related implementation evidence</a></li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Details</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">Send email</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

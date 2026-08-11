@@ -1,42 +1,884 @@
-<!doctype html><html lang=ko><head><title>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/ai-authority-evidence-plane/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/ai-authority-evidence-plane/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결"><meta property="og:type" content="article"><meta property="og:description" content="MES·PLC·OPC·품질문서와 생산이력을 읽기 전용 데이터 조회 영역에서 정렬하고, 공정·품질·생산 관점의 분석 모듈의 독립 분석을 사람 승인과 기준 시스템의 실제 상태 확인으로 닫는 제조 의사결정 보조 시스템 설계"><meta property="og:url" content="https://heungjaelee.github.io/posts/ai-authority-evidence-plane/"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결"><meta name=twitter:description content="MES·PLC·OPC·품질문서와 생산이력을 읽기 전용 데이터 조회 영역에서 정렬하고, 공정·품질·생산 관점의 분석 모듈의 독립 분석을 사람 승인과 기준 시스템의 실제 상태 확인으로 닫는 제조 의사결정 보조 시스템 설계"><meta name=description content="공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화","headline":"제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ai-authority-evidence-plane/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>상세보기</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/ai-authority-evidence-plane>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/ai-authority-evidence-plane>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=인쇄>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>인쇄</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>제조 AX 프로젝트</p><span class="portfolio-article__stage portfolio-article__stage--local-foundation">로컬 설계 단계</span></div><h1>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결</h1><p class=portfolio-article__lead>기존 제조데이터→원본 자료 연결→공정·품질·생산 관점의 분석 모듈→통합 조정→엔지니어 승인→제한 실행→설비·MES 실제 상태 확인</p><dl class=portfolio-case-meta><div><dt>프로젝트 기간</dt><dd>2026.08 제품 비전·상세 아키텍처·로컬 계획 검증</dd></div><div><dt>맥락</dt><dd>개인 제조 데이터 활용·의사결정 보조 시스템 설계</dd></div><div><dt>담당 범위</dt><dd>제품 정의, 데이터·연결 구조 구성, 제조 업무 규칙 묶음, 제어-분석 분리, 승인·실제 상태 확인·복구 조건과 완료 기준</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>프로젝트·책임·검증 요약</h2></header><dl><div><dt>프로젝트 목적</dt><dd>공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제</dd></div><div><dt>기획·구현 범위</dt><dd>기존 자료를 읽기 전용으로 수집하고 공정·품질·생산 분석 결과를 사람 승인과 실제 상태 확인으로 연결하는 구조 설계</dd></div><div><dt>팀 결과·현재 단계</dt><dd>13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화</dd></div></dl></section><section class=portfolio-case-metrics aria-label="확인된 수치"><div><span>구현 결과</span>
-<strong>공개 플러그인 · 4개 문서 작성 기능 · 자동 검증 도구</strong></div><div><span>제조 업무 규칙 묶음 설계</span>
-<strong>13개 영역 · 111개 구현 단위</strong></div><div><span>검증 결속</span>
-<strong>1,837개 검증 항목 · 47개 Node.js 24 검증</strong></div></section><figure class=portfolio-case-visual><img src=/images/projects/agent-os-evidence-workflow.svg alt="MES·PLC·OPC·품질·표준문서를 읽기 전용 데이터 조회 영역에 결속하고 공정·품질·생산 관점의 분석 모듈, Manager, 생산기술 엔지니어 승인과 설비·MES 실제 상태 확인으로 연결한 제조 의사결정 보조 시스템 구조" loading=eager><figcaption>AI 분석권한과 설비 제어권한을 분리하고 실행 요청 기록이 아닌 실제 상태 확인으로 작업을 닫는 제조 의사결정 보조 구조</figcaption></figure><div class="post-content portfolio-article__content" id=post-content><section class=portfolio-project-contract aria-label="제조·공정기술 의사결정 보조 시스템 프로젝트 사실표"><dl><div><dt>프로젝트 유형</dt><dd>제조 AI 활용 시스템 제품 비전·상세 설계</dd></div><div><dt>핵심 역할</dt><dd>제품 정의·데이터/연결 구조 구성·안전 경계</dd></div><div><dt>제조 검토 흐름</dt><dd>공정·품질·생산 관점의 분석 모듈 독립 분석→통합 조정</dd></div><div><dt>제어 원칙</dt><dd>읽기 전용 기본·AI 분석과 설비 제어권한 분리</dd></div><div><dt>설계 검증</dt><dd>13영역·111 구현 단위·1,837 결속·47개 검증</dd></div><div><dt>현재 단계</dt><dd>상세 설계·로컬 계획 검증</dd></div></dl></section><p><strong>배터리 조립라인 셋업과 수율 안정화에서는 설비 알람 하나만 보고 원인을 판단하지 않습니다.</strong> MES 이력, 검사 결과, Lot·재작업 기록, 작업자 조치, SOP·QCP·P-FMEA와 실제 설비상태를 같은 시간축과 판정기준으로 맞춰야 합니다. 그러나 이 자료는 서로 다른 시스템과 문서에 흩어져 있고, AI가 읽을 수 있다는 사실도 PLC나 MES를 바꿀 권한을 뜻하지 않습니다.</p><p>이 프로젝트는 그 간극을 줄이기 위한 <strong>제조·공정기술 의사결정 보조 시스템</strong> 설계입니다. 목표는 AI가 설비를 대신 제어하는 것이 아니라, 공정·품질·생산 자료를 근거 단위로 연결하고 여러 분석 모듈의 분석 결과를 생산기술 엔지니어가 검토할 수 있는 작업 제안으로 바꾸는 것입니다. 실행이 필요한 경우에도 사람 승인, 제한된 연결 모듈과 실제 상태 확인을 별도 단계로 둡니다.</p><figure class="portfolio-logic-rail portfolio-logic-rail--system"><figcaption><span>제조 데이터 · 분석 결과 · 엔지니어 승인</span>
-<strong>파편화된 현장 데이터를 안전한 생산기술 판단으로 연결</strong><small>읽기 전용 기본 · 원본/상태 정합성 · 독립 분석 · 사람 승인 · 실제 상태 재확인</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>수집</b><strong>MES·PLC/OPC·검사·문서</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>연결</b><strong>Tag·State·Lot·Revision·원본</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>분석</b><strong>공정·품질·생산 관점</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>검토</b><strong>결과 비교·반박·재검사</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>승인</b><strong>엔지니어 범위·만료 승인</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>확인</b><strong>설비·MES 실제 상태 재확인</strong></li></ol></figure><h2 id=1-프로젝트-개요>1. 프로젝트 개요</h2><h3 id=추진-배경>추진 배경</h3><p>생산기술자가 설비 이상, 수율 저하, 품질 편차를 확인할 때 필요한 자료는 여러 시스템에 나뉘어 있습니다. 설비 상태는 PLC·OPC, 생산 이력은 MES, 검사 결과는 품질 파일, 변경 이력은 SOP·QCP·P-FMEA와 담당자 기록에서 확인해야 합니다. 시스템마다 이름·시간·Lot·판정코드가 다르면, 원인분석보다 먼저 데이터의 의미와 적용범위를 맞추는 일이 반복됩니다.</p><p>의사결정 보조 시스템은 이 문제를 <strong>데이터 수집 → 근거 연결 → 독립 분석 → 작업 제안 → 사람 승인 → 제한 실행 → 실제 결과 재확인</strong> 흐름으로 정리합니다.</p><table><thead><tr><th>항목</th><th>설계 내용</th></tr></thead><tbody><tr><td>사용자</td><td>생산기술·공정기술·품질·생산관리 엔지니어</td></tr><tr><td>입력</td><td>MES 생산이력, PLC·OPC 상태, 검사결과, 설비 Alarm, 표준문서, 변경·조치 기록</td></tr><tr><td>핵심 역할</td><td>제품 정의, 데이터·연결 구조 구조, 분석 역할 분담, 제어와 분석 분리, 승인·실제 상태 확인·복구 기준</td></tr><tr><td>출력</td><td>근거가 연결된 원인 후보, 반대 근거, 재확인 항목, 작업 제안과 승인 요청</td></tr><tr><td>안전 원칙</td><td>기본은 읽기 전용 검토 제안이며 물리 명령과 생산지시는 별도 권한으로 격리</td></tr><tr><td>현재 결과</td><td>제품 비전·상세 구성·실행계획과 로컬 검증 계약 확립</td></tr></tbody></table><h3 id=내가-맡은-범위>내가 맡은 범위</h3><p>제조 현장 경험을 기준으로 다음 항목을 직접 결정하고 조율했습니다.</p><ul><li>공정·품질·생산 데이터를 어떤 공통 의미와 식별자로 묶을지</li><li>Worker와 통합 조정 모듈이 각각 무엇을 분석하고 어디에서 멈출지</li><li>추천, 사람 승인, 외부 실행과 결과 실제 상태 확인을 왜 분리해야 하는지</li><li>PLC·OPC·MES 연결 모듈이 어떤 권한과 복구조건을 가져야 하는지</li><li>장기 Run의 중복 Trigger, 단일 실행 주체, 중간 저장 지점과 기존 방식 복귀를 어떻게 통제할지</li><li>무엇을 화면·코드·실제 상태로 확인해야 완료라고 부를지</li></ul><h2 id=2-현장-문제-정의>2. 현장 문제 정의</h2><h3 id=as-is--데이터는-많지만-판단의-연결이-끊긴-상태>AS-IS — 데이터는 많지만 판단의 연결이 끊긴 상태</h3><table><thead><tr><th>현장 구간</th><th>기존 한계</th><th>생산기술 업무에 미치는 영향</th></tr></thead><tbody><tr><td>데이터 위치</td><td>MES·PLC·OPC·Excel·표준문서·개인 기록에 분산</td><td>같은 현상을 여러 파일과 화면에서 반복 추적</td></tr><tr><td>의미 정합성</td><td>태그, 상태, Lot, 불량코드와 시간기준이 시스템별로 다름</td><td>서로 다른 대상을 같은 원인으로 오판할 위험</td></tr><tr><td>원인분석</td><td>담당자 경험과 수동 대조에 의존</td><td>누락된 반대 근거와 재시험 조건을 뒤늦게 발견</td></tr><tr><td>AI 활용</td><td>검색결과와 생성문장이 원문·적용범위와 분리</td><td>그럴듯한 답변을 실제 공정 판단으로 사용하기 어려움</td></tr><tr><td>실행 권한</td><td>분석 결과와 PLC·MES 변경권한의 경계가 불명확</td><td>추천이 곧 제어로 이어지는 안전위험</td></tr><tr><td>완료 판정</td><td>요청 성공·HTTP 200·제어 시스템 실행 요청 기록으로 종료</td><td>실제 설비·MES 상태가 바뀌었는지 확인되지 않음</td></tr></tbody></table><h3 id=to-be--생산기술-판단을-하나의-판단-흐름으로-연결>TO-BE — 생산기술 판단을 하나의 판단 흐름으로 연결</h3><figure class="portfolio-case-visual portfolio-case-visual--lineage"><img src=/images/projects/agent-os-manufacturing-lineage.svg alt="현장 질문에서 기준 시점 자료와 원본 자료 연결을 거쳐 공정·품질·생산 관점의 분석 모듈, 통합 조정, 생산기술 엔지니어 승인, 제한 실행과 설비·MES 실제 상태 확인으로 이어지는 제조 의사결정 보조 시스템 판단 흐름" loading=lazy><figcaption>공정·품질·생산 관점의 분석 모듈이 같은 기준 시점 자료를 독립 분석하고, 생산기술 엔지니어의 승인과 설비·MES 실제 상태 확인으로 판단을 닫는 구조</figcaption></figure><p>핵심은 AI 기능을 늘리는 것이 아니라 같은 기준 자료를 놓고 공정·품질·생산 관점의 검토 결과를 비교하는 것입니다. <strong>공정·품질·생산 Agent가 같은 Source Snapshot을 보고 독립적으로 판단하고, Manager가 충돌과 반대 의견을 지우지 않은 채 하나의 작업 제안으로 정리하는 것</strong>입니다. 생산기술 엔지니어는 근거·적용 범위·위험·복구 방법을 확인한 뒤 최종 승인하거나 보류합니다.</p><h3 id=대표-사용-장면--반복-불량의-원인-추적>대표 사용 장면 — 반복 불량의 원인 추적</h3><ol><li>생산기술자가 특정 설비·Lot·시간구간의 반복 불량을 선택합니다.</li><li>읽기 전용 연결 모듈이 MES 생산이력, PLC·OPC 상태, 검사결과와 관련 표준문서의 기준 자료를 고정합니다.</li><li>공정 분석 모듈은 조건변경·4M·재시험 이력을, 품질 분석 모듈은 판정기준·측정 신뢰성을, 생산 분석 모듈은 재공·병목·Lot 흐름을 각각 확인합니다.</li><li>통합 조정 모듈은 공통 원인 후보, 배제 근거, 미확인 항목과 한 번의 통합 재검사 요청을 정리합니다.</li><li>사용자는 작업 제안을 승인·보류하거나 추가 측정을 요청합니다.</li><li>실제 변경이 필요한 경우에만 대상·변경값·만료시점을 지정한 별도 승인으로 권한이 제한된 연결 모듈을 사용합니다.</li><li>실행 뒤 설비·MES를 다시 읽고 실행 요청 기록이 아니라 실제 결과로 종료 여부를 판단합니다.</li></ol><h2 id=3-시스템-구성>3. 시스템 구성</h2><p><img src=/images/projects/agent-os-evidence-workflow.svg alt="제조·공정기술 의사결정 보조 시스템의 읽기 전용 데이터 조회 영역, 공정·품질·생산 분석 모듈, 사람 승인과 설비·MES 실제 상태 확인 구조"></p><h3 id=5개-영역과-책임-경계>5개 영역과 책임 경계</h3><table><thead><tr><th>영역</th><th>입력과 처리</th><th>산출물</th><th>안전·운영 규칙</th></tr></thead><tbody><tr><td>읽기 전용 데이터 조회 영역</td><td>MES·QMS·PLC·OPC·Alarm·문서·이력 수집</td><td>시간·Lot·Tag·상태가 고정된 기준 자료</td><td>기본 권한은 읽기, 원문과 Runtime을 변경하지 않음</td></tr><tr><td>근거 확인 영역</td><td>원본 자료, 개정 이력, 최신성, 적용 범위, 권리·공개범위</td><td>인용 가능한 근거와 부족·충돌 상태</td><td>근거가 없으면 추정으로 채우지 않고 보류</td></tr><tr><td>검토 제안 영역</td><td>공정·품질·생산 관점의 분석 모듈과 Worker·통합 조정 흐름</td><td>원인 후보, 반대 근거, 재시험, 작업 제안</td><td>통합 조정 모듈도 더 높은 실행권한을 갖지 않음</td></tr><tr><td>승인·판단 영역</td><td>대상·범위·Parameter·만료·위험·기존 방식 복귀 검토</td><td>사람 승인 또는 보류</td><td>다른 대상·오래된 승인·이미 소비한 승인 재사용 금지</td></tr><tr><td>제한 실행 & 실제 상태 확인 영역</td><td>승인된 제한 연결 모듈과 실제 시스템 재조회</td><td>실행 요청 기록, 실제 결과, 불일치·복구 기록</td><td>요청 성공과 결과 성공을 분리하고 단일 실행 주체를 1개로 유지</td></tr></tbody></table><h3 id=제어권한과-ai-분석의-제어와-분석-분리>제어권한과 AI 분석의 제어와 분석 분리</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>AI 분석권한
-</span></span><span style=display:flex><span>Read Source → Compare → Explain → Recommend
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>사람의 결정권한
-</span></span><span style=display:flex><span>Approve → Reject → Request measurement → Limit scope
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>별도 Effect 권한
-</span></span><span style=display:flex><span>Exact target → Exact parameter → Expiry → One active writer → Rollback
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>완료 판정
-</span></span><span style=display:flex><span>Command receipt ≠ Process result
-</span></span><span style=display:flex><span>실제 상태 확인 → 결과 대조 → 완료 / 재검토
-</span></span></code></pre></div><p>초기 제조 업무 규칙 묶음은 읽기 전용 감시와 보고에 집중합니다. PLC·OPC Write, 생산지시, 자재·PO와 같은 제한 실행은 하나의 포괄 권한으로 열지 않고 연결 모듈별 승인·복구조건을 둡니다. 이 구조는 설비 안전을 지키면서도 이후 기능을 단계적으로 추가할 수 있게 합니다.</p><h3 id=장기-운영을-위한-장기-작업-제어>장기 운영을 위한 장기 작업 제어</h3><ul><li>Aggregate별 단일 실행 주체 1개와 중복 Trigger 차단</li><li>Queue Claim·Lease·중간 저장 지점로 장기 Run의 소유권과 진행상태 관리</li><li>분석 재실행과 통신 오류 재시도를 분리</li><li>재시작 뒤 같은 분석 모듈·Flow·작업 항목을 복구하되 불명확한 외부 상태에서는 자동 재실행 금지</li><li>Outcome Record에 근거, 반대 의견, 승인, 실행 실행 요청 기록과 실제 상태 확인 Revision을 함께 보존</li><li>Notion은 시스템 간 메시지 전달이 아니라 사람이 읽는 결과 기록에 사용</li></ul><h2 id=4-핵심-구현-성과>4. 핵심 구현 성과</h2><h3 id=현재-증명-가능한-결과를-세-층으로-분리>현재 증명 가능한 결과를 세 층으로 분리</h3><table><thead><tr><th>구분</th><th>확인된 결과</th><th>포트폴리오에서의 의미</th></tr></thead><tbody><tr><td>구현 결과</td><td><code>im-not-ai</code> 공개 플러그인, Career Router·Resume·Portfolio·Humanize 4개 문서 작성 기능, 비공개 표현·변경률 자동 검증 도구</td><td>근거·역할·단계·공개범위를 고정하고 코드로 확인하는 최소 실행단위 구현</td></tr><tr><td>제조 지식 활용</td><td><a href=/posts/ontology-construction/>HeungTology</a>의 관계망, 증분 검색·재정렬, Gemma 12B 엔지니어링 초안과 엔지니어 검토 단계</td><td>분산 제조문서를 원본 자료 후보→검색 자료→엔지니어 검토 초안으로 연결</td></tr><tr><td>제조 데이터 연결</td><td><a href=/posts/giga-press-dx/>GIGA Press 의사결정 보조 PoC</a>의 Factory I/O→PLC→OPC UA→SCADA·SQLite→Web 통합 흐름과 읽기 전용 검토 제안 구조</td><td>Tag·상태 정합성, 제어-분석 분리와 엔지니어 승인 화면의 제조 시나리오 검증</td></tr><tr><td>제조 의사결정 보조 시스템 설계 기반</td><td>13개 구조 영역, 167개 세부 주제, 111개 구현 단위, 175개 의존관계, 172개 의미상 의무</td><td>제품 비전을 구현 단위와 순서로 분해</td></tr><tr><td>검증 폐쇄성</td><td>1,837개 검증 항목 결속, Node.js 24 선언 검증 47개, 독립 읽기 전용 감사 2건</td><td>무엇을 확인해야 다음 단계로 갈 수 있는지 기계 검증 가능한 계약으로 고정</td></tr></tbody></table><h3 id=생산기술-의사결정-보조-도구가-제공하려는-업무-결과>생산기술 의사결정 보조 도구가 제공하려는 업무 결과</h3><ul><li>여러 시스템의 동일 설비·Lot·시간구간을 하나의 기준 시점 자료로 결속</li><li>공정·품질·생산 관점의 원인 후보와 배제 근거를 동시에 제시</li><li>재시험 전 확인할 측정 신뢰성, 변경점, 영향범위와 담당자를 한 화면에 정리</li><li>작업 제안과 실행권한을 분리해 AI가 임의로 설비조건을 바꾸지 못하게 통제</li><li>실행 뒤 실제 설비·MES 상태와 결과 Revision을 연결해 Close·Reopen 판단 지원</li></ul><p>첫 제조 현장 시범 적용에서는 <strong>트러블슈팅 시간, 원인 후보 축소 시간, 재시험 횟수와 표준 반영률</strong>을 측정합니다.</p><table><thead><tr><th>시범 적용 지표</th><th>측정 목적</th></tr></thead><tbody><tr><td>관련 원문·이력 확보 소요시간</td><td>수동 탐색 대비 원본 자료 결속 시간 확인</td></tr><tr><td>설비·Lot·검사 데이터 대조시간</td><td>시스템 간 추적 공수 확인</td></tr><tr><td>근거 누락·잘못된 원본 자료 비율</td><td>검토 제안 신뢰성 확인</td></tr><tr><td>재측정·재시험 요청의 적중률</td><td>원인분리와 현장 활용성 확인</td></tr><tr><td>승인 제안 채택·보류·반려율</td><td>엔지니어 판단과 AI 제안의 차이 확인</td></tr><tr><td>실행 요청 기록–실제 상태 확인 불일치율</td><td>실행완료 오판정 방지</td></tr><tr><td>중단·복구시간</td><td>중간 저장 지점·기존 방식 복귀의 운영성 확인</td></tr></tbody></table><h2 id=5-향후-확장-비전>5. 향후 확장 비전</h2><h3 id=단계별-scale-up>단계별 Scale-up</h3><table><thead><tr><th>단계</th><th>적용 범위</th><th>완료 Gate</th></tr></thead><tbody><tr><td>1. 읽기 전용 병행 검증</td><td>한 개 라인의 MES·검사·설비 상태와 표준문서 기준 자료</td><td>원본 자료 연결, 시간·Lot·Tag 정합성, 권리·보안 검토</td></tr><tr><td>2. Production 의사결정 보조 도구</td><td>공정·품질·생산 관점의 분석 모듈 독립 분석과 통합 작업 제안</td><td>Ground Truth 비교, 근거 누락·오류비용, 엔지니어 채택·반려 KPI</td></tr><tr><td>3. Limited 제한 실행</td><td>한 개 연결 모듈의 제한 명령 또는 생산업무 요청</td><td>Exact target·parameter·expiry, 단일 실행 주체, 기존 방식 복귀·결과 대조</td></tr><tr><td>4. Multi-line 업무 규칙 묶음</td><td>공정유형과 Site가 다른 라인에 공통 Core 재사용</td><td>Namespace·Manifest·연결 모듈 호환성, 단계별 Cutover</td></tr><tr><td>5. Autonomous Manufacturing Foundation</td><td>Digital Twin·Simulation에서 제안과 제어전략 사전평가</td><td>현장 병행 검증, Safety Interlock, 사람 승인정책과 물리 E2E 재검증</td></tr></tbody></table><p>Core는 분석 모듈의 역할, 처리 흐름, 승인, 기록과 복구를 담당하고, 제조 업무 규칙 묶음은 공정·품질·생산의 판정 기준을 추가합니다. 신규 라인은 업무 규칙 묶음과 연결 모듈을 교체하되 원본 자료 연결, 승인, 실제 상태 재확인과 기존 방식 복귀 절차를 유지합니다.</p><h3 id=최종-지향점>최종 지향점</h3><p>궁극적인 목표는 AI가 공장을 임의로 운영하는 화면이 아닙니다. <strong>생산기술 엔지니어가 여러 시스템의 상태와 근거를 빠르게 맞추고, 공정·품질·생산 분석을 비교한 뒤 필요한 작업만 승인하고 실제 결과까지 추적하는 제조 의사결정 보조 시스템</strong>입니다.</p><p>현재 단계는 상세 설계와 로컬 계획 검증입니다. 다음 우선순위는 읽기 전용 제조 기준 업무 흐름을 실제 화면과 실행 환경으로 고정하는 것입니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>현장 질문
-</span></span><span style=display:flex><span>→ MES·PLC/OPC·검사·표준문서 Snapshot
-</span></span><span style=display:flex><span>→ 공정·품질·생산 Agent 독립 분석
-</span></span><span style=display:flex><span>→ Manager 작업 제안·Dissent
-</span></span><span style=display:flex><span>→ 생산기술 엔지니어 승인
-</span></span><span style=display:flex><span>→ Read-only Outcome 또는 제한 Effect
-</span></span><span style=display:flex><span>→ 설비·MES 실제 상태 확인
-</span></span><span style=display:flex><span>→ Close·Reopen·표준화
-</span></span></code></pre></div><h2 id=관련-구현-근거>관련 구현 근거</h2><ul><li><a href=/posts/giga-press-dx/>GIGA Press 가상화·AI 생산기술 의사결정 보조 도구</a></li><li><a href=/posts/ontology-construction/>HeungTology Graph+RAG 제조지식·분석 모듈 문서생성</a></li><li><a href=https://github.com/HeungJAELEE/im-not-ai target=_blank rel=noopener>im-not-ai 공개 Plugin</a></li></ul></div><section class=project-resources aria-labelledby=case-links-title><h2 id=case-links-title>공개 링크</h2><ul class=project-resources__links><li><a href=https://github.com/HeungJAELEE/im-not-ai target=_blank rel="noopener noreferrer"><span class=project-resources__label>im-not-ai 공개 저장소</span>
-<span class=project-resources__url>github.com/HeungJAELEE/im-not-ai</span></a></li><li><a href=https://github.com/HeungJAELEE/im-not-ai/commit/916014295ebbee10122bcb524ea09c4a210f55b1 target=_blank rel="noopener noreferrer"><span class=project-resources__label>검토 Snapshot</span>
-<span class=project-resources__url>github.com/HeungJAELEE/im-not-ai/commit/916014295ebbee10122bcb524ea09c4a210f55b1</span></a></li></ul></section><footer class=portfolio-article__footer><a class=portfolio-text-link href=/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>전체 프로젝트로 돌아가기</span></a></footer></article><aside class=portfolio-article-toc aria-label="이 글의 목차"><div class=portfolio-article-toc__inner><p>이 글의 목차</p><nav id=TableOfContents><ul><li><a href=#1-프로젝트-개요>1. 프로젝트 개요</a><ul><li><a href=#추진-배경>추진 배경</a></li><li><a href=#내가-맡은-범위>내가 맡은 범위</a></li></ul></li><li><a href=#2-현장-문제-정의>2. 현장 문제 정의</a><ul><li><a href=#as-is--데이터는-많지만-판단의-연결이-끊긴-상태>AS-IS — 데이터는 많지만 판단의 연결이 끊긴 상태</a></li><li><a href=#to-be--생산기술-판단을-하나의-판단-흐름으로-연결>TO-BE — 생산기술 판단을 하나의 판단 흐름으로 연결</a></li><li><a href=#대표-사용-장면--반복-불량의-원인-추적>대표 사용 장면 — 반복 불량의 원인 추적</a></li></ul></li><li><a href=#3-시스템-구성>3. 시스템 구성</a><ul><li><a href=#5개-영역과-책임-경계>5개 영역과 책임 경계</a></li><li><a href=#제어권한과-ai-분석의-제어와-분석-분리>제어권한과 AI 분석의 제어와 분석 분리</a></li><li><a href=#장기-운영을-위한-장기-작업-제어>장기 운영을 위한 장기 작업 제어</a></li></ul></li><li><a href=#4-핵심-구현-성과>4. 핵심 구현 성과</a><ul><li><a href=#현재-증명-가능한-결과를-세-층으로-분리>현재 증명 가능한 결과를 세 층으로 분리</a></li><li><a href=#생산기술-의사결정-보조-도구가-제공하려는-업무-결과>생산기술 의사결정 보조 도구가 제공하려는 업무 결과</a></li></ul></li><li><a href=#5-향후-확장-비전>5. 향후 확장 비전</a><ul><li><a href=#단계별-scale-up>단계별 Scale-up</a></li><li><a href=#최종-지향점>최종 지향점</a></li></ul></li><li><a href=#관련-구현-근거>관련 구현 근거</a></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>상세보기</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>이메일 보내기</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/ai-authority-evidence-plane/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/ai-authority-evidence-plane/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결">
+<meta property="og:type" content="article">
+<meta property="og:description" content="MES·PLC·OPC·품질문서와 생산이력을 읽기 전용 데이터 조회 영역에서 정렬하고, 공정·품질·생산 관점의 분석 모듈의 독립 분석을 사람 승인과 기준 시스템의 실제 상태 확인으로 닫는 제조 의사결정 보조 시스템 설계">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/ai-authority-evidence-plane/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결">
+  <meta name="twitter:description" content="MES·PLC·OPC·품질문서와 생산이력을 읽기 전용 데이터 조회 영역에서 정렬하고, 공정·품질·생산 관점의 분석 모듈의 독립 분석을 사람 승인과 기준 시스템의 실제 상태 확인으로 닫는 제조 의사결정 보조 시스템 설계">
+<meta name="description" content="공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화","headline":"제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ai-authority-evidence-plane/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >상세보기</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/ai-authority-evidence-plane">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/ai-authority-evidence-plane">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="인쇄"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>인쇄</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">제조 AX 프로젝트</p>
+            <span class="portfolio-article__stage portfolio-article__stage--local-foundation">로컬 설계 단계</span>
+          </div>
+          <h1>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결</h1>
+          <p class="portfolio-article__lead">기존 제조데이터→원본 자료 연결→공정·품질·생산 관점의 분석 모듈→통합 조정→엔지니어 승인→제한 실행→설비·MES 실제 상태 확인</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>2026.08 제품 비전·상세 아키텍처·로컬 계획 검증</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>개인 제조 데이터 활용·의사결정 보조 시스템 설계</dd>
+            </div>
+            <div>
+              <dt>담당 범위</dt>
+              <dd>제품 정의, 데이터·연결 구조 구성, 제조 업무 규칙 묶음, 제어-분석 분리, 승인·실제 상태 확인·복구 조건과 완료 기준</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">프로젝트·책임·검증 요약</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>프로젝트 목적</dt>
+              <dd>공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적과 판단 근거를 반복해서 맞춰야 하는 문제</dd>
+            </div>
+            <div>
+              <dt>기획·구현 범위</dt>
+              <dd>기존 자료를 읽기 전용으로 수집하고 공정·품질·생산 분석 결과를 사람 승인과 실제 상태 확인으로 연결하는 구조 설계</dd>
+            </div>
+            <div>
+              <dt>팀 결과·현재 단계</dt>
+              <dd>13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="portfolio-case-metrics" aria-label="확인된 수치"><div>
+              <span>구현 결과</span>
+              <strong>공개 플러그인 · 4개 문서 작성 기능 · 자동 검증 도구</strong>
+            </div><div>
+              <span>제조 업무 규칙 묶음 설계</span>
+              <strong>13개 영역 · 111개 구현 단위</strong>
+            </div><div>
+              <span>검증 결속</span>
+              <strong>1,837개 검증 항목 · 47개 Node.js 24 검증</strong>
+            </div>
+        </section><figure class="portfolio-case-visual">
+            <img src="/images/projects/agent-os-evidence-workflow.svg" alt="MES·PLC·OPC·품질·표준문서를 읽기 전용 데이터 조회 영역에 결속하고 공정·품질·생산 관점의 분석 모듈, Manager, 생산기술 엔지니어 승인과 설비·MES 실제 상태 확인으로 연결한 제조 의사결정 보조 시스템 구조" loading="eager"><figcaption>AI 분석권한과 설비 제어권한을 분리하고 실행 요청 기록이 아닌 실제 상태 확인으로 작업을 닫는 제조 의사결정 보조 구조</figcaption></figure>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <section class="portfolio-project-contract" aria-label="제조·공정기술 의사결정 보조 시스템 프로젝트 사실표">
+  <dl>
+    <div>
+      <dt>프로젝트 유형</dt>
+      <dd>제조 AI 활용 시스템 제품 비전·상세 설계</dd>
+    </div>
+    <div>
+      <dt>핵심 역할</dt>
+      <dd>제품 정의·데이터/연결 구조 구성·안전 경계</dd>
+    </div>
+    <div>
+      <dt>제조 검토 흐름</dt>
+      <dd>공정·품질·생산 관점의 분석 모듈 독립 분석→통합 조정</dd>
+    </div>
+    <div>
+      <dt>제어 원칙</dt>
+      <dd>읽기 전용 기본·AI 분석과 설비 제어권한 분리</dd>
+    </div>
+    <div>
+      <dt>설계 검증</dt>
+      <dd>13영역·111 구현 단위·1,837 결속·47개 검증</dd>
+    </div>
+    <div>
+      <dt>현재 단계</dt>
+      <dd>상세 설계·로컬 계획 검증</dd>
+    </div>
+  </dl>
+</section>
+
+<p><strong>배터리 조립라인 셋업과 수율 안정화에서는 설비 알람 하나만 보고 원인을 판단하지 않습니다.</strong> MES 이력, 검사 결과, Lot·재작업 기록, 작업자 조치, SOP·QCP·P-FMEA와 실제 설비상태를 같은 시간축과 판정기준으로 맞춰야 합니다. 그러나 이 자료는 서로 다른 시스템과 문서에 흩어져 있고, AI가 읽을 수 있다는 사실도 PLC나 MES를 바꿀 권한을 뜻하지 않습니다.</p>
+<p>이 프로젝트는 그 간극을 줄이기 위한 <strong>제조·공정기술 의사결정 보조 시스템</strong> 설계입니다. 목표는 AI가 설비를 대신 제어하는 것이 아니라, 공정·품질·생산 자료를 근거 단위로 연결하고 여러 분석 모듈의 분석 결과를 생산기술 엔지니어가 검토할 수 있는 작업 제안으로 바꾸는 것입니다. 실행이 필요한 경우에도 사람 승인, 제한된 연결 모듈과 실제 상태 확인을 별도 단계로 둡니다.</p>
+<figure class="portfolio-logic-rail portfolio-logic-rail--system">
+  <figcaption>
+    <span>제조 데이터 · 분석 결과 · 엔지니어 승인</span>
+    <strong>파편화된 현장 데이터를 안전한 생산기술 판단으로 연결</strong><small>읽기 전용 기본 · 원본/상태 정합성 · 독립 분석 · 사람 승인 · 실제 상태 재확인</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>수집</b><strong>MES·PLC/OPC·검사·문서</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>연결</b><strong>Tag·State·Lot·Revision·원본</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>분석</b><strong>공정·품질·생산 관점</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>검토</b><strong>결과 비교·반박·재검사</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>승인</b><strong>엔지니어 범위·만료 승인</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>확인</b><strong>설비·MES 실제 상태 재확인</strong>
+    </li>
+  </ol>
+</figure>
+
+<h2 id="1-프로젝트-개요">1. 프로젝트 개요</h2>
+<h3 id="추진-배경">추진 배경</h3>
+<p>생산기술자가 설비 이상, 수율 저하, 품질 편차를 확인할 때 필요한 자료는 여러 시스템에 나뉘어 있습니다. 설비 상태는 PLC·OPC, 생산 이력은 MES, 검사 결과는 품질 파일, 변경 이력은 SOP·QCP·P-FMEA와 담당자 기록에서 확인해야 합니다. 시스템마다 이름·시간·Lot·판정코드가 다르면, 원인분석보다 먼저 데이터의 의미와 적용범위를 맞추는 일이 반복됩니다.</p>
+<p>의사결정 보조 시스템은 이 문제를 <strong>데이터 수집 → 근거 연결 → 독립 분석 → 작업 제안 → 사람 승인 → 제한 실행 → 실제 결과 재확인</strong> 흐름으로 정리합니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>항목</th>
+          <th>설계 내용</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>사용자</td>
+          <td>생산기술·공정기술·품질·생산관리 엔지니어</td>
+      </tr>
+      <tr>
+          <td>입력</td>
+          <td>MES 생산이력, PLC·OPC 상태, 검사결과, 설비 Alarm, 표준문서, 변경·조치 기록</td>
+      </tr>
+      <tr>
+          <td>핵심 역할</td>
+          <td>제품 정의, 데이터·연결 구조 구조, 분석 역할 분담, 제어와 분석 분리, 승인·실제 상태 확인·복구 기준</td>
+      </tr>
+      <tr>
+          <td>출력</td>
+          <td>근거가 연결된 원인 후보, 반대 근거, 재확인 항목, 작업 제안과 승인 요청</td>
+      </tr>
+      <tr>
+          <td>안전 원칙</td>
+          <td>기본은 읽기 전용 검토 제안이며 물리 명령과 생산지시는 별도 권한으로 격리</td>
+      </tr>
+      <tr>
+          <td>현재 결과</td>
+          <td>제품 비전·상세 구성·실행계획과 로컬 검증 계약 확립</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="내가-맡은-범위">내가 맡은 범위</h3>
+<p>제조 현장 경험을 기준으로 다음 항목을 직접 결정하고 조율했습니다.</p>
+<ul>
+<li>공정·품질·생산 데이터를 어떤 공통 의미와 식별자로 묶을지</li>
+<li>Worker와 통합 조정 모듈이 각각 무엇을 분석하고 어디에서 멈출지</li>
+<li>추천, 사람 승인, 외부 실행과 결과 실제 상태 확인을 왜 분리해야 하는지</li>
+<li>PLC·OPC·MES 연결 모듈이 어떤 권한과 복구조건을 가져야 하는지</li>
+<li>장기 Run의 중복 Trigger, 단일 실행 주체, 중간 저장 지점과 기존 방식 복귀를 어떻게 통제할지</li>
+<li>무엇을 화면·코드·실제 상태로 확인해야 완료라고 부를지</li>
+</ul>
+<h2 id="2-현장-문제-정의">2. 현장 문제 정의</h2>
+<h3 id="as-is--데이터는-많지만-판단의-연결이-끊긴-상태">AS-IS — 데이터는 많지만 판단의 연결이 끊긴 상태</h3>
+<table>
+  <thead>
+      <tr>
+          <th>현장 구간</th>
+          <th>기존 한계</th>
+          <th>생산기술 업무에 미치는 영향</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>데이터 위치</td>
+          <td>MES·PLC·OPC·Excel·표준문서·개인 기록에 분산</td>
+          <td>같은 현상을 여러 파일과 화면에서 반복 추적</td>
+      </tr>
+      <tr>
+          <td>의미 정합성</td>
+          <td>태그, 상태, Lot, 불량코드와 시간기준이 시스템별로 다름</td>
+          <td>서로 다른 대상을 같은 원인으로 오판할 위험</td>
+      </tr>
+      <tr>
+          <td>원인분석</td>
+          <td>담당자 경험과 수동 대조에 의존</td>
+          <td>누락된 반대 근거와 재시험 조건을 뒤늦게 발견</td>
+      </tr>
+      <tr>
+          <td>AI 활용</td>
+          <td>검색결과와 생성문장이 원문·적용범위와 분리</td>
+          <td>그럴듯한 답변을 실제 공정 판단으로 사용하기 어려움</td>
+      </tr>
+      <tr>
+          <td>실행 권한</td>
+          <td>분석 결과와 PLC·MES 변경권한의 경계가 불명확</td>
+          <td>추천이 곧 제어로 이어지는 안전위험</td>
+      </tr>
+      <tr>
+          <td>완료 판정</td>
+          <td>요청 성공·HTTP 200·제어 시스템 실행 요청 기록으로 종료</td>
+          <td>실제 설비·MES 상태가 바뀌었는지 확인되지 않음</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="to-be--생산기술-판단을-하나의-판단-흐름으로-연결">TO-BE — 생산기술 판단을 하나의 판단 흐름으로 연결</h3>
+<figure class="portfolio-case-visual portfolio-case-visual--lineage">
+  <img src="/images/projects/agent-os-manufacturing-lineage.svg" alt="현장 질문에서 기준 시점 자료와 원본 자료 연결을 거쳐 공정·품질·생산 관점의 분석 모듈, 통합 조정, 생산기술 엔지니어 승인, 제한 실행과 설비·MES 실제 상태 확인으로 이어지는 제조 의사결정 보조 시스템 판단 흐름" loading="lazy">
+  <figcaption>공정·품질·생산 관점의 분석 모듈이 같은 기준 시점 자료를 독립 분석하고, 생산기술 엔지니어의 승인과 설비·MES 실제 상태 확인으로 판단을 닫는 구조</figcaption>
+</figure>
+<p>핵심은 AI 기능을 늘리는 것이 아니라 같은 기준 자료를 놓고 공정·품질·생산 관점의 검토 결과를 비교하는 것입니다. <strong>공정·품질·생산 Agent가 같은 Source Snapshot을 보고 독립적으로 판단하고, Manager가 충돌과 반대 의견을 지우지 않은 채 하나의 작업 제안으로 정리하는 것</strong>입니다. 생산기술 엔지니어는 근거·적용 범위·위험·복구 방법을 확인한 뒤 최종 승인하거나 보류합니다.</p>
+<h3 id="대표-사용-장면--반복-불량의-원인-추적">대표 사용 장면 — 반복 불량의 원인 추적</h3>
+<ol>
+<li>생산기술자가 특정 설비·Lot·시간구간의 반복 불량을 선택합니다.</li>
+<li>읽기 전용 연결 모듈이 MES 생산이력, PLC·OPC 상태, 검사결과와 관련 표준문서의 기준 자료를 고정합니다.</li>
+<li>공정 분석 모듈은 조건변경·4M·재시험 이력을, 품질 분석 모듈은 판정기준·측정 신뢰성을, 생산 분석 모듈은 재공·병목·Lot 흐름을 각각 확인합니다.</li>
+<li>통합 조정 모듈은 공통 원인 후보, 배제 근거, 미확인 항목과 한 번의 통합 재검사 요청을 정리합니다.</li>
+<li>사용자는 작업 제안을 승인·보류하거나 추가 측정을 요청합니다.</li>
+<li>실제 변경이 필요한 경우에만 대상·변경값·만료시점을 지정한 별도 승인으로 권한이 제한된 연결 모듈을 사용합니다.</li>
+<li>실행 뒤 설비·MES를 다시 읽고 실행 요청 기록이 아니라 실제 결과로 종료 여부를 판단합니다.</li>
+</ol>
+<h2 id="3-시스템-구성">3. 시스템 구성</h2>
+<p><img src="/images/projects/agent-os-evidence-workflow.svg" alt="제조·공정기술 의사결정 보조 시스템의 읽기 전용 데이터 조회 영역, 공정·품질·생산 분석 모듈, 사람 승인과 설비·MES 실제 상태 확인 구조"></p>
+<h3 id="5개-영역과-책임-경계">5개 영역과 책임 경계</h3>
+<table>
+  <thead>
+      <tr>
+          <th>영역</th>
+          <th>입력과 처리</th>
+          <th>산출물</th>
+          <th>안전·운영 규칙</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>읽기 전용 데이터 조회 영역</td>
+          <td>MES·QMS·PLC·OPC·Alarm·문서·이력 수집</td>
+          <td>시간·Lot·Tag·상태가 고정된 기준 자료</td>
+          <td>기본 권한은 읽기, 원문과 Runtime을 변경하지 않음</td>
+      </tr>
+      <tr>
+          <td>근거 확인 영역</td>
+          <td>원본 자료, 개정 이력, 최신성, 적용 범위, 권리·공개범위</td>
+          <td>인용 가능한 근거와 부족·충돌 상태</td>
+          <td>근거가 없으면 추정으로 채우지 않고 보류</td>
+      </tr>
+      <tr>
+          <td>검토 제안 영역</td>
+          <td>공정·품질·생산 관점의 분석 모듈과 Worker·통합 조정 흐름</td>
+          <td>원인 후보, 반대 근거, 재시험, 작업 제안</td>
+          <td>통합 조정 모듈도 더 높은 실행권한을 갖지 않음</td>
+      </tr>
+      <tr>
+          <td>승인·판단 영역</td>
+          <td>대상·범위·Parameter·만료·위험·기존 방식 복귀 검토</td>
+          <td>사람 승인 또는 보류</td>
+          <td>다른 대상·오래된 승인·이미 소비한 승인 재사용 금지</td>
+      </tr>
+      <tr>
+          <td>제한 실행 &amp; 실제 상태 확인 영역</td>
+          <td>승인된 제한 연결 모듈과 실제 시스템 재조회</td>
+          <td>실행 요청 기록, 실제 결과, 불일치·복구 기록</td>
+          <td>요청 성공과 결과 성공을 분리하고 단일 실행 주체를 1개로 유지</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="제어권한과-ai-분석의-제어와-분석-분리">제어권한과 AI 분석의 제어와 분석 분리</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>AI 분석권한
+</span></span><span style="display:flex;"><span>Read Source → Compare → Explain → Recommend
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>사람의 결정권한
+</span></span><span style="display:flex;"><span>Approve → Reject → Request measurement → Limit scope
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>별도 Effect 권한
+</span></span><span style="display:flex;"><span>Exact target → Exact parameter → Expiry → One active writer → Rollback
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>완료 판정
+</span></span><span style="display:flex;"><span>Command receipt ≠ Process result
+</span></span><span style="display:flex;"><span>실제 상태 확인 → 결과 대조 → 완료 / 재검토
+</span></span></code></pre></div><p>초기 제조 업무 규칙 묶음은 읽기 전용 감시와 보고에 집중합니다. PLC·OPC Write, 생산지시, 자재·PO와 같은 제한 실행은 하나의 포괄 권한으로 열지 않고 연결 모듈별 승인·복구조건을 둡니다. 이 구조는 설비 안전을 지키면서도 이후 기능을 단계적으로 추가할 수 있게 합니다.</p>
+<h3 id="장기-운영을-위한-장기-작업-제어">장기 운영을 위한 장기 작업 제어</h3>
+<ul>
+<li>Aggregate별 단일 실행 주체 1개와 중복 Trigger 차단</li>
+<li>Queue Claim·Lease·중간 저장 지점로 장기 Run의 소유권과 진행상태 관리</li>
+<li>분석 재실행과 통신 오류 재시도를 분리</li>
+<li>재시작 뒤 같은 분석 모듈·Flow·작업 항목을 복구하되 불명확한 외부 상태에서는 자동 재실행 금지</li>
+<li>Outcome Record에 근거, 반대 의견, 승인, 실행 실행 요청 기록과 실제 상태 확인 Revision을 함께 보존</li>
+<li>Notion은 시스템 간 메시지 전달이 아니라 사람이 읽는 결과 기록에 사용</li>
+</ul>
+<h2 id="4-핵심-구현-성과">4. 핵심 구현 성과</h2>
+<h3 id="현재-증명-가능한-결과를-세-층으로-분리">현재 증명 가능한 결과를 세 층으로 분리</h3>
+<table>
+  <thead>
+      <tr>
+          <th>구분</th>
+          <th>확인된 결과</th>
+          <th>포트폴리오에서의 의미</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>구현 결과</td>
+          <td>Career Router·Resume·Portfolio·Humanize 4개 문서 작성 기능과 비공개 표현·변경률 자동 검증 도구</td>
+          <td>근거·역할·단계·공개범위를 고정하고 코드로 확인하는 최소 실행단위 구현</td>
+      </tr>
+      <tr>
+          <td>제조 지식 활용</td>
+          <td><a href="/posts/ontology-construction/">HeungTology</a>의 관계망, 증분 검색·재정렬, Gemma 12B 엔지니어링 초안과 엔지니어 검토 단계</td>
+          <td>분산 제조문서를 원본 자료 후보→검색 자료→엔지니어 검토 초안으로 연결</td>
+      </tr>
+      <tr>
+          <td>제조 데이터 연결</td>
+          <td><a href="/posts/giga-press-dx/">GIGA Press 의사결정 보조 PoC</a>의 Factory I/O→PLC→OPC UA→SCADA·SQLite→Web 통합 흐름과 읽기 전용 검토 제안 구조</td>
+          <td>Tag·상태 정합성, 제어-분석 분리와 엔지니어 승인 화면의 제조 시나리오 검증</td>
+      </tr>
+      <tr>
+          <td>제조 의사결정 보조 시스템 설계 기반</td>
+          <td>13개 구조 영역, 167개 세부 주제, 111개 구현 단위, 175개 의존관계, 172개 의미상 의무</td>
+          <td>제품 비전을 구현 단위와 순서로 분해</td>
+      </tr>
+      <tr>
+          <td>검증 폐쇄성</td>
+          <td>1,837개 검증 항목 결속, Node.js 24 선언 검증 47개, 독립 읽기 전용 감사 2건</td>
+          <td>무엇을 확인해야 다음 단계로 갈 수 있는지 기계 검증 가능한 계약으로 고정</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="생산기술-의사결정-보조-도구가-제공하려는-업무-결과">생산기술 의사결정 보조 도구가 제공하려는 업무 결과</h3>
+<ul>
+<li>여러 시스템의 동일 설비·Lot·시간구간을 하나의 기준 시점 자료로 결속</li>
+<li>공정·품질·생산 관점의 원인 후보와 배제 근거를 동시에 제시</li>
+<li>재시험 전 확인할 측정 신뢰성, 변경점, 영향범위와 담당자를 한 화면에 정리</li>
+<li>작업 제안과 실행권한을 분리해 AI가 임의로 설비조건을 바꾸지 못하게 통제</li>
+<li>실행 뒤 실제 설비·MES 상태와 결과 Revision을 연결해 Close·Reopen 판단 지원</li>
+</ul>
+<p>첫 제조 현장 시범 적용에서는 <strong>트러블슈팅 시간, 원인 후보 축소 시간, 재시험 횟수와 표준 반영률</strong>을 측정합니다.</p>
+<table>
+  <thead>
+      <tr>
+          <th>시범 적용 지표</th>
+          <th>측정 목적</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>관련 원문·이력 확보 소요시간</td>
+          <td>수동 탐색 대비 원본 자료 결속 시간 확인</td>
+      </tr>
+      <tr>
+          <td>설비·Lot·검사 데이터 대조시간</td>
+          <td>시스템 간 추적 공수 확인</td>
+      </tr>
+      <tr>
+          <td>근거 누락·잘못된 원본 자료 비율</td>
+          <td>검토 제안 신뢰성 확인</td>
+      </tr>
+      <tr>
+          <td>재측정·재시험 요청의 적중률</td>
+          <td>원인분리와 현장 활용성 확인</td>
+      </tr>
+      <tr>
+          <td>승인 제안 채택·보류·반려율</td>
+          <td>엔지니어 판단과 AI 제안의 차이 확인</td>
+      </tr>
+      <tr>
+          <td>실행 요청 기록–실제 상태 확인 불일치율</td>
+          <td>실행완료 오판정 방지</td>
+      </tr>
+      <tr>
+          <td>중단·복구시간</td>
+          <td>중간 저장 지점·기존 방식 복귀의 운영성 확인</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="5-향후-확장-비전">5. 향후 확장 비전</h2>
+<h3 id="단계별-scale-up">단계별 Scale-up</h3>
+<table>
+  <thead>
+      <tr>
+          <th>단계</th>
+          <th>적용 범위</th>
+          <th>완료 Gate</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1. 읽기 전용 병행 검증</td>
+          <td>한 개 라인의 MES·검사·설비 상태와 표준문서 기준 자료</td>
+          <td>원본 자료 연결, 시간·Lot·Tag 정합성, 권리·보안 검토</td>
+      </tr>
+      <tr>
+          <td>2. Production 의사결정 보조 도구</td>
+          <td>공정·품질·생산 관점의 분석 모듈 독립 분석과 통합 작업 제안</td>
+          <td>Ground Truth 비교, 근거 누락·오류비용, 엔지니어 채택·반려 KPI</td>
+      </tr>
+      <tr>
+          <td>3. Limited 제한 실행</td>
+          <td>한 개 연결 모듈의 제한 명령 또는 생산업무 요청</td>
+          <td>Exact target·parameter·expiry, 단일 실행 주체, 기존 방식 복귀·결과 대조</td>
+      </tr>
+      <tr>
+          <td>4. Multi-line 업무 규칙 묶음</td>
+          <td>공정유형과 Site가 다른 라인에 공통 Core 재사용</td>
+          <td>Namespace·Manifest·연결 모듈 호환성, 단계별 Cutover</td>
+      </tr>
+      <tr>
+          <td>5. Autonomous Manufacturing Foundation</td>
+          <td>Digital Twin·Simulation에서 제안과 제어전략 사전평가</td>
+          <td>현장 병행 검증, Safety Interlock, 사람 승인정책과 물리 E2E 재검증</td>
+      </tr>
+  </tbody>
+</table>
+<p>Core는 분석 모듈의 역할, 처리 흐름, 승인, 기록과 복구를 담당하고, 제조 업무 규칙 묶음은 공정·품질·생산의 판정 기준을 추가합니다. 신규 라인은 업무 규칙 묶음과 연결 모듈을 교체하되 원본 자료 연결, 승인, 실제 상태 재확인과 기존 방식 복귀 절차를 유지합니다.</p>
+<h3 id="최종-지향점">최종 지향점</h3>
+<p>궁극적인 목표는 AI가 공장을 임의로 운영하는 화면이 아닙니다. <strong>생산기술 엔지니어가 여러 시스템의 상태와 근거를 빠르게 맞추고, 공정·품질·생산 분석을 비교한 뒤 필요한 작업만 승인하고 실제 결과까지 추적하는 제조 의사결정 보조 시스템</strong>입니다.</p>
+<p>현재 단계는 상세 설계와 로컬 계획 검증입니다. 다음 우선순위는 읽기 전용 제조 기준 업무 흐름을 실제 화면과 실행 환경으로 고정하는 것입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>현장 질문
+</span></span><span style="display:flex;"><span>→ MES·PLC/OPC·검사·표준문서 Snapshot
+</span></span><span style="display:flex;"><span>→ 공정·품질·생산 Agent 독립 분석
+</span></span><span style="display:flex;"><span>→ Manager 작업 제안·Dissent
+</span></span><span style="display:flex;"><span>→ 생산기술 엔지니어 승인
+</span></span><span style="display:flex;"><span>→ Read-only Outcome 또는 제한 Effect
+</span></span><span style="display:flex;"><span>→ 설비·MES 실제 상태 확인
+</span></span><span style="display:flex;"><span>→ Close·Reopen·표준화
+</span></span></code></pre></div><h2 id="관련-구현-근거">관련 구현 근거</h2>
+<ul>
+<li><a href="/posts/giga-press-dx/">GIGA Press 가상화·AI 생산기술 의사결정 보조 도구</a></li>
+<li><a href="/posts/ontology-construction/">HeungTology Graph+RAG 제조지식·분석 모듈 문서생성</a></li>
+</ul>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 프로젝트로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
+          <div class="portfolio-article-toc__inner">
+            <p>이 글의 목차</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-프로젝트-개요">1. 프로젝트 개요</a>
+      <ul>
+        <li><a href="#추진-배경">추진 배경</a></li>
+        <li><a href="#내가-맡은-범위">내가 맡은 범위</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-현장-문제-정의">2. 현장 문제 정의</a>
+      <ul>
+        <li><a href="#as-is--데이터는-많지만-판단의-연결이-끊긴-상태">AS-IS — 데이터는 많지만 판단의 연결이 끊긴 상태</a></li>
+        <li><a href="#to-be--생산기술-판단을-하나의-판단-흐름으로-연결">TO-BE — 생산기술 판단을 하나의 판단 흐름으로 연결</a></li>
+        <li><a href="#대표-사용-장면--반복-불량의-원인-추적">대표 사용 장면 — 반복 불량의 원인 추적</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-시스템-구성">3. 시스템 구성</a>
+      <ul>
+        <li><a href="#5개-영역과-책임-경계">5개 영역과 책임 경계</a></li>
+        <li><a href="#제어권한과-ai-분석의-제어와-분석-분리">제어권한과 AI 분석의 제어와 분석 분리</a></li>
+        <li><a href="#장기-운영을-위한-장기-작업-제어">장기 운영을 위한 장기 작업 제어</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-핵심-구현-성과">4. 핵심 구현 성과</a>
+      <ul>
+        <li><a href="#현재-증명-가능한-결과를-세-층으로-분리">현재 증명 가능한 결과를 세 층으로 분리</a></li>
+        <li><a href="#생산기술-의사결정-보조-도구가-제공하려는-업무-결과">생산기술 의사결정 보조 도구가 제공하려는 업무 결과</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-향후-확장-비전">5. 향후 확장 비전</a>
+      <ul>
+        <li><a href="#단계별-scale-up">단계별 Scale-up</a></li>
+        <li><a href="#최종-지향점">최종 지향점</a></li>
+      </ul>
+    </li>
+    <li><a href="#관련-구현-근거">관련 구현 근거</a></li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">상세보기</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

@@ -1,48 +1,985 @@
-<!doctype html><html lang=en><head><title>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design | Jaeheung Lee | Manufacturing & Process Engineer</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/en/posts/welding-vision-ai/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/welding-vision-ai/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design"><meta property="og:type" content="article"><meta property="og:description" content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50+DeiT-Small, confidence calibration, and an FN-priority decision point"><meta property="og:url" content="https://heungjaelee.github.io/en/posts/welding-vision-ai/"><meta property="og:site_name" content="Jaeheung Lee | Manufacturing & Process Engineer"><meta name=twitter:card content="summary"><meta name=twitter:title content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design"><meta name=twitter:description content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50+DeiT-Small, confidence calibration, and an FN-priority decision point"><meta name=description content="Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo","headline":"Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/welding-vision-ai/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>Skip to main content</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=Home><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="Open post navigation">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/en/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>Jaeheung Lee</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=Menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/en/#about>About</a></li><li class=nav-item><a class=nav-link href=/en/#projects>Projects</a></li><li class=nav-item><a class=nav-link href=/en/#experiences>Experiences</a></li><li class=nav-item><a class=nav-link href=/en/#education>Education</a></li><li class=nav-item><a class=nav-link href=/en/#skills>Skills</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/en/posts aria-current=page>Details</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>English</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/welding-vision-ai>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/welding-vision-ai>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/en/#contact>Contact</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=Print>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>Print</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","Back to top"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>Manufacturing AX project</p><span class="portfolio-article__stage portfolio-article__stage--education-poc">Training PoC</span></div><h1>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design</h1><p class=portfolio-article__lead>Recall 15.84%→85.15%→96.04%, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA inspection-assistance flow</p><dl class=portfolio-case-meta><div><dt>Project period</dt><dd>Five-person AI-convergence training project</dd></div><div><dt>Context</dt><dd>Appearance-inspection PoC using AI-Hub weld data and directly captured Facility Maintenance Engineer practical weld specimens</dd></div><div><dt>Scope</dt><dd>Overall planning, AI modeling and evaluation design, FN/FP error analysis, candidate and ensemble comparison, coordinate scaling, and operating-point decisions</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>Project, responsibility, and validation summary</h2></header><dl><div><dt>Project objective</dt><dd>Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens</dd></div><div><dt>Planning and build scope</dt><dd>Weld-noise-driven augmentation, six-model comparison, two-model ensemble, confidence calibration, and operating-point design</dd></div><div><dt>Team result / current stage</dt><dd>85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo</dd></div></dl></section><section class=portfolio-case-metrics aria-label="Verified metrics"><div><span>Captured-specimen recall</span>
-<strong>15.84% → 85.15% (+69.31 pp)</strong></div><div><span>Threshold 0.40 limited evaluation</span>
-<strong>FN 0 · Recall 100% · FPR 16.30%</strong></div><div><span>App demonstration</span>
-<strong>FastAPI /predict → PWA grade, defect, and confidence</strong></div></section><figure class=portfolio-case-visual><img src=/images/projects/welding-vision-domain-gap.jpg alt="Difference in capture conditions between public training weld-defect images and prepared sample images" loading=eager><figcaption>Extract from the team presentation comparing the capture and surface conditions of public training data and prepared samples</figcaption></figure><div class="post-content portfolio-article__content" id=post-content><section class=portfolio-project-contract aria-label="Weld-specimen Vision AI responsibility table"><dl><div><dt>Project type</dt><dd>Five-person AI-convergence training PoC</dd></div><div><dt>My role</dt><dd>Overall planning, AI modeling, and evaluation design</dd></div><div><dt>Direct work</dt><dd>Field inspection conditions, FN/FP, augmentation, candidate models, ensemble, coordinates, and decision threshold</dd></div><div><dt>Team integration</dt><dd>Data preparation, model training, FastAPI/PWA implementation, and joint report</dd></div><div><dt>Key result</dt><dd>Field recall 15.84%→85.15%→96.04%; decision-point recall 100%</dd></div><div><dt>Implementation</dt><dd>Smartphone input→two-model inference→calibration→PWA assistance</dd></div></dl></section><figure class="portfolio-logic-rail portfolio-logic-rail--system"><figcaption><span>FIELD IMAGES · MODEL COMPARISON · DECISION THRESHOLD</span>
-<strong>Convert a public-data model into a captured-specimen inspection flow</strong><small>Decision basis: field inspection conditions, FN/FP, augmentation, model complementarity, and error cost</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>FIELD GAP</b><strong>Field recall 15.84%</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>DATA</b><strong>Capture-noise augmentation·85.15%</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>MODEL</b><strong>ResNet-50+DeiT-Small</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>CALIBRATE</b><strong>Temperature scaling</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>DECIDE</b><strong>Threshold 0.40·zero FN</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>DEMO</b><strong>FastAPI·PWA</strong></li></ol></figure><h2 id=1-problem-definition-and-field-condition-gap>1. Problem definition and field-condition gap</h2><p>A ResNet baseline trained on AI-Hub weld images fell to <strong>15.84% recall</strong> on directly captured practical weld specimens. Model replacement was deferred until the distribution gap between public data and captured images was analyzed.</p><table><thead><tr><th>Data</th><th style=text-align:right>Scale</th><th>Use</th><th>Main characteristics</th></tr></thead><tbody><tr><td>AI-Hub weld images</td><td style=text-align:right>30,000 undercut and 30,000 overlap images</td><td>Baseline and candidate training</td><td>Enlarged weld regions with relatively consistent lighting and background</td></tr><tr><td>Directly captured specimens</td><td style=text-align:right>About 155–198 images by experiment stage</td><td>Field evaluation</td><td>Soot, spatter, oxidation, metal reflection, angle, and background variation</td></tr><tr><td>Augmented images</td><td style=text-align:right>Generated in the training pipeline</td><td>Capture robustness</td><td>Brightness, lens flare, noise, JPEG, crop, and rotation</td></tr></tbody></table><figure class=portfolio-case-visual><img src=/images/projects/welding-p11-domain-gap.avif alt="Surface lighting angle and background differences between AI-Hub weld images and directly captured practical specimens" loading=lazy><figcaption>Surface, lighting, angle, and background differences between public and captured images. The initial loss was treated first as a domain-gap problem.</figcaption></figure><h3 id=baseline-re-evaluation>Baseline re-evaluation</h3><table><thead><tr><th>Evaluation data</th><th style=text-align:right>Accuracy</th><th style=text-align:right>F1</th><th style=text-align:right>Recall</th><th style=text-align:right>FPR</th></tr></thead><tbody><tr><td>AI-Hub validation data</td><td style=text-align:right>80.13%</td><td style=text-align:right>91.97%</td><td style=text-align:right>90.92%</td><td style=text-align:right>-</td></tr><tr><td>Captured-specimen set</td><td style=text-align:right>38.86%</td><td style=text-align:right>21.33%</td><td style=text-align:right><strong>15.84%</strong></td><td style=text-align:right><strong>35.87%</strong></td></tr></tbody></table><figure class=portfolio-case-visual><img src=/images/projects/welding-p15-baseline-field.avif alt="Accuracy F1 recall and FPR comparison between AI-Hub validation data and directly captured specimens" loading=lazy><figcaption>Public validation versus captured-specimen performance for the same ResNet family. Field recall of 15.84% became the baseline.</figcaption></figure><h3 id=error-analysis--weld-process-noise>Error analysis — weld-process noise</h3><p>False negatives were reviewed first because they represent missed defects. FN and FP images were regrouped by weld-process and capture noise.</p><table><thead><tr><th>Error signal</th><th>Process or capture cause</th><th>Model impact</th><th>Action direction</th></tr></thead><tbody><tr><td>Soot and fume traces</td><td>Heat effect and surface contamination</td><td>Lower defect-boundary contrast</td><td>Brightness and contrast augmentation</td></tr><tr><td>Spatter and oxidation</td><td>Additional local patterns around the bead</td><td>Higher false positives</td><td>Combine local texture and global shape</td></tr><tr><td>Metal reflection</td><td>Lighting angle and curved surface</td><td>Missing region or false highlight</td><td>Lens flare and brightness variation</td></tr><tr><td>Angle and distance</td><td>Smartphone placement variation</td><td>ROI shift and shape distortion</td><td>Crop, rotation, and scale augmentation</td></tr><tr><td>Compression and sensor noise</td><td>Mobile capture and transfer</td><td>Loss of small-defect texture</td><td>Gaussian noise and JPEG degradation</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Extract FN and FP
-</span></span><span style=display:flex><span>→ classify weld-process noise
-</span></span><span style=display:flex><span>→ design capture-condition augmentation
-</span></span><span style=display:flex><span>→ re-evaluate on the same field set
-</span></span></code></pre></div><h2 id=2-data-engineering>2. Data engineering</h2><h3 id=capture-condition-augmentation-pipeline>Capture-condition augmentation pipeline</h3><table><thead><tr><th>Transformation</th><th>Field variation represented</th><th>Purpose</th></tr></thead><tbody><tr><td>RandomResizedCrop and scale</td><td>Distance and weld-region size</td><td>ROI position and size robustness</td></tr><tr><td>Flip and rotation</td><td>Part orientation and phone tilt</td><td>Lower orientation dependence</td></tr><tr><td>Brightness, contrast, and lens flare</td><td>Illumination and metal reflection</td><td>Highlight and low-contrast robustness</td></tr><tr><td>Gaussian noise and JPEG</td><td>Sensor and compression noise</td><td>Mobile-input degradation robustness</td></tr><tr><td>MixUp and label smoothing</td><td>Boundary samples and overconfidence</td><td>Stabilize the decision boundary</td></tr><tr><td>SWA and five-seed model soup</td><td>Initialization and late-training variation</td><td>Reduce result variation</td></tr></tbody></table><figure class=portfolio-case-visual><img src=/images/projects/welding-p17-augmentation-result.avif alt="Accuracy precision recall F1 and FPR before and after capture-condition augmentation" loading=lazy><figcaption>Augmentation effect after representing distance, angle, lighting, and noise while keeping the model architecture fixed.</figcaption></figure><h3 id=before-and-after-augmentation>Before and after augmentation</h3><table><thead><tr><th>Metric</th><th style=text-align:right>Before</th><th style=text-align:right>After</th><th style=text-align:right>Change</th></tr></thead><tbody><tr><td>Accuracy</td><td style=text-align:right>38.86%</td><td style=text-align:right>88.60%</td><td style=text-align:right>+49.74 pp</td></tr><tr><td>Precision</td><td style=text-align:right>32.65%</td><td style=text-align:right>92.47%</td><td style=text-align:right>+59.82 pp</td></tr><tr><td>Recall</td><td style=text-align:right><strong>15.84%</strong></td><td style=text-align:right><strong>85.15%</strong></td><td style=text-align:right><strong>+69.31 pp</strong></td></tr><tr><td>F1</td><td style=text-align:right>21.33%</td><td style=text-align:right>88.66%</td><td style=text-align:right>+67.33 pp</td></tr><tr><td>FPR</td><td style=text-align:right><strong>35.87%</strong></td><td style=text-align:right><strong>7.61%</strong></td><td style=text-align:right><strong>-28.26 pp</strong></td></tr></tbody></table><p>Augmentation alone raised recall from 15.84% to 85.15% and reduced FPR to 7.61%. The remaining errors were narrowed from missing data representation to differences in model feature extraction.</p><h2 id=3-modeling-and-ensemble>3. Modeling and ensemble</h2><h3 id=candidate-comparison>Candidate comparison</h3><table><thead><tr><th>Candidate</th><th>Evaluation focus</th><th>Final disposition</th></tr></thead><tbody><tr><td>ResNet-50</td><td>Bead boundary, local texture, and low FPR</td><td>Final branch</td></tr><tr><td>EfficientNet-B3</td><td>Performance versus compute</td><td>Compared</td></tr><tr><td>RegNet-Y</td><td>Training stability</td><td>Compared</td></tr><tr><td>ConvNeXt-T</td><td>Wider local receptive field</td><td>Compared</td></tr><tr><td>Swin-Tiny</td><td>Window-level local and multi-scale features</td><td>Compared</td></tr><tr><td>DeiT-Small</td><td>Global bead flow, broad anomaly, and high TPR</td><td>Final branch</td></tr></tbody></table><h3 id=two-model-complementarity>Two-model complementarity</h3><ul><li><strong>ResNet-50:</strong> bead boundaries and local texture</li><li><strong>DeiT-Small:</strong> global patch relationships and broad anomaly patterns</li><li><strong>Ensemble:</strong> uniform average of defect probabilities</li><li><strong>Confidence calibration:</strong> temperature scaling</li></ul><div class=mermaid align=center style=background-color:none;border-radius:5px>flowchart LR
-A["Resize and normalize"] --> R["ResNet-50<br>Local texture"]
-A --> D["DeiT-Small<br>Global pattern"]
-R --> P1["Defect probability P1"]
-D --> P2["Defect probability P2"]
-P1 --> E["Uniform averaging"]
-P2 --> E
-E --> C["Temperature scaling"]
-C --> T["Operating point"]</div><figure class=portfolio-case-visual><img src=/images/projects/welding-p19-final-ensemble.avif alt="Accuracy F1 recall and FPR progression from ResNet baseline through augmented ResNet to ResNet DeiT ensemble" loading=lazy><figcaption>Captured-specimen performance from the augmented ResNet to the two-model ensemble.</figcaption></figure><table><thead><tr><th>Model configuration</th><th style=text-align:right>Accuracy</th><th style=text-align:right>F1</th><th style=text-align:right>Recall</th><th style=text-align:right>FPR</th></tr></thead><tbody><tr><td>ResNet baseline</td><td style=text-align:right>38.86%</td><td style=text-align:right>21.33%</td><td style=text-align:right>15.84%</td><td style=text-align:right>35.87%</td></tr><tr><td>ResNet plus augmentation</td><td style=text-align:right>88.60%</td><td style=text-align:right>88.66%</td><td style=text-align:right>85.15%</td><td style=text-align:right>7.61%</td></tr><tr><td>ResNet-50 + DeiT-Small at threshold 0.49</td><td style=text-align:right><strong>95.85%</strong></td><td style=text-align:right><strong>96.04%</strong></td><td style=text-align:right><strong>96.04%</strong></td><td style=text-align:right><strong>4.35%</strong></td></tr></tbody></table><p>The five-model ensemble recorded 96.08% F1 and the two-model ensemble 96.04%, a difference of 0.04 percentage points. The lower inference burden made ResNet-50+DeiT-Small the selected FastAPI/PWA demo structure.</p><h2 id=4-post-processing-and-deployment>4. Post-processing and deployment</h2><h3 id=manufacturing-quality-operating-point>Manufacturing-quality operating point</h3><p>False positives create reinspection work, while false negatives create quality-escape risk. The threshold was therefore selected by error cost rather than peak F1 alone.</p><table><thead><tr><th style=text-align:right>Threshold</th><th style=text-align:right>FN</th><th style=text-align:right>FP</th><th style=text-align:right>Recall</th><th style=text-align:right>FPR</th><th style=text-align:right>F1</th><th>Decision purpose</th></tr></thead><tbody><tr><td style=text-align:right><strong>0.40</strong></td><td style=text-align:right><strong>0</strong></td><td style=text-align:right>15</td><td style=text-align:right><strong>100.0%</strong></td><td style=text-align:right>16.3%</td><td style=text-align:right>93.1%</td><td><strong>Missed-defect-priority operating point</strong></td></tr><tr><td style=text-align:right>0.44</td><td style=text-align:right>2</td><td style=text-align:right>12</td><td style=text-align:right>98.0%</td><td style=text-align:right>13.0%</td><td style=text-align:right>93.4%</td><td>Intermediate trade-off</td></tr><tr><td style=text-align:right>0.49</td><td style=text-align:right>4</td><td style=text-align:right>4</td><td style=text-align:right>96.0%</td><td style=text-align:right>4.3%</td><td style=text-align:right><strong>96.0%</strong></td><td>Peak F1</td></tr></tbody></table><p><strong>Selected operating point:</strong> <strong>threshold 0.40</strong>, with zero FN and 100% recall on the project evaluation set. The 15 false positives were routed to operator reinspection.</p><figure class=portfolio-case-visual><img src=/images/projects/welding-vision-report-threshold.svg alt="FN FP recall and FPR comparison across thresholds on the weld-specimen evaluation set" loading=lazy><figcaption>Trade-off between lower missed defects and higher false alarms. The operating point was selected for an FN-priority inspection objective.</figcaption></figure><h3 id=coordinate-scaling-to-the-source-image>Coordinate scaling to the source image</h3><p>Defect coordinates from the resized model input were mapped back to the smartphone source image.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>scale_x = source width / model-input width
-</span></span><span style=display:flex><span>scale_y = source height / model-input height
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>source x = model x × scale_x
-</span></span><span style=display:flex><span>source y = model y × scale_y
-</span></span></code></pre></div><h3 id=fastapi-and-pwa-inspection-assistance-demo>FastAPI and PWA inspection-assistance demo</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Smartphone capture or file selection
-</span></span><span style=display:flex><span>→ FastAPI /predict
-</span></span><span style=display:flex><span>→ ResNet-50 and DeiT-Small inference
-</span></span><span style=display:flex><span>→ probability average and temperature scaling
-</span></span><span style=display:flex><span>→ threshold 0.40
-</span></span><span style=display:flex><span>→ source image, grade, defect type, and confidence
-</span></span></code></pre></div><figure class=portfolio-case-visual><img src=/images/projects/welding-vision-report-app-flow.svg alt="Smartphone image passing through FastAPI ResNet DeiT ensemble and PWA result display" loading=lazy><figcaption>Integrated flow from smartphone input through two-model inference, confidence calibration, operating point, and PWA result display.</figcaption></figure><figure class=portfolio-case-visual><img src=/images/projects/welding-p24-app-grade-results.avif alt="PWA demo displaying the source weld image grade defect type and confidence" loading=lazy><figcaption>PWA screen showing the source specimen, grade, defect type, and confidence.</figcaption></figure><h2 id=5-project-results-and-direct-contribution>5. Project results and direct contribution</h2><h3 id=performance-progression>Performance progression</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Baseline field recall 15.84%
-</span></span><span style=display:flex><span>→ data-engineering recall 85.15%
-</span></span><span style=display:flex><span>→ two-model recall and F1 96.04% at 0.49
-</span></span><span style=display:flex><span>→ quality operating point recall 100% and zero FN at 0.40
-</span></span><span style=display:flex><span>→ FastAPI/PWA inspection-assistance demo
-</span></span></code></pre></div><h3 id=direct-work>Direct work</h3><ul><li>Project objective, experiment order, and evaluation-criteria design</li><li>AI-Hub versus captured-specimen separation and domain-gap diagnosis</li><li>FN/FP error analysis and weld-process noise classification</li><li>Capture-condition augmentation design and effect comparison</li><li>Six candidate architectures and two-model versus five-model comparison</li><li>ResNet-50+DeiT-Small ensemble and temperature-scaling review</li><li>Threshold 0.40 operating-point selection from manufacturing error cost</li><li>Low-resolution-to-source coordinate-scaling logic</li><li>PWA decision-flow review and joint report writing</li></ul><h3 id=team-integration-result>Team integration result</h3><ul><li>AI-Hub learning material and directly captured practical weld data</li><li>Capture-condition learning pipeline and candidate training</li><li>ResNet-50+DeiT-Small two-model ensemble</li><li>Confidence calibration and threshold sweep</li><li>FastAPI <code>/predict</code> and PWA inspection-assistance demo</li></ul></div><footer class=portfolio-article__footer><a class=portfolio-text-link href=/en/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>Back to all projects</span></a></footer></article><aside class=portfolio-article-toc aria-label="Table of contents"><div class=portfolio-article-toc__inner><p>On this page</p><nav id=TableOfContents><ul><li><a href=#1-problem-definition-and-field-condition-gap>1. Problem definition and field-condition gap</a><ul><li><a href=#baseline-re-evaluation>Baseline re-evaluation</a></li><li><a href=#error-analysis--weld-process-noise>Error analysis — weld-process noise</a></li></ul></li><li><a href=#2-data-engineering>2. Data engineering</a><ul><li><a href=#capture-condition-augmentation-pipeline>Capture-condition augmentation pipeline</a></li><li><a href=#before-and-after-augmentation>Before and after augmentation</a></li></ul></li><li><a href=#3-modeling-and-ensemble>3. Modeling and ensemble</a><ul><li><a href=#candidate-comparison>Candidate comparison</a></li><li><a href=#two-model-complementarity>Two-model complementarity</a></li></ul></li><li><a href=#4-post-processing-and-deployment>4. Post-processing and deployment</a><ul><li><a href=#manufacturing-quality-operating-point>Manufacturing-quality operating point</a></li><li><a href=#coordinate-scaling-to-the-source-image>Coordinate scaling to the source image</a></li><li><a href=#fastapi-and-pwa-inspection-assistance-demo>FastAPI and PWA inspection-assistance demo</a></li></ul></li><li><a href=#5-project-results-and-direct-contribution>5. Project results and direct contribution</a><ul><li><a href=#performance-progression>Performance progression</a></li><li><a href=#direct-work>Direct work</a></li><li><a href=#team-integration-result>Team integration result</a></li></ul></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="Back to top"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/en/>Jaeheung Lee</a><p>Process engineering | Equipment acceptance | Manufacturing DX</p></div><nav class=portfolio-footer__nav aria-label="Footer navigation"><a href=/en/#about>About</a>
-<a href=/en/#experiences>Experiences</a>
-<a href=/en/#projects>Projects</a>
-<a href=/en/posts>Details</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>Send email</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head><title>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/welding-vision-ai/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/welding-vision-ai/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design">
+<meta property="og:type" content="article">
+<meta property="og:description" content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50&#43;DeiT-Small, confidence calibration, and an FN-priority decision point">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/welding-vision-ai/">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design">
+  <meta name="twitter:description" content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50&#43;DeiT-Small, confidence calibration, and an FN-priority decision point">
+<meta name="description" content="Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo","headline":"Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/welding-vision-ai/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#about">About</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#projects">Projects</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#experiences">Experiences</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#education">Education</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/en/#skills">Skills</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Details</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        English
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/welding-vision-ai">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/welding-vision-ai">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="Print"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>Print</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">Manufacturing AX project</p>
+            <span class="portfolio-article__stage portfolio-article__stage--education-poc">Training PoC</span>
+          </div>
+          <h1>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design</h1>
+          <p class="portfolio-article__lead">Recall 15.84%→85.15%→96.04%, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA inspection-assistance flow</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>Project period</dt>
+              <dd>Five-person AI-convergence training project</dd>
+            </div>
+            <div>
+              <dt>Context</dt>
+              <dd>Appearance-inspection PoC using AI-Hub weld data and directly captured Facility Maintenance Engineer practical weld specimens</dd>
+            </div>
+            <div>
+              <dt>Scope</dt>
+              <dd>Overall planning, AI modeling and evaluation design, FN/FP error analysis, candidate and ensemble comparison, coordinate scaling, and operating-point decisions</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">Project, responsibility, and validation summary</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>Project objective</dt>
+              <dd>Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens</dd>
+            </div>
+            <div>
+              <dt>Planning and build scope</dt>
+              <dd>Weld-noise-driven augmentation, six-model comparison, two-model ensemble, confidence calibration, and operating-point design</dd>
+            </div>
+            <div>
+              <dt>Team result / current stage</dt>
+              <dd>85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="portfolio-case-metrics" aria-label="Verified metrics"><div>
+              <span>Captured-specimen recall</span>
+              <strong>15.84% → 85.15% (&#43;69.31 pp)</strong>
+            </div><div>
+              <span>Threshold 0.40 limited evaluation</span>
+              <strong>FN 0 · Recall 100% · FPR 16.30%</strong>
+            </div><div>
+              <span>App demonstration</span>
+              <strong>FastAPI /predict → PWA grade, defect, and confidence</strong>
+            </div>
+        </section><figure class="portfolio-case-visual">
+            <img src="/images/projects/welding-vision-domain-gap.jpg" alt="Difference in capture conditions between public training weld-defect images and prepared sample images" loading="eager"><figcaption>Extract from the team presentation comparing the capture and surface conditions of public training data and prepared samples</figcaption></figure>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <section class="portfolio-project-contract" aria-label="Weld-specimen Vision AI responsibility table">
+  <dl>
+    <div>
+      <dt>Project type</dt>
+      <dd>Five-person AI-convergence training PoC</dd>
+    </div>
+    <div>
+      <dt>My role</dt>
+      <dd>Overall planning, AI modeling, and evaluation design</dd>
+    </div>
+    <div>
+      <dt>Direct work</dt>
+      <dd>Field inspection conditions, FN/FP, augmentation, candidate models, ensemble, coordinates, and decision threshold</dd>
+    </div>
+    <div>
+      <dt>Team integration</dt>
+      <dd>Data preparation, model training, FastAPI/PWA implementation, and joint report</dd>
+    </div>
+    <div>
+      <dt>Key result</dt>
+      <dd>Field recall 15.84%→85.15%→96.04%; decision-point recall 100%</dd>
+    </div>
+    <div>
+      <dt>Implementation</dt>
+      <dd>Smartphone input→two-model inference→calibration→PWA assistance</dd>
+    </div>
+  </dl>
+</section>
+
+<figure class="portfolio-logic-rail portfolio-logic-rail--system">
+  <figcaption>
+    <span>FIELD IMAGES · MODEL COMPARISON · DECISION THRESHOLD</span>
+    <strong>Convert a public-data model into a captured-specimen inspection flow</strong><small>Decision basis: field inspection conditions, FN/FP, augmentation, model complementarity, and error cost</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>FIELD GAP</b><strong>Field recall 15.84%</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>DATA</b><strong>Capture-noise augmentation·85.15%</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>MODEL</b><strong>ResNet-50&#43;DeiT-Small</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>CALIBRATE</b><strong>Temperature scaling</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>DECIDE</b><strong>Threshold 0.40·zero FN</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>DEMO</b><strong>FastAPI·PWA</strong>
+    </li>
+  </ol>
+</figure>
+
+<h2 id="1-problem-definition-and-field-condition-gap">1. Problem definition and field-condition gap</h2>
+<p>A ResNet baseline trained on AI-Hub weld images fell to <strong>15.84% recall</strong> on directly captured practical weld specimens. Model replacement was deferred until the distribution gap between public data and captured images was analyzed.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Data</th>
+          <th style="text-align: right">Scale</th>
+          <th>Use</th>
+          <th>Main characteristics</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AI-Hub weld images</td>
+          <td style="text-align: right">30,000 undercut and 30,000 overlap images</td>
+          <td>Baseline and candidate training</td>
+          <td>Enlarged weld regions with relatively consistent lighting and background</td>
+      </tr>
+      <tr>
+          <td>Directly captured specimens</td>
+          <td style="text-align: right">About 155–198 images by experiment stage</td>
+          <td>Field evaluation</td>
+          <td>Soot, spatter, oxidation, metal reflection, angle, and background variation</td>
+      </tr>
+      <tr>
+          <td>Augmented images</td>
+          <td style="text-align: right">Generated in the training pipeline</td>
+          <td>Capture robustness</td>
+          <td>Brightness, lens flare, noise, JPEG, crop, and rotation</td>
+      </tr>
+  </tbody>
+</table>
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-p11-domain-gap.avif" alt="Surface lighting angle and background differences between AI-Hub weld images and directly captured practical specimens" loading="lazy">
+  <figcaption>Surface, lighting, angle, and background differences between public and captured images. The initial loss was treated first as a domain-gap problem.</figcaption>
+</figure>
+<h3 id="baseline-re-evaluation">Baseline re-evaluation</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Evaluation data</th>
+          <th style="text-align: right">Accuracy</th>
+          <th style="text-align: right">F1</th>
+          <th style="text-align: right">Recall</th>
+          <th style="text-align: right">FPR</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AI-Hub validation data</td>
+          <td style="text-align: right">80.13%</td>
+          <td style="text-align: right">91.97%</td>
+          <td style="text-align: right">90.92%</td>
+          <td style="text-align: right">-</td>
+      </tr>
+      <tr>
+          <td>Captured-specimen set</td>
+          <td style="text-align: right">38.86%</td>
+          <td style="text-align: right">21.33%</td>
+          <td style="text-align: right"><strong>15.84%</strong></td>
+          <td style="text-align: right"><strong>35.87%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-p15-baseline-field.avif" alt="Accuracy F1 recall and FPR comparison between AI-Hub validation data and directly captured specimens" loading="lazy">
+  <figcaption>Public validation versus captured-specimen performance for the same ResNet family. Field recall of 15.84% became the baseline.</figcaption>
+</figure>
+<h3 id="error-analysis--weld-process-noise">Error analysis — weld-process noise</h3>
+<p>False negatives were reviewed first because they represent missed defects. FN and FP images were regrouped by weld-process and capture noise.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Error signal</th>
+          <th>Process or capture cause</th>
+          <th>Model impact</th>
+          <th>Action direction</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Soot and fume traces</td>
+          <td>Heat effect and surface contamination</td>
+          <td>Lower defect-boundary contrast</td>
+          <td>Brightness and contrast augmentation</td>
+      </tr>
+      <tr>
+          <td>Spatter and oxidation</td>
+          <td>Additional local patterns around the bead</td>
+          <td>Higher false positives</td>
+          <td>Combine local texture and global shape</td>
+      </tr>
+      <tr>
+          <td>Metal reflection</td>
+          <td>Lighting angle and curved surface</td>
+          <td>Missing region or false highlight</td>
+          <td>Lens flare and brightness variation</td>
+      </tr>
+      <tr>
+          <td>Angle and distance</td>
+          <td>Smartphone placement variation</td>
+          <td>ROI shift and shape distortion</td>
+          <td>Crop, rotation, and scale augmentation</td>
+      </tr>
+      <tr>
+          <td>Compression and sensor noise</td>
+          <td>Mobile capture and transfer</td>
+          <td>Loss of small-defect texture</td>
+          <td>Gaussian noise and JPEG degradation</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Extract FN and FP
+</span></span><span style="display:flex;"><span>→ classify weld-process noise
+</span></span><span style="display:flex;"><span>→ design capture-condition augmentation
+</span></span><span style="display:flex;"><span>→ re-evaluate on the same field set
+</span></span></code></pre></div><h2 id="2-data-engineering">2. Data engineering</h2>
+<h3 id="capture-condition-augmentation-pipeline">Capture-condition augmentation pipeline</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Transformation</th>
+          <th>Field variation represented</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>RandomResizedCrop and scale</td>
+          <td>Distance and weld-region size</td>
+          <td>ROI position and size robustness</td>
+      </tr>
+      <tr>
+          <td>Flip and rotation</td>
+          <td>Part orientation and phone tilt</td>
+          <td>Lower orientation dependence</td>
+      </tr>
+      <tr>
+          <td>Brightness, contrast, and lens flare</td>
+          <td>Illumination and metal reflection</td>
+          <td>Highlight and low-contrast robustness</td>
+      </tr>
+      <tr>
+          <td>Gaussian noise and JPEG</td>
+          <td>Sensor and compression noise</td>
+          <td>Mobile-input degradation robustness</td>
+      </tr>
+      <tr>
+          <td>MixUp and label smoothing</td>
+          <td>Boundary samples and overconfidence</td>
+          <td>Stabilize the decision boundary</td>
+      </tr>
+      <tr>
+          <td>SWA and five-seed model soup</td>
+          <td>Initialization and late-training variation</td>
+          <td>Reduce result variation</td>
+      </tr>
+  </tbody>
+</table>
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-p17-augmentation-result.avif" alt="Accuracy precision recall F1 and FPR before and after capture-condition augmentation" loading="lazy">
+  <figcaption>Augmentation effect after representing distance, angle, lighting, and noise while keeping the model architecture fixed.</figcaption>
+</figure>
+<h3 id="before-and-after-augmentation">Before and after augmentation</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th style="text-align: right">Before</th>
+          <th style="text-align: right">After</th>
+          <th style="text-align: right">Change</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Accuracy</td>
+          <td style="text-align: right">38.86%</td>
+          <td style="text-align: right">88.60%</td>
+          <td style="text-align: right">+49.74 pp</td>
+      </tr>
+      <tr>
+          <td>Precision</td>
+          <td style="text-align: right">32.65%</td>
+          <td style="text-align: right">92.47%</td>
+          <td style="text-align: right">+59.82 pp</td>
+      </tr>
+      <tr>
+          <td>Recall</td>
+          <td style="text-align: right"><strong>15.84%</strong></td>
+          <td style="text-align: right"><strong>85.15%</strong></td>
+          <td style="text-align: right"><strong>+69.31 pp</strong></td>
+      </tr>
+      <tr>
+          <td>F1</td>
+          <td style="text-align: right">21.33%</td>
+          <td style="text-align: right">88.66%</td>
+          <td style="text-align: right">+67.33 pp</td>
+      </tr>
+      <tr>
+          <td>FPR</td>
+          <td style="text-align: right"><strong>35.87%</strong></td>
+          <td style="text-align: right"><strong>7.61%</strong></td>
+          <td style="text-align: right"><strong>-28.26 pp</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>Augmentation alone raised recall from 15.84% to 85.15% and reduced FPR to 7.61%. The remaining errors were narrowed from missing data representation to differences in model feature extraction.</p>
+<h2 id="3-modeling-and-ensemble">3. Modeling and ensemble</h2>
+<h3 id="candidate-comparison">Candidate comparison</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Candidate</th>
+          <th>Evaluation focus</th>
+          <th>Final disposition</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ResNet-50</td>
+          <td>Bead boundary, local texture, and low FPR</td>
+          <td>Final branch</td>
+      </tr>
+      <tr>
+          <td>EfficientNet-B3</td>
+          <td>Performance versus compute</td>
+          <td>Compared</td>
+      </tr>
+      <tr>
+          <td>RegNet-Y</td>
+          <td>Training stability</td>
+          <td>Compared</td>
+      </tr>
+      <tr>
+          <td>ConvNeXt-T</td>
+          <td>Wider local receptive field</td>
+          <td>Compared</td>
+      </tr>
+      <tr>
+          <td>Swin-Tiny</td>
+          <td>Window-level local and multi-scale features</td>
+          <td>Compared</td>
+      </tr>
+      <tr>
+          <td>DeiT-Small</td>
+          <td>Global bead flow, broad anomaly, and high TPR</td>
+          <td>Final branch</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="two-model-complementarity">Two-model complementarity</h3>
+<ul>
+<li><strong>ResNet-50:</strong> bead boundaries and local texture</li>
+<li><strong>DeiT-Small:</strong> global patch relationships and broad anomaly patterns</li>
+<li><strong>Ensemble:</strong> uniform average of defect probabilities</li>
+<li><strong>Confidence calibration:</strong> temperature scaling</li>
+</ul>
+
+
+  
+
+
+
+
+  
+
+
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+flowchart LR
+    A["Resize and normalize"] --> R["ResNet-50<br/>Local texture"]
+    A --> D["DeiT-Small<br/>Global pattern"]
+    R --> P1["Defect probability P1"]
+    D --> P2["Defect probability P2"]
+    P1 --> E["Uniform averaging"]
+    P2 --> E
+    E --> C["Temperature scaling"]
+    C --> T["Operating point"]
+</div>
+
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-p19-final-ensemble.avif" alt="Accuracy F1 recall and FPR progression from ResNet baseline through augmented ResNet to ResNet DeiT ensemble" loading="lazy">
+  <figcaption>Captured-specimen performance from the augmented ResNet to the two-model ensemble.</figcaption>
+</figure>
+<table>
+  <thead>
+      <tr>
+          <th>Model configuration</th>
+          <th style="text-align: right">Accuracy</th>
+          <th style="text-align: right">F1</th>
+          <th style="text-align: right">Recall</th>
+          <th style="text-align: right">FPR</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ResNet baseline</td>
+          <td style="text-align: right">38.86%</td>
+          <td style="text-align: right">21.33%</td>
+          <td style="text-align: right">15.84%</td>
+          <td style="text-align: right">35.87%</td>
+      </tr>
+      <tr>
+          <td>ResNet plus augmentation</td>
+          <td style="text-align: right">88.60%</td>
+          <td style="text-align: right">88.66%</td>
+          <td style="text-align: right">85.15%</td>
+          <td style="text-align: right">7.61%</td>
+      </tr>
+      <tr>
+          <td>ResNet-50 + DeiT-Small at threshold 0.49</td>
+          <td style="text-align: right"><strong>95.85%</strong></td>
+          <td style="text-align: right"><strong>96.04%</strong></td>
+          <td style="text-align: right"><strong>96.04%</strong></td>
+          <td style="text-align: right"><strong>4.35%</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>The five-model ensemble recorded 96.08% F1 and the two-model ensemble 96.04%, a difference of 0.04 percentage points. The lower inference burden made ResNet-50+DeiT-Small the selected FastAPI/PWA demo structure.</p>
+<h2 id="4-post-processing-and-deployment">4. Post-processing and deployment</h2>
+<h3 id="manufacturing-quality-operating-point">Manufacturing-quality operating point</h3>
+<p>False positives create reinspection work, while false negatives create quality-escape risk. The threshold was therefore selected by error cost rather than peak F1 alone.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: right">Threshold</th>
+          <th style="text-align: right">FN</th>
+          <th style="text-align: right">FP</th>
+          <th style="text-align: right">Recall</th>
+          <th style="text-align: right">FPR</th>
+          <th style="text-align: right">F1</th>
+          <th>Decision purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: right"><strong>0.40</strong></td>
+          <td style="text-align: right"><strong>0</strong></td>
+          <td style="text-align: right">15</td>
+          <td style="text-align: right"><strong>100.0%</strong></td>
+          <td style="text-align: right">16.3%</td>
+          <td style="text-align: right">93.1%</td>
+          <td><strong>Missed-defect-priority operating point</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: right">0.44</td>
+          <td style="text-align: right">2</td>
+          <td style="text-align: right">12</td>
+          <td style="text-align: right">98.0%</td>
+          <td style="text-align: right">13.0%</td>
+          <td style="text-align: right">93.4%</td>
+          <td>Intermediate trade-off</td>
+      </tr>
+      <tr>
+          <td style="text-align: right">0.49</td>
+          <td style="text-align: right">4</td>
+          <td style="text-align: right">4</td>
+          <td style="text-align: right">96.0%</td>
+          <td style="text-align: right">4.3%</td>
+          <td style="text-align: right"><strong>96.0%</strong></td>
+          <td>Peak F1</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Selected operating point:</strong> <strong>threshold 0.40</strong>, with zero FN and 100% recall on the project evaluation set. The 15 false positives were routed to operator reinspection.</p>
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-vision-report-threshold.svg" alt="FN FP recall and FPR comparison across thresholds on the weld-specimen evaluation set" loading="lazy">
+  <figcaption>Trade-off between lower missed defects and higher false alarms. The operating point was selected for an FN-priority inspection objective.</figcaption>
+</figure>
+<h3 id="coordinate-scaling-to-the-source-image">Coordinate scaling to the source image</h3>
+<p>Defect coordinates from the resized model input were mapped back to the smartphone source image.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>scale_x = source width / model-input width
+</span></span><span style="display:flex;"><span>scale_y = source height / model-input height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source x = model x × scale_x
+</span></span><span style="display:flex;"><span>source y = model y × scale_y
+</span></span></code></pre></div><h3 id="fastapi-and-pwa-inspection-assistance-demo">FastAPI and PWA inspection-assistance demo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Smartphone capture or file selection
+</span></span><span style="display:flex;"><span>→ FastAPI /predict
+</span></span><span style="display:flex;"><span>→ ResNet-50 and DeiT-Small inference
+</span></span><span style="display:flex;"><span>→ probability average and temperature scaling
+</span></span><span style="display:flex;"><span>→ threshold 0.40
+</span></span><span style="display:flex;"><span>→ source image, grade, defect type, and confidence
+</span></span></code></pre></div><figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-vision-report-app-flow.svg" alt="Smartphone image passing through FastAPI ResNet DeiT ensemble and PWA result display" loading="lazy">
+  <figcaption>Integrated flow from smartphone input through two-model inference, confidence calibration, operating point, and PWA result display.</figcaption>
+</figure>
+<figure class="portfolio-case-visual">
+  <img src="/images/projects/welding-p24-app-grade-results.avif" alt="PWA demo displaying the source weld image grade defect type and confidence" loading="lazy">
+  <figcaption>PWA screen showing the source specimen, grade, defect type, and confidence.</figcaption>
+</figure>
+<h2 id="5-project-results-and-direct-contribution">5. Project results and direct contribution</h2>
+<h3 id="performance-progression">Performance progression</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Baseline field recall 15.84%
+</span></span><span style="display:flex;"><span>→ data-engineering recall 85.15%
+</span></span><span style="display:flex;"><span>→ two-model recall and F1 96.04% at 0.49
+</span></span><span style="display:flex;"><span>→ quality operating point recall 100% and zero FN at 0.40
+</span></span><span style="display:flex;"><span>→ FastAPI/PWA inspection-assistance demo
+</span></span></code></pre></div><h3 id="direct-work">Direct work</h3>
+<ul>
+<li>Project objective, experiment order, and evaluation-criteria design</li>
+<li>AI-Hub versus captured-specimen separation and domain-gap diagnosis</li>
+<li>FN/FP error analysis and weld-process noise classification</li>
+<li>Capture-condition augmentation design and effect comparison</li>
+<li>Six candidate architectures and two-model versus five-model comparison</li>
+<li>ResNet-50+DeiT-Small ensemble and temperature-scaling review</li>
+<li>Threshold 0.40 operating-point selection from manufacturing error cost</li>
+<li>Low-resolution-to-source coordinate-scaling logic</li>
+<li>PWA decision-flow review and joint report writing</li>
+</ul>
+<h3 id="team-integration-result">Team integration result</h3>
+<ul>
+<li>AI-Hub learning material and directly captured practical weld data</li>
+<li>Capture-condition learning pipeline and candidate training</li>
+<li>ResNet-50+DeiT-Small two-model ensemble</li>
+<li>Confidence calibration and threshold sweep</li>
+<li>FastAPI <code>/predict</code> and PWA inspection-assistance demo</li>
+</ul>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/en/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>Back to all projects</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="Table of contents">
+          <div class="portfolio-article-toc__inner">
+            <p>On this page</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-problem-definition-and-field-condition-gap">1. Problem definition and field-condition gap</a>
+      <ul>
+        <li><a href="#baseline-re-evaluation">Baseline re-evaluation</a></li>
+        <li><a href="#error-analysis--weld-process-noise">Error analysis — weld-process noise</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-data-engineering">2. Data engineering</a>
+      <ul>
+        <li><a href="#capture-condition-augmentation-pipeline">Capture-condition augmentation pipeline</a></li>
+        <li><a href="#before-and-after-augmentation">Before and after augmentation</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-modeling-and-ensemble">3. Modeling and ensemble</a>
+      <ul>
+        <li><a href="#candidate-comparison">Candidate comparison</a></li>
+        <li><a href="#two-model-complementarity">Two-model complementarity</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-post-processing-and-deployment">4. Post-processing and deployment</a>
+      <ul>
+        <li><a href="#manufacturing-quality-operating-point">Manufacturing-quality operating point</a></li>
+        <li><a href="#coordinate-scaling-to-the-source-image">Coordinate scaling to the source image</a></li>
+        <li><a href="#fastapi-and-pwa-inspection-assistance-demo">FastAPI and PWA inspection-assistance demo</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-project-results-and-direct-contribution">5. Project results and direct contribution</a>
+      <ul>
+        <li><a href="#performance-progression">Performance progression</a></li>
+        <li><a href="#direct-work">Direct work</a></li>
+        <li><a href="#team-integration-result">Team integration result</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Details</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">Send email</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

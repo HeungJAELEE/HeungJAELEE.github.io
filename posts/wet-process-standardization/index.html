@@ -1,24 +1,680 @@
-<!doctype html><html lang=ko><head><title>YMC 공정개발·기술 Qual·실패분석·로봇 표준화 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><script>try{localStorage.setItem("theme-scheme","light"),localStorage.removeItem("darkmode:color-scheme")}catch{}</script><link rel=canonical href=https://heungjaelee.github.io/posts/wet-process-standardization/><link rel=alternate hreflang=x-default href=https://heungjaelee.github.io/posts/wet-process-standardization/><link rel=stylesheet href=/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8="><link rel=stylesheet href=/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA="><link rel=stylesheet href=/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css integrity="sha256-SuDaLmK9Teeqq+88ZYzdxImB96c2Xj1hj3WVn6q8TzI="><link rel=stylesheet href=/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I="><script defer src=/scripts/portfolio-print.min.2a60f169413fa8a565bd92e7ee853c065d4068fa3ed67c67e9c7aff4b843dfec.js integrity="sha256-KmDxaUE/qKVlvZLn7oU8Bl1AaPo+1nxn6cev9LhD3+w="></script><link rel=icon type=image/png href=/images/site/favicon_hu_a9180e8b9b024b5f.png><meta property="og:title" content="YMC 공정개발·기술 Qual·실패분석·로봇 표준화"><meta property="og:type" content="article"><meta property="og:description" content="표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립"><meta property="og:url" content="https://heungjaelee.github.io/posts/wet-process-standardization/"><meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오"><meta name=twitter:card content="summary"><meta name=twitter:title content="YMC 공정개발·기술 Qual·실패분석·로봇 표준화"><meta name=twitter:description content="혼산·수산 Anodizing, Bath 성분분석, 글로벌 장비사 Qual, Diffuser Scale-up 실패와 진공로봇 FMEA 표준화를 프로젝트 유형별 문제해결 체계로 연결한 YMC 경력 허브"><meta name=description content="표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립"><script type=application/ld+json>{"@context":"https://schema.org","@type":"TechArticle","description":"표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립","headline":"YMC 공정개발·기술 Qual·실패분석·로봇 표준화","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/wet-process-standardization/"}</script><script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><a class=portfolio-skip-link href=#main-content>본문 바로가기</a><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar portfolio-navbar" id=top-navbar aria-label=홈><div class="container portfolio-navbar__inner"><button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id=sidebar-toggler type=button aria-controls=sidebar-section aria-expanded=false aria-label="글 목록 열기">
-<i data-feather=sidebar></i>
-</button>
-<a class="navbar-brand portfolio-navbar__brand" href=/><img src=/images/site/main-logo_hu_8a1145a45d3076fc.png id=logo class=portfolio-navbar__logo alt width=36 height=36>
-<span>이재흥</span>
-</a><button class="navbar-toggler navbar-light portfolio-navbar__toggle" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-controls=top-nav-items aria-expanded=false aria-label=메뉴>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id=top-nav-items><ul class="navbar-nav ms-auto portfolio-navbar__links"><li class=nav-item><a class=nav-link href=/#about>소개</a></li><li class=nav-item><a class=nav-link href=/#projects>프로젝트</a></li><li class=nav-item><a class=nav-link href=/#experiences>경력</a></li><li class=nav-item><a class=nav-link href=/#skills>핵심 역량</a></li><li class=nav-item><a class=nav-link href=/#education>교육</a></li><li class=nav-item><a class="nav-link active" id=blog-link href=/posts aria-current=page>상세보기</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>한국어</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/posts/wet-process-standardization>한국어
-</a><a class="dropdown-item nav-link languages-item" href=/en/posts/wet-process-standardization>English</a></div></li><li class="nav-item portfolio-navbar__contact-item"><a class=portfolio-navbar__contact href=/#contact>연락하기</a></li><li class="nav-item portfolio-navbar__print-item"><button class=portfolio-navbar__print type=button data-portfolio-print data-portfolio-print-mode=project aria-label=인쇄>
-<i data-feather=printer aria-hidden=true></i>
-<span data-portfolio-print-label>인쇄</span></button></li></ul></div></div></nav><script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("top-nav-items"),t=document.getElementById("navbar-toggler");if(e&&t){const n=e=>{t.setAttribute("aria-expanded",e?"true":"false"),t.classList.toggle("collapsed",!e)};e.addEventListener("click",e=>{const t=e.target.closest("a");t&&!t.classList.contains("dropdown-toggle")&&n(!1)}),e.addEventListener("shown.bs.collapse",()=>n(!0)),e.addEventListener("hidden.bs.collapse",()=>n(!1))}const n=document.getElementById("sidebar-toggler");n&&n.addEventListener("click",()=>{window.setTimeout(()=>{const e=document.getElementById("sidebar-section");n.setAttribute("aria-expanded",e?.classList.contains("expanded")?"true":"false")},0)});const s=document.getElementById("scroll-to-top");s&&(s.setAttribute("href","#main-content"),s.setAttribute("aria-label","맨 위로 이동"));const o=[...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')].filter(e=>{const t=new URL(e.href,window.location.href);return t.pathname===window.location.pathname&&t.hash.length>1});if(o.length>0){const e=o.map(e=>({link:e,section:document.querySelector(new URL(e.href).hash)})).filter(({section:e})=>e instanceof HTMLElement);let t=!1;const s=()=>{t=!1;const s=(document.getElementById("top-navbar")?.offsetHeight||72)+24,o=s+Math.min(window.innerHeight*.25,240);let n=e[0];e.forEach(e=>{e.section.getBoundingClientRect().top<=o&&(n=e)}),e.forEach(({link:e})=>{const t=e===n?.link;e.classList.toggle("active",t),t?e.setAttribute("aria-current","location"):e.removeAttribute("aria-current")})},n=()=>{t||(t=!0,window.requestAnimationFrame(s))};s(),window.addEventListener("scroll",n,{passive:!0}),window.addEventListener("resize",n),window.addEventListener("hashchange",n)}})</script><main id=main-content tabindex=-1><section class="content-section portfolio-article-section portfolio-case--route-hub portfolio-case-domain--manufacturing" id=content-section><div class=content><div class=portfolio-article-layout><article class="container p-0 read-area portfolio-article"><header class=portfolio-article__header><div class=portfolio-article__topline><p class=portfolio-article__eyebrow>경력 사례 안내</p><span class="portfolio-article__stage portfolio-article__stage--route-hub">사례 모음</span></div><h1>YMC 공정개발·기술 Qual·실패분석·로봇 표준화</h1><p class=portfolio-article__lead>Anodizing·Bath·고객 Qual·Scale-up 실패·진공로봇을 프로젝트 유형별 문제해결 체계로 연결</p><dl class=portfolio-case-meta><div><dt>프로젝트 기간</dt><dd>2016.03–2021.01</dd></div><div><dt>맥락</dt><dd>와이엠씨 기술연구소 경력 허브</dd></div><div><dt>담당 범위</dt><dd>YMC 프로젝트 유형·근거·Method·표준문서 연결 허브</dd></div></dl></header><section class=portfolio-case-summary aria-labelledby=case-summary-title><header><h2 id=case-summary-title>프로젝트 핵심 요약</h2></header><dl><div><dt>과제 정의</dt><dd>표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계</dd></div><div><dt>핵심 역할</dt><dd>DMAIC·Design Gate·Measurement Correlation·근본 원인·FMEA의 과제별 적용</dd></div><div><dt>주요 결과</dt><dd>고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립</dd></div></dl></section><div class="post-content portfolio-article__content" id=post-content><h2 id=ymc-기술연구소신사업-수행범위>YMC 기술연구소·신사업 수행범위</h2><ul><li><strong>재직기간:</strong> 2016.03–2021.01</li><li><strong>공정영역:</strong> Etching·Bead Blast·Anodizing·Cleaning·분석·계측</li><li><strong>장비영역:</strong> 반도체·디스플레이 진공 이송로봇 Overhaul·Site Setup</li><li><strong>공통 역할:</strong> 현상·Sample·측정기준 정렬, 4M·Root Cause 분석, 조건시험, 고객 Qual, 표준문서·교육 이관</li></ul><figure class="portfolio-logic-rail portfolio-logic-rail--improvement"><figcaption><span>YMC Engineering Problem-Solving System</span>
-<strong>현상·측정·원인·시험·승인·표준화의 폐루프</strong><small>프로젝트 유형별 Method: DMAIC·Design Gate·Correlation·Stop Gate·FMEA</small></figcaption><ol><li><span class=portfolio-logic-rail__index>01</span><b>ISSUE</b><strong>불량·고객 CTQ·고장모드</strong></li><li><span class=portfolio-logic-rail__index>02</span><b>MEASURE</b><strong>Sample·Run Sheet·계측</strong></li><li><span class=portfolio-logic-rail__index>03</span><b>ANALYZE</b><strong>4M·Root Cause·Failure Mode</strong></li><li><span class=portfolio-logic-rail__index>04</span><b>CHANGE</b><strong>조건·분석·검사·구조</strong></li><li><span class=portfolio-logic-rail__index>05</span><b>VERIFY</b><strong>반복·Scale-up·Qual·Site</strong></li><li><span class=portfolio-logic-rail__index>06</span><b>CONTROL</b><strong>표준·검사·Check Sheet·OJT</strong></li></ol></figure><h2 id=프로젝트-포트폴리오>프로젝트 포트폴리오</h2><table><thead><tr><th>사례</th><th>문제·요구</th><th>적용 체계</th><th>직접 실행</th><th>완료 결과</th></tr></thead><tbody><tr><td>혼산 Anodizing</td><td>고온 Crack·Particle·Etch Rate·Hi-Pot</td><td>DMAIC·4M·대면적 Scale-up</td><td>조건 Sample·열·Hi-Pot·100→500 mm</td><td>고객 Qual·실제품 적용·약 1년 안정화</td></tr><tr><td>수산 Anodizing</td><td>PECVD 신규 고온 사용조건</td><td>설계대안·내부 Screening·고객 진공 Qual</td><td>450℃×24 h×5 Cycle·Sample Gate</td><td>고객 Qual·실제품 적용·약 1년 사용</td></tr><tr><td>혼산 Bath 분석</td><td>정상 적정값·제품 피막성능 저하</td><td>DMAIC·Measurement Correlation</td><td>주 2회·3회 반복·외부기관 3곳·한국/중국</td><td>분석·보충·제품 Sample·교체판정 기준</td></tr><tr><td>CVD·PECVD 기술 Qual</td><td>기존 공정·고객 Spec·Hi-Pot 판정 Gap</td><td>DMAIC·공정별 5M</td><td>Process Flow·7회 측정·3회 재시험</td><td>기술실사 지적 1건 조치 완료·약 1년 납품</td></tr><tr><td>Diffuser Scale-up</td><td>박리시간 단축·Erosion·Particle·재사용성</td><td>근본 원인 흐름·중단 기준</td><td>Lab·실물·조도·현미경·SEM–EDS</td><td>Scale-up 중단·기존공정 회귀·차기 Gate</td></tr><tr><td>진공로봇 Overhaul</td><td>신규 기종 Parts·조립·검사기준 부재</td><td>FMEA·Control Plan·Standard Work</td><td>FARO·Helium Leak·부하 Cycle·Teaching</td><td>초도 Qual·약 5대·반복 Overhaul·Site Setup</td></tr></tbody></table><h2 id=프로젝트-유형별-method>프로젝트 유형별 Method</h2><table><thead><tr><th>프로젝트 유형</th><th>적용 Method</th><th>핵심 질문</th></tr></thead><tbody><tr><td>기존 공정 성능저하</td><td>DMAIC·4M</td><td>어느 원인과 공정조건이 CTQ를 저하시켰는가</td></tr><tr><td>신규 고온 피막</td><td>Design Gate·Screening</td><td>어떤 설계대안이 내부·고객 환경을 통과하는가</td></tr><tr><td>Bath 관리체계</td><td>Measurement Correlation</td><td>분석값과 실제 제품성능이 같은 방향인가</td></tr><tr><td>고객 기술 Qual</td><td>Process Change·Correlation</td><td>기존 공정과 고객 Spec의 Gap을 어떻게 조치 완료하는가</td></tr><tr><td>Scale-up 실패</td><td>근본 원인 흐름·중단 기준</td><td>어느 구조·품질·환경·안전 조건에서 중단해야 하는가</td></tr><tr><td>장비 Overhaul</td><td>FMEA·Control Plan</td><td>잠재고장을 어떤 예방·검출 Check로 차단하는가</td></tr></tbody></table><h2 id=표준문서가-만들어진-순서>표준문서가 만들어진 순서</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>현장불량·고객 CTQ·VOC
-</span></span><span style=display:flex><span>→ Sample·Run Sheet·측정기준 기준화
-</span></span><span style=display:flex><span>→ 4M·Failure Mode·Root Cause 도출
-</span></span><span style=display:flex><span>→ 공정조건·분석법·검사 Sequence·설비구조 변경
-</span></span><span style=display:flex><span>→ 반복시험·Scale-up·고객 Qual·Site Acceptance
-</span></span><span style=display:flex><span>→ 위험항목·Control Plan 개정
-</span></span><span style=display:flex><span>→ Run Sheet·SOP·QCP·검사기준·Check Sheet·교육자료
-</span></span></code></pre></div><table><thead><tr><th>발견·변경 계기</th><th>위험항목·Control 개정</th><th>표준문서 결과</th></tr></thead><tbody><tr><td>고온 Crack·대면적 피막산포</td><td>두께별 열시험·Racking·위치별 측정</td><td>Run Sheet·공정표준·검사기준</td></tr><tr><td>Bath 조성 Drift 미검출</td><td>Sampling·3회 반복·제품 Sample Gate</td><td>분석 SOP·Log·보충·교체기준</td></tr><tr><td>고객 Hi-Pot 판정차</td><td>위치·반복·Ramp·Sequence·Arc 통일</td><td>Process Flow·측정 Sequence·조치보고서</td></tr><tr><td>Diffuser Erosion·재사용성 탈락</td><td>상대이동·조도·Particle·EHS 중단 기준</td><td>차기 설계·시험 검증 항목 기준</td></tr><tr><td>Robot Align·Leak·부하·Teaching 고장</td><td>예방·검출 Control·인수 판정 기준</td><td>Parts List·SOP·Check Sheet·OJT</td></tr></tbody></table><h2 id=상세-사례>상세 사례</h2><h3 id=1-고내열-anodizing-공정개발qual>1. 고내열 Anodizing 공정개발·Qual</h3><p>혼산 Upper Electrode 양산조건 재설계와 수산 Susceptor 신규 고온 Qual을 별도 Case로 구성했습니다.</p><p><a href=/posts/oled-anodizing-development/>디스플레이 장비부품 고내열 Anodizing 공정개발·Qual</a></p><h3 id=2-혼산-bath-성분분석보충기준>2. 혼산 Bath 성분분석·보충기준</h3><p>단일 적정값의 검출한계를 성분별 분석·제품 Sample·외부기관 Correlation으로 대체했습니다.</p><p><a href=/posts/mixed-acid-bath-analysis/>혼산 Anodizing Bath 성분분석·보충기준 재설계</a></p><h3 id=3-글로벌-장비사-기술-qual>3. 글로벌 장비사 기술 Qual</h3><p>Etching·Bead Blast·수산 Anodizing·Hi-Pot 조건을 고객 CTQ에 맞춰 재구성하고 기술실사 지적을 조치 완료했습니다.</p><p><a href=/posts/amat-akt-qual/>글로벌 디스플레이 장비사 CVD·PECVD 부품 공정 재구성 및 기술 Qual 획득</a></p><h3 id=4-diffuser-scale-up-실패분석>4. Diffuser Scale-up 실패분석</h3><p>배기 인프라 제약과 고정 진동자 구조가 Cavitation Erosion·Particle·재사용성에 미친 연쇄를 규명했습니다.</p><p><a href=/posts/diffuser-scaleup-failure/>Diffuser 초음파 박리 Scale-up 실패분석 및 R&amp;D 중단 기준</a></p><h3 id=5-진공-이송로봇-fmea표준체계>5. 진공 이송로봇 FMEA·표준체계</h3><p>신규 기종 Failure Mode를 예방·검출 Control로 전환하고 YMC 0→1에서 본테크 반복 Overhaul·Site Setup으로 확장했습니다.</p><p><a href=/posts/robot-overhaul-standardization/>반도체·디스플레이 진공 이송로봇 Overhaul 표준체계 구축 및 현장 셋업</a></p><h2 id=공통-기술자산>공통 기술자산</h2><ul><li>Run Sheet·시험계획·결과보고서·변경점보고서</li><li>공정표준·검사기준·분석 SOP·Sample 채취·Log Sheet</li><li>Process Flow·영문 Qual 자료·기술실사 조치보고서</li><li>Parts List·분해·조립·검사 Manual·Check Sheet</li><li>연구원·생산·해외법인·로봇 작업자 교육·OJT</li></ul></div><footer class=portfolio-article__footer><a class=portfolio-text-link href=/posts/><i data-feather=arrow-left aria-hidden=true></i>
-<span>전체 프로젝트로 돌아가기</span></a></footer></article><aside class=portfolio-article-toc aria-label="이 글의 목차"><div class=portfolio-article-toc__inner><p>이 글의 목차</p><nav id=TableOfContents><ul><li><a href=#ymc-기술연구소신사업-수행범위>YMC 기술연구소·신사업 수행범위</a></li><li><a href=#프로젝트-포트폴리오>프로젝트 포트폴리오</a></li><li><a href=#프로젝트-유형별-method>프로젝트 유형별 Method</a></li><li><a href=#표준문서가-만들어진-순서>표준문서가 만들어진 순서</a></li><li><a href=#상세-사례>상세 사례</a><ul><li><a href=#1-고내열-anodizing-공정개발qual>1. 고내열 Anodizing 공정개발·Qual</a></li><li><a href=#2-혼산-bath-성분분석보충기준>2. 혼산 Bath 성분분석·보충기준</a></li><li><a href=#3-글로벌-장비사-기술-qual>3. 글로벌 장비사 기술 Qual</a></li><li><a href=#4-diffuser-scale-up-실패분석>4. Diffuser Scale-up 실패분석</a></li><li><a href=#5-진공-이송로봇-fmea표준체계>5. 진공 이송로봇 FMEA·표준체계</a></li></ul></li><li><a href=#공통-기술자산>공통 기술자산</a></li></ul></nav></div></aside></div></div><a id=scroll-to-top class=btn href=#main-content aria-label="맨 위로"><i class="fas fa-chevron-circle-up" aria-hidden=true></i></a></section></main></div><footer class=portfolio-footer id=footer><div class="portfolio-container portfolio-footer__grid"><div class=portfolio-footer__brand><a href=/>이재흥</a><p>공정·제조기술 | 설비 검증 | 제조 DX</p></div><nav class=portfolio-footer__nav aria-label="하단 메뉴"><a href=/#about>소개</a>
-<a href=/#experiences>경력</a>
-<a href=/#projects>프로젝트</a>
-<a href=/posts>상세보기</a></nav><address class=portfolio-footer__contact><a class=portfolio-footer__cta href=mailto:wanran1@naver.com>이메일 보내기</a>
-<a href=mailto:wanran1@naver.com>wanran1@naver.com</a>
-<a href=https://github.com/HeungJAELEE target=_blank rel=noopener>github.com/HeungJAELEE</a></address></div><div class="portfolio-container portfolio-footer__bottom"><p>© 2026 Jaeheung Lee.</p></div></footer><script src=/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head><title>YMC 공정개발·기술 Qual·실패분석·로봇 표준화 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/posts/wet-process-standardization/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/wet-process-standardization/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.57956bc56b4081d1f056c2ef62d3e1a3b59fa757559e5fd7e3d61360a4ca2a1f.css" integrity="sha256-V5VrxWtAgdHwVsLvYtPho7Wfp1dVnl/X49YTYKTKKh8=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
+
+
+
+  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
+
+
+
+  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="YMC 공정개발·기술 Qual·실패분석·로봇 표준화">
+<meta property="og:type" content="article">
+<meta property="og:description" content="표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립">
+<meta property="og:url" content="https://heungjaelee.github.io/posts/wet-process-standardization/">
+<meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="YMC 공정개발·기술 Qual·실패분석·로봇 표준화">
+  <meta name="twitter:description" content="혼산·수산 Anodizing, Bath 성분분석, 글로벌 장비사 Qual, Diffuser Scale-up 실패와 진공로봇 FMEA 표준화를 프로젝트 유형별 문제해결 체계로 연결한 YMC 경력 허브">
+<meta name="description" content="표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계 고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립","headline":"YMC 공정개발·기술 Qual·실패분석·로봇 표준화","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/wet-process-standardization/"}</script>
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">본문 바로가기</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="홈">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="글 목록 열기">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>이재흥</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="메뉴"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#about">소개</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">프로젝트</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#experiences">경력</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#skills">핵심 역량</a>
+            </li>
+          
+        
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/#education">교육</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/posts"
+              aria-current="page"
+            >상세보기</a>
+          </li>
+        
+
+        
+          
+
+  
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        한국어
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        
+        <a class="dropdown-item nav-link languages-item" href="/posts/wet-process-standardization">
+            
+            한국어
+        </a>
+        
+        <a class="dropdown-item nav-link languages-item" href="/en/posts/wet-process-standardization">
+            
+            English
+        </a>
+        
+    </div>
+    </li>
+
+        
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
+        </li>
+        <li class="nav-item portfolio-navbar__print-item">
+          <button
+            class="portfolio-navbar__print"
+            type="button"
+            data-portfolio-print
+            data-portfolio-print-mode="project"
+            aria-label="인쇄"
+          >
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span data-portfolio-print-label>인쇄</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "맨 위로 이동");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+      
+      <main id="main-content" tabindex="-1">
+        <section class="content-section portfolio-article-section portfolio-case--route-hub portfolio-case-domain--manufacturing" id="content-section">
+    <div class="content">
+      <div class="portfolio-article-layout">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <div class="portfolio-article__topline">
+            <p class="portfolio-article__eyebrow">경력 사례 안내</p>
+            <span class="portfolio-article__stage portfolio-article__stage--route-hub">사례 모음</span>
+          </div>
+          <h1>YMC 공정개발·기술 Qual·실패분석·로봇 표준화</h1>
+          <p class="portfolio-article__lead">Anodizing·Bath·고객 Qual·Scale-up 실패·진공로봇을 프로젝트 유형별 문제해결 체계로 연결</p>
+          <dl class="portfolio-case-meta">
+            <div>
+              <dt>프로젝트 기간</dt>
+              <dd>2016.03–2021.01</dd>
+            </div>
+            <div>
+              <dt>맥락</dt>
+              <dd>와이엠씨 기술연구소 경력 허브</dd>
+            </div>
+            <div>
+              <dt>담당 범위</dt>
+              <dd>YMC 프로젝트 유형·근거·Method·표준문서 연결 허브</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
+          <header>
+            <h2 id="case-summary-title">프로젝트 핵심 요약</h2>
+          </header>
+          <dl>
+            <div>
+              <dt>과제 정의</dt>
+              <dd>표면처리 개발·Bath 관리·고객 Qual·Scale-up 실패·로봇 신규사업의 상이한 판단체계</dd>
+            </div>
+            <div>
+              <dt>핵심 역할</dt>
+              <dd>DMAIC·Design Gate·Measurement Correlation·근본 원인·FMEA의 과제별 적용</dd>
+            </div>
+            <div>
+              <dt>주요 결과</dt>
+              <dd>고객 Qual·실제품 적용·한국/중국 표준화·중단 기준·로봇 0→1 체계 확립</dd>
+            </div>
+          </dl>
+        </section>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="ymc-기술연구소신사업-수행범위">YMC 기술연구소·신사업 수행범위</h2>
+<ul>
+<li><strong>재직기간:</strong> 2016.03–2021.01</li>
+<li><strong>공정영역:</strong> Etching·Bead Blast·Anodizing·Cleaning·분석·계측</li>
+<li><strong>장비영역:</strong> 반도체·디스플레이 진공 이송로봇 Overhaul·Site Setup</li>
+<li><strong>공통 역할:</strong> 현상·Sample·측정기준 정렬, 4M·Root Cause 분석, 조건시험, 고객 Qual, 표준문서·교육 이관</li>
+</ul>
+<figure class="portfolio-logic-rail portfolio-logic-rail--improvement">
+  <figcaption>
+    <span>YMC Engineering Problem-Solving System</span>
+    <strong>현상·측정·원인·시험·승인·표준화의 폐루프</strong><small>프로젝트 유형별 Method: DMAIC·Design Gate·Correlation·Stop Gate·FMEA</small></figcaption>
+  <ol>
+    <li>
+      <span class="portfolio-logic-rail__index">01</span><b>ISSUE</b><strong>불량·고객 CTQ·고장모드</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">02</span><b>MEASURE</b><strong>Sample·Run Sheet·계측</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">03</span><b>ANALYZE</b><strong>4M·Root Cause·Failure Mode</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">04</span><b>CHANGE</b><strong>조건·분석·검사·구조</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">05</span><b>VERIFY</b><strong>반복·Scale-up·Qual·Site</strong>
+    </li>
+    <li>
+      <span class="portfolio-logic-rail__index">06</span><b>CONTROL</b><strong>표준·검사·Check Sheet·OJT</strong>
+    </li>
+  </ol>
+</figure>
+
+<h2 id="프로젝트-포트폴리오">프로젝트 포트폴리오</h2>
+<table>
+  <thead>
+      <tr>
+          <th>사례</th>
+          <th>문제·요구</th>
+          <th>적용 체계</th>
+          <th>직접 실행</th>
+          <th>완료 결과</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>혼산 Anodizing</td>
+          <td>고온 Crack·Particle·Etch Rate·Hi-Pot</td>
+          <td>DMAIC·4M·대면적 Scale-up</td>
+          <td>조건 Sample·열·Hi-Pot·100→500 mm</td>
+          <td>고객 Qual·실제품 적용·약 1년 안정화</td>
+      </tr>
+      <tr>
+          <td>수산 Anodizing</td>
+          <td>PECVD 신규 고온 사용조건</td>
+          <td>설계대안·내부 Screening·고객 진공 Qual</td>
+          <td>450℃×24 h×5 Cycle·Sample Gate</td>
+          <td>고객 Qual·실제품 적용·약 1년 사용</td>
+      </tr>
+      <tr>
+          <td>혼산 Bath 분석</td>
+          <td>정상 적정값·제품 피막성능 저하</td>
+          <td>DMAIC·Measurement Correlation</td>
+          <td>주 2회·3회 반복·외부기관 3곳·한국/중국</td>
+          <td>분석·보충·제품 Sample·교체판정 기준</td>
+      </tr>
+      <tr>
+          <td>CVD·PECVD 기술 Qual</td>
+          <td>기존 공정·고객 Spec·Hi-Pot 판정 Gap</td>
+          <td>DMAIC·공정별 5M</td>
+          <td>Process Flow·7회 측정·3회 재시험</td>
+          <td>기술실사 지적 1건 조치 완료·약 1년 납품</td>
+      </tr>
+      <tr>
+          <td>Diffuser Scale-up</td>
+          <td>박리시간 단축·Erosion·Particle·재사용성</td>
+          <td>근본 원인 흐름·중단 기준</td>
+          <td>Lab·실물·조도·현미경·SEM–EDS</td>
+          <td>Scale-up 중단·기존공정 회귀·차기 Gate</td>
+      </tr>
+      <tr>
+          <td>진공로봇 Overhaul</td>
+          <td>신규 기종 Parts·조립·검사기준 부재</td>
+          <td>FMEA·Control Plan·Standard Work</td>
+          <td>FARO·Helium Leak·부하 Cycle·Teaching</td>
+          <td>초도 Qual·약 5대·반복 Overhaul·Site Setup</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="프로젝트-유형별-method">프로젝트 유형별 Method</h2>
+<table>
+  <thead>
+      <tr>
+          <th>프로젝트 유형</th>
+          <th>적용 Method</th>
+          <th>핵심 질문</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>기존 공정 성능저하</td>
+          <td>DMAIC·4M</td>
+          <td>어느 원인과 공정조건이 CTQ를 저하시켰는가</td>
+      </tr>
+      <tr>
+          <td>신규 고온 피막</td>
+          <td>Design Gate·Screening</td>
+          <td>어떤 설계대안이 내부·고객 환경을 통과하는가</td>
+      </tr>
+      <tr>
+          <td>Bath 관리체계</td>
+          <td>Measurement Correlation</td>
+          <td>분석값과 실제 제품성능이 같은 방향인가</td>
+      </tr>
+      <tr>
+          <td>고객 기술 Qual</td>
+          <td>Process Change·Correlation</td>
+          <td>기존 공정과 고객 Spec의 Gap을 어떻게 조치 완료하는가</td>
+      </tr>
+      <tr>
+          <td>Scale-up 실패</td>
+          <td>근본 원인 흐름·중단 기준</td>
+          <td>어느 구조·품질·환경·안전 조건에서 중단해야 하는가</td>
+      </tr>
+      <tr>
+          <td>장비 Overhaul</td>
+          <td>FMEA·Control Plan</td>
+          <td>잠재고장을 어떤 예방·검출 Check로 차단하는가</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="표준문서가-만들어진-순서">표준문서가 만들어진 순서</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>현장불량·고객 CTQ·VOC
+</span></span><span style="display:flex;"><span>→ Sample·Run Sheet·측정기준 기준화
+</span></span><span style="display:flex;"><span>→ 4M·Failure Mode·Root Cause 도출
+</span></span><span style="display:flex;"><span>→ 공정조건·분석법·검사 Sequence·설비구조 변경
+</span></span><span style="display:flex;"><span>→ 반복시험·Scale-up·고객 Qual·Site Acceptance
+</span></span><span style="display:flex;"><span>→ 위험항목·Control Plan 개정
+</span></span><span style="display:flex;"><span>→ Run Sheet·SOP·QCP·검사기준·Check Sheet·교육자료
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>발견·변경 계기</th>
+          <th>위험항목·Control 개정</th>
+          <th>표준문서 결과</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>고온 Crack·대면적 피막산포</td>
+          <td>두께별 열시험·Racking·위치별 측정</td>
+          <td>Run Sheet·공정표준·검사기준</td>
+      </tr>
+      <tr>
+          <td>Bath 조성 Drift 미검출</td>
+          <td>Sampling·3회 반복·제품 Sample Gate</td>
+          <td>분석 SOP·Log·보충·교체기준</td>
+      </tr>
+      <tr>
+          <td>고객 Hi-Pot 판정차</td>
+          <td>위치·반복·Ramp·Sequence·Arc 통일</td>
+          <td>Process Flow·측정 Sequence·조치보고서</td>
+      </tr>
+      <tr>
+          <td>Diffuser Erosion·재사용성 탈락</td>
+          <td>상대이동·조도·Particle·EHS 중단 기준</td>
+          <td>차기 설계·시험 검증 항목 기준</td>
+      </tr>
+      <tr>
+          <td>Robot Align·Leak·부하·Teaching 고장</td>
+          <td>예방·검출 Control·인수 판정 기준</td>
+          <td>Parts List·SOP·Check Sheet·OJT</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="상세-사례">상세 사례</h2>
+<h3 id="1-고내열-anodizing-공정개발qual">1. 고내열 Anodizing 공정개발·Qual</h3>
+<p>혼산 Upper Electrode 양산조건 재설계와 수산 Susceptor 신규 고온 Qual을 별도 Case로 구성했습니다.</p>
+<p><a href="/posts/oled-anodizing-development/">디스플레이 장비부품 고내열 Anodizing 공정개발·Qual</a></p>
+<h3 id="2-혼산-bath-성분분석보충기준">2. 혼산 Bath 성분분석·보충기준</h3>
+<p>단일 적정값의 검출한계를 성분별 분석·제품 Sample·외부기관 Correlation으로 대체했습니다.</p>
+<p><a href="/posts/mixed-acid-bath-analysis/">혼산 Anodizing Bath 성분분석·보충기준 재설계</a></p>
+<h3 id="3-글로벌-장비사-기술-qual">3. 글로벌 장비사 기술 Qual</h3>
+<p>Etching·Bead Blast·수산 Anodizing·Hi-Pot 조건을 고객 CTQ에 맞춰 재구성하고 기술실사 지적을 조치 완료했습니다.</p>
+<p><a href="/posts/amat-akt-qual/">글로벌 디스플레이 장비사 CVD·PECVD 부품 공정 재구성 및 기술 Qual 획득</a></p>
+<h3 id="4-diffuser-scale-up-실패분석">4. Diffuser Scale-up 실패분석</h3>
+<p>배기 인프라 제약과 고정 진동자 구조가 Cavitation Erosion·Particle·재사용성에 미친 연쇄를 규명했습니다.</p>
+<p><a href="/posts/diffuser-scaleup-failure/">Diffuser 초음파 박리 Scale-up 실패분석 및 R&amp;D 중단 기준</a></p>
+<h3 id="5-진공-이송로봇-fmea표준체계">5. 진공 이송로봇 FMEA·표준체계</h3>
+<p>신규 기종 Failure Mode를 예방·검출 Control로 전환하고 YMC 0→1에서 본테크 반복 Overhaul·Site Setup으로 확장했습니다.</p>
+<p><a href="/posts/robot-overhaul-standardization/">반도체·디스플레이 진공 이송로봇 Overhaul 표준체계 구축 및 현장 셋업</a></p>
+<h2 id="공통-기술자산">공통 기술자산</h2>
+<ul>
+<li>Run Sheet·시험계획·결과보고서·변경점보고서</li>
+<li>공정표준·검사기준·분석 SOP·Sample 채취·Log Sheet</li>
+<li>Process Flow·영문 Qual 자료·기술실사 조치보고서</li>
+<li>Parts List·분해·조립·검사 Manual·Check Sheet</li>
+<li>연구원·생산·해외법인·로봇 작업자 교육·OJT</li>
+</ul>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <a class="portfolio-text-link" href="/posts/">
+            <i data-feather="arrow-left" aria-hidden="true"></i>
+            <span>전체 프로젝트로 돌아가기</span>
+          </a>
+        </footer>
+      </article>
+      
+        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
+          <div class="portfolio-article-toc__inner">
+            <p>이 글의 목차</p>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ymc-기술연구소신사업-수행범위">YMC 기술연구소·신사업 수행범위</a></li>
+    <li><a href="#프로젝트-포트폴리오">프로젝트 포트폴리오</a></li>
+    <li><a href="#프로젝트-유형별-method">프로젝트 유형별 Method</a></li>
+    <li><a href="#표준문서가-만들어진-순서">표준문서가 만들어진 순서</a></li>
+    <li><a href="#상세-사례">상세 사례</a>
+      <ul>
+        <li><a href="#1-고내열-anodizing-공정개발qual">1. 고내열 Anodizing 공정개발·Qual</a></li>
+        <li><a href="#2-혼산-bath-성분분석보충기준">2. 혼산 Bath 성분분석·보충기준</a></li>
+        <li><a href="#3-글로벌-장비사-기술-qual">3. 글로벌 장비사 기술 Qual</a></li>
+        <li><a href="#4-diffuser-scale-up-실패분석">4. Diffuser Scale-up 실패분석</a></li>
+        <li><a href="#5-진공-이송로봇-fmea표준체계">5. 진공 이송로봇 FMEA·표준체계</a></li>
+      </ul>
+    </li>
+    <li><a href="#공통-기술자산">공통 기술자산</a></li>
+  </ul>
+</nav>
+          </div>
+        </aside>
+      
+      </div>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/">이재흥</a>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+
+    <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
+      <a href="/#about">소개</a>
+      <a href="/#experiences">경력</a>
+      <a href="/#projects">프로젝트</a>
+      <a href="/posts">상세보기</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      
+        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
+      
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee.</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>
