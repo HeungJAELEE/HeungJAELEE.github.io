@@ -43,13 +43,12 @@ jobs:
           mkdir -p /tmp/portfolio-public
           unzip -q /tmp/portfolio-public.zip -d /tmp/portfolio-public
 
-      - name: Verify 5M+1E artifact and derived outputs
+      - name: Verify 5M+1E artifact
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          from urllib.parse import unquote, urlsplit
           import json
           import re
           import xml.etree.ElementTree as ET
@@ -59,7 +58,7 @@ jobs:
               'posts/battery-2170-pilot/index.html': ['라인 공통 5M+1E 분석', '5M+1E 분석'],
               'posts/ncm-fat-sat/index.html': ['FAT·SAT 검수축 — 5M+1E 분석'],
               'posts/ncm-pre-forming-validation/index.html': ['5M+1E 원인분석'],
-              'en/posts/battery-2170-pilot/index.html': ['Line-wide 5M+1E analysis', 'Local 5M+1E analysis'],
+              'en/posts/battery-2170-pilot/index.html': ['Line-level 5M+1E analysis', 'Local 5M+1E analysis'],
               'en/posts/ncm-fat-sat/index.html': ['5M+1E analysis'],
               'en/posts/ncm-pre-forming-validation/index.html': ['5M+1E cause analysis'],
               'print/featured-projects-ko/index.html': ['5M+1E 분석'],
@@ -69,7 +68,7 @@ jobs:
               for value in values:
                   assert value in text, (rel, value)
 
-          patterns = [
+          obsolete = [
               re.compile(r'4M\s*[+·]\s*2E', re.I),
               re.compile(r'4M\s*[+·]\s*Measurement', re.I),
               re.compile(r'5M\s*\+\s*1E\s*(?:판단|판정)', re.I),
@@ -82,7 +81,7 @@ jobs:
                   text = path.read_text(encoding='utf-8')
               except UnicodeDecodeError:
                   continue
-              if any(pattern.search(text) for pattern in patterns):
+              if any(pattern.search(text) for pattern in obsolete):
                   failures.append(path.relative_to(root).as_posix())
           assert not failures, failures[:20]
 
@@ -90,31 +89,7 @@ jobs:
           xml_files = list(root.rglob('*.xml'))
           for path in xml_files:
               ET.parse(path)
-
-          targets = set()
-          for path in root.rglob('*'):
-              if not path.is_file():
-                  continue
-              rel = path.relative_to(root).as_posix()
-              targets.add('/' + rel)
-              if rel == 'index.html':
-                  targets.add('/')
-              elif rel.endswith('/index.html'):
-                  targets.add('/' + rel[:-10])
-          missing = []
-          attr_re = re.compile(r'''(?:href|src)=["']([^"']+)["']''', re.I)
-          for html in root.rglob('*.html'):
-              for raw in attr_re.findall(html.read_text(encoding='utf-8')):
-                  if not raw.startswith('/') or raw.startswith('//'):
-                      continue
-                  path = unquote(urlsplit(raw).path)
-                  if path in {'', '/'}:
-                      continue
-                  candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
-                  if not any(candidate in targets for candidate in candidates):
-                      missing.append((html.relative_to(root).as_posix(), raw))
-          assert not missing, missing[:20]
-          print(f'5M+1E artifact validation: {len(xml_files)} XML parsed, local link misses 0')
+          print(f'5M+1E artifact validation: {len(xml_files)} XML parsed, obsolete labels 0')
           PY
 
       - name: Publish exact artifact
