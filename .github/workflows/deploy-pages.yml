@@ -26,6 +26,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from urllib.parse import unquote, urlsplit
+          from html import unescape
           import json
           import re
           import xml.etree.ElementTree as ET
@@ -89,7 +90,7 @@ jobs:
               for raw in attr_re.findall(text):
                   if not raw.startswith('/') or raw.startswith('//'):
                       continue
-                  path = unquote(urlsplit(raw).path)
+                  path = unquote(urlsplit(unescape(raw)).path)
                   if path in {'', '/'}:
                       continue
                   candidates = {path, path + '/index.html'} if not path.endswith('/') else {path, path + 'index.html'}
