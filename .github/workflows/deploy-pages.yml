@@ -33,16 +33,20 @@ jobs:
           root = Path('.')
           ko_page = (root / 'posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
           en_page = (root / 'en/posts/ai-authority-evidence-plane/index.html').read_text(encoding='utf-8')
+          ko_learning = (root / 'posts/ai-seolbi-learning-platform/index.html').read_text(encoding='utf-8')
+          en_learning = (root / 'en/posts/ai-seolbi-learning-platform/index.html').read_text(encoding='utf-8')
           ko_home = (root / 'index.html').read_text(encoding='utf-8')
           en_home = (root / 'en/index.html').read_text(encoding='utf-8')
           deck = (root / 'print/featured-projects-ko/index.html').read_text(encoding='utf-8')
 
           for text, values in [
-              (ko_page, ['제조·공정기술 Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
-              (en_page, ['Manufacturing Agent OS', 'agent-os-manufacturing-lineage.svg', 'Authoritative Readback']),
-              (ko_home, ['[Agent OS]', '생산기술 판단 AI Copilot', '/posts/ai-authority-evidence-plane/']),
-              (en_home, ['[Agent OS]', 'Manufacturing Decision AI Copilot', '/en/posts/ai-authority-evidence-plane/']),
-              (deck, ['생산기술 판단 AI Copilot', '생산기술 판단 AI Copilot — 5Why']),
+              (ko_page, ['제조·공정기술 의사결정 보조 시스템', 'agent-os-manufacturing-lineage.svg', '실제 상태 확인']),
+              (en_page, ['Manufacturing Decision-Support System', 'agent-os-manufacturing-lineage.svg', 'actual-state verification']),
+              (ko_learning, ['실제 학습 기능', '실기 필답 문제풀이', 'practical-written-answer.png']),
+              (en_learning, ['Product features', 'Practical written practice', 'practical-written-answer.png']),
+              (ko_home, ['[의사결정 보조 시스템]', '생산기술 판단 AI 의사결정 보조 도구', '/posts/ai-authority-evidence-plane/']),
+              (en_home, ['[Decision Support]', 'Manufacturing AI Decision Support', '/en/posts/ai-authority-evidence-plane/']),
+              (deck, ['AI Agent 운영 플랫폼 설계', '5WHY 요약', '결과물']),
           ]:
               for value in values:
                   assert value in text, value
@@ -51,6 +55,15 @@ jobs:
           assert '저사양 PC용 LLM WIKI' not in ko_home
           assert 'Low-Spec PC LLM Wiki' not in en_home
           assert (root / 'images/projects/agent-os-manufacturing-lineage.svg').is_file()
+          for name in [
+              'learning-analytics.png',
+              'written-theory.png',
+              'written-mock.png',
+              'practical-written-theory.png',
+              'practical-written-answer.png',
+              'practical-work-guide.png',
+          ]:
+              assert (root / 'images/projects/seolbi-learning' / name).is_file(), name
           json.loads((root / 'index.json').read_text(encoding='utf-8'))
 
           xml_files = list(root.rglob('*.xml'))
