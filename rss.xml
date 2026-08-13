@@ -1,114 +1,1175 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
-    <link>https://heungjaelee.github.io/</link>
-    <description>배터리·반도체 제조 현장에서 수행한 공정 안정화, FAT/SAT, 품질 개선과 제조 DX 사례를 정리한 이재흥의 포트폴리오</description>
-    <atom:link href="https://heungjaelee.github.io/rss.xml" rel="self" type="application/rss&#43;xml" /><item>
-      <title>2170 조립라인 실질 양품수율 안정화</title>
-      <link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid>
-      <description>설비 표시수율과 사후 전수검사 양품수율이 달라 실제 공정불량과 검사 오판정을 같은 기준으로 다시 나눠야 했습니다. 팀은 월평균 실질 양품수율을 약 40%에서 98.7%로 안정화했고, 저는 MSA 기준·SOP·QCP·P-FMEA·검사 기준을 직접 개정했습니다.</description>
-    </item><item>
-      <title>4695 배터리 조립라인 주요 설비 정상화 및 제한 생산 체제 구축</title>
-      <link>https://heungjaelee.github.io/posts/battery-4695-production-transition/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-4695-production-transition/</guid>
-      <description>제품개발과 SAT는 끝났지만 실제 신제품 규격이 Laser·AI Vision·X-Ray 조건에 반영되지 않았고, 설비 간 연동과 반복동작이 불안정해 수동운전과 임시 Recipe에 의존했습니다. 100 Cell×2 Lot 전공정 재시험과 최종 50 Cell 연속 생산으로 제한 생산 체제를 검증하고 관련 책임자 승인과 현장 표준문서 인계를 완료했습니다.</description>
-    </item><item>
-      <title>25P LFP Power Cell DMADV·Taguchi 기반 NPI 공정개발 및 고객 Qual</title>
-      <link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid>
-      <description>전해액·Clad Tab·Turn 수·Can 규격이 함께 바뀐 신규 Cell을 기존 2170 라인에 적용해 PROTO부터 MP 기술 승인까지 공정 조건을 개발했습니다. 약 2만 Cell 시양산과 고객 Qual·CCB.PO 기술 승인을 완료하고 공정·검사기준과 양산 이관문서를 확립했습니다.</description>
-    </item><item>
-      <title>차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)</title>
-      <link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid>
-      <description>전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다. 약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.</description>
-    </item><item>
-      <title>NCM 각형 Pilot Line 인수·초기 안정화</title>
-      <link>https://heungjaelee.github.io/posts/ncm-fat-sat/</link>
-      <guid>https://heungjaelee.github.io/posts/ncm-fat-sat/</guid>
-      <description>설비업체의 기능 완료와 실제 Pilot 생산 가능 상태 간 차이 약 5일·약 1,000 Cell Pilot Run, 초기 조립 결과 약 95%, SOP·QCP·검사·운영기준 이관</description>
-    </item><item>
-      <title>원통형 배터리 대체 Can 공급사 이원화 및 Pilot 전환 검증</title>
-      <link>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</link>
-      <guid>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</guid>
-      <description>기존 Can 공급사 한 곳만으로 계획 생산물량을 대응하기 어려웠고, 후보품의 합금·두께·공차·Burr 차이가 조립·밀봉·용접과 Vent 안전성에 미치는 영향을 확인해야 했습니다. 200 Cell×3개 Lot, 총 600 Cell과 공식 UN38.3를 통과하고 2025년 3월 Pilot 생산분과 구매발주를 대체 Can으로 전환했습니다.</description>
-    </item><item>
-      <title>NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증</title>
-      <link>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</link>
-      <guid>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</guid>
-      <description>Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관</description>
-    </item><item>
-      <title>반도체·디스플레이 진공 이송로봇 Overhaul 표준체계 구축 및 현장 셋업</title>
-      <link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link>
-      <guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid>
-      <description>신규 기종 Parts List·조립·검사기준 부재에 따른 정렬오차·Leak·부하 Alarm·Teaching 오류 잠재 YMC 초도 Qual·동일 Model 약 5대 출하, 본테크 반복 Overhaul·OJT·국내외 Site Setup 확장</description>
-    </item><item>
-      <title>디스플레이 장비부품 고내열 Anodizing 공정개발·Qual</title>
-      <link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link>
-      <guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid>
-      <description>OLED 공정온도 상승·PECVD 신규 고온 요구에 따른 Crack·Particle·Hi-Pot·대면적 균일성 재설계 혼산·수산 고객 Qual·실제품 적용, Run Sheet·공정표준·검사기준 개정</description>
-    </item><item>
-      <title>혼산 Anodizing Bath 성분분석·보충기준 재설계</title>
-      <link>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</link>
-      <guid>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</guid>
-      <description>정상 적정값과 건욕 경과 후 피막성능 저하의 불일치 성분별 분석·보충·제품 Sample·Bath 교체판정 기준 확립, SOP·Log·교육 이관</description>
-    </item><item>
-      <title>글로벌 디스플레이 장비사 CVD·PECVD 부품 공정 재구성 및 기술 Qual 획득</title>
-      <link>https://heungjaelee.github.io/posts/amat-akt-qual/</link>
-      <guid>https://heungjaelee.github.io/posts/amat-akt-qual/</guid>
-      <description>기존 공정·검사조건과 글로벌 장비사 제품군별 Spec·Hi-Pot 판정기준 Gap 7회 반복·3회 재시험 기반 기술실사 지적 1건 조치 완료, 기술 Qual·약 1년 후속 납품</description>
-    </item><item>
-      <title>Diffuser 초음파 박리 Scale-up 실패분석 및 R&amp;D 중단 기준</title>
-      <link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link>
-      <guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid>
-      <description>배기 인프라 미구축에 따른 약액 배제, 물+초음파 Scale-up의 Erosion·Particle·재사용성 탈락 Scale-up 중단·기존공정 회귀, 상대이동·표면손상·재사용·EHS 필수 Gate 제정</description>
-    </item><item>
-      <title>NCM Pilot Line 생산이력 추적 자동화 도구 개발</title>
-      <link>https://heungjaelee.github.io/posts/cell-production-tracking/</link>
-      <guid>https://heungjaelee.github.io/posts/cell-production-tracking/</guid>
-      <description>공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일 10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계</description>
-    </item><item>
-      <title>GIGA Press 가상화 및 AI 생산기술 의사결정 보조 시스템 설계</title>
-      <link>https://heungjaelee.github.io/posts/giga-press-dx/</link>
-      <guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid>
-      <description>PLC·가상설비·관제·이력 데이터 분산으로 병목·증설 판단의 공통 데이터 기준이 단절 Factory I/O→PLC→OPC UA→SCADA·SQLite→Web 정상 흐름 통합 시연 및 읽기 전용 상태→검토 제안 구조 정립</description>
-    </item><item>
-      <title>기존 로봇 데이터 연동형 자동차 조립 Digital Twin 시스템 구축</title>
-      <link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link>
-      <guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid>
-      <description>Robot 작업 프로그램·좌표·I/O 조건이 티치펜던트와 개별 JSON에 분리돼 PC 작업순서 확인·수정과 실시간 설비상태·3D Twin 연결이 어려움 QR→Robot A→Vision 1→Robot B→Vision 2→Robot C 물리 Cell 시연, 4개 PC-HMI·JSON Round-trip·Queue/Fault·MQTT/DB·Web Twin 공개 코드 확장</description>
-    </item><item>
-      <title>용접실기품 Vision AI 현장 조건 차이 개선 및 현장형 판정기준 설계</title>
-      <link>https://heungjaelee.github.io/posts/welding-vision-ai/</link>
-      <guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid>
-      <description>AI-Hub Baseline의 직접 촬영품 Recall 15.84%·FPR 35.87% 현장 조건 차이 증강 후 Recall 85.15%, 2-Model F1 96.04%, Threshold 0.40 FN 0·Recall 100%, FastAPI·PWA 시연</description>
-    </item><item>
-      <title>전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology)</title>
-      <link>https://heungjaelee.github.io/posts/ontology-construction/</link>
-      <guid>https://heungjaelee.github.io/posts/ontology-construction/</guid>
-      <description>분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 변경 문서만 반영하는 RAG 검색, LFP 원인 분석·SIB 사양 등 Gemma 12B 기반 초안 3건 생성</description>
-    </item><item>
-      <title>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결</title>
-      <link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid>
-      <description>공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적 전부터 시간·Lot·Tag·판정기준을 반복 대조해야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화</description>
-    </item><item>
-      <title>설비보전기사 수험생을 위한 학습 마스터북</title>
-      <link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid>
-      <description>자격시험 자료는 정답·이론·이미지 권리가 서로 다른 근거에 있어 AI가 자연스럽게 채우면 잘못된 학습을 만들 수 있습니다. 근거가 확인된 항목만 공개하고 충돌하거나 권리가 불분명한 항목은 검토 보류로 유지하는 수험생용 마스터북을 운영하고 있습니다.</description>
-    </item><item>
-      <title>실업급여 질문을 정리한 안내 가이드북</title>
-      <link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid>
-      <description>퇴사 사유, 피보험기간, 서류와 개인 통지 내용을 함께 확인해야 공식 자격 판단에 필요한 조건을 정리할 수 있습니다. 사용자가 결론을 바로 받기보다 확인할 사실과 서류, 공식 경로를 찾을 수 있는 가이드북을 운영하고 있습니다.</description>
-    </item><item>
-      <title>제조 현장 맞춤형 AI 모델링·도입 가이드북 구축</title>
-      <link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link>
-      <guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid>
-      <description>정제된 예제·Random Split·Accuracy 중심 학습만으로는 Product·Lot·시간·설비조건이 변하는 제조현장의 미검·과검 리스크 판단 곤란 GitHub 연구 아카이브와 실행 Skeleton, 제조 AI 도입 5단계 검토 기준 및 다음 재현·평가·현장 병행 검증 기준 묶음 정의</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/</link><description>Recent content on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/rss.xml" rel="self" type="application/rss+xml"/><item><title>혼산 Bath 공정분석 및 관리기준 수립</title><link>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</link><pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;항목&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;기간&lt;/td&gt;
+&lt;td&gt;2017.07–2018.06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;대상&lt;/td&gt;
+&lt;td&gt;OLED 장비부품용 혼산 Anodizing Bath&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;초기 현상&lt;/td&gt;
+&lt;td&gt;건욕 약 3개월 후 Etch Rate·Particle·Crack·외관·Hi-Pot 이상 재발&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;직접 역할&lt;/td&gt;
+&lt;td&gt;분석 Log·제품불량 대조, Sampling 주기 개정, 성분별 반복분석, 외부기관 Correlation, 한국 적용·중국 재검증·교육&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;완료 결과&lt;/td&gt;
+&lt;td&gt;분석법·보충판정·제품 Sample Gate·Bath 교체판정 기준 재설계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;기존 관리표의 적정값은 정상범위였지만 제품 피막성능은 사용기간에 따라 저하됐습니다. 단일 중화적정값을 초기 조성비로 환산하는 방식이 &lt;strong&gt;성분별 실제 소모속도 차이와 누적 조성 Drift를 검출하지 못한 것&lt;/strong&gt;이 핵심 문제였습니다.&lt;/p&gt;</description></item><item><title>2170 Can 공급사 이원화 프로젝트</title><link>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</guid><description>&lt;h2 id="프로젝트-배경과-목표"&gt;프로젝트 배경과 목표&lt;/h2&gt;
+&lt;p&gt;생산 물량을 기존 Can 공급사 한 곳에만 의존하기 어려워 대체 공급사를 검증했습니다. 후보 Can은 기존품과 합금 성분, 바닥 두께, 공차, Burr, 표면 상태가 달랐습니다. 단품 치수가 허용 범위에 들어와도 이 차이가 Beading·Crimping 형상, 밀봉, Can–Cap Laser Welding, Vent 안전성에 미치는 영향을 함께 확인했습니다.&lt;/p&gt;
+&lt;p&gt;기술팀 공정검증 메인 담당으로 도면·성적서 검토, 입고검사 기준, 기존 조립설비의 조건 재설정, Sample Cell 제작, 절단·해체, 사내 품질·안전시험과 Cell 성능평가를 연결했습니다. 구매팀은 공급사·견적·발주, 품질팀은 입고·출하판정과 공식 시험보고서, 전지팀은 Formation·용량·수명 평가, 생산팀은 Lot별 Sample 생산을 담당했습니다.&lt;/p&gt;</description></item><item><title>Cell 생산이력 추적 도구</title><link>https://heungjaelee.github.io/posts/cell-production-tracking/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/cell-production-tracking/</guid><description>&lt;section class="portfolio-project-contract" aria-label="NCM Pilot Line 생산이력 추적 자동화 도구 프로젝트 사실표"&gt;
+&lt;dl&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 유형&lt;/dt&gt;
+&lt;dd&gt;현장 적용 제조 데이터 활용&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;개발 기간&lt;/dt&gt;
+&lt;dd&gt;약 3주 · 직접 개발&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;사용 기술&lt;/dt&gt;
+&lt;dd&gt;Excel Power Query · VBA&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;연결 Key&lt;/dt&gt;
+&lt;dd&gt;Cell S/N · J/R · 자재 Lot · 공정시각&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;검색 성능&lt;/dt&gt;
+&lt;dd&gt;Cell당 약 5–10초 · 10개 Cell 약 3분&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;업무 결과&lt;/dt&gt;
+&lt;dd&gt;약 3일 → 보고서 포함 약 반나절 · 현장 인계&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;/section&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--system"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;데이터 취합 · 관계 기준 정리 · VBA&lt;/span&gt;
+&lt;strong&gt;파편화된 공정기록을 Cell S/N 기준 생산이력 추적으로 전환&lt;/strong&gt;&lt;small&gt;공정별 MES·Excel 파일을 유지한 채 Power Query 취합, 관계 기준 정리, VBA 일괄검색과 원본대조 흐름을 구축&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;기존&lt;/b&gt;&lt;strong&gt;3주 자료·10개 Cell 약 3일&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;취합&lt;/b&gt;&lt;strong&gt;열구조 정규화·새로고침&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;연결&lt;/b&gt;&lt;strong&gt;S/N→J/R→Lot→Roll&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;검색&lt;/b&gt;&lt;strong&gt;VBA 일괄검색·결과표&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;확인&lt;/b&gt;&lt;strong&gt;S/N·Lot·시각 원본대조&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;활용&lt;/b&gt;&lt;strong&gt;검색 3분·보고 반나절&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/cell-production-tracking-flow.svg"
+alt="공정별 MES와 Excel 파일을 Power Query로 취합하고 Cell S/N에서 J/R·자재 Lot·극판 Roll·조립·검사·Formation까지 연결한 생산이력 추적 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;생산이력 연동 흐름&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;Cell S/N 기반 생산이력 데이터 연동&lt;/strong&gt;
+&lt;span&gt;Power Query로 공정별 파일을 취합하고 VBA 검색화면에서 Cell S/N을 입력해 극판 Roll부터 Formation까지 연속 조회&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="프로젝트-배경과-목표"&gt;프로젝트 배경과 목표&lt;/h2&gt;
+&lt;p&gt;NCM Pilot Line에는 극판·조립·검사·Formation 공정별 MES와 Excel 기록이 존재했지만, 특정 Cell 한 개의 전체 제조이력을 연속 조회하는 기능은 없었습니다.&lt;/p&gt;</description></item><item><title>Short 방지를 위한 신규 공정 개발</title><link>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</guid><description>&lt;h2 id="프로젝트-배경-및-문제-정의"&gt;프로젝트 배경 및 문제 정의&lt;/h2&gt;
+&lt;p&gt;NCM Pilot 초기 생산에서 초음파 Pre-Welding 후 &lt;strong&gt;양극 무지부 파단, 음극 Heavy Edge 주변 활물질 탈락과 Short&lt;/strong&gt;가 반복됐습니다. 손상을 줄이기 위해 용접조건을 완화하면 필요한 접합강도까지 낮아지는 Trade-off가 발생했고, 수작업 Pre-Forming은 작업자마다 위치·압력·R 형상이 달라졌습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;공정 판정:&lt;/strong&gt; 용접 강도와 손상 방지를 맞바꾸는 조건 타협은 제외했습니다. Pre-Welding 요구조건을 유지한 상태에서 전극별 손상기전을 분리하고, 성형 위치와 형상을 Pilot Jig로 통제하는 방향을 채택했습니다.&lt;/p&gt;
+&lt;p&gt;직접 수행범위는 손상 재현과 해체분석, 양극·음극 원인분리, Pilot Jig 개념·도면과 R 형상·성형위치 결정, Sample 제작·검사, 공정문서·교육과 양산설비 RFQ 작성입니다.&lt;/p&gt;</description></item><item><title>2170 Tabless 셀 개발 (Pilot Lv)</title><link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 Lead Tab을 대체해 극판과 Collector를 넓은 면적으로 연결하는 2170 Tabless 구조 A Sample 제작&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;현재 완료 Gate:&lt;/strong&gt; PROTO A Sample 제조·Cell 평가 완료&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;제조 제약:&lt;/strong&gt; Tabless 전용 설비·Jig 부재, 기존 4695 Laser 설비와 수작업을 조합해야 하는 조건&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;핵심 CTQ:&lt;/strong&gt; 접합상태, 내부 Beam 유입·Separator 손상, 절연·Short, IR·Formation·용량·수명&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 선행 제조공정 설계, 4M 위험분석, DFMEA, 3D Print 임시 Jig, Laser·조립조건, 절단·해체와 Cell 평가&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 100개 Trial에서 Failure Mode를 압축 분리하고 기능 Sample 5개의 제작·기능 타당성 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+&lt;strong&gt;PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환&lt;/strong&gt;&lt;small&gt;전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·DFMEA와 Cell 평가를 완료했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample 목표·CTQ&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;접합·Beam·Short 기준&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M 위험·Failure Mode&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig·Laser·조립 Trial&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;약 100 Trial·기능 5개&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
+alt="PROTO A Sample Gate에서 DMADV, 4M 위험분석과 DFMEA를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 PROTO 제조 PoC&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+&lt;span&gt;A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, 불량 유형별 근본 원인과 Jig·Laser·조립 조건을 연결해 기능 Sample 5개까지 검증했습니다.&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="iatf-16949-기반-개발품질-gate와-현재-위치"&gt;IATF 16949 기반 개발품질 Gate와 현재 위치&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;품질 단계&lt;/th&gt;
+&lt;th&gt;사내 Sample·승인&lt;/th&gt;
+&lt;th&gt;기술 목표&lt;/th&gt;
+&lt;th&gt;Tabless 프로젝트 상태&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;신규 구조의 제작성, 안전 CTQ와 기본 Cell 기능 확인&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;완료 — 기능 Sample 5개 Cell 평가&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B·C Sample&lt;/td&gt;
+&lt;td&gt;전용 Jig·설비, 반복성·검사 재현성과 생산성 검증&lt;/td&gt;
+&lt;td&gt;차후 설계 반영 사항으로 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+&lt;td&gt;Pilot 조건의 기술 양산 승인&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;양산 개시&lt;/td&gt;
+&lt;td&gt;승인조건의 정규 생산 운영&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Tabless 프로젝트의 목표는 PROTO 단계에서 &lt;strong&gt;신규 구조를 실제 Cell로 구현하고 안전·기능 타당성을 확인하는 것&lt;/strong&gt;이었습니다. 시험 결과는 PILOT B·C Sample의 전용 Jig·설비·검사 요구사항으로 이관했습니다.&lt;/p&gt;</description></item><item><title>4695 조립 라인 정상화 및 양산 체제 구축</title><link>https://heungjaelee.github.io/posts/battery-4695-production-transition/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-4695-production-transition/</guid><description>&lt;section class="portfolio-project-contract" aria-label="4695 배터리 조립라인 정상화 및 제한 생산 체제 구축 사실표"&gt;
+&lt;dl&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 단계&lt;/dt&gt;
+&lt;dd&gt;양산 준비·제한 생산 체제 구축&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;수행 기간&lt;/dt&gt;
+&lt;dd&gt;2025.02–2025.09&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;역할&lt;/dt&gt;
+&lt;dd&gt;기술팀 메인 담당&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;핵심 책임&lt;/dt&gt;
+&lt;dd&gt;Laser 3공정 최적화·검사/측정 기준 재확립&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;검증 규모&lt;/dt&gt;
+&lt;dd&gt;100 Cell × 2 Lot&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;최종 결과&lt;/dt&gt;
+&lt;dd&gt;50 Cell 전공정 연속 생산·제한 생산 승인&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;/section&gt;
+&lt;h2 id="프로젝트-배경-및-목표"&gt;프로젝트 배경 및 목표&lt;/h2&gt;
+&lt;p&gt;제품 개발과 설비 SAT 완료 후 신제품을 투입하자 제품 규격과 설비 조건·검사 기준의 불일치가 확인됐습니다. 자동 운전이 전 공정으로 이어지지 않아 작업자는 유닛별 수동 조작과 임시 Recipe에 의존했고, 용접·검사·형상 품질의 산포가 반복됐습니다.&lt;/p&gt;</description></item><item><title>LFP Power Cell 개발</title><link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 2170 원통형 조립라인에서 전해액·Clad Tab·Turn 수·Can 규격이 달라진 25P LFP Power Cell 개발&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;고객 CTQ:&lt;/strong&gt; 용량·IR·수명&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 변경점·CTQ 정의, 4M 위험분석, Taguchi 조건 Matrix, Sample 제작·공정조건 결정, 시양산·고객 Qual 대응&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;완료 Gate:&lt;/strong&gt; PROTO·PILOT·MP 기술 승인 완료, SOP는 고객 사업일정에 따른 양산 개시 단계&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 2만 Cell 시양산, 고객 Qual·CCB.PO 승인, 공정·검사기준과 양산 이관문서 완료&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--development"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF Gate · DMADV · 4M · Taguchi DOE&lt;/span&gt;
+&lt;strong&gt;PROTO에서 MP 기술 승인까지 신규 Cell 공정조건 확립&lt;/strong&gt;&lt;small&gt;품질 Gate는 PROTO→PILOT→MP→SOP로 관리하고, 각 Gate의 기술판정은 DMADV·4M·Taguchi DOE와 Cell 평가로 수행했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample·CTQ·기준선&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M·Taguchi 조건 Screening&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;선정조건·2만 Cell 시양산&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;고객 Qual·CCB.PO 승인&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;양산 개시 Gate&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg"
+alt="사내 IATF 16949 기반 PROTO A Sample, PILOT B·C Sample, MP CCB.PO와 SOP 품질 Gate 아래에서 DMADV, 4M 위험분석과 Taguchi 직교배열 기반 조건 Matrix를 활용해 약 2만 Cell 시양산과 고객 Qual까지 진행한 25P LFP 공정개발 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 NPI 품질 Gate&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
+&lt;span&gt;DMADV가 개발단계를 연결하고, 4M에서 선정한 핵심 인자를 Taguchi DOE로 비교해 각 Sample Gate의 조건을 확정했습니다.&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="iatf-16949-기반-개발양산-이관-gate"&gt;IATF 16949 기반 개발·양산 이관 Gate&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;품질 단계&lt;/th&gt;
+&lt;th&gt;사내 Sample·승인&lt;/th&gt;
+&lt;th&gt;기술 목표&lt;/th&gt;
+&lt;th&gt;적용 방법&lt;/th&gt;
+&lt;th&gt;프로젝트 결과&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;신규 소재·구조의 제작 가능성, CTQ와 측정기준 확립&lt;/td&gt;
+&lt;td&gt;DMADV Define·Measure, 변경점 분석&lt;/td&gt;
+&lt;td&gt;전체 조립 가능성과 기본 검사 확인&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B Sample&lt;/td&gt;
+&lt;td&gt;핵심 공정인자 Screening과 조건 최적화&lt;/td&gt;
+&lt;td&gt;4M 위험분석, Taguchi DOE&lt;/td&gt;
+&lt;td&gt;함침·용접·밀봉·검사 후보조건 압축&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;C Sample&lt;/td&gt;
+&lt;td&gt;선정조건의 전후공정 연결성과 시양산성 확인&lt;/td&gt;
+&lt;td&gt;확인실험, Lot·Cell 평가&lt;/td&gt;
+&lt;td&gt;약 20,000 Cell 시양산 조건 확립&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+&lt;td&gt;고객 CTQ와 공정검증 자료의 기술 승인&lt;/td&gt;
+&lt;td&gt;DMADV Verify, 고객 Qual&lt;/td&gt;
+&lt;td&gt;고객 Qual·CCB.PO 승인 획득&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;양산 개시&lt;/td&gt;
+&lt;td&gt;승인조건의 정규 양산 운영&lt;/td&gt;
+&lt;td&gt;작업표준·QCP·P-FMEA·검사기준&lt;/td&gt;
+&lt;td&gt;MP 승인 후 양산개시 Gate로 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A·B·C Sample을 단순 제작순서로 관리한 것이 아니라, 각 단계에서 요구하는 품질 판단과 다음 Gate 진입조건을 분리했습니다. 25P는 PROTO와 PILOT을 거쳐 **MP 기술 승인(CCB.PO)**까지 완료한 프로젝트입니다.&lt;/p&gt;</description></item><item><title>Diffuser Scale-up 양산 도입 실패사례</title><link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;항목&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;기간&lt;/td&gt;
+&lt;td&gt;2018.10–2019.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;성격&lt;/td&gt;
+&lt;td&gt;Al Diffuser 잔류피막 박리·재사용 국책과제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;직접 역할&lt;/td&gt;
+&lt;td&gt;Lab·실물시험, 조건별 Sample, 조도·현미경·SEM–EDS·Particle 분석, Scale-up 위험판정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;목표&lt;/td&gt;
+&lt;td&gt;공정시간·고압수 작업 단축, 표면품질·Particle·재사용성 유지&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;최종 결정&lt;/td&gt;
+&lt;td&gt;Scale-up 중단판정·기존공정 회귀·차기 R&amp;amp;D 중단 기준 제정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--failure-gate"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
+&lt;strong&gt;박리시간이 아닌 모재손상·Particle·재사용성으로 Scale-up 판정&lt;/strong&gt;&lt;small&gt;실패기전: 배기 인프라 부재 → 약액 배제 → 물리타격·체류시간 증가 → 고정 중첩영역 Erosion&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;약 3일 박리·세정&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;약액&amp;#43;초음파 약 8시간&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;배기 미구축·약액 배제&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;물&amp;#43;초음파·수작업 약 1.5일&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion·Particle·재사용성&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;기존공정 회귀·차기 Gate&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;h2 id="1-공정조건-변화"&gt;1. 공정조건 변화&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;단계&lt;/th&gt;
+&lt;th&gt;공정구성&lt;/th&gt;
+&lt;th style="text-align: right"&gt;작업시간&lt;/th&gt;
+&lt;th&gt;품질상태&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;기존공정&lt;/td&gt;
+&lt;td&gt;Bead Blast·약액·고압수·수작업·세척·건조&lt;/td&gt;
+&lt;td style="text-align: right"&gt;약 3일&lt;/td&gt;
+&lt;td&gt;기존 재사용 기준 운영&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;초기 제한시험&lt;/td&gt;
+&lt;td&gt;기존 박리약액+초음파&lt;/td&gt;
+&lt;td style="text-align: right"&gt;약 8시간&lt;/td&gt;
+&lt;td&gt;박리 가능성 확보&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scale-up&lt;/td&gt;
+&lt;td&gt;물+초음파·고압수·수작업&lt;/td&gt;
+&lt;td style="text-align: right"&gt;약 1.5일&lt;/td&gt;
+&lt;td&gt;Erosion·Particle·재사용성 탈락&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;양산 확대 설비에는 약액 사용을 위한 흄 배기 설비가 반영되지 않았습니다. 화학적 박리를 적용하지 못해 초음파 타격·고압수·수작업 의존도와 설비 체류 시간이 증가했습니다.&lt;/p&gt;</description></item><item><title>OLED 부품 Anodizing 공정개발</title><link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;Case A · 혼산 Anodizing&lt;/th&gt;
+&lt;th&gt;Case B · 수산 Anodizing&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;기간&lt;/td&gt;
+&lt;td&gt;2017.01–2017.06&lt;/td&gt;
+&lt;td&gt;2018.07–2018.10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;대상&lt;/td&gt;
+&lt;td&gt;OLED Dry-Etch Upper Electrode 계열&lt;/td&gt;
+&lt;td&gt;Display PECVD Susceptor 계열&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;시작 문제&lt;/td&gt;
+&lt;td&gt;공정온도 상승 후 Crack·Particle·Etch Rate·Hi-Pot 이상&lt;/td&gt;
+&lt;td&gt;신규 고온 사용조건 Qual 요구&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;개발 구조&lt;/td&gt;
+&lt;td&gt;DMAIC·4M·소형→대면적 Scale-up&lt;/td&gt;
+&lt;td&gt;요구조건·설계대안·내부 Screening·고객 Qual&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;완료 결과&lt;/td&gt;
+&lt;td&gt;고객 Qual·실제품 적용·약 1년 안정화 확인&lt;/td&gt;
+&lt;td&gt;고객 진공 열시험 Qual·실제품 적용·약 1년 사용&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 불량이력·Run Sheet 분석, 조건별 Sample 제작, 열·Crack·Hi-Pot 평가, 대면적 Scale-up, 고객 Sample 대응, 공정·검사문서 개정&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;판단 원칙:&lt;/strong&gt; 사용조건·측정기준 정렬 → 4M 원인소 → 조건별 Sample → Scale-up 또는 고객 Qual → 표준문서 이관&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--scaleup"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
+&lt;strong&gt;사용조건 변화와 고객 CTQ를 피막조건·검사 Gate로 전환&lt;/strong&gt;&lt;small&gt;조건선정 근거: 열·Crack·Hi-Pot·대면적 균일성·고객 Qual&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;고온·Crack·Particle&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;두께·열·Hi-Pot·외관&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M·전류분포·Racking&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;피막·두께·후처리 조건&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;대면적·반복·고객 Qual&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run Sheet·표준·검사기준&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;h1 id="case-a-oled-dry-etch-upper-electrode-혼산-anodizing"&gt;Case A. OLED Dry-Etch Upper Electrode 혼산 Anodizing&lt;/h1&gt;
+&lt;h2 id="1-기존-공정-문제와-ctq"&gt;1. 기존 공정 문제와 CTQ&lt;/h2&gt;
+&lt;p&gt;OLED 공정온도 상승 후 기존 혼산 피막에서 다음 이상이 동시 발생했습니다.&lt;/p&gt;</description></item><item><title>글로벌 장비사 기술&amp;품질 Qual Audit 승인</title><link>https://heungjaelee.github.io/posts/amat-akt-qual/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/amat-akt-qual/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;항목&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;기간&lt;/td&gt;
+&lt;td&gt;2017.12–2018.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;대상&lt;/td&gt;
+&lt;td&gt;글로벌 장비사 CVD·PECVD용 Susceptor·Diffuser 계열 부품&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;공정 범위&lt;/td&gt;
+&lt;td&gt;Etching→Bead Blast→수산계 Anodizing→물성·Hi-Pot·Particle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;직접 역할&lt;/td&gt;
+&lt;td&gt;영문 Spec·CTQ 분석, 공정변경 설계, Process Flow·Run Sheet·Qual 자료 주작성, 대응 Sample·계측·기술실사·재시험&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;완료 결과&lt;/td&gt;
+&lt;td&gt;기술실사 지적 1건 조치 완료·기술 Qual 승인·약 1년간 후속 납품&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--improvement"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;Six Sigma GB 기반 DMAIC · 4M&lt;/span&gt;
+&lt;strong&gt;고객 요구를 공정변경·측정 Correlation·기술실사 Closure로 전환&lt;/strong&gt;&lt;small&gt;승인근거: Process Capability·대응 Sample·Hi-Pot 7회 반복·3회 재시험&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;DEFINE&lt;/b&gt;&lt;strong&gt;영문 Spec·CTQ·제출범위&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;기존 공정·장비·검사 기준선&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;공정별 4M&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;IMPROVE&lt;/b&gt;&lt;strong&gt;Bead Blast·Anodizing·검사조건&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;7회 측정·3회 재시험&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run Sheet·SOP·검사기준&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;h2 id="1-기존-공정-gap"&gt;1. 기존 공정 Gap&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;공정·관리축&lt;/th&gt;
+&lt;th&gt;기존 상태&lt;/th&gt;
+&lt;th&gt;고객 요구와의 Gap&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Etching·전처리&lt;/td&gt;
+&lt;td&gt;공정순서·검사시점 분산관리&lt;/td&gt;
+&lt;td&gt;영문 Spec·제출자료와 항목 불일치&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bead Blast&lt;/td&gt;
+&lt;td&gt;제품군 공통조건·평가기록&lt;/td&gt;
+&lt;td&gt;표면조도·Particle 요구 미연계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;수산계 Anodizing&lt;/td&gt;
+&lt;td&gt;사내 피막 Setting 중심&lt;/td&gt;
+&lt;td&gt;두께·Hi-Pot·내산·내식 CTQ 미연계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;물성·Particle&lt;/td&gt;
+&lt;td&gt;개별 시험결과 관리&lt;/td&gt;
+&lt;td&gt;Process Flow·Sample 이력 연결 부족&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hi-Pot&lt;/td&gt;
+&lt;td&gt;장비·위치·반복·Ramp·Sequence 차이&lt;/td&gt;
+&lt;td&gt;사내·고객 판정 불일치&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;변경점 문서&lt;/td&gt;
+&lt;td&gt;공정·검사·제출자료 별도 Revision&lt;/td&gt;
+&lt;td&gt;문서–현장–Sample 일치성 부족&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="2-six-sigma-gb-기반-dmaic"&gt;2. Six Sigma GB 기반 DMAIC&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;단계&lt;/th&gt;
+&lt;th&gt;핵심 업무&lt;/th&gt;
+&lt;th&gt;판정·산출물&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Define&lt;/td&gt;
+&lt;td&gt;공급사 등록·부품 Qual·공정 Capability·CTQ 정의&lt;/td&gt;
+&lt;td&gt;Qual 범위·실사 대응항목&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Measure&lt;/td&gt;
+&lt;td&gt;Run Sheet·장비 Capability·Sample·측정조건 기준화&lt;/td&gt;
+&lt;td&gt;기존조건–고객요구 Gap List&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Analyze&lt;/td&gt;
+&lt;td&gt;Etching·Bead Blast·Anodizing·Hi-Pot 4M&lt;/td&gt;
+&lt;td&gt;변경조건·정렬조건 분리&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Improve&lt;/td&gt;
+&lt;td&gt;제품군별 공정조건·검사 Spec 재구성&lt;/td&gt;
+&lt;td&gt;Process Flow·Run Sheet·검사기준&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verify&lt;/td&gt;
+&lt;td&gt;고객 위치·7회 반복측정·동일 Sequence·3회 재시험&lt;/td&gt;
+&lt;td&gt;기술실사 지적사항 1건 조치 완료&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Control&lt;/td&gt;
+&lt;td&gt;공정·검사·Sample·문서 Revision 동기화&lt;/td&gt;
+&lt;td&gt;기술 Qual·후속 생산기준 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="3-공정별-변경점과-4m"&gt;3. 공정별 변경점과 4M&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;분석대상&lt;/th&gt;
+&lt;th&gt;추정원인&lt;/th&gt;
+&lt;th&gt;확인결과&lt;/th&gt;
+&lt;th&gt;조치사항&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Etching·전처리&lt;/td&gt;
+&lt;td&gt;Man·Method·Measurement — 작업순서·검사시점·Sample 이력 분리&lt;/td&gt;
+&lt;td&gt;피막두께·조도·외관·후공정 대조&lt;/td&gt;
+&lt;td&gt;Process Flow·Run Sheet Sequence 재정렬&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bead Blast&lt;/td&gt;
+&lt;td&gt;Machine·Method·Measurement — 제품군별 표면요구 미반영&lt;/td&gt;
+&lt;td&gt;조도·외관·Particle 비교&lt;/td&gt;
+&lt;td&gt;조건·평가항목·Anodizing 투입기준 재구성&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;수산계 Anodizing&lt;/td&gt;
+&lt;td&gt;Material·Machine·Method — 사내 Setting·고객 CTQ 불일치&lt;/td&gt;
+&lt;td&gt;두께·Hi-Pot·내산·내식&lt;/td&gt;
+&lt;td&gt;제품군별 피막조건·검사 Spec 재설계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hi-Pot&lt;/td&gt;
+&lt;td&gt;Machine·Method·Measurement — 장비·위치·반복수·Ramp·Arc 판독차&lt;/td&gt;
+&lt;td&gt;보완 Sample 3회 재시험&lt;/td&gt;
+&lt;td&gt;고객 위치·7회·승압·Sequence·Arc 기준 정렬&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;내산·내식·Particle&lt;/td&gt;
+&lt;td&gt;Method·Measurement — 사내결과–고객 Capability 연결 부족&lt;/td&gt;
+&lt;td&gt;사내·외부·고객자료 대조&lt;/td&gt;
+&lt;td&gt;시험조건·검사 Spec·외부분석 Correlation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;변경점 관리&lt;/td&gt;
+&lt;td&gt;Man·Method — 공정·검사·제출자료 Revision 불일치&lt;/td&gt;
+&lt;td&gt;기술실사 문서·현장 일치검증&lt;/td&gt;
+&lt;td&gt;공정–검사–Sample–문서 동시개정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="4-hi-pot-측정-correlation"&gt;4. Hi-Pot 측정 Correlation&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;동일 Bath·동일 제조조건 대응 Sample
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ 고객 지정 측정위치
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ Sample당 7회 반복측정
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ 사내·고객 장비차이 비교
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ Ramp Time·승압·시험 Sequence 정렬
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ Arc Counter 판독기준 통일
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ 보완 Sample 제작
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ 동일 판정원칙 3회 재시험
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ 기술실사 지적 1건 Closure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;공정 Recipe를 바꾸기 전에 측정 장비, 위치, 반복 횟수, 측정 순서를 고객 기준에 맞췄습니다. 이후 보완 Sample 재시험으로 사내 검사 결과와 고객 판정이 일치하는지 확인했습니다.&lt;/p&gt;</description></item><item><title>2170 양산 수율 안정화</title><link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-battery-2170-pilot" data-project-id="battery-2170-pilot"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-battery-2170-pilot"&gt;수율 숫자를 바로 개선하려 하지 않고, 먼저 판정 오류와 실제 공정불량을 나눠야 올바른 설비·공정 조치를 정할 수 있다고 판단했습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;양산 안정화 결과&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;금양 재직 기간 중 · 2024.05–2025.09&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;회사 프로젝트 · 조립공정 리더&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-battery-2170-pilot"&gt;
+&lt;h3 id="project-case-problem-battery-2170-pilot"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;초기 실질 양품수율이 약 40%였고 생산·품질·설비가 서로 다른 분모와 불량 기준을 보고 있어 원인과 우선순위를 합의하기 어려웠습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-battery-2170-pilot"&gt;
+&lt;h3 id="project-case-role-battery-2170-pilot"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;생산량·검사량·재검·폐기 기준과 불량명을 맞추고 부서별 개선 일정과 재시험 결과를 관리했습니다.&lt;/li&gt;&lt;li&gt;MSA 결과를 바탕으로 판정 오류와 실제 불량을 나눈 뒤 Jig 공차, Recipe, 소모부품, Vision·검사조건을 한 항목씩 확인했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-battery-2170-pilot"&gt;
+&lt;h3 id="project-case-result-battery-2170-pilot"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;측정 결과 · 팀 결과&lt;/span&gt;
+&lt;strong&gt;확인 범위의 실질 양품수율 약 40%→98.7%&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;확정 조건을 SOP·QCP·P-FMEA·검사기준과 교육자료에 반영&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-battery-2170-pilot"&gt;
+&lt;h3 id="project-case-team-battery-2170-pilot"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;수율은 생산·품질·설비·개발이 함께 만든 팀 결과이며, 제 역할은 조립공정 리더로 기준·우선순위·재검증을 연결한 것입니다.&lt;/p&gt;</description></item><item><title>AX 전환 AI Agent 플랫폼</title><link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-authority-evidence-plane" data-project-id="ai-authority-evidence-plane"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-authority-evidence-plane"&gt;Ontology와 LLM Wiki에서 업무 지식과 규칙을 골라 역할·도구·근거·중단 조건이 정해진 AI Agent를 구성하고 실행하는 플랫폼입니다. 권한과 Evidence 검사는 Agent 실행을 안전하게 제한하는 하위 계층입니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Agent 구성·로컬 실행 기반 검증 · 운영 연결 전&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;마지막 완료 로컬 검증 스냅숏 · 2026.07&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;개인 AI 활용 · Ontology·LLM Wiki 기반 Agent 플랫폼&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-authority-evidence-plane"&gt;
+&lt;h3 id="project-case-problem-ai-authority-evidence-plane"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;Agent마다 긴 Prompt에 지식·도구·규칙을 반복하면 용어와 판단 기준이 달라지고, 어떤 근거로 구성됐는지 확인하기 어렵습니다. 실행 권한까지 섞이면 승인되지 않은 외부 변경으로 이어질 수도 있습니다.&lt;/p&gt;</description></item><item><title>NCM Pilot Line 설비 인수</title><link>https://heungjaelee.github.io/posts/ncm-fat-sat/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ncm-fat-sat/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-ncm-fat-sat" data-project-id="ncm-fat-sat"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ncm-fat-sat"&gt;설비가 동작한다는 사실만으로 인수를 끝내지 않고, 제품 공차·반복성·안전·생산계획까지 같은 기준으로 확인해야 실제 생산이 가능해집니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;설비 인수·초기 생산 안정화&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;제이스 로보틱스 재직 기간 중 · 2023.05–2024.05&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;회사 프로젝트 · Pilot Line 구축·운영&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ncm-fat-sat"&gt;
+&lt;h3 id="project-case-problem-ncm-fat-sat"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;13개 공정과 핵심설비 11대를 새로 인수하면서 설비별 합격 기준, 업체 조치, 재시험 결과와 일 200 Cell 생산계획을 한 흐름으로 관리해야 했습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-ncm-fat-sat"&gt;
+&lt;h3 id="project-case-role-ncm-fat-sat"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;설비별 검수 Sheet와 반제품 공차·검사기준을 정리하고 FAT/SAT 결과와 Punch List를 추적했습니다.&lt;/li&gt;&lt;li&gt;일 200 Cell 계획에 맞춰 자재·재공·작업자·Lot 이력을 관리하고 MES 미구현 구간은 Excel VBA Tracking으로 보완했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-ncm-fat-sat"&gt;
+&lt;h3 id="project-case-result-ncm-fat-sat"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;측정 결과 · 팀 결과&lt;/span&gt;
+&lt;strong&gt;조립수율 95% 이상·납기준수율 100%&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;11대 핵심설비 검수 Sheet·Punch List·재시험 및 생산이력 관리&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-ncm-fat-sat"&gt;
+&lt;h3 id="project-case-team-ncm-fat-sat"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;설비 개선은 제작업체와 설비 담당, 품질 판정은 품질 담당과 함께 진행했습니다. 조립수율과 납기는 이 협업의 팀 결과입니다.&lt;/p&gt;</description></item><item><title>설비보전기사 수험생을 위한 학습 마스터북</title><link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-seolbi-learning-platform" data-project-id="ai-seolbi-learning-platform"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-seolbi-learning-platform"&gt;문제를 많이 보여주는 것보다 답안 제출 전 정답을 숨기고, 제출 뒤에는 왜 맞고 틀렸는지 근거까지 따라갈 수 있어야 실제 학습에 도움이 됩니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;운영 중 · 일부 자료 공개 보류&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;마지막 완료 검증 스냅숏 · 2026.07.30&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;개인 AI 활용 · 근거 기반 학습 플랫폼&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-seolbi-learning-platform"&gt;
+&lt;h3 id="project-case-problem-ai-seolbi-learning-platform"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;문제·정답·해설의 출처와 권리가 섞여 있고 근거가 부족한 자료까지 자동 공개하면 잘못된 학습과 권리 문제가 생길 수 있었습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-ai-seolbi-learning-platform"&gt;
+&lt;h3 id="project-case-role-ai-seolbi-learning-platform"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;문제 선택→답안 제출→근거 확인→오답 학습 흐름과 공개·보류 판정, 제출 전 정답 비노출을 설계·검증했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-ai-seolbi-learning-platform"&gt;
+&lt;h3 id="project-case-result-ai-seolbi-learning-platform"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;제출 전 정답 비노출과 제출 후 근거·오답 학습 흐름&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;운영 중·근거 또는 권리가 부족한 자료는 공개 보류&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-ai-seolbi-learning-platform"&gt;
+&lt;h3 id="project-case-team-ai-seolbi-learning-platform"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;AI는 분류·초안·점검을 돕고, 출처·권리·정답 충돌과 공개 여부는 사람이 확인합니다.&lt;/p&gt;</description></item><item><title>실업급여 질문을 정리한 안내 가이드북</title><link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-unemployment-qna" data-project-id="ai-unemployment-qna"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-unemployment-qna"&gt;실업급여 질문은 짧은 답으로 자격을 단정하기보다, 질문 유형을 나누고 공식 출처와 개인별 확인 경로로 연결해야 안전합니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;운영 중 · 제도 변경 가능&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;공개 검증 스냅숏 · 2026.07.19&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;개인 AI 활용 · 공식 근거 Q&amp;amp;A&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-unemployment-qna"&gt;
+&lt;h3 id="project-case-problem-ai-unemployment-qna"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;비슷해 보이는 질문도 퇴사 사유·피보험 기간·개인 통지에 따라 답이 달라져, 일반적인 설명이 실제 행정 판단을 대신하면 안 됐습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-ai-unemployment-qna"&gt;
+&lt;h3 id="project-case-role-ai-unemployment-qna"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;비식별 질문 165건을 8개 유형으로 나누고 공식 출처·실전 가이드·정적 페이지 생성 흐름을 구성했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-ai-unemployment-qna"&gt;
+&lt;h3 id="project-case-result-ai-unemployment-qna"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;측정 결과 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;비식별 질문 165건·8개 유형 분류&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;공식 출처를 연결한 정적 Q&amp;amp;A·가이드 운영 중&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-ai-unemployment-qna"&gt;
+&lt;h3 id="project-case-team-ai-unemployment-qna"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;AI는 질문 분류와 초안을 돕고, 출처 선택·법적 표현·최종 공개는 사람이 확인합니다.&lt;/p&gt;</description></item><item><title>진공로봇 Overhaul 표준화</title><link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-robot-overhaul-standardization" data-project-id="robot-overhaul-standardization"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-robot-overhaul-standardization"&gt;숙련자의 기억에 의존하던 Overhaul을 작업 순서와 검사 기준으로 남겨야 작업자가 달라도 같은 조립·검사 품질을 만들 수 있습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;SOP·점검표 현장 적용&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;본테크 재직 기간 중 · 2021.02–2022.03&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;회사 프로젝트 · 정밀조립 표준화&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-robot-overhaul-standardization"&gt;
+&lt;h3 id="project-case-problem-robot-overhaul-standardization"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;분해·조립 순서와 Torque, Align, Leak·반복정밀도 확인 방법이 구전 중심이어서 누락과 작업자 편차를 줄이기 어려웠습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-robot-overhaul-standardization"&gt;
+&lt;h3 id="project-case-role-robot-overhaul-standardization"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;진공로봇 분해·세척, 부품교체, 정밀조립, Arm Align, Encoder Zero와 시운전을 수행했습니다.&lt;/li&gt;&lt;li&gt;Parts List·작업순서·Torque·검사항목·이상 조치사항을 SOP와 점검표로 정리하고 작업자 교육에 사용했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-robot-overhaul-standardization"&gt;
+&lt;h3 id="project-case-result-robot-overhaul-standardization"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;측정 결과 · 팀 결과&lt;/span&gt;
+&lt;strong&gt;같은 기간 팀 월 출하 실적 1–2대→4–5대&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;분해·조립·검사 SOP, 점검표와 작업자 교육자료&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-robot-overhaul-standardization"&gt;
+&lt;h3 id="project-case-team-robot-overhaul-standardization"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;월 출하 실적은 같은 기간 팀 전체 결과입니다. 저는 그중 Overhaul 수행, 검사 기준 정리와 교육을 맡았습니다.&lt;/p&gt;</description></item><item><title>표면처리 프로젝트 요약</title><link>https://heungjaelee.github.io/posts/wet-process-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/wet-process-standardization/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-wet-process-standardization" data-project-id="wet-process-standardization"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-wet-process-standardization"&gt;표면처리 조건만 맞추는 것으로는 충분하지 않았습니다. 약액 상태와 서로 다른 측정기의 차이까지 확인해야 고객과 내부가 같은 결과를 볼 수 있었습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;공정·검사 기준 양산 반영&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;YMC 재직 기간 중 · 2016.03–2021.01&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;회사 프로젝트 · 표면처리 공정개발·Qual&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-wet-process-standardization"&gt;
+&lt;h3 id="project-case-problem-wet-process-standardization"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;Anodizing·Etching·Cleaning 조건, 약액 분석과 검사 측정값이 서로 연결되지 않으면 Sample 결과가 달라져 공정변경 Qual과 양산 기준을 합의하기 어려웠습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-wet-process-standardization"&gt;
+&lt;h3 id="project-case-role-wet-process-standardization"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;표면처리 조건과 약액 분석기준을 정리하고 반복측정과 외부기관 비교로 분석 신뢰성을 확인했습니다.&lt;/li&gt;&lt;li&gt;서로 다른 측정기의 Bias·Gage R&amp;amp;R과 Sample 결과를 검토하고 고객 기술실사·Qual 대응 자료를 작성했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-wet-process-standardization"&gt;
+&lt;h3 id="project-case-result-wet-process-standardization"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 팀 결과&lt;/span&gt;
+&lt;strong&gt;공정변경 Qual 승인과 양산 적용&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;Recipe·Run Sheet·공정표준서·검사기준 정리&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-wet-process-standardization"&gt;
+&lt;h3 id="project-case-team-wet-process-standardization"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;Qual과 양산 적용은 연구·품질·생산과 고객이 함께 확인한 결과이며, 제 역할은 공정·분석·검사 기준을 만들고 검증 자료를 연결한 것입니다.&lt;/p&gt;</description></item><item><title>제조 현장 AI 모델 가이드북</title><link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-deep-learning-modeling" data-project-id="deep-learning-modeling"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-deep-learning-modeling"&gt;모델 이름을 많이 아는 것보다 데이터 전처리부터 평가와 재현까지 같은 조건으로 다시 실행할 수 있는 흐름이 제조 데이터 적용에 더 중요하다고 봤습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;학습·실험 흐름 공개 · 제조 현장 검증 전&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;개인 학습 프로젝트 · 공개 저장소 현재 범위&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;재현 가능한 모델링 학습 저장소&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-deep-learning-modeling"&gt;
+&lt;h3 id="project-case-problem-deep-learning-modeling"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;전처리·분할·학습·평가 조건이 흩어지면 성능 차이가 모델 때문인지 데이터 처리 때문인지 설명하기 어렵습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-deep-learning-modeling"&gt;
+&lt;h3 id="project-case-role-deep-learning-modeling"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;데이터 전처리, 모델 학습, 평가와 재현성 관리를 한 저장소 흐름으로 정리했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-deep-learning-modeling"&gt;
+&lt;h3 id="project-case-result-deep-learning-modeling"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;전처리→학습→평가→재현성 관리의 공개 학습 흐름&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;현재 단계 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;제조 생산 데이터 적용·현장 성능 검증 전&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-deep-learning-modeling"&gt;
+&lt;h3 id="project-case-team-deep-learning-modeling"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;개인 학습 저장소이며, 회사 생산 데이터에 적용한 성과로 표현하지 않습니다.&lt;/p&gt;</description></item><item><title>GIGA Press 가상공장 확장</title><link>https://heungjaelee.github.io/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid><description>&lt;h2 id="면접관이-30초에-확인할-내용"&gt;면접관이 30초에 확인할 내용&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트 성격&lt;/td&gt;
+&lt;td&gt;실제 GIGA Press 설비 구축이 아니라, 공정 확장과 가상 시운전을 다룬 &lt;strong&gt;10인 교육 팀 PoC&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;해결하려던 문제&lt;/td&gt;
+&lt;td&gt;실물 설비에서 처음 시퀀스·인터록·화면 태그·상위 데이터 연결을 맞출 때 발생하는 재작업과 Try-out 부담&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;내가 주도한 범위&lt;/td&gt;
+&lt;td&gt;과제 주제·문제정의·범위·아키텍처·분과 연결 순서의 &lt;strong&gt;전체 기획&lt;/strong&gt;, 최종 보고서 작성&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;직접 실무&lt;/td&gt;
+&lt;td&gt;Factory I/O의 가상 상태와 AI 후보 사이의 &lt;strong&gt;Digital Twin–AI 연결 구조&lt;/strong&gt;, 적용 위치와 제어권 경계 정리&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀원 구현&lt;/td&gt;
+&lt;td&gt;PLC Ladder·Factory I/O와 SCADA·OPC UA의 상세 구현은 각 담당 팀원&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;확인된 결과&lt;/td&gt;
+&lt;td&gt;Factory I/O–PLC/Ladder–SCADA/OPC UA–Web을 연결한 팀 통합 데모와 최종 보고서&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;확인하지 않은 것&lt;/td&gt;
+&lt;td&gt;실물 GIGA Press 물리현상, 안전 PLC, HIL/FAT, 양산 성능, DQN 폐루프 제어 효과&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;이 프로젝트에서 저는 프로젝트 팀장이나 전체 개발자가 아니었습니다. 팀장은 일정·리스크 관리와 최종 발표를 맡았고, 저는 &lt;strong&gt;전체 과제의 구조와 연결 순서를 기획하고 최종 보고서를 작성한 뒤, Digital Twin–AI 연계 구간을 직접 맡았습니다.&lt;/strong&gt; 이 경계를 지키면서도, 단순히 AI 모델 하나를 시험한 사람이 아니라 제조 공정·제어·관제·AI를 하나의 검증 흐름으로 묶은 판단을 보여 주는 것이 이 글의 목적입니다.&lt;/p&gt;</description></item><item><title>Indy7 Digital Twin</title><link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid><description>&lt;h2 id="면접관이-30초에-확인할-내용"&gt;면접관이 30초에 확인할 내용&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트&lt;/td&gt;
+&lt;td&gt;QR·Vision·협동로봇·PLC/SCADA·DB를 연결한 &lt;strong&gt;10인 교육 팀 자동차 공장 PoC&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;해결 문제&lt;/td&gt;
+&lt;td&gt;로봇별 동작은 가능해도 제품 식별·공정 완료·검사 결과·적재 이력이 연결되지 않으면 전체 공정 상태를 추적하기 어려움&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;내가 주도한 범위&lt;/td&gt;
+&lt;td&gt;프로젝트 목표·공정 시나리오·시스템 구성·분과 연결 순서의 &lt;strong&gt;전체 기획&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;직접 실무&lt;/td&gt;
+&lt;td&gt;Indy7 로봇 제어, 공정 간 명령·상태 연동, 로봇 프로그램과 통합 흐름 검증&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀 경계&lt;/td&gt;
+&lt;td&gt;Vision 모델·PLC Ladder·SCADA/DB 상세 구현은 담당 팀원, 보고서·일정·최종 발표는 팀장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;확인된 결과&lt;/td&gt;
+&lt;td&gt;QR 저장 → 차체·창문 결합 → Vision 검사 → 양품 적재/불량 통과의 실물 통합 시연&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;후속 확장&lt;/td&gt;
+&lt;td&gt;PC-HMI·Conty JSON·IndyDCP·MQTT·이력·읽기 전용 Web Twin은 이후 별도 공개 코드로 확장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class="portfolio-table-note"&gt;&lt;strong&gt;이 표에서 읽어야 할 판단:&lt;/strong&gt; 전체 프로젝트의 문제와 시스템 연결 순서는 제가 기획했고, 직접 구현의 중심은 Indy7 제어와 공정 간 연동입니다. Vision·Ladder·SCADA 상세 구현과 팀장의 보고서·발표 역할은 분리해 설명합니다.&lt;/p&gt;</description></item><item><title>용접 Vision AI 판정기준</title><link>https://heungjaelee.github.io/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid><description>&lt;aside class="project-case-summary project-case-summary--dx" aria-labelledby="project-case-summary-welding-vision-ai" data-project-id="welding-vision-ai"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-welding-vision-ai"&gt;현장에서는 전체 정확도보다 불량을 놓쳤을 때의 비용이 큽니다. 그래서 데이터 출처를 나누고 Recall과 임계값을 먼저 보는 방식으로 PoC를 구성했습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;검출 기준 검토 단계&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;교육 팀 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;제조 DX PoC · 생산 적용 전&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-welding-vision-ai"&gt;
+&lt;h3 id="project-case-problem-welding-vision-ai"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;공개 데이터에서 잘 보이는 모델이 조명·각도·표면 상태가 다른 현장 이미지에서도 같은 판단을 할 것이라고 가정할 수 없었습니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-welding-vision-ai"&gt;
+&lt;h3 id="project-case-role-welding-vision-ai"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;공개 학습 데이터와 현장 실습 이미지를 역할별로 나누고, 미검출 위험을 기준으로 평가 지표와 임계값 검토 순서를 정했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-welding-vision-ai"&gt;
+&lt;h3 id="project-case-result-welding-vision-ai"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;공개·현장 데이터 분리와 Recall·임계값 중심 평가 흐름&lt;/strong&gt;
+&lt;/li&gt;&lt;li&gt;
+&lt;span&gt;현재 단계 · 팀 결과&lt;/span&gt;
+&lt;strong&gt;교육 PoC 완료·생산 적용 전&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-welding-vision-ai"&gt;
+&lt;h3 id="project-case-team-welding-vision-ai"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;교육 팀 PoC이며 모델 성능을 실제 양산 품질 성과로 귀속하지 않습니다.&lt;/p&gt;</description></item><item><title>제조 지식 검색 LLM WIKI</title><link>https://heungjaelee.github.io/posts/ontology-construction/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ontology-construction/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ontology-construction" data-project-id="ontology-construction"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30초 요약&lt;/p&gt;
+&lt;h2 id="project-case-summary-ontology-construction"&gt;같은 설비·품질 개념도 부서와 문서마다 표현이 달라 검색이 끊깁니다. 용어와 관계를 먼저 계약으로 정해야 근거가 있는 검색이 가능하다고 봤습니다.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;공개 저장소로 확인 가능한 범위&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;기간·기준&lt;/dt&gt;
+&lt;dd&gt;개인 프로젝트 · 공개 저장소 현재 범위&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+&lt;dd&gt;제조 지식 데이터·검색&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ontology-construction"&gt;
+&lt;h3 id="project-case-problem-ontology-construction"&gt;해결하려던 문제&lt;/h3&gt;
+&lt;p&gt;한국어·영어 약어와 유사어가 섞인 제조 문서를 단순 키워드로 찾으면 같은 개념이 빠지거나 다른 의미가 함께 검색됩니다.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-role-ontology-construction"&gt;
+&lt;h3 id="project-case-role-ontology-construction"&gt;내가 맡은 범위&lt;/h3&gt;
+&lt;ul&gt;&lt;li&gt;YAML 원천 계약에서 JSON-LD·OWL·SHACL·Neo4j 표현으로 이어지는 변환과 검증 구조를 설계했습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-result-ontology-construction"&gt;
+&lt;h3 id="project-case-result-ontology-construction"&gt;확인된 결과·현재 단계&lt;/h3&gt;
+&lt;ul class="project-case-summary__claims"&gt;&lt;li&gt;
+&lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+&lt;strong&gt;YAML 계약→그래프 표현→검증→검색으로 이어지는 공개 코드 구조&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/section&gt;
+&lt;section aria-labelledby="project-case-team-ontology-construction"&gt;
+&lt;h3 id="project-case-team-ontology-construction"&gt;팀 경계&lt;/h3&gt;
+&lt;p&gt;개인 공개 프로젝트이며, 회사 내부 지식이나 고객 문서를 학습 데이터로 사용했다고 주장하지 않습니다.&lt;/p&gt;</description></item><item><title>협동로봇 조립 셀 디지털 트윈과 Edge Vision PoC</title><link>https://heungjaelee.github.io/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/robot-digital-twin/</guid><description>&lt;h2 id="어떤-문제를-해결하려-했는가"&gt;어떤 문제를 해결하려 했는가&lt;/h2&gt;
+&lt;p&gt;로봇 동작, Vision 판정, PLC 시퀀스와 MES 기록을 따로 시연하면 개별 기능은 보여 줄 수 있어도 제품 한 개가 어떤 공정과 검사를 거쳤는지 다시 찾기 어렵습니다.&lt;/p&gt;
+&lt;p&gt;이 교육 팀 프로젝트는 QR serial을 공통 key로 사용해 Indy7 협동로봇 조립 흐름, Edge Vision 판정, PLC·SCADA, MySQL/MES와 디지털 트윈 상태를 한 작업 흐름으로 연결한 PoC입니다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;공개 범위&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;프로젝트 형태&lt;/td&gt;
+&lt;td&gt;교육 과정의 팀 PoC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;내 역할&lt;/td&gt;
+&lt;td&gt;Robot·Digital Twin 영역&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀 구현&lt;/td&gt;
+&lt;td&gt;QR 추적, 로봇 조립 시퀀스, Vision, PLC·SCADA, MES&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;사용 기술&lt;/td&gt;
+&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, MySQL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;현재 상태&lt;/td&gt;
+&lt;td&gt;교육 시연 완료, 실공장 Pilot·장시간 E2E 미검증&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;팀 전체 결과와 개인 역할은 구분합니다. 팀원이 함께 만든 결과를 개인 단독 성과로 쓰지 않으며, 팀원 실명이 포함된 원본 보고서는 공개하지 않습니다.&lt;/p&gt;</description></item></channel></rss>

@@ -1,114 +1,186 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
-    <link>https://heungjaelee.github.io/</link>
-    <description>배터리·반도체 제조 현장에서 수행한 공정 안정화, FAT/SAT, 품질 개선과 제조 DX 사례를 정리한 이재흥의 포트폴리오</description>
-    <atom:link href="https://heungjaelee.github.io/tags/iatf-16949/rss.xml" rel="self" type="application/rss&#43;xml" /><item>
-      <title>2170 조립라인 실질 양품수율 안정화</title>
-      <link>https://heungjaelee.github.io/posts/battery-2170-pilot/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-2170-pilot/</guid>
-      <description>설비 표시수율과 사후 전수검사 양품수율이 달라 실제 공정불량과 검사 오판정을 같은 기준으로 다시 나눠야 했습니다. 팀은 월평균 실질 양품수율을 약 40%에서 98.7%로 안정화했고, 저는 MSA 기준·SOP·QCP·P-FMEA·검사 기준을 직접 개정했습니다.</description>
-    </item><item>
-      <title>4695 배터리 조립라인 주요 설비 정상화 및 제한 생산 체제 구축</title>
-      <link>https://heungjaelee.github.io/posts/battery-4695-production-transition/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-4695-production-transition/</guid>
-      <description>제품개발과 SAT는 끝났지만 실제 신제품 규격이 Laser·AI Vision·X-Ray 조건에 반영되지 않았고, 설비 간 연동과 반복동작이 불안정해 수동운전과 임시 Recipe에 의존했습니다. 100 Cell×2 Lot 전공정 재시험과 최종 50 Cell 연속 생산으로 제한 생산 체제를 검증하고 관련 책임자 승인과 현장 표준문서 인계를 완료했습니다.</description>
-    </item><item>
-      <title>25P LFP Power Cell DMADV·Taguchi 기반 NPI 공정개발 및 고객 Qual</title>
-      <link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid>
-      <description>전해액·Clad Tab·Turn 수·Can 규격이 함께 바뀐 신규 Cell을 기존 2170 라인에 적용해 PROTO부터 MP 기술 승인까지 공정 조건을 개발했습니다. 약 2만 Cell 시양산과 고객 Qual·CCB.PO 기술 승인을 완료하고 공정·검사기준과 양산 이관문서를 확립했습니다.</description>
-    </item><item>
-      <title>차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)</title>
-      <link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link>
-      <guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid>
-      <description>전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다. 약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.</description>
-    </item><item>
-      <title>NCM 각형 Pilot Line 인수·초기 안정화</title>
-      <link>https://heungjaelee.github.io/posts/ncm-fat-sat/</link>
-      <guid>https://heungjaelee.github.io/posts/ncm-fat-sat/</guid>
-      <description>설비업체의 기능 완료와 실제 Pilot 생산 가능 상태 간 차이 약 5일·약 1,000 Cell Pilot Run, 초기 조립 결과 약 95%, SOP·QCP·검사·운영기준 이관</description>
-    </item><item>
-      <title>원통형 배터리 대체 Can 공급사 이원화 및 Pilot 전환 검증</title>
-      <link>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</link>
-      <guid>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</guid>
-      <description>기존 Can 공급사 한 곳만으로 계획 생산물량을 대응하기 어려웠고, 후보품의 합금·두께·공차·Burr 차이가 조립·밀봉·용접과 Vent 안전성에 미치는 영향을 확인해야 했습니다. 200 Cell×3개 Lot, 총 600 Cell과 공식 UN38.3를 통과하고 2025년 3월 Pilot 생산분과 구매발주를 대체 Can으로 전환했습니다.</description>
-    </item><item>
-      <title>NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증</title>
-      <link>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</link>
-      <guid>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</guid>
-      <description>Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관</description>
-    </item><item>
-      <title>반도체·디스플레이 진공 이송로봇 Overhaul 표준체계 구축 및 현장 셋업</title>
-      <link>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</link>
-      <guid>https://heungjaelee.github.io/posts/robot-overhaul-standardization/</guid>
-      <description>신규 기종 Parts List·조립·검사기준 부재에 따른 정렬오차·Leak·부하 Alarm·Teaching 오류 잠재 YMC 초도 Qual·동일 Model 약 5대 출하, 본테크 반복 Overhaul·OJT·국내외 Site Setup 확장</description>
-    </item><item>
-      <title>디스플레이 장비부품 고내열 Anodizing 공정개발·Qual</title>
-      <link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link>
-      <guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid>
-      <description>OLED 공정온도 상승·PECVD 신규 고온 요구에 따른 Crack·Particle·Hi-Pot·대면적 균일성 재설계 혼산·수산 고객 Qual·실제품 적용, Run Sheet·공정표준·검사기준 개정</description>
-    </item><item>
-      <title>혼산 Anodizing Bath 성분분석·보충기준 재설계</title>
-      <link>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</link>
-      <guid>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</guid>
-      <description>정상 적정값과 건욕 경과 후 피막성능 저하의 불일치 성분별 분석·보충·제품 Sample·Bath 교체판정 기준 확립, SOP·Log·교육 이관</description>
-    </item><item>
-      <title>글로벌 디스플레이 장비사 CVD·PECVD 부품 공정 재구성 및 기술 Qual 획득</title>
-      <link>https://heungjaelee.github.io/posts/amat-akt-qual/</link>
-      <guid>https://heungjaelee.github.io/posts/amat-akt-qual/</guid>
-      <description>기존 공정·검사조건과 글로벌 장비사 제품군별 Spec·Hi-Pot 판정기준 Gap 7회 반복·3회 재시험 기반 기술실사 지적 1건 조치 완료, 기술 Qual·약 1년 후속 납품</description>
-    </item><item>
-      <title>Diffuser 초음파 박리 Scale-up 실패분석 및 R&amp;D 중단 기준</title>
-      <link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link>
-      <guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid>
-      <description>배기 인프라 미구축에 따른 약액 배제, 물+초음파 Scale-up의 Erosion·Particle·재사용성 탈락 Scale-up 중단·기존공정 회귀, 상대이동·표면손상·재사용·EHS 필수 Gate 제정</description>
-    </item><item>
-      <title>NCM Pilot Line 생산이력 추적 자동화 도구 개발</title>
-      <link>https://heungjaelee.github.io/posts/cell-production-tracking/</link>
-      <guid>https://heungjaelee.github.io/posts/cell-production-tracking/</guid>
-      <description>공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일 10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계</description>
-    </item><item>
-      <title>GIGA Press 가상화 및 AI 생산기술 의사결정 보조 시스템 설계</title>
-      <link>https://heungjaelee.github.io/posts/giga-press-dx/</link>
-      <guid>https://heungjaelee.github.io/posts/giga-press-dx/</guid>
-      <description>PLC·가상설비·관제·이력 데이터 분산으로 병목·증설 판단의 공통 데이터 기준이 단절 Factory I/O→PLC→OPC UA→SCADA·SQLite→Web 정상 흐름 통합 시연 및 읽기 전용 상태→검토 제안 구조 정립</description>
-    </item><item>
-      <title>기존 로봇 데이터 연동형 자동차 조립 Digital Twin 시스템 구축</title>
-      <link>https://heungjaelee.github.io/posts/robot-json-omniverse/</link>
-      <guid>https://heungjaelee.github.io/posts/robot-json-omniverse/</guid>
-      <description>Robot 작업 프로그램·좌표·I/O 조건이 티치펜던트와 개별 JSON에 분리돼 PC 작업순서 확인·수정과 실시간 설비상태·3D Twin 연결이 어려움 QR→Robot A→Vision 1→Robot B→Vision 2→Robot C 물리 Cell 시연, 4개 PC-HMI·JSON Round-trip·Queue/Fault·MQTT/DB·Web Twin 공개 코드 확장</description>
-    </item><item>
-      <title>용접실기품 Vision AI 현장 조건 차이 개선 및 현장형 판정기준 설계</title>
-      <link>https://heungjaelee.github.io/posts/welding-vision-ai/</link>
-      <guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid>
-      <description>AI-Hub Baseline의 직접 촬영품 Recall 15.84%·FPR 35.87% 현장 조건 차이 증강 후 Recall 85.15%, 2-Model F1 96.04%, Threshold 0.40 FN 0·Recall 100%, FastAPI·PWA 시연</description>
-    </item><item>
-      <title>전통 제조기업을 위한 Graph&#43;RAG 지식검색·AI 문서 생성 (HeungTology)</title>
-      <link>https://heungjaelee.github.io/posts/ontology-construction/</link>
-      <guid>https://heungjaelee.github.io/posts/ontology-construction/</guid>
-      <description>분산 제조문서의 관계 단절, 원문 재탐색과 보고서·Spec 재작성 공수 Graphfy 관계 시각화, 변경 문서만 반영하는 RAG 검색, LFP 원인 분석·SIB 사양 등 Gemma 12B 기반 초안 3건 생성</description>
-    </item><item>
-      <title>제조·공정기술 의사결정 보조 시스템 — 분산된 현장 자료를 생산기술 판단으로 연결</title>
-      <link>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-authority-evidence-plane/</guid>
-      <description>공정·품질·생산 데이터가 MES·PLC·OPC·표준문서·개인 기록에 흩어져 원인 추적 전부터 시간·Lot·Tag·판정기준을 반복 대조해야 하는 문제 13개 구조 영역·111개 구현 단위·1,837개 검증 항목 결속·47개 Node.js 24 검증으로 제조 업무 규칙 묶음 실행계획을 구체화</description>
-    </item><item>
-      <title>설비보전기사 수험생을 위한 학습 마스터북</title>
-      <link>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-seolbi-learning-platform/</guid>
-      <description>자격시험 자료는 정답·이론·이미지 권리가 서로 다른 근거에 있어 AI가 자연스럽게 채우면 잘못된 학습을 만들 수 있습니다. 근거가 확인된 항목만 공개하고 충돌하거나 권리가 불분명한 항목은 검토 보류로 유지하는 수험생용 마스터북을 운영하고 있습니다.</description>
-    </item><item>
-      <title>실업급여 질문을 정리한 안내 가이드북</title>
-      <link>https://heungjaelee.github.io/posts/ai-unemployment-qna/</link>
-      <guid>https://heungjaelee.github.io/posts/ai-unemployment-qna/</guid>
-      <description>퇴사 사유, 피보험기간, 서류와 개인 통지 내용을 함께 확인해야 공식 자격 판단에 필요한 조건을 정리할 수 있습니다. 사용자가 결론을 바로 받기보다 확인할 사실과 서류, 공식 경로를 찾을 수 있는 가이드북을 운영하고 있습니다.</description>
-    </item><item>
-      <title>제조 현장 맞춤형 AI 모델링·도입 가이드북 구축</title>
-      <link>https://heungjaelee.github.io/posts/deep-learning-modeling/</link>
-      <guid>https://heungjaelee.github.io/posts/deep-learning-modeling/</guid>
-      <description>정제된 예제·Random Split·Accuracy 중심 학습만으로는 Product·Lot·시간·설비조건이 변하는 제조현장의 미검·과검 리스크 판단 곤란 GitHub 연구 아카이브와 실행 Skeleton, 제조 AI 도입 5단계 검토 기준 및 다음 재현·평가·현장 병행 검증 기준 묶음 정의</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IATF 16949 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/iatf-16949/</link><description>Recent content in IATF 16949 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/iatf-16949/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Tabless 셀 개발 (Pilot Lv)</title><link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 Lead Tab을 대체해 극판과 Collector를 넓은 면적으로 연결하는 2170 Tabless 구조 A Sample 제작&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;현재 완료 Gate:&lt;/strong&gt; PROTO A Sample 제조·Cell 평가 완료&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;제조 제약:&lt;/strong&gt; Tabless 전용 설비·Jig 부재, 기존 4695 Laser 설비와 수작업을 조합해야 하는 조건&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;핵심 CTQ:&lt;/strong&gt; 접합상태, 내부 Beam 유입·Separator 손상, 절연·Short, IR·Formation·용량·수명&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 선행 제조공정 설계, 4M 위험분석, DFMEA, 3D Print 임시 Jig, Laser·조립조건, 절단·해체와 Cell 평가&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 100개 Trial에서 Failure Mode를 압축 분리하고 기능 Sample 5개의 제작·기능 타당성 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+&lt;strong&gt;PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환&lt;/strong&gt;&lt;small&gt;전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·DFMEA와 Cell 평가를 완료했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample 목표·CTQ&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;접합·Beam·Short 기준&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M 위험·Failure Mode&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig·Laser·조립 Trial&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;약 100 Trial·기능 5개&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
+alt="PROTO A Sample Gate에서 DMADV, 4M 위험분석과 DFMEA를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 PROTO 제조 PoC&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+&lt;span&gt;A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, 불량 유형별 근본 원인과 Jig·Laser·조립 조건을 연결해 기능 Sample 5개까지 검증했습니다.&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="iatf-16949-기반-개발품질-gate와-현재-위치"&gt;IATF 16949 기반 개발품질 Gate와 현재 위치&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;품질 단계&lt;/th&gt;
+&lt;th&gt;사내 Sample·승인&lt;/th&gt;
+&lt;th&gt;기술 목표&lt;/th&gt;
+&lt;th&gt;Tabless 프로젝트 상태&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;신규 구조의 제작성, 안전 CTQ와 기본 Cell 기능 확인&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;완료 — 기능 Sample 5개 Cell 평가&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B·C Sample&lt;/td&gt;
+&lt;td&gt;전용 Jig·설비, 반복성·검사 재현성과 생산성 검증&lt;/td&gt;
+&lt;td&gt;차후 설계 반영 사항으로 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+&lt;td&gt;Pilot 조건의 기술 양산 승인&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;양산 개시&lt;/td&gt;
+&lt;td&gt;승인조건의 정규 생산 운영&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Tabless 프로젝트의 목표는 PROTO 단계에서 &lt;strong&gt;신규 구조를 실제 Cell로 구현하고 안전·기능 타당성을 확인하는 것&lt;/strong&gt;이었습니다. 시험 결과는 PILOT B·C Sample의 전용 Jig·설비·검사 요구사항으로 이관했습니다.&lt;/p&gt;</description></item><item><title>LFP Power Cell 개발</title><link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 2170 원통형 조립라인에서 전해액·Clad Tab·Turn 수·Can 규격이 달라진 25P LFP Power Cell 개발&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;고객 CTQ:&lt;/strong&gt; 용량·IR·수명&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 변경점·CTQ 정의, 4M 위험분석, Taguchi 조건 Matrix, Sample 제작·공정조건 결정, 시양산·고객 Qual 대응&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;완료 Gate:&lt;/strong&gt; PROTO·PILOT·MP 기술 승인 완료, SOP는 고객 사업일정에 따른 양산 개시 단계&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 2만 Cell 시양산, 고객 Qual·CCB.PO 승인, 공정·검사기준과 양산 이관문서 완료&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--development"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF Gate · DMADV · 4M · Taguchi DOE&lt;/span&gt;
+&lt;strong&gt;PROTO에서 MP 기술 승인까지 신규 Cell 공정조건 확립&lt;/strong&gt;&lt;small&gt;품질 Gate는 PROTO→PILOT→MP→SOP로 관리하고, 각 Gate의 기술판정은 DMADV·4M·Taguchi DOE와 Cell 평가로 수행했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample·CTQ·기준선&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M·Taguchi 조건 Screening&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;선정조건·2만 Cell 시양산&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;고객 Qual·CCB.PO 승인&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;양산 개시 Gate&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/figure&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg"
+alt="사내 IATF 16949 기반 PROTO A Sample, PILOT B·C Sample, MP CCB.PO와 SOP 품질 Gate 아래에서 DMADV, 4M 위험분석과 Taguchi 직교배열 기반 조건 Matrix를 활용해 약 2만 Cell 시양산과 고객 Qual까지 진행한 25P LFP 공정개발 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 NPI 품질 Gate&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
+&lt;span&gt;DMADV가 개발단계를 연결하고, 4M에서 선정한 핵심 인자를 Taguchi DOE로 비교해 각 Sample Gate의 조건을 확정했습니다.&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="iatf-16949-기반-개발양산-이관-gate"&gt;IATF 16949 기반 개발·양산 이관 Gate&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;품질 단계&lt;/th&gt;
+&lt;th&gt;사내 Sample·승인&lt;/th&gt;
+&lt;th&gt;기술 목표&lt;/th&gt;
+&lt;th&gt;적용 방법&lt;/th&gt;
+&lt;th&gt;프로젝트 결과&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;신규 소재·구조의 제작 가능성, CTQ와 측정기준 확립&lt;/td&gt;
+&lt;td&gt;DMADV Define·Measure, 변경점 분석&lt;/td&gt;
+&lt;td&gt;전체 조립 가능성과 기본 검사 확인&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B Sample&lt;/td&gt;
+&lt;td&gt;핵심 공정인자 Screening과 조건 최적화&lt;/td&gt;
+&lt;td&gt;4M 위험분석, Taguchi DOE&lt;/td&gt;
+&lt;td&gt;함침·용접·밀봉·검사 후보조건 압축&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;C Sample&lt;/td&gt;
+&lt;td&gt;선정조건의 전후공정 연결성과 시양산성 확인&lt;/td&gt;
+&lt;td&gt;확인실험, Lot·Cell 평가&lt;/td&gt;
+&lt;td&gt;약 20,000 Cell 시양산 조건 확립&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+&lt;td&gt;고객 CTQ와 공정검증 자료의 기술 승인&lt;/td&gt;
+&lt;td&gt;DMADV Verify, 고객 Qual&lt;/td&gt;
+&lt;td&gt;고객 Qual·CCB.PO 승인 획득&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;양산 개시&lt;/td&gt;
+&lt;td&gt;승인조건의 정규 양산 운영&lt;/td&gt;
+&lt;td&gt;작업표준·QCP·P-FMEA·검사기준&lt;/td&gt;
+&lt;td&gt;MP 승인 후 양산개시 Gate로 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A·B·C Sample을 단순 제작순서로 관리한 것이 아니라, 각 단계에서 요구하는 품질 판단과 다음 Gate 진입조건을 분리했습니다. 25P는 PROTO와 PILOT을 거쳐 **MP 기술 승인(CCB.PO)**까지 완료한 프로젝트입니다.&lt;/p&gt;</description></item></channel></rss>

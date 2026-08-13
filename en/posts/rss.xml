@@ -1,166 +1,111 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Technical Case Studies on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
-    <link>https://heungjaelee.github.io/en/posts/</link>
-    <description>Recent content in Technical Case Studies on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/posts/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Mixed-Acid Bath Analysis and Control Standard</title>
-      <link>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</link>
-      <pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Technical Case Studies on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/posts/</link><description>Recent content in Technical Case Studies on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/posts/rss.xml" rel="self" type="application/rss+xml"/><item><title>Mixed-Acid Bath Analysis and Control Standard</title><link>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</link><pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Period&lt;/td&gt;
-          &lt;td&gt;Jul 2017–Jun 2018&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Scope&lt;/td&gt;
-          &lt;td&gt;Mixed-acid anodizing baths for OLED equipment parts&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Initial signal&lt;/td&gt;
-          &lt;td&gt;Etch-rate, particle, crack, appearance, and Hi-Pot issues returning after about three months&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Direct scope&lt;/td&gt;
-          &lt;td&gt;Analysis-log/product-defect comparison, sampling revision, repeated component analysis, external-lab correlation, Korea rollout, China revalidation, and training&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Completion&lt;/td&gt;
-          &lt;td&gt;Redesigned analysis, replenishment, product-sample, and bath-replacement decision criteria&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Period&lt;/td&gt;
+&lt;td&gt;Jul 2017–Jun 2018&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scope&lt;/td&gt;
+&lt;td&gt;Mixed-acid anodizing baths for OLED equipment parts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Initial signal&lt;/td&gt;
+&lt;td&gt;Etch-rate, particle, crack, appearance, and Hi-Pot issues returning after about three months&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Direct scope&lt;/td&gt;
+&lt;td&gt;Analysis-log/product-defect comparison, sampling revision, repeated component analysis, external-lab correlation, Korea rollout, China revalidation, and training&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Completion&lt;/td&gt;
+&lt;td&gt;Redesigned analysis, replenishment, product-sample, and bath-replacement decision criteria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The legacy titration value remained within its control range while product-film performance declined with bath age. The core issue was a single neutralization value converted by the original blend ratio, which &lt;strong&gt;did not detect different component-consumption rates and cumulative composition drift&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2170 Can Second-Source Qualification</title>
-      <link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid>
-      <description>&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
+&lt;p&gt;The legacy titration value remained within its control range while product-film performance declined with bath age. The core issue was a single neutralization value converted by the original blend ratio, which &lt;strong&gt;did not detect different component-consumption rates and cumulative composition drift&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>2170 Can Second-Source Qualification</title><link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid><description>&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
 &lt;p&gt;Planned production volume could not remain dependent on one can supplier, so an alternative source had to be qualified. The candidate can differed from the incumbent in alloy ratio, bottom thickness, dimensional tolerance, burrs, and surface condition. Even when component dimensions were within tolerance, those differences could affect beading and crimping geometry, sealing, can-cap laser welding, and vent safety.&lt;/p&gt;
-&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Cell Production-History Traceability Tool</title>
-      <link>https://heungjaelee.github.io/en/posts/cell-production-tracking/</link>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/cell-production-tracking/</guid>
-      <description>&lt;section class=&#34;portfolio-project-contract&#34; aria-label=&#34;NCM pilot-line production traceability automation tool facts&#34;&gt;
-  &lt;dl&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project type&lt;/dt&gt;
-      &lt;dd&gt;Field-used manufacturing DX&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Build period&lt;/dt&gt;
-      &lt;dd&gt;About three weeks · direct build&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Technology&lt;/dt&gt;
-      &lt;dd&gt;Excel Power Query · VBA&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Relationship keys&lt;/dt&gt;
-      &lt;dd&gt;Cell S/N · J/R · material lot · process time&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Search result&lt;/dt&gt;
-      &lt;dd&gt;About 5–10 sec per cell · about 3 min for ten cells&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Work result&lt;/dt&gt;
-      &lt;dd&gt;About three days → about half a day including report · field handoff&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
+&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description></item><item><title>Cell Production-History Traceability Tool</title><link>https://heungjaelee.github.io/en/posts/cell-production-tracking/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/cell-production-tracking/</guid><description>&lt;section class="portfolio-project-contract" aria-label="NCM pilot-line production traceability automation tool facts"&gt;
+&lt;dl&gt;
+&lt;div&gt;
+&lt;dt&gt;Project type&lt;/dt&gt;
+&lt;dd&gt;Field-used manufacturing DX&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Build period&lt;/dt&gt;
+&lt;dd&gt;About three weeks · direct build&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Technology&lt;/dt&gt;
+&lt;dd&gt;Excel Power Query · VBA&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Relationship keys&lt;/dt&gt;
+&lt;dd&gt;Cell S/N · J/R · material lot · process time&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Search result&lt;/dt&gt;
+&lt;dd&gt;About 5–10 sec per cell · about 3 min for ten cells&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Work result&lt;/dt&gt;
+&lt;dd&gt;About three days → about half a day including report · field handoff&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
 &lt;/section&gt;
-
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--system&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;DATA CONSOLIDATION · RECORD LINKAGE · VBA&lt;/span&gt;
-    &lt;strong&gt;Convert fragmented process records into cell-S/N traceability&lt;/strong&gt;&lt;small&gt;Kept process MES exports and Excel files, then built Power Query consolidation, record linkage, VBA batch search, and source-record comparison&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;BEFORE&lt;/b&gt;&lt;strong&gt;Three weeks of files·three-day task&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;CONSOLIDATE&lt;/b&gt;&lt;strong&gt;Normalize columns·refresh&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;LINK&lt;/b&gt;&lt;strong&gt;S/N→J/R→lot→roll&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;SEARCH&lt;/b&gt;&lt;strong&gt;VBA batch lookup·result table&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Cross-check S/N·lot·time&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;USE&lt;/b&gt;&lt;strong&gt;Three-minute search·half-day report&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--system"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;DATA CONSOLIDATION · RECORD LINKAGE · VBA&lt;/span&gt;
+&lt;strong&gt;Convert fragmented process records into cell-S/N traceability&lt;/strong&gt;&lt;small&gt;Kept process MES exports and Excel files, then built Power Query consolidation, record linkage, VBA batch search, and source-record comparison&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;BEFORE&lt;/b&gt;&lt;strong&gt;Three weeks of files·three-day task&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;CONSOLIDATE&lt;/b&gt;&lt;strong&gt;Normalize columns·refresh&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;LINK&lt;/b&gt;&lt;strong&gt;S/N→J/R→lot→roll&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;SEARCH&lt;/b&gt;&lt;strong&gt;VBA batch lookup·result table&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Cross-check S/N·lot·time&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;USE&lt;/b&gt;&lt;strong&gt;Three-minute search·half-day report&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
-  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
-    &lt;img
-      src=&#34;https://heungjaelee.github.io/images/projects/cell-production-tracking-flow.svg&#34;
-      alt=&#34;Production traceability flow consolidating process MES exports and Excel files in Power Query and linking cell S/N to J/R, material lot, electrode roll, assembly, inspection, and formation&#34;
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      
-      
-    &gt;
-  &lt;/div&gt;
-  &lt;figcaption&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;Production-history linkage&lt;/span&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
-      &lt;strong&gt;Cell-S/N production-history data flow&lt;/strong&gt;
-      &lt;span&gt;Power Query consolidated process files and a VBA lookup screen followed a cell S/N from electrode roll through formation&lt;/span&gt;
-      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-    &lt;/span&gt;
-  &lt;/figcaption&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/cell-production-tracking-flow.svg"
+alt="Production traceability flow consolidating process MES exports and Excel files in Power Query and linking cell S/N to J/R, material lot, electrode roll, assembly, inspection, and formation"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;Production-history linkage&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;Cell-S/N production-history data flow&lt;/strong&gt;
+&lt;span&gt;Power Query consolidated process files and a VBA lookup screen followed a cell S/N from electrode roll through formation&lt;/span&gt;
+&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
-&lt;p&gt;The NCM pilot line already had MES exports and Excel records for electrode, assembly, inspection, and formation processes. The missing function was a continuous cell-level path across those records.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>New Process Development for Short-Circuit Prevention</title>
-      <link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid>
-      <description>&lt;h2 id=&#34;project-background-and-problem-definition&#34;&gt;Project background and problem definition&lt;/h2&gt;
+&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
+&lt;p&gt;The NCM pilot line already had MES exports and Excel records for electrode, assembly, inspection, and formation processes. The missing function was a continuous cell-level path across those records.&lt;/p&gt;</description></item><item><title>New Process Development for Short-Circuit Prevention</title><link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid><description>&lt;h2 id="project-background-and-problem-definition"&gt;Project background and problem definition&lt;/h2&gt;
 &lt;p&gt;During early NCM pilot production, ultrasonic pre-welding repeatedly produced &lt;strong&gt;positive-electrode uncoated-edge tearing, active-material shedding around the negative heavy edge, and shorts&lt;/strong&gt;. Reducing the welding condition lowered damage but also weakened the required joint. Manual pre-forming showed a workable direction, but position, pressure, and R geometry changed by operator.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2170 Tabless Cell Development (Pilot Level)</title>
-      <link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description></item><item><title>2170 Tabless Cell Development (Pilot Level)</title><link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Development task:&lt;/strong&gt; Build a 2170 A sample using a tabless structure that connects the electrode and collector over a broad area instead of a conventional lead tab&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quality process:&lt;/strong&gt; Company development flow based on IATF 16949: &lt;code&gt;PROTO (A Sample) → PILOT (B and C Samples) → MP (CCB.PO) → SOP (mass production)&lt;/code&gt;&lt;/li&gt;
@@ -170,136 +115,113 @@
 &lt;li&gt;&lt;strong&gt;Direct scope:&lt;/strong&gt; Early process design, 4M risk analysis, DFMEA, temporary 3D-printed jigs, laser and assembly conditions, sectioning, teardown, and cell evaluation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final result:&lt;/strong&gt; Compressed and separated failure modes across about 100 trials and confirmed build and functional feasibility through cell evaluation on five functional samples&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--concept&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
-    &lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+&lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
-  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
-    &lt;img
-      src=&#34;https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg&#34;
-      alt=&#34;2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples&#34;
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      
-      
-    &gt;
-  &lt;/div&gt;
-  &lt;figcaption&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
-      &lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
-      &lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
-      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-    &lt;/span&gt;
-  &lt;/figcaption&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
+alt="2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+&lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
+&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;iatf-16949-based-development-gates-and-current-position&#34;&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
+&lt;h2 id="iatf-16949-based-development-gates-and-current-position"&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Quality stage&lt;/th&gt;
-          &lt;th&gt;Company sample or approval&lt;/th&gt;
-          &lt;th&gt;Technical objective&lt;/th&gt;
-          &lt;th&gt;Tabless project status&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;A Sample&lt;/td&gt;
-          &lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;B and C Samples&lt;/td&gt;
-          &lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
-          &lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
-          &lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
-          &lt;td&gt;Follow-on gate&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Mass-production start&lt;/td&gt;
-          &lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
-          &lt;td&gt;Follow-on gate&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quality stage&lt;/th&gt;
+&lt;th&gt;Company sample or approval&lt;/th&gt;
+&lt;th&gt;Technical objective&lt;/th&gt;
+&lt;th&gt;Tabless project status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B and C Samples&lt;/td&gt;
+&lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
+&lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
+&lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
+&lt;td&gt;Follow-on gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Mass-production start&lt;/td&gt;
+&lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
+&lt;td&gt;Follow-on gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>4695 Assembly-Line Recovery and Production Readiness</title>
-      <link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid>
-      <description>&lt;section class=&#34;portfolio-project-contract&#34; aria-label=&#34;4695 battery assembly-line stabilization and limited-production setup facts&#34;&gt;
-  &lt;dl&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project stage&lt;/dt&gt;
-      &lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period&lt;/dt&gt;
-      &lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Role&lt;/dt&gt;
-      &lt;dd&gt;Lead engineering owner&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Core responsibility&lt;/dt&gt;
-      &lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Validation scope&lt;/dt&gt;
-      &lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Final result&lt;/dt&gt;
-      &lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
+&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description></item><item><title>4695 Assembly-Line Recovery and Production Readiness</title><link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid><description>&lt;section class="portfolio-project-contract" aria-label="4695 battery assembly-line stabilization and limited-production setup facts"&gt;
+&lt;dl&gt;
+&lt;div&gt;
+&lt;dt&gt;Project stage&lt;/dt&gt;
+&lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Period&lt;/dt&gt;
+&lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Role&lt;/dt&gt;
+&lt;dd&gt;Lead engineering owner&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Core responsibility&lt;/dt&gt;
+&lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Validation scope&lt;/dt&gt;
+&lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Final result&lt;/dt&gt;
+&lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
 &lt;/section&gt;
-
-&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
-&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>LFP Power Cell Development</title>
-      <link>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</link>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
+&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description></item><item><title>LFP Power Cell Development</title><link>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Development task:&lt;/strong&gt; Develop a 25P LFP power cell on the existing 2170 cylindrical assembly line with changes in electrolyte, clad tabs, turn count, and can geometry&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quality process:&lt;/strong&gt; Company development flow based on IATF 16949: &lt;code&gt;PROTO (A Sample) → PILOT (B and C Samples) → MP (CCB.PO) → SOP (mass production)&lt;/code&gt;&lt;/li&gt;
@@ -308,944 +230,768 @@
 &lt;li&gt;&lt;strong&gt;Completed gate:&lt;/strong&gt; PROTO, PILOT, and MP technical approval completed; SOP remained the subsequent production-start gate&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final result:&lt;/strong&gt; About 20,000-cell trial production, customer qualification and CCB.PO approval, plus completed process, inspection, and production-handoff documents&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--development&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;IATF gates · DMADV · 4M · Taguchi DOE&lt;/span&gt;
-    &lt;strong&gt;Establish new-cell process conditions from PROTO through MP technical approval&lt;/strong&gt;&lt;small&gt;Quality gates were managed as PROTO→PILOT→MP→SOP, while technical decisions within each gate used DMADV, 4M, Taguchi DOE, and cell evaluation.&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample, CTQs, baseline&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M and Taguchi screening&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;Selected conditions, 20,000 cells&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;Customer Qual and CCB.PO&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;Production-start gate&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--development"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF gates · DMADV · 4M · Taguchi DOE&lt;/span&gt;
+&lt;strong&gt;Establish new-cell process conditions from PROTO through MP technical approval&lt;/strong&gt;&lt;small&gt;Quality gates were managed as PROTO→PILOT→MP→SOP, while technical decisions within each gate used DMADV, 4M, Taguchi DOE, and cell evaluation.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample, CTQs, baseline&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M and Taguchi screening&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;Selected conditions, 20,000 cells&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;Customer Qual and CCB.PO&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;Production-start gate&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
-  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
-    &lt;img
-      src=&#34;https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg&#34;
-      alt=&#34;25P LFP process-development flow under the company’s IATF 16949-based quality gates: PROTO A sample, PILOT B and C samples, MP CCB.PO, and SOP, with DMADV, 4M risk analysis, and Taguchi orthogonal-array condition matrices leading to about 20,000-cell trial production and customer qualification&#34;
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      
-      
-    &gt;
-  &lt;/div&gt;
-  &lt;figcaption&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF-based NPI quality gates&lt;/span&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
-      &lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
-      &lt;span&gt;DMADV connected the development stages, while factors selected through 4M were compared through Taguchi DOE to establish the conditions for each sample gate.&lt;/span&gt;
-      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-    &lt;/span&gt;
-  &lt;/figcaption&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg"
+alt="25P LFP process-development flow under the company’s IATF 16949-based quality gates: PROTO A sample, PILOT B and C samples, MP CCB.PO, and SOP, with DMADV, 4M risk analysis, and Taguchi orthogonal-array condition matrices leading to about 20,000-cell trial production and customer qualification"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF-based NPI quality gates&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
+&lt;span&gt;DMADV connected the development stages, while factors selected through 4M were compared through Taguchi DOE to establish the conditions for each sample gate.&lt;/span&gt;
+&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;iatf-16949-based-development-and-production-handoff-gates&#34;&gt;IATF 16949-based development and production-handoff gates&lt;/h2&gt;
+&lt;h2 id="iatf-16949-based-development-and-production-handoff-gates"&gt;IATF 16949-based development and production-handoff gates&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Quality stage&lt;/th&gt;
-          &lt;th&gt;Company sample or approval&lt;/th&gt;
-          &lt;th&gt;Technical objective&lt;/th&gt;
-          &lt;th&gt;Method&lt;/th&gt;
-          &lt;th&gt;Project result&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;A Sample&lt;/td&gt;
-          &lt;td&gt;Establish build feasibility, CTQs, and measurement criteria for the changed materials and structure&lt;/td&gt;
-          &lt;td&gt;DMADV Define and Measure, change analysis&lt;/td&gt;
-          &lt;td&gt;Confirmed complete assembly feasibility and basic inspection&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;B Sample&lt;/td&gt;
-          &lt;td&gt;Screen critical process factors and optimize conditions&lt;/td&gt;
-          &lt;td&gt;4M risk analysis and Taguchi DOE&lt;/td&gt;
-          &lt;td&gt;Compressed candidate conditions for impregnation, welding, sealing, and inspection&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;C Sample&lt;/td&gt;
-          &lt;td&gt;Confirm upstream/downstream linkage and trial producibility of selected conditions&lt;/td&gt;
-          &lt;td&gt;Confirmation runs, lot and cell evaluation&lt;/td&gt;
-          &lt;td&gt;Established conditions for about 20,000-cell trial production&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
-          &lt;td&gt;Obtain technical approval against customer CTQs and process evidence&lt;/td&gt;
-          &lt;td&gt;DMADV Verify and customer qualification&lt;/td&gt;
-          &lt;td&gt;Obtained customer qualification and CCB.PO approval&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Mass-production start&lt;/td&gt;
-          &lt;td&gt;Operate the approved conditions in regular production&lt;/td&gt;
-          &lt;td&gt;Work standards, QCP, P-FMEA, and inspection criteria&lt;/td&gt;
-          &lt;td&gt;Transferred from MP approval to the production-start gate&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quality stage&lt;/th&gt;
+&lt;th&gt;Company sample or approval&lt;/th&gt;
+&lt;th&gt;Technical objective&lt;/th&gt;
+&lt;th&gt;Method&lt;/th&gt;
+&lt;th&gt;Project result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;Establish build feasibility, CTQs, and measurement criteria for the changed materials and structure&lt;/td&gt;
+&lt;td&gt;DMADV Define and Measure, change analysis&lt;/td&gt;
+&lt;td&gt;Confirmed complete assembly feasibility and basic inspection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B Sample&lt;/td&gt;
+&lt;td&gt;Screen critical process factors and optimize conditions&lt;/td&gt;
+&lt;td&gt;4M risk analysis and Taguchi DOE&lt;/td&gt;
+&lt;td&gt;Compressed candidate conditions for impregnation, welding, sealing, and inspection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;C Sample&lt;/td&gt;
+&lt;td&gt;Confirm upstream/downstream linkage and trial producibility of selected conditions&lt;/td&gt;
+&lt;td&gt;Confirmation runs, lot and cell evaluation&lt;/td&gt;
+&lt;td&gt;Established conditions for about 20,000-cell trial production&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
+&lt;td&gt;Obtain technical approval against customer CTQs and process evidence&lt;/td&gt;
+&lt;td&gt;DMADV Verify and customer qualification&lt;/td&gt;
+&lt;td&gt;Obtained customer qualification and CCB.PO approval&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Mass-production start&lt;/td&gt;
+&lt;td&gt;Operate the approved conditions in regular production&lt;/td&gt;
+&lt;td&gt;Work standards, QCP, P-FMEA, and inspection criteria&lt;/td&gt;
+&lt;td&gt;Transferred from MP approval to the production-start gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The A, B, and C samples were not merely chronological builds. Each stage had a distinct quality decision and entry condition for the next gate. The 25P project completed PROTO and PILOT and reached &lt;strong&gt;MP technical approval through CCB.PO&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Diffuser Scale-Up Production-Introduction Failure</title>
-      <link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link>
-      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;p&gt;The A, B, and C samples were not merely chronological builds. Each stage had a distinct quality decision and entry condition for the next gate. The 25P project completed PROTO and PILOT and reached &lt;strong&gt;MP technical approval through CCB.PO&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Diffuser Scale-Up Production-Introduction Failure</title><link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Period&lt;/td&gt;
-          &lt;td&gt;Oct 2018–Dec 2019&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Type&lt;/td&gt;
-          &lt;td&gt;National R&amp;amp;D project for stripping and reuse of an aluminum diffuser&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Direct scope&lt;/td&gt;
-          &lt;td&gt;Lab and full-part trials, condition-based samples, roughness/microscope/SEM–EDS/particle analysis, and scale-up risk disposition&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Goal&lt;/td&gt;
-          &lt;td&gt;Shorter process and less high-pressure-water work while retaining surface quality, particles, and reusability&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Final decision&lt;/td&gt;
-          &lt;td&gt;Scale-up stop, return to the legacy process, and future R&amp;amp;D stop criteria&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Period&lt;/td&gt;
+&lt;td&gt;Oct 2018–Dec 2019&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Type&lt;/td&gt;
+&lt;td&gt;National R&amp;amp;D project for stripping and reuse of an aluminum diffuser&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Direct scope&lt;/td&gt;
+&lt;td&gt;Lab and full-part trials, condition-based samples, roughness/microscope/SEM–EDS/particle analysis, and scale-up risk disposition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Goal&lt;/td&gt;
+&lt;td&gt;Shorter process and less high-pressure-water work while retaining surface quality, particles, and reusability&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Final decision&lt;/td&gt;
+&lt;td&gt;Scale-up stop, return to the legacy process, and future R&amp;amp;D stop criteria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--failure-gate&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
-    &lt;strong&gt;Judge scale-up by substrate damage, particles, and reusability—not removal time alone&lt;/strong&gt;&lt;small&gt;Failure chain: no exhaust infrastructure → chemical removed → higher impact and residence → erosion in fixed overlap zones&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;About three-day strip and clean&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;Chemical&amp;#43;ultrasound about eight hours&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;No exhaust and no chemical&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;Water&amp;#43;ultrasound/manual about 1.5 days&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion, particles, and reuse&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;Legacy return and future gates&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--failure-gate"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
+&lt;strong&gt;Judge scale-up by substrate damage, particles, and reusability—not removal time alone&lt;/strong&gt;&lt;small&gt;Failure chain: no exhaust infrastructure → chemical removed → higher impact and residence → erosion in fixed overlap zones&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;About three-day strip and clean&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;Chemical&amp;#43;ultrasound about eight hours&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;No exhaust and no chemical&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;Water&amp;#43;ultrasound/manual about 1.5 days&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion, particles, and reuse&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;Legacy return and future gates&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;1-process-condition-transition&#34;&gt;1. Process-condition transition&lt;/h2&gt;
+&lt;h2 id="1-process-condition-transition"&gt;1. Process-condition transition&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Stage&lt;/th&gt;
-          &lt;th&gt;Process configuration&lt;/th&gt;
-          &lt;th style=&#34;text-align: right&#34;&gt;Work time&lt;/th&gt;
-          &lt;th&gt;Quality state&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Legacy&lt;/td&gt;
-          &lt;td&gt;Bead blast, chemical, high-pressure/manual work, cleaning, and drying&lt;/td&gt;
-          &lt;td style=&#34;text-align: right&#34;&gt;About three days&lt;/td&gt;
-          &lt;td&gt;Existing reuse criteria&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Initial limited trial&lt;/td&gt;
-          &lt;td&gt;Existing stripping chemical plus ultrasound&lt;/td&gt;
-          &lt;td style=&#34;text-align: right&#34;&gt;About eight hours&lt;/td&gt;
-          &lt;td&gt;Removal feasibility&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Scale-up&lt;/td&gt;
-          &lt;td&gt;Water, ultrasound, high-pressure water, and manual work&lt;/td&gt;
-          &lt;td style=&#34;text-align: right&#34;&gt;About one and a half days&lt;/td&gt;
-          &lt;td&gt;Erosion, particle, and reuse failure&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Stage&lt;/th&gt;
+&lt;th&gt;Process configuration&lt;/th&gt;
+&lt;th style="text-align: right"&gt;Work time&lt;/th&gt;
+&lt;th&gt;Quality state&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Legacy&lt;/td&gt;
+&lt;td&gt;Bead blast, chemical, high-pressure/manual work, cleaning, and drying&lt;/td&gt;
+&lt;td style="text-align: right"&gt;About three days&lt;/td&gt;
+&lt;td&gt;Existing reuse criteria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Initial limited trial&lt;/td&gt;
+&lt;td&gt;Existing stripping chemical plus ultrasound&lt;/td&gt;
+&lt;td style="text-align: right"&gt;About eight hours&lt;/td&gt;
+&lt;td&gt;Removal feasibility&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scale-up&lt;/td&gt;
+&lt;td&gt;Water, ultrasound, high-pressure water, and manual work&lt;/td&gt;
+&lt;td style="text-align: right"&gt;About one and a half days&lt;/td&gt;
+&lt;td&gt;Erosion, particle, and reuse failure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The scale-up equipment did not include the fume-exhaust infrastructure required for chemical use. Removing chemical action increased dependence on ultrasonic impact, high-pressure water, manual work, and equipment residence time.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Global Equipment-Maker Technical &amp; Quality Audit Approval</title>
-      <link>https://heungjaelee.github.io/en/posts/amat-akt-qual/</link>
-      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/amat-akt-qual/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;p&gt;The scale-up equipment did not include the fume-exhaust infrastructure required for chemical use. Removing chemical action increased dependence on ultrasonic impact, high-pressure water, manual work, and equipment residence time.&lt;/p&gt;</description></item><item><title>Global Equipment-Maker Technical &amp; Quality Audit Approval</title><link>https://heungjaelee.github.io/en/posts/amat-akt-qual/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/amat-akt-qual/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Period&lt;/td&gt;
-          &lt;td&gt;Dec 2017–Dec 2018&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Parts&lt;/td&gt;
-          &lt;td&gt;Susceptor- and diffuser-family components for a global CVD/PECVD equipment company&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Process scope&lt;/td&gt;
-          &lt;td&gt;Etching→bead blasting→oxalic-acid anodizing→material, Hi-Pot, and particle inspection&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Direct scope&lt;/td&gt;
-          &lt;td&gt;English specification and CTQ analysis, process-change design, Process Flow/Run Sheet/qualification documents, counterpart samples, measurement, audit response, and retest closure&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Completion&lt;/td&gt;
-          &lt;td&gt;One audit finding closed, technical qualification approved, and about one year of follow-on supply&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Period&lt;/td&gt;
+&lt;td&gt;Dec 2017–Dec 2018&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Parts&lt;/td&gt;
+&lt;td&gt;Susceptor- and diffuser-family components for a global CVD/PECVD equipment company&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Process scope&lt;/td&gt;
+&lt;td&gt;Etching→bead blasting→oxalic-acid anodizing→material, Hi-Pot, and particle inspection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Direct scope&lt;/td&gt;
+&lt;td&gt;English specification and CTQ analysis, process-change design, Process Flow/Run Sheet/qualification documents, counterpart samples, measurement, audit response, and retest closure&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Completion&lt;/td&gt;
+&lt;td&gt;One audit finding closed, technical qualification approved, and about one year of follow-on supply&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--improvement&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;Six Sigma Green Belt-based DMAIC · 4M&lt;/span&gt;
-    &lt;strong&gt;Translate customer requirements into process changes, measurement correlation, and audit closure&lt;/strong&gt;&lt;small&gt;Approval evidence: process capability, counterpart samples, seven Hi-Pot readings, and three retests&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;DEFINE&lt;/b&gt;&lt;strong&gt;English specification, CTQs, and submission scope&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Legacy process, equipment, and inspection baseline&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;Process-level 4M&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;IMPROVE&lt;/b&gt;&lt;strong&gt;Blast, anodizing, and inspection conditions&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Seven readings and three retests&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, SOP, and inspection criteria&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--improvement"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;Six Sigma Green Belt-based DMAIC · 4M&lt;/span&gt;
+&lt;strong&gt;Translate customer requirements into process changes, measurement correlation, and audit closure&lt;/strong&gt;&lt;small&gt;Approval evidence: process capability, counterpart samples, seven Hi-Pot readings, and three retests&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;DEFINE&lt;/b&gt;&lt;strong&gt;English specification, CTQs, and submission scope&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Legacy process, equipment, and inspection baseline&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;Process-level 4M&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;IMPROVE&lt;/b&gt;&lt;strong&gt;Blast, anodizing, and inspection conditions&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Seven readings and three retests&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, SOP, and inspection criteria&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;1-legacy-process-gaps&#34;&gt;1. Legacy-process gaps&lt;/h2&gt;
+&lt;h2 id="1-legacy-process-gaps"&gt;1. Legacy-process gaps&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Process or control&lt;/th&gt;
-          &lt;th&gt;Legacy state&lt;/th&gt;
-          &lt;th&gt;Gap against customer requirement&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Etching and pretreatment&lt;/td&gt;
-          &lt;td&gt;Work sequence and inspection points managed separately&lt;/td&gt;
-          &lt;td&gt;Mismatch with English specification and submission items&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Bead blasting&lt;/td&gt;
-          &lt;td&gt;Common conditions and fragmented evaluation records&lt;/td&gt;
-          &lt;td&gt;Weak linkage to surface roughness and particle requirements&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Oxalic-acid anodizing&lt;/td&gt;
-          &lt;td&gt;Internal film settings&lt;/td&gt;
-          &lt;td&gt;Weak linkage to thickness, Hi-Pot, acid, and corrosion CTQs&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Material and particle checks&lt;/td&gt;
-          &lt;td&gt;Individual test records&lt;/td&gt;
-          &lt;td&gt;Incomplete process-flow and sample-history linkage&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Hi-Pot&lt;/td&gt;
-          &lt;td&gt;Equipment, location, repeat, ramp, and sequence differences&lt;/td&gt;
-          &lt;td&gt;Internal/customer disposition mismatch&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Change documents&lt;/td&gt;
-          &lt;td&gt;Independent revisions by process, inspection, and submission&lt;/td&gt;
-          &lt;td&gt;Document–field–sample inconsistency&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Process or control&lt;/th&gt;
+&lt;th&gt;Legacy state&lt;/th&gt;
+&lt;th&gt;Gap against customer requirement&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Etching and pretreatment&lt;/td&gt;
+&lt;td&gt;Work sequence and inspection points managed separately&lt;/td&gt;
+&lt;td&gt;Mismatch with English specification and submission items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bead blasting&lt;/td&gt;
+&lt;td&gt;Common conditions and fragmented evaluation records&lt;/td&gt;
+&lt;td&gt;Weak linkage to surface roughness and particle requirements&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oxalic-acid anodizing&lt;/td&gt;
+&lt;td&gt;Internal film settings&lt;/td&gt;
+&lt;td&gt;Weak linkage to thickness, Hi-Pot, acid, and corrosion CTQs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Material and particle checks&lt;/td&gt;
+&lt;td&gt;Individual test records&lt;/td&gt;
+&lt;td&gt;Incomplete process-flow and sample-history linkage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hi-Pot&lt;/td&gt;
+&lt;td&gt;Equipment, location, repeat, ramp, and sequence differences&lt;/td&gt;
+&lt;td&gt;Internal/customer disposition mismatch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Change documents&lt;/td&gt;
+&lt;td&gt;Independent revisions by process, inspection, and submission&lt;/td&gt;
+&lt;td&gt;Document–field–sample inconsistency&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;2-six-sigma-green-belt-based-dmaic&#34;&gt;2. Six Sigma Green Belt-based DMAIC&lt;/h2&gt;
+&lt;h2 id="2-six-sigma-green-belt-based-dmaic"&gt;2. Six Sigma Green Belt-based DMAIC&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Phase&lt;/th&gt;
-          &lt;th&gt;Core work&lt;/th&gt;
-          &lt;th&gt;Decision and output&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Define&lt;/td&gt;
-          &lt;td&gt;Supplier registration, part qualification, process capability, and CTQs&lt;/td&gt;
-          &lt;td&gt;Qualification scope and audit items&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Measure&lt;/td&gt;
-          &lt;td&gt;Run sheets, equipment capability, samples, and measurement baseline&lt;/td&gt;
-          &lt;td&gt;Legacy-to-customer gap list&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Analyze&lt;/td&gt;
-          &lt;td&gt;Etching, bead blasting, anodizing, and Hi-Pot through 4M&lt;/td&gt;
-          &lt;td&gt;Process changes separated from alignment items&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Improve&lt;/td&gt;
-          &lt;td&gt;Product-family process conditions and inspection specifications&lt;/td&gt;
-          &lt;td&gt;Process Flow, Run Sheet, and inspection criteria&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Verify&lt;/td&gt;
-          &lt;td&gt;Customer location, seven repeated readings, aligned sequence, and three retests&lt;/td&gt;
-          &lt;td&gt;One technical-audit finding closed&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Control&lt;/td&gt;
-          &lt;td&gt;Synchronized process, inspection, sample, and document revisions&lt;/td&gt;
-          &lt;td&gt;Technical qualification and follow-on production basis&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Phase&lt;/th&gt;
+&lt;th&gt;Core work&lt;/th&gt;
+&lt;th&gt;Decision and output&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Define&lt;/td&gt;
+&lt;td&gt;Supplier registration, part qualification, process capability, and CTQs&lt;/td&gt;
+&lt;td&gt;Qualification scope and audit items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Measure&lt;/td&gt;
+&lt;td&gt;Run sheets, equipment capability, samples, and measurement baseline&lt;/td&gt;
+&lt;td&gt;Legacy-to-customer gap list&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Analyze&lt;/td&gt;
+&lt;td&gt;Etching, bead blasting, anodizing, and Hi-Pot through 4M&lt;/td&gt;
+&lt;td&gt;Process changes separated from alignment items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Improve&lt;/td&gt;
+&lt;td&gt;Product-family process conditions and inspection specifications&lt;/td&gt;
+&lt;td&gt;Process Flow, Run Sheet, and inspection criteria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verify&lt;/td&gt;
+&lt;td&gt;Customer location, seven repeated readings, aligned sequence, and three retests&lt;/td&gt;
+&lt;td&gt;One technical-audit finding closed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Control&lt;/td&gt;
+&lt;td&gt;Synchronized process, inspection, sample, and document revisions&lt;/td&gt;
+&lt;td&gt;Technical qualification and follow-on production basis&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;3-process-level-changes-and-4m&#34;&gt;3. Process-level changes and 4M&lt;/h2&gt;
+&lt;h2 id="3-process-level-changes-and-4m"&gt;3. Process-level changes and 4M&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Analysis target&lt;/th&gt;
-          &lt;th&gt;Suspected cause&lt;/th&gt;
-          &lt;th&gt;Finding&lt;/th&gt;
-          &lt;th&gt;Action&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Etching and pretreatment&lt;/td&gt;
-          &lt;td&gt;Man·Method·Measurement — Work sequence, inspection timing, and sample history separated&lt;/td&gt;
-          &lt;td&gt;Thickness, roughness, appearance, and downstream comparison&lt;/td&gt;
-          &lt;td&gt;Process Flow and Run Sheet sequence realignment&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Bead blasting&lt;/td&gt;
-          &lt;td&gt;Machine·Method·Measurement — Product-family surface requirements not represented&lt;/td&gt;
-          &lt;td&gt;Roughness, appearance, and particle comparison&lt;/td&gt;
-          &lt;td&gt;Conditions, evaluation items, and anodizing-entry basis reconfigured&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Oxalic-acid anodizing&lt;/td&gt;
-          &lt;td&gt;Material·Machine·Method — Internal setting and customer CTQs misaligned&lt;/td&gt;
-          &lt;td&gt;Thickness, Hi-Pot, acid, and corrosion checks&lt;/td&gt;
-          &lt;td&gt;Product-family film conditions and inspection specification redesigned&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Hi-Pot&lt;/td&gt;
-          &lt;td&gt;Machine·Method·Measurement — Equipment, location, repeat, ramp, and arc-reading differences&lt;/td&gt;
-          &lt;td&gt;Three retests on counterpart samples&lt;/td&gt;
-          &lt;td&gt;Customer location, seven readings, ramp, sequence, and arc basis aligned&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Acid, corrosion, and particles&lt;/td&gt;
-          &lt;td&gt;Method·Measurement — Internal results weakly linked to customer capability&lt;/td&gt;
-          &lt;td&gt;Internal, external, and customer-result comparison&lt;/td&gt;
-          &lt;td&gt;Test conditions, inspection specification, and external correlation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Change control&lt;/td&gt;
-          &lt;td&gt;Man·Method — Process, inspection, and submission revisions misaligned&lt;/td&gt;
-          &lt;td&gt;Audit check of document/field consistency&lt;/td&gt;
-          &lt;td&gt;Process–inspection–sample–document concurrent revision&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Analysis target&lt;/th&gt;
+&lt;th&gt;Suspected cause&lt;/th&gt;
+&lt;th&gt;Finding&lt;/th&gt;
+&lt;th&gt;Action&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Etching and pretreatment&lt;/td&gt;
+&lt;td&gt;Man·Method·Measurement — Work sequence, inspection timing, and sample history separated&lt;/td&gt;
+&lt;td&gt;Thickness, roughness, appearance, and downstream comparison&lt;/td&gt;
+&lt;td&gt;Process Flow and Run Sheet sequence realignment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bead blasting&lt;/td&gt;
+&lt;td&gt;Machine·Method·Measurement — Product-family surface requirements not represented&lt;/td&gt;
+&lt;td&gt;Roughness, appearance, and particle comparison&lt;/td&gt;
+&lt;td&gt;Conditions, evaluation items, and anodizing-entry basis reconfigured&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Oxalic-acid anodizing&lt;/td&gt;
+&lt;td&gt;Material·Machine·Method — Internal setting and customer CTQs misaligned&lt;/td&gt;
+&lt;td&gt;Thickness, Hi-Pot, acid, and corrosion checks&lt;/td&gt;
+&lt;td&gt;Product-family film conditions and inspection specification redesigned&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hi-Pot&lt;/td&gt;
+&lt;td&gt;Machine·Method·Measurement — Equipment, location, repeat, ramp, and arc-reading differences&lt;/td&gt;
+&lt;td&gt;Three retests on counterpart samples&lt;/td&gt;
+&lt;td&gt;Customer location, seven readings, ramp, sequence, and arc basis aligned&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Acid, corrosion, and particles&lt;/td&gt;
+&lt;td&gt;Method·Measurement — Internal results weakly linked to customer capability&lt;/td&gt;
+&lt;td&gt;Internal, external, and customer-result comparison&lt;/td&gt;
+&lt;td&gt;Test conditions, inspection specification, and external correlation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Change control&lt;/td&gt;
+&lt;td&gt;Man·Method — Process, inspection, and submission revisions misaligned&lt;/td&gt;
+&lt;td&gt;Audit check of document/field consistency&lt;/td&gt;
+&lt;td&gt;Process–inspection–sample–document concurrent revision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;4-hi-pot-measurement-correlation&#34;&gt;4. Hi-Pot measurement correlation&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Counterpart samples from the same bath and manufacturing condition
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ customer-designated measurement locations
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ seven repeated readings per sample
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ internal/customer equipment comparison
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ ramp time and test-sequence alignment
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ Arc Counter disposition alignment
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ revised counterpart samples
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ three retests under one decision basis
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;→ closure of one technical-audit finding
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Equipment, location, repeat, and sequence differences were removed before changing the process recipe. The three retests then established correlation between internal inspection and customer disposition.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>OLED Component Anodizing Process Development</title>
-      <link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link>
-      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;h2 id="4-hi-pot-measurement-correlation"&gt;4. Hi-Pot measurement correlation&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Counterpart samples from the same bath and manufacturing condition
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ customer-designated measurement locations
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ seven repeated readings per sample
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ internal/customer equipment comparison
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ ramp time and test-sequence alignment
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ Arc Counter disposition alignment
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ revised counterpart samples
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ three retests under one decision basis
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;→ closure of one technical-audit finding
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Equipment, location, repeat, and sequence differences were removed before changing the process recipe. The three retests then established correlation between internal inspection and customer disposition.&lt;/p&gt;</description></item><item><title>OLED Component Anodizing Process Development</title><link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Area&lt;/th&gt;
-          &lt;th&gt;Case A · Mixed-acid anodizing&lt;/th&gt;
-          &lt;th&gt;Case B · Oxalic-acid anodizing&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Period&lt;/td&gt;
-          &lt;td&gt;Jan–Jun 2017&lt;/td&gt;
-          &lt;td&gt;Jul–Oct 2018&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Part&lt;/td&gt;
-          &lt;td&gt;OLED dry-etch upper-electrode family&lt;/td&gt;
-          &lt;td&gt;Display PECVD susceptor family&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Starting issue&lt;/td&gt;
-          &lt;td&gt;Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature&lt;/td&gt;
-          &lt;td&gt;New high-temperature qualification requirement&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Development structure&lt;/td&gt;
-          &lt;td&gt;DMAIC, 4M, and small-to-large-area scale-up&lt;/td&gt;
-          &lt;td&gt;Requirement, design alternatives, internal screening, and customer qualification&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Completion&lt;/td&gt;
-          &lt;td&gt;Customer qualification, product application, and about one year of stabilization follow-up&lt;/td&gt;
-          &lt;td&gt;Customer vacuum-heat qualification, product application, and about one year of use&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Area&lt;/th&gt;
+&lt;th&gt;Case A · Mixed-acid anodizing&lt;/th&gt;
+&lt;th&gt;Case B · Oxalic-acid anodizing&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Period&lt;/td&gt;
+&lt;td&gt;Jan–Jun 2017&lt;/td&gt;
+&lt;td&gt;Jul–Oct 2018&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Part&lt;/td&gt;
+&lt;td&gt;OLED dry-etch upper-electrode family&lt;/td&gt;
+&lt;td&gt;Display PECVD susceptor family&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Starting issue&lt;/td&gt;
+&lt;td&gt;Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature&lt;/td&gt;
+&lt;td&gt;New high-temperature qualification requirement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development structure&lt;/td&gt;
+&lt;td&gt;DMAIC, 4M, and small-to-large-area scale-up&lt;/td&gt;
+&lt;td&gt;Requirement, design alternatives, internal screening, and customer qualification&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Completion&lt;/td&gt;
+&lt;td&gt;Customer qualification, product application, and about one year of stabilization follow-up&lt;/td&gt;
+&lt;td&gt;Customer vacuum-heat qualification, product application, and about one year of use&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Direct scope:&lt;/strong&gt; defect and run-sheet analysis, condition-based sample production, heat/crack/Hi-Pot evaluation, large-area scale-up, customer-sample response, and process/inspection-document revision&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Decision sequence:&lt;/strong&gt; use condition and measurement alignment → 4M cause reduction → condition-based samples → scale-up or customer qualification → standard-document handoff&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--scaleup&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
-    &lt;strong&gt;Translate use-condition changes and customer CTQs into film conditions and inspection gates&lt;/strong&gt;&lt;small&gt;Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;Heat, cracks, and particles&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Thickness, heat, Hi-Pot, and appearance&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M, current distribution, and racking&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Film, thickness, and post-treatment&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Large area, repeats, and qualification&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, standard, and inspection&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--scaleup"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
+&lt;strong&gt;Translate use-condition changes and customer CTQs into film conditions and inspection gates&lt;/strong&gt;&lt;small&gt;Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;Heat, cracks, and particles&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Thickness, heat, Hi-Pot, and appearance&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M, current distribution, and racking&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Film, thickness, and post-treatment&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Large area, repeats, and qualification&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, standard, and inspection&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;h1 id=&#34;case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode&#34;&gt;Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode&lt;/h1&gt;
-&lt;h2 id=&#34;1-legacy-process-issue-and-ctqs&#34;&gt;1. Legacy-process issue and CTQs&lt;/h2&gt;
-&lt;p&gt;The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2170 Production Yield Stabilization</title>
-      <link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-battery-2170-pilot&#34; data-project-id=&#34;battery-2170-pilot&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-battery-2170-pilot&#34;&gt;Before trying to improve the yield number, I separated inspection errors from actual process defects so that equipment and process actions targeted the right cause.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Production stabilization result&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;During tenure at Kumyang · May 2024–Sep 2025&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Company project · Assembly process lead&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-battery-2170-pilot&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-battery-2170-pilot&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Effective good yield was initially about 40%, while production, quality, and equipment teams were using different denominators and defect definitions.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AI Agent Platform for Manufacturing AX</title>
-      <link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-authority-evidence-plane&#34; data-project-id=&#34;ai-authority-evidence-plane&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-ai-authority-evidence-plane&#34;&gt;A platform that selects domain knowledge and rules from an ontology and LLM wiki to compose and run AI agents with defined roles, tools, evidence, and stop conditions. Authority and evidence checks form its execution-safety layer.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Agent composition and local execution foundation verified · not connected to production&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Last completed local validation snapshot · Jul 2026&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Personal AI use · Ontology- and LLM-wiki-based agent platform&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Repeating knowledge, tools, and rules in every long prompt creates inconsistent terminology and opaque agent definitions. Mixing in execution authority can also lead to an unapproved external change.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>NCM Pilot Line Equipment Handover</title>
-      <link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-ncm-fat-sat&#34; data-project-id=&#34;ncm-fat-sat&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-ncm-fat-sat&#34;&gt;Equipment acceptance is not complete when a machine merely runs; product tolerance, repeatability, safety, and production readiness must be checked against shared criteria.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Equipment acceptance and initial production stabilization&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;During the relevant employment · May 2023–May 2024&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Company project · Pilot-line commissioning and operation&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-ncm-fat-sat&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-ncm-fat-sat&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Thirteen processes and eleven key machines required aligned acceptance criteria, supplier actions, retest records, and a daily 200-cell production plan.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Practical Guide to Unemployment-Benefit Questions</title>
-      <link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-unemployment-qna&#34; data-project-id=&#34;ai-unemployment-qna&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-ai-unemployment-qna&#34;&gt;Unemployment-benefit questions are safer when categorized and linked to official and individual verification paths rather than answered with a simple eligibility verdict.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Live · Policies may change&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Public validation snapshot · Jul 19, 2026&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Personal AI use · Official-source Q&amp;amp;A&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-ai-unemployment-qna&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Similar questions can have different answers depending on separation reason, insured period, and individual notices, so general guidance must not replace administrative decisions.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Study Masterbook for Maintenance Engineer Candidates</title>
-      <link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-seolbi-learning-platform&#34; data-project-id=&#34;ai-seolbi-learning-platform&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-ai-seolbi-learning-platform&#34;&gt;Useful learning requires more than showing many questions: answers must remain hidden before submission, and evidence must explain why an answer is right or wrong afterward.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Live · Selected material remains deferred&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Last completed validation snapshot · Jul 30, 2026&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Personal AI use · Evidence-based learning platform&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-ai-seolbi-learning-platform&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Question, answer, explanation, source, and rights status were mixed, so automatically publishing weakly supported material risked incorrect learning and rights issues.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Surface-Treatment Project Summary</title>
-      <link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-wet-process-standardization&#34; data-project-id=&#34;wet-process-standardization&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-wet-process-standardization&#34;&gt;Matching process conditions alone was not enough; bath condition and cross-instrument differences had to be understood so internal and customer measurements agreed.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Process and inspection criteria applied to production&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;During tenure at YMC · Mar 2016–Jan 2021&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Company project · Surface-treatment process development and qualification&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-wet-process-standardization&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-wet-process-standardization&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;If anodizing, etching, cleaning, bath analysis, and inspection measurements were not connected, sample results varied and qualification criteria were difficult to align.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Vacuum-Robot Overhaul Standardization</title>
-      <link>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</link>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-robot-overhaul-standardization&#34; data-project-id=&#34;robot-overhaul-standardization&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-robot-overhaul-standardization&#34;&gt;An overhaul process dependent on individual memory had to be documented as work and inspection criteria so different operators could reproduce the same quality.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;SOP and checklist applied in work&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;During tenure at Bontech · Feb 2021–Mar 2022&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Company project · Precision-assembly standardization&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-robot-overhaul-standardization&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-robot-overhaul-standardization&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Disassembly and assembly order, torque, alignment, leak, and repeatability checks were largely passed on verbally, creating omission and operator-variation risk.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Field Guide to AI Models for Manufacturing</title>
-      <link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-deep-learning-modeling&#34; data-project-id=&#34;deep-learning-modeling&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-deep-learning-modeling&#34;&gt;For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Learning workflow public · Before manufacturing validation&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Personal learning project · Current public-repository scope&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Reproducible modeling study repository&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-deep-learning-modeling&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-deep-learning-modeling&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title>
-      <link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid>
-      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+&lt;h1 id="case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode"&gt;Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode&lt;/h1&gt;
+&lt;h2 id="1-legacy-process-issue-and-ctqs"&gt;1. Legacy-process issue and CTQs&lt;/h2&gt;
+&lt;p&gt;The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:&lt;/p&gt;</description></item><item><title>2170 Production Yield Stabilization</title><link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-battery-2170-pilot" data-project-id="battery-2170-pilot"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-battery-2170-pilot"&gt;Before trying to improve the yield number, I separated inspection errors from actual process defects so that equipment and process actions targeted the right cause.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Production stabilization result&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;During tenure at Kumyang · May 2024–Sep 2025&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Company project · Assembly process lead&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-battery-2170-pilot"&gt;
+&lt;h3 id="project-case-problem-battery-2170-pilot"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Effective good yield was initially about 40%, while production, quality, and equipment teams were using different denominators and defect definitions.&lt;/p&gt;</description></item><item><title>AI Agent Platform for Manufacturing AX</title><link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-authority-evidence-plane" data-project-id="ai-authority-evidence-plane"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-authority-evidence-plane"&gt;A platform that selects domain knowledge and rules from an ontology and LLM wiki to compose and run AI agents with defined roles, tools, evidence, and stop conditions. Authority and evidence checks form its execution-safety layer.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Agent composition and local execution foundation verified · not connected to production&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Last completed local validation snapshot · Jul 2026&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Personal AI use · Ontology- and LLM-wiki-based agent platform&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-authority-evidence-plane"&gt;
+&lt;h3 id="project-case-problem-ai-authority-evidence-plane"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Repeating knowledge, tools, and rules in every long prompt creates inconsistent terminology and opaque agent definitions. Mixing in execution authority can also lead to an unapproved external change.&lt;/p&gt;</description></item><item><title>NCM Pilot Line Equipment Handover</title><link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-ncm-fat-sat" data-project-id="ncm-fat-sat"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-ncm-fat-sat"&gt;Equipment acceptance is not complete when a machine merely runs; product tolerance, repeatability, safety, and production readiness must be checked against shared criteria.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Equipment acceptance and initial production stabilization&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;During the relevant employment · May 2023–May 2024&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Company project · Pilot-line commissioning and operation&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ncm-fat-sat"&gt;
+&lt;h3 id="project-case-problem-ncm-fat-sat"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Thirteen processes and eleven key machines required aligned acceptance criteria, supplier actions, retest records, and a daily 200-cell production plan.&lt;/p&gt;</description></item><item><title>Practical Guide to Unemployment-Benefit Questions</title><link>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-unemployment-qna/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-unemployment-qna" data-project-id="ai-unemployment-qna"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-unemployment-qna"&gt;Unemployment-benefit questions are safer when categorized and linked to official and individual verification paths rather than answered with a simple eligibility verdict.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Live · Policies may change&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Public validation snapshot · Jul 19, 2026&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Personal AI use · Official-source Q&amp;amp;A&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-unemployment-qna"&gt;
+&lt;h3 id="project-case-problem-ai-unemployment-qna"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Similar questions can have different answers depending on separation reason, insured period, and individual notices, so general guidance must not replace administrative decisions.&lt;/p&gt;</description></item><item><title>Study Masterbook for Maintenance Engineer Candidates</title><link>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ai-seolbi-learning-platform/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ai-seolbi-learning-platform" data-project-id="ai-seolbi-learning-platform"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-ai-seolbi-learning-platform"&gt;Useful learning requires more than showing many questions: answers must remain hidden before submission, and evidence must explain why an answer is right or wrong afterward.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Live · Selected material remains deferred&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Last completed validation snapshot · Jul 30, 2026&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Personal AI use · Evidence-based learning platform&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ai-seolbi-learning-platform"&gt;
+&lt;h3 id="project-case-problem-ai-seolbi-learning-platform"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Question, answer, explanation, source, and rights status were mixed, so automatically publishing weakly supported material risked incorrect learning and rights issues.&lt;/p&gt;</description></item><item><title>Surface-Treatment Project Summary</title><link>https://heungjaelee.github.io/en/posts/wet-process-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/wet-process-standardization/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-wet-process-standardization" data-project-id="wet-process-standardization"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-wet-process-standardization"&gt;Matching process conditions alone was not enough; bath condition and cross-instrument differences had to be understood so internal and customer measurements agreed.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Process and inspection criteria applied to production&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;During tenure at YMC · Mar 2016–Jan 2021&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Company project · Surface-treatment process development and qualification&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-wet-process-standardization"&gt;
+&lt;h3 id="project-case-problem-wet-process-standardization"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;If anodizing, etching, cleaning, bath analysis, and inspection measurements were not connected, sample results varied and qualification criteria were difficult to align.&lt;/p&gt;</description></item><item><title>Vacuum-Robot Overhaul Standardization</title><link>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-overhaul-standardization/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-robot-overhaul-standardization" data-project-id="robot-overhaul-standardization"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-robot-overhaul-standardization"&gt;An overhaul process dependent on individual memory had to be documented as work and inspection criteria so different operators could reproduce the same quality.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;SOP and checklist applied in work&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;During tenure at Bontech · Feb 2021–Mar 2022&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Company project · Precision-assembly standardization&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-robot-overhaul-standardization"&gt;
+&lt;h3 id="project-case-problem-robot-overhaul-standardization"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Disassembly and assembly order, torque, alignment, leak, and repeatability checks were largely passed on verbally, creating omission and operator-variation risk.&lt;/p&gt;</description></item><item><title>Field Guide to AI Models for Manufacturing</title><link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link><pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-deep-learning-modeling" data-project-id="deep-learning-modeling"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-deep-learning-modeling"&gt;For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Learning workflow public · Before manufacturing validation&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Personal learning project · Current public-repository scope&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Reproducible modeling study repository&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-deep-learning-modeling"&gt;
+&lt;h3 id="project-case-problem-deep-learning-modeling"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.&lt;/p&gt;</description></item><item><title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title><link>https://heungjaelee.github.io/en/posts/robot-digital-twin/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-digital-twin/</guid><description>&lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
 &lt;p&gt;Separate demonstrations of robot motion, vision results, PLC sequences, and MES records do not reconstruct what happened to one product.&lt;/p&gt;
 &lt;p&gt;This education team PoC used a QR serial as the common key across an Indy7 assembly flow, edge-vision inspection, PLC and SCADA, MySQL/MES, and digital-twin state.&lt;/p&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Area&lt;/th&gt;
-          &lt;th&gt;Public scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Project type&lt;/td&gt;
-          &lt;td&gt;Education team PoC&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;My role&lt;/td&gt;
-          &lt;td&gt;Robot and Digital Twin&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Team implementation&lt;/td&gt;
-          &lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Technologies&lt;/td&gt;
-          &lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Current status&lt;/td&gt;
-          &lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Area&lt;/th&gt;
+&lt;th&gt;Public scope&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Project type&lt;/td&gt;
+&lt;td&gt;Education team PoC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;My role&lt;/td&gt;
+&lt;td&gt;Robot and Digital Twin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Team implementation&lt;/td&gt;
+&lt;td&gt;QR traceability, robot sequence, vision, PLC/SCADA, and MES&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Technologies&lt;/td&gt;
+&lt;td&gt;Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Current status&lt;/td&gt;
+&lt;td&gt;Education demo complete; plant pilot and long-running E2E unverified&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GIGA Press Virtual-Factory Expansion</title>
-      <link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid>
-      <description>&lt;h2 id=&#34;what-an-interviewer-should-confirm-in-30-seconds&#34;&gt;What an interviewer should confirm in 30 seconds&lt;/h2&gt;
+&lt;p&gt;Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.&lt;/p&gt;</description></item><item><title>GIGA Press Virtual-Factory Expansion</title><link>https://heungjaelee.github.io/en/posts/giga-press-dx/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/giga-press-dx/</guid><description>&lt;h2 id="what-an-interviewer-should-confirm-in-30-seconds"&gt;What an interviewer should confirm in 30 seconds&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Project form&lt;/td&gt;
-          &lt;td&gt;A &lt;strong&gt;10-person training-team PoC&lt;/strong&gt;, not a live GIGA Press installation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Reduce rework caused by first aligning sequences, interlocks, screen tags, and upper-layer data on physical equipment&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;What I led&lt;/td&gt;
-          &lt;td&gt;Overall planning of the topic, problem, scope, architecture, and integration order; final-report writing&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Direct hands-on scope&lt;/td&gt;
-          &lt;td&gt;The &lt;strong&gt;Digital Twin–AI integration structure&lt;/strong&gt;, including the AI insertion point and authority boundary&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Teammate implementation&lt;/td&gt;
-          &lt;td&gt;Detailed PLC Ladder/Factory I/O and SCADA/OPC UA implementation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Verified output&lt;/td&gt;
-          &lt;td&gt;An integrated Factory I/O–PLC/Ladder–SCADA/OPC UA–web team demo and final report&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Not verified&lt;/td&gt;
-          &lt;td&gt;Physical GIGA Press behavior, safety PLC, HIL/FAT, production impact, or DQN closed-loop performance&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Scope&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Project form&lt;/td&gt;
+&lt;td&gt;A &lt;strong&gt;10-person training-team PoC&lt;/strong&gt;, not a live GIGA Press installation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem&lt;/td&gt;
+&lt;td&gt;Reduce rework caused by first aligning sequences, interlocks, screen tags, and upper-layer data on physical equipment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;What I led&lt;/td&gt;
+&lt;td&gt;Overall planning of the topic, problem, scope, architecture, and integration order; final-report writing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Direct hands-on scope&lt;/td&gt;
+&lt;td&gt;The &lt;strong&gt;Digital Twin–AI integration structure&lt;/strong&gt;, including the AI insertion point and authority boundary&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Teammate implementation&lt;/td&gt;
+&lt;td&gt;Detailed PLC Ladder/Factory I/O and SCADA/OPC UA implementation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verified output&lt;/td&gt;
+&lt;td&gt;An integrated Factory I/O–PLC/Ladder–SCADA/OPC UA–web team demo and final report&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Not verified&lt;/td&gt;
+&lt;td&gt;Physical GIGA Press behavior, safety PLC, HIL/FAT, production impact, or DQN closed-loop performance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;I was not the project manager or the sole developer. The team lead managed schedule, risk, and the final presentation. I &lt;strong&gt;led the overall structure and integration order, wrote the final report, and directly worked on the Digital Twin–AI connection&lt;/strong&gt;. This distinction shows system-level judgement without attributing teammates’ Ladder and SCADA work to me.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Indy7 Digital Twin</title>
-      <link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid>
-      <description>&lt;h2 id=&#34;what-an-interviewer-should-confirm-in-30-seconds&#34;&gt;What an interviewer should confirm in 30 seconds&lt;/h2&gt;
+&lt;p&gt;I was not the project manager or the sole developer. The team lead managed schedule, risk, and the final presentation. I &lt;strong&gt;led the overall structure and integration order, wrote the final report, and directly worked on the Digital Twin–AI connection&lt;/strong&gt;. This distinction shows system-level judgement without attributing teammates’ Ladder and SCADA work to me.&lt;/p&gt;</description></item><item><title>Indy7 Digital Twin</title><link>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/robot-json-omniverse/</guid><description>&lt;h2 id="what-an-interviewer-should-confirm-in-30-seconds"&gt;What an interviewer should confirm in 30 seconds&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Item&lt;/th&gt;
-          &lt;th&gt;Scope&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Project&lt;/td&gt;
-          &lt;td&gt;A &lt;strong&gt;10-person automotive-factory training PoC&lt;/strong&gt; connecting QR, vision, collaborative robots, PLC/SCADA, and a database&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Problem&lt;/td&gt;
-          &lt;td&gt;Individual robot motion was not enough; product identity, completion state, inspection result, and loading history had to remain connected&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;What I led&lt;/td&gt;
-          &lt;td&gt;Overall planning of the project goal, process scenario, system structure, and cross-team integration order&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Direct hands-on scope&lt;/td&gt;
-          &lt;td&gt;Indy7 control, command/state integration between stations, robot programs, and integrated-flow validation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Team boundary&lt;/td&gt;
-          &lt;td&gt;Detailed vision, PLC Ladder, and SCADA/database work belonged to teammates; the team lead owned the report, schedule, and final presentation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Verified output&lt;/td&gt;
-          &lt;td&gt;Physical flow from QR capture through body/window assembly, vision inspection, and good/defect routing&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;Later extension&lt;/td&gt;
-          &lt;td&gt;PC-HMI, Conty JSON, IndyDCP, MQTT, history services, and a read-only web twin were developed later as a separate public-code scope&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Item&lt;/th&gt;
+&lt;th&gt;Scope&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Project&lt;/td&gt;
+&lt;td&gt;A &lt;strong&gt;10-person automotive-factory training PoC&lt;/strong&gt; connecting QR, vision, collaborative robots, PLC/SCADA, and a database&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Problem&lt;/td&gt;
+&lt;td&gt;Individual robot motion was not enough; product identity, completion state, inspection result, and loading history had to remain connected&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;What I led&lt;/td&gt;
+&lt;td&gt;Overall planning of the project goal, process scenario, system structure, and cross-team integration order&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Direct hands-on scope&lt;/td&gt;
+&lt;td&gt;Indy7 control, command/state integration between stations, robot programs, and integrated-flow validation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Team boundary&lt;/td&gt;
+&lt;td&gt;Detailed vision, PLC Ladder, and SCADA/database work belonged to teammates; the team lead owned the report, schedule, and final presentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Verified output&lt;/td&gt;
+&lt;td&gt;Physical flow from QR capture through body/window assembly, vision inspection, and good/defect routing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Later extension&lt;/td&gt;
+&lt;td&gt;PC-HMI, Conty JSON, IndyDCP, MQTT, history services, and a read-only web twin were developed later as a separate public-code scope&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p class=&#34;portfolio-table-note&#34;&gt;&lt;strong&gt;How to read this table:&lt;/strong&gt; I led the project problem framing and integration order. My direct implementation centered on Indy7 control and process integration, while detailed vision, Ladder, SCADA, and team-lead responsibilities remain separately attributed.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Manufacturing Knowledge Search LLM Wiki</title>
-      <link>https://heungjaelee.github.io/en/posts/ontology-construction/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/ontology-construction/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ontology-construction&#34; data-project-id=&#34;ontology-construction&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-ontology-construction&#34;&gt;The same equipment or quality concept can be named differently across departments and documents, so terminology and relationships need an explicit contract before evidence-backed retrieval is possible.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Limited to what the public repository supports&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Personal project · Current public-repository scope&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Manufacturing knowledge data and retrieval&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-ontology-construction&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-ontology-construction&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;Keyword search over manufacturing documents with Korean, English, acronyms, and synonyms can miss equivalent concepts or mix different meanings.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Welding Vision AI Decision Criteria</title>
-      <link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link>
-      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid>
-      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-welding-vision-ai&#34; data-project-id=&#34;welding-vision-ai&#34;&gt;
-  &lt;header class=&#34;project-case-summary__header&#34;&gt;
-    &lt;div&gt;
-      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
-      &lt;h2 id=&#34;project-case-summary-welding-vision-ai&#34;&gt;On the shop floor, the cost of missing a defect can matter more than aggregate accuracy, so the PoC separated data sources and prioritized recall and threshold decisions.&lt;/h2&gt;
-    &lt;/div&gt;
-    &lt;span class=&#34;project-case-summary__status&#34;&gt;Detection-criteria evaluation stage&lt;/span&gt;
-  &lt;/header&gt;
-
-  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Period / basis&lt;/dt&gt;
-      &lt;dd&gt;Training team project · Public case updated Jul 2026&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-      &lt;dt&gt;Project form&lt;/dt&gt;
-      &lt;dd&gt;Manufacturing DX PoC · Before production use&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-
-  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
-    &lt;section aria-labelledby=&#34;project-case-problem-welding-vision-ai&#34;&gt;
-      &lt;h3 id=&#34;project-case-problem-welding-vision-ai&#34;&gt;Problem to solve&lt;/h3&gt;
-      &lt;p&gt;A model that performs well on public data cannot be assumed to behave the same on field images with different lighting, angles, and surface conditions.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p class="portfolio-table-note"&gt;&lt;strong&gt;How to read this table:&lt;/strong&gt; I led the project problem framing and integration order. My direct implementation centered on Indy7 control and process integration, while detailed vision, Ladder, SCADA, and team-lead responsibilities remain separately attributed.&lt;/p&gt;</description></item><item><title>Manufacturing Knowledge Search LLM Wiki</title><link>https://heungjaelee.github.io/en/posts/ontology-construction/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ontology-construction/</guid><description>&lt;aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-ontology-construction" data-project-id="ontology-construction"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-ontology-construction"&gt;The same equipment or quality concept can be named differently across departments and documents, so terminology and relationships need an explicit contract before evidence-backed retrieval is possible.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Limited to what the public repository supports&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Personal project · Current public-repository scope&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Manufacturing knowledge data and retrieval&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-ontology-construction"&gt;
+&lt;h3 id="project-case-problem-ontology-construction"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;Keyword search over manufacturing documents with Korean, English, acronyms, and synonyms can miss equivalent concepts or mix different meanings.&lt;/p&gt;</description></item><item><title>Welding Vision AI Decision Criteria</title><link>https://heungjaelee.github.io/en/posts/welding-vision-ai/</link><pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/welding-vision-ai/</guid><description>&lt;aside class="project-case-summary project-case-summary--dx" aria-labelledby="project-case-summary-welding-vision-ai" data-project-id="welding-vision-ai"&gt;
+&lt;header class="project-case-summary__header"&gt;
+&lt;div&gt;
+&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
+&lt;h2 id="project-case-summary-welding-vision-ai"&gt;On the shop floor, the cost of missing a defect can matter more than aggregate accuracy, so the PoC separated data sources and prioritized recall and threshold decisions.&lt;/h2&gt;
+&lt;/div&gt;
+&lt;span class="project-case-summary__status"&gt;Detection-criteria evaluation stage&lt;/span&gt;
+&lt;/header&gt;
+&lt;dl class="project-case-summary__meta"&gt;
+&lt;div&gt;
+&lt;dt&gt;Period / basis&lt;/dt&gt;
+&lt;dd&gt;Training team project · Public case updated Jul 2026&lt;/dd&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;dt&gt;Project form&lt;/dt&gt;
+&lt;dd&gt;Manufacturing DX PoC · Before production use&lt;/dd&gt;
+&lt;/div&gt;
+&lt;/dl&gt;
+&lt;div class="project-case-summary__grid"&gt;
+&lt;section aria-labelledby="project-case-problem-welding-vision-ai"&gt;
+&lt;h3 id="project-case-problem-welding-vision-ai"&gt;Problem to solve&lt;/h3&gt;
+&lt;p&gt;A model that performs well on public data cannot be assumed to behave the same on field images with different lighting, angles, and surface conditions.&lt;/p&gt;</description></item></channel></rss>

@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DFMEA on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
-    <link>https://heungjaelee.github.io/en/tags/dfmea/</link>
-    <description>Recent content in DFMEA on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/dfmea/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>2170 Tabless Cell Development (Pilot Level)</title>
-      <link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DFMEA on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/dfmea/</link><description>Recent content in DFMEA on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/dfmea/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Tabless Cell Development (Pilot Level)</title><link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Development task:&lt;/strong&gt; Build a 2170 A sample using a tabless structure that connects the electrode and collector over a broad area instead of a conventional lead tab&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quality process:&lt;/strong&gt; Company development flow based on IATF 16949: &lt;code&gt;PROTO (A Sample) → PILOT (B and C Samples) → MP (CCB.PO) → SOP (mass production)&lt;/code&gt;&lt;/li&gt;
@@ -22,90 +8,81 @@
 &lt;li&gt;&lt;strong&gt;Direct scope:&lt;/strong&gt; Early process design, 4M risk analysis, DFMEA, temporary 3D-printed jigs, laser and assembly conditions, sectioning, teardown, and cell evaluation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final result:&lt;/strong&gt; Compressed and separated failure modes across about 100 trials and confirmed build and functional feasibility through cell evaluation on five functional samples&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--concept&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
-    &lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+&lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
-  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
-    &lt;img
-      src=&#34;https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg&#34;
-      alt=&#34;2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples&#34;
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      
-      
-    &gt;
-  &lt;/div&gt;
-  &lt;figcaption&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
-      &lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
-      &lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
-      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-    &lt;/span&gt;
-  &lt;/figcaption&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
+alt="2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+&lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
+&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;iatf-16949-based-development-gates-and-current-position&#34;&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
+&lt;h2 id="iatf-16949-based-development-gates-and-current-position"&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;Quality stage&lt;/th&gt;
-          &lt;th&gt;Company sample or approval&lt;/th&gt;
-          &lt;th&gt;Technical objective&lt;/th&gt;
-          &lt;th&gt;Tabless project status&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;A Sample&lt;/td&gt;
-          &lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;B and C Samples&lt;/td&gt;
-          &lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
-          &lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
-          &lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
-          &lt;td&gt;Follow-on gate&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Mass-production start&lt;/td&gt;
-          &lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
-          &lt;td&gt;Follow-on gate&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Quality stage&lt;/th&gt;
+&lt;th&gt;Company sample or approval&lt;/th&gt;
+&lt;th&gt;Technical objective&lt;/th&gt;
+&lt;th&gt;Tabless project status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B and C Samples&lt;/td&gt;
+&lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
+&lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
+&lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
+&lt;td&gt;Follow-on gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Mass-production start&lt;/td&gt;
+&lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
+&lt;td&gt;Follow-on gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description></item></channel></rss>

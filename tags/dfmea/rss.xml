@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DFMEA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
-    <link>https://heungjaelee.github.io/tags/dfmea/</link>
-    <description>Recent content in DFMEA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ko-KR</language>
-    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/dfmea/rss.xml" rel="self" type="application/rss+xml" /><item>
-      <title>2170 Tabless 셀 개발 (Pilot Lv)</title>
-      <link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
-      
-      <guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid>
-      <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DFMEA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/dfmea/</link><description>Recent content in DFMEA on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/dfmea/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Tabless 셀 개발 (Pilot Lv)</title><link>https://heungjaelee.github.io/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-tabless-concept/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 Lead Tab을 대체해 극판과 Collector를 넓은 면적으로 연결하는 2170 Tabless 구조 A Sample 제작&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
@@ -22,90 +8,81 @@
 &lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 선행 제조공정 설계, 4M 위험분석, DFMEA, 3D Print 임시 Jig, Laser·조립조건, 절단·해체와 Cell 평가&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 100개 Trial에서 Failure Mode를 압축 분리하고 기능 Sample 5개의 제작·기능 타당성 확인&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--concept&#34;&gt;
-  &lt;figcaption&gt;
-    &lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
-    &lt;strong&gt;PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환&lt;/strong&gt;&lt;small&gt;전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·DFMEA와 Cell 평가를 완료했습니다.&lt;/small&gt;&lt;/figcaption&gt;
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample 목표·CTQ&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;접합·Beam·Short 기준&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M 위험·Failure Mode&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig·Laser·조립 Trial&lt;/strong&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;약 100 Trial·기능 5개&lt;/strong&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
+&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
+&lt;figcaption&gt;
+&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+&lt;strong&gt;PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환&lt;/strong&gt;&lt;small&gt;전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·DFMEA와 Cell 평가를 완료했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample 목표·CTQ&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;접합·Beam·Short 기준&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M 위험·Failure Mode&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig·Laser·조립 Trial&lt;/strong&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;약 100 Trial·기능 5개&lt;/strong&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/figure&gt;
-
-&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
-  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
-    &lt;img
-      src=&#34;https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg&#34;
-      alt=&#34;PROTO A Sample Gate에서 DMADV, 4M 위험분석과 DFMEA를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름&#34;
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      
-      
-    &gt;
-  &lt;/div&gt;
-  &lt;figcaption&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF 기반 PROTO 제조 PoC&lt;/span&gt;
-    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
-      &lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
-      &lt;span&gt;A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, 불량 유형별 근본 원인과 Jig·Laser·조립 조건을 연결해 기능 Sample 5개까지 검증했습니다.&lt;/span&gt;
-      &lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
-    &lt;/span&gt;
-  &lt;/figcaption&gt;
+&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
+&lt;div class="portfolio-evidence-figure__media"&gt;
+&lt;img
+src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
+alt="PROTO A Sample Gate에서 DMADV, 4M 위험분석과 DFMEA를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름"
+loading="lazy"
+decoding="async"
+&gt;
+&lt;/div&gt;
+&lt;figcaption&gt;
+&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 PROTO 제조 PoC&lt;/span&gt;
+&lt;span class="portfolio-evidence-figure__copy"&gt;
+&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+&lt;span&gt;A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, 불량 유형별 근본 원인과 Jig·Laser·조립 조건을 연결해 기능 Sample 5개까지 검증했습니다.&lt;/span&gt;
+&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+&lt;/span&gt;
+&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;h2 id=&#34;iatf-16949-기반-개발품질-gate와-현재-위치&#34;&gt;IATF 16949 기반 개발품질 Gate와 현재 위치&lt;/h2&gt;
+&lt;h2 id="iatf-16949-기반-개발품질-gate와-현재-위치"&gt;IATF 16949 기반 개발품질 Gate와 현재 위치&lt;/h2&gt;
 &lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;품질 단계&lt;/th&gt;
-          &lt;th&gt;사내 Sample·승인&lt;/th&gt;
-          &lt;th&gt;기술 목표&lt;/th&gt;
-          &lt;th&gt;Tabless 프로젝트 상태&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;A Sample&lt;/td&gt;
-          &lt;td&gt;신규 구조의 제작성, 안전 CTQ와 기본 Cell 기능 확인&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;완료 — 기능 Sample 5개 Cell 평가&lt;/strong&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;B·C Sample&lt;/td&gt;
-          &lt;td&gt;전용 Jig·설비, 반복성·검사 재현성과 생산성 검증&lt;/td&gt;
-          &lt;td&gt;차후 설계 반영 사항으로 이관&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
-          &lt;td&gt;Pilot 조건의 기술 양산 승인&lt;/td&gt;
-          &lt;td&gt;후속 Gate&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;양산 개시&lt;/td&gt;
-          &lt;td&gt;승인조건의 정규 생산 운영&lt;/td&gt;
-          &lt;td&gt;후속 Gate&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;품질 단계&lt;/th&gt;
+&lt;th&gt;사내 Sample·승인&lt;/th&gt;
+&lt;th&gt;기술 목표&lt;/th&gt;
+&lt;th&gt;Tabless 프로젝트 상태&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;A Sample&lt;/td&gt;
+&lt;td&gt;신규 구조의 제작성, 안전 CTQ와 기본 Cell 기능 확인&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;완료 — 기능 Sample 5개 Cell 평가&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;B·C Sample&lt;/td&gt;
+&lt;td&gt;전용 Jig·설비, 반복성·검사 재현성과 생산성 검증&lt;/td&gt;
+&lt;td&gt;차후 설계 반영 사항으로 이관&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+&lt;td&gt;Pilot 조건의 기술 양산 승인&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;양산 개시&lt;/td&gt;
+&lt;td&gt;승인조건의 정규 생산 운영&lt;/td&gt;
+&lt;td&gt;후속 Gate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Tabless 프로젝트의 목표는 PROTO 단계에서 &lt;strong&gt;신규 구조를 실제 Cell로 구현하고 안전·기능 타당성을 확인하는 것&lt;/strong&gt;이었습니다. 시험 결과는 PILOT B·C Sample의 전용 Jig·설비·검사 요구사항으로 이관했습니다.&lt;/p&gt;</description>
-    </item>
-    
-    
-  </channel>
-</rss>
+&lt;p&gt;Tabless 프로젝트의 목표는 PROTO 단계에서 &lt;strong&gt;신규 구조를 실제 Cell로 구현하고 안전·기능 타당성을 확인하는 것&lt;/strong&gt;이었습니다. 시험 결과는 PILOT B·C Sample의 전용 Jig·설비·검사 요구사항으로 이관했습니다.&lt;/p&gt;</description></item></channel></rss>
