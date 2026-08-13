@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ontology on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/ontology/</link>
+    <description>Recent content in Ontology on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/ontology/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>AI Agent Platform for Manufacturing AX</title>
+      <link>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ai-authority-evidence-plane/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-ai-authority-evidence-plane&#34; data-project-id=&#34;ai-authority-evidence-plane&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ai-authority-evidence-plane&#34;&gt;A platform that selects domain knowledge and rules from an ontology and LLM wiki to compose and run AI agents with defined roles, tools, evidence, and stop conditions. Authority and evidence checks form its execution-safety layer.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Agent composition and local execution foundation verified · not connected to production&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Last completed local validation snapshot · Jul 2026&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Personal AI use · Ontology- and LLM-wiki-based agent platform&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ai-authority-evidence-plane&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Repeating knowledge, tools, and rules in every long prompt creates inconsistent terminology and opaque agent definitions. Mixing in execution authority can also lead to an unapproved external change.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

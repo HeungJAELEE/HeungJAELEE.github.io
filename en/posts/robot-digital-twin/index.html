@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaborative-Robot Assembly Twin and Edge-Vision PoC</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<script>
+  try {
+    localStorage.setItem('theme-scheme', 'light');
+    localStorage.removeItem('darkmode:color-scheme');
+  } catch (error) {
+    
+  }
+</script>
+
+
+  <link rel="canonical" href="https://heungjaelee.github.io/en/posts/robot-digital-twin/">
+
+
+
+
+
+  
+    
+      <link rel="alternate" hreflang="x-default" href="https://heungjaelee.github.io/posts/robot-digital-twin/">
+    
+  
+    
+  
+
+
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
+
+
+
+  
+  
+    
+  
+  
+    <link rel="icon" type="image/png" href="/images/site/favicon_hu_a9180e8b9b024b5f.png">
+  
+
+
+
+<meta property="og:title" content="Collaborative-Robot Assembly Twin and Edge-Vision PoC">
+<meta property="og:type" content="article">
+<meta property="og:description" content="An education team PoC connecting QR traceability, Indy7 robots, vision inspection, PLC/SCADA/MES, and a digital twin">
+<meta property="og:url" content="https://heungjaelee.github.io/en/posts/robot-digital-twin/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
+<meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Collaborative-Robot Assembly Twin and Edge-Vision PoC">
+  <meta name="twitter:description" content="An education team PoC connecting QR traceability, Indy7 robots, vision inspection, PLC/SCADA/MES, and a digital twin">
+
+  <meta name="description" content="An education team PoC connecting QR traceability, Indy7 robots, vision inspection, PLC/SCADA/MES, and a digital twin">
+
+
+    
+
+
+
+
+    
+  
+
+
+
+
+      <script integrity="sha256-6N/HdTRW44DtfcdqA1u42Z4XgmL1dEmNmLPaA2sgp1o=">let theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light'
+if (theme === 'system') {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark'
+  } else {
+    theme = 'light'
+  }
+}
+document.documentElement.setAttribute('data-theme', theme)
+</script>
+    
+  </head>
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    
+    
+    
+
+    <a class="portfolio-skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="container-fluid bg-secondary wrapper">
+      
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+      
+    
+    
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar portfolio-navbar " id="top-navbar" aria-label="Home">
+  <div class="container portfolio-navbar__inner">
+    
+      <button class="navbar-toggler navbar-light portfolio-navbar__sidebar" id="sidebar-toggler" type="button" aria-controls="sidebar-section" aria-expanded="false" aria-label="Open post navigation">
+        <i data-feather="sidebar"></i>
+      </button>
+    
+
+    <a class="navbar-brand portfolio-navbar__brand" href="/en/">
+      
+        <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" id="logo" class="portfolio-navbar__logo" alt="" width="36" height="36">
+      
+      <span>Jaeheung Lee</span>
+    </a>
+
+    <button
+      class="navbar-toggler navbar-light portfolio-navbar__toggle"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-controls="top-nav-items"
+      aria-expanded="false"
+      aria-label="Menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar portfolio-navbar__collapse" id="top-nav-items">
+      <ul class="navbar-nav ms-auto portfolio-navbar__links">
+        
+        
+          
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#about">About</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#projects">Projects</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#experiences">Experiences</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#skills">Skills</a>
+              </li>
+            
+          
+        
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#education">Education</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        
+
+        
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="blog-link"
+              href="/en/posts"
+              aria-current="page"
+            >Technical Cases</a>
+          </li>
+        
+
+        
+        
+        
+        
+        
+          
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link" href="/posts/robot-digital-twin/" lang="ko" hreflang="ko">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link is-active" href="/en/posts/robot-digital-twin/" lang="en" hreflang="en" aria-current="page">English</a>
+        </li>
+
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
+
+        <li class="nav-item portfolio-navbar__contact-item">
+          <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const collapse = document.getElementById('top-nav-items');
+    const toggler = document.getElementById('navbar-toggler');
+
+    if (collapse && toggler) {
+      const setExpanded = (expanded) => {
+        toggler.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggler.classList.toggle('collapsed', !expanded);
+      };
+
+      collapse.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (link && !link.classList.contains('dropdown-toggle')) {
+          setExpanded(false);
+        }
+      });
+      collapse.addEventListener('shown.bs.collapse', () => setExpanded(true));
+      collapse.addEventListener('hidden.bs.collapse', () => setExpanded(false));
+    }
+
+    const sidebarToggler = document.getElementById('sidebar-toggler');
+    if (sidebarToggler) {
+      sidebarToggler.addEventListener('click', () => {
+        window.setTimeout(() => {
+          const sidebar = document.getElementById('sidebar-section');
+          sidebarToggler.setAttribute('aria-expanded', sidebar?.classList.contains('expanded') ? 'true' : 'false');
+        }, 0);
+      });
+    }
+
+    const scrollToTop = document.getElementById('scroll-to-top');
+    if (scrollToTop) {
+      scrollToTop.setAttribute('href', '#main-content');
+      scrollToTop.setAttribute('aria-label', "Back to top");
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.portfolio-navbar__links a.nav-link[href*="#"]')]
+      .filter((link) => {
+        const url = new URL(link.href, window.location.href);
+        return url.pathname === window.location.pathname && url.hash.length > 1;
+      });
+
+    if (sectionLinks.length > 0) {
+      const linkedSections = sectionLinks
+        .map((link) => ({ link, section: document.querySelector(new URL(link.href).hash) }))
+        .filter(({ section }) => section instanceof HTMLElement);
+      let framePending = false;
+
+      const updateActiveSection = () => {
+        framePending = false;
+        const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
+        let current = linkedSections[0];
+
+        linkedSections.forEach((candidate) => {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
+            current = candidate;
+          }
+        });
+
+        linkedSections.forEach(({ link }) => {
+          const active = link === current?.link;
+          link.classList.toggle('active', active);
+          if (active) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const scheduleActiveSection = () => {
+        if (!framePending) {
+          framePending = true;
+          window.requestAnimationFrame(updateActiveSection);
+        }
+      };
+
+      updateActiveSection();
+      window.addEventListener('scroll', scheduleActiveSection, { passive: true });
+      window.addEventListener('resize', scheduleActiveSection);
+      window.addEventListener('hashchange', scheduleActiveSection);
+    }
+  });
+</script>
+
+
+      
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="Search case studies">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/en/search/">
+          <label class="visually-hidden" for="search-box">Search case studies</label>
+          <input type="search" name="keyword" placeholder="Search case studies" id="search-box">
+        </form>
+        <nav aria-label="Post navigation">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/en/posts/">All case studies</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Collaborative-Robot Assembly Twin and Edge-Vision PoC</h1>
+          
+            <p class="portfolio-article__lead">An education team PoC connecting QR traceability, Indy7 robots, vision inspection, PLC/SCADA/MES, and a digital twin</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-09">Jul 9, 2026</time>
+             · 
+            6 minutes
+             · 
+            Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/digital-twin/" class="btn btn-sm btn-outline-info rounded">Digital Twin</a></li>
+    
+    
+    <li><a href="/en/tags/robot/" class="btn btn-sm btn-outline-info rounded">Robot</a></li>
+    
+    
+    <li><a href="/en/tags/edge-ai/" class="btn btn-sm btn-outline-info rounded">Edge AI</a></li>
+    
+    
+    <li><a href="/en/tags/vision/" class="btn btn-sm btn-outline-info rounded">Vision</a></li>
+    
+    
+    <li><a href="/en/tags/plc/" class="btn btn-sm btn-outline-info rounded">PLC</a></li>
+    
+    
+    <li><a href="/en/tags/mes/" class="btn btn-sm btn-outline-info rounded">MES</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <h2 id="the-problem">The problem</h2>
+<p>Separate demonstrations of robot motion, vision results, PLC sequences, and MES records do not reconstruct what happened to one product.</p>
+<p>This education team PoC used a QR serial as the common key across an Indy7 assembly flow, edge-vision inspection, PLC and SCADA, MySQL/MES, and digital-twin state.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Area</th>
+          <th>Public scope</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Project type</td>
+          <td>Education team PoC</td>
+      </tr>
+      <tr>
+          <td>My role</td>
+          <td>Robot and Digital Twin</td>
+      </tr>
+      <tr>
+          <td>Team implementation</td>
+          <td>QR traceability, robot sequence, vision, PLC/SCADA, and MES</td>
+      </tr>
+      <tr>
+          <td>Technologies</td>
+          <td>Indy7, Python, YOLO, Raspberry Pi, Hailo, PLC, and MySQL</td>
+      </tr>
+      <tr>
+          <td>Current status</td>
+          <td>Education demo complete; plant pilot and long-running E2E unverified</td>
+      </tr>
+  </tbody>
+</table>
+<p>Team output and my individual role are kept separate. I do not present the full team result as a solo achievement, and the original report containing teammate identities is not published.</p>
+<h2 id="why-the-flow-is-structured-this-way">Why the flow is structured this way</h2>
+<div class="mermaid">
+flowchart LR
+    A["Register QR serial"] --> B["MySQL / MES\nproduct and process history"]
+    B --> C["PLC sequence"]
+    C --> D["Indy7 assembly and transfer"]
+    D --> E["Camera + edge vision"]
+    E --> F["Inspection result"]
+    F --> C
+    F --> B
+    C --> G["SCADA and Digital Twin\nprocess-state view"]
+</div>
+
+<h3 id="use-the-qr-serial-as-the-shared-key">Use the QR serial as the shared key</h3>
+<p>The minimum history contains product serial, process step, equipment or robot ID, inspection-model version, prediction and score, and event time. These fields must form one work record before a defect can be traced back to the relevant step and equipment state.</p>
+<h3 id="separate-ai-judgment-from-physical-control">Separate AI judgment from physical control</h3>
+<p>A vision result does not directly command robot motion. The PLC checks completion, communications, and interlocks before the next transition. This boundary reduces the chance that a model error or stale message becomes a physical action.</p>
+<h3 id="keep-the-twin-observational">Keep the twin observational</h3>
+<p>The twin aligns robot and inspection state on one timeline. A moving 3D scene does not prove machine safety, so physical authority remains with the PLC, robot controller, and safety circuit.</p>
+<h2 id="my-scope">My scope</h2>
+<ul>
+<li>Review the collaborative-robot process sequence and state representation</li>
+<li>Define robot-state fields consumed by the twin</li>
+<li>Use an offline-to-single-motion-to-process-flow validation order</li>
+<li>Connect product ID, process step, inspection result, and timestamp</li>
+<li>Clarify the boundary between vision output and physical sequence control</li>
+</ul>
+<p>The team presentation included model and edge-device comparison figures, but a public visitor cannot reproduce the data split, repeated evaluation, or long-running thermal conditions. Those figures are therefore not used as headline achievements on this page.</p>
+<h2 id="result">Result</h2>
+<p>The team connected product identification, robot steps, inspection results, and MES history in one demonstration flow. My work focused on the Robot and Digital Twin scope: what state should be shared, what the twin may observe, and where it must not cross into control authority.</p>
+<p>My FAT/SAT experience informed the staged validation order: check functions, interlocks, repeatability, and production history separately before treating the connected demonstration as a complete system.</p>
+<h2 id="evidence-and-limits">Evidence and limits</h2>
+<ul>
+<li>The team material does not provide a complete individual R&amp;R breakdown, so my role remains limited to Robot and Digital Twin.</li>
+<li>The source file containing teammate names and metadata was removed from the site.</li>
+<li>Education-demo model and speed figures are not generalized to production.</li>
+<li>Plant cycle time, latency, safety, restart recovery, and long-term drift remain unverified.</li>
+<li>A related repository is not used as public evidence until its configuration cleanup is complete.</li>
+</ul>
+<h2 id="design-and-validation-record">Design and validation record</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Design and validation record</p>
+      <h2 id="project-blueprint-robot-digital-twin">Design choices and work flow</h2>
+      <p class="project-blueprint__summary">The team project is presented as a product-traceability flow from QR and MES through robots, vision, PLC, and the digital twin, with explicit phase and ownership boundaries.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Education team PoC complete · plant pilot pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Education team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Robot and Digital Twin</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Manufacturing, robot, vision, and MES teams</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Original material with teammate information is private; public links withheld</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>If product ID, robot motion, inspection images, PLC sequence, and MES results remain separate, product-level process history cannot be reconstructed.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Use QR serial as a shared key across three Indy7 robots, YOLOv11 inspection, PLC/SCADA, MySQL/MES, and digital-twin state.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>The team demo reconstructs product→step→equipment→inspection→time and reports edge-performance evidence without expanding it into a plant claim.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-robot-digital-twin">
+      <h3 id="project-scope-robot-digital-twin">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>QR serial registration and MySQL/MES process history</li><li>Three-Indy7 input, body/window assembly, and loading sequence</li><li>YOLOv11 inspection and Pi5 versus Hailo-10H inference comparison</li><li>PLC, SCADA, and Digital Twin state connection</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Presenting team results as my individual-only implementation</li><li>Treating the related repository and complete team PDF as one artifact</li><li>Generalizing an education cell to automotive plant performance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-robot-digital-twin">
+      <h3 id="project-requirements-robot-digital-twin">Implementation and verification</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>What had to work</h4>
+          <ul>
+              <li>QR serial is the common key for process and inspection history.</li>
+              <li>The PLC coordinates robot steps and good/reject routing.</li>
+              <li>SCADA, MES, and twin display the same step and state.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operating rules</h4>
+          <ul>
+              <li>Separate team artifacts, individual role, and related repository.</li>
+              <li>Do not use model or speed figures that public visitors cannot reproduce as headline achievements.</li>
+              <li>Distinguish education demo constraints from plant safety and performance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-robot-digital-twin">
+    <h3 id="project-decisions-robot-digital-twin">Why it was designed this way</h3>
+    <ol>
+        <li>
+          <strong>Use QR serial as the end-to-end key</strong>
+          <p>It allows product-level reconstruction of process, inspection, and robot events.</p>
+        </li>
+        <li>
+          <strong>Compare an edge accelerator</strong>
+          <p>The Pi5 versus Hailo-10H comparison informs practical placement.</p>
+        </li>
+        <li>
+          <strong>Separate team output and extension repository</strong>
+          <p>The PDF and PC-HMI repository support different claims.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-robot-digital-twin">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-robot-digital-twin">Work completed and planned</h3>
+      <p>Team work is marked ‘Team complete’; individual scope and evidence remain explicit.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Define traceability flow and role boundary</h4>
+          <p>Set the QR-centered flow, Robot/Digital Twin scope, and team versus individual evidence.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Process flow and role boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Build QR and MES history flow</h4>
+          <p>Connected serial, process step, inspection result, and event time in MySQL/MES.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>History schema and demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Integrate Indy7 assembly-cell sequence</h4>
+          <p>Linked input, body assembly, window assembly, loading, and good/reject routing.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Three-robot assembly demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Validate vision and edge inference</h4>
+          <p>The team compared vision decisions and edge devices, but non-reproducible figures are not used as headline achievements on the public page.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Team demo result</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Visualize SCADA and Digital Twin state</h4>
+          <p>Presented the same process step and robot/inspection state across operator views.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Team demo</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Validate plant cycles, safety, and recovery</h4>
+          <p>Cycle time, network delay, robot safety, model drift, and MES recovery remain.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Plant-pilot results</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-robot-digital-twin">
+    <h3 id="project-acceptance-robot-digital-twin">What was verified</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>The product-to-process-to-inspection trace is explained.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Non-reproducible model and speed figures are excluded from headline achievements.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Team result, individual role, and related repository are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Safety, cycle, drift, and recovery pass long-running plant validation.</p>
+          <strong>Unverified</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>A privacy-redacted, view-only evidence artifact can be published.</p>
+          <strong>Withheld</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Supporting evidence:</strong> The source artifact containing teammate information and the repository awaiting configuration cleanup are excluded from public evidence.</p>
+  </section>
+</details>
+
+<h2 id="public-link">Public link</h2>
+<p>No external button is shown until a redacted view-only report or a safely reviewed repository is available.</p>
+
+        </div>
+
+        <footer class="portfolio-article__footer">
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
+        </footer>
+      </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem">The problem</a></li>
+    <li><a href="#why-the-flow-is-structured-this-way">Why the flow is structured this way</a>
+      <ul>
+        <li><a href="#use-the-qr-serial-as-the-shared-key">Use the QR serial as the shared key</a></li>
+        <li><a href="#separate-ai-judgment-from-physical-control">Separate AI judgment from physical control</a></li>
+        <li><a href="#keep-the-twin-observational">Keep the twin observational</a></li>
+      </ul>
+    </li>
+    <li><a href="#my-scope">My scope</a></li>
+    <li><a href="#result">Result</a></li>
+    <li><a href="#evidence-and-limits">Evidence and limits</a></li>
+    <li><a href="#design-and-validation-record">Design and validation record</a></li>
+    <li><a href="#public-link">Public link</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
+    </div>
+
+    
+
+
+
+
+
+
+<footer class="portfolio-footer" id="footer">
+  <div class="portfolio-container portfolio-footer__grid">
+    <div class="portfolio-footer__brand">
+      <a href="/en/">Jaeheung Lee</a>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p>
+      <p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p>
+    </div>
+
+    <nav class="portfolio-footer__nav" aria-label="Footer navigation">
+      <a href="/en/#about">About</a>
+      <a href="/en/#experiences">Experiences</a>
+      <a href="/en/#projects">Projects</a>
+      <a href="/en/posts">Technical Cases</a>
+    </nav>
+
+    <address class="portfolio-footer__contact">
+      <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
+      
+      <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>
+    </address>
+  </div>
+  <div class="portfolio-container portfolio-footer__bottom">
+    <p>© 2026 Jaeheung Lee</p>
+  </div>
+</footer>
+<script src="/application.d517bc88cd8801360ca6e7163b2c7bfcb354cf77500eca32a0809c954651df7a.js" integrity="sha256-1Re8iM2IATYMpucWOyx7/LNUz3dQDsoyoICclUZR33o=" defer></script>
+
+    
+    
+
+</body>
+</html>

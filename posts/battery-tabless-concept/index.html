@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head><title>차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC) | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+  <head>
+    <title>2170 Tabless 셀 개발 (Pilot Lv)</title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -29,23 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.b2f6d4c6c2af9d0644209d7df0f8b46e78e15b1fb3b44a1d3b8401b4c4e05871.css" integrity="sha256-svbUxsKvnQZEIJ198Pi0bnjhWx&#43;ztEodO4QBtMTgWHE=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
-
-
-
-  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
 
 
 
@@ -59,17 +44,20 @@
 
 
 
-<meta property="og:title" content="차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)">
+<meta property="og:title" content="2170 Tabless 셀 개발 (Pilot Lv)">
 <meta property="og:type" content="article">
-<meta property="og:description" content="전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다. 약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.">
+<meta property="og:description" content="사내 개발품질 절차의 PROTO(A Sample) Gate에서 DMADV로 목표와 안전 CTQ를 정의하고, 4M 위험맵과 DFMEA로 전용 설비·Jig가 없는 제조경로의 불량 유형과 근본 원인을 좁혀 약 100개 Trial과 기능 Sample 5개의 Cell 평가를 완료한 선행 제조 PoC">
 <meta property="og:url" content="https://heungjaelee.github.io/posts/battery-tabless-concept/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
 <meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)">
-  <meta name="twitter:description" content="사내 IATF 16949 기반 개발품질 절차의 PROTO(A Sample) Gate에서 DMADV로 목표와 안전 CTQ를 정의하고, 4M 위험맵과 Taguchi 기반 Trial Matrix로 전용 설비·Jig가 없는 제조경로를 설계해 약 100개 Trial과 기능 Sample 5개의 Cell 평가를 완료한 선행 제조 PoC">
-<meta name="description" content="전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다. 약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다. 약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.","headline":"차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/battery-tabless-concept/"}</script>
+  <meta name="twitter:title" content="2170 Tabless 셀 개발 (Pilot Lv)">
+  <meta name="twitter:description" content="사내 개발품질 절차의 PROTO(A Sample) Gate에서 DMADV로 목표와 안전 CTQ를 정의하고, 4M 위험맵과 DFMEA로 전용 설비·Jig가 없는 제조경로의 불량 유형과 근본 원인을 좁혀 약 100개 Trial과 기능 Sample 5개의 Cell 평가를 완료한 선행 제조 PoC">
+
+  <meta name="description" content="사내 개발품질 절차의 PROTO(A Sample) Gate에서 DMADV로 목표와 안전 CTQ를 정의하고, 4M 위험맵과 DFMEA로 전용 설비·Jig가 없는 제조경로의 불량 유형과 근본 원인을 좁혀 약 100개 Trial과 기능 Sample 5개의 Cell 평가를 완료한 선행 제조 PoC">
+
 
     
 
@@ -103,8 +91,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <div class="container-fluid bg-secondary wrapper">
       
-
-
+  
 
 
 
@@ -156,45 +143,148 @@ document.documentElement.setAttribute('data-theme', theme)
         
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#about">소개</a>
-            </li>
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#about">소개</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#projects">프로젝트</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#projects">프로젝트</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#experiences">경력</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#experiences">경력</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#skills">핵심 역량</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#skills">핵심 역량</a>
+              </li>
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#education">교육</a>
-            </li>
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#education">교육</a>
+              </li>
+            
           
-        
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
 
@@ -205,56 +295,44 @@ document.documentElement.setAttribute('data-theme', theme)
               id="blog-link"
               href="/posts"
               aria-current="page"
-            >상세보기</a>
+            >기술사례</a>
           </li>
         
 
         
+        
+        
+        
+        
           
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link is-active" href="/posts/battery-tabless-concept/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link" href="/en/posts/battery-tabless-concept/" lang="en" hreflang="en">English</a>
+        </li>
 
-  
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-        한국어
-    </a>
-    <div class="dropdown-menu" aria-labelledby="languageSelector">
-        
-        <a class="dropdown-item nav-link languages-item" href="/posts/battery-tabless-concept">
-            
-            한국어
-        </a>
-        
-        <a class="dropdown-item nav-link languages-item" href="/en/posts/battery-tabless-concept">
-            
-            English
-        </a>
-        
-    </div>
-    </li>
-
-        
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
 
         <li class="nav-item portfolio-navbar__contact-item">
           <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
-        </li>
-        <li class="nav-item portfolio-navbar__print-item">
-          <button
-            class="portfolio-navbar__print"
-            type="button"
-            data-portfolio-print
-            data-portfolio-print-mode="project"
-            aria-label="인쇄"
-          >
-            <i data-feather="printer" aria-hidden="true"></i>
-            <span data-portfolio-print-label>인쇄</span>
-          </button>
         </li>
       </ul>
     </div>
   </div>
 
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
 </nav>
 
 <script>
@@ -309,11 +387,10 @@ document.documentElement.setAttribute('data-theme', theme)
       const updateActiveSection = () => {
         framePending = false;
         const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
-        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
         let current = linkedSections[0];
 
         linkedSections.forEach((candidate) => {
-          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
             current = candidate;
           }
         });
@@ -344,63 +421,78 @@ document.documentElement.setAttribute('data-theme', theme)
   });
 </script>
 
+
       
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
       <main id="main-content" tabindex="-1">
-        <section class="content-section portfolio-article-section portfolio-case--manufacturing-build portfolio-case-domain--manufacturing" id="content-section">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
     <div class="content">
-      <div class="portfolio-article-layout">
       <article class="container p-0 read-area portfolio-article">
         <header class="portfolio-article__header">
-          <div class="portfolio-article__topline">
-            <p class="portfolio-article__eyebrow">제조 프로젝트</p>
-            <span class="portfolio-article__stage portfolio-article__stage--concept-validation">A Sample 컨셉 검증</span>
-          </div>
-          <h1>차세대 2170 Tabless 구조 A Sample 선행 제조 검증 (PoC)</h1>
-          <p class="portfolio-article__lead">IATF 기반 PROTO Gate에서 DMADV·4M·Taguchi Trial로 No Eq·No Jig 조건의 제조경로를 설계하고 기능 Sample 5개 Cell 평가 완료</p>
-          <dl class="portfolio-case-meta">
-            <div>
-              <dt>프로젝트 기간</dt>
-              <dd>2025.01 · 차세대 2170 Tabless A Sample 선행 제조 검증</dd>
-            </div>
-            <div>
-              <dt>맥락</dt>
-              <dd>금양 전지기술팀 · 기존 4695 설비를 활용한 신규 Tabless 구조 A Sample</dd>
-            </div>
-            <div>
-              <dt>담당 범위</dt>
-              <dd>IATF 기반 PROTO A Sample Gate, DMADV·4M 위험분석, Taguchi Trial Matrix, 3D Print Jig, Laser·조립·안전검사·Cell 평가</dd>
-            </div>
-          </dl>
-        </header>
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>2170 Tabless 셀 개발 (Pilot Lv)</h1>
+          
+            <p class="portfolio-article__lead">사내 개발품질 절차의 PROTO(A Sample) Gate에서 DMADV로 목표와 안전 CTQ를 정의하고, 4M 위험맵과 DFMEA로 전용 설비·Jig가 없는 제조경로의 불량 유형과 근본 원인을 좁혀 약 100개 Trial과 기능 Sample 5개의 Cell 평가를 완료한 선행 제조 PoC</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-08-03">2026. 8. 3.</time>
+             · 
+            5 
+             · 
+            마지막 검토 <time datetime="2026-08-09">2026. 8. 9.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/iatf-16949/" class="btn btn-sm btn-outline-info rounded">IATF 16949</a></li>
+    
+    
+    <li><a href="/tags/dmadv/" class="btn btn-sm btn-outline-info rounded">DMADV</a></li>
+    
+    
+    <li><a href="/tags/dfmea/" class="btn btn-sm btn-outline-info rounded">DFMEA</a></li>
+    
+    
+    <li><a href="/tags/tabless/" class="btn btn-sm btn-outline-info rounded">Tabless</a></li>
+    
+    
+    <li><a href="/tags/a-sample/" class="btn btn-sm btn-outline-info rounded">A Sample</a></li>
+    
+  </ul>
+</div>
 
-        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
-          <header>
-            <h2 id="case-summary-title">프로젝트 핵심 요약</h2>
-          </header>
-          <dl>
-            <div>
-              <dt>과제 정의</dt>
-              <dd>전용 설비와 Jig가 없는 조건에서 기존 4695 설비와 수작업을 조합해 PROTO A Sample의 안전·기능 CTQ를 확인했습니다.</dd>
-            </div>
-            <div>
-              <dt>핵심 역할</dt>
-              <dd>DMADV로 목표와 측정기준을 정하고, 4M 위험에서 추린 Jig·Laser·조립 인자를 Taguchi Trial Matrix로 비교하며 Sample을 직접 제작·평가했습니다.</dd>
-            </div>
-            <div>
-              <dt>주요 결과</dt>
-              <dd>약 100개 Trial에서 Failure Mode를 좁히고 기능 Sample 5개의 Hi-Pot·IR·Formation·용량·수명 Cell 평가로 A Sample 타당성을 확인했습니다.</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="portfolio-case-metrics" aria-label="확인된 수치"><div>
-              <span>탐색 제작 범위</span>
-              <strong>약 100개</strong>
-            </div><div>
-              <span>기능 Sample</span>
-              <strong>5개</strong>
-            </div>
-        </section><figure class="portfolio-case-visual">
-            <img src="/images/projects/2170-tabless-a-sample-gate.svg" alt="IATF 기반 PROTO A Sample Gate에서 DMADV·4M·Taguchi Trial을 거쳐 약 100개 Trial과 기능 Sample 5개 Cell 평가로 이어지는 2170 Tabless 선행 제조 흐름" loading="eager"><figcaption>PROTO A Sample의 안전·기능 CTQ를 기준으로 Jig·Laser·조립 인자를 비교해 제조경로와 PILOT 차후 설계 반영 사항을 확립</figcaption></figure>
+          
+        </header>
 
         <div class="post-content portfolio-article__content" id="post-content">
           <h2 id="프로젝트-개요">프로젝트 개요</h2>
@@ -410,13 +502,13 @@ document.documentElement.setAttribute('data-theme', theme)
 <li><strong>현재 완료 Gate:</strong> PROTO A Sample 제조·Cell 평가 완료</li>
 <li><strong>제조 제약:</strong> Tabless 전용 설비·Jig 부재, 기존 4695 Laser 설비와 수작업을 조합해야 하는 조건</li>
 <li><strong>핵심 CTQ:</strong> 접합상태, 내부 Beam 유입·Separator 손상, 절연·Short, IR·Formation·용량·수명</li>
-<li><strong>직접 역할:</strong> 선행 제조공정 설계, 4M 위험분석, Taguchi Trial Matrix, 3D Print 임시 Jig, Laser·조립조건, 절단·해체와 Cell 평가</li>
+<li><strong>직접 역할:</strong> 선행 제조공정 설계, 4M 위험분석, DFMEA, 3D Print 임시 Jig, Laser·조립조건, 절단·해체와 Cell 평가</li>
 <li><strong>최종 결과:</strong> 약 100개 Trial에서 Failure Mode를 압축 분리하고 기능 Sample 5개의 제작·기능 타당성 확인</li>
 </ul>
 <figure class="portfolio-logic-rail portfolio-logic-rail--concept">
   <figcaption>
-    <span>IATF PROTO · DMADV · 4M · Taguchi Trial</span>
-    <strong>PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환</strong><small>전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·Taguchi Trial과 Cell 평가를 완료했습니다.</small></figcaption>
+    <span>IATF PROTO · DMADV · 4M · DFMEA</span>
+    <strong>PROTO A Sample Gate에서 No Eq·No Jig 제약을 제조조건으로 전환</strong><small>전체 품질흐름은 PROTO→PILOT→MP→SOP이며, 본 프로젝트는 PROTO Gate 내부에서 DMADV·4M·DFMEA와 Cell 평가를 완료했습니다.</small></figcaption>
   <ol>
     <li>
       <span class="portfolio-logic-rail__index">01</span><b>PROTO</b><strong>A Sample 목표·CTQ</strong>
@@ -440,7 +532,7 @@ document.documentElement.setAttribute('data-theme', theme)
   <div class="portfolio-evidence-figure__media">
     <img
       src="/images/projects/2170-tabless-a-sample-gate.svg"
-      alt="사내 IATF 16949 기반 PROTO, PILOT, MP, SOP 개발품질 흐름 중 PROTO A Sample Gate에서 DMADV, 4M 위험분석과 Taguchi 기반 Trial Matrix를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름"
+      alt="PROTO A Sample Gate에서 DMADV, 4M 위험분석과 DFMEA를 활용해 기존 4695 설비와 3D Print 임시 Jig로 약 100개 Trial과 기능 Sample 5개 Cell 평가를 완료한 2170 Tabless 선행 제조 흐름"
       loading="lazy"
       decoding="async"
       
@@ -450,8 +542,8 @@ document.documentElement.setAttribute('data-theme', theme)
   <figcaption>
     <span class="portfolio-evidence-figure__label">IATF 기반 PROTO 제조 PoC</span>
     <span class="portfolio-evidence-figure__copy">
-      <strong>PROTO A Sample · DMADV · 4M · Taguchi Trial</strong>
-      <span>A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, Jig·Laser·조립 인자를 Trial Matrix로 비교해 기능 Sample 5개까지 검증했습니다.</span>
+      <strong>PROTO A Sample · DMADV · 4M · DFMEA</strong>
+      <span>A Sample의 성공기준을 안전·조립·Cell 기능으로 정의하고, 불량 유형별 근본 원인과 Jig·Laser·조립 조건을 연결해 기능 Sample 5개까지 검증했습니다.</span>
       <small>인터뷰 기반 비식별 재작성</small>
     </span>
   </figcaption>
@@ -517,12 +609,12 @@ document.documentElement.setAttribute('data-theme', theme)
       </tr>
       <tr>
           <td><strong>Analyze</strong></td>
-          <td>5M로 Jig·설비·소재·수작업·검사 후보를 분리하고 Failure Mode 우선순위 설정</td>
+          <td>4M로 Jig·설비·소재·수작업 후보를 분리하고 검사 신뢰성을 별도로 확인해 Failure Mode 우선순위 설정</td>
           <td>핵심 위험맵과 Trial 인자</td>
       </tr>
       <tr>
           <td><strong>Design</strong></td>
-          <td>기존 4695 설비, 3D Print Jig와 수작업 조립을 연결하고 Taguchi 기반 Trial Matrix로 핵심 조합 비교</td>
+          <td>기존 4695 설비, 3D Print Jig와 수작업 조립을 연결하고 DFMEA로 Failure Mode·원인·검증항목을 연결</td>
           <td>임시 제조경로, Jig·Laser·조립 조건</td>
       </tr>
       <tr>
@@ -532,57 +624,49 @@ document.documentElement.setAttribute('data-theme', theme)
       </tr>
   </tbody>
 </table>
-<h2 id="5m-핵심-위험맵">5M 핵심 위험맵</h2>
+<h2 id="4m-핵심-위험맵">4M 핵심 위험맵</h2>
 <table>
   <thead>
       <tr>
-          <th>4M</th>
-          <th>핵심 변경·위험</th>
-          <th>확인 근거</th>
-          <th>DMADV 활용</th>
-          <th>설계·검증</th>
+          <th>분석대상</th>
+          <th>추정원인</th>
+          <th>확인결과</th>
+          <th>조치사항</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>Man</td>
           <td>J/R·Collector 정렬, Can 삽입과 조립의 수작업 편차</td>
-          <td>작업순서별 정렬·손상·Short 결과</td>
-          <td>Measure·Analyze</td>
+          <td>작업순서별 정렬·손상·Short 결과 · Measure·Analyze</td>
           <td>고정순서와 Sample 선별기준 설정</td>
       </tr>
       <tr>
           <td>Machine</td>
           <td>전용 설비·Jig 부재, 4695 Laser 기준위치와 임시 Jig 지지점</td>
-          <td>Jig별 고정상태, 용접위치와 조립결과</td>
-          <td>Analyze·Design</td>
+          <td>Jig별 고정상태, 용접위치와 조립결과 · Analyze·Design</td>
           <td>제품 기준위치·Jig 고정방법·지지점 설계</td>
       </tr>
       <tr>
           <td>Material</td>
           <td>기존 Cell과 동일 소재, Tabless 접합구조 변경</td>
-          <td>동일 소재·충방전 조건에서 Lead Tab 구조와 비교</td>
-          <td>Define·Analyze</td>
+          <td>동일 소재·충방전 조건에서 Lead Tab 구조와 비교 · Define·Analyze</td>
           <td>소재변수는 고정하고 구조·공정영향에 집중</td>
       </tr>
       <tr>
           <td>Method</td>
           <td>J/R 고정, Collector 정렬, Laser 경로·조건, Can 삽입순서</td>
-          <td>조건별 절단·해체와 Failure Mode 기록</td>
-          <td>Analyze·Design</td>
-          <td>Taguchi Trial Matrix의 핵심 설계인자</td>
-      </tr>
-      <tr>
-          <td>Measurement</td>
-          <td>접합단면, 내부 Beam·Separator, Hi-Pot·Short, IR·Formation·용량·수명</td>
-          <td>파괴·비파괴검사와 Cell 평가 결과</td>
-          <td>Measure·Verify</td>
-          <td>안전 Gate 통과품만 기능 Sample로 확정</td>
+          <td>조건별 절단·해체와 Failure Mode 기록 · Analyze·Design</td>
+          <td>DFMEA의 원인·예방·검출 항목으로 연결</td>
       </tr>
   </tbody>
 </table>
-<h2 id="taguchi-기반-trial-matrix">Taguchi 기반 Trial Matrix</h2>
-<p>약 100개 Trial에서 4M 분석으로 정리한 Jig·Laser·조립 인자를 조건표로 나눠 시험했습니다. 각 시험 결과를 다음 조건에 반영해 실패 영역을 좁혔습니다.</p>
+<p><strong>측정·환경 확인</strong></p>
+<ul>
+<li><strong>Measurement:</strong> 접합단면, 내부 Beam·Separator, Hi-Pot·Short, IR·Formation·용량·수명 · 파괴·비파괴검사와 Cell 평가 결과 · Measure·Verify · 안전 Gate 통과품만 기능 Sample로 확정</li>
+</ul>
+<h2 id="dfmea-불량-유형별-근본-원인root-cause-도출-매트릭스">DFMEA [불량 유형별 근본 원인(Root Cause) 도출 매트릭스]</h2>
+<p>약 100개 Trial은 무작위 반복이 아니었습니다. 4M에서 확인한 Jig·Laser·조립 변수를 불량 유형, 추정 원인, 예방·검출 항목으로 연결하고, 각 Trial의 절단·해체·전기검사 결과로 다음 조건을 좁혔습니다.</p>
 <table>
   <thead>
       <tr>
@@ -678,7 +762,7 @@ document.documentElement.setAttribute('data-theme', theme)
 <li>IATF 16949 기반 개발품질 프로세스의 <strong>PROTO A Sample Gate 완료</strong></li>
 <li>DMADV로 A Sample 목표·CTQ·측정·검증조건을 하나의 선행 제조 흐름으로 구성</li>
 <li>4M 위험맵에서 Jig·Laser·조립·검사 핵심 인자 도출</li>
-<li>Taguchi 기반 Trial Matrix로 약 100개 Trial의 조건조합과 Failure Mode 압축</li>
+<li>DFMEA로 약 100개 Trial의 Failure Mode·근본 원인·검증항목 연결</li>
 <li>기존 4695 설비와 3D Print 임시 Jig를 활용한 Tabless 제조경로 구축</li>
 <li>절단·해체·Hi-Pot 안전검사를 통과한 기능 Sample 5개 확보</li>
 <li>IR·Formation·충전·용량·수명 비교를 통한 <strong>A Sample 제작·기능 타당성 확인</strong></li>
@@ -694,30 +778,54 @@ document.documentElement.setAttribute('data-theme', theme)
 <h2 id="연계-프로젝트">연계 프로젝트</h2>
 <ul>
 <li><a href="/posts/battery-4695-production-transition/">4695 조립라인 주요 설비 정상화 및 제한 생산 전환</a>: Tabless A Sample 제작에 활용한 기존 설비의 정도·Laser·생산조건을 정상화한 사례</li>
-<li><a href="/posts/battery-25p-lfp-development/">25P LFP Power Cell DMADV·Taguchi 기반 NPI 공정개발 및 고객 Qual</a>: PROTO·PILOT·MP Gate를 거쳐 고객 CTQ와 기술 승인을 완료한 신규 Cell 개발 사례</li>
+<li><a href="/posts/battery-25p-lfp-development/">LFP Power Cell 개발</a>: PROTO·PILOT·MP Gate를 거쳐 고객 CTQ와 기술 승인을 완료한 신규 Cell 개발 사례</li>
 <li><a href="/posts/battery-2170-pilot/">2170 조립라인 실질 양품수율 안정화</a>: Tabless 선행 검증에 활용한 기존 2170 조립공정·측정·검사 기반을 안정화한 사례</li>
 </ul>
 
         </div>
 
         <footer class="portfolio-article__footer">
-          <a class="portfolio-text-link" href="/posts/">
-            <i data-feather="arrow-left" aria-hidden="true"></i>
-            <span>전체 프로젝트로 돌아가기</span>
-          </a>
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
         </footer>
       </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
       
-        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
-          <div class="portfolio-article-toc__inner">
-            <p>이 글의 목차</p>
-            <nav id="TableOfContents">
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#프로젝트-개요">프로젝트 개요</a></li>
     <li><a href="#iatf-16949-기반-개발품질-gate와-현재-위치">IATF 16949 기반 개발품질 Gate와 현재 위치</a></li>
     <li><a href="#proto-gate-내부-dmadv">PROTO Gate 내부 DMADV</a></li>
-    <li><a href="#5m-핵심-위험맵">5M 핵심 위험맵</a></li>
-    <li><a href="#taguchi-기반-trial-matrix">Taguchi 기반 Trial Matrix</a></li>
+    <li><a href="#4m-핵심-위험맵">4M 핵심 위험맵</a></li>
+    <li><a href="#dfmea-불량-유형별-근본-원인root-cause-도출-매트릭스">DFMEA [불량 유형별 근본 원인(Root Cause) 도출 매트릭스]</a></li>
     <li><a href="#1-임시-제조경로-설계">1. 임시 제조경로 설계</a>
       <ul>
         <li><a href="#3d-print-임시-jig">3D Print 임시 Jig</a></li>
@@ -736,18 +844,11 @@ document.documentElement.setAttribute('data-theme', theme)
     <li><a href="#pilot-bc-sample-차후-설계-반영-사항">PILOT B·C Sample 차후 설계 반영 사항</a></li>
     <li><a href="#연계-프로젝트">연계 프로젝트</a></li>
   </ul>
-</nav>
-          </div>
-        </aside>
-      
+</nav></div>
       </div>
-    </div>
-    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
-      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
-    </a>
-  </section>
+    </section>
+  
 
-      </main>
     </div>
 
     
@@ -761,19 +862,18 @@ document.documentElement.setAttribute('data-theme', theme)
   <div class="portfolio-container portfolio-footer__grid">
     <div class="portfolio-footer__brand">
       <a href="/">이재흥</a>
-      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
 
     <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
       <a href="/#about">소개</a>
       <a href="/#experiences">경력</a>
       <a href="/#projects">프로젝트</a>
-      <a href="/posts">상세보기</a>
+      <a href="/posts">기술사례</a>
     </nav>
 
     <address class="portfolio-footer__contact">
-      
-        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
-      
       <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
       
       <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>

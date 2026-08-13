@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><title>Manufacturing-Focused AI Modeling and Adoption Guidebook | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+  <head>
+    <title>Field Guide to AI Models for Manufacturing</title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -29,23 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.b2f6d4c6c2af9d0644209d7df0f8b46e78e15b1fb3b44a1d3b8401b4c4e05871.css" integrity="sha256-svbUxsKvnQZEIJ198Pi0bnjhWx&#43;ztEodO4QBtMTgWHE=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
-
-
-
-  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
 
 
 
@@ -59,17 +44,20 @@
 
 
 
-<meta property="og:title" content="Manufacturing-Focused AI Modeling and Adoption Guidebook">
+<meta property="og:title" content="Field Guide to AI Models for Manufacturing">
 <meta property="og:type" content="article">
-<meta property="og:description" content="Curated examples, random splits, and accuracy alone do not expose missed-defect and false-alarm risk across changing products, lots, time windows, and equipment conditions GitHub research archive and executable skeleton with five manufacturing-AI safety gates and the next reproducibility, evaluation, and shadow engineering package">
+<meta property="og:description" content="A practical modeling guide for manufacturing data that links Product, Lot, and Time splits with preprocessing, training, evaluation, and reproducibility checks">
 <meta property="og:url" content="https://heungjaelee.github.io/en/posts/deep-learning-modeling/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
 <meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Manufacturing-Focused AI Modeling and Adoption Guidebook">
-  <meta name="twitter:description" content="A personal manufacturing-AI research project that connects a preprocessing, modeling, evaluation, and system-design archive with a PyTorch manufacturing-defect skeleton and Product/Lot/Time splits, Recall/FN, parallel field validation, and recovery criteria">
-<meta name="description" content="Curated examples, random splits, and accuracy alone do not expose missed-defect and false-alarm risk across changing products, lots, time windows, and equipment conditions GitHub research archive and executable skeleton with five manufacturing-AI safety gates and the next reproducibility, evaluation, and shadow engineering package">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Curated examples, random splits, and accuracy alone do not expose missed-defect and false-alarm risk across changing products, lots, time windows, and equipment conditions GitHub research archive and executable skeleton with five manufacturing-AI safety gates and the next reproducibility, evaluation, and shadow engineering package","headline":"Manufacturing-Focused AI Modeling and Adoption Guidebook","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/deep-learning-modeling/"}</script>
+  <meta name="twitter:title" content="Field Guide to AI Models for Manufacturing">
+  <meta name="twitter:description" content="A practical modeling guide for manufacturing data that links Product, Lot, and Time splits with preprocessing, training, evaluation, and reproducibility checks">
+
+  <meta name="description" content="A practical modeling guide for manufacturing data that links Product, Lot, and Time splits with preprocessing, training, evaluation, and reproducibility checks">
+
 
     
 
@@ -103,8 +91,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <div class="container-fluid bg-secondary wrapper">
       
-
-
+  
 
 
 
@@ -156,45 +143,148 @@ document.documentElement.setAttribute('data-theme', theme)
         
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#about">About</a>
-            </li>
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#about">About</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#projects">Projects</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#experiences">Experiences</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#experiences">Experiences</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#skills">Skills</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#skills">Skills</a>
+              </li>
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
-            </li>
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#education">Education</a>
+              </li>
+            
           
-        
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
 
@@ -205,56 +295,44 @@ document.documentElement.setAttribute('data-theme', theme)
               id="blog-link"
               href="/en/posts"
               aria-current="page"
-            >Details</a>
+            >Technical Cases</a>
           </li>
         
 
         
+        
+        
+        
+        
           
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link" href="/posts/deep-learning-modeling/" lang="ko" hreflang="ko">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link is-active" href="/en/posts/deep-learning-modeling/" lang="en" hreflang="en" aria-current="page">English</a>
+        </li>
 
-  
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-        English
-    </a>
-    <div class="dropdown-menu" aria-labelledby="languageSelector">
-        
-        <a class="dropdown-item nav-link languages-item" href="/posts/deep-learning-modeling">
-            
-            한국어
-        </a>
-        
-        <a class="dropdown-item nav-link languages-item" href="/en/posts/deep-learning-modeling">
-            
-            English
-        </a>
-        
-    </div>
-    </li>
-
-        
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
 
         <li class="nav-item portfolio-navbar__contact-item">
           <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
-        </li>
-        <li class="nav-item portfolio-navbar__print-item">
-          <button
-            class="portfolio-navbar__print"
-            type="button"
-            data-portfolio-print
-            data-portfolio-print-mode="project"
-            aria-label="Print"
-          >
-            <i data-feather="printer" aria-hidden="true"></i>
-            <span data-portfolio-print-label>Print</span>
-          </button>
         </li>
       </ul>
     </div>
   </div>
 
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
 </nav>
 
 <script>
@@ -309,11 +387,10 @@ document.documentElement.setAttribute('data-theme', theme)
       const updateActiveSection = () => {
         framePending = false;
         const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
-        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
         let current = linkedSections[0];
 
         linkedSections.forEach((candidate) => {
-          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
             current = candidate;
           }
         });
@@ -344,479 +421,413 @@ document.documentElement.setAttribute('data-theme', theme)
   });
 </script>
 
+
       
-      <main id="main-content" tabindex="-1">
-        <section class="content-section portfolio-article-section portfolio-case--personal-note portfolio-case-domain--personal-ai" id="content-section">
-    <div class="content">
-      <div class="portfolio-article-layout">
-      <article class="container p-0 read-area portfolio-article">
-        <header class="portfolio-article__header">
-          <div class="portfolio-article__topline">
-            <p class="portfolio-article__eyebrow">Personal AI application project</p>
-            <span class="portfolio-article__stage portfolio-article__stage--learning-archive">Learning archive</span>
-          </div>
-          <h1>Manufacturing-Focused AI Modeling and Adoption Guidebook</h1>
-          <p class="portfolio-article__lead">Connecting a preprocessing, modeling, evaluation, and system-design archive with a manufacturing-defect skeleton and Product/Lot/Time splits, Recall/FN, parallel field validation, and recovery</p>
-          <dl class="portfolio-case-meta">
-            <div>
-              <dt>Project period</dt>
-              <dd>Personal AI research archive · reviewed master snapshot</dd>
-            </div>
-            <div>
-              <dt>Context</dt>
-              <dd>Manufacturing-AI modeling and adoption research from a process-engineering perspective</dd>
-            </div>
-            <div>
-              <dt>Scope</dt>
-              <dd>Learning-archive structure, PyTorch and manufacturing-defect skeleton linkage, and manufacturing-AI data, configuration, evaluation, and deployment safety-gate design</dd>
-            </div>
-          </dl>
-        </header>
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="Search case studies">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/en/search/">
+          <label class="visually-hidden" for="search-box">Search case studies</label>
+          <input type="search" name="keyword" placeholder="Search case studies" id="search-box">
+        </form>
+        <nav aria-label="Post navigation">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/en/posts/">All case studies</a>
+              <ul class="subtree">
+                
 
-        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
-          <header>
-            <h2 id="case-summary-title">User, design, and validation summary</h2>
-          </header>
-          <dl>
-            <div>
-              <dt>User problem</dt>
-              <dd>Curated examples, random splits, and accuracy alone do not expose missed-defect and false-alarm risk across changing products, lots, time windows, and equipment conditions</dd>
-            </div>
-            <div>
-              <dt>Scope documented directly</dt>
-              <dd>Structured preprocessing, modeling, evaluation, and system notes plus a PyTorch starter, synthetic image/sensor manufacturing skeleton, and Product/Lot/Time, Recall/FN, shadow, and rollback criteria</dd>
-            </div>
-            <div>
-              <dt>Result / current stage</dt>
-              <dd>GitHub research archive and executable skeleton with five manufacturing-AI safety gates and the next reproducibility, evaluation, and shadow engineering package</dd>
-            </div>
-          </dl>
-        </section><figure class="portfolio-case-visual">
-            <img src="/images/projects/deep-learning-manufacturing-ai-gates.svg" alt="Five manufacturing-AI gates covering process problem and error cost, Product/Lot/Time data split, configuration and version control, Recall/FN error evaluation, and parallel field validation with recovery" loading="eager"><figcaption>Field adoption is decided through data independence, reproducibility, critical-error review, parallel validation, and recovery conditions beyond model training</figcaption></figure>
-
-        <div class="post-content portfolio-article__content" id="post-content">
-          <section class="portfolio-project-contract" aria-label="Manufacturing AI modeling and adoption guidebook facts">
-  <dl>
-    <div>
-      <dt>Project type</dt>
-      <dd>Personal AI research and GitHub guidebook</dd>
-    </div>
-    <div>
-      <dt>Archive scope</dt>
-      <dd>Data preprocessing·models·evaluation·system architecture</dd>
-    </div>
-    <div>
-      <dt>Direct outputs</dt>
-      <dd>Document system·PyTorch starter·manufacturing-defect skeleton·acceptance checksheet</dd>
-    </div>
-    <div>
-      <dt>Manufacturing criteria</dt>
-      <dd>Product·Lot·Time split·Recall/FN·shadow·rollback</dd>
-    </div>
-    <div>
-      <dt>Reviewed snapshot</dt>
-      <dd>Deep_Learning_Text_book master · 9c9ebb7</dd>
-    </div>
-    <div>
-      <dt>Core result</dt>
-      <dd>Five-stage manufacturing-AI safety gates and an executable skeleton</dd>
-    </div>
-  </dl>
-</section>
-
-<p><strong>I built a personal guidebook for judging manufacturing AI from data through field adoption—not by clean-example accuracy, but by product, lot, and time variation plus missed-defect risk.</strong></p>
-<h2 id="1-project-background-and-intent">1. Project background and intent</h2>
-<h3 id="the-manufacturing-field-condition-gap">The manufacturing field-condition gap</h3>
-<p>General AI tutorials tend to use curated data, random splits, and average accuracy. Manufacturing inputs shift with material lot, production time, equipment condition, illumination, operator, and recipe changes—even for the same product. When training and evaluation share these conditions, a strong test score can still conceal missed defects on the next lot or production window.</p>
-<p>Manufacturing inspection evaluates accuracy together with product-, lot-, and time-based FN and FP, operator rechecks, and agreement with the existing inspection.</p>
-<ul>
-<li>Which defect was missed — <strong>FN, missed detection, or underkill</strong></li>
-<li>Which good product was rejected — <strong>FP, false alarm, or overkill</strong></li>
-<li>Which product, lot, time window, or equipment condition concentrates the errors</li>
-<li>Whether model latency interferes with takt time and the existing inspection or control flow</li>
-<li>Whether the process can return immediately to the established decision path</li>
-</ul>
-<h3 id="research-objective">Research objective</h3>
-<p>I reorganized the archive around the following manufacturing-AI decision flow.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Define process problem and error cost
-</span></span><span style="display:flex;"><span>→ Split by Product, Lot, and Time
-</span></span><span style="display:flex;"><span>→ Control configuration, version, and experiment records
-</span></span><span style="display:flex;"><span>→ Evaluate Recall, FN, FP, and error causes
-</span></span><span style="display:flex;"><span>→ Parallel field validation, manual review, and recovery
-</span></span></code></pre></div><figure class="portfolio-evidence-figure portfolio-evidence-figure--wide">
-  <div class="portfolio-evidence-figure__media">
-    <img
-      src="/images/projects/deep-learning-manufacturing-ai-gates.svg"
-      alt="Five manufacturing AI safety gates from problem and cost definition through product lot and time data split, configuration and version control, Recall and FN error review, and parallel field validation with recovery"
-      loading="lazy"
-      decoding="async"
-      
-      
-    >
-  </div>
-  <figcaption>
-    <span class="portfolio-evidence-figure__label">Manufacturing AI safety gates</span>
-    <span class="portfolio-evidence-figure__copy">
-      <strong>From a training score to a field-adoption decision</strong>
-      <span>The completion criteria are data independence, reproducibility, critical-error analysis, parallel field validation, and recovery conditions—not model training alone.</span>
-      <small>Redrawn from the public Deep_Learning_Text_book archive and user-confirmed manufacturing AI criteria</small>
-    </span>
-  </figcaption>
-</figure>
-
-<h2 id="2-github-research-archive-structure">2. GitHub research-archive structure</h2>
-<p>The substantive public learning archive is maintained on the repository&rsquo;s <code>master</code> branch.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Deep_Learning_Text_book/
-</span></span><span style="display:flex;"><span>├── 01_Data_Preprocessing/
-</span></span><span style="display:flex;"><span>│   ├── missing values·outliers·scaling·imbalance
-</span></span><span style="display:flex;"><span>│   ├── vision·time series·Grad-CAM
-</span></span><span style="display:flex;"><span>│   └── DVC·MLflow·drift·MLOps learning notes
-</span></span><span style="display:flex;"><span>├── 02_Deep_Learning_Models/
-</span></span><span style="display:flex;"><span>│   └── vision·NLP·generative-model architectures
-</span></span><span style="display:flex;"><span>├── 03_Model_Evaluation/
-</span></span><span style="display:flex;"><span>│   ├── classification·regression metrics
-</span></span><span style="display:flex;"><span>│   ├── vision·RAG·system evaluation
-</span></span><span style="display:flex;"><span>│   └── model-acceptance inspection checksheet
-</span></span><span style="display:flex;"><span>├── 04_System_Architecture/
-</span></span><span style="display:flex;"><span>│   ├── 00_A_to_Z_Pipeline.md
-</span></span><span style="display:flex;"><span>│   ├── 02_PyTorch_Blueprint.md
-</span></span><span style="display:flex;"><span>│   ├── 03_Starter_Template.py
-</span></span><span style="display:flex;"><span>│   └── Case_Study/Manufacturing-Defect/
-</span></span><span style="display:flex;"><span>│       ├── data_generator.py
-</span></span><span style="display:flex;"><span>│       ├── integrated_prototype.py
-</span></span><span style="display:flex;"><span>│       └── README.md
-</span></span><span style="display:flex;"><span>├── 07_Case_Studies/
-</span></span><span style="display:flex;"><span>└── Job_guide/
-</span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th>Archive area</th>
-          <th>Current output</th>
-          <th>Manufacturing-AI use</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Data preprocessing</td>
-          <td>Missing-value, scaling, imbalance, time-series, and vision notes</td>
-          <td>Check sensor and image quality plus sources of variation</td>
-      </tr>
-      <tr>
-          <td>Deep-learning models</td>
-          <td>Learning notes by architecture</td>
-          <td>Select candidates by task and data type</td>
-      </tr>
-      <tr>
-          <td>Model evaluation</td>
-          <td>Confusion matrix, Recall, F1, latency, and an acceptance checksheet</td>
-          <td>Replace accuracy-only review with error-cost review</td>
-      </tr>
-      <tr>
-          <td>System architecture</td>
-          <td>PyTorch blueprint and starter template</td>
-          <td>Fix the data→model→training→evaluation execution order</td>
-      </tr>
-      <tr>
-          <td>Manufacturing-Defect</td>
-          <td>Synthetic image/sensor data and a multimodal training skeleton</td>
-          <td>Code example for a manufacturing data flow</td>
-      </tr>
-  </tbody>
-</table>
-<h2 id="3-manufacturing-ai-skeleton-connected-in-code">3. Manufacturing-AI skeleton connected in code</h2>
-<h3 id="-pytorch-starter-template">① PyTorch starter template</h3>
-<p><code>04_System_Architecture/03_Starter_Template.py</code> links the following execution units in one file.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Hyperparameters
-</span></span><span style="display:flex;"><span>→ Dataset and DataLoader
-</span></span><span style="display:flex;"><span>→ Model
-</span></span><span style="display:flex;"><span>→ Loss and optimizer
-</span></span><span style="display:flex;"><span>→ Training loop
-</span></span><span style="display:flex;"><span>→ Evaluation
-</span></span></code></pre></div><p>It uses MNIST, but provides a PyTorch baseline whose data path, model, and decision criteria can be replaced.</p>
-<h3 id="-multimodal-manufacturing-defect-prototype">② Multimodal manufacturing-defect prototype</h3>
-<p><code>Manufacturing-Defect/integrated_prototype.py</code> processes synthetic manufacturing images and sensor values together.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sensor_logs.csv + images/
-</span></span><span style="display:flex;"><span>→ KNN imputation
-</span></span><span style="display:flex;"><span>→ StandardScaler
-</span></span><span style="display:flex;"><span>→ Image transform
-</span></span><span style="display:flex;"><span>→ Image + temperature/vibration dataset
-</span></span><span style="display:flex;"><span>→ CNN feature + sensor feature fusion
-</span></span><span style="display:flex;"><span>→ Mixed-precision training
-</span></span><span style="display:flex;"><span>→ MLflow loss and model logging
-</span></span></code></pre></div><p>Implemented elements include:</p>
-<ul>
-<li>disk-based image and sensor-CSV loading</li>
-<li>missing-value imputation through <code>KNNImputer</code></li>
-<li>sensor scaling through <code>StandardScaler</code></li>
-<li>image, sensor, and label integration in <code>FactoryFileDataset</code></li>
-<li>fusion of CNN features with temperature and vibration features</li>
-<li>a <code>torch.cuda.amp</code> training loop</li>
-<li>MLflow experiment, training-loss, and model logging</li>
-</ul>
-<p>This skeleton establishes the code sequence. The next implementation package replaces synthetic input with a process-source adapter and adds data splitting, evaluation, and field-validation contracts.</p>
-<h2 id="4-five-manufacturing-ai-safety-gates">4. Five manufacturing-AI safety gates</h2>
-<h3 id="gate-1-adoption-rationale--why-and-what">Gate 1. Adoption rationale — Why and What</h3>
-<p>The process problem and error cost come before model selection.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Decision item</th>
-          <th>Manufacturing question</th>
-          <th>Output</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Target CTQ</td>
-          <td>Which defect or equipment anomaly is being detected?</td>
-          <td>Failure mode and label definition</td>
-      </tr>
-      <tr>
-          <td>FN cost</td>
-          <td>What customer, escape, or rework impact follows a missed defect?</td>
-          <td>FN priority</td>
-      </tr>
-      <tr>
-          <td>FP cost</td>
-          <td>What reinspection, scrap, or takt loss follows a false alarm?</td>
-          <td>FP tolerance</td>
-      </tr>
-      <tr>
-          <td>Point of use</td>
-          <td>Operator aid, inspection decision, or equipment control?</td>
-          <td>Authority and user flow</td>
-      </tr>
-      <tr>
-          <td>Success condition</td>
-          <td>Which performance, speed, and operating checks must pass?</td>
-          <td>Acceptance criteria</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="gate-2-data--product-lot-and-time-split">Gate 2. Data — Product, Lot, and Time split</h3>
-<p>A random split can place near-duplicate images from the same production condition in both train and test sets. Manufacturing AI therefore requires independent evaluation units.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Train
-</span></span><span style="display:flex;"><span>= earlier products, lots, and time windows
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Validation
-</span></span><span style="display:flex;"><span>= lots and time windows separated from training but used for condition selection
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Final test
-</span></span><span style="display:flex;"><span>= product, lot, and time windows never used for model or threshold selection
-</span></span></code></pre></div><p>Required checks:</p>
-<ul>
-<li>block duplicate cells, images, and adjacent frames across train and test</li>
-<li>retain product, material lot, equipment, illumination, shift, and time metadata</li>
-<li>record class imbalance between abundant good products and rare defects</li>
-<li>freeze the split before augmentation</li>
-<li>isolate the final test from model and threshold selection</li>
-</ul>
-<h3 id="gate-3-configuration--a-reproducible-execution-unit">Gate 3. Configuration — a reproducible execution unit</h3>
-<p>A model weight alone does not reproduce an experiment. The following information belongs to one execution unit.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">experiment</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">data_version</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">split_manifest</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">random_seed</span>: <span style="color:#ae81ff">42</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">model</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image_size</span>: <span style="color:#ae81ff">224</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">batch_size</span>: <span style="color:#ae81ff">32</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">learning_rate</span>: <span style="color:#ae81ff">0.0001</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">decision_threshold</span>: <span style="color:#ae81ff">0.40</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">code_commit</span>: <span style="color:#e6db74">&#34;...&#34;</span>
-</span></span></code></pre></div><p>Controlled items:</p>
-<ul>
-<li>data source, label version, and split manifest</li>
-<li>preprocessing, augmentation, and random seed</li>
-<li>model architecture and weight initialization</li>
-<li>batch, learning rate, and epoch count</li>
-<li>threshold and operating point</li>
-<li>code commit and package environment</li>
-<li>confusion matrix, error list, weight, and logs</li>
-</ul>
-<h3 id="gate-4-evaluation--error-structure-before-accuracy">Gate 4. Evaluation — error structure before accuracy</h3>
-<p>With 990 good products and ten defects, a model that predicts every item as good still reports 99% accuracy. Manufacturing inspection must evaluate error direction and cost.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Evaluation axis</th>
-          <th>Metrics and evidence</th>
-          <th>Decision purpose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Missed defects</td>
-          <td><strong>Recall, FN count, FN by defect type</strong></td>
-          <td>Prevent customer escape and critical misses</td>
-      </tr>
-      <tr>
-          <td>False alarms</td>
-          <td>Precision, FP count, FP by product</td>
-          <td>Control reinspection, scrap, and takt loss</td>
-      </tr>
-      <tr>
-          <td>Balance</td>
-          <td>F1, PR curve, and confusion matrix</td>
-          <td>Include class imbalance in the decision</td>
-      </tr>
-      <tr>
-          <td>Cause</td>
-          <td>Error image, product, lot, time, and equipment slices</td>
-          <td>Identify domain-gap and drift segments</td>
-      </tr>
-      <tr>
-          <td>Explanation</td>
-          <td>Grad-CAM, ROI, and annotation comparison</td>
-          <td>Check whether the model learned the defect rather than background or fixture</td>
-      </tr>
-      <tr>
-          <td>Operation</td>
-          <td>Latency, throughput, and memory</td>
-          <td>Check takt and long-run suitability</td>
-      </tr>
-  </tbody>
-</table>
-<p>The threshold is selected from FN and FP costs plus manual-review capacity—not maximum accuracy alone.</p>
-<h3 id="gate-5-field-adoption--parallel-validation-and-recovery">Gate 5. Field adoption — parallel validation and recovery</h3>
-<p>After test-set evaluation, a parallel field validation compares FN, FP, operator rechecks, and agreement with the existing inspection before any PLC or equipment decision link is considered.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Retain existing inspection and control
-</span></span><span style="display:flex;"><span>+ run AI decisions and logs in the background
-</span></span><span style="display:flex;"><span>→ compare against operator and existing-inspection results
-</span></span><span style="display:flex;"><span>→ analyze FN, FP, and latency by Product, Lot, and Time
-</span></span><span style="display:flex;"><span>→ approve release or revise conditions
-</span></span><span style="display:flex;"><span>→ roll back to the established decision path on abnormal behavior
-</span></span></code></pre></div><p>Shadow-stage controls:</p>
-<ul>
-<li>AI decision, confidence, and processing time</li>
-<li>disagreement with the operator or existing inspection</li>
-<li>error concentration by product, lot, time, and equipment condition</li>
-<li>manual review and segregation for missed-defect candidates</li>
-<li>false-alarm bursts, delay, communication errors, and drift</li>
-<li>model-version rollback and the retained conventional inspection path</li>
-</ul>
-<h2 id="5-target-executable-template">5. Target executable template</h2>
-<p>The archive&rsquo;s documents and code skeleton will be integrated into the following execution structure.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Deep_Learning_Text_book/
-</span></span><span style="display:flex;"><span>├── data/
-</span></span><span style="display:flex;"><span>│   ├── raw/                  # Product·Lot·Time source structure
-</span></span><span style="display:flex;"><span>│   └── processed/            # Data processed after split
-</span></span><span style="display:flex;"><span>├── configs/
-</span></span><span style="display:flex;"><span>│   └── experiment_01.yaml    # Seed·model·threshold·version
-</span></span><span style="display:flex;"><span>├── notebooks/
-</span></span><span style="display:flex;"><span>│   ├── 01_eda_and_split.ipynb
-</span></span><span style="display:flex;"><span>│   ├── 02_model_training.ipynb
-</span></span><span style="display:flex;"><span>│   └── 03_evaluation_gradcam.ipynb
-</span></span><span style="display:flex;"><span>├── scripts/
-</span></span><span style="display:flex;"><span>│   ├── make_split.py
-</span></span><span style="display:flex;"><span>│   ├── train.py
-</span></span><span style="display:flex;"><span>│   ├── evaluate.py
-</span></span><span style="display:flex;"><span>│   └── shadow_compare.py
-</span></span><span style="display:flex;"><span>└── results/
-</span></span><span style="display:flex;"><span>    ├── weights/
-</span></span><span style="display:flex;"><span>    ├── reports/
-</span></span><span style="display:flex;"><span>    ├── error_cases/
-</span></span><span style="display:flex;"><span>    └── logs/
-</span></span></code></pre></div><p>Completion criteria for the next engineering package:</p>
-<ol>
-<li>automatic Product/Lot/Time split-manifest generation</li>
-<li>same-configuration rerun through <code>config.yaml</code></li>
-<li>hash linkage across code, data, configuration, weights, and report</li>
-<li>automated Recall, FN, FP, confusion-matrix, and error-slice output</li>
-<li>Grad-CAM comparison with source annotations</li>
-<li>shadow-decision log comparison against the established inspection result</li>
-<li>executable release, hold, and rollback criteria</li>
-</ol>
-<h2 id="6-project-result">6. Project result</h2>
-<h3 id="bridge-between-manufacturing-knowledge-and-ai-experiments">Bridge between manufacturing knowledge and AI experiments</h3>
-<ul>
-<li>integrated preprocessing, model, evaluation, and system-design material into one GitHub learning path</li>
-<li>connected a PyTorch starter with a synthetic image/sensor manufacturing-defect skeleton</li>
-<li>shifted evaluation from accuracy alone to <strong>Recall, FN, FP, and error slices</strong></li>
-<li>defined independent evaluation by <strong>Product, Lot, and Time</strong> instead of relying only on random split</li>
-<li>placed <strong>parallel field validation, manual review, and recovery</strong> between model evaluation and field release</li>
-</ul>
-<h3 id="ax-engineering-asset">AX engineering asset</h3>
-<p>The guidebook is built to answer the following questions—not to maximize the number of models in the repository.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Which process problem is being solved?
-</span></span><span style="display:flex;"><span>→ Does the data represent production variation?
-</span></span><span style="display:flex;"><span>→ Can the same experiment be rerun?
-</span></span><span style="display:flex;"><span>→ Which defect was missed?
-</span></span><span style="display:flex;"><span>→ Can the model be introduced in parallel without disrupting control?
-</span></span><span style="display:flex;"><span>→ Can the process recover immediately when abnormal behavior appears?
-</span></span></code></pre></div><h2 id="7-public-archive">7. Public archive</h2>
-<ul>
-<li><a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener">Deep_Learning_Text_book — master</a></li>
-<li><a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/commit/9c9ebb7c734872b81d88a511f5b1a98c4e7b34f4" target="_blank" rel="noopener">Reviewed snapshot — 9c9ebb7</a></li>
-</ul>
-
-        </div>
-        <section class="project-resources" aria-labelledby="case-links-title">
-          <h2 id="case-links-title">Public links</h2>
-          <ul class="project-resources__links">
-            <li>
-              <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener noreferrer">
-                <span class="project-resources__label">Public research archive</span>
-                <span class="project-resources__url">github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/commit/9c9ebb7c734872b81d88a511f5b1a98c4e7b34f4" target="_blank" rel="noopener noreferrer">
-                <span class="project-resources__label">Reviewed snapshot</span>
-                <span class="project-resources__url">github.com/HeungJAELEE/Deep_Learning_Text_book/commit/9c9ebb7c734872b81d88a511f5b1a98c4e7b34f4</span>
-              </a>
+              </ul>
             </li>
           </ul>
-        </section>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+      <main id="main-content" tabindex="-1">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
+    <div class="content">
+      <article class="container p-0 read-area portfolio-article">
+        <header class="portfolio-article__header">
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Field Guide to AI Models for Manufacturing</h1>
+          
+            <p class="portfolio-article__lead">A practical modeling guide for manufacturing data that links Product, Lot, and Time splits with preprocessing, training, evaluation, and reproducibility checks</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-13">Jul 13, 2026</time>
+             · 
+            8 minutes
+             · 
+            Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/deep-learning/" class="btn btn-sm btn-outline-info rounded">Deep Learning</a></li>
+    
+    
+    <li><a href="/en/tags/evaluation/" class="btn btn-sm btn-outline-info rounded">Evaluation</a></li>
+    
+    
+    <li><a href="/en/tags/reproducibility/" class="btn btn-sm btn-outline-info rounded">Reproducibility</a></li>
+    
+  </ul>
+</div>
+
+          
+        </header>
+
+        <div class="post-content portfolio-article__content" id="post-content">
+          <aside class="project-case-summary project-case-summary--personal-ai" aria-labelledby="project-case-summary-deep-learning-modeling" data-project-id="deep-learning-modeling">
+  <header class="project-case-summary__header">
+    <div>
+      <p class="project-case-summary__eyebrow">30-second summary</p>
+      <h2 id="project-case-summary-deep-learning-modeling">For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.</h2>
+    </div>
+    <span class="project-case-summary__status">Learning workflow public · Before manufacturing validation</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>Period / basis</dt>
+      <dd>Personal learning project · Current public-repository scope</dd>
+    </div>
+    <div>
+      <dt>Project form</dt>
+      <dd>Reproducible modeling study repository</dd>
+    </div>
+  </dl>
+
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-deep-learning-modeling">
+      <h3 id="project-case-problem-deep-learning-modeling">Problem to solve</h3>
+      <p>When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.</p>
+    </section>
+
+    <section aria-labelledby="project-case-role-deep-learning-modeling">
+      <h3 id="project-case-role-deep-learning-modeling">My scope</h3>
+      <ul><li>Organized preprocessing, model training, evaluation, and reproducibility management into one repository workflow.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-deep-learning-modeling">
+      <h3 id="project-case-result-deep-learning-modeling">Verified result / current stage</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>Verified output · Individual</span>
+              <strong>Public learning flow from preprocessing to training, evaluation, and reproducibility management</strong>
+            </li><li>
+              <span>Current stage · Individual</span>
+              <strong>Before application to production data and field-performance validation</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-deep-learning-modeling">
+      <h3 id="project-case-team-deep-learning-modeling">Team boundary</h3>
+      <p>This is a personal learning repository and is not presented as a result from company production data.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>Disclosure scope:</strong> Only experiment procedures visible in public code are described; unverified performance figures are excluded.</p>
+    <p>The workflow is generalized as validation needed before applying models to manufacturing data.</p>
+  </footer>
+</aside>
+
+<h2 id="why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</h2>
+<p>Deep-learning code can run once and still be unusable for an engineering decision if no one can explain which data and settings produced the result. A score can be overstated when samples from the same product or Lot cross training and test boundaries, or when the test set is repeatedly used to guide model changes.</p>
+<p>In manufacturing, that problem affects quality decisions directly. Missed defects and false rejections have different costs, and offline behavior can change with equipment, material, or capture conditions. The project therefore starts with a traceable experiment standard rather than a peak score.</p>
+<h2 id="why-a-digital-method-was-needed">Why a digital method was needed</h2>
+<p>A single notebook is useful for fast exploration, but hidden state and cell order can make a result fragile. Separating preprocessing, training, evaluation, and run records makes it possible to trace which change affected the outcome.</p>
+<p>MLOps in this case does not mean that a deployment platform has already been built. It means connecting the data identifier, split rule, configuration, code, runtime environment, and evaluation output as one experiment record.</p>
+<h2 id="my-actual-role">My actual role</h2>
+<p>As a personal learning project, I organized preprocessing, model architecture, evaluation, and system design into topic-based documents, then connected them to a PyTorch training template and a manufacturing-defect example. The repository aims for a path from data splitting and preprocessing through training, evaluation, and reproducibility, but the current public code implements only part of that path as a learning scaffold.</p>
+<p>It therefore does not claim a specific dataset size, model accuracy, reproduced training result, or production deployment. Model, industry-case, and performance statements in the study documents are kept separate from repository achievements unless a corresponding run is publicly evidenced.</p>
+<h2 id="how-to-read-the-repository-in-three-minutes">How to read the repository in three minutes</h2>
+<p>When checked on July 31, 2026, the public <code>master</code> branch contained 346 Markdown files and three Python files, with no Jupyter notebooks, result images, or versioned dependency manifest. No separate public web app was visible. The visitor-facing outputs are Markdown tables, Mermaid diagrams, pseudocode, and the three Python sources rather than application screens.</p>
+<figure class="project-screen">
+  <div class="project-screen__media"><a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener noreferrer"><img src="/images/projects/deep-learning-modeling/github-repository-live-2026-07-31.png" alt="Public Deep Learning Text Book GitHub master branch showing topic-based study folders" loading="lazy" decoding="async"></a></div>
+  <figcaption><strong>Actual public surface: a repository arranged as a learning path</strong><p>The preprocessing, model, evaluation, system-architecture, integrated-project, and case-study folders form the reading order. This visible structure is the project&#39;s current public output.</p><p class="project-screen__meta"><span>Public GitHub repository, master branch</span><span aria-hidden="true">·</span><span>31 Jul 2026</span></p></figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>README.md                              Overall learning roadmap
+</span></span><span style="display:flex;"><span>01_Data_Preprocessing/                 Preprocessing and MLOps topic notes
+</span></span><span style="display:flex;"><span>02_Deep_Learning_Models/               Overview and deep dives for 16 models
+</span></span><span style="display:flex;"><span>03_Model_Evaluation/                   Classification, vision, and system evaluation
+</span></span><span style="display:flex;"><span>04_System_Architecture/                Five-step learning flow and PyTorch examples
+</span></span><span style="display:flex;"><span>  03_Starter_Template.py               Single-file MNIST train/test example
+</span></span><span style="display:flex;"><span>  Case_Study/Manufacturing-Defect/
+</span></span><span style="display:flex;"><span>    data_generator.py                  Synthetic sensors and noise images
+</span></span><span style="display:flex;"><span>    integrated_prototype.py            Preprocessing, one-epoch training, MLflow logging
+</span></span><span style="display:flex;"><span>07_Case_Studies/                       Explanatory industry cases
+</span></span><span style="display:flex;"><span>Job_guide/                             Role-based application guides
+</span></span></code></pre></div><p>Start with the <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/README.md" target="_blank" rel="noopener">README roadmap</a>, then read the <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/04_System_Architecture/00_A_to_Z_Pipeline.md" target="_blank" rel="noopener">five-step training flow</a> and <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/03_Model_Evaluation/00_Deep_Learning_Evaluation_Standard.md" target="_blank" rel="noopener">evaluation index</a>. The <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/blob/master/04_System_Architecture/03_Starter_Template.py" target="_blank" rel="noopener">MNIST template</a> and <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master/04_System_Architecture/Case_Study/Manufacturing-Defect" target="_blank" rel="noopener">manufacturing example</a> then show the boundary between explanation and source code.</p>
+<p>The public source implements an MNIST load–MLP train–accuracy output example and a synthetic sensor/image generator followed by imputation, scaling, one epoch of multimodal classification training, and an MLflow logging call. The manufacturing example does not implement a train/validation/test split, independent evaluation, a confusion matrix, or saved run evidence. Its evaluation and reproducibility documents are directions for further implementation, not proof of a completed experiment pipeline or field performance.</p>
+<h2 id="data-flow">Data flow</h2>
+<p><code>Preserve and split source data → preprocessing → configuration-based training → fixed evaluation and error analysis → reproducibility record linking data, code, environment, and results</code></p>
+<p>Preprocessing parameters are fitted only on training data and then applied to validation and test data. Final evaluation uses a fixed test set that was not used for model selection, and retains per-class metrics and representative errors rather than only an average score.</p>
+<h2 id="implementation-sequence">Implementation sequence</h2>
+<ol>
+<li>Define whether one prediction represents an image, a product, or an equipment time window.</li>
+<li>Keep raw data read-only and inspect file, label, equipment, Lot, and time metadata for missing or duplicate values.</li>
+<li>Fix train, validation, and test boundaries before training, considering equipment-, Lot-, or time-based groups.</li>
+<li>Fit preprocessing on training data only and establish a simple baseline.</li>
+<li>Train with recorded data version, split rule, model configuration, random seed, and runtime environment.</li>
+<li>Review per-class metrics and error cases under a fixed evaluation contract, then link the model, configuration, and report to the same run record.</li>
+</ol>
+<p>This sequence is a target standard for developing the repository; it is not a claim that every step is implemented and publicly verified.</p>
+<h2 id="verified-output-and-current-stage">Verified output and current stage</h2>
+<p>The public repository exposes topic-based learning documents, a PyTorch MNIST template, a synthetic manufacturing-data generator, and a manufacturing-defect training example. Its example README provides install and run commands, but there is no version-pinned dependency manifest or saved run log proving that another environment reproduces the same result.</p>
+<p>The present portfolio output is therefore a navigable study repository and code scaffold, not a completed model or public application. It does not claim application to real manufacturing data, model performance, or field quality improvement.</p>
+<h2 id="deployment-conditions-and-company-value">Deployment conditions and company value</h2>
+<p>Manufacturing use requires separate validation: independent equipment-, Lot-, and time-based evaluation; condition-based slices for lighting or sensor variation; inference latency; out-of-distribution and failure behavior; and drift monitoring. Data rights, model version, decision threshold, approval, and rollback also need operating controls.</p>
+<p>Under those conditions, a company could review where a model is trustworthy instead of relying on one score. Recording unsuccessful experiments in the same format can reduce repeated work and sharpen the next hypothesis. Any quality improvement or engineering-effort reduction still requires separate field evidence.</p>
+<h2 id="design-and-validation-record">Design and validation record</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Learning and validation record</p>
+      <h2 id="project-blueprint-deep-learning-modeling">Design choices and work flow</h2>
+      <p class="project-blueprint__summary">The plan avoids overstating the current repository and turns reproducibility, manufacturing metrics, and implementation gaps into a visible learning backlog.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--planned">Design baseline public · implementation validation pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Personal learning and experiment design</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Modeling standards, experiment structure, validation plan</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>AI learners and manufacturing data analysts</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Limited public repository · design-led</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>A notebook that runs once does not prove leakage control, preprocessing consistency, reproducibility, baseline improvement, or the cost of manufacturing errors.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Separate preprocessing, training, evaluation, and reproducibility so the same procedure can be applied to new manufacturing data.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>Fixed splits, config, seed, artifact logging, baseline comparison, and error analysis are automated and reproducible in another environment.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-deep-learning-modeling">
+      <h3 id="project-scope-deep-learning-modeling">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Data schema, split, preprocessing, and augmentation rules</li><li>Baseline, train/evaluate pipeline, metric and artifact logging</li><li>Recall, precision, F1, and error analysis for imbalanced manufacturing data</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Unsupported model accuracy or completed-training claims</li><li>Claiming an operational MLOps platform already exists</li><li>Treating one notebook run as a reproducible experiment</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-deep-learning-modeling">
+      <h3 id="project-requirements-deep-learning-modeling">Implementation and verification</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>What had to work</h4>
+          <ul>
+              <li>Fix train/validation/test splits and test for leakage.</li>
+              <li>Record config, seed, code/data version, and model artifact together.</li>
+              <li>Generate recall, precision, F1, and confusion matrix in addition to accuracy.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operating rules</h4>
+          <ul>
+              <li>The same configuration runs in another environment.</li>
+              <li>Baseline comparison and failure cases are reported together.</li>
+              <li>Manufacturing false-negative and false-positive costs influence metric choice.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-deep-learning-modeling">
+    <h3 id="project-decisions-deep-learning-modeling">Why it was designed this way</h3>
+    <ol>
+        <li>
+          <strong>Design around a pipeline, not a notebook</strong>
+          <p>Explicit stage inputs and outputs make errors and repeated experiments traceable.</p>
+        </li>
+        <li>
+          <strong>Track config and artifacts with code</strong>
+          <p>A model file alone cannot explain its data, preprocessing, or seed.</p>
+        </li>
+        <li>
+          <strong>Defer performance claims until evidence exists</strong>
+          <p>The current public repository does not verify completed training or a metric.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-deep-learning-modeling">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-deep-learning-modeling">Work completed and planned</h3>
+      <p>Completed design work and implementation that still needs public verification are deliberately separate.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">Design complete</span>
+          </div>
+          <h4>Define reproducibility and evaluation requirements</h4>
+          <p>Set splits, config, seed, artifacts, baseline, and manufacturing error cost as success criteria.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Experiment design and validation standard</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--partial">Design complete</span>
+          </div>
+          <h4>Document repository and config layout</h4>
+          <p>Separated data, src, configs, tests, and artifact responsibilities.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Recommended repository layout</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Needs verification</span>
+          </div>
+          <h4>Implement preprocessing and split pipeline</h4>
+          <p>Schema checks, duplicate checks, fixed splits, and train-only augmentation need source and tests.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Data pipeline and unit tests</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Needs verification</span>
+          </div>
+          <h4>Automate baseline, training, and evaluation</h4>
+          <p>One config should run baselines and candidates while logging metrics and checkpoints.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Train/evaluate CLI and artifacts</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Planned</span>
+          </div>
+          <h4>Validate reproducibility and error analysis</h4>
+          <p>Publish repeat runs, confusion matrices, failure slices, and baseline deltas.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Experiment report and reproducibility check</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-deep-learning-modeling">
+    <h3 id="project-acceptance-deep-learning-modeling">What was verified</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Preprocess, train, evaluate, and reproduce responsibilities are documented.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Leakage, baseline, and manufacturing error costs are acceptance criteria.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Public source can rerun pipeline tests and artifacts.</p>
+          <strong>Unverified</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>A release report provides verified model results and limits.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Supporting evidence:</strong> Uses only the current repository and design article; it adds no claim of completed training, performance, or deployment.</p>
+  </section>
+</details>
+
+<h2 id="public-links">Public links</h2>
+<section class="project-resources" aria-labelledby="project-resources-deep-learning-modeling">
+  <h2 id="project-resources-deep-learning-modeling">Public links</h2>
+  <p class="project-resources__lead">Public material for reviewing project evidence and the live user surface.</p>
+    <ul class="project-resources__links"><li>
+          <a href="https://github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master" target="_blank" rel="noopener">
+            <span class="project-resources__label">Deep-learning public code</span>
+            <span class="project-resources__url">github.com/HeungJAELEE/Deep_Learning_Text_book/tree/master</span>
+          </a>
+        </li>
+    </ul>
+  <p class="project-resources__note">There is no separate public report. The article stays within the learning and experiment-design scope visible in the repository.</p>
+</section>
+
+
+        </div>
 
         <footer class="portfolio-article__footer">
-          <a class="portfolio-text-link" href="/en/posts/">
-            <i data-feather="arrow-left" aria-hidden="true"></i>
-            <span>Back to all projects</span>
-          </a>
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
         </footer>
       </article>
-      
-        <aside class="portfolio-article-toc" aria-label="Table of contents">
-          <div class="portfolio-article-toc__inner">
-            <p>On this page</p>
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-project-background-and-intent">1. Project background and intent</a>
-      <ul>
-        <li><a href="#the-manufacturing-field-condition-gap">The manufacturing field-condition gap</a></li>
-        <li><a href="#research-objective">Research objective</a></li>
-      </ul>
-    </li>
-    <li><a href="#2-github-research-archive-structure">2. GitHub research-archive structure</a></li>
-    <li><a href="#3-manufacturing-ai-skeleton-connected-in-code">3. Manufacturing-AI skeleton connected in code</a>
-      <ul>
-        <li><a href="#-pytorch-starter-template">① PyTorch starter template</a></li>
-        <li><a href="#-multimodal-manufacturing-defect-prototype">② Multimodal manufacturing-defect prototype</a></li>
-      </ul>
-    </li>
-    <li><a href="#4-five-manufacturing-ai-safety-gates">4. Five manufacturing-AI safety gates</a>
-      <ul>
-        <li><a href="#gate-1-adoption-rationale--why-and-what">Gate 1. Adoption rationale — Why and What</a></li>
-        <li><a href="#gate-2-data--product-lot-and-time-split">Gate 2. Data — Product, Lot, and Time split</a></li>
-        <li><a href="#gate-3-configuration--a-reproducible-execution-unit">Gate 3. Configuration — a reproducible execution unit</a></li>
-        <li><a href="#gate-4-evaluation--error-structure-before-accuracy">Gate 4. Evaluation — error structure before accuracy</a></li>
-        <li><a href="#gate-5-field-adoption--parallel-validation-and-recovery">Gate 5. Field adoption — parallel validation and recovery</a></li>
-      </ul>
-    </li>
-    <li><a href="#5-target-executable-template">5. Target executable template</a></li>
-    <li><a href="#6-project-result">6. Project result</a>
-      <ul>
-        <li><a href="#bridge-between-manufacturing-knowledge-and-ai-experiments">Bridge between manufacturing knowledge and AI experiments</a></li>
-        <li><a href="#ax-engineering-asset">AX engineering asset</a></li>
-      </ul>
-    </li>
-    <li><a href="#7-public-archive">7. Public archive</a></li>
-  </ul>
-</nav>
-          </div>
-        </aside>
-      
-      </div>
     </div>
     <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
       <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
@@ -824,6 +835,30 @@ document.documentElement.setAttribute('data-theme', theme)
   </section>
 
       </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-the-shop-floor-decision-mattered">Why the shop-floor decision mattered</a></li>
+    <li><a href="#why-a-digital-method-was-needed">Why a digital method was needed</a></li>
+    <li><a href="#my-actual-role">My actual role</a></li>
+    <li><a href="#how-to-read-the-repository-in-three-minutes">How to read the repository in three minutes</a></li>
+    <li><a href="#data-flow">Data flow</a></li>
+    <li><a href="#implementation-sequence">Implementation sequence</a></li>
+    <li><a href="#verified-output-and-current-stage">Verified output and current stage</a></li>
+    <li><a href="#deployment-conditions-and-company-value">Deployment conditions and company value</a></li>
+    <li><a href="#design-and-validation-record">Design and validation record</a></li>
+    <li><a href="#public-links">Public links</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
     </div>
 
     
@@ -837,19 +872,18 @@ document.documentElement.setAttribute('data-theme', theme)
   <div class="portfolio-container portfolio-footer__grid">
     <div class="portfolio-footer__brand">
       <a href="/en/">Jaeheung Lee</a>
-      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p>
+      <p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p>
+    </div>
 
     <nav class="portfolio-footer__nav" aria-label="Footer navigation">
       <a href="/en/#about">About</a>
       <a href="/en/#experiences">Experiences</a>
       <a href="/en/#projects">Projects</a>
-      <a href="/en/posts">Details</a>
+      <a href="/en/posts">Technical Cases</a>
     </nav>
 
     <address class="portfolio-footer__contact">
-      
-        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">Send email</a>
-      
       <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
       
       <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>

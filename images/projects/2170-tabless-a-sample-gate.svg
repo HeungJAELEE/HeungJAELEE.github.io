@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" role="img" aria-labelledby="title desc">
-  <title id="title">2170 Tabless PROTO Gate와 DMADV·Taguchi Trial</title>
-  <desc id="desc">IATF 기반 PROTO, PILOT, MP, SOP 개발품질 흐름에서 PROTO A Sample을 강조하고, Define Measure Analyze Design Verify, 4M 위험분석, Taguchi Trial Matrix, 약 100개 Trial과 기능 Sample 5개 Cell 평가를 연결한 흐름</desc>
+  <title id="title">2170 Tabless PROTO Gate와 DMADV·DFMEA</title>
+  <desc id="desc">IATF 기반 PROTO, PILOT, MP, SOP 개발품질 흐름에서 PROTO A Sample을 강조하고, Define Measure Analyze Design Verify, 4M 위험분석, DFMEA, 약 100개 Trial과 기능 Sample 5개 Cell 평가를 연결한 흐름</desc>
   <rect width="1440" height="640" fill="#EFF1ED"/>
   <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
-    <text x="62" y="58" fill="#1C232C" font-size="30" font-weight="700">2170 TABLESS · PROTO A SAMPLE · DMADV + 4M + TAGUCHI TRIAL</text>
+    <text x="62" y="58" fill="#1C232C" font-size="30" font-weight="700">2170 TABLESS · PROTO A SAMPLE · DMADV + 4M + DFMEA</text>
     <text x="62" y="90" fill="#5B6470" font-size="16">전용 설비·Jig 부재를 PROTO Gate의 제조·안전·기능 CTQ로 전환</text>
 
     <text x="62" y="138" fill="#1C232C" font-size="18" font-weight="700">IATF-BASED QUALITY POSITION</text>
@@ -51,7 +51,7 @@
       <g transform="translate(702)">
         <circle cx="68" cy="60" r="48" fill="#E2711D"/>
         <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">DESIGN</text>
-        <text x="68" y="78" text-anchor="middle" fill="#FFF0E4" font-size="12">Taguchi Trial</text>
+        <text x="68" y="78" text-anchor="middle" fill="#FFF0E4" font-size="12">DFMEA</text>
       </g>
       <g transform="translate(936)">
         <circle cx="68" cy="60" r="48" fill="#3F7D58"/>
@@ -68,7 +68,7 @@
 
     <g transform="translate(62 470)">
       <rect width="1236" height="118" rx="4" fill="#1C232C"/>
-      <text x="618" y="32" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">TAGUCHI TRIAL MATRIX</text>
+      <text x="618" y="32" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">DFMEA · FAILURE MODE / ROOT CAUSE MATRIX</text>
       <text x="618" y="62" text-anchor="middle" fill="#DDE8EF" font-size="15">Jig·정렬 → Laser 기준위치·경로 → Can 삽입·조립 → 절단·해체·Hi-Pot·Short</text>
       <text x="618" y="88" text-anchor="middle" fill="#F4B981" font-size="15">약 100개 Trial에서 Failure Mode 축소</text>
       <text x="618" y="108" text-anchor="middle" fill="#93C6A4" font-size="15" font-weight="700">기능 Sample 5개 · IR · Formation · Capacity · Life · PROTO GATE COMPLETE</text>

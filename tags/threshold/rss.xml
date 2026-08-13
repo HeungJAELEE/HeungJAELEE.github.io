@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Threshold on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/threshold/</link>
+    <description>Recent content in Threshold on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/threshold/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>용접 Vision AI 판정기준</title>
+      <link>https://heungjaelee.github.io/posts/welding-vision-ai/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/welding-vision-ai/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--dx&#34; aria-labelledby=&#34;project-case-summary-welding-vision-ai&#34; data-project-id=&#34;welding-vision-ai&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30초 요약&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-welding-vision-ai&#34;&gt;현장에서는 전체 정확도보다 불량을 놓쳤을 때의 비용이 큽니다. 그래서 데이터 출처를 나누고 Recall과 임계값을 먼저 보는 방식으로 PoC를 구성했습니다.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;검출 기준 검토 단계&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;기간·기준&lt;/dt&gt;
+      &lt;dd&gt;교육 팀 프로젝트 · 공개 정리 2026.07&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 형태&lt;/dt&gt;
+      &lt;dd&gt;제조 DX PoC · 생산 적용 전&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-welding-vision-ai&#34;&gt;해결하려던 문제&lt;/h3&gt;
+      &lt;p&gt;공개 데이터에서 잘 보이는 모델이 조명·각도·표면 상태가 다른 현장 이미지에서도 같은 판단을 할 것이라고 가정할 수 없었습니다.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-role-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-role-welding-vision-ai&#34;&gt;내가 맡은 범위&lt;/h3&gt;
+      &lt;ul&gt;&lt;li&gt;공개 학습 데이터와 현장 실습 이미지를 역할별로 나누고, 미검출 위험을 기준으로 평가 지표와 임계값 검토 순서를 정했습니다.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-result-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-result-welding-vision-ai&#34;&gt;확인된 결과·현재 단계&lt;/h3&gt;
+      &lt;ul class=&#34;project-case-summary__claims&#34;&gt;&lt;li&gt;
+              &lt;span&gt;확인된 산출물 · 개인 역할&lt;/span&gt;
+              &lt;strong&gt;공개·현장 데이터 분리와 Recall·임계값 중심 평가 흐름&lt;/strong&gt;
+            &lt;/li&gt;&lt;li&gt;
+              &lt;span&gt;현재 단계 · 팀 결과&lt;/span&gt;
+              &lt;strong&gt;교육 PoC 완료·생산 적용 전&lt;/strong&gt;
+            &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section aria-labelledby=&#34;project-case-team-welding-vision-ai&#34;&gt;
+      &lt;h3 id=&#34;project-case-team-welding-vision-ai&#34;&gt;팀 경계&lt;/h3&gt;
+      &lt;p&gt;교육 팀 PoC이며 모델 성능을 실제 양산 품질 성과로 귀속하지 않습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

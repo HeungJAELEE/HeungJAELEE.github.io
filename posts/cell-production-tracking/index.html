@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head><title>NCM Pilot Line 생산이력 추적 자동화 도구 개발 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+  <head>
+    <title>Cell 생산이력 추적 도구</title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -29,23 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.b2f6d4c6c2af9d0644209d7df0f8b46e78e15b1fb3b44a1d3b8401b4c4e05871.css" integrity="sha256-svbUxsKvnQZEIJ198Pi0bnjhWx&#43;ztEodO4QBtMTgWHE=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
-
-
-
-  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
 
 
 
@@ -59,17 +44,20 @@
 
 
 
-<meta property="og:title" content="NCM Pilot Line 생산이력 추적 자동화 도구 개발">
+<meta property="og:title" content="Cell 생산이력 추적 도구">
 <meta property="og:type" content="article">
-<meta property="og:description" content="공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일 10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계">
+<meta property="og:description" content="공정별 MES·Excel 파일을 Cell S/N으로 연결해 10개 Cell 검색을 약 3분, 보고서 작성 포함 업무를 약 반나절로 단축한 Power Query·VBA 현장 Traceability 도구">
 <meta property="og:url" content="https://heungjaelee.github.io/posts/cell-production-tracking/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
 <meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NCM Pilot Line 생산이력 추적 자동화 도구 개발">
+  <meta name="twitter:title" content="Cell 생산이력 추적 도구">
   <meta name="twitter:description" content="공정별 MES·Excel 파일을 Cell S/N으로 연결해 10개 Cell 검색을 약 3분, 보고서 작성 포함 업무를 약 반나절로 단축한 Power Query·VBA 현장 Traceability 도구">
-<meta name="description" content="공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일 10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일 10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계","headline":"NCM Pilot Line 생산이력 추적 자동화 도구 개발","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/cell-production-tracking/"}</script>
+
+  <meta name="description" content="공정별 MES·Excel 파일을 Cell S/N으로 연결해 10개 Cell 검색을 약 3분, 보고서 작성 포함 업무를 약 반나절로 단축한 Power Query·VBA 현장 Traceability 도구">
+
 
     
 
@@ -103,8 +91,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <div class="container-fluid bg-secondary wrapper">
       
-
-
+  
 
 
 
@@ -156,45 +143,148 @@ document.documentElement.setAttribute('data-theme', theme)
         
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#about">소개</a>
-            </li>
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#about">소개</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#projects">프로젝트</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#projects">프로젝트</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#experiences">경력</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#experiences">경력</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#skills">핵심 역량</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#skills">핵심 역량</a>
+              </li>
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#education">교육</a>
-            </li>
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#education">교육</a>
+              </li>
+            
           
-        
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
 
@@ -205,56 +295,44 @@ document.documentElement.setAttribute('data-theme', theme)
               id="blog-link"
               href="/posts"
               aria-current="page"
-            >상세보기</a>
+            >기술사례</a>
           </li>
         
 
         
+        
+        
+        
+        
           
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link is-active" href="/posts/cell-production-tracking/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link" href="/en/posts/cell-production-tracking/" lang="en" hreflang="en">English</a>
+        </li>
 
-  
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-        한국어
-    </a>
-    <div class="dropdown-menu" aria-labelledby="languageSelector">
-        
-        <a class="dropdown-item nav-link languages-item" href="/posts/cell-production-tracking">
-            
-            한국어
-        </a>
-        
-        <a class="dropdown-item nav-link languages-item" href="/en/posts/cell-production-tracking">
-            
-            English
-        </a>
-        
-    </div>
-    </li>
-
-        
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
 
         <li class="nav-item portfolio-navbar__contact-item">
           <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
-        </li>
-        <li class="nav-item portfolio-navbar__print-item">
-          <button
-            class="portfolio-navbar__print"
-            type="button"
-            data-portfolio-print
-            data-portfolio-print-mode="project"
-            aria-label="인쇄"
-          >
-            <i data-feather="printer" aria-hidden="true"></i>
-            <span data-portfolio-print-label>인쇄</span>
-          </button>
         </li>
       </ul>
     </div>
   </div>
 
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
 </nav>
 
 <script>
@@ -309,11 +387,10 @@ document.documentElement.setAttribute('data-theme', theme)
       const updateActiveSection = () => {
         framePending = false;
         const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
-        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
         let current = linkedSections[0];
 
         linkedSections.forEach((candidate) => {
-          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
             current = candidate;
           }
         });
@@ -344,66 +421,75 @@ document.documentElement.setAttribute('data-theme', theme)
   });
 </script>
 
+
       
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
       <main id="main-content" tabindex="-1">
-        <section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-dx" id="content-section">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
     <div class="content">
-      <div class="portfolio-article-layout">
       <article class="container p-0 read-area portfolio-article">
         <header class="portfolio-article__header">
-          <div class="portfolio-article__topline">
-            <p class="portfolio-article__eyebrow">제조 DX 프로젝트</p>
-            <span class="portfolio-article__stage portfolio-article__stage--field-tool">현장 적용·인계</span>
-          </div>
-          <h1>NCM Pilot Line 생산이력 추적 자동화 도구 개발</h1>
-          <p class="portfolio-article__lead">공정별 MES·Excel 파일을 Cell S/N으로 연결해 10개 Cell 검색 약 3분, 보고서 포함 약 반나절로 단축한 Power Query·VBA 현장 DX</p>
-          <dl class="portfolio-case-meta">
-            <div>
-              <dt>프로젝트 기간</dt>
-              <dd>제이스텍 재직 중 약 3주간 별도 제작</dd>
-            </div>
-            <div>
-              <dt>맥락</dt>
-              <dd>제이스텍(현 제이스로보틱스) 셀개발팀 · NCM Pilot Line 생산이력 조회도구</dd>
-            </div>
-            <div>
-              <dt>담당 범위</dt>
-              <dd>현장 이력조사 AS-IS 분석, Power Query 취합·Refresh, Cell S/N·J/R·Lot·Roll·시각 관계설계, VBA 일괄검색·결과표·원본대조·현장 인계</dd>
-            </div>
-          </dl>
-        </header>
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Cell 생산이력 추적 도구</h1>
+          
+            <p class="portfolio-article__lead">공정별 MES·Excel 파일을 Cell S/N으로 연결해 10개 Cell 검색을 약 3분, 보고서 작성 포함 업무를 약 반나절로 단축한 Power Query·VBA 현장 Traceability 도구</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-08-05">2026. 8. 5.</time>
+             · 
+            4 
+             · 
+            마지막 검토 <time datetime="2026-08-10">2026. 8. 10.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/traceability/" class="btn btn-sm btn-outline-info rounded">Traceability</a></li>
+    
+    
+    <li><a href="/tags/power-query/" class="btn btn-sm btn-outline-info rounded">Power Query</a></li>
+    
+    
+    <li><a href="/tags/excel-vba/" class="btn btn-sm btn-outline-info rounded">Excel VBA</a></li>
+    
+    
+    <li><a href="/tags/manufacturing-dx/" class="btn btn-sm btn-outline-info rounded">Manufacturing DX</a></li>
+    
+  </ul>
+</div>
 
-        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
-          <header>
-            <h2 id="case-summary-title">프로젝트·책임·검증 요약</h2>
-          </header>
-          <dl>
-            <div>
-              <dt>프로젝트 목적</dt>
-              <dd>공정별 MES·Excel 기록은 존재하나 Cell S/N 기준 전 공정 연속조회 부재·10개 Cell 이력조사 약 3일</dd>
-            </div>
-            <div>
-              <dt>기획·구현 범위</dt>
-              <dd>Power Query 데이터 취합·열구조 정규화, S/N–J/R–자재 Lot–극판 Roll–공정시각 Key Mapping, VBA 일괄검색·원본대조</dd>
-            </div>
-            <div>
-              <dt>팀 결과·현재 단계</dt>
-              <dd>10개 Cell 검색 약 3분·보고서 포함 약 반나절, 용량 이상 Cell 공통 Roll 구간 식별·현장 근본 원인 규명·담당자 인계</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="portfolio-case-metrics" aria-label="확인된 수치"><div>
-              <span>단일 Cell 검색</span>
-              <strong>약 5–10초</strong>
-            </div><div>
-              <span>10개 Cell 검색</span>
-              <strong>약 3분</strong>
-            </div><div>
-              <span>보고서 작성 포함</span>
-              <strong>약 반나절</strong>
-            </div>
-        </section><figure class="portfolio-case-visual">
-            <img src="/images/projects/cell-production-tracking-flow.svg" alt="공정별 MES·Excel 파일을 Power Query로 취합하고 Cell S/N에서 J/R·자재 Lot·극판 Roll·조립·검사·Formation까지 연결한 생산이력 자동조회 흐름" loading="eager"><figcaption>Power Query 데이터 취합 → Cell S/N 관계 Key Mapping → VBA 일괄검색 → 원본대조 → 현장 원인조사</figcaption></figure>
+          
+        </header>
 
         <div class="post-content portfolio-article__content" id="post-content">
           <section class="portfolio-project-contract" aria-label="NCM Pilot Line 생산이력 추적 자동화 도구 프로젝트 사실표">
@@ -693,17 +779,41 @@ document.documentElement.setAttribute('data-theme', theme)
         </div>
 
         <footer class="portfolio-article__footer">
-          <a class="portfolio-text-link" href="/posts/">
-            <i data-feather="arrow-left" aria-hidden="true"></i>
-            <span>전체 프로젝트로 돌아가기</span>
-          </a>
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
         </footer>
       </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
       
-        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
-          <div class="portfolio-article-toc__inner">
-            <p>이 글의 목차</p>
-            <nav id="TableOfContents">
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#프로젝트-배경과-목표">프로젝트 배경과 목표</a></li>
     <li><a href="#as-is--to-be">AS-IS / TO-BE</a></li>
@@ -726,18 +836,11 @@ document.documentElement.setAttribute('data-theme', theme)
     <li><a href="#표준화현장-인계">표준화·현장 인계</a></li>
     <li><a href="#같은-pilot-line의-상위-프로젝트">같은 Pilot Line의 상위 프로젝트</a></li>
   </ul>
-</nav>
-          </div>
-        </aside>
-      
+</nav></div>
       </div>
-    </div>
-    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
-      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
-    </a>
-  </section>
+    </section>
+  
 
-      </main>
     </div>
 
     
@@ -751,19 +854,18 @@ document.documentElement.setAttribute('data-theme', theme)
   <div class="portfolio-container portfolio-footer__grid">
     <div class="portfolio-footer__brand">
       <a href="/">이재흥</a>
-      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
 
     <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
       <a href="/#about">소개</a>
       <a href="/#experiences">경력</a>
       <a href="/#projects">프로젝트</a>
-      <a href="/posts">상세보기</a>
+      <a href="/posts">기술사례</a>
     </nav>
 
     <address class="portfolio-footer__contact">
-      
-        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
-      
       <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
       
       <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><title>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design | Jaeheung Lee | Manufacturing &amp; Process Engineer</title><meta charset="UTF-8">
+  <head>
+    <title>Welding Vision AI Decision Criteria</title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -29,23 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.b2f6d4c6c2af9d0644209d7df0f8b46e78e15b1fb3b44a1d3b8401b4c4e05871.css" integrity="sha256-svbUxsKvnQZEIJ198Pi0bnjhWx&#43;ztEodO4QBtMTgWHE=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
-
-
-
-  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
 
 
 
@@ -59,17 +44,20 @@
 
 
 
-<meta property="og:title" content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design">
+<meta property="og:title" content="Welding Vision AI Decision Criteria">
 <meta property="og:type" content="article">
-<meta property="og:description" content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50&#43;DeiT-Small, confidence calibration, and an FN-priority decision point">
+<meta property="og:description" content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1">
 <meta property="og:url" content="https://heungjaelee.github.io/en/posts/welding-vision-ai/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="Heungjae Lee technical portfolio preview">
 <meta property="og:site_name" content="Jaeheung Lee | Manufacturing &amp; Process Engineer">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design">
-  <meta name="twitter:description" content="A manufacturing Vision AI PoC that traced 15.84% recall on directly captured specimens to field inspection-condition differences, then improved the result through capture-noise augmentation, ResNet-50&#43;DeiT-Small, confidence calibration, and an FN-priority decision point">
-<meta name="description" content="Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens 85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo","headline":"Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design","inLanguage":"en","url":"https://heungjaelee.github.io/en/posts/welding-vision-ai/"}</script>
+  <meta name="twitter:title" content="Welding Vision AI Decision Criteria">
+  <meta name="twitter:description" content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1">
+
+  <meta name="description" content="A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1">
+
 
     
 
@@ -103,8 +91,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <div class="container-fluid bg-secondary wrapper">
       
-
-
+  
 
 
 
@@ -156,45 +143,148 @@ document.documentElement.setAttribute('data-theme', theme)
         
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#about">About</a>
-            </li>
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#about">About</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#projects">Projects</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#projects">Projects</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#experiences">Experiences</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#experiences">Experiences</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#education">Education</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#skills">Skills</a>
+              </li>
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/en/#skills">Skills</a>
-            </li>
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/en/#education">Education</a>
+              </li>
+            
           
-        
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
 
@@ -205,56 +295,44 @@ document.documentElement.setAttribute('data-theme', theme)
               id="blog-link"
               href="/en/posts"
               aria-current="page"
-            >Details</a>
+            >Technical Cases</a>
           </li>
         
 
         
+        
+        
+        
+        
           
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link" href="/posts/welding-vision-ai/" lang="ko" hreflang="ko">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link is-active" href="/en/posts/welding-vision-ai/" lang="en" hreflang="en" aria-current="page">English</a>
+        </li>
 
-  
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-        English
-    </a>
-    <div class="dropdown-menu" aria-labelledby="languageSelector">
-        
-        <a class="dropdown-item nav-link languages-item" href="/posts/welding-vision-ai">
-            
-            한국어
-        </a>
-        
-        <a class="dropdown-item nav-link languages-item" href="/en/posts/welding-vision-ai">
-            
-            English
-        </a>
-        
-    </div>
-    </li>
-
-        
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>Print</span>
+          </button>
+        </li>
 
         <li class="nav-item portfolio-navbar__contact-item">
           <a class="portfolio-navbar__contact" href="/en/#contact">Contact</a>
-        </li>
-        <li class="nav-item portfolio-navbar__print-item">
-          <button
-            class="portfolio-navbar__print"
-            type="button"
-            data-portfolio-print
-            data-portfolio-print-mode="project"
-            aria-label="Print"
-          >
-            <i data-feather="printer" aria-hidden="true"></i>
-            <span data-portfolio-print-label>Print</span>
-          </button>
         </li>
       </ul>
     </div>
   </div>
 
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
 </nav>
 
 <script>
@@ -309,11 +387,10 @@ document.documentElement.setAttribute('data-theme', theme)
       const updateActiveSection = () => {
         framePending = false;
         const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
-        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
         let current = linkedSections[0];
 
         linkedSections.forEach((candidate) => {
-          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
             current = candidate;
           }
         });
@@ -344,596 +421,619 @@ document.documentElement.setAttribute('data-theme', theme)
   });
 </script>
 
+
       
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="Search case studies">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/en/search/">
+          <label class="visually-hidden" for="search-box">Search case studies</label>
+          <input type="search" name="keyword" placeholder="Search case studies" id="search-box">
+        </form>
+        <nav aria-label="Post navigation">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/en/posts/">All case studies</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
       <main id="main-content" tabindex="-1">
-        <section class="content-section portfolio-article-section portfolio-case--dx-system portfolio-case-domain--manufacturing-ax" id="content-section">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
     <div class="content">
-      <div class="portfolio-article-layout">
       <article class="container p-0 read-area portfolio-article">
         <header class="portfolio-article__header">
-          <div class="portfolio-article__topline">
-            <p class="portfolio-article__eyebrow">Manufacturing AX project</p>
-            <span class="portfolio-article__stage portfolio-article__stage--education-poc">Training PoC</span>
-          </div>
-          <h1>Weld-Specimen Vision AI Domain-Gap Reduction and Field-Oriented Decision Design</h1>
-          <p class="portfolio-article__lead">Recall 15.84%→85.15%→96.04%, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA inspection-assistance flow</p>
-          <dl class="portfolio-case-meta">
-            <div>
-              <dt>Project period</dt>
-              <dd>Five-person AI-convergence training project</dd>
-            </div>
-            <div>
-              <dt>Context</dt>
-              <dd>Appearance-inspection PoC using AI-Hub weld data and directly captured Facility Maintenance Engineer practical weld specimens</dd>
-            </div>
-            <div>
-              <dt>Scope</dt>
-              <dd>Overall planning, AI modeling and evaluation design, FN/FP error analysis, candidate and ensemble comparison, coordinate scaling, and operating-point decisions</dd>
-            </div>
-          </dl>
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Welding Vision AI Decision Criteria</h1>
+          
+            <p class="portfolio-article__lead">A welding-defect vision project that separates public and field data, compares model stages, and selects a threshold around recall, precision, and F1</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-07-09">Jul 9, 2026</time>
+             · 
+            11 minutes
+             · 
+            Last reviewed <time datetime="2026-07-31">Jul 31, 2026</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/en/tags/vision-ai/" class="btn btn-sm btn-outline-info rounded">Vision AI</a></li>
+    
+    
+    <li><a href="/en/tags/recall/" class="btn btn-sm btn-outline-info rounded">Recall</a></li>
+    
+    
+    <li><a href="/en/tags/threshold/" class="btn btn-sm btn-outline-info rounded">Threshold</a></li>
+    
+  </ul>
+</div>
+
+          
         </header>
 
-        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
-          <header>
-            <h2 id="case-summary-title">Project, responsibility, and validation summary</h2>
-          </header>
-          <dl>
-            <div>
-              <dt>Project objective</dt>
-              <dd>Field inspection-condition differences with 15.84% recall and 35.87% FPR on directly captured specimens</dd>
-            </div>
-            <div>
-              <dt>Planning and build scope</dt>
-              <dd>Weld-noise-driven augmentation, six-model comparison, two-model ensemble, confidence calibration, and operating-point design</dd>
-            </div>
-            <div>
-              <dt>Team result / current stage</dt>
-              <dd>85.15% recall after augmentation, 96.04% two-model F1, zero FN and 100% recall at threshold 0.40, and a FastAPI/PWA integrated demo</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="portfolio-case-metrics" aria-label="Verified metrics"><div>
-              <span>Captured-specimen recall</span>
-              <strong>15.84% → 85.15% (&#43;69.31 pp)</strong>
-            </div><div>
-              <span>Threshold 0.40 limited evaluation</span>
-              <strong>FN 0 · Recall 100% · FPR 16.30%</strong>
-            </div><div>
-              <span>App demonstration</span>
-              <strong>FastAPI /predict → PWA grade, defect, and confidence</strong>
-            </div>
-        </section><figure class="portfolio-case-visual">
-            <img src="/images/projects/welding-vision-domain-gap.jpg" alt="Difference in capture conditions between public training weld-defect images and prepared sample images" loading="eager"><figcaption>Extract from the team presentation comparing the capture and surface conditions of public training data and prepared samples</figcaption></figure>
-
         <div class="post-content portfolio-article__content" id="post-content">
-          <section class="portfolio-project-contract" aria-label="Weld-specimen Vision AI responsibility table">
-  <dl>
+          <aside class="project-case-summary project-case-summary--dx" aria-labelledby="project-case-summary-welding-vision-ai" data-project-id="welding-vision-ai">
+  <header class="project-case-summary__header">
     <div>
-      <dt>Project type</dt>
-      <dd>Five-person AI-convergence training PoC</dd>
+      <p class="project-case-summary__eyebrow">30-second summary</p>
+      <h2 id="project-case-summary-welding-vision-ai">On the shop floor, the cost of missing a defect can matter more than aggregate accuracy, so the PoC separated data sources and prioritized recall and threshold decisions.</h2>
+    </div>
+    <span class="project-case-summary__status">Detection-criteria evaluation stage</span>
+  </header>
+
+  <dl class="project-case-summary__meta">
+    <div>
+      <dt>Period / basis</dt>
+      <dd>Training team project · Public case updated Jul 2026</dd>
     </div>
     <div>
-      <dt>My role</dt>
-      <dd>Overall planning, AI modeling, and evaluation design</dd>
-    </div>
-    <div>
-      <dt>Direct work</dt>
-      <dd>Field inspection conditions, FN/FP, augmentation, candidate models, ensemble, coordinates, and decision threshold</dd>
-    </div>
-    <div>
-      <dt>Team integration</dt>
-      <dd>Data preparation, model training, FastAPI/PWA implementation, and joint report</dd>
-    </div>
-    <div>
-      <dt>Key result</dt>
-      <dd>Field recall 15.84%→85.15%→96.04%; decision-point recall 100%</dd>
-    </div>
-    <div>
-      <dt>Implementation</dt>
-      <dd>Smartphone input→two-model inference→calibration→PWA assistance</dd>
+      <dt>Project form</dt>
+      <dd>Manufacturing DX PoC · Before production use</dd>
     </div>
   </dl>
-</section>
 
-<figure class="portfolio-logic-rail portfolio-logic-rail--system">
-  <figcaption>
-    <span>FIELD IMAGES · MODEL COMPARISON · DECISION THRESHOLD</span>
-    <strong>Convert a public-data model into a captured-specimen inspection flow</strong><small>Decision basis: field inspection conditions, FN/FP, augmentation, model complementarity, and error cost</small></figcaption>
-  <ol>
-    <li>
-      <span class="portfolio-logic-rail__index">01</span><b>FIELD GAP</b><strong>Field recall 15.84%</strong>
-    </li>
-    <li>
-      <span class="portfolio-logic-rail__index">02</span><b>DATA</b><strong>Capture-noise augmentation·85.15%</strong>
-    </li>
-    <li>
-      <span class="portfolio-logic-rail__index">03</span><b>MODEL</b><strong>ResNet-50&#43;DeiT-Small</strong>
-    </li>
-    <li>
-      <span class="portfolio-logic-rail__index">04</span><b>CALIBRATE</b><strong>Temperature scaling</strong>
-    </li>
-    <li>
-      <span class="portfolio-logic-rail__index">05</span><b>DECIDE</b><strong>Threshold 0.40·zero FN</strong>
-    </li>
-    <li>
-      <span class="portfolio-logic-rail__index">06</span><b>DEMO</b><strong>FastAPI·PWA</strong>
-    </li>
-  </ol>
-</figure>
+  <div class="project-case-summary__grid">
+    <section aria-labelledby="project-case-problem-welding-vision-ai">
+      <h3 id="project-case-problem-welding-vision-ai">Problem to solve</h3>
+      <p>A model that performs well on public data cannot be assumed to behave the same on field images with different lighting, angles, and surface conditions.</p>
+    </section>
 
-<h2 id="1-problem-definition-and-field-condition-gap">1. Problem definition and field-condition gap</h2>
-<p>A ResNet baseline trained on AI-Hub weld images fell to <strong>15.84% recall</strong> on directly captured practical weld specimens. Model replacement was deferred until the distribution gap between public data and captured images was analyzed.</p>
+    <section aria-labelledby="project-case-role-welding-vision-ai">
+      <h3 id="project-case-role-welding-vision-ai">My scope</h3>
+      <ul><li>Separated public training data from field practice images and ordered metric and threshold review around missed-defect risk.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-result-welding-vision-ai">
+      <h3 id="project-case-result-welding-vision-ai">Verified result / current stage</h3>
+      <ul class="project-case-summary__claims"><li>
+              <span>Verified output · Individual</span>
+              <strong>Public/field data separation and a recall- and threshold-led evaluation flow</strong>
+            </li><li>
+              <span>Current stage · Team</span>
+              <strong>Training PoC complete; not production-deployed</strong>
+            </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="project-case-team-welding-vision-ai">
+      <h3 id="project-case-team-welding-vision-ai">Team boundary</h3>
+      <p>This was a training-team PoC; model results are not presented as production-quality performance.</p>
+    </section>
+  </div>
+
+  <footer class="project-case-summary__footer">
+    <p><strong>Disclosure scope:</strong> Field images and company quality criteria are not disclosed; only the data separation and decision process are described.</p>
+    <p>The path from data collection to possible production use is generalized to the publicly shareable PoC scope.</p>
+  </footer>
+</aside>
+
+<h2 id="the-first-minute">The first minute</h2>
+<p>This case is a <strong>training-team Vision AI PoC</strong> that classifies weld images into normal and defect candidates. It was not a system that replaced inspectors or made shipment decisions. The team evaluated whether a model could narrow the images that an inspector should review first.</p>
 <table>
   <thead>
       <tr>
-          <th>Data</th>
-          <th style="text-align: right">Scale</th>
-          <th>Use</th>
-          <th>Main characteristics</th>
+          <th>Item</th>
+          <th>What to know</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>AI-Hub weld images</td>
-          <td style="text-align: right">30,000 undercut and 30,000 overlap images</td>
-          <td>Baseline and candidate training</td>
-          <td>Enlarged weld regions with relatively consistent lighting and background</td>
+          <td>Problem</td>
+          <td>The risk of missing small weld defects when normal images dominate the data</td>
       </tr>
       <tr>
-          <td>Directly captured specimens</td>
-          <td style="text-align: right">About 155–198 images by experiment stage</td>
-          <td>Field evaluation</td>
-          <td>Soot, spatter, oxidation, metal reflection, angle, and background variation</td>
+          <td>Team output</td>
+          <td>Public/field data separation, staged model experiments, a second test, and a result report</td>
       </tr>
       <tr>
-          <td>Augmented images</td>
-          <td style="text-align: right">Generated in the training pipeline</td>
-          <td>Capture robustness</td>
-          <td>Brightness, lens flare, noise, JPEG, crop, and rotation</td>
+          <td>My scope</td>
+          <td>Data-purpose separation, metric and comparison design, and recall-first threshold review</td>
+      </tr>
+      <tr>
+          <td>Current stage</td>
+          <td>Training PoC evaluation complete; not production-deployed</td>
+      </tr>
+      <tr>
+          <td>Public screen</td>
+          <td>No runnable inspection screen or report capture is available; only the shareable decision flow is explained</td>
       </tr>
   </tbody>
 </table>
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-p11-domain-gap.avif" alt="Surface lighting angle and background differences between AI-Hub weld images and directly captured practical specimens" loading="lazy">
-  <figcaption>Surface, lighting, angle, and background differences between public and captured images. The initial loss was treated first as a domain-gap problem.</figcaption>
-</figure>
-<h3 id="baseline-re-evaluation">Baseline re-evaluation</h3>
+<p>The <code>30-second summary</code> at the top shows the outcome and role boundary first. The main text explains why recall came first, how data moved through the PoC, and how the team result differs from my contribution. The expandable <code>Design and validation record</code> below is the supporting requirements and task appendix.</p>
+<h2 id="why-weld-defect-detection-matters">Why weld-defect detection matters</h2>
+<p>A missed micro-crack or pinhole can allow a defective weld to continue downstream. Flagging a normal part as a defect candidate creates reinspection work. Both have a cost, but this project gave priority to reducing the error that <strong>passes a defect as normal</strong>.</p>
+<p>When normal images greatly outnumber defect images, a model can report high accuracy by predicting normal most of the time. The evaluation therefore did not stop at “How many images were correct?” It considered recall—the share of actual defects found—together with precision, which helps describe the reinspection load.</p>
+<p>My battery-cell assembly experience with ultrasonic and laser welding informed that priority. The field experience and the education-project metrics remain separate, however. This case evaluates inspection-assistance potential on bounded material; it does not claim completed autonomous inspection.</p>
+<h2 id="complete-system-architecture">Complete system architecture</h2>
+<div class="mermaid">
+flowchart LR
+    A["AI-Hub public images<br/>about 60,000"] --> C["Check label meaning,<br/>duplicates, and split"]
+    B["Field-practice images<br/>198"] --> D["Separate field-response check"]
+    C --> E["Team model experiments<br/>DenseNet → two-model → ResNet+DeiT"]
+    E --> F["Defect probability<br/>for each image"]
+    F --> G["Search decision thresholds"]
+    G --> H["Precision, recall, and F1<br/>Confusion matrix"]
+    D --> I["Review FP and FN images"]
+    H --> I
+    I --> J["Inspection-assistance rule"]
+    J --> K["Inspector recheck"]
+    K --> L["Next data and<br/>capture-condition review"]
+</div>
+
+<p>This diagram summarizes the publicly shareable PoC flow. It does not mean that the team implemented an operating production system in which a line camera streamed images to a real-time model.</p>
 <table>
   <thead>
       <tr>
-          <th>Evaluation data</th>
-          <th style="text-align: right">Accuracy</th>
-          <th style="text-align: right">F1</th>
-          <th style="text-align: right">Recall</th>
-          <th style="text-align: right">FPR</th>
+          <th>Component</th>
+          <th>Responsibility</th>
+          <th>Not established at this stage</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>AI-Hub validation data</td>
-          <td style="text-align: right">80.13%</td>
-          <td style="text-align: right">91.97%</td>
-          <td style="text-align: right">90.92%</td>
-          <td style="text-align: right">-</td>
+          <td>Public data</td>
+          <td>Provide broad learning coverage for weld-defect features</td>
+          <td>Prove field performance</td>
       </tr>
       <tr>
-          <td>Captured-specimen set</td>
-          <td style="text-align: right">38.86%</td>
-          <td style="text-align: right">21.33%</td>
-          <td style="text-align: right"><strong>15.84%</strong></td>
-          <td style="text-align: right"><strong>35.87%</strong></td>
+          <td>Field images</td>
+          <td>Check model response under limited capture conditions</td>
+          <td>Represent every machine and product condition</td>
+      </tr>
+      <tr>
+          <td>Team model experiments</td>
+          <td>Compare stages from DenseNet to ResNet+DeiT</td>
+          <td>Select an operating model from model name alone</td>
+      </tr>
+      <tr>
+          <td>Threshold evaluation</td>
+          <td>Compare where a defect probability becomes a review candidate</td>
+          <td>Fix one value for every future condition</td>
+      </tr>
+      <tr>
+          <td>Inspection-assistance rule</td>
+          <td>Send higher-risk candidates to human reinspection</td>
+          <td>Make shipment decisions without a person</td>
+      </tr>
+      <tr>
+          <td>Error review</td>
+          <td>Return FP and FN cases to data and capture review</td>
+          <td>Assume every error has one model-only cause</td>
       </tr>
   </tbody>
 </table>
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-p15-baseline-field.avif" alt="Accuracy F1 recall and FPR comparison between AI-Hub validation data and directly captured specimens" loading="lazy">
-  <figcaption>Public validation versus captured-specimen performance for the same ResNet family. Field recall of 15.84% became the baseline.</figcaption>
-</figure>
-<h3 id="error-analysis--weld-process-noise">Error analysis — weld-process noise</h3>
-<p>False negatives were reviewed first because they represent missed defects. FN and FP images were regrouped by weld-process and capture noise.</p>
+<h2 id="how-data-models-and-evaluation-connect">How data, models, and evaluation connect</h2>
+<h3 id="1-separate-the-purpose-of-each-data-source">1. Separate the purpose of each data source</h3>
+<ul>
+<li><strong>Approximately 60,000 AI-Hub public welding images</strong> supplied broad learning coverage.</li>
+<li><strong>198 field-practice images</strong> provided a separate, limited check under field capture conditions.</li>
+</ul>
+<p>The two sources were not presented as one undifferentiated set of 60,198 training images. Cameras, illumination, surface reflections, and product conditions differed. Strong results on public data were not treated as proof of the same behavior in the field.</p>
+<h3 id="2-check-labels-and-splits">2. Check labels and splits</h3>
+<p>The workflow aligned the meaning of public labels with the field defect definition and kept the same image from appearing in both learning and evaluation. If that boundary fails, a high score may only show that the model saw the same image again.</p>
+<h3 id="3-compare-the-teams-model-stages-on-one-basis">3. Compare the team’s model stages on one basis</h3>
+<p>The team experiment record progressed from a DenseNet-stage baseline through a two-model combination to a ResNet+DeiT ensemble. The stages were compared under the same F1, recall, and precision frame instead of changing the success rule for each model. I do not present all of that model development as solo work.</p>
+<h3 id="4-turn-probabilities-into-an-inspection-rule">4. Turn probabilities into an inspection rule</h3>
+<p>The model outputs a defect probability for each image. A threshold decides when that probability becomes a defect candidate. Lowering the threshold can catch more defects, but it can also send more normal images to reinspection.</p>
 <table>
   <thead>
       <tr>
-          <th>Error signal</th>
-          <th>Process or capture cause</th>
-          <th>Model impact</th>
-          <th>Action direction</th>
+          <th>Term</th>
+          <th>Plain meaning</th>
+          <th>Why it mattered here</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Soot and fume traces</td>
-          <td>Heat effect and surface contamination</td>
-          <td>Lower defect-boundary contrast</td>
-          <td>Brightness and contrast augmentation</td>
-      </tr>
-      <tr>
-          <td>Spatter and oxidation</td>
-          <td>Additional local patterns around the bead</td>
-          <td>Higher false positives</td>
-          <td>Combine local texture and global shape</td>
-      </tr>
-      <tr>
-          <td>Metal reflection</td>
-          <td>Lighting angle and curved surface</td>
-          <td>Missing region or false highlight</td>
-          <td>Lens flare and brightness variation</td>
-      </tr>
-      <tr>
-          <td>Angle and distance</td>
-          <td>Smartphone placement variation</td>
-          <td>ROI shift and shape distortion</td>
-          <td>Crop, rotation, and scale augmentation</td>
-      </tr>
-      <tr>
-          <td>Compression and sensor noise</td>
-          <td>Mobile capture and transfer</td>
-          <td>Loss of small-defect texture</td>
-          <td>Gaussian noise and JPEG degradation</td>
-      </tr>
-  </tbody>
-</table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Extract FN and FP
-</span></span><span style="display:flex;"><span>→ classify weld-process noise
-</span></span><span style="display:flex;"><span>→ design capture-condition augmentation
-</span></span><span style="display:flex;"><span>→ re-evaluate on the same field set
-</span></span></code></pre></div><h2 id="2-data-engineering">2. Data engineering</h2>
-<h3 id="capture-condition-augmentation-pipeline">Capture-condition augmentation pipeline</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Transformation</th>
-          <th>Field variation represented</th>
-          <th>Purpose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>RandomResizedCrop and scale</td>
-          <td>Distance and weld-region size</td>
-          <td>ROI position and size robustness</td>
-      </tr>
-      <tr>
-          <td>Flip and rotation</td>
-          <td>Part orientation and phone tilt</td>
-          <td>Lower orientation dependence</td>
-      </tr>
-      <tr>
-          <td>Brightness, contrast, and lens flare</td>
-          <td>Illumination and metal reflection</td>
-          <td>Highlight and low-contrast robustness</td>
-      </tr>
-      <tr>
-          <td>Gaussian noise and JPEG</td>
-          <td>Sensor and compression noise</td>
-          <td>Mobile-input degradation robustness</td>
-      </tr>
-      <tr>
-          <td>MixUp and label smoothing</td>
-          <td>Boundary samples and overconfidence</td>
-          <td>Stabilize the decision boundary</td>
-      </tr>
-      <tr>
-          <td>SWA and five-seed model soup</td>
-          <td>Initialization and late-training variation</td>
-          <td>Reduce result variation</td>
-      </tr>
-  </tbody>
-</table>
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-p17-augmentation-result.avif" alt="Accuracy precision recall F1 and FPR before and after capture-condition augmentation" loading="lazy">
-  <figcaption>Augmentation effect after representing distance, angle, lighting, and noise while keeping the model architecture fixed.</figcaption>
-</figure>
-<h3 id="before-and-after-augmentation">Before and after augmentation</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Metric</th>
-          <th style="text-align: right">Before</th>
-          <th style="text-align: right">After</th>
-          <th style="text-align: right">Change</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Accuracy</td>
-          <td style="text-align: right">38.86%</td>
-          <td style="text-align: right">88.60%</td>
-          <td style="text-align: right">+49.74 pp</td>
+          <td>Recall</td>
+          <td>The share of actual defects the model found</td>
+          <td>Reduce missed defects first</td>
       </tr>
       <tr>
           <td>Precision</td>
-          <td style="text-align: right">32.65%</td>
-          <td style="text-align: right">92.47%</td>
-          <td style="text-align: right">+59.82 pp</td>
-      </tr>
-      <tr>
-          <td>Recall</td>
-          <td style="text-align: right"><strong>15.84%</strong></td>
-          <td style="text-align: right"><strong>85.15%</strong></td>
-          <td style="text-align: right"><strong>+69.31 pp</strong></td>
+          <td>The share of defect candidates that were actual defects</td>
+          <td>Understand the reinspection load</td>
       </tr>
       <tr>
           <td>F1</td>
-          <td style="text-align: right">21.33%</td>
-          <td style="text-align: right">88.66%</td>
-          <td style="text-align: right">+67.33 pp</td>
+          <td>A balance between recall and precision</td>
+          <td>Avoid choosing from one favorable metric</td>
       </tr>
       <tr>
-          <td>FPR</td>
-          <td style="text-align: right"><strong>35.87%</strong></td>
-          <td style="text-align: right"><strong>7.61%</strong></td>
-          <td style="text-align: right"><strong>-28.26 pp</strong></td>
+          <td>False negative</td>
+          <td>A defect predicted as normal</td>
+          <td>The error reduced first</td>
+      </tr>
+      <tr>
+          <td>False positive</td>
+          <td>A normal image predicted as a defect candidate</td>
+          <td>The error connected to reinspection cost</td>
       </tr>
   </tbody>
 </table>
-<p>Augmentation alone raised recall from 15.84% to 85.15% and reduced FPR to 7.61%. The remaining errors were narrowed from missing data representation to differences in model feature extraction.</p>
-<h2 id="3-modeling-and-ensemble">3. Modeling and ensemble</h2>
-<h3 id="candidate-comparison">Candidate comparison</h3>
+<h3 id="5-look-back-at-the-images-behind-the-metrics">5. Look back at the images behind the metrics</h3>
+<p>The second test reviewed the region where normal and defect predictions mixed. The evaluation first found thresholds that retained 100% recall, compared precision and F1 within that region, and then reviewed FP and FN images to identify the next questions for data, labels, and capture conditions.</p>
+<h2 id="team-result-versus-my-contribution">Team result versus my contribution</h2>
 <table>
   <thead>
       <tr>
-          <th>Candidate</th>
-          <th>Evaluation focus</th>
-          <th>Final disposition</th>
+          <th>Scope</th>
+          <th>Attribution</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>ResNet-50</td>
-          <td>Bead boundary, local texture, and low FPR</td>
-          <td>Final branch</td>
+          <td>Public and field data preparation, model training and candidate progression, second test, and PoC report</td>
+          <td><strong>Training-team result</strong></td>
       </tr>
       <tr>
-          <td>EfficientNet-B3</td>
-          <td>Performance versus compute</td>
-          <td>Compared</td>
+          <td>Separating the intended use of public data and field images</td>
+          <td><strong>My role</strong></td>
       </tr>
       <tr>
-          <td>RegNet-Y</td>
-          <td>Training stability</td>
-          <td>Compared</td>
+          <td>Organizing a common F1, recall, and precision comparison</td>
+          <td><strong>My role</strong></td>
       </tr>
       <tr>
-          <td>ConvNeXt-T</td>
-          <td>Wider local receptive field</td>
-          <td>Compared</td>
+          <td>Reviewing recall-first thresholds and interpreting FP and FN behavior</td>
+          <td><strong>My role</strong></td>
       </tr>
       <tr>
-          <td>Swin-Tiny</td>
-          <td>Window-level local and multi-scale features</td>
-          <td>Compared</td>
-      </tr>
-      <tr>
-          <td>DeiT-Small</td>
-          <td>Global bead flow, broad anomaly, and high TPR</td>
-          <td>Final branch</td>
+          <td>A claim that I built every model alone, a real-time inspection screen, or production deployment</td>
+          <td><strong>Not claimed as my work</strong></td>
       </tr>
   </tbody>
 </table>
-<h3 id="two-model-complementarity">Two-model complementarity</h3>
-<ul>
-<li><strong>ResNet-50:</strong> bead boundaries and local texture</li>
-<li><strong>DeiT-Small:</strong> global patch relationships and broad anomaly patterns</li>
-<li><strong>Ensemble:</strong> uniform average of defect probabilities</li>
-<li><strong>Confidence calibration:</strong> temperature scaling</li>
-</ul>
-
-
-  
-
-
-
-
-  
-
-
-
-
-<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
-flowchart LR
-    A["Resize and normalize"] --> R["ResNet-50<br/>Local texture"]
-    A --> D["DeiT-Small<br/>Global pattern"]
-    R --> P1["Defect probability P1"]
-    D --> P2["Defect probability P2"]
-    P1 --> E["Uniform averaging"]
-    P2 --> E
-    E --> C["Temperature scaling"]
-    C --> T["Operating point"]
-</div>
-
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-p19-final-ensemble.avif" alt="Accuracy F1 recall and FPR progression from ResNet baseline through augmented ResNet to ResNet DeiT ensemble" loading="lazy">
-  <figcaption>Captured-specimen performance from the augmented ResNet to the two-model ensemble.</figcaption>
-</figure>
+<p>In an interview, I explain the complete flow and the work I actually performed. This keeps the team’s models and report as team output while making my evaluation and operating-threshold contribution concrete.</p>
+<h2 id="problems-and-decisions">Problems and decisions</h2>
 <table>
   <thead>
       <tr>
-          <th>Model configuration</th>
-          <th style="text-align: right">Accuracy</th>
-          <th style="text-align: right">F1</th>
-          <th style="text-align: right">Recall</th>
-          <th style="text-align: right">FPR</th>
+          <th>Problem</th>
+          <th>Decision</th>
+          <th>Reason</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>ResNet baseline</td>
-          <td style="text-align: right">38.86%</td>
-          <td style="text-align: right">21.33%</td>
-          <td style="text-align: right">15.84%</td>
-          <td style="text-align: right">35.87%</td>
+          <td>Normal images can make accuracy hide missed-defect risk</td>
+          <td>Use recall first and inspect precision and F1 with it</td>
+          <td>Separate defect-pass risk from reinspection cost</td>
       </tr>
       <tr>
-          <td>ResNet plus augmentation</td>
-          <td style="text-align: right">88.60%</td>
-          <td style="text-align: right">88.66%</td>
-          <td style="text-align: right">85.15%</td>
-          <td style="text-align: right">7.61%</td>
+          <td>Public and field images have different capture conditions</td>
+          <td>Keep their purposes separate</td>
+          <td>Avoid presenting public-data results as field performance</td>
       </tr>
       <tr>
-          <td>ResNet-50 + DeiT-Small at threshold 0.49</td>
-          <td style="text-align: right"><strong>95.85%</strong></td>
-          <td style="text-align: right"><strong>96.04%</strong></td>
-          <td style="text-align: right"><strong>96.04%</strong></td>
-          <td style="text-align: right"><strong>4.35%</strong></td>
+          <td>One model behaves differently at different thresholds</td>
+          <td>Compare precision and F1 inside the 100%-recall region</td>
+          <td>Evaluate model choice and inspection policy together</td>
+      </tr>
+      <tr>
+          <td>Metrics alone do not reveal why errors happened</td>
+          <td>Review the confusion matrix and FP/FN images</td>
+          <td>Return findings to data, label, and capture review</td>
+      </tr>
+      <tr>
+          <td>Field material and the report cannot be published as-is</td>
+          <td>Publish only a verified text structure</td>
+          <td>Avoid fabricated screens or images with unclear rights</td>
       </tr>
   </tbody>
 </table>
-<p>The five-model ensemble recorded 96.08% F1 and the two-model ensemble 96.04%, a difference of 0.04 percentage points. The lower inference burden made ResNet-50+DeiT-Small the selected FastAPI/PWA demo structure.</p>
-<h2 id="4-post-processing-and-deployment">4. Post-processing and deployment</h2>
-<h3 id="manufacturing-quality-operating-point">Manufacturing-quality operating point</h3>
-<p>False positives create reinspection work, while false negatives create quality-escape risk. The threshold was therefore selected by error cost rather than peak F1 alone.</p>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: right">Threshold</th>
-          <th style="text-align: right">FN</th>
-          <th style="text-align: right">FP</th>
-          <th style="text-align: right">Recall</th>
-          <th style="text-align: right">FPR</th>
-          <th style="text-align: right">F1</th>
-          <th>Decision purpose</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: right"><strong>0.40</strong></td>
-          <td style="text-align: right"><strong>0</strong></td>
-          <td style="text-align: right">15</td>
-          <td style="text-align: right"><strong>100.0%</strong></td>
-          <td style="text-align: right">16.3%</td>
-          <td style="text-align: right">93.1%</td>
-          <td><strong>Missed-defect-priority operating point</strong></td>
-      </tr>
-      <tr>
-          <td style="text-align: right">0.44</td>
-          <td style="text-align: right">2</td>
-          <td style="text-align: right">12</td>
-          <td style="text-align: right">98.0%</td>
-          <td style="text-align: right">13.0%</td>
-          <td style="text-align: right">93.4%</td>
-          <td>Intermediate trade-off</td>
-      </tr>
-      <tr>
-          <td style="text-align: right">0.49</td>
-          <td style="text-align: right">4</td>
-          <td style="text-align: right">4</td>
-          <td style="text-align: right">96.0%</td>
-          <td style="text-align: right">4.3%</td>
-          <td style="text-align: right"><strong>96.0%</strong></td>
-          <td>Peak F1</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Selected operating point:</strong> <strong>threshold 0.40</strong>, with zero FN and 100% recall on the project evaluation set. The 15 false positives were routed to operator reinspection.</p>
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-vision-report-threshold.svg" alt="FN FP recall and FPR comparison across thresholds on the weld-specimen evaluation set" loading="lazy">
-  <figcaption>Trade-off between lower missed defects and higher false alarms. The operating point was selected for an FN-priority inspection objective.</figcaption>
-</figure>
-<h3 id="coordinate-scaling-to-the-source-image">Coordinate scaling to the source image</h3>
-<p>Defect coordinates from the resized model input were mapped back to the smartphone source image.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>scale_x = source width / model-input width
-</span></span><span style="display:flex;"><span>scale_y = source height / model-input height
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>source x = model x × scale_x
-</span></span><span style="display:flex;"><span>source y = model y × scale_y
-</span></span></code></pre></div><h3 id="fastapi-and-pwa-inspection-assistance-demo">FastAPI and PWA inspection-assistance demo</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Smartphone capture or file selection
-</span></span><span style="display:flex;"><span>→ FastAPI /predict
-</span></span><span style="display:flex;"><span>→ ResNet-50 and DeiT-Small inference
-</span></span><span style="display:flex;"><span>→ probability average and temperature scaling
-</span></span><span style="display:flex;"><span>→ threshold 0.40
-</span></span><span style="display:flex;"><span>→ source image, grade, defect type, and confidence
-</span></span></code></pre></div><figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-vision-report-app-flow.svg" alt="Smartphone image passing through FastAPI ResNet DeiT ensemble and PWA result display" loading="lazy">
-  <figcaption>Integrated flow from smartphone input through two-model inference, confidence calibration, operating point, and PWA result display.</figcaption>
-</figure>
-<figure class="portfolio-case-visual">
-  <img src="/images/projects/welding-p24-app-grade-results.avif" alt="PWA demo displaying the source weld image grade defect type and confidence" loading="lazy">
-  <figcaption>PWA screen showing the source specimen, grade, defect type, and confidence.</figcaption>
-</figure>
-<h2 id="5-project-results-and-direct-contribution">5. Project results and direct contribution</h2>
-<h3 id="performance-progression">Performance progression</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Baseline field recall 15.84%
-</span></span><span style="display:flex;"><span>→ data-engineering recall 85.15%
-</span></span><span style="display:flex;"><span>→ two-model recall and F1 96.04% at 0.49
-</span></span><span style="display:flex;"><span>→ quality operating point recall 100% and zero FN at 0.40
-</span></span><span style="display:flex;"><span>→ FastAPI/PWA inspection-assistance demo
-</span></span></code></pre></div><h3 id="direct-work">Direct work</h3>
+<h2 id="verified-result-and-potential-benefits">Verified result and potential benefits</h2>
+<p>At the selected threshold on the recorded evaluation set, the report lists <strong>F1 93.10%, Recall 100%, and Precision 87.07%</strong>. Recall 100% means that no defect in that evaluation set was missed. It does not guarantee every future defect or every equipment condition. Precision 87.07% shows that some defect candidates may be normal and require reinspection.</p>
+<p>The benefit demonstrated by the PoC was not one metric in isolation. It was a way to turn quality risk into an inspection policy:</p>
 <ul>
-<li>Project objective, experiment order, and evaluation-criteria design</li>
-<li>AI-Hub versus captured-specimen separation and domain-gap diagnosis</li>
-<li>FN/FP error analysis and weld-process noise classification</li>
-<li>Capture-condition augmentation design and effect comparison</li>
-<li>Six candidate architectures and two-model versus five-model comparison</li>
-<li>ResNet-50+DeiT-Small ensemble and temperature-scaling review</li>
-<li>Threshold 0.40 operating-point selection from manufacturing error cost</li>
-<li>Low-resolution-to-source coordinate-scaling logic</li>
-<li>PWA decision-flow review and joint report writing</li>
+<li>a review priority that puts higher-cost candidates in front of an inspector first;</li>
+<li>one evaluation frame for comparing model candidates;</li>
+<li>a shared language that links missed defects to quality risk and false alarms to reinspection; and</li>
+<li>a sequence for returning recurring error images to data and capture improvement.</li>
 </ul>
-<h3 id="team-integration-result">Team integration result</h3>
-<ul>
-<li>AI-Hub learning material and directly captured practical weld data</li>
-<li>Capture-condition learning pipeline and candidate training</li>
-<li>ResNet-50+DeiT-Small two-model ensemble</li>
-<li>Confidence calibration and threshold sweep</li>
-<li>FastAPI <code>/predict</code> and PWA inspection-assistance demo</li>
-</ul>
+<p>A reduction in escaped defects or inspection time was not measured. Such effects require a controlled comparison before and after production introduction.</p>
+<h2 id="current-limitations-and-next-validation">Current limitations and next validation</h2>
+<p>The current stage is a bounded PoC. The 198 field images do not cover every equipment, material, lighting, and product-shape condition. Real-time camera input, inference at line speed, dropped frames, long-term performance change, and the operator reinspection procedure were not validated.</p>
+<p>Field use would require the following checks:</p>
+<ol>
+<li>Build an independent evaluation set split by product or lot.</li>
+<li>Reconfirm class-level sample counts and label rules with quality specialists.</li>
+<li>Standardize camera position, illumination, focus, and capture timing.</li>
+<li>Test inference latency and dropped frames at line speed.</li>
+<li>Trace model version, threshold, image, equipment condition, and reinspection result together.</li>
+<li>Provide change approval and a path back to an earlier model and threshold.</li>
+</ol>
+<h2 id="public-source-and-screen-boundary">Public-source and screen boundary</h2>
+<p>There is currently no verified dedicated model-code repository, runnable inspection screen, or view-only report for this case. Field images and company quality criteria are also not disclosed. The page therefore does not substitute another project’s screen or a third-party welding image.</p>
+<p>The shareable evidence is divided within this portfolio repository as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>data/project_cases.json
+</span></span><span style="display:flex;"><span>  └─ team/self attribution, shareable results, and current limits
+</span></span><span style="display:flex;"><span>data/en/project_blueprints.yaml
+</span></span><span style="display:flex;"><span>  └─ scope, requirements, design choices, and task state
+</span></span><span style="display:flex;"><span>content/en/posts/welding-vision-ai.en.md
+</span></span><span style="display:flex;"><span>  └─ English explanation for an interviewer
+</span></span><span style="display:flex;"><span>content/ko/posts/welding-vision-ai.ko.md
+</span></span><span style="display:flex;"><span>  └─ Korean explanation of the same scope
+</span></span><span style="display:flex;"><span>data/en/sections/projects.yaml · data/ko/sections/projects.yaml
+</span></span><span style="display:flex;"><span>  └─ portfolio card and public-link status
+</span></span></code></pre></div><p>The image area remains absent until an inspection screen or report becomes available as a rights-cleared, redacted, view-only source. This page is a public case explanation of evidence and role boundaries, not the model-training source repository.</p>
+<h2 id="design-and-validation-record">Design and validation record</h2>
+<details class="project-blueprint">
+  <summary class="project-blueprint__toggle">Design, work, and validation record</summary>
+  <header class="project-blueprint__header">
+    <div class="project-blueprint__heading">
+      <p class="project-blueprint__eyebrow">Design and validation record</p>
+      <h2 id="project-blueprint-welding-vision-ai">Design choices and work flow</h2>
+      <p class="project-blueprint__summary">The project is defined as a missed-defect risk decision, not an accuracy contest, and connects data, model, threshold, and reinspection tasks under one evaluation policy.</p>
+    </div>
+    <span class="project-blueprint__status project-blueprint__status--partial">Evaluation complete · production generalization pending</span>
+  </header>
+
+  <dl class="project-blueprint__meta">
+      <div>
+        <dt>Project type</dt>
+        <dd>Manufacturing Vision AI team PoC</dd>
+      </div>
+      <div>
+        <dt>My scope</dt>
+        <dd>Metric design and F1, recall, false-positive validation</dd>
+      </div>
+      <div>
+        <dt>Primary audience</dt>
+        <dd>Quality, process, and inspection-automation teams</dd>
+      </div>
+      <div>
+        <dt>Evidence level</dt>
+        <dd>Public-report backed</dd>
+      </div>
+  </dl>
+
+  <div class="project-blueprint__definition">
+      <article>
+        <h3>Problem</h3>
+        <p>Micro-defect features overlap normal surfaces and the data is imbalanced, so accuracy alone does not represent the cost of passing a defective weld.</p>
+      </article>
+      <article>
+        <h3>Goal</h3>
+        <p>Separate public and field data, compare model stages on the same metrics, and design a recall-first threshold with a reinspection policy.</p>
+      </article>
+      <article>
+        <h3>Success</h3>
+        <p>F1, recall, and precision are reported together with threshold rationale, false-positive handling, and explicit production limits.</p>
+      </article>
+  </div>
+
+  <div class="project-blueprint__columns">
+    <section aria-labelledby="project-scope-welding-vision-ai">
+      <h3 id="project-scope-welding-vision-ai">Scope and boundaries</h3>
+      <div class="project-blueprint__scope">
+        <div>
+          <h4>In scope</h4>
+          <ul><li>Purpose separation for about 60,000 AI-Hub images and 198 field images</li><li>DenseNet baseline, two-model combination, and ResNet&#43;DeiT comparison</li><li>Second test and threshold tuning around missed-defect risk</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Out of scope or unverified</h4>
+          <ul><li>Claiming a dedicated public source repository</li><li>Generalization to every weld process and camera condition</li><li>Shipment decisions with no human reinspection path</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="project-requirements-welding-vision-ai">
+      <h3 id="project-requirements-welding-vision-ai">Implementation and verification</h3>
+      <div class="project-blueprint__requirements">
+        <div>
+          <h4>What had to work</h4>
+          <ul>
+              <li>Separate data source and training, validation, and field-review purpose.</li>
+              <li>Compare model stages with the same F1, recall, precision, and split policy.</li>
+              <li>Record false negatives and false positives across thresholds and retain reinspection.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quality and operating rules</h4>
+          <ul>
+              <li>Prioritize missed-defect cost over the cost of reinspecting a normal part.</li>
+              <li>Separate evaluation-set results from production claims and check leakage.</li>
+              <li>Treat lighting, material, and camera drift as separate validation work.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="project-blueprint__decisions" aria-labelledby="project-decisions-welding-vision-ai">
+    <h3 id="project-decisions-welding-vision-ai">Why it was designed this way</h3>
+    <ol>
+        <li>
+          <strong>Use recall as the primary operating metric</strong>
+          <p>Passing a defective weld carries more quality risk than reinspecting a normal part.</p>
+        </li>
+        <li>
+          <strong>Keep 198 field images as a distinct validation view</strong>
+          <p>Small field data should not be mixed into a large public set to imply broad generalization.</p>
+        </li>
+        <li>
+          <strong>Compare threshold policy with model choice</strong>
+          <p>The same model produces different miss and reinspection costs at different thresholds.</p>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__work" aria-labelledby="project-work-welding-vision-ai">
+    <div class="project-blueprint__section-heading">
+      <h3 id="project-work-welding-vision-ai">Work completed and planned</h3>
+      <p>Model development, evaluation, and production readiness are shown as separate task states.</p>
+    </div>
+    <ol class="project-blueprint__tasks">
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Define quality risk and evaluation objective</h4>
+          <p>Set asymmetric costs and the recall-first rule.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Evaluation policy and success criteria</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Separate data sources and purposes</h4>
+          <p>Kept public and field data distinct instead of presenting one undifferentiated training population.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Data composition and limitation note</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Team complete</span>
+          </div>
+          <h4>Compare baseline and ensembles</h4>
+          <p>Reviewed DenseNet, the two-model stage, and ResNet&#43;DeiT under a common metric view.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Model-evolution comparison</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Run second test and threshold validation</h4>
+          <p>Reviewed mixed cases and retained recall while checking precision and F1.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>F1 93.10%, Recall 100%, Precision 87.07%</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--done">Complete</span>
+          </div>
+          <h4>Document operating interpretation and limits</h4>
+          <p>Used manual reinspection for false positives and did not expand the evaluation result into a plant-wide claim.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Report and public claim boundary</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="project-blueprint__task-topline">
+            <span class="project-blueprint__task-status project-blueprint__task-status--planned">Next</span>
+          </div>
+          <h4>Run line pilot and drift monitoring</h4>
+          <p>Line-specific conditions and false-negative tracking remain required.</p>
+          <dl>
+            <dt>Result</dt>
+            <dd>Line confusion matrices and operating threshold</dd>
+          </dl>
+        </li>
+    </ol>
+  </section>
+
+  <section class="project-blueprint__acceptance" aria-labelledby="project-acceptance-welding-vision-ai">
+    <h3 id="project-acceptance-welding-vision-ai">What was verified</h3>
+    <ul>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Data source and evaluation purpose are separated.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>F1, recall, precision, and threshold rationale appear together.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--done">
+          <span aria-hidden="true">✓</span>
+          <p>Reinspection policy and production limits are explicit.</p>
+          <strong>Met</strong>
+        </li>
+        <li class="project-blueprint__acceptance-item project-blueprint__acceptance-item--planned">
+          <span aria-hidden="true">→</span>
+          <p>Long-term drift and missed-defect rate are measured across line conditions.</p>
+          <strong>Unverified</strong>
+        </li>
+    </ul>
+    <p class="project-blueprint__evidence-note"><strong>Supporting evidence:</strong> The report&#39;s data, model-evolution, second-test, threshold, and final-metric slides support this record.</p>
+  </section>
+</details>
+
+<h2 id="public-links">Public links</h2>
+<section class="project-resources" aria-labelledby="project-resources-welding-vision-ai">
+  <h2 id="project-resources-welding-vision-ai">Public links</h2>
+  <p class="project-resources__lead">Public material for reviewing project evidence and the live user surface.</p>
+  <p class="project-resources__note">No dedicated public repository or view-only report is currently available, so external buttons are withheld. Education-set results are not presented as production performance.</p>
+</section>
+
 
         </div>
 
         <footer class="portfolio-article__footer">
-          <a class="portfolio-text-link" href="/en/posts/">
-            <i data-feather="arrow-left" aria-hidden="true"></i>
-            <span>Back to all projects</span>
-          </a>
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
         </footer>
       </article>
-      
-        <aside class="portfolio-article-toc" aria-label="Table of contents">
-          <div class="portfolio-article-toc__inner">
-            <p>On this page</p>
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#1-problem-definition-and-field-condition-gap">1. Problem definition and field-condition gap</a>
-      <ul>
-        <li><a href="#baseline-re-evaluation">Baseline re-evaluation</a></li>
-        <li><a href="#error-analysis--weld-process-noise">Error analysis — weld-process noise</a></li>
-      </ul>
-    </li>
-    <li><a href="#2-data-engineering">2. Data engineering</a>
-      <ul>
-        <li><a href="#capture-condition-augmentation-pipeline">Capture-condition augmentation pipeline</a></li>
-        <li><a href="#before-and-after-augmentation">Before and after augmentation</a></li>
-      </ul>
-    </li>
-    <li><a href="#3-modeling-and-ensemble">3. Modeling and ensemble</a>
-      <ul>
-        <li><a href="#candidate-comparison">Candidate comparison</a></li>
-        <li><a href="#two-model-complementarity">Two-model complementarity</a></li>
-      </ul>
-    </li>
-    <li><a href="#4-post-processing-and-deployment">4. Post-processing and deployment</a>
-      <ul>
-        <li><a href="#manufacturing-quality-operating-point">Manufacturing-quality operating point</a></li>
-        <li><a href="#coordinate-scaling-to-the-source-image">Coordinate scaling to the source image</a></li>
-        <li><a href="#fastapi-and-pwa-inspection-assistance-demo">FastAPI and PWA inspection-assistance demo</a></li>
-      </ul>
-    </li>
-    <li><a href="#5-project-results-and-direct-contribution">5. Project results and direct contribution</a>
-      <ul>
-        <li><a href="#performance-progression">Performance progression</a></li>
-        <li><a href="#direct-work">Direct work</a></li>
-        <li><a href="#team-integration-result">Team integration result</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-          </div>
-        </aside>
-      
-      </div>
     </div>
     <a id="scroll-to-top" class="btn" href="#main-content" aria-label="Back to top">
       <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
@@ -941,6 +1041,39 @@ flowchart LR
   </section>
 
       </main>
+      
+  
+    <section class="toc-section" id="toc-section" aria-label="Table of contents">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">Table of Contents</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-first-minute">The first minute</a></li>
+    <li><a href="#why-weld-defect-detection-matters">Why weld-defect detection matters</a></li>
+    <li><a href="#complete-system-architecture">Complete system architecture</a></li>
+    <li><a href="#how-data-models-and-evaluation-connect">How data, models, and evaluation connect</a>
+      <ul>
+        <li><a href="#1-separate-the-purpose-of-each-data-source">1. Separate the purpose of each data source</a></li>
+        <li><a href="#2-check-labels-and-splits">2. Check labels and splits</a></li>
+        <li><a href="#3-compare-the-teams-model-stages-on-one-basis">3. Compare the team’s model stages on one basis</a></li>
+        <li><a href="#4-turn-probabilities-into-an-inspection-rule">4. Turn probabilities into an inspection rule</a></li>
+        <li><a href="#5-look-back-at-the-images-behind-the-metrics">5. Look back at the images behind the metrics</a></li>
+      </ul>
+    </li>
+    <li><a href="#team-result-versus-my-contribution">Team result versus my contribution</a></li>
+    <li><a href="#problems-and-decisions">Problems and decisions</a></li>
+    <li><a href="#verified-result-and-potential-benefits">Verified result and potential benefits</a></li>
+    <li><a href="#current-limitations-and-next-validation">Current limitations and next validation</a></li>
+    <li><a href="#public-source-and-screen-boundary">Public-source and screen boundary</a></li>
+    <li><a href="#design-and-validation-record">Design and validation record</a></li>
+    <li><a href="#public-links">Public links</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </section>
+  
+
     </div>
 
     
@@ -954,19 +1087,18 @@ flowchart LR
   <div class="portfolio-container portfolio-footer__grid">
     <div class="portfolio-footer__brand">
       <a href="/en/">Jaeheung Lee</a>
-      <p>Process engineering | Equipment acceptance | Manufacturing DX</p></div>
+      <p>Process engineering | Equipment acceptance | Manufacturing DX</p>
+      <p>Only non-identifying manufacturing experience and technically reviewable projects are published here.</p>
+    </div>
 
     <nav class="portfolio-footer__nav" aria-label="Footer navigation">
       <a href="/en/#about">About</a>
       <a href="/en/#experiences">Experiences</a>
       <a href="/en/#projects">Projects</a>
-      <a href="/en/posts">Details</a>
+      <a href="/en/posts">Technical Cases</a>
     </nav>
 
     <address class="portfolio-footer__contact">
-      
-        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">Send email</a>
-      
       <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
       
       <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>

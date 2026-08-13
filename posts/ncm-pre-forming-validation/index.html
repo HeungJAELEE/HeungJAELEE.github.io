@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head><title>NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증 | 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><meta charset="UTF-8">
+  <head>
+    <title>Short 방지를 위한 신규 공정 개발</title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -29,23 +30,7 @@
   
 
 
-<link rel="stylesheet" href="/application.b2f6d4c6c2af9d0644209d7df0f8b46e78e15b1fb3b44a1d3b8401b4c4e05871.css" integrity="sha256-svbUxsKvnQZEIJ198Pi0bnjhWx&#43;ztEodO4QBtMTgWHE=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-home-print.min.6f3ab20c226d8bca4d9a0c6d085dd730c2a1d6a583ff92d30adda08056f7cdd0.css" integrity="sha256-bzqyDCJti8pNmgxtCF3XMMKh1qWD/5LTCt2ggFb3zdA=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-print-v2.min.4ae0da2e62bd4de7aaabef3c658cddc48981f7a7365e3d618f75959faabc4f32.css" integrity="sha256-SuDaLmK9Teeqq&#43;88ZYzdxImB96c2Xj1hj3WVn6q8TzI=">
-
-
-
-  <link rel="stylesheet" href="/styles/portfolio-featured-five.min.90aa2de5649fb98324c5e1c0c7c9c6a30e9e35fe75715ef6c946fce432731f62.css" integrity="sha256-kKot5WSfuYMkxeHAx8nGow6eNf51cV72yUb85DJzH2I=">
-
-
-
-  <script defer src="/scripts/portfolio-print.min.64f0c6d38e4824d10ed333f2a86149c5c8cf38eb6568b6dbacda365a30c19dd9.js" integrity="sha256-ZPDG045IJNEO0zPyqGFJxcjPOOtlaLbbrNo2WjDBndk="></script>
+<link rel="stylesheet" href="/application.f6d7c6f309e311f308f507b731e5a9809beb1f802dee2ab0161f48d85cb6c5f8.css" integrity="sha256-9tfG8wnjEfMI9Qe3MeWpgJvrH4At7iqwFh9I2Fy2xfg=">
 
 
 
@@ -59,17 +44,20 @@
 
 
 
-<meta property="og:title" content="NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증">
+<meta property="og:title" content="Short 방지를 위한 신규 공정 개발">
 <meta property="og:type" content="article">
-<meta property="og:description" content="Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관">
+<meta property="og:description" content="Pre-Welding 접합요구를 낮추지 않고 양극 Al Foil 파단·음극 Heavy Edge 활물질 탈락·Short를 소재별 기전과 Pilot Jig로 통제하고 약 400개 Sample·4개 Lot으로 검증한 공정설계 사례">
 <meta property="og:url" content="https://heungjaelee.github.io/posts/ncm-pre-forming-validation/">
+<meta property="og:image" content="https://heungjaelee.github.io/images/author/heungjae.jpeg">
+<meta property="og:image:alt" content="이재흥 기술 포트폴리오 대표 이미지">
 <meta property="og:site_name" content="이재흥 | 공정·제조기술 엔지니어 포트폴리오">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증">
+  <meta name="twitter:title" content="Short 방지를 위한 신규 공정 개발">
   <meta name="twitter:description" content="Pre-Welding 접합요구를 낮추지 않고 양극 Al Foil 파단·음극 Heavy Edge 활물질 탈락·Short를 소재별 기전과 Pilot Jig로 통제하고 약 400개 Sample·4개 Lot으로 검증한 공정설계 사례">
-<meta name="description" content="Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","description":"Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관","headline":"NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증","inLanguage":"ko","url":"https://heungjaelee.github.io/posts/ncm-pre-forming-validation/"}</script>
+
+  <meta name="description" content="Pre-Welding 접합요구를 낮추지 않고 양극 Al Foil 파단·음극 Heavy Edge 활물질 탈락·Short를 소재별 기전과 Pilot Jig로 통제하고 약 400개 Sample·4개 Lot으로 검증한 공정설계 사례">
+
 
     
 
@@ -103,8 +91,7 @@ document.documentElement.setAttribute('data-theme', theme)
 
     <div class="container-fluid bg-secondary wrapper">
       
-
-
+  
 
 
 
@@ -156,45 +143,148 @@ document.documentElement.setAttribute('data-theme', theme)
         
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#about">소개</a>
-            </li>
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#about">소개</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#projects">프로젝트</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#projects">프로젝트</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#experiences">경력</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#experiences">경력</a>
+              </li>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#skills">핵심 역량</a>
-            </li>
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#skills">핵심 역량</a>
+              </li>
+            
           
         
           
-            <li class="nav-item">
-              <a class="nav-link" href="/#education">교육</a>
-            </li>
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
           
-        
+            
+              <li class="nav-item">
+                <a class="nav-link" href="/#education">교육</a>
+              </li>
+            
           
-        
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
         
 
@@ -205,56 +295,44 @@ document.documentElement.setAttribute('data-theme', theme)
               id="blog-link"
               href="/posts"
               aria-current="page"
-            >상세보기</a>
+            >기술사례</a>
           </li>
         
 
         
+        
+        
+        
+        
           
+          
+        
+        
+        
+        <li class="nav-item portfolio-navbar__language" aria-label="Language">
+          <a class="portfolio-navbar__language-link is-active" href="/posts/ncm-pre-forming-validation/" lang="ko" hreflang="ko" aria-current="page">한국어</a>
+          <span aria-hidden="true">/</span>
+          <a class="portfolio-navbar__language-link" href="/en/posts/ncm-pre-forming-validation/" lang="en" hreflang="en">English</a>
+        </li>
 
-  
-
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
-        한국어
-    </a>
-    <div class="dropdown-menu" aria-labelledby="languageSelector">
-        
-        <a class="dropdown-item nav-link languages-item" href="/posts/ncm-pre-forming-validation">
-            
-            한국어
-        </a>
-        
-        <a class="dropdown-item nav-link languages-item" href="/en/posts/ncm-pre-forming-validation">
-            
-            English
-        </a>
-        
-    </div>
-    </li>
-
-        
+        <li class="nav-item portfolio-navbar__print-item">
+          <button class="nav-link portfolio-navbar__print btn-print" type="button" onclick="window.print()">
+            <i data-feather="printer" aria-hidden="true"></i>
+            <span>인쇄</span>
+          </button>
+        </li>
 
         <li class="nav-item portfolio-navbar__contact-item">
           <a class="portfolio-navbar__contact" href="/#contact">연락하기</a>
-        </li>
-        <li class="nav-item portfolio-navbar__print-item">
-          <button
-            class="portfolio-navbar__print"
-            type="button"
-            data-portfolio-print
-            data-portfolio-print-mode="project"
-            aria-label="인쇄"
-          >
-            <i data-feather="printer" aria-hidden="true"></i>
-            <span data-portfolio-print-label>인쇄</span>
-          </button>
         </li>
       </ul>
     </div>
   </div>
 
+  
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="main-logo" alt="">
+    <img src="/images/site/main-logo_hu_8a1145a45d3076fc.png" class="d-none" id="inverted-logo" alt="">
+  
 </nav>
 
 <script>
@@ -309,11 +387,10 @@ document.documentElement.setAttribute('data-theme', theme)
       const updateActiveSection = () => {
         framePending = false;
         const navOffset = (document.getElementById('top-navbar')?.offsetHeight || 72) + 24;
-        const activationLine = navOffset + Math.min(window.innerHeight * 0.25, 240);
         let current = linkedSections[0];
 
         linkedSections.forEach((candidate) => {
-          if (candidate.section.getBoundingClientRect().top <= activationLine) {
+          if (candidate.section.getBoundingClientRect().top <= navOffset) {
             current = candidate;
           }
         });
@@ -344,66 +421,72 @@ document.documentElement.setAttribute('data-theme', theme)
   });
 </script>
 
+
       
+  
+  <section class="sidebar-section" id="sidebar-section" aria-label="기술 사례 검색">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto portfolio-sidebar-search" method="get" action="/search/">
+          <label class="visually-hidden" for="search-box">기술 사례 검색</label>
+          <input type="search" name="keyword" placeholder="기술 사례 검색" id="search-box">
+        </form>
+        <nav aria-label="글 목록">
+          <ul class="tree" id="tree">
+            <li id="list-heading">
+              <a href="/posts/">전체 기술 사례</a>
+              <ul class="subtree">
+                
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
       <main id="main-content" tabindex="-1">
-        <section class="content-section portfolio-article-section portfolio-case--manufacturing-build portfolio-case-domain--manufacturing" id="content-section">
+        
+  
+  
+  
+  
+  
+  <section class="content-section portfolio-article-section" id="content-section">
     <div class="content">
-      <div class="portfolio-article-layout">
       <article class="container p-0 read-area portfolio-article">
         <header class="portfolio-article__header">
-          <div class="portfolio-article__topline">
-            <p class="portfolio-article__eyebrow">제조 프로젝트</p>
-            <span class="portfolio-article__stage portfolio-article__stage--pilot-process-validation">Pilot 공정 검증</span>
-          </div>
-          <h1>NCM Pre-Forming 파단·Short 개선 및 Pilot Jig 설계·검증</h1>
-          <p class="portfolio-article__lead">Pre-Welding 접합요구를 유지하면서 양극 파단·음극 활물질 탈락을 분리하고 Pilot Jig와 약 400개 Sample·4개 Lot으로 공정조건 검증</p>
-          <dl class="portfolio-case-meta">
-            <div>
-              <dt>프로젝트 기간</dt>
-              <dd>2023.11경 시작 · NCM Pilot 생산기간 중 검증</dd>
-            </div>
-            <div>
-              <dt>맥락</dt>
-              <dd>제이스텍(현 제이스로보틱스) 셀개발팀 · NCM 각형 Pilot Line</dd>
-            </div>
-            <div>
-              <dt>담당 범위</dt>
-              <dd>손상 재현·해체분석, 소재별 원인분리, Pilot Jig 개념·도면·R 형상·성형위치·정삽입, 약 400개 Sample 검증, 공정문서·교육·양산설비 RFQ</dd>
-            </div>
-          </dl>
-        </header>
+          <p class="portfolio-article__eyebrow">TECHNICAL CASE STUDY</p>
+          <h1>Short 방지를 위한 신규 공정 개발</h1>
+          
+            <p class="portfolio-article__lead">Pre-Welding 접합요구를 낮추지 않고 양극 Al Foil 파단·음극 Heavy Edge 활물질 탈락·Short를 소재별 기전과 Pilot Jig로 통제하고 약 400개 Sample·4개 Lot으로 검증한 공정설계 사례</p>
+          
+          <p class="portfolio-article__meta">
+            <time datetime="2026-08-05">2026. 8. 5.</time>
+             · 
+            3 
+             · 
+            마지막 검토 <time datetime="2026-08-10">2026. 8. 10.</time>
+          </p>
+          
+            <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li><a href="/tags/pre-forming/" class="btn btn-sm btn-outline-info rounded">Pre-Forming</a></li>
+    
+    
+    <li><a href="/tags/pilot-jig/" class="btn btn-sm btn-outline-info rounded">Pilot Jig</a></li>
+    
+    
+    <li><a href="/tags/failure-mechanism/" class="btn btn-sm btn-outline-info rounded">Failure Mechanism</a></li>
+    
+  </ul>
+</div>
 
-        <section class="portfolio-case-summary" aria-labelledby="case-summary-title">
-          <header>
-            <h2 id="case-summary-title">프로젝트 핵심 요약</h2>
-          </header>
-          <dl>
-            <div>
-              <dt>과제 정의</dt>
-              <dd>Pre-Welding 양극 무지부 파단·음극 Heavy Edge 활물질 탈락·Short와 용접조건 완화 시 접합강도 저하 Trade-off</dd>
-            </div>
-            <div>
-              <dt>핵심 역할</dt>
-              <dd>소재별 손상기전 분리, Pilot Jig·R 형상·성형위치·정삽입 설계, 초기 약 200개와 4개 Lot×50개 검증</dd>
-            </div>
-            <div>
-              <dt>주요 결과</dt>
-              <dd>Pre-Welding 접합요구 유지, 작업자 편차의 Jig·작업기준 전환, 후속 Sample·표준문서·양산설비 RFQ 이관</dd>
-            </div>
-          </dl>
-        </section>
-        <section class="portfolio-case-metrics" aria-label="확인된 수치"><div>
-              <span>전체 검증범위</span>
-              <strong>약 400개 Sample</strong>
-            </div><div>
-              <span>선정조건 확인</span>
-              <strong>4개 Lot × 50개</strong>
-            </div><div>
-              <span>적용 단계</span>
-              <strong>Pilot Jig·후속 Sample</strong>
-            </div>
-        </section><figure class="portfolio-case-visual">
-            <img src="/images/projects/ncm-pre-forming-flow.svg" alt="Pre-Welding 후 무지부 손상과 Short, 양·음극 원인분리, Pilot Jig, 초기 약 200개 탐색, 4개 Lot×50개 검증과 설비 요구사항 이관 흐름" loading="eager"><figcaption>용접조건을 낮추지 않고 소재별 손상과 작업자 편차를 분리해 Pilot Jig·검사기준·양산설비 요구사항으로 전환</figcaption></figure>
+          
+        </header>
 
         <div class="post-content portfolio-article__content" id="post-content">
           <h2 id="프로젝트-배경-및-문제-정의">프로젝트 배경 및 문제 정의</h2>
@@ -436,62 +519,48 @@ document.documentElement.setAttribute('data-theme', theme)
   </ol>
 </figure>
 
-<h2 id="5m1e-원인분석">5M+1E 원인분석</h2>
+<h2 id="4m-원인분석과-환경-확인">4M 원인분석과 환경 확인</h2>
 <table>
   <thead>
       <tr>
-          <th>원인</th>
-          <th>확인한 문제</th>
-          <th>판단근거</th>
-          <th>판정</th>
-          <th>조치</th>
+          <th>분석대상</th>
+          <th>추정원인</th>
+          <th>확인결과</th>
+          <th>조치사항</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>Man</td>
           <td>수작업 성형의 위치·압력·정삽입 편차</td>
-          <td>숙련작업자도 약 1.5 mm 수준의 위치변동과 손상차이 발생</td>
-          <td>핵심 변동원인</td>
+          <td>숙련작업자도 약 1.5 mm 수준의 위치변동과 손상차이 발생 · 핵심 변동원인</td>
           <td>정삽입 위치·작업순서를 Jig 기준으로 전환</td>
       </tr>
       <tr>
           <td>Machine</td>
           <td>전용 Jig·성형기구·위치기준 부재</td>
-          <td>동일 용접조건에서도 사전 성형상태에 따라 손상결과 변화</td>
-          <td>핵심 제조제약</td>
+          <td>동일 용접조건에서도 사전 성형상태에 따라 손상결과 변화 · 핵심 제조제약</td>
           <td>양·음극별 Pilot Jig·Datum·Stopper 설계</td>
       </tr>
       <tr>
           <td>Material</td>
           <td>양극 Al Foil 파단과 음극 Heavy Edge 활물질 탈락</td>
-          <td>해체 후 손상위치와 형태가 전극별로 상이</td>
-          <td>소재별 조건분리</td>
+          <td>해체 후 손상위치와 형태가 전극별로 상이 · 소재별 조건분리</td>
           <td>전극별 R 형상·성형위치 설정</td>
       </tr>
       <tr>
           <td>Method</td>
           <td>성형방향·위치·R 형상·작업순서 미정의</td>
-          <td>수작업품의 형상과 Short·해체결과 비교</td>
-          <td>핵심 원인</td>
+          <td>수작업품의 형상과 Short·해체결과 비교 · 핵심 원인</td>
           <td>성형·삽입·합격·보류 기준 확립</td>
-      </tr>
-      <tr>
-          <td>Measurement</td>
-          <td>외관만으로 내부손상·기능영향 판정 곤란</td>
-          <td>Short·Hi-Pot·IR·인장·Formation·해체결과 교차확인</td>
-          <td>최종 판정근거</td>
-          <td>전기·용접·해체·Cell 평가를 한 검증흐름으로 연결</td>
-      </tr>
-      <tr>
-          <td>Environment</td>
-          <td>공정환경 변화</td>
-          <td>손상위치·형상과 반복 연관성 미확인</td>
-          <td>주요 원인 제외</td>
-          <td>기존 환경관리 유지</td>
       </tr>
   </tbody>
 </table>
+<p><strong>측정·환경 확인</strong></p>
+<ul>
+<li><strong>Measurement:</strong> 외관만으로 내부손상·기능영향 판정 곤란 · Short·Hi-Pot·IR·인장·Formation·해체결과 교차확인 · 최종 판정근거 · 전기·용접·해체·Cell 평가를 한 검증흐름으로 연결</li>
+<li><strong>Environment:</strong> 공정환경 변화 · 손상위치·형상과 반복 연관성 미확인 · 주요 원인 제외 · 기존 환경관리 유지</li>
+</ul>
 <h2 id="핵심-공정-엔지니어링">핵심 공정 엔지니어링</h2>
 <h3 id="1-전극-소재별-손상기전-분리">1. 전극 소재별 손상기전 분리</h3>
 <p>양극과 음극의 불량을 하나의 성형조건으로 처리하지 않고 해체 후 손상위치와 형상을 기준으로 분리했습니다.</p>
@@ -631,20 +700,44 @@ document.documentElement.setAttribute('data-theme', theme)
         </div>
 
         <footer class="portfolio-article__footer">
-          <a class="portfolio-text-link" href="/posts/">
-            <i data-feather="arrow-left" aria-hidden="true"></i>
-            <span>전체 프로젝트로 돌아가기</span>
-          </a>
+          <hr>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row next-prev-navigator">
+  
+  
+</div>
+
         </footer>
       </article>
+    </div>
+    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
+      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+    </a>
+  </section>
+
+      </main>
       
-        <aside class="portfolio-article-toc" aria-label="이 글의 목차">
-          <div class="portfolio-article-toc__inner">
-            <p>이 글의 목차</p>
-            <nav id="TableOfContents">
+  
+    <section class="toc-section" id="toc-section" aria-label="목차">
+      <div class="toc-holder">
+        <h2 class="h5 text-center ps-3">목차</h2>
+        <hr>
+        <div class="toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#프로젝트-배경-및-문제-정의">프로젝트 배경 및 문제 정의</a></li>
-    <li><a href="#5m1e-원인분석">5M+1E 원인분석</a></li>
+    <li><a href="#4m-원인분석과-환경-확인">4M 원인분석과 환경 확인</a></li>
     <li><a href="#핵심-공정-엔지니어링">핵심 공정 엔지니어링</a>
       <ul>
         <li><a href="#1-전극-소재별-손상기전-분리">1. 전극 소재별 손상기전 분리</a></li>
@@ -660,18 +753,11 @@ document.documentElement.setAttribute('data-theme', theme)
     <li><a href="#최종-성과-및-양산-이관">최종 성과 및 양산 이관</a></li>
     <li><a href="#같은-pilot-line의-상위-프로젝트">같은 Pilot Line의 상위 프로젝트</a></li>
   </ul>
-</nav>
-          </div>
-        </aside>
-      
+</nav></div>
       </div>
-    </div>
-    <a id="scroll-to-top" class="btn" href="#main-content" aria-label="맨 위로">
-      <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
-    </a>
-  </section>
+    </section>
+  
 
-      </main>
     </div>
 
     
@@ -685,19 +771,18 @@ document.documentElement.setAttribute('data-theme', theme)
   <div class="portfolio-container portfolio-footer__grid">
     <div class="portfolio-footer__brand">
       <a href="/">이재흥</a>
-      <p>공정·제조기술 | 설비 검증 | 제조 DX</p></div>
+      <p>공정·제조기술 | 설비 검증 | 제조 DX</p>
+      <p>공개할 수 있는 제조 경험과 기술 프로젝트만 비식별로 정리했습니다.</p>
+    </div>
 
     <nav class="portfolio-footer__nav" aria-label="하단 메뉴">
       <a href="/#about">소개</a>
       <a href="/#experiences">경력</a>
       <a href="/#projects">프로젝트</a>
-      <a href="/posts">상세보기</a>
+      <a href="/posts">기술사례</a>
     </nav>
 
     <address class="portfolio-footer__contact">
-      
-        <a class="portfolio-footer__cta" href="mailto:wanran1@naver.com">이메일 보내기</a>
-      
       <a href="mailto:wanran1@naver.com">wanran1@naver.com</a>
       
       <a href="https://github.com/HeungJAELEE" target="_blank" rel="noopener">github.com/HeungJAELEE</a>

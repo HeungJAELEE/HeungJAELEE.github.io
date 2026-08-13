@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/deep-learning/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Field Guide to AI Models for Manufacturing</title>
+      <link>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/deep-learning-modeling/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--personal-ai&#34; aria-labelledby=&#34;project-case-summary-deep-learning-modeling&#34; data-project-id=&#34;deep-learning-modeling&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-deep-learning-modeling&#34;&gt;For manufacturing data, a repeatable path from preprocessing through evaluation matters more than listing many model names.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Learning workflow public · Before manufacturing validation&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;Personal learning project · Current public-repository scope&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Reproducible modeling study repository&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-deep-learning-modeling&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-deep-learning-modeling&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;When preprocessing, split, training, and evaluation conditions are scattered, it is difficult to explain whether performance differences come from the model or data handling.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>
