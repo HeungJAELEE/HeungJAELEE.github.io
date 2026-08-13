@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620" role="img" aria-labelledby="title desc">
+  <title id="title">25P LFP IATF 품질 Gate와 DMADV·Taguchi 공정개발</title>
+  <desc id="desc">PROTO A Sample, PILOT B와 C Sample, MP CCB.PO, SOP의 품질 Gate와 DMADV Define Measure Analyze Design Verify, 4M 위험분석, Taguchi DOE, 약 2만 Cell 시양산과 고객 Qual을 연결한 흐름</desc>
+  <rect width="1440" height="620" fill="#EFF1ED"/>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="62" y="58" fill="#1C232C" font-size="30" font-weight="700">25P LFP POWER CELL · IATF QUALITY GATES + DMADV + TAGUCHI DOE</text>
+    <text x="62" y="90" fill="#5B6470" font-size="16">사내 개발품질 Gate와 기술 최적화 방법을 한 흐름으로 연결</text>
+
+    <text x="62" y="140" fill="#1C232C" font-size="18" font-weight="700">QUALITY GATE</text>
+    <g transform="translate(62 158)">
+      <rect width="220" height="94" rx="4" fill="#1C3F5B"/>
+      <text x="110" y="34" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="700">PROTO</text>
+      <text x="110" y="62" text-anchor="middle" fill="#DDE8EF" font-size="15">A Sample · CTQ·기준선</text>
+
+      <rect x="254" width="220" height="94" rx="4" fill="#2B5C8A"/>
+      <text x="364" y="34" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="700">PILOT-B</text>
+      <text x="364" y="62" text-anchor="middle" fill="#E8F1F7" font-size="15">4M · 조건 Screening</text>
+
+      <rect x="508" width="220" height="94" rx="4" fill="#2B5C8A"/>
+      <text x="618" y="34" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="700">PILOT-C</text>
+      <text x="618" y="62" text-anchor="middle" fill="#E8F1F7" font-size="15">선정조건 · 약 2만 Cell</text>
+
+      <rect x="762" width="220" height="94" rx="4" fill="#3F7D58"/>
+      <text x="872" y="34" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="700">MP</text>
+      <text x="872" y="62" text-anchor="middle" fill="#EAF4ED" font-size="15">고객 Qual · CCB.PO</text>
+
+      <rect x="1016" width="220" height="94" rx="4" fill="#FFFFFF" stroke="#7C8791" stroke-width="2"/>
+      <text x="1126" y="34" text-anchor="middle" fill="#1C232C" font-size="19" font-weight="700">SOP</text>
+      <text x="1126" y="62" text-anchor="middle" fill="#5B6470" font-size="15">양산 개시 Gate</text>
+
+      <g fill="#2B5C8A">
+        <path d="M226 47h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+        <path d="M480 47h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+        <path d="M734 47h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+        <path d="M988 47h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+      </g>
+    </g>
+
+    <text x="62" y="308" fill="#1C232C" font-size="18" font-weight="700">ENGINEERING METHOD</text>
+    <g transform="translate(62 326)">
+      <rect width="220" height="88" rx="4" fill="#FFFFFF" stroke="#1C3F5B" stroke-width="2"/>
+      <text x="110" y="32" text-anchor="middle" fill="#1C3F5B" font-size="18" font-weight="700">DEFINE · MEASURE</text>
+      <text x="110" y="60" text-anchor="middle" fill="#5B6470" font-size="14">요구·CTQ·측정기준</text>
+
+      <rect x="254" width="474" height="88" rx="4" fill="#FFFFFF" stroke="#2B5C8A" stroke-width="2"/>
+      <text x="491" y="32" text-anchor="middle" fill="#2B5C8A" font-size="18" font-weight="700">ANALYZE · DESIGN</text>
+      <text x="491" y="60" text-anchor="middle" fill="#5B6470" font-size="14">4M 위험분석 → Taguchi 직교배열 → 확인실험</text>
+
+      <rect x="762" width="220" height="88" rx="4" fill="#FFFFFF" stroke="#3F7D58" stroke-width="2"/>
+      <text x="872" y="32" text-anchor="middle" fill="#3F7D58" font-size="18" font-weight="700">VERIFY</text>
+      <text x="872" y="60" text-anchor="middle" fill="#5B6470" font-size="14">Cell 평가·Qual·승인</text>
+
+      <rect x="1016" width="220" height="88" rx="4" fill="#FFFFFF" stroke="#7C8791" stroke-width="2"/>
+      <text x="1126" y="32" text-anchor="middle" fill="#1C232C" font-size="18" font-weight="700">HANDOFF</text>
+      <text x="1126" y="60" text-anchor="middle" fill="#5B6470" font-size="14">SOP·QCP·P-FMEA</text>
+    </g>
+
+    <g transform="translate(62 462)">
+      <rect width="1236" height="104" rx="4" fill="#1C232C"/>
+      <text x="618" y="34" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">TAGUCHI RESPONSE CHAIN</text>
+      <text x="618" y="65" text-anchor="middle" fill="#DDE8EF" font-size="15">함침: 미함침 폭·중량·용량·IR·수명  |  용접: Nugget·인장·파단  |  밀봉: 총고·기밀·Vent  |  검사: 실제 해체결과와 판정 일치</text>
+      <text x="618" y="90" text-anchor="middle" fill="#93C6A4" font-size="15" font-weight="700">A·B·C SAMPLE · ABOUT 20,000 CELLS · CUSTOMER QUAL · CCB.PO</text>
+    </g>
+  </g>
+</svg>

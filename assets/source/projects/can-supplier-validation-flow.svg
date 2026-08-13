@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">원통형 배터리 대체 Can 공급사 이원화 및 Pilot 전환 검증</title>
+  <desc id="desc">대체 Can의 소재와 치수를 비교하고 IQC 기준, 조립공정 조건, Cell 품질·안전·성능, 600 Cell 3개 Lot, 공식 UN38.3와 Pilot 생산·구매발주 전환으로 이어진 흐름</desc>
+  <rect width="1200" height="480" fill="#EFF1ED"/>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="56" y="58" fill="#1C232C" font-size="28" font-weight="700">대체 Can 공급사 변경 — 부품검사부터 Pilot 전환까지</text>
+    <text x="56" y="88" fill="#5B6470" font-size="15">소재·치수 차이를 실제 조립조건과 Cell 안전성으로 연결해 공급 전환 기준을 확립했습니다.</text>
+  </g>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <rect x="56" y="132" width="166" height="108" rx="4" fill="#1C3F5B"/>
+    <text x="139" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">변경점 확인</text>
+    <text x="139" y="193" text-anchor="middle" fill="#DDE8EF" font-size="13">합금·두께·공차</text>
+    <text x="139" y="215" text-anchor="middle" fill="#DDE8EF" font-size="13">Burr·표면상태</text>
+
+    <rect x="240" y="132" width="166" height="108" rx="4" fill="#2B5C8A"/>
+    <text x="323" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">IQC 기준</text>
+    <text x="323" y="193" text-anchor="middle" fill="#E8F1F7" font-size="13">측정위치·공차</text>
+    <text x="323" y="215" text-anchor="middle" fill="#E8F1F7" font-size="13">한도견본·외관</text>
+
+    <rect x="424" y="132" width="166" height="108" rx="4" fill="#2B5C8A"/>
+    <text x="507" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">공정조건</text>
+    <text x="507" y="193" text-anchor="middle" fill="#E8F1F7" font-size="13">Beading·Crimping</text>
+    <text x="507" y="215" text-anchor="middle" fill="#E8F1F7" font-size="13">Can–Cap Laser</text>
+
+    <rect x="608" y="132" width="166" height="108" rx="4" fill="#2B5C8A"/>
+    <text x="691" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Cell 검증</text>
+    <text x="691" y="193" text-anchor="middle" fill="#E8F1F7" font-size="13">기밀·압축·낙하</text>
+    <text x="691" y="215" text-anchor="middle" fill="#E8F1F7" font-size="13">Vent·용량·수명</text>
+
+    <rect x="792" y="132" width="166" height="108" rx="4" fill="#E2711D"/>
+    <text x="875" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">Pilot 검증</text>
+    <text x="875" y="193" text-anchor="middle" fill="#FFF3E8" font-size="13">200 Cell × 3 Lot</text>
+    <text x="875" y="215" text-anchor="middle" fill="#FFF3E8" font-size="13">총 600 Cell</text>
+
+    <rect x="976" y="132" width="168" height="108" rx="4" fill="#3F7D58"/>
+    <text x="1060" y="165" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">공급 전환</text>
+    <text x="1060" y="193" text-anchor="middle" fill="#EAF4ED" font-size="13">공식 UN38.3</text>
+    <text x="1060" y="215" text-anchor="middle" fill="#EAF4ED" font-size="13">Pilot·구매발주 변경</text>
+  </g>
+
+  <g stroke="#AABBC7" stroke-width="4" fill="none">
+    <path d="M222 186H240"/><path d="M406 186H424"/><path d="M590 186H608"/><path d="M774 186H792"/><path d="M958 186H976"/>
+  </g>
+  <g fill="#2B5C8A">
+    <path d="M237 186l-9-6v12z"/><path d="M421 186l-9-6v12z"/><path d="M605 186l-9-6v12z"/><path d="M789 186l-9-6v12z"/><path d="M973 186l-9-6v12z"/>
+  </g>
+
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="56" y="300" fill="#1C232C" font-size="20" font-weight="700">변경 관리의 연결 기준</text>
+
+    <rect x="56" y="326" width="340" height="96" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="78" y="357" fill="#1C232C" font-size="16" font-weight="700">Material · Measurement</text>
+    <text x="78" y="384" fill="#5B6470" font-size="14">도면·성적서·실측과 한도견본으로 부품 차이 확정</text>
+    <text x="78" y="406" fill="#5B6470" font-size="14">변경점을 영향공정과 후속 검사에 연결</text>
+
+    <rect x="430" y="326" width="340" height="96" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="452" y="357" fill="#1C232C" font-size="16" font-weight="700">Machine · Method</text>
+    <text x="452" y="384" fill="#5B6470" font-size="14">기존 설비의 Beading·Crimping·Laser 조건 재설정</text>
+    <text x="452" y="406" fill="#5B6470" font-size="14">공정별 Sample과 Lot 결과로 적용조건 확인</text>
+
+    <rect x="804" y="326" width="340" height="96" rx="4" fill="#FFFFFF" stroke="#D0D7DC"/>
+    <text x="826" y="357" fill="#1C232C" font-size="16" font-weight="700">Safety · Performance</text>
+    <text x="826" y="384" fill="#5B6470" font-size="14">기밀·압축·낙하·Vent와 Formation·용량·수명</text>
+    <text x="826" y="406" fill="#5B6470" font-size="14">공식 UN38.3와 관련부서 승인으로 Pilot 전환</text>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Cell S/N 생산이력 조회 흐름</title>
+  <desc id="desc">Cell S/N에서 조립키, 구성자재, 극판 Roll, 공정검사, Formation과 보고서로 이어지는 현장 조회 흐름</desc>
+  <rect width="1200" height="430" fill="#EFF1ED"/>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="54" y="54" fill="#1C232C" font-size="28" font-weight="700">Cell S/N 하나로 약 3주간 흩어진 공정이력을 연결했습니다</text>
+    <text x="54" y="84" fill="#5B6470" font-size="16">원본 MES·공정파일은 그대로 두고 Power Query와 VBA가 현장 검색순서를 연결합니다.</text>
+  </g>
+  <path d="M105 205H1095" stroke="#C8D4DD" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#2B5C8A">
+    <path d="M246 205l-12-7v14z"/><path d="M423 205l-12-7v14z"/><path d="M600 205l-12-7v14z"/><path d="M777 205l-12-7v14z"/><path d="M954 205l-12-7v14z"/>
+  </g>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(105 205)">
+      <circle r="44" fill="#1C3F5B"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">01</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">Cell S/N</text>
+      <text y="107" fill="#5B6470" font-size="13">조사대상 입력</text>
+    </g>
+    <g transform="translate(282 205)">
+      <circle r="44" fill="#2B5C8A"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">02</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">조립키·J/R</text>
+      <text y="107" fill="#5B6470" font-size="13">Cell 구성 연결</text>
+    </g>
+    <g transform="translate(459 205)">
+      <circle r="44" fill="#2B5C8A"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">03</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">자재·극판 Roll</text>
+      <text y="107" fill="#5B6470" font-size="13">Lot·생산구간</text>
+    </g>
+    <g transform="translate(636 205)">
+      <circle r="44" fill="#2B5C8A"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">04</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">공정·검사</text>
+      <text y="107" fill="#5B6470" font-size="13">재작업·판정이력</text>
+    </g>
+    <g transform="translate(813 205)">
+      <circle r="44" fill="#2B5C8A"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">05</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">Formation</text>
+      <text y="107" fill="#5B6470" font-size="13">용량·최종검사</text>
+    </g>
+    <g transform="translate(990 205)">
+      <circle r="44" fill="#3F7D58"/>
+      <text y="7" fill="#FFFFFF" font-size="20" font-weight="700">06</text>
+      <text y="82" fill="#1C232C" font-size="17" font-weight="700">현장 확인·보고</text>
+      <text y="107" fill="#5B6470" font-size="13">원인구간·이력표</text>
+    </g>
+  </g>
+  <g font-family="IBM Plex Mono, Consolas, monospace">
+    <rect x="54" y="352" width="1092" height="44" rx="5" fill="#FFFFFF" stroke="#CBD4DB"/>
+    <text x="78" y="380" fill="#1C232C" font-size="14">SINGLE CELL  5–10 sec</text>
+    <text x="397" y="380" fill="#2B5C8A" font-size="14" font-weight="700">10-CELL SEARCH  about 3 min</text>
+    <text x="790" y="380" fill="#3F7D58" font-size="14" font-weight="700">WITH REPORT  about half a day</text>
+  </g>
+</svg>

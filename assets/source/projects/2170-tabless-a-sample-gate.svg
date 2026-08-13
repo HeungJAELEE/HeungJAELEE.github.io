@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 1440 640" role="img" aria-labelledby="title desc">
+  <title id="title">2170 Tabless PROTO Gate와 DMADV·Taguchi Trial</title>
+  <desc id="desc">IATF 기반 PROTO, PILOT, MP, SOP 개발품질 흐름에서 PROTO A Sample을 강조하고, Define Measure Analyze Design Verify, 4M 위험분석, Taguchi Trial Matrix, 약 100개 Trial과 기능 Sample 5개 Cell 평가를 연결한 흐름</desc>
+  <rect width="1440" height="640" fill="#EFF1ED"/>
+  <g font-family="Pretendard, Noto Sans KR, Arial, sans-serif">
+    <text x="62" y="58" fill="#1C232C" font-size="30" font-weight="700">2170 TABLESS · PROTO A SAMPLE · DMADV + 4M + TAGUCHI TRIAL</text>
+    <text x="62" y="90" fill="#5B6470" font-size="16">전용 설비·Jig 부재를 PROTO Gate의 제조·안전·기능 CTQ로 전환</text>
+
+    <text x="62" y="138" fill="#1C232C" font-size="18" font-weight="700">IATF-BASED QUALITY POSITION</text>
+    <g transform="translate(62 154)">
+      <rect width="260" height="90" rx="4" fill="#1C3F5B"/>
+      <text x="130" y="33" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="700">PROTO · A SAMPLE</text>
+      <text x="130" y="61" text-anchor="middle" fill="#DDE8EF" font-size="15">제조·안전·Cell 평가 완료</text>
+
+      <rect x="294" width="260" height="90" rx="4" fill="#FFFFFF" stroke="#2B5C8A" stroke-width="2"/>
+      <text x="424" y="33" text-anchor="middle" fill="#2B5C8A" font-size="20" font-weight="700">PILOT · B/C</text>
+      <text x="424" y="61" text-anchor="middle" fill="#5B6470" font-size="15">전용 Jig·반복성·생산성</text>
+
+      <rect x="588" width="260" height="90" rx="4" fill="#FFFFFF" stroke="#7C8791" stroke-width="2"/>
+      <text x="718" y="33" text-anchor="middle" fill="#1C232C" font-size="20" font-weight="700">MP · CCB.PO</text>
+      <text x="718" y="61" text-anchor="middle" fill="#5B6470" font-size="15">기술 양산 승인 Gate</text>
+
+      <rect x="882" width="260" height="90" rx="4" fill="#FFFFFF" stroke="#7C8791" stroke-width="2"/>
+      <text x="1012" y="33" text-anchor="middle" fill="#1C232C" font-size="20" font-weight="700">SOP</text>
+      <text x="1012" y="61" text-anchor="middle" fill="#5B6470" font-size="15">정규 양산 개시</text>
+
+      <g fill="#2B5C8A">
+        <path d="M266 45h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+        <path d="M560 45h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+        <path d="M854 45h24l-9-8 5-5 17 13-17 13-5-5 9-8h-24z"/>
+      </g>
+    </g>
+
+    <text x="62" y="302" fill="#1C232C" font-size="18" font-weight="700">DMADV INSIDE PROTO</text>
+    <g transform="translate(62 318)">
+      <g>
+        <circle cx="68" cy="60" r="48" fill="#1C3F5B"/>
+        <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">DEFINE</text>
+        <text x="68" y="78" text-anchor="middle" fill="#DDE8EF" font-size="12">목표·CTQ</text>
+      </g>
+      <g transform="translate(234)">
+        <circle cx="68" cy="60" r="48" fill="#2B5C8A"/>
+        <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">MEASURE</text>
+        <text x="68" y="78" text-anchor="middle" fill="#E8F1F7" font-size="12">접합·Beam·Short</text>
+      </g>
+      <g transform="translate(468)">
+        <circle cx="68" cy="60" r="48" fill="#2B5C8A"/>
+        <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">ANALYZE</text>
+        <text x="68" y="78" text-anchor="middle" fill="#E8F1F7" font-size="12">4M·Failure Mode</text>
+      </g>
+      <g transform="translate(702)">
+        <circle cx="68" cy="60" r="48" fill="#E2711D"/>
+        <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">DESIGN</text>
+        <text x="68" y="78" text-anchor="middle" fill="#FFF0E4" font-size="12">Taguchi Trial</text>
+      </g>
+      <g transform="translate(936)">
+        <circle cx="68" cy="60" r="48" fill="#3F7D58"/>
+        <text x="68" y="56" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">VERIFY</text>
+        <text x="68" y="78" text-anchor="middle" fill="#EAF4ED" font-size="12">기능 Sample 5개</text>
+      </g>
+      <g fill="#2B5C8A">
+        <path d="M122 60h92l-10-9 6-6 22 15-22 15-6-6 10-9h-92z"/>
+        <path d="M356 60h92l-10-9 6-6 22 15-22 15-6-6 10-9h-92z"/>
+        <path d="M590 60h92l-10-9 6-6 22 15-22 15-6-6 10-9h-92z"/>
+        <path d="M824 60h92l-10-9 6-6 22 15-22 15-6-6 10-9h-92z"/>
+      </g>
+    </g>
+
+    <g transform="translate(62 470)">
+      <rect width="1236" height="118" rx="4" fill="#1C232C"/>
+      <text x="618" y="32" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">TAGUCHI TRIAL MATRIX</text>
+      <text x="618" y="62" text-anchor="middle" fill="#DDE8EF" font-size="15">Jig·정렬 → Laser 기준위치·경로 → Can 삽입·조립 → 절단·해체·Hi-Pot·Short</text>
+      <text x="618" y="88" text-anchor="middle" fill="#F4B981" font-size="15">약 100개 Trial에서 Failure Mode 축소</text>
+      <text x="618" y="108" text-anchor="middle" fill="#93C6A4" font-size="15" font-weight="700">기능 Sample 5개 · IR · Formation · Capacity · Life · PROTO GATE COMPLETE</text>
+    </g>
+  </g>
+</svg>
