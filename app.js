@@ -164,7 +164,7 @@
       cardDetail: "기술사례 보기",
       filters: { manufacturing: "제조 성과", judgment: "실패 사례", dx: "제조 DX", ax: "제조 AX", personal: "개인 프로젝트" },
       allProjects: (count) => `전체 ${count}건 프로젝트`,
-      galleryHeading: "문제를 어떻게 판단하고<br>실행했는지 보여줍니다.",
+      galleryHeading: "사필귀정(事必歸正)의<br>마음으로 일해왔습니다.",
       galleryLead: "단순한 결과 나열을 넘어, 문제를 정의하고 원인을 분석해 실행·검증한 과정을 중심으로 구성했습니다. 제조 공정 개선, 설비 인수, 원인 분석, 팀 DX, 개인 AI 도입 등 프로젝트 성격에 따라 문제 접근 방식도 다르게 제시합니다.",
       frameworkAria: "핵심 문제 해결 체계",
       framework: [
@@ -211,7 +211,7 @@
       cardDetail: "View Case Study",
       filters: { manufacturing: "Manufacturing Results", judgment: "Failure Case", dx: "Manufacturing DX", ax: "Manufacturing AX", personal: "Personal Projects" },
       allProjects: (count) => `All ${count} Projects`,
-      galleryHeading: "How I assessed each problem<br>and carried it through execution.",
+      galleryHeading: '"Doing Right<br>Leads to Success"',
       galleryLead: "Rather than listing results alone, this portfolio shows how each problem was defined, analyzed, executed, and verified. The approach changes with the work: process improvement, equipment handover, failure analysis, team DX, or a personal AI project.",
       frameworkAria: "Core problem-solving framework",
       framework: [
