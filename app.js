@@ -86,8 +86,8 @@
   const localeCopy = Object.freeze({
     ko: {
       documentTitle: "이재흥 포트폴리오",
-      galleryDocumentTitle: "이재흥 포트폴리오 프로젝트 디자인 시안",
-      metaDescription: "제조·DX·AI 프로젝트 유형별 상세 페이지 디자인 시안",
+      galleryDocumentTitle: "이재흥 제조·공정기술 포트폴리오",
+      metaDescription: "제조·DX·AI 프로젝트 기술사례 포트폴리오",
       skipLink: "본문으로 바로가기",
       brandName: "이재흥",
       brandAria: "포트폴리오 메인으로 이동",
@@ -119,8 +119,8 @@
     },
     en: {
       documentTitle: "Jaeheung Lee Portfolio",
-      galleryDocumentTitle: "Jaeheung Lee Portfolio Project Design Preview",
-      metaDescription: "Design previews for manufacturing, DX, and AI project case pages",
+      galleryDocumentTitle: "Jaeheung Lee Manufacturing & Process Engineering Portfolio",
+      metaDescription: "Manufacturing, DX, and AI project case studies",
       skipLink: "Skip to main content",
       brandName: "Jaeheung Lee",
       brandAria: "Go to the portfolio home",
@@ -160,8 +160,8 @@
   const interfaceCopy = Object.freeze({
     ko: {
       personalProject: "개인 프로젝트",
-      cardReference: "기준 시안 보기",
-      cardDetail: "상세 시안 보기",
+      cardReference: "기술사례 보기",
+      cardDetail: "기술사례 보기",
       filters: { manufacturing: "제조 성과", judgment: "실패 사례", dx: "제조 DX", ax: "제조 AX", personal: "개인 프로젝트" },
       allProjects: (count) => `전체 ${count}건 프로젝트`,
       galleryHeading: "문제를 어떻게 판단하고<br>실행했는지 보여줍니다.",
@@ -173,8 +173,8 @@
         ["Result & Next Gate:", "성과와 결과물을 정리하고 후속 적용 방향과 배운 점을 구분"]
       ],
       filterAria: "프로젝트 유형 필터",
-      galleryAria: "프로젝트 상세 디자인 시안",
-      galleryFooter: "로컬 디자인 검토용 시안 · 운영 포트폴리오에는 아직 반영하지 않았습니다.",
+      galleryAria: "프로젝트 기술사례",
+      galleryFooter: "제조·공정기술 프로젝트 포트폴리오",
       tableSuffix: " 표",
       tocAria: "페이지 목차",
       tableScrollAria: "표 가로 스크롤 영역",
@@ -188,27 +188,27 @@
       yieldChartDescription: "초기 약 40%와 6개월 뒤 98.7%의 두 측정값을 선으로 연결한 그래프입니다.",
       featuredDescription: "제조 개선과 데이터 활용을 다룬 핵심 프로젝트 6건입니다.",
       featuredNote: "대표 프로젝트 6건을 먼저 보여드립니다. 전체 프로젝트는 기술사례 목록에서 확인할 수 있습니다.",
-      detailDocumentSuffix: "원문 보존 디자인 시안",
-      backToGallery: "전체 시안으로 돌아가기",
-      detailFooter: "현재 포트폴리오 원문·섹션·표·도식을 보존한 로컬 디자인 시안",
-      otherProjects: "다른 프로젝트 시안 보기 →",
-      fallbackDocumentSuffix: "디자인 시안",
+      detailDocumentSuffix: "기술사례",
+      backToGallery: "전체 기술사례로 돌아가기",
+      detailFooter: "제조·공정기술 프로젝트 기술사례",
+      otherProjects: "다른 기술사례 보기 →",
+      fallbackDocumentSuffix: "기술사례",
       summaryLabels: ["문제", "내 역할", "확인 결과"],
       overviewAria: "프로젝트 개요",
       summaryAria: "30초 요약",
       metricAria: "대표 수치",
       limitLabel: "확인 범위",
-      fallbackFooter: "로컬 디자인 검토용 · 사실 범위와 역할 경계를 보존한 시안",
-      notFoundTitle: "시안을 찾을 수 없음",
-      notFoundHeading: "해당 시안을 찾을 수 없습니다.",
+      fallbackFooter: "제조·공정기술 프로젝트 기술사례",
+      notFoundTitle: "기술사례를 찾을 수 없음",
+      notFoundHeading: "해당 기술사례를 찾을 수 없습니다.",
       requestedId: "요청한 ID",
       fourMHeaders: ["분석대상", "추정원인", "확인결과", "조치사항"],
       verdictLabel: "판정"
     },
     en: {
       personalProject: "Personal Project",
-      cardReference: "View Reference Design",
-      cardDetail: "View Case Design",
+      cardReference: "View Case Study",
+      cardDetail: "View Case Study",
       filters: { manufacturing: "Manufacturing Results", judgment: "Failure Case", dx: "Manufacturing DX", ax: "Manufacturing AX", personal: "Personal Projects" },
       allProjects: (count) => `All ${count} Projects`,
       galleryHeading: "How I assessed each problem<br>and carried it through execution.",
@@ -220,8 +220,8 @@
         ["Result & Next Gate:", "Separate the result and deliverables from lessons learned and the next application direction"]
       ],
       filterAria: "Project-type filter",
-      galleryAria: "Project case design previews",
-      galleryFooter: "Local design-review preview · Not yet applied to the live portfolio.",
+      galleryAria: "Project case studies",
+      galleryFooter: "Manufacturing & process engineering project portfolio",
       tableSuffix: " table",
       tocAria: "Page contents",
       tableScrollAria: "Horizontally scrollable table",
@@ -235,19 +235,19 @@
       yieldChartDescription: "A line connects the two measured values: about 40% initially and 98.7% six months later.",
       featuredDescription: "Six selected projects in manufacturing improvement and data application.",
       featuredNote: "These six projects are shown first. The complete portfolio is available under Technical Cases.",
-      detailDocumentSuffix: "Source-Preserving Design Preview",
-      backToGallery: "Back to All Case Designs",
-      detailFooter: "Local design preview preserving the current portfolio text, sections, tables, and diagrams",
-      otherProjects: "View Other Project Designs →",
-      fallbackDocumentSuffix: "Design Preview",
+      detailDocumentSuffix: "Case Study",
+      backToGallery: "Back to All Case Studies",
+      detailFooter: "Manufacturing & process engineering project case study",
+      otherProjects: "View Other Case Studies →",
+      fallbackDocumentSuffix: "Case Study",
       summaryLabels: ["Problem", "My Role", "Verified Result"],
       overviewAria: "Project overview",
       summaryAria: "30-second summary",
       metricAria: "Key metrics",
       limitLabel: "Verified Scope",
-      fallbackFooter: "Local design-review preview · Preserves the verified facts and role boundaries",
-      notFoundTitle: "Design Not Found",
-      notFoundHeading: "The requested design could not be found.",
+      fallbackFooter: "Manufacturing & process engineering project case study",
+      notFoundTitle: "Case Study Not Found",
+      notFoundHeading: "The requested case study could not be found.",
       requestedId: "Requested ID",
       fourMHeaders: ["Analysis Target", "Suspected Cause", "Verification Result", "Corrective Action"],
       verdictLabel: "Decision"
@@ -619,25 +619,41 @@
     }
   }
 
-  function buildSourceToc(content) {
-    const headings = [...content.querySelectorAll(":scope > h2")];
+  function sourceTocHeadings(content) {
+    return [...content.querySelectorAll("h2")]
+      .filter((heading) => !heading.closest(".project-resources"));
+  }
+
+  function buildSourceToc(content, variant = "desktop") {
+    const headings = sourceTocHeadings(content);
     if (!headings.length) return null;
 
-    const toc = document.createElement("nav");
-    toc.className = "detail-toc source-toc";
-    toc.setAttribute("aria-label", ui().tocAria);
-    const title = document.createElement("strong");
-    title.textContent = "PAGE INDEX";
-    toc.append(title);
+    const links = document.createElement("nav");
+    links.className = "source-toc__links";
+    links.setAttribute("aria-label", ui().tocAria);
 
     headings.forEach((heading, index) => {
       if (!heading.id) heading.id = `source-section-${index + 1}`;
       const link = document.createElement("a");
       link.href = `#${heading.id}`;
       link.textContent = `${String(index + 1).padStart(2, "0")} ${heading.textContent.trim()}`;
-      toc.append(link);
+      links.append(link);
     });
 
+    if (variant === "mobile") {
+      const toc = document.createElement("details");
+      toc.className = "source-toc-mobile";
+      const title = document.createElement("summary");
+      title.textContent = "PAGE INDEX";
+      toc.append(title, links);
+      return toc;
+    }
+
+    const toc = document.createElement("aside");
+    toc.className = "detail-toc source-toc";
+    const title = document.createElement("strong");
+    title.textContent = "PAGE INDEX";
+    toc.append(title, links);
     return toc;
   }
 
@@ -1323,6 +1339,114 @@
     });
   }
 
+  const projectVisualProfiles = {
+    "battery-2170-pilot": {
+      profile: "manufacturing-multicase"
+    },
+    "ncm-fat-sat": {
+      profile: "equipment-acceptance",
+      roles: ["overview", "primary-flow", "ownership", "gate", "risk", "gate", "gate", "handover", "related"]
+    },
+    "amat-akt-qual": {
+      profile: "customer-qualification",
+      roles: ["overview", "gap", "primary-flow", "risk", "retest", "documentation", "approval", "related"]
+    },
+    "ai-authority-evidence-plane": {
+      profile: "ax-authority",
+      roles: ["overview", "problem", "architecture", "validation", "roadmap", "resources"]
+    },
+    "battery-25p-lfp-development": {
+      profile: "npi-development",
+      roles: ["overview", "development-gate", "primary-flow", "risk", "evidence", "validation", "approval", "related"]
+    },
+    "battery-4695-production-transition": {
+      profile: "line-recovery",
+      roles: ["overview", "issue-map", "primary-flow", "ownership", "risk", "primary-case", "support-case", "support-case", "support-case", "support-case", "gate", "related"]
+    },
+    "battery-tabless-concept": {
+      profile: "concept-validation",
+      roles: ["overview", "development-gate", "primary-flow", "risk", "evidence", "prototype", "safety", "trial", "validation", "approval", "roadmap", "related"]
+    },
+    "can-supplier-pilot-transition": {
+      profile: "supplier-validation",
+      roles: ["overview", "primary-flow", "material", "process", "safety", "validation", "handover", "approval", "related"]
+    },
+    "cell-production-tracking": {
+      profile: "data-tool",
+      roles: ["overview", "impact", "architecture", "architecture", "ownership", "use-case", "impact", "handover", "related"]
+    },
+    "deep-learning-modeling": {
+      profile: "ai-method",
+      roles: ["overview", "architecture", "primary-flow", "gate", "roadmap", "validation", "resources"]
+    },
+    "diffuser-scaleup-failure": {
+      profile: "stop-decision",
+      roles: ["overview", "gap", "primary-flow", "validation", "stop", "risk", "roadmap", "stop-result"]
+    },
+    "giga-press-dx": {
+      profile: "team-dx",
+      roles: ["overview", "architecture", "architecture", "architecture", "ownership", "validation", "result", "roadmap", "related"]
+    },
+    "mixed-acid-bath-analysis": {
+      profile: "process-analysis",
+      roles: ["overview", "primary-flow", "primary-flow", "risk", "validation", "validation", "documentation", "result", "related"]
+    },
+    "ncm-pre-forming-validation": {
+      profile: "new-process",
+      roles: ["overview", "risk", "primary-case", "result", "related"]
+    },
+    "oled-anodizing-development": {
+      profile: "dual-process-development",
+      roles: ["overview", "problem", "primary-flow", "risk", "validation", "documentation", "result", "alternative", "validation", "documentation", "result", "related"]
+    },
+    "ontology-construction": {
+      profile: "knowledge-system",
+      roles: ["overview", "architecture", "impact", "architecture", "architecture", "architecture", "architecture", "validation", "use-case", "result", "roadmap", "resources"]
+    },
+    "robot-json-omniverse": {
+      profile: "robot-digital-twin",
+      roles: ["ownership", "flow", "architecture", "architecture", "flow", "architecture", "result", "roadmap"]
+    },
+    "robot-overhaul-standardization": {
+      profile: "overhaul-standard",
+      roles: ["overview", "problem", "risk", "primary-flow", "scale", "documentation", "result"]
+    },
+    "welding-vision-ai": {
+      profile: "vision-deployment",
+      roles: ["problem", "architecture", "architecture", "validation", "result"]
+    },
+    "wet-process-standardization": {
+      profile: "portfolio-index",
+      roles: ["overview", "index", "method", "primary-flow", "index", "assets"]
+    },
+    "ai-seolbi-learning-platform": {
+      profile: "personal-service",
+      roles: ["problem", "features", "primary-flow", "governance", "ownership", "result"]
+    },
+    "ai-unemployment-qna": {
+      profile: "personal-service",
+      roles: ["problem", "primary-flow", "architecture", "ownership", "result"]
+    }
+  };
+
+  function applyProjectVisualProfile(project, content) {
+    const config = projectVisualProfiles[project.id] || { profile: project.group };
+    content.dataset.projectProfile = config.profile;
+
+    const sections = [...content.querySelectorAll(":scope > .portfolio-structured-section")];
+    sections.forEach((section, index) => {
+      const role = config.roles?.[index] || section.dataset.sectionIntent || "detail";
+      section.dataset.visualRole = role;
+      section.classList.add(`portfolio-visual--${role}`);
+    });
+
+    content.querySelectorAll(".portfolio-step-rail, .portfolio-sequence-block").forEach((flow, index) => {
+      flow.dataset.flowIndex = String(index + 1).padStart(2, "0");
+      const ownerSection = flow.closest(".portfolio-structured-section");
+      flow.dataset.flowRole = ownerSection?.dataset.visualRole || "support";
+    });
+  }
+
   function enhanceStructuredSections(project, content) {
     content.classList.add("portfolio-layout", `portfolio-layout--${project.group}`);
     content.dataset.layoutType = project.group;
@@ -1341,6 +1465,8 @@
       enhanceStructuredProcessLists(content);
       markStructuredFactorSections(content);
     }
+
+    applyProjectVisualProfile(project, content);
   }
 
   function enhanceExactRevisedLayout(project, content) {
@@ -1437,6 +1563,8 @@
 
     const exactRevisedContentApplied = applyExactRevisedContent(project, article);
     if (!exactRevisedContentApplied) applyApprovedContentAdjustments(project, article);
+    host.dataset.projectId = project.id;
+    article.dataset.projectId = project.id;
     article.dataset.code = project.code;
     [...article.children].forEach((child) => {
       if (!child.classList.contains("portfolio-article__content")) child.classList.add("shell");
@@ -1467,9 +1595,11 @@
     const layout = document.createElement("div");
     layout.className = "shell source-body-layout";
     content.before(layout);
+    const mobileToc = buildSourceToc(content, "mobile");
+    if (mobileToc) layout.append(mobileToc);
     layout.append(content);
 
-    const toc = buildSourceToc(content);
+    const toc = buildSourceToc(content, "desktop");
     if (toc) layout.append(toc);
 
     article.querySelectorAll("a[href^='http']").forEach((link) => {

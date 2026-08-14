@@ -1252,6 +1252,204 @@ tbody td { color: var(--steel); font-size: 14px; }
 }
 .preserved-project .source-toc { margin-top: 76px; }
 
+/* Refactor preview: preserve every source node while clarifying project hierarchy. */
+.preserved-project .source-toc {
+  max-height: calc(100svh - var(--header-h) - 48px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.preserved-project .source-toc__links {
+  display: grid;
+  gap: 1px;
+}
+.preserved-project .source-toc__links a {
+  padding: 6px 0;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+.preserved-project .source-toc-mobile { display: none; }
+
+.preserved-project .portfolio-structured-section::before {
+  content: attr(data-section-index);
+  position: absolute;
+  top: 28px;
+  right: 0;
+  color: var(--blue);
+  font: 620 10px/1.4 var(--mono);
+}
+.preserved-project .portfolio-structured-section > h2 {
+  padding-right: 54px;
+}
+
+/* Body surfaces stay white. Pale blue is reserved for compact headers and table labels. */
+.preserved-project .portfolio-section--architecture,
+.preserved-project .team-system-flow,
+.preserved-project .mermaid,
+.preserved-project .portfolio-article__content pre,
+.preserved-project .portfolio-article__content .highlight,
+.preserved-project .portfolio-article__content .highlight pre,
+.preserved-project .portfolio-article__content .highlight code,
+.preserved-project .portfolio-article__content .highlight span {
+  background: var(--paper-raised) !important;
+}
+.preserved-project .portfolio-section--architecture {
+  padding-inline: 0;
+  border-inline: 0;
+}
+.preserved-project .portfolio-section--responsibility,
+.preserved-project .portfolio-section--output {
+  background: var(--paper-raised);
+}
+.preserved-project .team-system-flow,
+.preserved-project .mermaid,
+.preserved-project .portfolio-article__content pre {
+  border-color: var(--line-strong);
+}
+.preserved-project .mermaid svg {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Shared visual roles. These classes only restyle existing sections and never duplicate copy. */
+.preserved-project .portfolio-visual--primary-flow,
+.preserved-project .portfolio-visual--primary-case,
+.preserved-project .portfolio-visual--architecture {
+  border-top-width: 2px;
+  border-top-color: var(--blue);
+}
+.preserved-project .portfolio-visual--validation,
+.preserved-project .portfolio-visual--approval,
+.preserved-project .portfolio-visual--result,
+.preserved-project .portfolio-visual--handover,
+.preserved-project .portfolio-visual--gate {
+  border-top-width: 2px;
+  border-top-color: var(--green);
+}
+.preserved-project .portfolio-visual--risk,
+.preserved-project .portfolio-visual--gap,
+.preserved-project .portfolio-visual--issue-map {
+  border-top-color: var(--steel);
+}
+.preserved-project .portfolio-visual--primary-flow .portfolio-step-rail,
+.preserved-project .portfolio-visual--primary-flow .portfolio-sequence-block,
+.preserved-project .portfolio-visual--primary-case .portfolio-step-rail,
+.preserved-project .portfolio-visual--primary-case .portfolio-sequence-block {
+  border-top: 2px solid var(--blue);
+}
+.preserved-project .portfolio-visual--validation .portfolio-step-rail,
+.preserved-project .portfolio-visual--validation .portfolio-sequence-block,
+.preserved-project .portfolio-visual--approval .portfolio-step-rail,
+.preserved-project .portfolio-visual--approval .portfolio-sequence-block {
+  border-top-color: var(--green);
+}
+
+/* Project-specific hierarchy profiles. */
+.preserved-project [data-project-profile="equipment-acceptance"] .portfolio-visual--gate,
+.preserved-project [data-project-profile="equipment-acceptance"] .portfolio-visual--handover {
+  padding-left: 22px;
+  border-left: 3px solid var(--green);
+}
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--gap,
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--retest,
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--approval {
+  padding-left: 22px;
+}
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--gap {
+  border-left: 3px solid var(--steel);
+}
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--retest {
+  border-left: 3px solid var(--blue);
+}
+.preserved-project [data-project-profile="customer-qualification"] .portfolio-visual--approval {
+  border-left: 3px solid var(--green);
+}
+.preserved-project [data-project-profile="ax-authority"] .portfolio-visual--architecture,
+.preserved-project [data-project-profile="team-dx"] .portfolio-visual--architecture,
+.preserved-project [data-project-profile="knowledge-system"] .portfolio-visual--architecture,
+.preserved-project [data-project-profile="robot-digital-twin"] .portfolio-visual--architecture,
+.preserved-project [data-project-profile="vision-deployment"] .portfolio-visual--architecture,
+.preserved-project [data-project-profile="ai-method"] .portfolio-visual--architecture {
+  padding-left: 22px;
+  border-left: 3px solid var(--blue);
+}
+.preserved-project [data-project-profile="line-recovery"] .portfolio-visual--primary-case {
+  margin-top: 58px;
+  padding: 0 24px 24px;
+  border-inline: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+.preserved-project [data-project-profile="line-recovery"] .portfolio-visual--support-case {
+  margin-top: 32px;
+  padding-left: 20px;
+  border-left: 2px solid var(--line-strong);
+}
+.preserved-project [data-project-profile="line-recovery"] .portfolio-visual--support-case > h2 {
+  font-size: clamp(23px, 2.3vw, 29px);
+}
+.preserved-project [data-project-profile="npi-development"] .portfolio-visual--evidence,
+.preserved-project [data-project-profile="concept-validation"] .portfolio-visual--evidence,
+.preserved-project [data-project-profile="concept-validation"] .portfolio-visual--risk {
+  padding-left: 22px;
+  border-left: 3px solid var(--line-strong);
+}
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--material,
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--process,
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--safety,
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--validation {
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 3px solid var(--blue);
+}
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--safety,
+.preserved-project [data-project-profile="supplier-validation"] .portfolio-visual--validation {
+  border-left-color: var(--green);
+}
+.preserved-project [data-project-profile="data-tool"] .portfolio-visual--impact {
+  padding: 0 22px 24px;
+  border: 1px solid var(--line-strong);
+  border-top: 2px solid var(--green);
+}
+.preserved-project [data-project-profile="stop-decision"] {
+  --project-decision: #606870;
+}
+.preserved-project [data-project-profile="stop-decision"] .portfolio-structured-section {
+  border-top-color: color-mix(in srgb, var(--project-decision) 72%, var(--line-strong));
+}
+.preserved-project [data-project-profile="stop-decision"] .portfolio-visual--stop,
+.preserved-project [data-project-profile="stop-decision"] .portfolio-visual--stop-result {
+  padding: 0 24px 24px;
+  border: 1px solid var(--project-decision);
+  border-top-width: 3px;
+  background: var(--muted);
+}
+.preserved-project [data-project-profile="dual-process-development"] .portfolio-visual--alternative {
+  margin-top: 84px;
+  padding-left: 22px;
+  border-left: 3px solid var(--blue);
+}
+.preserved-project [data-project-profile="knowledge-system"] .portfolio-visual--architecture {
+  margin-top: 34px;
+}
+.preserved-project [data-project-profile="robot-digital-twin"] .portfolio-visual--ownership {
+  padding: 0 22px 24px;
+  border-inline: 1px solid var(--line-strong);
+}
+.preserved-project [data-project-profile="portfolio-index"] .portfolio-visual--index .source-table-wrap {
+  border-top: 2px solid var(--blue);
+}
+.preserved-project [data-project-profile="portfolio-index"] .portfolio-visual--index tbody tr {
+  transition: background-color 150ms ease;
+}
+.preserved-project [data-project-profile="portfolio-index"] .portfolio-visual--index tbody tr:hover {
+  background: var(--muted);
+}
+.preserved-project [data-project-profile="personal-service"] .portfolio-evidence-grid .portfolio-evidence-figure:first-child {
+  grid-column: 1 / -1;
+}
+
 .not-found { min-height: 70svh; padding: 90px 0; }
 .not-found h1 { margin: 12px 0; font: 700 42px/1.2 var(--display); }
 .not-found a { color: var(--blue); font-weight: 680; }
@@ -1260,6 +1458,36 @@ tbody td { color: var(--steel); font-size: 14px; }
 @media (max-width: 1080px) {
   .detail-layout { grid-template-columns: 1fr; }
   .detail-toc { display: none; }
+  .preserved-project .source-toc-mobile {
+    display: block;
+    grid-column: 1 / -1;
+    margin: 28px 0 0;
+    border-block: 1px solid var(--line-strong);
+    background: var(--paper-raised);
+  }
+  .preserved-project .source-toc-mobile summary {
+    min-height: 48px;
+    padding: 14px 44px 14px 0;
+    cursor: pointer;
+    color: var(--ink);
+    font: 650 12px/1.5 var(--mono);
+    list-style-position: inside;
+  }
+  .preserved-project .source-toc-mobile .source-toc__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 26px;
+    padding: 0 0 18px;
+    border-top: 1px solid var(--line);
+  }
+  .preserved-project .source-toc-mobile .source-toc__links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--steel);
+    font-size: 13px;
+  }
   .detail-hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .process-flow, .architecture { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .process-step:nth-child(2n), .architecture-node:nth-child(2n) { border-right: 0; }
@@ -1349,6 +1577,8 @@ tbody td { color: var(--steel); font-size: 14px; }
   .preserved-project .portfolio-case-metrics { display: flex; overflow-x: auto; }
   .preserved-project .portfolio-case-metrics > div { min-width: 260px; }
   .preserved-project .portfolio-article__content { padding-top: 22px; }
+  .preserved-project .source-toc-mobile { margin-top: 20px; }
+  .preserved-project .source-toc-mobile .source-toc__links { grid-template-columns: 1fr; }
   .preserved-project .portfolio-article__content > h2 { margin-top: 58px; font-size: 27px; }
   .preserved-project .portfolio-project-contract { padding-inline: 18px; }
   .preserved-project .portfolio-logic-rail figcaption { grid-template-columns: 1fr; }
@@ -1404,6 +1634,7 @@ tbody td { color: var(--steel); font-size: 14px; }
   }
   .preserved-project .portfolio-structured-section > h2 {
     padding-top: 20px;
+    padding-right: 42px;
     font-size: 25px;
   }
   .preserved-project .portfolio-project-framework {
@@ -1464,6 +1695,15 @@ tbody td { color: var(--steel); font-size: 14px; }
   }
   .preserved-project .portfolio-evidence-figure figcaption { grid-template-columns: 1fr; }
   .preserved-project .mermaid { padding: 16px; }
-  .preserved-project .mermaid svg { min-width: 640px; }
+  .preserved-project .mermaid svg { min-width: 0; }
+  .preserved-project [data-project-profile="line-recovery"] .portfolio-visual--primary-case,
+  .preserved-project [data-project-profile="stop-decision"] .portfolio-visual--stop,
+  .preserved-project [data-project-profile="stop-decision"] .portfolio-visual--stop-result,
+  .preserved-project [data-project-profile="data-tool"] .portfolio-visual--impact {
+    padding-inline: 16px;
+  }
+  .preserved-project [data-project-profile] .portfolio-structured-section {
+    scroll-margin-top: calc(var(--header-h) + 66px);
+  }
   .preserved-project .project-resources { padding-inline: 14px; }
 }
