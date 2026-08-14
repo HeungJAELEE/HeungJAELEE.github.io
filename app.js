@@ -779,7 +779,9 @@
   }
 
   function applyApprovedContentAdjustments(project, article) {
-    const approvedTitle = approvedProjectTitles[project.id];
+    const approvedTitle = locale === "en" || project.id === "battery-tabless-concept"
+      ? approvedProjectTitles[project.id]
+      : null;
     if (approvedTitle) {
       const title = article.querySelector(".portfolio-article__header h1");
       if (title) title.textContent = approvedTitle;
@@ -816,6 +818,533 @@
       table = table.nextElementSibling;
     }
     if (table?.tagName === "TABLE") replaceManufacturingHandoverTable(table);
+  }
+
+  function replaceDefinitionList(list, items) {
+    if (!list || !Array.isArray(items)) return;
+    list.replaceChildren(...items.map((item) => {
+      const row = document.createElement("div");
+      const term = document.createElement("dt");
+      const description = document.createElement("dd");
+      term.textContent = item.label;
+      description.textContent = item.value;
+      row.append(term, description);
+      return row;
+    }));
+  }
+
+  function applyExactRevisedContent(project, article) {
+    const revisedByLocale = locale === "en"
+      ? window.PORTFOLIO_REVISED_CONTENT_EN
+      : window.PORTFOLIO_REVISED_CONTENT_KO;
+    const revised = revisedByLocale?.[project.id];
+    if (!revised) return false;
+
+    const eyebrow = article.querySelector(".portfolio-article__eyebrow");
+    const stage = article.querySelector(".portfolio-article__stage");
+    const title = article.querySelector(".portfolio-article__header h1");
+    const lead = article.querySelector(".portfolio-article__lead");
+    if (eyebrow) eyebrow.textContent = revised.eyebrow;
+    if (stage) stage.textContent = revised.stage;
+    if (title) title.textContent = revised.title;
+    if (lead) lead.textContent = revised.lead;
+
+    replaceDefinitionList(article.querySelector(".portfolio-case-meta"), revised.meta);
+
+    const summary = article.querySelector(".portfolio-case-summary");
+    const summaryTitle = summary?.querySelector("h2");
+    if (summaryTitle) summaryTitle.textContent = revised.summaryTitle;
+    replaceDefinitionList(summary?.querySelector("dl"), revised.summary);
+
+    const content = article.querySelector(".portfolio-article__content");
+    if (!content) return false;
+    content.innerHTML = revised.bodyHtml;
+    article.dataset.revisedSourceHash = revised.sourceHash;
+    article.dataset.revisedSourceBytes = String(revised.sourceCounts.bytes);
+    article.dataset.revisedLocale = locale;
+    return true;
+  }
+
+  function removeEmptyContentArtifacts(root) {
+    if (!root) return;
+    const hasMeaningfulContent = (element) => Boolean(
+      element.textContent.trim()
+      || element.querySelector("img, picture, video, audio, svg, canvas, iframe, .mermaid")
+    );
+
+    root.querySelectorAll("tr").forEach((row) => {
+      if (!hasMeaningfulContent(row)) row.remove();
+    });
+    root.querySelectorAll("table").forEach((table) => {
+      if (!hasMeaningfulContent(table) || !table.querySelector("tr")) table.remove();
+    });
+    root.querySelectorAll("p, li, blockquote, pre").forEach((element) => {
+      if (!hasMeaningfulContent(element)) element.remove();
+    });
+    root.querySelectorAll(".table-wrap, .source-table-wrap").forEach((wrapper) => {
+      if (!wrapper.querySelector("table") && !hasMeaningfulContent(wrapper)) wrapper.remove();
+    });
+  }
+
+  function enhanceDmaicProcessFlow(content) {
+    const heading = [...content.children]
+      .find((element) => element.tagName === "H2" && /DMAIC/i.test(element.textContent.trim()));
+    if (!heading || heading.nextElementSibling?.classList.contains("portfolio-logic-rail--dmaic")) return;
+
+    const introduction = heading.nextElementSibling;
+    const list = introduction?.nextElementSibling;
+    if (!introduction || list?.tagName !== "OL") return;
+
+    const phases = "DEFINE|MEASURE|ANALYZE|IMPROVE|VERIFY|CONTROL";
+    const steps = [...list.children].map((item) => {
+      const sourceText = item.textContent.trim();
+      const visibleText = sourceText.replace(/\*+/g, "");
+      const match = visibleText.match(new RegExp(`^(\\d{2})\\s*(${phases})\\s*(.+)$`, "i"));
+      return match ? { item, sourceText, index: match[1], phase: match[2], detail: match[3].trim() } : null;
+    });
+    if (!steps.length || steps.some((step) => !step)) return;
+
+    const figure = document.createElement("figure");
+    figure.className = "portfolio-logic-rail portfolio-logic-rail--dmaic";
+    figure.dataset.sourceText = introduction.textContent.trim();
+
+    const caption = document.createElement("figcaption");
+    const introductionText = introduction.textContent.trim();
+    const highlightedText = introduction.querySelector("strong")?.textContent.trim() || "";
+    const highlightedIndex = highlightedText ? introductionText.indexOf(highlightedText) : -1;
+    const prefixText = highlightedIndex >= 0
+      ? introductionText.slice(0, highlightedIndex).trim()
+      : "";
+    const suffixText = highlightedIndex >= 0
+      ? introductionText.slice(highlightedIndex + highlightedText.length).trim()
+      : introductionText;
+
+    if (prefixText) {
+      const prefix = document.createElement("span");
+      prefix.textContent = prefixText.replace(/^\*+|\*+$/g, "").trim();
+      caption.append(prefix);
+    }
+    if (highlightedText) {
+      const highlight = document.createElement("strong");
+      highlight.textContent = highlightedText;
+      caption.append(highlight);
+    }
+    if (suffixText) {
+      const suffix = document.createElement("small");
+      suffix.textContent = suffixText.replace(/^\*+|\*+$/g, "").trim();
+      caption.append(suffix);
+    }
+
+    list.className = "portfolio-logic-rail__steps";
+    steps.forEach(({ item, sourceText, index, phase, detail }) => {
+      item.dataset.sourceText = sourceText;
+      const indexLabel = document.createElement("span");
+      indexLabel.className = "portfolio-logic-rail__index";
+      indexLabel.textContent = index;
+      const phaseLabel = document.createElement("b");
+      phaseLabel.textContent = phase;
+      const detailLabel = document.createElement("strong");
+      detailLabel.textContent = detail;
+      item.replaceChildren(indexLabel, phaseLabel, detailLabel);
+    });
+
+    heading.classList.add("portfolio-process-heading");
+    heading.after(figure);
+    figure.append(caption, list);
+    introduction.remove();
+  }
+
+  function mergeCaseAnalysisColumns(table) {
+    const headers = [...table.querySelectorAll("thead th")];
+    const rows = [...table.querySelectorAll("tbody tr")];
+    const factorNames = new Set(["Man", "Machine", "Material", "Method", "Measurement", "Environment"]);
+    if (headers.length !== 5 || rows.length < 4) return false;
+    if (!rows.every((row) => factorNames.has(row.cells[0]?.textContent.trim()))) return false;
+
+    const mergeCells = (primary, secondary, modifier) => {
+      if (!primary || !secondary) return;
+      const primaryPart = document.createElement("span");
+      primaryPart.className = `${modifier} ${modifier}--evidence`;
+      primaryPart.append(...primary.childNodes);
+      const secondaryPart = document.createElement("span");
+      secondaryPart.className = `${modifier} ${modifier}--verdict`;
+      secondaryPart.append(...secondary.childNodes);
+      primary.replaceChildren(primaryPart, document.createTextNode(" "), secondaryPart);
+      secondary.remove();
+    };
+
+    mergeCells(headers[2], headers[3], "case-analysis__header-part");
+    rows.forEach((row) => {
+      const cells = [...row.cells];
+      mergeCells(cells[2], cells[3], "case-analysis__result-part");
+    });
+    table.classList.add("analysis-4m-table", "analysis-4m-table--case");
+    table.dataset.originalColumns = "5";
+    table.dataset.visibleColumns = "4";
+    return true;
+  }
+
+  function wrapCaseSubsections(caseStudy) {
+    const headings = [...caseStudy.children].filter((element) => element.tagName === "H3");
+    headings.forEach((heading) => {
+      if (heading.parentElement !== caseStudy) return;
+      const group = document.createElement("section");
+      const title = heading.textContent.trim();
+      group.className = "portfolio-case-study__section";
+      if (["현상과 판정기준", "Phenomenon and Judgment Criteria"].includes(title)) {
+        group.classList.add("portfolio-case-study__criterion");
+      } else if (["재현·측정", "Reproduction and Measurement"].includes(title)) {
+        group.classList.add("portfolio-case-study__measurement");
+      } else if (/(?:분석|Analysis)$/.test(title)) {
+        group.classList.add("portfolio-case-study__analysis");
+      } else if (["조치·재시험", "Action and Retesting"].includes(title)) {
+        group.classList.add("portfolio-case-study__action");
+      }
+      else group.classList.add("portfolio-case-study__result");
+
+      heading.before(group);
+      group.append(heading);
+      let sibling = group.nextElementSibling;
+      while (sibling && sibling.tagName !== "H3") {
+        const next = sibling.nextElementSibling;
+        group.append(sibling);
+        sibling = next;
+      }
+    });
+  }
+
+  function groupCaseSections(caseStudy, selector, className) {
+    const sections = [...caseStudy.querySelectorAll(`:scope > ${selector}`)];
+    if (sections.length < 2) return;
+    const group = document.createElement("div");
+    group.className = className;
+    sections[0].before(group);
+    sections.forEach((section) => group.append(section));
+  }
+
+  function structureManufacturingCase(caseStudy) {
+    const firstSubheading = [...caseStudy.children].find((element) => element.tagName === "H3");
+    const headerNodes = [];
+    let cursor = caseStudy.firstElementChild;
+    while (cursor && cursor !== firstSubheading) {
+      headerNodes.push(cursor);
+      cursor = cursor.nextElementSibling;
+    }
+    if (headerNodes.length < 5) return;
+
+    const header = document.createElement("header");
+    header.className = "portfolio-case-study__header";
+    headerNodes[0].before(header);
+    headerNodes.forEach((node) => header.append(node));
+
+    const caseHeadings = [...header.querySelectorAll(":scope > h2")];
+    const meta = [...header.querySelectorAll(":scope > p")];
+    caseHeadings[0]?.classList.add("portfolio-case-study__case-title");
+    caseHeadings[1]?.classList.add("portfolio-case-study__work-title");
+    meta[0]?.classList.add("portfolio-case-study__number");
+    meta[1]?.classList.add("portfolio-case-study__domain");
+    meta[2]?.classList.add("portfolio-case-study__lead");
+
+    wrapCaseSubsections(caseStudy);
+    groupCaseSections(
+      caseStudy,
+      ".portfolio-case-study__criterion, .portfolio-case-study__measurement",
+      "portfolio-case-study__decision-grid"
+    );
+    groupCaseSections(
+      caseStudy,
+      ".portfolio-case-study__action, .portfolio-case-study__result",
+      "portfolio-case-study__outcome-grid"
+    );
+
+    caseStudy.querySelectorAll(".portfolio-case-study__analysis table")
+      .forEach((table) => mergeCaseAnalysisColumns(table));
+  }
+
+  function enhanceManufacturingCaseStudies(content) {
+    const caseHeadingPattern = /^(?:사례|Case)\s+\d+\./i;
+    const caseHeadings = [...content.children]
+      .filter((element) => element.tagName === "H2" && caseHeadingPattern.test(element.textContent.trim()));
+
+    caseHeadings.forEach((caseHeading) => {
+      if (caseHeading.closest(".portfolio-case-study")) return;
+      const nodes = [];
+      let cursor = caseHeading;
+      let workTitleSeen = false;
+      while (cursor) {
+        if (cursor !== caseHeading && cursor.tagName === "H2") {
+          if (caseHeadingPattern.test(cursor.textContent.trim()) || workTitleSeen) break;
+          workTitleSeen = true;
+        }
+        nodes.push(cursor);
+        cursor = cursor.nextElementSibling;
+      }
+      if (nodes.length < 6) return;
+
+      const caseStudy = document.createElement("section");
+      caseStudy.className = "portfolio-case-study";
+      caseHeading.before(caseStudy);
+      nodes.forEach((node) => caseStudy.append(node));
+      structureManufacturingCase(caseStudy);
+    });
+  }
+
+  const sectionIntentTokens = Object.freeze({
+    problem: [
+      "배경", "문제", "과제", "프로젝트 개요", "추진 배경", "AS-IS", "Gap", "공정조건 변화",
+      "background", "problem", "challenge", "as-is", "gap"
+    ],
+    flow: [
+      "흐름", "순서", "DMAIC", "DMADV", "개발·양산 이관 승인조건", "승인조건", "작업 Tree",
+      "flow", "sequence", "process", "workflow", "gate"
+    ],
+    analysis: [
+      "4M", "5M", "원인", "위험", "분석", "FMEA", "고장 모드", "판정", "CTQ", "Correlation",
+      "analysis", "risk", "failure mode", "decision", "correlation"
+    ],
+    architecture: [
+      "시스템 구성", "통합 시스템", "구조", "아키텍처", "Data Standardization", "Incremental Sync",
+      "Search & Reranking", "Mapping", "JSON", "Digital Twin", "VBA Application", "Data 처리",
+      "system", "architecture", "data engineering", "modeling", "deployment", "round-trip"
+    ],
+    responsibility: [
+      "역할", "책임", "담당 범위", "직접 구현", "직접 설계", "업무 분장", "오너십", "직접 수행",
+      "role", "responsibility", "ownership", "directly implemented"
+    ],
+    verification: [
+      "검증", "시험", "확인", "Pilot", "Qual", "평가", "시연", "Evidence", "현재 상태", "현재 구현",
+      "검수", "Punch", "결과", "성과", "verification", "test", "result", "outcome", "evidence"
+    ],
+    output: [
+      "표준", "문서", "현장 이관", "향후", "다음", "차후", "연계", "공개", "운영범위", "기술자산",
+      "standard", "handover", "next", "future", "public", "operation", "asset"
+    ]
+  });
+
+  function sectionIntent(title) {
+    const normalized = title.toLowerCase();
+    const order = ["problem", "responsibility", "flow", "analysis", "architecture", "verification", "output"];
+    return order.find((intent) => sectionIntentTokens[intent]
+      .some((token) => normalized.includes(token.toLowerCase()))) || "detail";
+  }
+
+  function wrapStructuredTopLevelSections(content) {
+    const headings = [...content.children]
+      .filter((element) => element.tagName === "H2");
+
+    headings.forEach((heading, index) => {
+      if (heading.parentElement !== content) return;
+      const section = document.createElement("section");
+      const intent = sectionIntent(heading.textContent.trim());
+      section.className = `portfolio-structured-section portfolio-section--${intent}`;
+      section.dataset.sectionIntent = intent;
+      section.dataset.sectionIndex = String(index + 1).padStart(2, "0");
+      heading.before(section);
+      section.append(heading);
+
+      let sibling = section.nextElementSibling;
+      while (sibling && sibling.tagName !== "H1" && sibling.tagName !== "H2") {
+        const next = sibling.nextElementSibling;
+        section.append(sibling);
+        sibling = next;
+      }
+    });
+
+    [...content.children]
+      .filter((element) => element.tagName === "H1")
+      .forEach((heading) => heading.classList.add("portfolio-chapter-heading"));
+  }
+
+  function wrapStructuredSubsections(section) {
+    const headings = [...section.children]
+      .filter((element) => element.tagName === "H3");
+    if (!headings.length) return;
+
+    const groups = headings.map((heading) => {
+      const group = document.createElement("section");
+      group.className = "portfolio-subsection";
+      group.dataset.sectionIntent = sectionIntent(heading.textContent.trim());
+      heading.before(group);
+      group.append(heading);
+      let sibling = group.nextElementSibling;
+      while (sibling && sibling.tagName !== "H3") {
+        const next = sibling.nextElementSibling;
+        group.append(sibling);
+        sibling = next;
+      }
+      return group;
+    });
+
+    const grid = document.createElement("div");
+    grid.className = "portfolio-subsection-grid";
+    if (groups.length === 1) grid.classList.add("portfolio-subsection-grid--single");
+    if (groups.some((group) => group.querySelector("table, pre, .highlight, img, iframe, .mermaid"))) {
+      grid.classList.add("portfolio-subsection-grid--stacked");
+    }
+    groups[0].before(grid);
+    groups.forEach((group) => grid.append(group));
+  }
+
+  function enhanceInlineMermaidDiagrams(content) {
+    const diagramPattern = /^(?:(?:flowchart|graph)\s+(?:TB|TD|BT|RL|LR)\b|stateDiagram(?:-v2)?\b|sequenceDiagram\b|classDiagram\b|erDiagram\b|journey\b|gantt\b|pie\b)/i;
+    const normalizeDiagramSource = (sourceText) => sourceText
+      .replace(/^((?:flowchart|graph)\s+(?:TB|TD|BT|RL|LR))\s+/i, "$1\n")
+      .replace(/^(stateDiagram(?:-v2)?)\s+/i, "$1\n")
+      .replace(/^(sequenceDiagram)\s+/i, "$1\n")
+      .replace(/--\s*"([^"]+)"\s*-->/g, "-->|$1|")
+      .replace(/(\]|\}|\)|[A-Za-z][\w-]*)\s+(?=(?:\[\*\]|[A-Za-z][\w-]*(?:\[[^\]]*\]|\{[^}]*\}|\([^)]*\))?)\s+(?:-->|<-->|---|-.->|==>))/g, "$1\n")
+      .replace(/\s+(?=(?:actor|participant|loop|alt|opt|par|rect|critical|break|else|end)\b|[A-Za-z][\w-]*-+>>?[A-Za-z])/g, "\n");
+    [...content.querySelectorAll("p")].forEach((paragraph) => {
+      const sourceText = paragraph.textContent.trim();
+      if (!diagramPattern.test(sourceText)) return;
+      const diagram = document.createElement("div");
+      diagram.className = "mermaid portfolio-inline-diagram";
+      diagram.dataset.sourceText = sourceText;
+      diagram.dataset.renderSource = normalizeDiagramSource(sourceText);
+      diagram.textContent = diagram.dataset.renderSource;
+      paragraph.replaceWith(diagram);
+    });
+  }
+
+  function wrapStructuredIntro(content) {
+    const firstSection = [...content.children]
+      .find((element) => element.classList.contains("portfolio-structured-section"));
+    if (!firstSection) return;
+
+    const leading = [];
+    let cursor = content.firstElementChild;
+    while (cursor && cursor !== firstSection) {
+      if (cursor.tagName === "H1") return;
+      leading.push(cursor);
+      cursor = cursor.nextElementSibling;
+    }
+    if (!leading.some((element) => element.tagName === "OL")) return;
+
+    const framework = document.createElement("section");
+    framework.className = "portfolio-project-framework";
+    framework.dataset.sectionIntent = "flow";
+    leading[0].before(framework);
+    leading.forEach((element) => framework.append(element));
+  }
+
+  function enhanceStructuredArrowFlows(content) {
+    content.querySelectorAll("pre").forEach((block) => {
+      if (block.classList.contains("portfolio-sequence-block")) return;
+      const source = block.querySelector(":scope > code") || block;
+      const lines = source.textContent.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+      if (lines.length < 4 || lines.length > 12) return;
+      const arrowLines = lines.filter((line) => line.startsWith("→") || line.includes(" → ")).length;
+      if (arrowLines < lines.length - 1) return;
+
+      block.classList.add("portfolio-sequence-block");
+      const columns = lines.length > 8 ? 5 : lines.length > 6 ? 4 : lines.length;
+      block.style.setProperty("--sequence-columns", String(columns));
+      block.dataset.stepColumns = String(columns);
+      block.dataset.stepCount = String(lines.length);
+      block.classList.toggle("portfolio-sequence-block--wrapped", lines.length > columns);
+      const steps = lines.map((line) => {
+        const step = document.createElement("span");
+        step.className = "portfolio-sequence-block__step";
+        step.dataset.sourceText = line;
+        const match = line.match(/^(→\s*)?(.+)$/);
+        if (match?.[1]) {
+          const sourceArrow = document.createElement("span");
+          sourceArrow.className = "portfolio-sequence-block__source-arrow";
+          sourceArrow.textContent = match[1];
+          const text = document.createElement("span");
+          text.className = "portfolio-sequence-block__text";
+          text.textContent = match[2];
+          step.append(sourceArrow, text);
+        } else {
+          step.textContent = line;
+        }
+        return step;
+      });
+      source.replaceChildren(...steps);
+    });
+  }
+
+  function enhanceStructuredProcessLists(content) {
+    content.querySelectorAll(".portfolio-structured-section, .portfolio-project-framework").forEach((section) => {
+      section.querySelectorAll(":scope > ol").forEach((list) => {
+        const items = [...list.children].filter((item) => item.tagName === "LI");
+        if (items.length < 3 || items.length > 12 || list.querySelector("ol, ul")) return;
+
+        const parsed = items.map((item) => {
+          const sourceText = item.textContent.trim();
+          const match = sourceText.match(/^(\d{2})\s*([^*]+?)\*+(.+)$/);
+          return match ? { item, sourceText, index: match[1], phase: match[2].trim(), detail: match[3].trim() } : null;
+        });
+        if (parsed.some((step) => !step)) return;
+
+        const columns = items.length > 8 ? 5 : items.length > 6 ? 4 : items.length;
+        list.classList.add("portfolio-step-rail");
+        list.classList.toggle("portfolio-step-rail--wrapped", items.length > columns);
+        list.style.setProperty("--step-columns", String(columns));
+        list.dataset.stepColumns = String(columns);
+        list.dataset.stepCount = String(items.length);
+
+        parsed.forEach(({ item, sourceText, index, phase, detail }) => {
+          item.dataset.sourceText = sourceText;
+          const indexLabel = document.createElement("span");
+          indexLabel.className = "portfolio-step-rail__index";
+          indexLabel.textContent = index;
+          const phaseLabel = document.createElement("b");
+          phaseLabel.textContent = phase;
+          const detailLabel = document.createElement("strong");
+          detailLabel.textContent = detail;
+          item.replaceChildren(indexLabel, phaseLabel, detailLabel);
+        });
+      });
+    });
+  }
+
+  function enhanceStructuredFactorTables(content) {
+    const factorNames = new Set(["Man", "Machine", "Material", "Method", "Measurement", "Environment"]);
+    content.querySelectorAll("table").forEach((table) => {
+      const headerCount = table.querySelectorAll("thead th").length;
+      const rows = [...table.querySelectorAll("tbody tr")];
+      const factorRows = rows.filter((row) => factorNames.has(row.cells[0]?.textContent.trim()));
+      if (factorRows.length < 4 || headerCount < 4) return;
+      const belongsToCaseStudy = Boolean(table.closest(".portfolio-case-study"));
+      if (headerCount === 5 && table.dataset.visibleColumns !== "4") {
+        mergeCaseAnalysisColumns(table);
+      }
+      if (!belongsToCaseStudy) table.classList.remove("analysis-4m-table--case");
+      table.classList.add("analysis-factor-table--structured");
+    });
+  }
+
+  function markStructuredFactorSections(content) {
+    content.querySelectorAll(".portfolio-structured-section").forEach((section) => {
+      if (section.querySelector(".analysis-factor-table--structured")) {
+        section.classList.add("portfolio-section--factor-analysis");
+      }
+    });
+  }
+
+  function enhanceStructuredSections(project, content) {
+    content.classList.add("portfolio-layout", `portfolio-layout--${project.group}`);
+    content.dataset.layoutType = project.group;
+
+    enhanceDmaicProcessFlow(content);
+    if (project.group === "manufacturing") enhanceManufacturingCaseStudies(content);
+    enhanceStructuredFactorTables(content);
+
+    if (project.id !== "battery-2170-pilot") {
+      enhanceInlineMermaidDiagrams(content);
+      wrapStructuredTopLevelSections(content);
+      wrapStructuredIntro(content);
+      content.querySelectorAll(".portfolio-structured-section")
+        .forEach((section) => wrapStructuredSubsections(section));
+      enhanceStructuredArrowFlows(content);
+      enhanceStructuredProcessLists(content);
+      markStructuredFactorSections(content);
+    }
+  }
+
+  function enhanceExactRevisedLayout(project, content) {
+    enhanceStructuredSections(project, content);
   }
 
   function applyHomeTitleAdjustments(root) {
@@ -906,7 +1435,8 @@
     const article = host?.querySelector(".portfolio-article");
     if (!host || !article) return;
 
-    applyApprovedContentAdjustments(project, article);
+    const exactRevisedContentApplied = applyExactRevisedContent(project, article);
+    if (!exactRevisedContentApplied) applyApprovedContentAdjustments(project, article);
     article.dataset.code = project.code;
     [...article.children].forEach((child) => {
       if (!child.classList.contains("portfolio-article__content")) child.classList.add("shell");
@@ -914,6 +1444,13 @@
 
     const content = article.querySelector(".portfolio-article__content");
     if (!content) return;
+
+    article.classList.add("portfolio-layout", `portfolio-layout--${project.group}`);
+    article.dataset.layoutType = project.group;
+
+    removeEmptyContentArtifacts(content);
+
+    enhanceExactRevisedLayout(project, content);
 
     content.querySelectorAll("table").forEach((table) => {
       if (table.parentElement?.classList.contains("table-wrap")) return;
@@ -924,6 +1461,8 @@
       table.before(wrapper);
       wrapper.append(table);
     });
+
+    removeEmptyContentArtifacts(content);
 
     const layout = document.createElement("div");
     layout.className = "shell source-body-layout";
