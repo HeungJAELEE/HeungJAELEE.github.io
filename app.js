@@ -178,8 +178,8 @@
       tableSuffix: " 표",
       tocAria: "페이지 목차",
       tableScrollAria: "표 가로 스크롤 영역",
-      homeHeroTitle: "데이터를 기반으로 현상을 분석하고 문제를 해결해 왔습니다.",
-      homeHeroTitleLines: ["데이터를 기반으로 현상을 분석하고", "문제를 해결해 왔습니다."],
+      homeHeroTitle: "현상을 원인으로 단정하지 않고, 문제부터 다시 정의하는 제조·공정 엔지니어입니다.",
+      homeHeroTitleLines: ["현상을 원인으로 단정하지 않고,", "문제부터 다시 정의하는", "제조·공정 엔지니어입니다."],
       homeHeroDescription: "데이터를 기반으로 현상을 분석하고, 근본적인 문제를 해결하는 10년 차 제조·공정 엔지니어입니다. 이차전지 및 디스플레이 부품 제조 현장에서 직관적인 조건 변경을 지양하고, 설비 상태와 측정 시스템(MSA) 검증을 문제 해결의 출발점으로 삼아왔습니다. 일례로 2170 배터리 라인에서는 4M 대조 시험과 Vision 검사 과잉 스펙 최적화를 통해 40%였던 초기 수율을 월평균 98.7%까지 끌어올렸습니다. 검증된 데이터는 항상 Recipe와 QCP, P-FMEA 등 표준으로 문서화하여 만성 로스를 개선하였습니다.",
       portraitDomain: "배터리·디스플레이·진공로봇 Domain지식",
       yieldChartStartLabel: "실질 수율",
@@ -225,8 +225,8 @@
       tableSuffix: " table",
       tocAria: "Page contents",
       tableScrollAria: "Horizontally scrollable table",
-      homeHeroTitle: "I use data to analyze shop-floor conditions and solve the underlying problems.",
-      homeHeroTitleLines: ["I use data to analyze shop-floor conditions", "and solve the underlying problems."],
+      homeHeroTitle: "I am a manufacturing and process engineer who does not mistake symptoms for causes and starts by reframing the problem.",
+      homeHeroTitleLines: ["I do not mistake symptoms for causes.", "I start by reframing the problem", "as a manufacturing and process engineer."],
       homeHeroDescription: "I am a manufacturing and process engineer with 10 years of experience analyzing shop-floor conditions with data and solving root causes. Across battery and display-component manufacturing, I avoid changing process settings on intuition alone and begin with equipment condition and measurement system analysis (MSA). On a 2170 battery line, I used controlled 4M comparison trials and optimized an over-restrictive Vision inspection specification, improving initial yield from 40% to a 98.7% monthly average. I documented verified conditions in Recipes, QCPs, P-FMEAs, and related standards to eliminate chronic losses.",
       portraitDomain: "Domain knowledge in batteries, displays, and vacuum robots",
       yieldChartStartLabel: "Actual yield",
@@ -1007,16 +1007,19 @@
       const group = document.createElement("section");
       const title = heading.textContent.trim();
       group.className = "portfolio-case-study__section";
-      if (["현상과 판정기준", "Phenomenon and Judgment Criteria"].includes(title)) {
+      if (["현상과 판정기준", "초기 현상", "Phenomenon and Judgment Criteria", "Initial Condition"].includes(title)) {
         group.classList.add("portfolio-case-study__criterion");
-      } else if (["재현·측정", "Reproduction and Measurement"].includes(title)) {
+      } else if (["재현·측정", "문제 재정의와 재현·측정", "Reproduction and Measurement", "Problem Reframing and Reproduction"].includes(title)) {
         group.classList.add("portfolio-case-study__measurement");
+      } else if (["측정 신뢰성 확보", "Measurement Reliability"].includes(title)) {
+        group.classList.add("portfolio-case-study__reliability");
       } else if (/(?:분석|Analysis)$/.test(title)) {
         group.classList.add("portfolio-case-study__analysis");
       } else if (["조치·재시험", "Action and Retesting"].includes(title)) {
         group.classList.add("portfolio-case-study__action");
-      }
-      else group.classList.add("portfolio-case-study__result");
+      } else if (["결과물과 재·개정 문서 항목", "Deliverables and Revised Documents"].includes(title)) {
+        group.classList.add("portfolio-case-study__documents");
+      } else group.classList.add("portfolio-case-study__result");
 
       heading.before(group);
       group.append(heading);
@@ -1067,11 +1070,25 @@
       ".portfolio-case-study__criterion, .portfolio-case-study__measurement",
       "portfolio-case-study__decision-grid"
     );
-    groupCaseSections(
-      caseStudy,
-      ".portfolio-case-study__action, .portfolio-case-study__result",
-      "portfolio-case-study__outcome-grid"
-    );
+    const hasReliabilitySection = Boolean(caseStudy.querySelector(":scope > .portfolio-case-study__reliability"));
+    if (hasReliabilitySection) {
+      groupCaseSections(
+        caseStudy,
+        ".portfolio-case-study__reliability, .portfolio-case-study__action",
+        "portfolio-case-study__action-grid"
+      );
+      groupCaseSections(
+        caseStudy,
+        ".portfolio-case-study__result, .portfolio-case-study__documents",
+        "portfolio-case-study__outcome-grid"
+      );
+    } else {
+      groupCaseSections(
+        caseStudy,
+        ".portfolio-case-study__action, .portfolio-case-study__result",
+        "portfolio-case-study__outcome-grid"
+      );
+    }
 
     caseStudy.querySelectorAll(".portfolio-case-study__analysis table")
       .forEach((table) => mergeCaseAnalysisColumns(table));
@@ -1325,6 +1342,29 @@
       const belongsToCaseStudy = Boolean(table.closest(".portfolio-case-study"));
       if (headerCount === 5 && table.dataset.visibleColumns !== "4") {
         mergeCaseAnalysisColumns(table);
+      }
+      const visibleHeaders = [...table.querySelectorAll("thead th")];
+      ui().fourMHeaders.forEach((label, index) => {
+        if (visibleHeaders[index]) visibleHeaders[index].textContent = label;
+      });
+
+      const supportRows = [...table.querySelectorAll("tbody tr")]
+        .filter((row) => ["Measurement", "Environment"].includes(row.cells[0]?.textContent.trim()));
+      if (supportRows.length) {
+        const support = document.createElement("div");
+        support.className = "portfolio-factor-support";
+        supportRows.forEach((row) => {
+          const cells = [...row.cells];
+          const item = document.createElement("section");
+          const title = document.createElement("h4");
+          const body = document.createElement("p");
+          title.textContent = cells[0]?.textContent.trim() || "";
+          body.textContent = cells.slice(1).map((cell) => cell.textContent.trim()).filter(Boolean).join(" · ");
+          item.append(title, body);
+          support.append(item);
+          row.remove();
+        });
+        table.after(support);
       }
       if (!belongsToCaseStudy) table.classList.remove("analysis-4m-table--case");
       table.classList.add("analysis-factor-table--structured");

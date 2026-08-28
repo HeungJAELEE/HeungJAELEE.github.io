@@ -731,6 +731,7 @@ tbody td { color: var(--steel); font-size: 14px; }
   text-wrap: balance;
 }
 .preserved-project .portfolio-case-study__decision-grid,
+.preserved-project .portfolio-case-study__action-grid,
 .preserved-project .portfolio-case-study__outcome-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -763,6 +764,12 @@ tbody td { color: var(--steel); font-size: 14px; }
   border-bottom: 1px solid var(--line);
 }
 .preserved-project .portfolio-case-study__decision-grid > section + section {
+  border-left: 1px solid var(--line);
+}
+.preserved-project .portfolio-case-study__action-grid {
+  border-bottom: 1px solid var(--line);
+}
+.preserved-project .portfolio-case-study__action-grid > section + section {
   border-left: 1px solid var(--line);
 }
 .preserved-project .portfolio-case-study__criterion {
@@ -815,6 +822,29 @@ tbody td { color: var(--steel); font-size: 14px; }
 .preserved-project .case-analysis__result-part--verdict {
   color: var(--ink);
   font-weight: 620;
+}
+.preserved-project .portfolio-factor-support {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.preserved-project .portfolio-factor-support > section {
+  min-width: 0;
+  padding: 18px 26px 20px;
+}
+.preserved-project .portfolio-factor-support > section + section {
+  border-left: 1px solid var(--line);
+}
+.preserved-project .portfolio-factor-support h4 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font: 650 11px/1.45 var(--mono);
+}
+.preserved-project .portfolio-factor-support p {
+  margin: 0;
+  color: var(--steel);
+  font-size: 13px;
+  line-height: 1.65;
 }
 .preserved-project .portfolio-case-study__outcome-grid > section + section {
   border-left: 1px solid var(--line);
@@ -1615,12 +1645,19 @@ tbody td { color: var(--steel); font-size: 14px; }
     grid-row: 4;
   }
   .preserved-project .portfolio-case-study__decision-grid,
+  .preserved-project .portfolio-case-study__action-grid,
   .preserved-project .portfolio-case-study__outcome-grid {
     grid-template-columns: 1fr;
   }
   .preserved-project .portfolio-case-study__section { padding: 22px 18px 24px; }
   .preserved-project .portfolio-case-study__decision-grid > section + section,
+  .preserved-project .portfolio-case-study__action-grid > section + section,
   .preserved-project .portfolio-case-study__outcome-grid > section + section {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+  .preserved-project .portfolio-factor-support { grid-template-columns: 1fr; }
+  .preserved-project .portfolio-factor-support > section + section {
     border-top: 1px solid var(--line);
     border-left: 0;
   }
