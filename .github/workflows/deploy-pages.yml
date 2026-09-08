@@ -57,10 +57,10 @@ jobs:
           for relative_path, route in route_checks.items():
               text = (root / relative_path).read_text(encoding='utf-8')
               assert re.search(r'id=(?:"app"|app)', text), f'{relative_path}: application root'
-              assert './components.css?v=20260814-16' in text, f'{relative_path}: stylesheet version'
-              assert './app.js?v=20260814-16' in text, f'{relative_path}: runtime version'
-              assert './revised-content-ko.js?v=20260814-16' in text, f'{relative_path}: Korean bundle'
-              assert './revised-content-en.js?v=20260814-16' in text, f'{relative_path}: English bundle'
+              assert './components.css?v=20260908-portrait-color' in text, f'{relative_path}: stylesheet version'
+              assert './app.js?v=20260908-portrait-color' in text, f'{relative_path}: runtime version'
+              assert './revised-content-ko.js?v=20260908-portrait-color' in text, f'{relative_path}: Korean bundle'
+              assert './revised-content-en.js?v=20260908-portrait-color' in text, f'{relative_path}: English bundle'
               assert route in text, f'{relative_path}: route {route}'
 
           for name in required_assets:

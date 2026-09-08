@@ -164,8 +164,8 @@
       cardDetail: "기술사례 보기",
       filters: { manufacturing: "제조 성과", judgment: "실패 사례", dx: "제조 DX", ax: "제조 AX", personal: "개인 프로젝트" },
       allProjects: (count) => `전체 ${count}건 프로젝트`,
-      galleryHeading: "사필귀정(事必歸正)의<br>마음으로 일해왔습니다.",
-      galleryLead: "단순한 결과 나열을 넘어, 문제를 정의하고 원인을 분석해 실행·검증한 과정을 중심으로 구성했습니다. 제조 공정 개선, 설비 인수, 원인 분석, 팀 DX, 개인 AI 도입 등 프로젝트 성격에 따라 문제 접근 방식도 다르게 제시합니다.",
+      galleryHeading: "문제를 어떻게 다시 정의하고<br>검증했는지 보여줍니다.",
+      galleryLead: "처음 보인 현상을 곧바로 원인으로 단정하지 않았습니다. 설비 상태와 측정 신뢰성을 먼저 확인하고, 4M 후보를 나눈 뒤 같은 조건에서 재시험한 과정을 프로젝트별로 정리했습니다.",
       frameworkAria: "핵심 문제 해결 체계",
       framework: [
         ["Define:", "직면한 문제와 책임 범위(R&R)를 명확히 정의"],
@@ -178,14 +178,16 @@
       tableSuffix: " 표",
       tocAria: "페이지 목차",
       tableScrollAria: "표 가로 스크롤 영역",
-      homeHeroTitle: "현상을 원인으로 단정하지 않고, 문제부터 다시 정의하는 제조·공정 엔지니어입니다.",
-      homeHeroTitleLines: ["현상을 원인으로 단정하지 않고,", "문제부터 다시 정의하는", "제조·공정 엔지니어입니다."],
-      homeHeroDescription: "데이터를 기반으로 현상을 분석하고, 근본적인 문제를 해결하는 10년 차 제조·공정 엔지니어입니다. 이차전지 및 디스플레이 부품 제조 현장에서 직관적인 조건 변경을 지양하고, 설비 상태와 측정 시스템(MSA) 검증을 문제 해결의 출발점으로 삼아왔습니다. 일례로 2170 배터리 라인에서는 4M 대조 시험과 Vision 검사 과잉 스펙 최적화를 통해 40%였던 초기 수율을 월평균 98.7%까지 끌어올렸습니다. 검증된 데이터는 항상 Recipe와 QCP, P-FMEA 등 표준으로 문서화하여 만성 로스를 개선하였습니다.",
+      homeHeroTitle: "데이터를 기반으로 현상을 분석하고 문제를 해결해 왔습니다.",
+      homeHeroTitleLines: ["데이터를 기반으로 현상을 분석하고", "문제를 해결해 왔습니다."],
+      homeHeroDescription: "데이터를 기반으로 현상을 분석하고, 근본적인 문제를 해결하는 10년 차 제조·공정 엔지니어입니다. 이차전지 및 디스플레이 부품 제조 현장에서 직관적인 조건 변경을 지양하고, 설비 상태와 측정 시스템(MSA) 검증을 문제 해결의 출발점으로 삼아왔습니다. 2170 배터리 라인에서는 4M 대조 시험과 Vision 검사기준 조정을 포함한 공정 개선을 진행했으며, 2024년 12월 월평균 실질 양품수율은 98.7%를 기록했습니다. 검증된 데이터는 항상 Recipe와 QCP, P-FMEA 등 표준으로 문서화하여 만성 로스를 개선하였습니다.",
       portraitDomain: "배터리·디스플레이·진공로봇 Domain지식",
-      yieldChartStartLabel: "실질 수율",
-      yieldChartEndLabel: "6개월 뒤",
-      yieldChartTitle: "2170 실질 양품수율 변화",
-      yieldChartDescription: "초기 약 40%와 6개월 뒤 98.7%의 두 측정값을 선으로 연결한 그래프입니다.",
+      yieldChartStartLabel: "2170 월평균 실질 양품수율",
+      yieldChartEndLabel: "2024년 12월",
+      yieldChartTitle: "2170 월평균 실질 양품수율",
+      yieldChartDescription: "2024년 12월 월평균 실질 양품수율 98.7%.",
+      yieldFeaturedResult: "2024년 12월 월평균 실질 양품수율 98.7%",
+      yieldExperience: "생산·품질·설비·개발의 담당·기한·재시험 기준을 운영해 2024년 12월 월평균 실질 양품수율 98.7%의 팀 결과에 기여하고 MSA 기준·SOP·QCP·P-FMEA·검사기준을 직접 개정",
       featuredDescription: "제조 개선과 데이터 활용을 다룬 핵심 프로젝트 6건입니다.",
       featuredNote: "대표 프로젝트 6건을 먼저 보여드립니다. 전체 프로젝트는 기술사례 목록에서 확인할 수 있습니다.",
       detailDocumentSuffix: "기술사례",
@@ -211,8 +213,8 @@
       cardDetail: "View Case Study",
       filters: { manufacturing: "Manufacturing Results", judgment: "Failure Case", dx: "Manufacturing DX", ax: "Manufacturing AX", personal: "Personal Projects" },
       allProjects: (count) => `All ${count} Projects`,
-      galleryHeading: '"Doing Right<br>Leads to Success"',
-      galleryLead: "Rather than listing results alone, this portfolio shows how each problem was defined, analyzed, executed, and verified. The approach changes with the work: process improvement, equipment handover, failure analysis, team DX, or a personal AI project.",
+      galleryHeading: "How I reframed each problem<br>and verified the cause.",
+      galleryLead: "I did not treat the first visible symptom as the root cause. Each case shows how I checked equipment condition and measurement reliability, separated the 4M candidates, and retested under comparable conditions.",
       frameworkAria: "Core problem-solving framework",
       framework: [
         ["Define:", "Define the problem and the boundary of responsibility (R&R)"],
@@ -225,14 +227,16 @@
       tableSuffix: " table",
       tocAria: "Page contents",
       tableScrollAria: "Horizontally scrollable table",
-      homeHeroTitle: "I am a manufacturing and process engineer who does not mistake symptoms for causes and starts by reframing the problem.",
-      homeHeroTitleLines: ["I do not mistake symptoms for causes.", "I start by reframing the problem", "as a manufacturing and process engineer."],
-      homeHeroDescription: "I am a manufacturing and process engineer with 10 years of experience analyzing shop-floor conditions with data and solving root causes. Across battery and display-component manufacturing, I avoid changing process settings on intuition alone and begin with equipment condition and measurement system analysis (MSA). On a 2170 battery line, I used controlled 4M comparison trials and optimized an over-restrictive Vision inspection specification, improving initial yield from 40% to a 98.7% monthly average. I documented verified conditions in Recipes, QCPs, P-FMEAs, and related standards to eliminate chronic losses.",
+      homeHeroTitle: "I use data to analyze shop-floor conditions and solve the underlying problems.",
+      homeHeroTitleLines: ["I use data to analyze shop-floor conditions", "and solve the underlying problems."],
+      homeHeroDescription: "I am a manufacturing and process engineer with 10 years of experience analyzing shop-floor conditions with data and solving root causes. Across battery and display-component manufacturing, I avoid changing process settings on intuition alone and begin with equipment condition and measurement system analysis (MSA). On a 2170 battery line, I carried out process improvements that included controlled 4M comparison trials and adjustments to Vision inspection criteria. The line recorded a monthly average good-cell yield of 98.7% in December 2024. I documented verified conditions in Recipes, QCPs, P-FMEAs, and related standards to eliminate chronic losses.",
       portraitDomain: "Domain knowledge in batteries, displays, and vacuum robots",
-      yieldChartStartLabel: "Actual yield",
-      yieldChartEndLabel: "Six months later",
-      yieldChartTitle: "Change in actual good-cell yield for the 2170 line",
-      yieldChartDescription: "A line connects the two measured values: about 40% initially and 98.7% six months later.",
+      yieldChartStartLabel: "2170 monthly average good-cell yield",
+      yieldChartEndLabel: "December 2024",
+      yieldChartTitle: "2170 monthly average good-cell yield",
+      yieldChartDescription: "Monthly average good-cell yield of 98.7% in December 2024.",
+      yieldFeaturedResult: "98.7% monthly average good-cell yield · December 2024",
+      yieldExperience: "Managed cross-team owners, deadlines, and retest criteria, contributing to the December 2024 team result of 98.7% monthly average good-cell yield; directly revised MSA criteria, SOP, QCP, P-FMEA, and inspection standards.",
       featuredDescription: "Six selected projects in manufacturing improvement and data application.",
       featuredNote: "These six projects are shown first. The complete portfolio is available under Technical Cases.",
       detailDocumentSuffix: "Case Study",
@@ -871,6 +875,13 @@
     const summaryTitle = summary?.querySelector("h2");
     if (summaryTitle) summaryTitle.textContent = revised.summaryTitle;
     replaceDefinitionList(summary?.querySelector("dl"), revised.summary);
+
+    if (project.id === "battery-2170-pilot") {
+      const metric = article.querySelector(".portfolio-case-metrics strong");
+      const label = article.querySelector(".portfolio-case-metrics span");
+      if (metric) metric.textContent = "98.7%";
+      if (label) label.textContent = `${ui().yieldChartEndLabel} · ${ui().yieldChartStartLabel}`;
+    }
 
     const content = article.querySelector(".portfolio-article__content");
     if (!content) return false;
@@ -1532,28 +1543,20 @@
     const portraitDomain = root.querySelector(".portfolio-hero__portrait figcaption span");
     if (portraitDomain) portraitDomain.textContent = ui().portraitDomain;
 
-    const yieldFigure = root.querySelector(".portfolio-yield-chart");
-    const yieldSvg = yieldFigure?.querySelector("svg");
-    const yieldLabels = yieldSvg?.querySelectorAll(".portfolio-yield-chart__labels text");
-    if (yieldLabels?.[0]) yieldLabels[0].textContent = ui().yieldChartStartLabel;
-    if (yieldLabels?.[1]) yieldLabels[1].textContent = ui().yieldChartEndLabel;
-    const yieldTitle = yieldSvg?.querySelector("#yield-chart-title");
-    const yieldDescription = yieldSvg?.querySelector("#yield-chart-desc");
-    if (yieldTitle) yieldTitle.textContent = ui().yieldChartTitle;
-    if (yieldDescription) yieldDescription.textContent = ui().yieldChartDescription;
-    if (yieldSvg && !yieldSvg.querySelector(".portfolio-yield-chart__trend")) {
-      const trend = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      trend.classList.add("portfolio-yield-chart__trend");
-      trend.setAttribute("x1", "190");
-      trend.setAttribute("y1", "260");
-      trend.setAttribute("x2", "490");
-      trend.setAttribute("y2", "75");
-      trend.setAttribute("aria-hidden", "true");
-      const startPoint = yieldSvg.querySelector(".portfolio-yield-chart__start");
-      yieldSvg.insertBefore(trend, startPoint);
-    }
-    yieldFigure?.querySelector("figcaption")?.remove();
-    yieldFigure?.removeAttribute("aria-labelledby");
+    root.querySelector(".portfolio-yield-chart")?.remove();
+    root.querySelector(".portfolio-hero__visual")?.classList.add("portfolio-hero__visual--portrait-only");
+
+    root.querySelectorAll(".portfolio-metrics__item dt").forEach((metric) => {
+      if (metric.textContent.includes("98.7%")) metric.textContent = "98.7%";
+    });
+    root.querySelectorAll(".portfolio-project").forEach((card) => {
+      if (!card.querySelector('a[href="#battery-2170-pilot"]')) return;
+      const outcome = card.querySelector(".portfolio-project__flow-result dd");
+      if (outcome) outcome.textContent = ui().yieldFeaturedResult;
+    });
+    root.querySelectorAll("#experiences li").forEach((item) => {
+      if (!item.querySelector("li") && item.textContent.includes("98.7%")) item.textContent = ui().yieldExperience;
+    });
 
     const updates = new Map(Object.entries(approvedProjectTitles).map(([id, title]) => [`#${id}`, title]));
     root.querySelectorAll("a[href]").forEach((link) => {
