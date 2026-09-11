@@ -1,69 +1,89 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Anodizing on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/anodizing/</link><description>Recent content in Anodizing on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/anodizing/rss.xml" rel="self" type="application/rss+xml"/><item><title>OLED Component Anodizing Process Development</title><link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anodizing on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/anodizing/</link>
+    <description>Recent content in Anodizing on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/anodizing/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>OLED Component Anodizing Process Development</title>
+      <link>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/oled-anodizing-development/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Area&lt;/th&gt;
-&lt;th&gt;Case A · Mixed-acid anodizing&lt;/th&gt;
-&lt;th&gt;Case B · Oxalic-acid anodizing&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Period&lt;/td&gt;
-&lt;td&gt;Jan–Jun 2017&lt;/td&gt;
-&lt;td&gt;Jul–Oct 2018&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Part&lt;/td&gt;
-&lt;td&gt;OLED dry-etch upper-electrode family&lt;/td&gt;
-&lt;td&gt;Display PECVD susceptor family&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Starting issue&lt;/td&gt;
-&lt;td&gt;Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature&lt;/td&gt;
-&lt;td&gt;New high-temperature qualification requirement&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Development structure&lt;/td&gt;
-&lt;td&gt;DMAIC, 4M, and small-to-large-area scale-up&lt;/td&gt;
-&lt;td&gt;Requirement, design alternatives, internal screening, and customer qualification&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Completion&lt;/td&gt;
-&lt;td&gt;Customer qualification, product application, and about one year of stabilization follow-up&lt;/td&gt;
-&lt;td&gt;Customer vacuum-heat qualification, product application, and about one year of use&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Area&lt;/th&gt;
+          &lt;th&gt;Case A · Mixed-acid anodizing&lt;/th&gt;
+          &lt;th&gt;Case B · Oxalic-acid anodizing&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Period&lt;/td&gt;
+          &lt;td&gt;Jan–Jun 2017&lt;/td&gt;
+          &lt;td&gt;Jul–Oct 2018&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Part&lt;/td&gt;
+          &lt;td&gt;OLED dry-etch upper-electrode family&lt;/td&gt;
+          &lt;td&gt;Display PECVD susceptor family&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Starting issue&lt;/td&gt;
+          &lt;td&gt;Cracks, particles, etch-rate loss, and Hi-Pot variation after higher process temperature&lt;/td&gt;
+          &lt;td&gt;New high-temperature qualification requirement&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Development structure&lt;/td&gt;
+          &lt;td&gt;DMAIC, 4M, and small-to-large-area scale-up&lt;/td&gt;
+          &lt;td&gt;Requirement, design alternatives, internal screening, and customer qualification&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Completion&lt;/td&gt;
+          &lt;td&gt;Customer qualification, product application, and about one year of stabilization follow-up&lt;/td&gt;
+          &lt;td&gt;Customer vacuum-heat qualification, product application, and about one year of use&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Direct scope:&lt;/strong&gt; defect and run-sheet analysis, condition-based sample production, heat/crack/Hi-Pot evaluation, large-area scale-up, customer-sample response, and process/inspection-document revision&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Decision sequence:&lt;/strong&gt; use condition and measurement alignment → 4M cause reduction → condition-based samples → scale-up or customer qualification → standard-document handoff&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--scaleup"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
-&lt;strong&gt;Translate use-condition changes and customer CTQs into film conditions and inspection gates&lt;/strong&gt;&lt;small&gt;Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;Heat, cracks, and particles&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Thickness, heat, Hi-Pot, and appearance&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M, current distribution, and racking&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Film, thickness, and post-treatment&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Large area, repeats, and qualification&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, standard, and inspection&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--scaleup&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
+    &lt;strong&gt;Translate use-condition changes and customer CTQs into film conditions and inspection gates&lt;/strong&gt;&lt;small&gt;Selection evidence: heat, cracks, Hi-Pot, large-area uniformity, and customer qualification&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;Heat, cracks, and particles&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;Thickness, heat, Hi-Pot, and appearance&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M, current distribution, and racking&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Film, thickness, and post-treatment&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;Large area, repeats, and qualification&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run sheet, standard, and inspection&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;h1 id="case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode"&gt;Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode&lt;/h1&gt;
-&lt;h2 id="1-legacy-process-issue-and-ctqs"&gt;1. Legacy-process issue and CTQs&lt;/h2&gt;
-&lt;p&gt;The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:&lt;/p&gt;</description></item></channel></rss>
+
+&lt;h1 id=&#34;case-a-mixed-acid-anodizing-for-an-oled-dry-etch-upper-electrode&#34;&gt;Case A. Mixed-acid anodizing for an OLED dry-etch upper electrode&lt;/h1&gt;
+&lt;h2 id=&#34;1-legacy-process-issue-and-ctqs&#34;&gt;1. Legacy-process issue and CTQs&lt;/h2&gt;
+&lt;p&gt;The higher OLED process temperature produced concurrent failures in the legacy mixed-acid film:&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

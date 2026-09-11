@@ -1,32 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bath Analysis on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/bath-analysis/</link><description>Recent content in Bath Analysis on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/bath-analysis/rss.xml" rel="self" type="application/rss+xml"/><item><title>혼산 Bath 공정분석 및 관리기준 수립</title><link>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</link><pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bath Analysis on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/bath-analysis/</link>
+    <description>Recent content in Bath Analysis on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/bath-analysis/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>혼산 Bath 공정분석 및 관리기준 수립</title>
+      <link>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/mixed-acid-bath-analysis/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;항목&lt;/th&gt;
-&lt;th&gt;내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;기간&lt;/td&gt;
-&lt;td&gt;2017.07–2018.06&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;대상&lt;/td&gt;
-&lt;td&gt;OLED 장비부품용 혼산 Anodizing Bath&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;초기 현상&lt;/td&gt;
-&lt;td&gt;건욕 약 3개월 후 Etch Rate·Particle·Crack·외관·Hi-Pot 이상 재발&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;직접 역할&lt;/td&gt;
-&lt;td&gt;분석 Log·제품불량 대조, Sampling 주기 개정, 성분별 반복분석, 외부기관 Correlation, 한국 적용·중국 재검증·교육&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;완료 결과&lt;/td&gt;
-&lt;td&gt;분석법·보충판정·제품 Sample Gate·Bath 교체판정 기준 재설계&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;내용&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기간&lt;/td&gt;
+          &lt;td&gt;2017.07–2018.06&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;대상&lt;/td&gt;
+          &lt;td&gt;OLED 장비부품용 혼산 Anodizing Bath&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;초기 현상&lt;/td&gt;
+          &lt;td&gt;건욕 약 3개월 후 Etch Rate·Particle·Crack·외관·Hi-Pot 이상 재발&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;직접 역할&lt;/td&gt;
+          &lt;td&gt;분석 Log·제품불량 대조, Sampling 주기 개정, 성분별 반복분석, 외부기관 Correlation, 한국 적용·중국 재검증·교육&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;완료 결과&lt;/td&gt;
+          &lt;td&gt;분석법·보충판정·제품 Sample Gate·Bath 교체판정 기준 재설계&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;기존 관리표의 적정값은 정상범위였지만 제품 피막성능은 사용기간에 따라 저하됐습니다. 단일 중화적정값을 초기 조성비로 환산하는 방식이 &lt;strong&gt;성분별 실제 소모속도 차이와 누적 조성 Drift를 검출하지 못한 것&lt;/strong&gt;이 핵심 문제였습니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;기존 관리표의 적정값은 정상범위였지만 제품 피막성능은 사용기간에 따라 저하됐습니다. 단일 중화적정값을 초기 조성비로 환산하는 방식이 &lt;strong&gt;성분별 실제 소모속도 차이와 누적 조성 Drift를 검출하지 못한 것&lt;/strong&gt;이 핵심 문제였습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

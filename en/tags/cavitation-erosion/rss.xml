@@ -1,88 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cavitation Erosion on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/cavitation-erosion/</link><description>Recent content in Cavitation Erosion on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/cavitation-erosion/rss.xml" rel="self" type="application/rss+xml"/><item><title>Diffuser Scale-Up Production-Introduction Failure</title><link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cavitation Erosion on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/cavitation-erosion/</link>
+    <description>Recent content in Cavitation Erosion on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/cavitation-erosion/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Diffuser Scale-Up Production-Introduction Failure</title>
+      <link>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/diffuser-scaleup-failure/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Item&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Period&lt;/td&gt;
-&lt;td&gt;Oct 2018–Dec 2019&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Type&lt;/td&gt;
-&lt;td&gt;National R&amp;amp;D project for stripping and reuse of an aluminum diffuser&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Direct scope&lt;/td&gt;
-&lt;td&gt;Lab and full-part trials, condition-based samples, roughness/microscope/SEM–EDS/particle analysis, and scale-up risk disposition&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Goal&lt;/td&gt;
-&lt;td&gt;Shorter process and less high-pressure-water work while retaining surface quality, particles, and reusability&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Final decision&lt;/td&gt;
-&lt;td&gt;Scale-up stop, return to the legacy process, and future R&amp;amp;D stop criteria&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Period&lt;/td&gt;
+          &lt;td&gt;Oct 2018–Dec 2019&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Type&lt;/td&gt;
+          &lt;td&gt;National R&amp;amp;D project for stripping and reuse of an aluminum diffuser&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Direct scope&lt;/td&gt;
+          &lt;td&gt;Lab and full-part trials, condition-based samples, roughness/microscope/SEM–EDS/particle analysis, and scale-up risk disposition&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Goal&lt;/td&gt;
+          &lt;td&gt;Shorter process and less high-pressure-water work while retaining surface quality, particles, and reusability&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Final decision&lt;/td&gt;
+          &lt;td&gt;Scale-up stop, return to the legacy process, and future R&amp;amp;D stop criteria&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--failure-gate"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
-&lt;strong&gt;Judge scale-up by substrate damage, particles, and reusability—not removal time alone&lt;/strong&gt;&lt;small&gt;Failure chain: no exhaust infrastructure → chemical removed → higher impact and residence → erosion in fixed overlap zones&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;About three-day strip and clean&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;Chemical&amp;#43;ultrasound about eight hours&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;No exhaust and no chemical&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;Water&amp;#43;ultrasound/manual about 1.5 days&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion, particles, and reuse&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;Legacy return and future gates&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--failure-gate&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
+    &lt;strong&gt;Judge scale-up by substrate damage, particles, and reusability—not removal time alone&lt;/strong&gt;&lt;small&gt;Failure chain: no exhaust infrastructure → chemical removed → higher impact and residence → erosion in fixed overlap zones&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;About three-day strip and clean&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;Chemical&amp;#43;ultrasound about eight hours&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;No exhaust and no chemical&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;Water&amp;#43;ultrasound/manual about 1.5 days&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion, particles, and reuse&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;Legacy return and future gates&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;h2 id="1-process-condition-transition"&gt;1. Process-condition transition&lt;/h2&gt;
+
+&lt;h2 id=&#34;1-process-condition-transition&#34;&gt;1. Process-condition transition&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Stage&lt;/th&gt;
-&lt;th&gt;Process configuration&lt;/th&gt;
-&lt;th style="text-align: right"&gt;Work time&lt;/th&gt;
-&lt;th&gt;Quality state&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Legacy&lt;/td&gt;
-&lt;td&gt;Bead blast, chemical, high-pressure/manual work, cleaning, and drying&lt;/td&gt;
-&lt;td style="text-align: right"&gt;About three days&lt;/td&gt;
-&lt;td&gt;Existing reuse criteria&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Initial limited trial&lt;/td&gt;
-&lt;td&gt;Existing stripping chemical plus ultrasound&lt;/td&gt;
-&lt;td style="text-align: right"&gt;About eight hours&lt;/td&gt;
-&lt;td&gt;Removal feasibility&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Scale-up&lt;/td&gt;
-&lt;td&gt;Water, ultrasound, high-pressure water, and manual work&lt;/td&gt;
-&lt;td style="text-align: right"&gt;About one and a half days&lt;/td&gt;
-&lt;td&gt;Erosion, particle, and reuse failure&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Stage&lt;/th&gt;
+          &lt;th&gt;Process configuration&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;Work time&lt;/th&gt;
+          &lt;th&gt;Quality state&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Legacy&lt;/td&gt;
+          &lt;td&gt;Bead blast, chemical, high-pressure/manual work, cleaning, and drying&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;About three days&lt;/td&gt;
+          &lt;td&gt;Existing reuse criteria&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Initial limited trial&lt;/td&gt;
+          &lt;td&gt;Existing stripping chemical plus ultrasound&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;About eight hours&lt;/td&gt;
+          &lt;td&gt;Removal feasibility&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Scale-up&lt;/td&gt;
+          &lt;td&gt;Water, ultrasound, high-pressure water, and manual work&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;About one and a half days&lt;/td&gt;
+          &lt;td&gt;Erosion, particle, and reuse failure&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The scale-up equipment did not include the fume-exhaust infrastructure required for chemical use. Removing chemical action increased dependence on ultrasonic impact, high-pressure water, manual work, and equipment residence time.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;The scale-up equipment did not include the fume-exhaust infrastructure required for chemical use. Removing chemical action increased dependence on ultrasonic impact, high-pressure water, manual work, and equipment residence time.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

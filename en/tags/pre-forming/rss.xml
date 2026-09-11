@@ -1,3 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pre-Forming on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/pre-forming/</link><description>Recent content in Pre-Forming on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/pre-forming/rss.xml" rel="self" type="application/rss+xml"/><item><title>New Process Development for Short-Circuit Prevention</title><link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid><description>&lt;h2 id="project-background-and-problem-definition"&gt;Project background and problem definition&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pre-Forming on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/pre-forming/</link>
+    <description>Recent content in Pre-Forming on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/pre-forming/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>New Process Development for Short-Circuit Prevention</title>
+      <link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid>
+      <description>&lt;h2 id=&#34;project-background-and-problem-definition&#34;&gt;Project background and problem definition&lt;/h2&gt;
 &lt;p&gt;During early NCM pilot production, ultrasonic pre-welding repeatedly produced &lt;strong&gt;positive-electrode uncoated-edge tearing, active-material shedding around the negative heavy edge, and shorts&lt;/strong&gt;. Reducing the welding condition lowered damage but also weakened the required joint. Manual pre-forming showed a workable direction, but position, pressure, and R geometry changed by operator.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

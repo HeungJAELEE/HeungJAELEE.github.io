@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Failure Mechanism on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/failure-mechanism/</link><description>Recent content in Failure Mechanism on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/failure-mechanism/rss.xml" rel="self" type="application/rss+xml"/><item><title>Short 방지를 위한 신규 공정 개발</title><link>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</guid><description>&lt;h2 id="프로젝트-배경-및-문제-정의"&gt;프로젝트 배경 및 문제 정의&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Failure Mechanism on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/failure-mechanism/</link>
+    <description>Recent content in Failure Mechanism on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/failure-mechanism/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Short 방지를 위한 신규 공정 개발</title>
+      <link>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/ncm-pre-forming-validation/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-배경-및-문제-정의&#34;&gt;프로젝트 배경 및 문제 정의&lt;/h2&gt;
 &lt;p&gt;NCM Pilot 초기 생산에서 초음파 Pre-Welding 후 &lt;strong&gt;양극 무지부 파단, 음극 Heavy Edge 주변 활물질 탈락과 Short&lt;/strong&gt;가 반복됐습니다. 손상을 줄이기 위해 용접조건을 완화하면 필요한 접합강도까지 낮아지는 Trade-off가 발생했고, 수작업 Pre-Forming은 작업자마다 위치·압력·R 형상이 달라졌습니다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;공정 판정:&lt;/strong&gt; 용접 강도와 손상 방지를 맞바꾸는 조건 타협은 제외했습니다. Pre-Welding 요구조건을 유지한 상태에서 전극별 손상기전을 분리하고, 성형 위치와 형상을 Pilot Jig로 통제하는 방향을 채택했습니다.&lt;/p&gt;
-&lt;p&gt;직접 수행범위는 손상 재현과 해체분석, 양극·음극 원인분리, Pilot Jig 개념·도면과 R 형상·성형위치 결정, Sample 제작·검사, 공정문서·교육과 양산설비 RFQ 작성입니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;직접 수행범위는 손상 재현과 해체분석, 양극·음극 원인분리, Pilot Jig 개념·도면과 R 형상·성형위치 결정, Sample 제작·검사, 공정문서·교육과 양산설비 RFQ 작성입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

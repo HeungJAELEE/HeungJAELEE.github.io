@@ -1,3 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>공급사 이원화 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/%EA%B3%B5%EA%B8%89%EC%82%AC-%EC%9D%B4%EC%9B%90%ED%99%94/</link><description>Recent content in 공급사 이원화 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/%EA%B3%B5%EA%B8%89%EC%82%AC-%EC%9D%B4%EC%9B%90%ED%99%94/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Can 공급사 이원화 프로젝트</title><link>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</guid><description>&lt;h2 id="프로젝트-배경과-목표"&gt;프로젝트 배경과 목표&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>공급사 이원화 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/%EA%B3%B5%EA%B8%89%EC%82%AC-%EC%9D%B4%EC%9B%90%ED%99%94/</link>
+    <description>Recent content in 공급사 이원화 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/%EA%B3%B5%EA%B8%89%EC%82%AC-%EC%9D%B4%EC%9B%90%ED%99%94/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2170 Can 공급사 이원화 프로젝트</title>
+      <link>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/can-supplier-pilot-transition/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-배경과-목표&#34;&gt;프로젝트 배경과 목표&lt;/h2&gt;
 &lt;p&gt;생산 물량을 기존 Can 공급사 한 곳에만 의존하기 어려워 대체 공급사를 검증했습니다. 후보 Can은 기존품과 합금 성분, 바닥 두께, 공차, Burr, 표면 상태가 달랐습니다. 단품 치수가 허용 범위에 들어와도 이 차이가 Beading·Crimping 형상, 밀봉, Can–Cap Laser Welding, Vent 안전성에 미치는 영향을 함께 확인했습니다.&lt;/p&gt;
-&lt;p&gt;기술팀 공정검증 메인 담당으로 도면·성적서 검토, 입고검사 기준, 기존 조립설비의 조건 재설정, Sample Cell 제작, 절단·해체, 사내 품질·안전시험과 Cell 성능평가를 연결했습니다. 구매팀은 공급사·견적·발주, 품질팀은 입고·출하판정과 공식 시험보고서, 전지팀은 Formation·용량·수명 평가, 생산팀은 Lot별 Sample 생산을 담당했습니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;기술팀 공정검증 메인 담당으로 도면·성적서 검토, 입고검사 기준, 기존 조립설비의 조건 재설정, Sample Cell 제작, 절단·해체, 사내 품질·안전시험과 Cell 성능평가를 연결했습니다. 구매팀은 공급사·견적·발주, 품질팀은 입고·출하판정과 공식 시험보고서, 전지팀은 Formation·용량·수명 평가, 생산팀은 Lot별 Sample 생산을 담당했습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

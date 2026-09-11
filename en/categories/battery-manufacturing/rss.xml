@@ -1,8 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Battery Manufacturing on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/categories/battery-manufacturing/</link><description>Recent content in Battery Manufacturing on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/categories/battery-manufacturing/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Can Second-Source Qualification</title><link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid><description>&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Battery Manufacturing on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/categories/battery-manufacturing/</link>
+    <description>Recent content in Battery Manufacturing on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/categories/battery-manufacturing/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2170 Can Second-Source Qualification</title>
+      <link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid>
+      <description>&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
 &lt;p&gt;Planned production volume could not remain dependent on one can supplier, so an alternative source had to be qualified. The candidate can differed from the incumbent in alloy ratio, bottom thickness, dimensional tolerance, burrs, and surface condition. Even when component dimensions were within tolerance, those differences could affect beading and crimping geometry, sealing, can-cap laser welding, and vent safety.&lt;/p&gt;
-&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description></item><item><title>New Process Development for Short-Circuit Prevention</title><link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid><description>&lt;h2 id="project-background-and-problem-definition"&gt;Project background and problem definition&lt;/h2&gt;
+&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Process Development for Short-Circuit Prevention</title>
+      <link>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ncm-pre-forming-validation/</guid>
+      <description>&lt;h2 id=&#34;project-background-and-problem-definition&#34;&gt;Project background and problem definition&lt;/h2&gt;
 &lt;p&gt;During early NCM pilot production, ultrasonic pre-welding repeatedly produced &lt;strong&gt;positive-electrode uncoated-edge tearing, active-material shedding around the negative heavy edge, and shorts&lt;/strong&gt;. Reducing the welding condition lowered damage but also weakened the required joint. Manual pre-forming showed a workable direction, but position, pressure, and R geometry changed by operator.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description></item><item><title>2170 Tabless Cell Development (Pilot Level)</title><link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Process decision:&lt;/strong&gt; I rejected a condition compromise that traded joint strength for lower damage. The selected direction retained the pre-welding requirement, separated the damage mechanism by electrode, and controlled forming position and geometry through a pilot jig.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2170 Tabless Cell Development (Pilot Level)</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-tabless-concept/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Development task:&lt;/strong&gt; Build a 2170 A sample using a tabless structure that connects the electrode and collector over a broad area instead of a conventional lead tab&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quality process:&lt;/strong&gt; Company development flow based on IATF 16949: &lt;code&gt;PROTO (A Sample) → PILOT (B and C Samples) → MP (CCB.PO) → SOP (mass production)&lt;/code&gt;&lt;/li&gt;
@@ -12,113 +44,136 @@
 &lt;li&gt;&lt;strong&gt;Direct scope:&lt;/strong&gt; Early process design, 4M risk analysis, DFMEA, temporary 3D-printed jigs, laser and assembly conditions, sectioning, teardown, and cell evaluation&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final result:&lt;/strong&gt; Compressed and separated failure modes across about 100 trials and confirmed build and functional feasibility through cell evaluation on five functional samples&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--concept"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
-&lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--concept&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;IATF PROTO · DMADV · 4M · DFMEA&lt;/span&gt;
+    &lt;strong&gt;Convert the no-equipment/no-jig constraint into manufacturing conditions at the PROTO A-sample gate&lt;/strong&gt;&lt;small&gt;The full quality flow was PROTO→PILOT→MP→SOP; this project completed DMADV, 4M, DFMEA, and cell evaluation inside the PROTO gate.&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A-sample objective and CTQs&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;DEFINE·MEASURE&lt;/b&gt;&lt;strong&gt;Joint, beam, and short criteria&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M risks and failure modes&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;Jig, laser, and assembly trials&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;About 100 trials and five samples&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
-&lt;div class="portfolio-evidence-figure__media"&gt;
-&lt;img
-src="https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg"
-alt="2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples"
-loading="lazy"
-decoding="async"
-&gt;
-&lt;/div&gt;
-&lt;figcaption&gt;
-&lt;span class="portfolio-evidence-figure__label"&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
-&lt;span class="portfolio-evidence-figure__copy"&gt;
-&lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
-&lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
-&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-&lt;/span&gt;
-&lt;/figcaption&gt;
+
+&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
+  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
+    &lt;img
+      src=&#34;https://heungjaelee.github.io/images/projects/2170-tabless-a-sample-gate.svg&#34;
+      alt=&#34;2170 tabless early-manufacturing flow at the PROTO A-sample gate, using DMADV, 4M, and DFMEA with existing 4695 equipment, temporary 3D-printed jigs, about 100 trials, and cell evaluation on five functional samples&#34;
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      
+      
+    &gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF-based PROTO manufacturing PoC&lt;/span&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
+      &lt;strong&gt;PROTO A Sample · DMADV · 4M · DFMEA&lt;/strong&gt;
+      &lt;span&gt;Safety, assembly, and cell-function criteria defined the A-sample objective, while failure modes, root causes, and verification methods guided the jig, laser, and assembly trials.&lt;/span&gt;
+      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+    &lt;/span&gt;
+  &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="iatf-16949-based-development-gates-and-current-position"&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
+
+&lt;h2 id=&#34;iatf-16949-based-development-gates-and-current-position&#34;&gt;IATF 16949-based development gates and current position&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Quality stage&lt;/th&gt;
-&lt;th&gt;Company sample or approval&lt;/th&gt;
-&lt;th&gt;Technical objective&lt;/th&gt;
-&lt;th&gt;Tabless project status&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;A Sample&lt;/td&gt;
-&lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;B and C Samples&lt;/td&gt;
-&lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
-&lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
-&lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
-&lt;td&gt;Follow-on gate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Mass-production start&lt;/td&gt;
-&lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
-&lt;td&gt;Follow-on gate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Quality stage&lt;/th&gt;
+          &lt;th&gt;Company sample or approval&lt;/th&gt;
+          &lt;th&gt;Technical objective&lt;/th&gt;
+          &lt;th&gt;Tabless project status&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;A Sample&lt;/td&gt;
+          &lt;td&gt;Confirm build feasibility, safety CTQs, and basic cell function for the new structure&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;Completed — cell evaluation on five functional samples&lt;/strong&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;B and C Samples&lt;/td&gt;
+          &lt;td&gt;Verify dedicated jigs/equipment, repeatability, inspection reproducibility, and productivity&lt;/td&gt;
+          &lt;td&gt;Transferred as follow-on design items&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
+          &lt;td&gt;Obtain technical production approval for the pilot conditions&lt;/td&gt;
+          &lt;td&gt;Follow-on gate&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Mass-production start&lt;/td&gt;
+          &lt;td&gt;Operate approved conditions in regular production&lt;/td&gt;
+          &lt;td&gt;Follow-on gate&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description></item><item><title>4695 Assembly-Line Recovery and Production Readiness</title><link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid><description>&lt;section class="portfolio-project-contract" aria-label="4695 battery assembly-line stabilization and limited-production setup facts"&gt;
-&lt;dl&gt;
-&lt;div&gt;
-&lt;dt&gt;Project stage&lt;/dt&gt;
-&lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Period&lt;/dt&gt;
-&lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Role&lt;/dt&gt;
-&lt;dd&gt;Lead engineering owner&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Core responsibility&lt;/dt&gt;
-&lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Validation scope&lt;/dt&gt;
-&lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Final result&lt;/dt&gt;
-&lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
-&lt;/div&gt;
-&lt;/dl&gt;
+&lt;p&gt;The Tabless objective at PROTO was to &lt;strong&gt;build the new structure in actual cells and confirm safety and functional feasibility&lt;/strong&gt;. The results were organized as equipment, jig, process, and inspection requirements for the subsequent PILOT B/C sample stages.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>4695 Assembly-Line Recovery and Production Readiness</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid>
+      <description>&lt;section class=&#34;portfolio-project-contract&#34; aria-label=&#34;4695 battery assembly-line stabilization and limited-production setup facts&#34;&gt;
+  &lt;dl&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project stage&lt;/dt&gt;
+      &lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period&lt;/dt&gt;
+      &lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Role&lt;/dt&gt;
+      &lt;dd&gt;Lead engineering owner&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Core responsibility&lt;/dt&gt;
+      &lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Validation scope&lt;/dt&gt;
+      &lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Final result&lt;/dt&gt;
+      &lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
 &lt;/section&gt;
-&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
-&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description></item><item><title>LFP Power Cell Development</title><link>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
+
+&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
+&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LFP Power Cell Development</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-25p-lfp-development/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Development task:&lt;/strong&gt; Develop a 25P LFP power cell on the existing 2170 cylindrical assembly line with changes in electrolyte, clad tabs, turn count, and can geometry&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quality process:&lt;/strong&gt; Company development flow based on IATF 16949: &lt;code&gt;PROTO (A Sample) → PILOT (B and C Samples) → MP (CCB.PO) → SOP (mass production)&lt;/code&gt;&lt;/li&gt;
@@ -127,135 +182,166 @@ decoding="async"
 &lt;li&gt;&lt;strong&gt;Completed gate:&lt;/strong&gt; PROTO, PILOT, and MP technical approval completed; SOP remained the subsequent production-start gate&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final result:&lt;/strong&gt; About 20,000-cell trial production, customer qualification and CCB.PO approval, plus completed process, inspection, and production-handoff documents&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--development"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;IATF gates · DMADV · 4M · Taguchi DOE&lt;/span&gt;
-&lt;strong&gt;Establish new-cell process conditions from PROTO through MP technical approval&lt;/strong&gt;&lt;small&gt;Quality gates were managed as PROTO→PILOT→MP→SOP, while technical decisions within each gate used DMADV, 4M, Taguchi DOE, and cell evaluation.&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample, CTQs, baseline&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M and Taguchi screening&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;Selected conditions, 20,000 cells&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;Customer Qual and CCB.PO&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;Production-start gate&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--development&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;IATF gates · DMADV · 4M · Taguchi DOE&lt;/span&gt;
+    &lt;strong&gt;Establish new-cell process conditions from PROTO through MP technical approval&lt;/strong&gt;&lt;small&gt;Quality gates were managed as PROTO→PILOT→MP→SOP, while technical decisions within each gate used DMADV, 4M, Taguchi DOE, and cell evaluation.&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample, CTQs, baseline&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M and Taguchi screening&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;Selected conditions, 20,000 cells&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;Customer Qual and CCB.PO&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;Production-start gate&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
-&lt;div class="portfolio-evidence-figure__media"&gt;
-&lt;img
-src="https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg"
-alt="25P LFP process-development flow under the company’s IATF 16949-based quality gates: PROTO A sample, PILOT B and C samples, MP CCB.PO, and SOP, with DMADV, 4M risk analysis, and Taguchi orthogonal-array condition matrices leading to about 20,000-cell trial production and customer qualification"
-loading="lazy"
-decoding="async"
-&gt;
-&lt;/div&gt;
-&lt;figcaption&gt;
-&lt;span class="portfolio-evidence-figure__label"&gt;IATF-based NPI quality gates&lt;/span&gt;
-&lt;span class="portfolio-evidence-figure__copy"&gt;
-&lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
-&lt;span&gt;DMADV connected the development stages, while factors selected through 4M were compared through Taguchi DOE to establish the conditions for each sample gate.&lt;/span&gt;
-&lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
-&lt;/span&gt;
-&lt;/figcaption&gt;
+
+&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
+  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
+    &lt;img
+      src=&#34;https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg&#34;
+      alt=&#34;25P LFP process-development flow under the company’s IATF 16949-based quality gates: PROTO A sample, PILOT B and C samples, MP CCB.PO, and SOP, with DMADV, 4M risk analysis, and Taguchi orthogonal-array condition matrices leading to about 20,000-cell trial production and customer qualification&#34;
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      
+      
+    &gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF-based NPI quality gates&lt;/span&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
+      &lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
+      &lt;span&gt;DMADV connected the development stages, while factors selected through 4M were compared through Taguchi DOE to establish the conditions for each sample gate.&lt;/span&gt;
+      &lt;small&gt;Sanitized redraw based on interviews&lt;/small&gt;
+    &lt;/span&gt;
+  &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="iatf-16949-based-development-and-production-handoff-gates"&gt;IATF 16949-based development and production-handoff gates&lt;/h2&gt;
+
+&lt;h2 id=&#34;iatf-16949-based-development-and-production-handoff-gates&#34;&gt;IATF 16949-based development and production-handoff gates&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Quality stage&lt;/th&gt;
-&lt;th&gt;Company sample or approval&lt;/th&gt;
-&lt;th&gt;Technical objective&lt;/th&gt;
-&lt;th&gt;Method&lt;/th&gt;
-&lt;th&gt;Project result&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;A Sample&lt;/td&gt;
-&lt;td&gt;Establish build feasibility, CTQs, and measurement criteria for the changed materials and structure&lt;/td&gt;
-&lt;td&gt;DMADV Define and Measure, change analysis&lt;/td&gt;
-&lt;td&gt;Confirmed complete assembly feasibility and basic inspection&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;B Sample&lt;/td&gt;
-&lt;td&gt;Screen critical process factors and optimize conditions&lt;/td&gt;
-&lt;td&gt;4M risk analysis and Taguchi DOE&lt;/td&gt;
-&lt;td&gt;Compressed candidate conditions for impregnation, welding, sealing, and inspection&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;C Sample&lt;/td&gt;
-&lt;td&gt;Confirm upstream/downstream linkage and trial producibility of selected conditions&lt;/td&gt;
-&lt;td&gt;Confirmation runs, lot and cell evaluation&lt;/td&gt;
-&lt;td&gt;Established conditions for about 20,000-cell trial production&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
-&lt;td&gt;Obtain technical approval against customer CTQs and process evidence&lt;/td&gt;
-&lt;td&gt;DMADV Verify and customer qualification&lt;/td&gt;
-&lt;td&gt;Obtained customer qualification and CCB.PO approval&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Mass-production start&lt;/td&gt;
-&lt;td&gt;Operate the approved conditions in regular production&lt;/td&gt;
-&lt;td&gt;Work standards, QCP, P-FMEA, and inspection criteria&lt;/td&gt;
-&lt;td&gt;Transferred from MP approval to the production-start gate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Quality stage&lt;/th&gt;
+          &lt;th&gt;Company sample or approval&lt;/th&gt;
+          &lt;th&gt;Technical objective&lt;/th&gt;
+          &lt;th&gt;Method&lt;/th&gt;
+          &lt;th&gt;Project result&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;A Sample&lt;/td&gt;
+          &lt;td&gt;Establish build feasibility, CTQs, and measurement criteria for the changed materials and structure&lt;/td&gt;
+          &lt;td&gt;DMADV Define and Measure, change analysis&lt;/td&gt;
+          &lt;td&gt;Confirmed complete assembly feasibility and basic inspection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;B Sample&lt;/td&gt;
+          &lt;td&gt;Screen critical process factors and optimize conditions&lt;/td&gt;
+          &lt;td&gt;4M risk analysis and Taguchi DOE&lt;/td&gt;
+          &lt;td&gt;Compressed candidate conditions for impregnation, welding, sealing, and inspection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;C Sample&lt;/td&gt;
+          &lt;td&gt;Confirm upstream/downstream linkage and trial producibility of selected conditions&lt;/td&gt;
+          &lt;td&gt;Confirmation runs, lot and cell evaluation&lt;/td&gt;
+          &lt;td&gt;Established conditions for about 20,000-cell trial production&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;CCB.PO and C Sample&lt;/td&gt;
+          &lt;td&gt;Obtain technical approval against customer CTQs and process evidence&lt;/td&gt;
+          &lt;td&gt;DMADV Verify and customer qualification&lt;/td&gt;
+          &lt;td&gt;Obtained customer qualification and CCB.PO approval&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Mass-production start&lt;/td&gt;
+          &lt;td&gt;Operate the approved conditions in regular production&lt;/td&gt;
+          &lt;td&gt;Work standards, QCP, P-FMEA, and inspection criteria&lt;/td&gt;
+          &lt;td&gt;Transferred from MP approval to the production-start gate&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The A, B, and C samples were not merely chronological builds. Each stage had a distinct quality decision and entry condition for the next gate. The 25P project completed PROTO and PILOT and reached &lt;strong&gt;MP technical approval through CCB.PO&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>2170 Production Yield Stabilization</title><link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-battery-2170-pilot" data-project-id="battery-2170-pilot"&gt;
-&lt;header class="project-case-summary__header"&gt;
-&lt;div&gt;
-&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
-&lt;h2 id="project-case-summary-battery-2170-pilot"&gt;Before trying to improve the yield number, I separated inspection errors from actual process defects so that equipment and process actions targeted the right cause.&lt;/h2&gt;
-&lt;/div&gt;
-&lt;span class="project-case-summary__status"&gt;Production stabilization result&lt;/span&gt;
-&lt;/header&gt;
-&lt;dl class="project-case-summary__meta"&gt;
-&lt;div&gt;
-&lt;dt&gt;Period / basis&lt;/dt&gt;
-&lt;dd&gt;During tenure at Kumyang · May 2024–Sep 2025&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Project form&lt;/dt&gt;
-&lt;dd&gt;Company project · Assembly process lead&lt;/dd&gt;
-&lt;/div&gt;
-&lt;/dl&gt;
-&lt;div class="project-case-summary__grid"&gt;
-&lt;section aria-labelledby="project-case-problem-battery-2170-pilot"&gt;
-&lt;h3 id="project-case-problem-battery-2170-pilot"&gt;Problem to solve&lt;/h3&gt;
-&lt;p&gt;Effective good yield was initially about 40%, while production, quality, and equipment teams were using different denominators and defect definitions.&lt;/p&gt;</description></item><item><title>NCM Pilot Line Equipment Handover</title><link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link><pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid><description>&lt;aside class="project-case-summary project-case-summary--core" aria-labelledby="project-case-summary-ncm-fat-sat" data-project-id="ncm-fat-sat"&gt;
-&lt;header class="project-case-summary__header"&gt;
-&lt;div&gt;
-&lt;p class="project-case-summary__eyebrow"&gt;30-second summary&lt;/p&gt;
-&lt;h2 id="project-case-summary-ncm-fat-sat"&gt;Equipment acceptance is not complete when a machine merely runs; product tolerance, repeatability, safety, and production readiness must be checked against shared criteria.&lt;/h2&gt;
-&lt;/div&gt;
-&lt;span class="project-case-summary__status"&gt;Equipment acceptance and initial production stabilization&lt;/span&gt;
-&lt;/header&gt;
-&lt;dl class="project-case-summary__meta"&gt;
-&lt;div&gt;
-&lt;dt&gt;Period / basis&lt;/dt&gt;
-&lt;dd&gt;During the relevant employment · May 2023–May 2024&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Project form&lt;/dt&gt;
-&lt;dd&gt;Company project · Pilot-line commissioning and operation&lt;/dd&gt;
-&lt;/div&gt;
-&lt;/dl&gt;
-&lt;div class="project-case-summary__grid"&gt;
-&lt;section aria-labelledby="project-case-problem-ncm-fat-sat"&gt;
-&lt;h3 id="project-case-problem-ncm-fat-sat"&gt;Problem to solve&lt;/h3&gt;
-&lt;p&gt;Thirteen processes and eleven key machines required aligned acceptance criteria, supplier actions, retest records, and a daily 200-cell production plan.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;The A, B, and C samples were not merely chronological builds. Each stage had a distinct quality decision and entry condition for the next gate. The 25P project completed PROTO and PILOT and reached &lt;strong&gt;MP technical approval through CCB.PO&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2170 Production Yield Stabilization</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-2170-pilot/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-battery-2170-pilot&#34; data-project-id=&#34;battery-2170-pilot&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-battery-2170-pilot&#34;&gt;Before trying to improve the yield number, I separated inspection errors from actual process defects so that equipment and process actions targeted the right cause.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Production stabilization result&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;During tenure at Kumyang · May 2024–Sep 2025&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Company project · Assembly process lead&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-battery-2170-pilot&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-battery-2170-pilot&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Effective good yield was initially about 40%, while production, quality, and equipment teams were using different denominators and defect definitions.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>NCM Pilot Line Equipment Handover</title>
+      <link>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</link>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/ncm-fat-sat/</guid>
+      <description>&lt;aside class=&#34;project-case-summary project-case-summary--core&#34; aria-labelledby=&#34;project-case-summary-ncm-fat-sat&#34; data-project-id=&#34;ncm-fat-sat&#34;&gt;
+  &lt;header class=&#34;project-case-summary__header&#34;&gt;
+    &lt;div&gt;
+      &lt;p class=&#34;project-case-summary__eyebrow&#34;&gt;30-second summary&lt;/p&gt;
+      &lt;h2 id=&#34;project-case-summary-ncm-fat-sat&#34;&gt;Equipment acceptance is not complete when a machine merely runs; product tolerance, repeatability, safety, and production readiness must be checked against shared criteria.&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;project-case-summary__status&#34;&gt;Equipment acceptance and initial production stabilization&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;dl class=&#34;project-case-summary__meta&#34;&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period / basis&lt;/dt&gt;
+      &lt;dd&gt;During the relevant employment · May 2023–May 2024&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project form&lt;/dt&gt;
+      &lt;dd&gt;Company project · Pilot-line commissioning and operation&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;div class=&#34;project-case-summary__grid&#34;&gt;
+    &lt;section aria-labelledby=&#34;project-case-problem-ncm-fat-sat&#34;&gt;
+      &lt;h3 id=&#34;project-case-problem-ncm-fat-sat&#34;&gt;Problem to solve&lt;/h3&gt;
+      &lt;p&gt;Thirteen processes and eleven key machines required aligned acceptance criteria, supplier actions, retest records, and a daily 200-cell production plan.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

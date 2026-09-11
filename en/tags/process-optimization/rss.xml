@@ -1,30 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Process Optimization on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/process-optimization/</link><description>Recent content in Process Optimization on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/process-optimization/rss.xml" rel="self" type="application/rss+xml"/><item><title>4695 Assembly-Line Recovery and Production Readiness</title><link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid><description>&lt;section class="portfolio-project-contract" aria-label="4695 battery assembly-line stabilization and limited-production setup facts"&gt;
-&lt;dl&gt;
-&lt;div&gt;
-&lt;dt&gt;Project stage&lt;/dt&gt;
-&lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Period&lt;/dt&gt;
-&lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Role&lt;/dt&gt;
-&lt;dd&gt;Lead engineering owner&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Core responsibility&lt;/dt&gt;
-&lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Validation scope&lt;/dt&gt;
-&lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;Final result&lt;/dt&gt;
-&lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
-&lt;/div&gt;
-&lt;/dl&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Process Optimization on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/process-optimization/</link>
+    <description>Recent content in Process Optimization on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/process-optimization/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>4695 Assembly-Line Recovery and Production Readiness</title>
+      <link>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/battery-4695-production-transition/</guid>
+      <description>&lt;section class=&#34;portfolio-project-contract&#34; aria-label=&#34;4695 battery assembly-line stabilization and limited-production setup facts&#34;&gt;
+  &lt;dl&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Project stage&lt;/dt&gt;
+      &lt;dd&gt;Production readiness and limited-production setup&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Period&lt;/dt&gt;
+      &lt;dd&gt;Feb–Sep 2025&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Role&lt;/dt&gt;
+      &lt;dd&gt;Lead engineering owner&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Core responsibility&lt;/dt&gt;
+      &lt;dd&gt;Three laser processes and inspection/measurement standards&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Validation scope&lt;/dt&gt;
+      &lt;dd&gt;100 cells × 2 lots&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;Final result&lt;/dt&gt;
+      &lt;dd&gt;50-cell continuous run and limited-production approval&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
 &lt;/section&gt;
-&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
-&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description></item></channel></rss>
+
+&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
+&lt;p&gt;Product development and equipment SAT had been completed, but the actual new product did not match the inherited machine and inspection conditions. The line could not run continuously from Start to the final operation, and operators relied on unit-by-unit manual operation and temporary recipes, creating variation in welding, inspection, and final geometry.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

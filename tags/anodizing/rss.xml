@@ -1,69 +1,89 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Anodizing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/anodizing/</link><description>Recent content in Anodizing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/anodizing/rss.xml" rel="self" type="application/rss+xml"/><item><title>OLED 부품 Anodizing 공정개발</title><link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anodizing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/anodizing/</link>
+    <description>Recent content in Anodizing on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/anodizing/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>OLED 부품 Anodizing 공정개발</title>
+      <link>https://heungjaelee.github.io/posts/oled-anodizing-development/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/oled-anodizing-development/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;구분&lt;/th&gt;
-&lt;th&gt;Case A · 혼산 Anodizing&lt;/th&gt;
-&lt;th&gt;Case B · 수산 Anodizing&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;기간&lt;/td&gt;
-&lt;td&gt;2017.01–2017.06&lt;/td&gt;
-&lt;td&gt;2018.07–2018.10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;대상&lt;/td&gt;
-&lt;td&gt;OLED Dry-Etch Upper Electrode 계열&lt;/td&gt;
-&lt;td&gt;Display PECVD Susceptor 계열&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;시작 문제&lt;/td&gt;
-&lt;td&gt;공정온도 상승 후 Crack·Particle·Etch Rate·Hi-Pot 이상&lt;/td&gt;
-&lt;td&gt;신규 고온 사용조건 Qual 요구&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;개발 구조&lt;/td&gt;
-&lt;td&gt;DMAIC·4M·소형→대면적 Scale-up&lt;/td&gt;
-&lt;td&gt;요구조건·설계대안·내부 Screening·고객 Qual&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;완료 결과&lt;/td&gt;
-&lt;td&gt;고객 Qual·실제품 적용·약 1년 안정화 확인&lt;/td&gt;
-&lt;td&gt;고객 진공 열시험 Qual·실제품 적용·약 1년 사용&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;구분&lt;/th&gt;
+          &lt;th&gt;Case A · 혼산 Anodizing&lt;/th&gt;
+          &lt;th&gt;Case B · 수산 Anodizing&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기간&lt;/td&gt;
+          &lt;td&gt;2017.01–2017.06&lt;/td&gt;
+          &lt;td&gt;2018.07–2018.10&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;대상&lt;/td&gt;
+          &lt;td&gt;OLED Dry-Etch Upper Electrode 계열&lt;/td&gt;
+          &lt;td&gt;Display PECVD Susceptor 계열&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;시작 문제&lt;/td&gt;
+          &lt;td&gt;공정온도 상승 후 Crack·Particle·Etch Rate·Hi-Pot 이상&lt;/td&gt;
+          &lt;td&gt;신규 고온 사용조건 Qual 요구&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;개발 구조&lt;/td&gt;
+          &lt;td&gt;DMAIC·4M·소형→대면적 Scale-up&lt;/td&gt;
+          &lt;td&gt;요구조건·설계대안·내부 Screening·고객 Qual&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;완료 결과&lt;/td&gt;
+          &lt;td&gt;고객 Qual·실제품 적용·약 1년 안정화 확인&lt;/td&gt;
+          &lt;td&gt;고객 진공 열시험 Qual·실제품 적용·약 1년 사용&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;직접 역할:&lt;/strong&gt; 불량이력·Run Sheet 분석, 조건별 Sample 제작, 열·Crack·Hi-Pot 평가, 대면적 Scale-up, 고객 Sample 대응, 공정·검사문서 개정&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;판단 원칙:&lt;/strong&gt; 사용조건·측정기준 정렬 → 4M 원인소 → 조건별 Sample → Scale-up 또는 고객 Qual → 표준문서 이관&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--scaleup"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
-&lt;strong&gt;사용조건 변화와 고객 CTQ를 피막조건·검사 Gate로 전환&lt;/strong&gt;&lt;small&gt;조건선정 근거: 열·Crack·Hi-Pot·대면적 균일성·고객 Qual&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;고온·Crack·Particle&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;두께·열·Hi-Pot·외관&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M·전류분포·Racking&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;피막·두께·후처리 조건&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;대면적·반복·고객 Qual&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run Sheet·표준·검사기준&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--scaleup&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;DMAIC · Design Gate · Scale-up&lt;/span&gt;
+    &lt;strong&gt;사용조건 변화와 고객 CTQ를 피막조건·검사 Gate로 전환&lt;/strong&gt;&lt;small&gt;조건선정 근거: 열·Crack·Hi-Pot·대면적 균일성·고객 Qual&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;ISSUE&lt;/b&gt;&lt;strong&gt;고온·Crack·Particle&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;MEASURE&lt;/b&gt;&lt;strong&gt;두께·열·Hi-Pot·외관&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;ANALYZE&lt;/b&gt;&lt;strong&gt;4M·전류분포·Racking&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;DESIGN&lt;/b&gt;&lt;strong&gt;피막·두께·후처리 조건&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;VERIFY&lt;/b&gt;&lt;strong&gt;대면적·반복·고객 Qual&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;CONTROL&lt;/b&gt;&lt;strong&gt;Run Sheet·표준·검사기준&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;h1 id="case-a-oled-dry-etch-upper-electrode-혼산-anodizing"&gt;Case A. OLED Dry-Etch Upper Electrode 혼산 Anodizing&lt;/h1&gt;
-&lt;h2 id="1-기존-공정-문제와-ctq"&gt;1. 기존 공정 문제와 CTQ&lt;/h2&gt;
-&lt;p&gt;OLED 공정온도 상승 후 기존 혼산 피막에서 다음 이상이 동시 발생했습니다.&lt;/p&gt;</description></item></channel></rss>
+
+&lt;h1 id=&#34;case-a-oled-dry-etch-upper-electrode-혼산-anodizing&#34;&gt;Case A. OLED Dry-Etch Upper Electrode 혼산 Anodizing&lt;/h1&gt;
+&lt;h2 id=&#34;1-기존-공정-문제와-ctq&#34;&gt;1. 기존 공정 문제와 CTQ&lt;/h2&gt;
+&lt;p&gt;OLED 공정온도 상승 후 기존 혼산 피막에서 다음 이상이 동시 발생했습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

@@ -1,88 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Stop Gate on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/stop-gate/</link><description>Recent content in Stop Gate on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/stop-gate/rss.xml" rel="self" type="application/rss+xml"/><item><title>Diffuser Scale-up 양산 도입 실패사례</title><link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link><pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stop Gate on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/stop-gate/</link>
+    <description>Recent content in Stop Gate on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Sat, 01 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/stop-gate/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Diffuser Scale-up 양산 도입 실패사례</title>
+      <link>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</link>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/diffuser-scaleup-failure/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;항목&lt;/th&gt;
-&lt;th&gt;내용&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;기간&lt;/td&gt;
-&lt;td&gt;2018.10–2019.12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;성격&lt;/td&gt;
-&lt;td&gt;Al Diffuser 잔류피막 박리·재사용 국책과제&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;직접 역할&lt;/td&gt;
-&lt;td&gt;Lab·실물시험, 조건별 Sample, 조도·현미경·SEM–EDS·Particle 분석, Scale-up 위험판정&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;목표&lt;/td&gt;
-&lt;td&gt;공정시간·고압수 작업 단축, 표면품질·Particle·재사용성 유지&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;최종 결정&lt;/td&gt;
-&lt;td&gt;Scale-up 중단판정·기존공정 회귀·차기 R&amp;amp;D 중단 기준 제정&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;내용&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기간&lt;/td&gt;
+          &lt;td&gt;2018.10–2019.12&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;성격&lt;/td&gt;
+          &lt;td&gt;Al Diffuser 잔류피막 박리·재사용 국책과제&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;직접 역할&lt;/td&gt;
+          &lt;td&gt;Lab·실물시험, 조건별 Sample, 조도·현미경·SEM–EDS·Particle 분석, Scale-up 위험판정&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;목표&lt;/td&gt;
+          &lt;td&gt;공정시간·고압수 작업 단축, 표면품질·Particle·재사용성 유지&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;최종 결정&lt;/td&gt;
+          &lt;td&gt;Scale-up 중단판정·기존공정 회귀·차기 R&amp;amp;D 중단 기준 제정&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--failure-gate"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
-&lt;strong&gt;박리시간이 아닌 모재손상·Particle·재사용성으로 Scale-up 판정&lt;/strong&gt;&lt;small&gt;실패기전: 배기 인프라 부재 → 약액 배제 → 물리타격·체류시간 증가 → 고정 중첩영역 Erosion&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;약 3일 박리·세정&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;약액&amp;#43;초음파 약 8시간&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;배기 미구축·약액 배제&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;물&amp;#43;초음파·수작업 약 1.5일&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion·Particle·재사용성&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;기존공정 회귀·차기 Gate&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--failure-gate&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;Root Cause Analysis · Scale-up Stop Gate&lt;/span&gt;
+    &lt;strong&gt;박리시간이 아닌 모재손상·Particle·재사용성으로 Scale-up 판정&lt;/strong&gt;&lt;small&gt;실패기전: 배기 인프라 부재 → 약액 배제 → 물리타격·체류시간 증가 → 고정 중첩영역 Erosion&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;LEGACY&lt;/b&gt;&lt;strong&gt;약 3일 박리·세정&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;LAB&lt;/b&gt;&lt;strong&gt;약액&amp;#43;초음파 약 8시간&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;CONSTRAINT&lt;/b&gt;&lt;strong&gt;배기 미구축·약액 배제&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;SCALE-UP&lt;/b&gt;&lt;strong&gt;물&amp;#43;초음파·수작업 약 1.5일&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;FAILURE&lt;/b&gt;&lt;strong&gt;Erosion·Particle·재사용성&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;06&lt;/span&gt;&lt;b&gt;STOP&lt;/b&gt;&lt;strong&gt;기존공정 회귀·차기 Gate&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;h2 id="1-공정조건-변화"&gt;1. 공정조건 변화&lt;/h2&gt;
+
+&lt;h2 id=&#34;1-공정조건-변화&#34;&gt;1. 공정조건 변화&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;단계&lt;/th&gt;
-&lt;th&gt;공정구성&lt;/th&gt;
-&lt;th style="text-align: right"&gt;작업시간&lt;/th&gt;
-&lt;th&gt;품질상태&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;기존공정&lt;/td&gt;
-&lt;td&gt;Bead Blast·약액·고압수·수작업·세척·건조&lt;/td&gt;
-&lt;td style="text-align: right"&gt;약 3일&lt;/td&gt;
-&lt;td&gt;기존 재사용 기준 운영&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;초기 제한시험&lt;/td&gt;
-&lt;td&gt;기존 박리약액+초음파&lt;/td&gt;
-&lt;td style="text-align: right"&gt;약 8시간&lt;/td&gt;
-&lt;td&gt;박리 가능성 확보&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Scale-up&lt;/td&gt;
-&lt;td&gt;물+초음파·고압수·수작업&lt;/td&gt;
-&lt;td style="text-align: right"&gt;약 1.5일&lt;/td&gt;
-&lt;td&gt;Erosion·Particle·재사용성 탈락&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;단계&lt;/th&gt;
+          &lt;th&gt;공정구성&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;작업시간&lt;/th&gt;
+          &lt;th&gt;품질상태&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;기존공정&lt;/td&gt;
+          &lt;td&gt;Bead Blast·약액·고압수·수작업·세척·건조&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;약 3일&lt;/td&gt;
+          &lt;td&gt;기존 재사용 기준 운영&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;초기 제한시험&lt;/td&gt;
+          &lt;td&gt;기존 박리약액+초음파&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;약 8시간&lt;/td&gt;
+          &lt;td&gt;박리 가능성 확보&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Scale-up&lt;/td&gt;
+          &lt;td&gt;물+초음파·고압수·수작업&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;약 1.5일&lt;/td&gt;
+          &lt;td&gt;Erosion·Particle·재사용성 탈락&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;양산 확대 설비에는 약액 사용을 위한 흄 배기 설비가 반영되지 않았습니다. 화학적 박리를 적용하지 못해 초음파 타격·고압수·수작업 의존도와 설비 체류 시간이 증가했습니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;양산 확대 설비에는 약액 사용을 위한 흄 배기 설비가 반영되지 않았습니다. 화학적 박리를 적용하지 못해 초음파 타격·고압수·수작업 의존도와 설비 체류 시간이 증가했습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

@@ -1,30 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>제한 생산 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/%EC%A0%9C%ED%95%9C-%EC%83%9D%EC%82%B0/</link><description>Recent content in 제한 생산 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/%EC%A0%9C%ED%95%9C-%EC%83%9D%EC%82%B0/rss.xml" rel="self" type="application/rss+xml"/><item><title>4695 조립 라인 정상화 및 양산 체제 구축</title><link>https://heungjaelee.github.io/posts/battery-4695-production-transition/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-4695-production-transition/</guid><description>&lt;section class="portfolio-project-contract" aria-label="4695 배터리 조립라인 정상화 및 제한 생산 체제 구축 사실표"&gt;
-&lt;dl&gt;
-&lt;div&gt;
-&lt;dt&gt;프로젝트 단계&lt;/dt&gt;
-&lt;dd&gt;양산 준비·제한 생산 체제 구축&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;수행 기간&lt;/dt&gt;
-&lt;dd&gt;2025.02–2025.09&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;역할&lt;/dt&gt;
-&lt;dd&gt;기술팀 메인 담당&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;핵심 책임&lt;/dt&gt;
-&lt;dd&gt;Laser 3공정 최적화·검사/측정 기준 재확립&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;검증 규모&lt;/dt&gt;
-&lt;dd&gt;100 Cell × 2 Lot&lt;/dd&gt;
-&lt;/div&gt;
-&lt;div&gt;
-&lt;dt&gt;최종 결과&lt;/dt&gt;
-&lt;dd&gt;50 Cell 전공정 연속 생산·제한 생산 승인&lt;/dd&gt;
-&lt;/div&gt;
-&lt;/dl&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>제한 생산 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/%EC%A0%9C%ED%95%9C-%EC%83%9D%EC%82%B0/</link>
+    <description>Recent content in 제한 생산 on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/%EC%A0%9C%ED%95%9C-%EC%83%9D%EC%82%B0/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>4695 조립 라인 정상화 및 양산 체제 구축</title>
+      <link>https://heungjaelee.github.io/posts/battery-4695-production-transition/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/battery-4695-production-transition/</guid>
+      <description>&lt;section class=&#34;portfolio-project-contract&#34; aria-label=&#34;4695 배터리 조립라인 정상화 및 제한 생산 체제 구축 사실표&#34;&gt;
+  &lt;dl&gt;
+    &lt;div&gt;
+      &lt;dt&gt;프로젝트 단계&lt;/dt&gt;
+      &lt;dd&gt;양산 준비·제한 생산 체제 구축&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;수행 기간&lt;/dt&gt;
+      &lt;dd&gt;2025.02–2025.09&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;역할&lt;/dt&gt;
+      &lt;dd&gt;기술팀 메인 담당&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;핵심 책임&lt;/dt&gt;
+      &lt;dd&gt;Laser 3공정 최적화·검사/측정 기준 재확립&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;검증 규모&lt;/dt&gt;
+      &lt;dd&gt;100 Cell × 2 Lot&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;dt&gt;최종 결과&lt;/dt&gt;
+      &lt;dd&gt;50 Cell 전공정 연속 생산·제한 생산 승인&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
 &lt;/section&gt;
-&lt;h2 id="프로젝트-배경-및-목표"&gt;프로젝트 배경 및 목표&lt;/h2&gt;
-&lt;p&gt;제품 개발과 설비 SAT 완료 후 신제품을 투입하자 제품 규격과 설비 조건·검사 기준의 불일치가 확인됐습니다. 자동 운전이 전 공정으로 이어지지 않아 작업자는 유닛별 수동 조작과 임시 Recipe에 의존했고, 용접·검사·형상 품질의 산포가 반복됐습니다.&lt;/p&gt;</description></item></channel></rss>
+
+&lt;h2 id=&#34;프로젝트-배경-및-목표&#34;&gt;프로젝트 배경 및 목표&lt;/h2&gt;
+&lt;p&gt;제품 개발과 설비 SAT 완료 후 신제품을 투입하자 제품 규격과 설비 조건·검사 기준의 불일치가 확인됐습니다. 자동 운전이 전 공정으로 이어지지 않아 작업자는 유닛별 수동 조작과 임시 Recipe에 의존했고, 용접·검사·형상 품질의 산포가 반복됐습니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

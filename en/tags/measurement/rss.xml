@@ -1,32 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Measurement on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/measurement/</link><description>Recent content in Measurement on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/measurement/rss.xml" rel="self" type="application/rss+xml"/><item><title>Mixed-Acid Bath Analysis and Control Standard</title><link>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</link><pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</guid><description>&lt;h2 id="project-overview"&gt;Project overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Measurement on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/measurement/</link>
+    <description>Recent content in Measurement on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/measurement/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Mixed-Acid Bath Analysis and Control Standard</title>
+      <link>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/mixed-acid-bath-analysis/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Item&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Period&lt;/td&gt;
-&lt;td&gt;Jul 2017–Jun 2018&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Scope&lt;/td&gt;
-&lt;td&gt;Mixed-acid anodizing baths for OLED equipment parts&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Initial signal&lt;/td&gt;
-&lt;td&gt;Etch-rate, particle, crack, appearance, and Hi-Pot issues returning after about three months&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Direct scope&lt;/td&gt;
-&lt;td&gt;Analysis-log/product-defect comparison, sampling revision, repeated component analysis, external-lab correlation, Korea rollout, China revalidation, and training&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Completion&lt;/td&gt;
-&lt;td&gt;Redesigned analysis, replenishment, product-sample, and bath-replacement decision criteria&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Item&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Period&lt;/td&gt;
+          &lt;td&gt;Jul 2017–Jun 2018&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Scope&lt;/td&gt;
+          &lt;td&gt;Mixed-acid anodizing baths for OLED equipment parts&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Initial signal&lt;/td&gt;
+          &lt;td&gt;Etch-rate, particle, crack, appearance, and Hi-Pot issues returning after about three months&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Direct scope&lt;/td&gt;
+          &lt;td&gt;Analysis-log/product-defect comparison, sampling revision, repeated component analysis, external-lab correlation, Korea rollout, China revalidation, and training&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Completion&lt;/td&gt;
+          &lt;td&gt;Redesigned analysis, replenishment, product-sample, and bath-replacement decision criteria&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;The legacy titration value remained within its control range while product-film performance declined with bath age. The core issue was a single neutralization value converted by the original blend ratio, which &lt;strong&gt;did not detect different component-consumption rates and cumulative composition drift&lt;/strong&gt;.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;The legacy titration value remained within its control range while product-film performance declined with bath age. The core issue was a single neutralization value converted by the original blend ratio, which &lt;strong&gt;did not detect different component-consumption rates and cumulative composition drift&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

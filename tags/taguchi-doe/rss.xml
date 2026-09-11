@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Taguchi DOE on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title><link>https://heungjaelee.github.io/tags/taguchi-doe/</link><description>Recent content in Taguchi DOE on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/taguchi-doe/rss.xml" rel="self" type="application/rss+xml"/><item><title>LFP Power Cell 개발</title><link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link><pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid><description>&lt;h2 id="프로젝트-개요"&gt;프로젝트 개요&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Taguchi DOE on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</title>
+    <link>https://heungjaelee.github.io/tags/taguchi-doe/</link>
+    <description>Recent content in Taguchi DOE on 이재흥 | 공정·제조기술 엔지니어 포트폴리오</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/tags/taguchi-doe/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>LFP Power Cell 개발</title>
+      <link>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/posts/battery-25p-lfp-development/</guid>
+      <description>&lt;h2 id=&#34;프로젝트-개요&#34;&gt;프로젝트 개요&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;개발 과제:&lt;/strong&gt; 기존 2170 원통형 조립라인에서 전해액·Clad Tab·Turn 수·Can 규격이 달라진 25P LFP Power Cell 개발&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;품질 프로세스:&lt;/strong&gt; 사내 IATF 16949 기반 &lt;code&gt;PROTO(A Sample) → PILOT(B·C Sample) → MP(CCB.PO) → SOP(양산)&lt;/code&gt;&lt;/li&gt;
@@ -7,93 +21,102 @@
 &lt;li&gt;&lt;strong&gt;완료 Gate:&lt;/strong&gt; PROTO·PILOT·MP 기술 승인 완료, SOP는 고객 사업일정에 따른 양산 개시 단계&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;최종 결과:&lt;/strong&gt; 약 2만 Cell 시양산, 고객 Qual·CCB.PO 승인, 공정·검사기준과 양산 이관문서 완료&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class="portfolio-logic-rail portfolio-logic-rail--development"&gt;
-&lt;figcaption&gt;
-&lt;span&gt;IATF Gate · DMADV · 4M · Taguchi DOE&lt;/span&gt;
-&lt;strong&gt;PROTO에서 MP 기술 승인까지 신규 Cell 공정조건 확립&lt;/strong&gt;&lt;small&gt;품질 Gate는 PROTO→PILOT→MP→SOP로 관리하고, 각 Gate의 기술판정은 DMADV·4M·Taguchi DOE와 Cell 평가로 수행했습니다.&lt;/small&gt;&lt;/figcaption&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample·CTQ·기준선&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M·Taguchi 조건 Screening&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;선정조건·2만 Cell 시양산&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;고객 Qual·CCB.PO 승인&lt;/strong&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;span class="portfolio-logic-rail__index"&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;양산 개시 Gate&lt;/strong&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;figure class=&#34;portfolio-logic-rail portfolio-logic-rail--development&#34;&gt;
+  &lt;figcaption&gt;
+    &lt;span&gt;IATF Gate · DMADV · 4M · Taguchi DOE&lt;/span&gt;
+    &lt;strong&gt;PROTO에서 MP 기술 승인까지 신규 Cell 공정조건 확립&lt;/strong&gt;&lt;small&gt;품질 Gate는 PROTO→PILOT→MP→SOP로 관리하고, 각 Gate의 기술판정은 DMADV·4M·Taguchi DOE와 Cell 평가로 수행했습니다.&lt;/small&gt;&lt;/figcaption&gt;
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;01&lt;/span&gt;&lt;b&gt;PROTO&lt;/b&gt;&lt;strong&gt;A Sample·CTQ·기준선&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;02&lt;/span&gt;&lt;b&gt;PILOT-B&lt;/b&gt;&lt;strong&gt;4M·Taguchi 조건 Screening&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;03&lt;/span&gt;&lt;b&gt;PILOT-C&lt;/b&gt;&lt;strong&gt;선정조건·2만 Cell 시양산&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;04&lt;/span&gt;&lt;b&gt;MP&lt;/b&gt;&lt;strong&gt;고객 Qual·CCB.PO 승인&lt;/strong&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span class=&#34;portfolio-logic-rail__index&#34;&gt;05&lt;/span&gt;&lt;b&gt;SOP&lt;/b&gt;&lt;strong&gt;양산 개시 Gate&lt;/strong&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
 &lt;/figure&gt;
-&lt;figure class="portfolio-evidence-figure portfolio-evidence-figure--wide"&gt;
-&lt;div class="portfolio-evidence-figure__media"&gt;
-&lt;img
-src="https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg"
-alt="사내 IATF 16949 기반 PROTO A Sample, PILOT B·C Sample, MP CCB.PO와 SOP 품질 Gate 아래에서 DMADV, 4M 위험분석과 Taguchi 직교배열 기반 조건 Matrix를 활용해 약 2만 Cell 시양산과 고객 Qual까지 진행한 25P LFP 공정개발 흐름"
-loading="lazy"
-decoding="async"
-&gt;
-&lt;/div&gt;
-&lt;figcaption&gt;
-&lt;span class="portfolio-evidence-figure__label"&gt;IATF 기반 NPI 품질 Gate&lt;/span&gt;
-&lt;span class="portfolio-evidence-figure__copy"&gt;
-&lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
-&lt;span&gt;DMADV가 개발단계를 연결하고, 4M에서 선정한 핵심 인자를 Taguchi DOE로 비교해 각 Sample Gate의 조건을 확정했습니다.&lt;/span&gt;
-&lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
-&lt;/span&gt;
-&lt;/figcaption&gt;
+
+&lt;figure class=&#34;portfolio-evidence-figure portfolio-evidence-figure--wide&#34;&gt;
+  &lt;div class=&#34;portfolio-evidence-figure__media&#34;&gt;
+    &lt;img
+      src=&#34;https://heungjaelee.github.io/images/projects/25p-lfp-development-gate.svg&#34;
+      alt=&#34;사내 IATF 16949 기반 PROTO A Sample, PILOT B·C Sample, MP CCB.PO와 SOP 품질 Gate 아래에서 DMADV, 4M 위험분석과 Taguchi 직교배열 기반 조건 Matrix를 활용해 약 2만 Cell 시양산과 고객 Qual까지 진행한 25P LFP 공정개발 흐름&#34;
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      
+      
+    &gt;
+  &lt;/div&gt;
+  &lt;figcaption&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__label&#34;&gt;IATF 기반 NPI 품질 Gate&lt;/span&gt;
+    &lt;span class=&#34;portfolio-evidence-figure__copy&#34;&gt;
+      &lt;strong&gt;PROTO → PILOT → MP → SOP&lt;/strong&gt;
+      &lt;span&gt;DMADV가 개발단계를 연결하고, 4M에서 선정한 핵심 인자를 Taguchi DOE로 비교해 각 Sample Gate의 조건을 확정했습니다.&lt;/span&gt;
+      &lt;small&gt;인터뷰 기반 비식별 재작성&lt;/small&gt;
+    &lt;/span&gt;
+  &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;h2 id="iatf-16949-기반-개발양산-이관-gate"&gt;IATF 16949 기반 개발·양산 이관 Gate&lt;/h2&gt;
+
+&lt;h2 id=&#34;iatf-16949-기반-개발양산-이관-gate&#34;&gt;IATF 16949 기반 개발·양산 이관 Gate&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;품질 단계&lt;/th&gt;
-&lt;th&gt;사내 Sample·승인&lt;/th&gt;
-&lt;th&gt;기술 목표&lt;/th&gt;
-&lt;th&gt;적용 방법&lt;/th&gt;
-&lt;th&gt;프로젝트 결과&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;A Sample&lt;/td&gt;
-&lt;td&gt;신규 소재·구조의 제작 가능성, CTQ와 측정기준 확립&lt;/td&gt;
-&lt;td&gt;DMADV Define·Measure, 변경점 분석&lt;/td&gt;
-&lt;td&gt;전체 조립 가능성과 기본 검사 확인&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;B Sample&lt;/td&gt;
-&lt;td&gt;핵심 공정인자 Screening과 조건 최적화&lt;/td&gt;
-&lt;td&gt;4M 위험분석, Taguchi DOE&lt;/td&gt;
-&lt;td&gt;함침·용접·밀봉·검사 후보조건 압축&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;C Sample&lt;/td&gt;
-&lt;td&gt;선정조건의 전후공정 연결성과 시양산성 확인&lt;/td&gt;
-&lt;td&gt;확인실험, Lot·Cell 평가&lt;/td&gt;
-&lt;td&gt;약 20,000 Cell 시양산 조건 확립&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
-&lt;td&gt;고객 CTQ와 공정검증 자료의 기술 승인&lt;/td&gt;
-&lt;td&gt;DMADV Verify, 고객 Qual&lt;/td&gt;
-&lt;td&gt;고객 Qual·CCB.PO 승인 획득&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;양산 개시&lt;/td&gt;
-&lt;td&gt;승인조건의 정규 양산 운영&lt;/td&gt;
-&lt;td&gt;작업표준·QCP·P-FMEA·검사기준&lt;/td&gt;
-&lt;td&gt;MP 승인 후 양산개시 Gate로 이관&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;품질 단계&lt;/th&gt;
+          &lt;th&gt;사내 Sample·승인&lt;/th&gt;
+          &lt;th&gt;기술 목표&lt;/th&gt;
+          &lt;th&gt;적용 방법&lt;/th&gt;
+          &lt;th&gt;프로젝트 결과&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PROTO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;A Sample&lt;/td&gt;
+          &lt;td&gt;신규 소재·구조의 제작 가능성, CTQ와 측정기준 확립&lt;/td&gt;
+          &lt;td&gt;DMADV Define·Measure, 변경점 분석&lt;/td&gt;
+          &lt;td&gt;전체 조립 가능성과 기본 검사 확인&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;B Sample&lt;/td&gt;
+          &lt;td&gt;핵심 공정인자 Screening과 조건 최적화&lt;/td&gt;
+          &lt;td&gt;4M 위험분석, Taguchi DOE&lt;/td&gt;
+          &lt;td&gt;함침·용접·밀봉·검사 후보조건 압축&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;PILOT&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;C Sample&lt;/td&gt;
+          &lt;td&gt;선정조건의 전후공정 연결성과 시양산성 확인&lt;/td&gt;
+          &lt;td&gt;확인실험, Lot·Cell 평가&lt;/td&gt;
+          &lt;td&gt;약 20,000 Cell 시양산 조건 확립&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;CCB.PO·C Sample&lt;/td&gt;
+          &lt;td&gt;고객 CTQ와 공정검증 자료의 기술 승인&lt;/td&gt;
+          &lt;td&gt;DMADV Verify, 고객 Qual&lt;/td&gt;
+          &lt;td&gt;고객 Qual·CCB.PO 승인 획득&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;SOP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;양산 개시&lt;/td&gt;
+          &lt;td&gt;승인조건의 정규 양산 운영&lt;/td&gt;
+          &lt;td&gt;작업표준·QCP·P-FMEA·검사기준&lt;/td&gt;
+          &lt;td&gt;MP 승인 후 양산개시 Gate로 이관&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;A·B·C Sample을 단순 제작순서로 관리한 것이 아니라, 각 단계에서 요구하는 품질 판단과 다음 Gate 진입조건을 분리했습니다. 25P는 PROTO와 PILOT을 거쳐 **MP 기술 승인(CCB.PO)**까지 완료한 프로젝트입니다.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;A·B·C Sample을 단순 제작순서로 관리한 것이 아니라, 각 단계에서 요구하는 품질 판단과 다음 Gate 진입조건을 분리했습니다. 25P는 PROTO와 PILOT을 거쳐 **MP 기술 승인(CCB.PO)**까지 완료한 프로젝트입니다.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>

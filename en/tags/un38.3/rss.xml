@@ -1,3 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>UN38.3 on Jaeheung Lee | Manufacturing &amp; Process Engineer</title><link>https://heungjaelee.github.io/en/tags/un38.3/</link><description>Recent content in UN38.3 on Jaeheung Lee | Manufacturing &amp; Process Engineer</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/un38.3/rss.xml" rel="self" type="application/rss+xml"/><item><title>2170 Can Second-Source Qualification</title><link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link><pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate><guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid><description>&lt;h2 id="project-background-and-objective"&gt;Project background and objective&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UN38.3 on Jaeheung Lee | Manufacturing &amp; Process Engineer</title>
+    <link>https://heungjaelee.github.io/en/tags/un38.3/</link>
+    <description>Recent content in UN38.3 on Jaeheung Lee | Manufacturing &amp; Process Engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://heungjaelee.github.io/en/tags/un38.3/rss.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2170 Can Second-Source Qualification</title>
+      <link>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0900</pubDate>
+      
+      <guid>https://heungjaelee.github.io/en/posts/can-supplier-pilot-transition/</guid>
+      <description>&lt;h2 id=&#34;project-background-and-objective&#34;&gt;Project background and objective&lt;/h2&gt;
 &lt;p&gt;Planned production volume could not remain dependent on one can supplier, so an alternative source had to be qualified. The candidate can differed from the incumbent in alloy ratio, bottom thickness, dimensional tolerance, burrs, and surface condition. Even when component dimensions were within tolerance, those differences could affect beading and crimping geometry, sealing, can-cap laser welding, and vent safety.&lt;/p&gt;
-&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;As the lead process-validation engineer, I connected drawing and certificate review, incoming-inspection criteria, reset of the existing assembly conditions, sample-cell builds, sectioning and teardown, internal quality and safety tests, and cell-performance evaluation. Purchasing owned supplier, quotation, and order changes; quality owned incoming and outgoing disposition plus the official report; cell engineering owned formation, capacity, and life evaluation; production supported lot-level sample builds.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>
